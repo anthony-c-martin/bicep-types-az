@@ -54,12 +54,12 @@ jobs:
         run: npm install
         working-directory: bicep-types-az.generator
       
-      - name: Run generator
-        run: npm run generate -- ../azure-rest-api-specs
-        working-directory: bicep-types-az.generator
+#      - name: Run generator
+#        run: npm run generate -- ../azure-rest-api-specs
+#        working-directory: bicep-types-az.generator
 
-      - name: Copy generated files
-        run: rsync -a ./bicep-types-az.generator/bicep-types/* ./bicep-types-az/generated
+#      - name: Copy generated files
+#        run: rsync -a ./bicep-types-az.generator/bicep-types/* ./bicep-types-az/generated
 
       - name: Rebuild index
         run: dotnet ./bicep-types-az.generator/src/Bicep.TypeIndexBuilder/bin/Release/net5.0/Bicep.TypeIndexBuilder.dll ./bicep-types-az/generated
@@ -82,7 +82,10 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           path: bicep-types-az
-          commit-message: Generate types for https://github.com/Azure/azure-rest-api-specs/tree/${{ env.rest_api_sha }}
+          commit-message: |
+            Update Generated Types
+            Generate types for https://github.com/Azure/azure-rest-api-specs/tree/${{ steps.get_restapi_sha.outputs.git_sha }}
+            Used generator from https://github.com/Azure/bicep-types-az.generator/tree/${{ steps.get_generator_sha.outputs.git_sha }}
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
