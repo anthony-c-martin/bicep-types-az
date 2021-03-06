@@ -86,7 +86,7 @@
 * **exportPolicy**: VolumePropertiesExportPolicy
 * **fileSystemId**: string (ReadOnly)
 * **isRestoring**: bool
-* **mountTargets**: MountTargetProperties[]
+* **mountTargets**: MountTargetProperties[] (ReadOnly)
 * **protocolTypes**: string[]
 * **provisioningState**: string (ReadOnly)
 * **serviceLevel**: 'Premium' | 'Standard' | 'Ultra'

@@ -114,7 +114,6 @@
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **publicNetworkAccess**: 'Disabled' | 'Enabled'
 * **status**: Status (ReadOnly)
-* **storageAccount**: StorageAccountProperties
 
 ## EncryptionProperty
 ### Properties
@@ -204,10 +203,6 @@
 * **displayStatus**: string (ReadOnly)
 * **message**: string (ReadOnly)
 * **timestamp**: string (ReadOnly)
-
-## StorageAccountProperties
-### Properties
-* **id**: string (Required)
 
 ## Sku
 ### Properties

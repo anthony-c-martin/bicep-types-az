@@ -97,7 +97,7 @@
 * **customRdpProperty**: string
 * **description**: string
 * **friendlyName**: string
-* **hostPoolType**: 'Personal' | 'Pooled' (Required)
+* **hostPoolType**: 'BYODesktop' | 'Personal' | 'Pooled' (Required)
 * **loadBalancerType**: 'BreadthFirst' | 'DepthFirst' | 'Persistent' (Required)
 * **maxSessionLimit**: int
 * **personalDesktopAssignmentType**: 'Automatic' | 'Direct'
@@ -107,7 +107,6 @@
 * **ssoadfsAuthority**: string
 * **ssoClientId**: string
 * **ssoClientSecretKeyVaultPath**: string
-* **ssoContext**: string
 * **ssoSecretType**: 'Certificate' | 'CertificateInKeyVault' | 'SharedKey' | 'SharedKeyInKeyVault'
 * **startVMOnConnect**: bool
 * **validationEnvironment**: bool
@@ -160,7 +159,8 @@
 * **exclusionTag**: string
 * **friendlyName**: string
 * **hostPoolReferences**: ScalingHostPoolReference[]
-* **hostPoolType**: 'Personal' | 'Pooled'
+* **hostPoolType**: 'BYODesktop' | 'Personal' | 'Pooled'
+* **ring**: int
 * **schedules**: ScalingSchedule[]
 * **timeZone**: string
 
@@ -182,12 +182,12 @@
 * **rampDownLoadBalancingAlgorithm**: 'BreadthFirst' | 'DepthFirst'
 * **rampDownMinimumHostsPct**: int
 * **rampDownNotificationMessage**: string
-* **rampDownNotificationMinutes**: int
 * **rampDownStartTime**: string
 * **rampDownStopHostsWhen**: 'ZeroActiveSessions' | 'ZeroSessions'
-* **rampUpAlgorithm**: 'BreadthFirst' | 'DepthFirst'
+* **rampDownWaitTimeMinutes**: int
 * **rampUpCapacityThresholdPct**: int
-* **rampUpMinimumHostPct**: int
+* **rampUpLoadBalancingAlgorithm**: 'BreadthFirst' | 'DepthFirst'
+* **rampUpMinimumHostsPct**: int
 * **rampUpStartTime**: string
 
 ## TrackedResourceTags

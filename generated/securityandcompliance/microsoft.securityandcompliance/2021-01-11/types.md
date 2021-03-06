@@ -7,6 +7,7 @@
 * **etag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **identity**: ServicesResourceIdentity
+* **kind**: 'fhir' | 'fhir-R4' | 'fhir-Stu3' (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
 * **properties**: ServicesProperties
@@ -31,6 +32,7 @@
 * **etag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **identity**: ServicesResourceIdentity
+* **kind**: 'fhir' | 'fhir-R4' | 'fhir-Stu3' (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
 * **properties**: ServicesProperties
@@ -55,6 +57,7 @@
 * **etag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **identity**: ServicesResourceIdentity
+* **kind**: 'fhir' | 'fhir-R4' | 'fhir-Stu3' (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
 * **properties**: ServicesProperties
@@ -79,6 +82,7 @@
 * **etag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **identity**: ServicesResourceIdentity
+* **kind**: 'fhir' | 'fhir-R4' | 'fhir-Stu3' (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
 * **properties**: ServicesProperties
@@ -103,6 +107,7 @@
 * **etag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **identity**: ServicesResourceIdentity
+* **kind**: 'fhir' | 'fhir-R4' | 'fhir-Stu3' (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
 * **properties**: ServicesProperties

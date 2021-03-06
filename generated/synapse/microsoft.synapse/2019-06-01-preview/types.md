@@ -431,10 +431,11 @@
 * **autoScale**: AutoScaleProperties
 * **cacheSize**: int
 * **creationDate**: string
-* **customLibraries**: LibraryResourceProperties[]
+* **customLibraries**: LibraryInfo[]
 * **defaultSparkLogFolder**: string
 * **dynamicExecutorAllocation**: DynamicExecutorAllocation
 * **isComputeIsolationEnabled**: bool
+* **lastSucceededTimestamp**: string (ReadOnly)
 * **libraryRequirements**: LibraryRequirements
 * **nodeCount**: int
 * **nodeSize**: 'Large' | 'Medium' | 'None' | 'Small' | 'XLarge' | 'XXLarge' | 'XXXLarge'
@@ -456,14 +457,14 @@
 * **maxNodeCount**: int
 * **minNodeCount**: int
 
-## LibraryResourceProperties
+## LibraryInfo
 ### Properties
-* **containerName**: string (ReadOnly)
+* **containerName**: string
 * **creatorId**: string (ReadOnly)
-* **name**: string (ReadOnly)
-* **path**: string (ReadOnly)
+* **name**: string
+* **path**: string
 * **provisioningStatus**: string (ReadOnly)
-* **type**: string (ReadOnly)
+* **type**: string
 * **uploadedTimestamp**: string (ReadOnly)
 
 ## DynamicExecutorAllocation

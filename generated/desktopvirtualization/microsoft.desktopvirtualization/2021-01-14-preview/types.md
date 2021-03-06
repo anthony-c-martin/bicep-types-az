@@ -107,7 +107,6 @@
 * **ssoadfsAuthority**: string
 * **ssoClientId**: string
 * **ssoClientSecretKeyVaultPath**: string
-* **ssoContext**: string
 * **ssoSecretType**: 'Certificate' | 'CertificateInKeyVault' | 'SharedKey' | 'SharedKeyInKeyVault'
 * **startVMOnConnect**: bool
 * **validationEnvironment**: bool
@@ -182,12 +181,12 @@
 * **rampDownLoadBalancingAlgorithm**: 'BreadthFirst' | 'DepthFirst'
 * **rampDownMinimumHostsPct**: int
 * **rampDownNotificationMessage**: string
-* **rampDownNotificationMinutes**: int
 * **rampDownStartTime**: string
 * **rampDownStopHostsWhen**: 'ZeroActiveSessions' | 'ZeroSessions'
-* **rampUpAlgorithm**: 'BreadthFirst' | 'DepthFirst'
+* **rampDownWaitTimeMinutes**: int
 * **rampUpCapacityThresholdPct**: int
-* **rampUpMinimumHostPct**: int
+* **rampUpLoadBalancingAlgorithm**: 'BreadthFirst' | 'DepthFirst'
+* **rampUpMinimumHostsPct**: int
 * **rampUpStartTime**: string
 
 ## TrackedResourceTags

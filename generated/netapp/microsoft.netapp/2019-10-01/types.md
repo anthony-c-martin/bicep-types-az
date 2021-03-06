@@ -85,13 +85,14 @@
 * **exportPolicy**: VolumePropertiesExportPolicy
 * **fileSystemId**: string (ReadOnly)
 * **isRestoring**: bool
-* **mountTargets**: MountTargetProperties[]
+* **mountTargets**: MountTargetProperties[] (ReadOnly)
 * **protocolTypes**: string[]
 * **provisioningState**: string (ReadOnly)
 * **serviceLevel**: 'Premium' | 'Standard' | 'Ultra'
 * **snapshotId**: string
 * **subnetId**: string (Required)
 * **usageThreshold**: int (Required)
+* **usedBytes**: int (ReadOnly)
 * **volumeType**: string
 
 ## VolumePropertiesDataProtection

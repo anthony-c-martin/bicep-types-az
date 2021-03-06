@@ -40,19 +40,23 @@
 ### Properties
 * **clientId**: string (ReadOnly)
 * **principalId**: string (ReadOnly)
+* **tenantId**: string
 
 ## ClusterCreateProperties
 ### Properties
 * **clusterDefinition**: ClusterDefinition
+* **clusterHdpVersion**: string (ReadOnly)
 * **clusterId**: string (ReadOnly)
 * **clusterState**: string (ReadOnly)
 * **clusterVersion**: string
+* **computeIsolationProperties**: ComputeIsolationProperties
 * **computeProfile**: ComputeProfile
 * **connectivityEndpoints**: ConnectivityEndpoint[] (ReadOnly)
 * **createdDate**: string (ReadOnly)
 * **diskEncryptionProperties**: DiskEncryptionProperties
 * **encryptionInTransitProperties**: EncryptionInTransitProperties
 * **errors**: Errors[] (ReadOnly)
+* **excludedServicesConfig**: ExcludedServicesConfig (ReadOnly)
 * **kafkaRestProperties**: KafkaRestProperties
 * **minSupportedTlsVersion**: string
 * **networkProperties**: NetworkProperties
@@ -60,7 +64,7 @@
 * **provisioningState**: 'Canceled' | 'Deleting' | 'Failed' | 'InProgress' | 'Succeeded' (ReadOnly)
 * **quotaInfo**: QuotaInfo (ReadOnly)
 * **securityProfile**: SecurityProfile
-* **storageProfile**: StorageProfile (WriteOnly)
+* **storageProfile**: StorageProfile
 * **tier**: 'Premium' | 'Standard'
 
 ## ClusterDefinition
@@ -75,6 +79,11 @@
 ### Additional Properties
 * **Additional Properties Type**: string
 
+## ComputeIsolationProperties
+### Properties
+* **enableComputeIsolation**: bool
+* **hostSku**: string
+
 ## ComputeProfile
 ### Properties
 * **roles**: Role[]
@@ -83,6 +92,7 @@
 ### Properties
 * **autoscale**: Autoscale
 * **dataDisksGroups**: DataDisksGroups[]
+* **encryptDataDisks**: bool
 * **hardwareProfile**: HardwareProfile
 * **minInstanceCount**: int
 * **name**: string
@@ -90,6 +100,7 @@
 * **scriptActions**: ScriptAction[]
 * **targetInstanceCount**: int
 * **virtualNetworkProfile**: VirtualNetworkProfile
+* **VMGroupName**: string
 
 ## Autoscale
 ### Properties
@@ -161,6 +172,7 @@
 * **location**: string (ReadOnly)
 * **name**: string (ReadOnly)
 * **port**: int (ReadOnly)
+* **privateIPAddress**: string (ReadOnly)
 * **protocol**: string (ReadOnly)
 
 ## DiskEncryptionProperties
@@ -181,14 +193,25 @@
 * **code**: string (ReadOnly)
 * **message**: string (ReadOnly)
 
+## ExcludedServicesConfig
+### Properties
+* **excludedServicesConfigId**: string (ReadOnly)
+* **excludedServicesList**: string (ReadOnly)
+
 ## KafkaRestProperties
 ### Properties
 * **clientGroupInfo**: ClientGroupInfo
+* **configurationOverride**: KafkaRestPropertiesConfigurationOverride
 
 ## ClientGroupInfo
 ### Properties
 * **groupId**: string
 * **groupName**: string
+
+## KafkaRestPropertiesConfigurationOverride
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
 
 ## NetworkProperties
 ### Properties
@@ -213,17 +236,19 @@
 
 ## StorageProfile
 ### Properties
-* **storageaccounts**: StorageAccount[] (WriteOnly)
+* **storageaccounts**: StorageAccount[]
 
 ## StorageAccount
 ### Properties
-* **container**: string (WriteOnly)
-* **fileSystem**: string (WriteOnly)
-* **isDefault**: bool (WriteOnly)
-* **key**: string (WriteOnly)
-* **msiResourceId**: string (WriteOnly)
-* **name**: string (WriteOnly)
-* **resourceId**: string (WriteOnly)
+* **container**: string
+* **fileshare**: string
+* **fileSystem**: string
+* **isDefault**: bool
+* **key**: string
+* **msiResourceId**: string
+* **name**: string
+* **resourceId**: string
+* **saskey**: string
 
 ## ClusterCreateParametersExtendedTags
 ### Properties
@@ -249,8 +274,9 @@
 * **accessModes**: string[]
 * **destinationPort**: int
 * **disableGatewayAuth**: bool
-* **location**: string
-* **publicPort**: int
+* **location**: string (ReadOnly)
+* **privateIPAddress**: string
+* **publicPort**: int (ReadOnly)
 * **subDomainSuffix**: string
 
 ## RuntimeScriptAction
@@ -265,6 +291,7 @@
 ### Properties
 * **destinationPort**: int
 * **location**: string
+* **privateIPAddress**: string
 * **publicPort**: int
 
 ## ApplicationTags

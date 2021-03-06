@@ -5,23 +5,45 @@
 ### Properties
 * **apiVersion**: '2020-04-06-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: RemoteRenderingAccountIdentity
+* **identity**: Identity
+* **kind**: Sku
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
+* **plan**: Identity
 * **properties**: MixedRealityAccountProperties
+* **sku**: Sku
+* **systemData**: SystemData (ReadOnly)
 * **tags**: TrackedResourceTags
 * **type**: 'Microsoft.MixedReality/remoteRenderingAccounts' (ReadOnly, DeployTimeConstant)
 
-## RemoteRenderingAccountIdentity
+## Identity
 ### Properties
 * **principalId**: string (ReadOnly)
 * **tenantId**: string (ReadOnly)
 * **type**: 'SystemAssigned'
 
+## Sku
+### Properties
+* **capacity**: int
+* **family**: string
+* **name**: string (Required)
+* **size**: string
+* **tier**: 'Basic' | 'Free' | 'Premium' | 'Standard'
+
 ## MixedRealityAccountProperties
 ### Properties
 * **accountDomain**: string (ReadOnly)
 * **accountId**: string (ReadOnly)
+* **storageAccountName**: string
+
+## SystemData
+### Properties
+* **createdAt**: string
+* **createdBy**: string
+* **createdByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
+* **lastModifiedAt**: string
+* **lastModifiedBy**: string
+* **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
 
 ## TrackedResourceTags
 ### Properties
