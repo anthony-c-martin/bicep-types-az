@@ -40,7 +40,7 @@
 * **deliveryPackage**: PackageShippingDetails (ReadOnly)
 * **destinationAccountDetails**: DestinationAccountDetails[] (Required)
 * **errorDetails**: JobErrorDetails[] (ReadOnly)
-* **expectedDataSizeInTerabytes**: int
+* **expectedDataSizeInTeraBytes**: int
 * **jobStages**: JobStages[] (ReadOnly)
 * **preferences**: Preferences
 * **returnPackage**: PackageShippingDetails (ReadOnly)

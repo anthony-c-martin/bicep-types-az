@@ -76,7 +76,7 @@
 * **apiVersion**: '2019-01-01-preview' (ReadOnly, DeployTimeConstant)
 * **etag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **kind**: 'AmazonWebServicesCloudTrail' | 'AzureActiveDirectory' | 'AzureAdvancedThreatProtection' | 'AzureSecurityCenter' | 'Dynamics365' | 'MicrosoftCloudAppSecurity' | 'MicrosoftDefenderAdvancedThreatProtection' | 'Office365' | 'OfficeATP' | 'ThreatIntelligence' | 'ThreatIntelligenceTaxii' (Required)
+* **kind**: 'AmazonWebServicesCloudTrail' | 'AzureActiveDirectory' | 'AzureAdvancedThreatProtection' | 'AzureSecurityCenter' | 'Dynamics365' | 'MicrosoftCloudAppSecurity' | 'MicrosoftDefenderAdvancedThreatProtection' | 'MicrosoftThreatIntelligence' | 'MicrosoftThreatProtection' | 'Office365' | 'OfficeATP' | 'ThreatIntelligence' | 'ThreatIntelligenceTaxii' (Required)
 * **name**: string (Required, DeployTimeConstant)
 * **type**: 'Microsoft.SecurityInsights/dataConnectors' (ReadOnly, DeployTimeConstant)
 
@@ -153,8 +153,8 @@
 
 ## ActionRequestProperties
 ### Properties
-* **logicAppResourceId**: string
-* **triggerUri**: string (WriteOnly)
+* **logicAppResourceId**: string (Required)
+* **triggerUri**: string (Required, WriteOnly)
 * **workflowId**: string (ReadOnly)
 
 ## BookmarkProperties
@@ -309,11 +309,13 @@
 * **confidence**: int (WriteOnly)
 * **created**: string (WriteOnly)
 * **createdByRef**: string (WriteOnly)
+* **defanged**: bool (WriteOnly)
 * **description**: string (WriteOnly)
 * **displayName**: string (WriteOnly)
 * **extensions**: ThreatIntelligenceIndicatorPropertiesExtensions (WriteOnly)
 * **externalId**: string (WriteOnly)
-* **externalReferences**: string[] (WriteOnly)
+* **externalLastUpdatedTimeUtc**: string (WriteOnly)
+* **externalReferences**: ThreatIntelligenceExternalReference[] (WriteOnly)
 * **friendlyName**: string (ReadOnly, WriteOnly)
 * **granularMarkings**: ThreatIntelligenceGranularMarkingModel[] (WriteOnly)
 * **indicatorTypes**: string[] (WriteOnly)
@@ -322,9 +324,11 @@
 * **language**: string (WriteOnly)
 * **lastUpdatedTimeUtc**: string (WriteOnly)
 * **modified**: string (WriteOnly)
+* **objectMarkingRefs**: string[] (WriteOnly)
 * **parsedPattern**: ThreatIntelligenceParsedPattern[] (WriteOnly)
 * **pattern**: string (WriteOnly)
 * **patternType**: string (WriteOnly)
+* **patternVersion**: string (WriteOnly)
 * **revoked**: bool (WriteOnly)
 * **source**: string (WriteOnly)
 * **threatIntelligenceTags**: string[] (WriteOnly)
@@ -341,6 +345,19 @@
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: any
+
+## ThreatIntelligenceExternalReference
+### Properties
+* **description**: string (WriteOnly)
+* **externalId**: string (WriteOnly)
+* **hashes**: ThreatIntelligenceExternalReferenceHashes (WriteOnly)
+* **sourceName**: string (WriteOnly)
+* **url**: string (WriteOnly)
+
+## ThreatIntelligenceExternalReferenceHashes
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
 
 ## ThreatIntelligenceGranularMarkingModel
 ### Properties

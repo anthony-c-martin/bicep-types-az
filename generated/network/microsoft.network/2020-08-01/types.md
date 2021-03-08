@@ -934,6 +934,7 @@
 * **id**: string
 * **name**: string
 * **properties**: NetworkInterfaceIPConfigurationPropertiesFormat
+* **type**: string
 
 ## NetworkInterfaceIPConfigurationPropertiesFormat
 ### Properties
@@ -1057,11 +1058,15 @@
 * **ipAddress**: string
 * **ipConfiguration**: IPConfiguration (ReadOnly)
 * **ipTags**: IpTag[]
+* **linkedPublicIPAddress**: PublicIPAddress
+* **migrationPhase**: 'Abort' | 'Commit' | 'Committed' | 'None' | 'Prepare'
+* **natGateway**: NatGateway
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **publicIPAddressVersion**: 'IPv4' | 'IPv6'
 * **publicIPAllocationMethod**: 'Dynamic' | 'Static'
 * **publicIPPrefix**: SubResource
 * **resourceGuid**: string (ReadOnly)
+* **servicePublicIPAddress**: PublicIPAddress
 
 ## DdosSettings
 ### Properties
@@ -1096,20 +1101,22 @@
 * **id**: string
 * **name**: string
 * **properties**: SubnetPropertiesFormat
+* **type**: string
 
 ## SubnetPropertiesFormat
 ### Properties
 * **addressPrefix**: string
 * **addressPrefixes**: string[]
+* **applicationGatewayIpConfigurations**: ApplicationGatewayIPConfiguration[]
 * **delegations**: Delegation[]
 * **ipAllocations**: SubResource[]
 * **ipConfigurationProfiles**: IPConfigurationProfile[] (ReadOnly)
 * **ipConfigurations**: IPConfiguration[] (ReadOnly)
 * **natGateway**: SubResource
 * **networkSecurityGroup**: NetworkSecurityGroup
-* **privateEndpointNetworkPolicies**: string
+* **privateEndpointNetworkPolicies**: 'Disabled' | 'Enabled'
 * **privateEndpoints**: PrivateEndpoint[] (ReadOnly)
-* **privateLinkServiceNetworkPolicies**: string
+* **privateLinkServiceNetworkPolicies**: 'Disabled' | 'Enabled'
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **purpose**: string (ReadOnly)
 * **resourceNavigationLinks**: ResourceNavigationLink[] (ReadOnly)
@@ -1118,12 +1125,26 @@
 * **serviceEndpointPolicies**: ServiceEndpointPolicy[]
 * **serviceEndpoints**: ServiceEndpointPropertiesFormat[]
 
+## ApplicationGatewayIPConfiguration
+### Properties
+* **etag**: string (ReadOnly)
+* **id**: string
+* **name**: string
+* **properties**: ApplicationGatewayIPConfigurationPropertiesFormat
+* **type**: string (ReadOnly)
+
+## ApplicationGatewayIPConfigurationPropertiesFormat
+### Properties
+* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
+* **subnet**: SubResource
+
 ## Delegation
 ### Properties
 * **etag**: string (ReadOnly)
 * **id**: string
 * **name**: string
 * **properties**: ServiceDelegationPropertiesFormat
+* **type**: string
 
 ## ServiceDelegationPropertiesFormat
 ### Properties
@@ -1259,9 +1280,12 @@
 * **hostedWorkloads**: string[] (ReadOnly)
 * **ipConfigurations**: NetworkInterfaceIPConfiguration[]
 * **macAddress**: string (ReadOnly)
+* **migrationPhase**: 'Abort' | 'Commit' | 'Committed' | 'None' | 'Prepare'
 * **networkSecurityGroup**: NetworkSecurityGroup
+* **nicType**: 'Elastic' | 'Standard'
 * **primary**: bool (ReadOnly)
 * **privateEndpoint**: PrivateEndpoint (ReadOnly)
+* **privateLinkService**: PrivateLinkService
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **resourceGuid**: string (ReadOnly)
 * **tapConfigurations**: NetworkInterfaceTapConfiguration[] (ReadOnly)
@@ -1327,6 +1351,98 @@
 ### Additional Properties
 * **Additional Properties Type**: string
 
+## PrivateLinkService
+### Properties
+* **etag**: string (ReadOnly)
+* **extendedLocation**: ExtendedLocation
+* **id**: string
+* **location**: string
+* **name**: string (ReadOnly)
+* **properties**: PrivateLinkServiceProperties
+* **tags**: ResourceTags
+* **type**: string (ReadOnly)
+
+## PrivateLinkServiceProperties
+### Properties
+* **alias**: string (ReadOnly)
+* **autoApproval**: PrivateLinkServicePropertiesAutoApproval
+* **enableProxyProtocol**: bool
+* **fqdns**: string[]
+* **ipConfigurations**: PrivateLinkServiceIpConfiguration[]
+* **loadBalancerFrontendIpConfigurations**: FrontendIPConfiguration[]
+* **networkInterfaces**: NetworkInterface[] (ReadOnly)
+* **privateEndpointConnections**: PrivateEndpointConnection[] (ReadOnly)
+* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
+* **visibility**: PrivateLinkServicePropertiesVisibility
+
+## PrivateLinkServicePropertiesAutoApproval
+### Properties
+* **subscriptions**: string[]
+
+## PrivateLinkServiceIpConfiguration
+### Properties
+* **etag**: string (ReadOnly)
+* **id**: string
+* **name**: string
+* **properties**: PrivateLinkServiceIpConfigurationProperties
+* **type**: string (ReadOnly)
+
+## PrivateLinkServiceIpConfigurationProperties
+### Properties
+* **primary**: bool
+* **privateIPAddress**: string
+* **privateIPAddressVersion**: 'IPv4' | 'IPv6'
+* **privateIPAllocationMethod**: 'Dynamic' | 'Static'
+* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
+* **subnet**: Subnet
+
+## FrontendIPConfiguration
+### Properties
+* **etag**: string (ReadOnly)
+* **id**: string
+* **name**: string
+* **properties**: FrontendIPConfigurationPropertiesFormat
+* **type**: string (ReadOnly)
+* **zones**: string[]
+
+## FrontendIPConfigurationPropertiesFormat
+### Properties
+* **inboundNatPools**: SubResource[] (ReadOnly)
+* **inboundNatRules**: SubResource[] (ReadOnly)
+* **loadBalancingRules**: SubResource[] (ReadOnly)
+* **outboundRules**: SubResource[] (ReadOnly)
+* **privateIPAddress**: string
+* **privateIPAddressVersion**: 'IPv4' | 'IPv6'
+* **privateIPAllocationMethod**: 'Dynamic' | 'Static'
+* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
+* **publicIPAddress**: PublicIPAddress
+* **publicIPPrefix**: SubResource
+* **subnet**: Subnet
+
+## PrivateEndpointConnection
+### Properties
+* **etag**: string (ReadOnly)
+* **id**: string
+* **name**: string
+* **properties**: PrivateEndpointConnectionProperties
+* **type**: string (ReadOnly)
+
+## PrivateEndpointConnectionProperties
+### Properties
+* **linkIdentifier**: string (ReadOnly)
+* **privateEndpoint**: PrivateEndpoint (ReadOnly)
+* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState
+* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
+
+## PrivateLinkServicePropertiesVisibility
+### Properties
+* **subscriptions**: string[]
+
+## ResourceTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
 ## NetworkInterfaceTapConfiguration
 ### Properties
 * **etag**: string (ReadOnly)
@@ -1358,29 +1474,6 @@
 * **networkInterfaceTapConfigurations**: NetworkInterfaceTapConfiguration[] (ReadOnly)
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **resourceGuid**: string (ReadOnly)
-
-## FrontendIPConfiguration
-### Properties
-* **etag**: string (ReadOnly)
-* **id**: string
-* **name**: string
-* **properties**: FrontendIPConfigurationPropertiesFormat
-* **type**: string (ReadOnly)
-* **zones**: string[]
-
-## FrontendIPConfigurationPropertiesFormat
-### Properties
-* **inboundNatPools**: SubResource[] (ReadOnly)
-* **inboundNatRules**: SubResource[] (ReadOnly)
-* **loadBalancingRules**: SubResource[] (ReadOnly)
-* **outboundRules**: SubResource[] (ReadOnly)
-* **privateIPAddress**: string
-* **privateIPAddressVersion**: 'IPv4' | 'IPv6'
-* **privateIPAllocationMethod**: 'Dynamic' | 'Static'
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **publicIPAddress**: PublicIPAddress
-* **publicIPPrefix**: SubResource
-* **subnet**: Subnet
 
 ## ResourceTags
 ### Properties
@@ -1513,6 +1606,36 @@
 * **ipTagType**: string
 * **tag**: string
 
+## NatGateway
+### Properties
+* **etag**: string (ReadOnly)
+* **id**: string
+* **location**: string
+* **name**: string (ReadOnly)
+* **properties**: NatGatewayPropertiesFormat
+* **sku**: NatGatewaySku
+* **tags**: ResourceTags
+* **type**: string (ReadOnly)
+* **zones**: string[]
+
+## NatGatewayPropertiesFormat
+### Properties
+* **idleTimeoutInMinutes**: int
+* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
+* **publicIpAddresses**: SubResource[]
+* **publicIpPrefixes**: SubResource[]
+* **resourceGuid**: string (ReadOnly)
+* **subnets**: SubResource[] (ReadOnly)
+
+## NatGatewaySku
+### Properties
+* **name**: 'Standard'
+
+## ResourceTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
 ## PublicIPAddressSku
 ### Properties
 * **name**: 'Basic' | 'Standard'
@@ -1587,19 +1710,6 @@
 ### Properties
 * **port**: int
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-
-## ApplicationGatewayIPConfiguration
-### Properties
-* **etag**: string (ReadOnly)
-* **id**: string
-* **name**: string
-* **properties**: ApplicationGatewayIPConfigurationPropertiesFormat
-* **type**: string (ReadOnly)
-
-## ApplicationGatewayIPConfigurationPropertiesFormat
-### Properties
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **subnet**: SubResource
 
 ## ApplicationGatewayHttpListener
 ### Properties
@@ -2302,7 +2412,6 @@
 * **enableBgp**: bool
 * **enableDnsForwarding**: bool
 * **enablePrivateIpAddress**: bool
-* **extendedLocation**: ExtendedLocation
 * **gatewayDefaultSite**: SubResource
 * **gatewayType**: 'ExpressRoute' | 'LocalGateway' | 'Vpn'
 * **inboundDnsForwardingEndpoint**: string (ReadOnly)
@@ -2310,7 +2419,8 @@
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **resourceGuid**: string (ReadOnly)
 * **sku**: VirtualNetworkGatewaySku
-* **virtualNetworkExtendedLocationResourceId**: string
+* **virtualNetworkExtendedLocation**: ExtendedLocation
+* **vNetExtendedLocationResourceId**: string
 * **vpnClientConfiguration**: VpnClientConfiguration
 * **vpnGatewayGeneration**: 'Generation1' | 'Generation2' | 'None'
 * **vpnType**: 'PolicyBased' | 'RouteBased'
@@ -3103,19 +3213,6 @@
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## NatGatewayPropertiesFormat
-### Properties
-* **idleTimeoutInMinutes**: int
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **publicIpAddresses**: SubResource[]
-* **publicIpPrefixes**: SubResource[]
-* **resourceGuid**: string (ReadOnly)
-* **subnets**: SubResource[] (ReadOnly)
-
-## NatGatewaySku
-### Properties
-* **name**: 'Standard'
-
 ## ResourceTags
 ### Properties
 ### Additional Properties
@@ -3467,59 +3564,6 @@
 * **recordType**: string
 * **ttl**: int
 
-## PrivateLinkServiceProperties
-### Properties
-* **alias**: string (ReadOnly)
-* **autoApproval**: PrivateLinkServicePropertiesAutoApproval
-* **enableProxyProtocol**: bool
-* **fqdns**: string[]
-* **ipConfigurations**: PrivateLinkServiceIpConfiguration[]
-* **loadBalancerFrontendIpConfigurations**: FrontendIPConfiguration[]
-* **networkInterfaces**: NetworkInterface[] (ReadOnly)
-* **privateEndpointConnections**: PrivateEndpointConnection[] (ReadOnly)
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **visibility**: PrivateLinkServicePropertiesVisibility
-
-## PrivateLinkServicePropertiesAutoApproval
-### Properties
-* **subscriptions**: string[]
-
-## PrivateLinkServiceIpConfiguration
-### Properties
-* **etag**: string (ReadOnly)
-* **id**: string
-* **name**: string
-* **properties**: PrivateLinkServiceIpConfigurationProperties
-* **type**: string (ReadOnly)
-
-## PrivateLinkServiceIpConfigurationProperties
-### Properties
-* **primary**: bool
-* **privateIPAddress**: string
-* **privateIPAddressVersion**: 'IPv4' | 'IPv6'
-* **privateIPAllocationMethod**: 'Dynamic' | 'Static'
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **subnet**: Subnet
-
-## PrivateEndpointConnection
-### Properties
-* **etag**: string (ReadOnly)
-* **id**: string
-* **name**: string
-* **properties**: PrivateEndpointConnectionProperties
-* **type**: string (ReadOnly)
-
-## PrivateEndpointConnectionProperties
-### Properties
-* **linkIdentifier**: string (ReadOnly)
-* **privateEndpoint**: PrivateEndpoint (ReadOnly)
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-
-## PrivateLinkServicePropertiesVisibility
-### Properties
-* **subscriptions**: string[]
-
 ## ResourceTags
 ### Properties
 ### Additional Properties
@@ -3536,6 +3580,7 @@
 * **ipPrefix**: string (ReadOnly)
 * **ipTags**: IpTag[]
 * **loadBalancerFrontendIpConfiguration**: SubResource (ReadOnly)
+* **natGateway**: NatGateway
 * **prefixLength**: int
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **publicIPAddresses**: ReferencedPublicIpAddress[] (ReadOnly)
@@ -3734,17 +3779,20 @@
 * **id**: string
 * **name**: string
 * **properties**: VirtualNetworkPeeringPropertiesFormat
+* **type**: string
 
 ## VirtualNetworkPeeringPropertiesFormat
 ### Properties
 * **allowForwardedTraffic**: bool
 * **allowGatewayTransit**: bool
 * **allowVirtualNetworkAccess**: bool
+* **doNotVerifyRemoteGateways**: bool
 * **peeringState**: 'Connected' | 'Disconnected' | 'Initiated'
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **remoteAddressSpace**: AddressSpace
 * **remoteBgpCommunities**: VirtualNetworkBgpCommunities
 * **remoteVirtualNetwork**: SubResource
+* **resourceGuid**: string (ReadOnly)
 * **useRemoteGateways**: bool
 
 ## ResourceTags

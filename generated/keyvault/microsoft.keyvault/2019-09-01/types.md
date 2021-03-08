@@ -105,6 +105,7 @@
 
 ## PrivateEndpointConnectionItem
 ### Properties
+* **etag**: string
 * **id**: string
 * **properties**: PrivateEndpointConnectionProperties
 
