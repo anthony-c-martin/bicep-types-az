@@ -6,34 +6,35 @@
 * **apiVersion**: '2020-01-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ConnectorSettingProperties
+* **properties**: [ConnectorSettingProperties](#connectorsettingproperties)
 * **type**: 'Microsoft.Security/connectors' (ReadOnly, DeployTimeConstant)
 
 ## ConnectorSettingProperties
 ### Properties
-* **authenticationDetails**: AuthenticationDetailsProperties
-* **hybridComputeSettings**: HybridComputeSettingsProperties
+* **authenticationDetails**: [AuthenticationDetailsProperties](#authenticationdetailsproperties)
+* **hybridComputeSettings**: [HybridComputeSettingsProperties](#hybridcomputesettingsproperties)
 
 ## AuthenticationDetailsProperties
 * **Discriminator**: authenticationType
+
 ### Base Properties
 * **authenticationProvisioningState**: 'Expired' | 'IncorrectPolicy' | 'Invalid' | 'Valid' (ReadOnly)
-* **grantedPermissions**: 'AWS::AmazonSSMAutomationRole' | 'AWS::AWSSecurityHubReadOnlyAccess' | 'AWS::SecurityAudit' | 'GCP::Security Center Admin Viewer'[] (ReadOnly)
-### awsAssumeRole
+* **grantedPermissions**: 'AWS::AWSSecurityHubReadOnlyAccess' | 'AWS::AmazonSSMAutomationRole' | 'AWS::SecurityAudit' | 'GCP::Security Center Admin Viewer'[] (ReadOnly)
+### AwAssumeRoleAuthenticationDetailsProperties
 #### Properties
 * **accountId**: string (ReadOnly)
 * **authenticationType**: 'awsAssumeRole' (Required)
 * **awsAssumeRoleArn**: string (Required)
 * **awsExternalId**: string (Required)
 
-### awsCreds
+### AwsCredsAuthenticationDetailsProperties
 #### Properties
 * **accountId**: string (ReadOnly)
 * **authenticationType**: 'awsCreds' (Required)
 * **awsAccessKeyId**: string (Required)
 * **awsSecretAccessKey**: string (Required)
 
-### gcpCredentials
+### GcpCredentialsDetailsProperties
 #### Properties
 * **authenticationType**: 'gcpCredentials' (Required)
 * **authProviderX509CertUrl**: string (Required)
@@ -49,21 +50,21 @@
 * **type**: string (Required)
 
 
-## awsAssumeRole
+## AwAssumeRoleAuthenticationDetailsProperties
 ### Properties
 * **accountId**: string (ReadOnly)
 * **authenticationType**: 'awsAssumeRole' (Required)
 * **awsAssumeRoleArn**: string (Required)
 * **awsExternalId**: string (Required)
 
-## awsCreds
+## AwsCredsAuthenticationDetailsProperties
 ### Properties
 * **accountId**: string (ReadOnly)
 * **authenticationType**: 'awsCreds' (Required)
 * **awsAccessKeyId**: string (Required)
 * **awsSecretAccessKey**: string (Required)
 
-## gcpCredentials
+## GcpCredentialsDetailsProperties
 ### Properties
 * **authenticationType**: 'gcpCredentials' (Required)
 * **authProviderX509CertUrl**: string (Required)
@@ -82,10 +83,10 @@
 ### Properties
 * **autoProvision**: 'Off' | 'On' (Required)
 * **hybridComputeProvisioningState**: 'Expired' | 'Invalid' | 'Valid' (ReadOnly)
-* **proxyServer**: ProxyServerProperties
+* **proxyServer**: [ProxyServerProperties](#proxyserverproperties)
 * **region**: string
 * **resourceGroupName**: string
-* **servicePrincipal**: ServicePrincipalProperties
+* **servicePrincipal**: [ServicePrincipalProperties](#serviceprincipalproperties)
 
 ## ProxyServerProperties
 ### Properties

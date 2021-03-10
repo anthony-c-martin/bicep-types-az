@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RedisProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [RedisProperties](#redisproperties) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Cache/Redis' (ReadOnly, DeployTimeConstant)
 
 ## RedisProperties
@@ -17,17 +17,17 @@
 * **hostName**: string (ReadOnly)
 * **port**: int (ReadOnly)
 * **provisioningState**: string (ReadOnly)
-* **redisConfiguration**: Dictionary<string,String>
+* **redisConfiguration**: [RedisPropertiesRedisConfiguration](#redispropertiesredisconfiguration)
 * **redisVersion**: string
 * **shardCount**: int
-* **sku**: Sku (Required)
+* **sku**: [Sku](#sku) (Required)
 * **sslPort**: int (ReadOnly)
 * **staticIP**: string
 * **subnet**: string
-* **tenantSettings**: Dictionary<string,String>
+* **tenantSettings**: [RedisPropertiesTenantSettings](#redispropertiestenantsettings)
 * **virtualNetwork**: string
 
-## Dictionary<string,String>
+## RedisPropertiesRedisConfiguration
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -38,12 +38,12 @@
 * **family**: 'C' | 'P' (Required)
 * **name**: 'Basic' | 'Premium' | 'Standard' (Required)
 
-## Dictionary<string,String>
+## RedisPropertiesTenantSettings
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

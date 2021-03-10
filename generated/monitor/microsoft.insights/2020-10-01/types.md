@@ -7,39 +7,39 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AlertRuleProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [AlertRuleProperties](#alertruleproperties)
+* **tags**: [AzureResourceTags](#azureresourcetags)
 * **type**: 'Microsoft.Insights/activityLogAlerts' (ReadOnly, DeployTimeConstant)
 
 ## AlertRuleProperties
 ### Properties
-* **actions**: ActionList (Required)
-* **condition**: AlertRuleAllOfCondition (Required)
+* **actions**: [ActionList](#actionlist) (Required)
+* **condition**: [AlertRuleAllOfCondition](#alertruleallofcondition) (Required)
 * **description**: string
 * **enabled**: bool
 * **scopes**: string[] (Required)
 
 ## ActionList
 ### Properties
-* **actionGroups**: ActionGroup[]
+* **actionGroups**: [ActionGroup](#actiongroup)[]
 
 ## ActionGroup
 ### Properties
 * **actionGroupId**: string (Required)
-* **webhookProperties**: Dictionary<string,String>
+* **webhookProperties**: [ActionGroupWebhookProperties](#actiongroupwebhookproperties)
 
-## Dictionary<string,String>
+## ActionGroupWebhookProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## AlertRuleAllOfCondition
 ### Properties
-* **allOf**: AlertRuleAnyOfOrLeafCondition[] (Required)
+* **allOf**: [AlertRuleAnyOfOrLeafCondition](#alertruleanyoforleafcondition)[] (Required)
 
 ## AlertRuleAnyOfOrLeafCondition
 ### Properties
-* **anyOf**: AlertRuleLeafCondition[]
+* **anyOf**: [AlertRuleLeafCondition](#alertruleleafcondition)[]
 * **containsAny**: string[]
 * **equals**: string
 * **field**: string
@@ -50,7 +50,7 @@
 * **equals**: string
 * **field**: string
 
-## Dictionary<string,String>
+## AzureResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

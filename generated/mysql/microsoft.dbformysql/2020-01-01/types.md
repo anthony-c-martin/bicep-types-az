@@ -7,12 +7,12 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerKeyProperties
+* **properties**: [ServerKeyProperties](#serverkeyproperties)
 * **type**: 'Microsoft.DBforMySQL/servers/keys' (ReadOnly, DeployTimeConstant)
 
 ## ServerKeyProperties
 ### Properties
 * **creationDate**: string (ReadOnly)
-* **serverKeyType**: string (Required)
+* **serverKeyType**: 'AzureKeyVault' (Required)
 * **uri**: string
 

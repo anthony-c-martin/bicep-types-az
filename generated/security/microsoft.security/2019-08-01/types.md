@@ -6,7 +6,7 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DeviceSecurityGroupProperties
+* **properties**: [DeviceSecurityGroupProperties](#devicesecuritygroupproperties)
 * **type**: 'Microsoft.Security/deviceSecurityGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Security/iotSecuritySolutions@2019-08-01
@@ -16,25 +16,59 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: IoTSecuritySolutionProperties
-* **systemData**: systemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [IoTSecuritySolutionProperties](#iotsecuritysolutionproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TagsResourceTags](#tagsresourcetags)
 * **type**: 'Microsoft.Security/iotSecuritySolutions' (ReadOnly, DeployTimeConstant)
 
 ## DeviceSecurityGroupProperties
 ### Properties
-* **allowlistRules**: AllowlistCustomAlertRule[]
-* **denylistRules**: DenylistCustomAlertRule[]
-* **thresholdRules**: ThresholdCustomAlertRule[]
-* **timeWindowRules**: TimeWindowCustomAlertRule[]
+* **allowlistRules**: [AllowlistCustomAlertRule](#allowlistcustomalertrule)[]
+* **denylistRules**: [DenylistCustomAlertRule](#denylistcustomalertrule)[]
+* **thresholdRules**: [ThresholdCustomAlertRule](#thresholdcustomalertrule)[]
+* **timeWindowRules**: [TimeWindowCustomAlertRule](#timewindowcustomalertrule)[]
 
 ## AllowlistCustomAlertRule
-### Properties
+* **Discriminator**: ruleType
+
+### Base Properties
 * **allowlistValues**: string[] (Required)
 * **description**: string (ReadOnly)
 * **displayName**: string (ReadOnly)
 * **isEnabled**: bool (Required)
 * **valueType**: 'IpCidr' | 'String' (ReadOnly)
+### ConnectionFromIpNotAllowed
+#### Properties
+* **ruleType**: 'ConnectionFromIpNotAllowed' (Required)
+
+### ConnectionToIpNotAllowed
+#### Properties
+* **ruleType**: 'ConnectionToIpNotAllowed' (Required)
+
+### LocalUserNotAllowed
+#### Properties
+* **ruleType**: 'LocalUserNotAllowed' (Required)
+
+### ProcessNotAllowed
+#### Properties
+* **ruleType**: 'ProcessNotAllowed' (Required)
+
+
+## ConnectionFromIpNotAllowed
+### Properties
+* **ruleType**: 'ConnectionFromIpNotAllowed' (Required)
+
+## ConnectionToIpNotAllowed
+### Properties
+* **ruleType**: 'ConnectionToIpNotAllowed' (Required)
+
+## LocalUserNotAllowed
+### Properties
+* **ruleType**: 'LocalUserNotAllowed' (Required)
+
+## ProcessNotAllowed
+### Properties
+* **ruleType**: 'ProcessNotAllowed' (Required)
 
 ## DenylistCustomAlertRule
 ### Properties
@@ -42,37 +76,234 @@
 * **description**: string (ReadOnly)
 * **displayName**: string (ReadOnly)
 * **isEnabled**: bool (Required)
+* **ruleType**: string (Required)
 * **valueType**: 'IpCidr' | 'String' (ReadOnly)
 
 ## ThresholdCustomAlertRule
-### Properties
+* **Discriminator**: ruleType
+
+### Base Properties
 * **description**: string (ReadOnly)
 * **displayName**: string (ReadOnly)
 * **isEnabled**: bool (Required)
 * **maxThreshold**: int (Required)
 * **minThreshold**: int (Required)
+### ActiveConnectionsNotInAllowedRange
+#### Properties
+* **ruleType**: 'ActiveConnectionsNotInAllowedRange' (Required)
+
+### AmqpC2DMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'AmqpC2DMessagesNotInAllowedRange' (Required)
+
+### AmqpC2DRejectedMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'AmqpC2DRejectedMessagesNotInAllowedRange' (Required)
+
+### AmqpD2CMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'AmqpD2CMessagesNotInAllowedRange' (Required)
+
+### DirectMethodInvokesNotInAllowedRange
+#### Properties
+* **ruleType**: 'DirectMethodInvokesNotInAllowedRange' (Required)
+
+### FailedLocalLoginsNotInAllowedRange
+#### Properties
+* **ruleType**: 'FailedLocalLoginsNotInAllowedRange' (Required)
+
+### FileUploadsNotInAllowedRange
+#### Properties
+* **ruleType**: 'FileUploadsNotInAllowedRange' (Required)
+
+### HttpC2DMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'HttpC2DMessagesNotInAllowedRange' (Required)
+
+### HttpC2DRejectedMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'HttpC2DRejectedMessagesNotInAllowedRange' (Required)
+
+### HttpD2CMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'HttpD2CMessagesNotInAllowedRange' (Required)
+
+### MqttC2DMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'MqttC2DMessagesNotInAllowedRange' (Required)
+
+### MqttC2DRejectedMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'MqttC2DRejectedMessagesNotInAllowedRange' (Required)
+
+### MqttD2CMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'MqttD2CMessagesNotInAllowedRange' (Required)
+
+### QueuePurgesNotInAllowedRange
+#### Properties
+* **ruleType**: 'QueuePurgesNotInAllowedRange' (Required)
+
+### TwinUpdatesNotInAllowedRange
+#### Properties
+* **ruleType**: 'TwinUpdatesNotInAllowedRange' (Required)
+
+### UnauthorizedOperationsNotInAllowedRange
+#### Properties
+* **ruleType**: 'UnauthorizedOperationsNotInAllowedRange' (Required)
+
+
+## ActiveConnectionsNotInAllowedRange
+### Properties
+* **ruleType**: 'ActiveConnectionsNotInAllowedRange' (Required)
+
+## AmqpC2DMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'AmqpC2DMessagesNotInAllowedRange' (Required)
+
+## AmqpC2DRejectedMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'AmqpC2DRejectedMessagesNotInAllowedRange' (Required)
+
+## AmqpD2CMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'AmqpD2CMessagesNotInAllowedRange' (Required)
+
+## DirectMethodInvokesNotInAllowedRange
+### Properties
+* **ruleType**: 'DirectMethodInvokesNotInAllowedRange' (Required)
+
+## FailedLocalLoginsNotInAllowedRange
+### Properties
+* **ruleType**: 'FailedLocalLoginsNotInAllowedRange' (Required)
+
+## FileUploadsNotInAllowedRange
+### Properties
+* **ruleType**: 'FileUploadsNotInAllowedRange' (Required)
+
+## HttpC2DMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'HttpC2DMessagesNotInAllowedRange' (Required)
+
+## HttpC2DRejectedMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'HttpC2DRejectedMessagesNotInAllowedRange' (Required)
+
+## HttpD2CMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'HttpD2CMessagesNotInAllowedRange' (Required)
+
+## MqttC2DMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'MqttC2DMessagesNotInAllowedRange' (Required)
+
+## MqttC2DRejectedMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'MqttC2DRejectedMessagesNotInAllowedRange' (Required)
+
+## MqttD2CMessagesNotInAllowedRange
+### Properties
+* **ruleType**: 'MqttD2CMessagesNotInAllowedRange' (Required)
+
+## QueuePurgesNotInAllowedRange
+### Properties
+* **ruleType**: 'QueuePurgesNotInAllowedRange' (Required)
+
+## TwinUpdatesNotInAllowedRange
+### Properties
+* **ruleType**: 'TwinUpdatesNotInAllowedRange' (Required)
+
+## UnauthorizedOperationsNotInAllowedRange
+### Properties
+* **ruleType**: 'UnauthorizedOperationsNotInAllowedRange' (Required)
 
 ## TimeWindowCustomAlertRule
-### Properties
+* **Discriminator**: ruleType
+
+### Base Properties
 * **description**: string (ReadOnly)
 * **displayName**: string (ReadOnly)
 * **isEnabled**: bool (Required)
 * **maxThreshold**: int (Required)
 * **minThreshold**: int (Required)
 * **timeWindowSize**: string (Required)
+### ActiveConnectionsNotInAllowedRange
+#### Properties
+* **ruleType**: 'ActiveConnectionsNotInAllowedRange' (Required)
+
+### AmqpC2DMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'AmqpC2DMessagesNotInAllowedRange' (Required)
+
+### AmqpC2DRejectedMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'AmqpC2DRejectedMessagesNotInAllowedRange' (Required)
+
+### AmqpD2CMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'AmqpD2CMessagesNotInAllowedRange' (Required)
+
+### DirectMethodInvokesNotInAllowedRange
+#### Properties
+* **ruleType**: 'DirectMethodInvokesNotInAllowedRange' (Required)
+
+### FailedLocalLoginsNotInAllowedRange
+#### Properties
+* **ruleType**: 'FailedLocalLoginsNotInAllowedRange' (Required)
+
+### FileUploadsNotInAllowedRange
+#### Properties
+* **ruleType**: 'FileUploadsNotInAllowedRange' (Required)
+
+### HttpC2DMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'HttpC2DMessagesNotInAllowedRange' (Required)
+
+### HttpC2DRejectedMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'HttpC2DRejectedMessagesNotInAllowedRange' (Required)
+
+### HttpD2CMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'HttpD2CMessagesNotInAllowedRange' (Required)
+
+### MqttC2DMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'MqttC2DMessagesNotInAllowedRange' (Required)
+
+### MqttC2DRejectedMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'MqttC2DRejectedMessagesNotInAllowedRange' (Required)
+
+### MqttD2CMessagesNotInAllowedRange
+#### Properties
+* **ruleType**: 'MqttD2CMessagesNotInAllowedRange' (Required)
+
+### QueuePurgesNotInAllowedRange
+#### Properties
+* **ruleType**: 'QueuePurgesNotInAllowedRange' (Required)
+
+### TwinUpdatesNotInAllowedRange
+#### Properties
+* **ruleType**: 'TwinUpdatesNotInAllowedRange' (Required)
+
+### UnauthorizedOperationsNotInAllowedRange
+#### Properties
+* **ruleType**: 'UnauthorizedOperationsNotInAllowedRange' (Required)
+
 
 ## IoTSecuritySolutionProperties
 ### Properties
-* **additionalWorkspaces**: AdditionalWorkspacesProperties[]
+* **additionalWorkspaces**: [AdditionalWorkspacesProperties](#additionalworkspacesproperties)[]
 * **autoDiscoveredResources**: string[] (ReadOnly)
 * **disabledDataSources**: 'TwinData'[]
 * **displayName**: string (Required)
 * **export**: 'RawEvents'[]
 * **iotHubs**: string[] (Required)
-* **recommendationsConfiguration**: RecommendationConfigurationProperties[]
+* **recommendationsConfiguration**: [RecommendationConfigurationProperties](#recommendationconfigurationproperties)[]
 * **status**: 'Disabled' | 'Enabled'
 * **unmaskedIpLoggingStatus**: 'Disabled' | 'Enabled'
-* **userDefinedResources**: UserDefinedResourcesProperties
+* **userDefinedResources**: [UserDefinedResourcesProperties](#userdefinedresourcesproperties)
 * **workspace**: string
 
 ## AdditionalWorkspacesProperties
@@ -84,7 +315,7 @@
 ## RecommendationConfigurationProperties
 ### Properties
 * **name**: string (ReadOnly)
-* **recommendationType**: 'IoT_ACRAuthentication' | 'IoT_AgentSendsUnutilizedMessages' | 'IoT_Baseline' | 'IoT_EdgeHubMemOptimize' | 'IoT_EdgeLoggingOptions' | 'IoT_InconsistentModuleSettings' | 'IoT_InstallAgent' | 'IoT_IPFilter_DenyAll' | 'IoT_IPFilter_PermissiveRule' | 'IoT_OpenPorts' | 'IoT_PermissiveFirewallPolicy' | 'IoT_PermissiveInputFirewallRules' | 'IoT_PermissiveOutputFirewallRules' | 'IoT_PrivilegedDockerOptions' | 'IoT_SharedCredentials' | 'IoT_VulnerableTLSCipherSuite' (Required)
+* **recommendationType**: 'IoT_ACRAuthentication' | 'IoT_AgentSendsUnutilizedMessages' | 'IoT_Baseline' | 'IoT_EdgeHubMemOptimize' | 'IoT_EdgeLoggingOptions' | 'IoT_IPFilter_DenyAll' | 'IoT_IPFilter_PermissiveRule' | 'IoT_InconsistentModuleSettings' | 'IoT_InstallAgent' | 'IoT_OpenPorts' | 'IoT_PermissiveFirewallPolicy' | 'IoT_PermissiveInputFirewallRules' | 'IoT_PermissiveOutputFirewallRules' | 'IoT_PrivilegedDockerOptions' | 'IoT_SharedCredentials' | 'IoT_VulnerableTLSCipherSuite' (Required)
 * **status**: 'Disabled' | 'Enabled' (Required)
 
 ## UserDefinedResourcesProperties
@@ -92,7 +323,7 @@
 * **query**: string (Required)
 * **querySubscriptions**: string[] (Required)
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string
@@ -101,7 +332,7 @@
 * **lastModifiedBy**: string
 * **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
 
-## Dictionary<string,String>
+## TagsResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

@@ -6,41 +6,41 @@
 * **apiVersion**: '2019-10-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ExportProperties
-* **tags**: Dictionary<string,String> (ReadOnly)
+* **properties**: [ExportProperties](#exportproperties)
+* **tags**: [ResourceTags](#resourcetags) (ReadOnly)
 * **type**: 'Microsoft.CostManagement/exports' (ReadOnly, DeployTimeConstant)
 
 ## ExportProperties
 ### Properties
-* **definition**: QueryDefinition (Required)
-* **deliveryInfo**: ExportDeliveryInfo (Required)
+* **definition**: [QueryDefinition](#querydefinition) (Required)
+* **deliveryInfo**: [ExportDeliveryInfo](#exportdeliveryinfo) (Required)
 * **format**: 'Csv'
-* **schedule**: ExportSchedule
+* **schedule**: [ExportSchedule](#exportschedule)
 
 ## QueryDefinition
 ### Properties
-* **dataset**: QueryDataset
+* **dataset**: [QueryDataset](#querydataset)
 * **timeframe**: 'Custom' | 'MonthToDate' | 'TheLastMonth' | 'TheLastWeek' | 'TheLastYear' | 'WeekToDate' | 'YearToDate' (Required)
-* **timePeriod**: QueryTimePeriod
-* **type**: string (Required)
+* **timePeriod**: [QueryTimePeriod](#querytimeperiod)
+* **type**: 'Usage' (Required)
 
 ## QueryDataset
 ### Properties
-* **aggregation**: Dictionary<string,QueryAggregation>
-* **configuration**: QueryDatasetConfiguration
-* **filter**: QueryFilter
+* **aggregation**: [QueryDatasetAggregation](#querydatasetaggregation)
+* **configuration**: [QueryDatasetConfiguration](#querydatasetconfiguration)
+* **filter**: [QueryFilter](#queryfilter)
 * **granularity**: 'Daily' | 'Hourly'
-* **grouping**: QueryGrouping[]
-* **sorting**: QuerySortingConfiguration[]
+* **grouping**: [QueryGrouping](#querygrouping)[]
+* **sorting**: [QuerySortingConfiguration](#querysortingconfiguration)[]
 
-## Dictionary<string,QueryAggregation>
+## QueryDatasetAggregation
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: QueryAggregation
+* **Additional Properties Type**: [QueryAggregation](#queryaggregation)
 
 ## QueryAggregation
 ### Properties
-* **function**: string (Required)
+* **function**: 'Sum' (Required)
 * **name**: string (Required)
 
 ## QueryDatasetConfiguration
@@ -49,16 +49,16 @@
 
 ## QueryFilter
 ### Properties
-* **and**: QueryFilter[]
-* **dimension**: QueryComparisonExpression
-* **not**: QueryFilter
-* **or**: QueryFilter[]
-* **tag**: QueryComparisonExpression
+* **and**: [QueryFilter](#queryfilter)[]
+* **dimension**: [QueryComparisonExpression](#querycomparisonexpression)
+* **not**: [QueryFilter](#queryfilter)
+* **or**: [QueryFilter](#queryfilter)[]
+* **tag**: [QueryComparisonExpression](#querycomparisonexpression)
 
 ## QueryComparisonExpression
 ### Properties
 * **name**: string (Required)
-* **operator**: string (Required)
+* **operator**: 'In' (Required)
 * **values**: string[] (Required)
 
 ## QueryGrouping
@@ -78,7 +78,7 @@
 
 ## ExportDeliveryInfo
 ### Properties
-* **destination**: ExportDeliveryDestination (Required)
+* **destination**: [ExportDeliveryDestination](#exportdeliverydestination) (Required)
 
 ## ExportDeliveryDestination
 ### Properties
@@ -89,7 +89,7 @@
 ## ExportSchedule
 ### Properties
 * **recurrence**: 'Annually' | 'Daily' | 'Monthly' | 'Weekly' (Required)
-* **recurrencePeriod**: ExportRecurrencePeriod
+* **recurrencePeriod**: [ExportRecurrencePeriod](#exportrecurrenceperiod)
 * **status**: 'Active' | 'Inactive'
 
 ## ExportRecurrencePeriod
@@ -97,7 +97,7 @@
 * **from**: string (Required)
 * **to**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

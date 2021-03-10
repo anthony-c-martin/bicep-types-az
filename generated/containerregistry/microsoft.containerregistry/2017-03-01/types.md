@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RegistryPropertiesCreateParameters
-* **sku**: Sku (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [RegistryPropertiesCreateParameters](#registrypropertiescreateparameters)
+* **sku**: [Sku](#sku) (Required)
+* **tags**: [RegistryCreateParametersTags](#registrycreateparameterstags)
 * **type**: 'Microsoft.ContainerRegistry/registries' (ReadOnly, DeployTimeConstant)
 
 ## RegistryPropertiesCreateParameters
@@ -18,7 +18,7 @@
 * **creationDate**: string (ReadOnly)
 * **loginServer**: string (ReadOnly)
 * **provisioningState**: 'Creating' | 'Succeeded' (ReadOnly)
-* **storageAccount**: StorageAccountParameters (Required)
+* **storageAccount**: [StorageAccountParameters](#storageaccountparameters) (Required)
 
 ## StorageAccountParameters
 ### Properties
@@ -30,7 +30,7 @@
 * **name**: string (Required)
 * **tier**: 'Basic' (ReadOnly)
 
-## Dictionary<string,String>
+## RegistryCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

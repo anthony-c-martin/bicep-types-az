@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2017-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ResourceIdentity
+* **identity**: [ResourceIdentity](#resourceidentity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerPropertiesForCreate (Required)
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [ServerPropertiesForCreate](#serverpropertiesforcreate) (Required)
+* **sku**: [Sku](#sku)
+* **tags**: [ServerForCreateTags](#serverforcreatetags)
 * **type**: 'Microsoft.DBForMySQL/servers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DBForMySQL/servers/administrators@2017-12-01
@@ -19,7 +19,7 @@
 * **apiVersion**: '2017-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerAdministratorProperties
+* **properties**: [ServerAdministratorProperties](#serveradministratorproperties)
 * **type**: 'Microsoft.DBForMySQL/servers/administrators' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DBForMySQL/servers/configurations@2017-12-01
@@ -28,7 +28,7 @@
 * **apiVersion**: '2017-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ConfigurationProperties
+* **properties**: [ConfigurationProperties](#configurationproperties)
 * **type**: 'Microsoft.DBForMySQL/servers/configurations' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DBForMySQL/servers/databases@2017-12-01
@@ -37,7 +37,7 @@
 * **apiVersion**: '2017-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DatabaseProperties
+* **properties**: [DatabaseProperties](#databaseproperties)
 * **type**: 'Microsoft.DBForMySQL/servers/databases' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DBForMySQL/servers/firewallRules@2017-12-01
@@ -46,7 +46,7 @@
 * **apiVersion**: '2017-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: FirewallRuleProperties (Required)
+* **properties**: [FirewallRuleProperties](#firewallruleproperties) (Required)
 * **type**: 'Microsoft.DBForMySQL/servers/firewallRules' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DBforMySQL/servers/securityAlertPolicies@2017-12-01
@@ -54,8 +54,8 @@
 ### Properties
 * **apiVersion**: '2017-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: SecurityAlertPolicyProperties
+* **name**: 'Default' (Required, DeployTimeConstant)
+* **properties**: [SecurityAlertPolicyProperties](#securityalertpolicyproperties)
 * **type**: 'Microsoft.DBforMySQL/servers/securityAlertPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DBForMySQL/servers/virtualNetworkRules@2017-12-01
@@ -64,7 +64,7 @@
 * **apiVersion**: '2017-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VirtualNetworkRuleProperties
+* **properties**: [VirtualNetworkRuleProperties](#virtualnetworkruleproperties)
 * **type**: 'Microsoft.DBForMySQL/servers/virtualNetworkRules' (ReadOnly, DeployTimeConstant)
 
 ## ResourceIdentity
@@ -75,6 +75,7 @@
 
 ## ServerPropertiesForCreate
 * **Discriminator**: createMode
+
 ### Base Properties
 * **administratorLogin**: string (ReadOnly)
 * **byokEnforcement**: string (ReadOnly)
@@ -83,32 +84,32 @@
 * **infrastructureEncryption**: 'Disabled' | 'Enabled'
 * **masterServerId**: string (ReadOnly)
 * **minimalTlsVersion**: 'TLS1_0' | 'TLS1_1' | 'TLS1_2' | 'TLSEnforcementDisabled'
-* **privateEndpointConnections**: ServerPrivateEndpointConnection[] (ReadOnly)
+* **privateEndpointConnections**: [ServerPrivateEndpointConnection](#serverprivateendpointconnection)[] (ReadOnly)
 * **publicNetworkAccess**: 'Disabled' | 'Enabled'
 * **replicaCapacity**: int (ReadOnly)
 * **replicationRole**: string (ReadOnly)
 * **sslEnforcement**: 'Disabled' | 'Enabled'
-* **storageProfile**: StorageProfile
+* **storageProfile**: [StorageProfile](#storageprofile)
 * **userVisibleState**: 'Disabled' | 'Dropping' | 'Inaccessible' | 'Ready' (ReadOnly)
 * **version**: '5.6' | '5.7' | '8.0'
-### Default
+### ServerPropertiesForDefaultCreate
 #### Properties
 * **administratorLogin**: string (Required, WriteOnly)
 * **administratorLoginPassword**: string (Required, WriteOnly)
 * **createMode**: 'Default' (Required)
 
-### GeoRestore
+### ServerPropertiesForGeoRestore
 #### Properties
 * **createMode**: 'GeoRestore' (Required)
 * **sourceServerId**: string (Required, WriteOnly)
 
-### PointInTimeRestore
+### ServerPropertiesForRestore
 #### Properties
 * **createMode**: 'PointInTimeRestore' (Required)
 * **restorePointInTime**: string (Required, WriteOnly)
 * **sourceServerId**: string (Required, WriteOnly)
 
-### Replica
+### ServerPropertiesForReplica
 #### Properties
 * **createMode**: 'Replica' (Required)
 * **sourceServerId**: string (Required, WriteOnly)
@@ -117,12 +118,12 @@
 ## ServerPrivateEndpointConnection
 ### Properties
 * **id**: string (ReadOnly)
-* **properties**: ServerPrivateEndpointConnectionProperties (ReadOnly)
+* **properties**: [ServerPrivateEndpointConnectionProperties](#serverprivateendpointconnectionproperties) (ReadOnly)
 
 ## ServerPrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: PrivateEndpointProperty (ReadOnly)
-* **privateLinkServiceConnectionState**: ServerPrivateLinkServiceConnectionStateProperty (ReadOnly)
+* **privateEndpoint**: [PrivateEndpointProperty](#privateendpointproperty) (ReadOnly)
+* **privateLinkServiceConnectionState**: [ServerPrivateLinkServiceConnectionStateProperty](#serverprivatelinkserviceconnectionstateproperty) (ReadOnly)
 * **provisioningState**: 'Approving' | 'Dropping' | 'Failed' | 'Ready' | 'Rejecting' (ReadOnly)
 
 ## PrivateEndpointProperty
@@ -142,24 +143,24 @@
 * **storageAutogrow**: 'Disabled' | 'Enabled'
 * **storageMB**: int
 
-## Default
+## ServerPropertiesForDefaultCreate
 ### Properties
 * **administratorLogin**: string (Required, WriteOnly)
 * **administratorLoginPassword**: string (Required, WriteOnly)
 * **createMode**: 'Default' (Required)
 
-## GeoRestore
+## ServerPropertiesForGeoRestore
 ### Properties
 * **createMode**: 'GeoRestore' (Required)
 * **sourceServerId**: string (Required, WriteOnly)
 
-## PointInTimeRestore
+## ServerPropertiesForRestore
 ### Properties
 * **createMode**: 'PointInTimeRestore' (Required)
 * **restorePointInTime**: string (Required, WriteOnly)
 * **sourceServerId**: string (Required, WriteOnly)
 
-## Replica
+## ServerPropertiesForReplica
 ### Properties
 * **createMode**: 'Replica' (Required)
 * **sourceServerId**: string (Required, WriteOnly)
@@ -172,14 +173,14 @@
 * **size**: string
 * **tier**: 'Basic' | 'GeneralPurpose' | 'MemoryOptimized'
 
-## Dictionary<string,String>
+## ServerForCreateTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## ServerAdministratorProperties
 ### Properties
-* **administratorType**: string (Required)
+* **administratorType**: 'ActiveDirectory' (Required)
 * **login**: string (Required)
 * **sid**: string (Required)
 * **tenantId**: string (Required)
@@ -216,6 +217,6 @@
 ## VirtualNetworkRuleProperties
 ### Properties
 * **ignoreMissingVnetServiceEndpoint**: bool
-* **state**: 'Deleting' | 'Initializing' | 'InProgress' | 'Ready' | 'Unknown' (ReadOnly)
+* **state**: 'Deleting' | 'InProgress' | 'Initializing' | 'Ready' | 'Unknown' (ReadOnly)
 * **virtualNetworkSubnetId**: string (Required)
 

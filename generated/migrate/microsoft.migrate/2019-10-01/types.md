@@ -8,7 +8,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ProjectProperties
+* **properties**: [ProjectProperties](#projectproperties)
 * **tags**: any
 * **type**: 'Microsoft.Migrate/assessmentProjects' (ReadOnly, DeployTimeConstant)
 
@@ -19,7 +19,7 @@
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: GroupProperties (Required)
+* **properties**: [GroupProperties](#groupproperties) (Required)
 * **type**: 'Microsoft.Migrate/assessmentProjects/groups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Migrate/assessmentProjects/groups/assessments@2019-10-01
@@ -29,7 +29,7 @@
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AssessmentProperties (Required)
+* **properties**: [AssessmentProperties](#assessmentproperties) (Required)
 * **type**: 'Microsoft.Migrate/assessmentProjects/groups/assessments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Migrate/assessmentProjects/hypervcollectors@2019-10-01
@@ -39,7 +39,7 @@
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CollectorProperties
+* **properties**: [CollectorProperties](#collectorproperties)
 * **type**: 'Microsoft.Migrate/assessmentProjects/hypervcollectors' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Migrate/assessmentProjects/vmwarecollectors@2019-10-01
@@ -49,7 +49,7 @@
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CollectorProperties
+* **properties**: [CollectorProperties](#collectorproperties)
 * **type**: 'Microsoft.Migrate/assessmentProjects/vmwarecollectors' (ReadOnly, DeployTimeConstant)
 
 ## ProjectProperties
@@ -80,14 +80,14 @@
 ### Properties
 * **azureDiskType**: 'Premium' | 'Standard' | 'StandardOrPremium' | 'StandardSSD' | 'Unknown' (Required)
 * **azureHybridUseBenefit**: 'No' | 'Unknown' | 'Yes' (Required)
-* **azureLocation**: 'AustraliaEast' | 'AustraliaSoutheast' | 'BrazilSouth' | 'CanadaCentral' | 'CanadaEast' | 'CentralIndia' | 'CentralUs' | 'ChinaEast' | 'ChinaNorth' | 'EastAsia' | 'EastUs' | 'EastUs2' | 'GermanyCentral' | 'GermanyNortheast' | 'JapanEast' | 'JapanWest' | 'KoreaCentral' | 'KoreaSouth' | 'NorthCentralUs' | 'NorthEurope' | 'SouthCentralUs' | 'SoutheastAsia' | 'SouthIndia' | 'UkSouth' | 'UkWest' | 'Unknown' | 'USDoDCentral' | 'USDoDEast' | 'USGovArizona' | 'USGovIowa' | 'USGovTexas' | 'USGovVirginia' | 'WestCentralUs' | 'WestEurope' | 'WestIndia' | 'WestUs' | 'WestUs2' (Required)
+* **azureLocation**: 'AustraliaEast' | 'AustraliaSoutheast' | 'BrazilSouth' | 'CanadaCentral' | 'CanadaEast' | 'CentralIndia' | 'CentralUs' | 'ChinaEast' | 'ChinaNorth' | 'EastAsia' | 'EastUs' | 'EastUs2' | 'GermanyCentral' | 'GermanyNortheast' | 'JapanEast' | 'JapanWest' | 'KoreaCentral' | 'KoreaSouth' | 'NorthCentralUs' | 'NorthEurope' | 'SouthCentralUs' | 'SouthIndia' | 'SoutheastAsia' | 'USDoDCentral' | 'USDoDEast' | 'USGovArizona' | 'USGovIowa' | 'USGovTexas' | 'USGovVirginia' | 'UkSouth' | 'UkWest' | 'Unknown' | 'WestCentralUs' | 'WestEurope' | 'WestIndia' | 'WestUs' | 'WestUs2' (Required)
 * **azureOfferCode**: 'EA' | 'MSAZR0003P' | 'MSAZR0022P' | 'MSAZR0023P' | 'MSAZR0025P' | 'MSAZR0029P' | 'MSAZR0036P' | 'MSAZR0044P' | 'MSAZR0059P' | 'MSAZR0060P' | 'MSAZR0062P' | 'MSAZR0063P' | 'MSAZR0064P' | 'MSAZR0111P' | 'MSAZR0120P' | 'MSAZR0121P' | 'MSAZR0122P' | 'MSAZR0123P' | 'MSAZR0124P' | 'MSAZR0125P' | 'MSAZR0126P' | 'MSAZR0127P' | 'MSAZR0128P' | 'MSAZR0129P' | 'MSAZR0130P' | 'MSAZR0144P' | 'MSAZR0148P' | 'MSAZR0149P' | 'MSAZRDE0003P' | 'MSAZRDE0044P' | 'MSAZRUSGOV0003P' | 'MSMCAZR0044P' | 'MSMCAZR0059P' | 'MSMCAZR0060P' | 'MSMCAZR0063P' | 'MSMCAZR0120P' | 'MSMCAZR0121P' | 'MSMCAZR0125P' | 'MSMCAZR0128P' | 'Unknown' (Required)
 * **azurePricingTier**: 'Basic' | 'Standard' (Required)
 * **azureStorageRedundancy**: 'GeoRedundant' | 'LocallyRedundant' | 'ReadAccessGeoRedundant' | 'Unknown' | 'ZoneRedundant' (Required)
-* **azureVmFamilies**: 'Av2_series' | 'Basic_A0_A4' | 'D_series' | 'DC_Series' | 'DS_series' | 'DSv2_series' | 'Dsv3_series' | 'Dv2_series' | 'Dv3_series' | 'Esv3_series' | 'Ev3_series' | 'F_series' | 'Fs_series' | 'Fsv2_series' | 'G_series' | 'GS_series' | 'H_series' | 'Ls_series' | 'M_series' | 'Standard_A0_A7' | 'Standard_A8_A11' | 'Unknown'[] (Required)
+* **azureVmFamilies**: 'Av2_series' | 'Basic_A0_A4' | 'DC_Series' | 'DS_series' | 'DSv2_series' | 'D_series' | 'Dsv3_series' | 'Dv2_series' | 'Dv3_series' | 'Esv3_series' | 'Ev3_series' | 'F_series' | 'Fs_series' | 'Fsv2_series' | 'GS_series' | 'G_series' | 'H_series' | 'Ls_series' | 'M_series' | 'Standard_A0_A7' | 'Standard_A8_A11' | 'Unknown'[] (Required)
 * **confidenceRatingInPercentage**: int (ReadOnly)
 * **createdTimestamp**: string (ReadOnly)
-* **currency**: 'ARS' | 'AUD' | 'BRL' | 'CAD' | 'CHF' | 'CNY' | 'DKK' | 'EUR' | 'GBP' | 'HKD' | 'IDR' | 'INR' | 'JPY' | 'KRW' | 'MXN' | 'MYR' | 'NOK' | 'NZD' | 'RUB' | 'SAR' | 'SEK' | 'TRY' | 'TWD' | 'Unknown' | 'USD' | 'ZAR' (Required)
+* **currency**: 'ARS' | 'AUD' | 'BRL' | 'CAD' | 'CHF' | 'CNY' | 'DKK' | 'EUR' | 'GBP' | 'HKD' | 'IDR' | 'INR' | 'JPY' | 'KRW' | 'MXN' | 'MYR' | 'NOK' | 'NZD' | 'RUB' | 'SAR' | 'SEK' | 'TRY' | 'TWD' | 'USD' | 'Unknown' | 'ZAR' (Required)
 * **discountPercentage**: int (Required)
 * **eaSubscriptionId**: string (ReadOnly)
 * **monthlyBandwidthCost**: int (ReadOnly)
@@ -107,7 +107,7 @@
 * **status**: 'Completed' | 'Created' | 'Invalid' | 'OutDated' | 'OutOfSync' | 'Running' | 'Updated' (ReadOnly)
 * **timeRange**: 'Custom' | 'Day' | 'Month' | 'Week' (Required)
 * **updatedTimestamp**: string (ReadOnly)
-* **vmUptime**: VmUptime (Required)
+* **vmUptime**: [VmUptime](#vmuptime) (Required)
 
 ## VmUptime
 ### Properties
@@ -116,7 +116,7 @@
 
 ## CollectorProperties
 ### Properties
-* **agentProperties**: CollectorAgentProperties
+* **agentProperties**: [CollectorAgentProperties](#collectoragentproperties)
 * **createdTimestamp**: string (ReadOnly)
 * **discoverySiteId**: string
 * **updatedTimestamp**: string (ReadOnly)
@@ -125,7 +125,7 @@
 ### Properties
 * **id**: string (ReadOnly)
 * **lastHeartbeatUtc**: string (ReadOnly)
-* **spnDetails**: CollectorBodyAgentSpnProperties
+* **spnDetails**: [CollectorBodyAgentSpnProperties](#collectorbodyagentspnproperties)
 * **version**: string (ReadOnly)
 
 ## CollectorBodyAgentSpnProperties

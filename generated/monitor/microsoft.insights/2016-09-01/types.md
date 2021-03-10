@@ -7,15 +7,15 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: 'service' (Required, DeployTimeConstant)
-* **properties**: ServiceDiagnosticSettings
-* **tags**: Dictionary<string,String>
+* **properties**: [ServiceDiagnosticSettings](#servicediagnosticsettings)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'microsoft.insights/diagnosticSettings' (ReadOnly, DeployTimeConstant)
 
 ## ServiceDiagnosticSettings
 ### Properties
 * **eventHubAuthorizationRuleId**: string
-* **logs**: LogSettings[]
-* **metrics**: MetricSettings[]
+* **logs**: [LogSettings](#logsettings)[]
+* **metrics**: [MetricSettings](#metricsettings)[]
 * **serviceBusRuleId**: string
 * **storageAccountId**: string
 * **workspaceId**: string
@@ -24,7 +24,7 @@
 ### Properties
 * **category**: string
 * **enabled**: bool (Required)
-* **retentionPolicy**: RetentionPolicy
+* **retentionPolicy**: [RetentionPolicy](#retentionpolicy)
 
 ## RetentionPolicy
 ### Properties
@@ -34,10 +34,10 @@
 ## MetricSettings
 ### Properties
 * **enabled**: bool (Required)
-* **retentionPolicy**: RetentionPolicy
+* **retentionPolicy**: [RetentionPolicy](#retentionpolicy)
 * **timeGrain**: string (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

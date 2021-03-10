@@ -3,43 +3,44 @@
 ## Resource Microsoft.Resources/deploymentScripts@2019-10-01-preview
 * **Valid Scope(s)**: ResourceGroup
 * **Discriminator**: kind
+
 ### Base Properties
 * **apiVersion**: '2019-10-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ManagedServiceIdentity (Required)
+* **identity**: [ManagedServiceIdentity](#managedserviceidentity) (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **systemData**: systemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [DeploymentScriptTags](#deploymentscripttags)
 * **type**: 'Microsoft.Resources/deploymentScripts' (ReadOnly, DeployTimeConstant)
-### AzureCLI
+### AzureCliScript
 #### Properties
 * **kind**: 'AzureCLI' (Required)
-* **properties**: AzureCliScriptProperties (Required)
+* **properties**: [AzureCliScriptProperties](#azurecliscriptproperties) (Required)
 
-### AzurePowerShell
+### AzurePowerShellScript
 #### Properties
 * **kind**: 'AzurePowerShell' (Required)
-* **properties**: AzurePowerShellScriptProperties (Required)
+* **properties**: [AzurePowerShellScriptProperties](#azurepowershellscriptproperties) (Required)
 
 
 ## ManagedServiceIdentity
 ### Properties
 * **tenantId**: string
 * **type**: 'UserAssigned'
-* **userAssignedIdentities**: Dictionary<string,UserAssignedIdentity>
+* **userAssignedIdentities**: [ManagedServiceIdentityUserAssignedIdentities](#managedserviceidentityuserassignedidentities)
 
-## Dictionary<string,UserAssignedIdentity>
+## ManagedServiceIdentityUserAssignedIdentities
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: UserAssignedIdentity
+* **Additional Properties Type**: [UserAssignedIdentity](#userassignedidentity)
 
 ## UserAssignedIdentity
 ### Properties
 * **clientId**: string (ReadOnly)
 * **principalId**: string (ReadOnly)
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string
@@ -48,31 +49,31 @@
 * **lastModifiedBy**: string
 * **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
 
-## Dictionary<string,String>
+## DeploymentScriptTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## AzureCLI
+## AzureCliScript
 ### Properties
 * **kind**: 'AzureCLI' (Required)
-* **properties**: AzureCliScriptProperties (Required)
+* **properties**: [AzureCliScriptProperties](#azurecliscriptproperties) (Required)
 
 ## AzureCliScriptProperties
 ### Properties
 * **arguments**: string
 * **azCliVersion**: string (Required)
 * **cleanupPreference**: 'Always' | 'OnExpiration' | 'OnSuccess'
-* **containerSettings**: ContainerConfiguration
-* **environmentVariables**: EnvironmentVariable[]
+* **containerSettings**: [ContainerConfiguration](#containerconfiguration)
+* **environmentVariables**: [EnvironmentVariable](#environmentvariable)[]
 * **forceUpdateTag**: string
-* **outputs**: Dictionary<string,Object> (ReadOnly)
+* **outputs**: [DeploymentScriptPropertiesBaseOutputs](#deploymentscriptpropertiesbaseoutputs) (ReadOnly)
 * **primaryScriptUri**: string
 * **provisioningState**: 'Canceled' | 'Creating' | 'Failed' | 'ProvisioningResources' | 'Running' | 'Succeeded' (ReadOnly)
 * **retentionInterval**: string (Required)
 * **scriptContent**: string
-* **status**: ScriptStatus (ReadOnly)
-* **storageAccountSettings**: StorageAccountConfiguration
+* **status**: [ScriptStatus](#scriptstatus) (ReadOnly)
+* **storageAccountSettings**: [StorageAccountConfiguration](#storageaccountconfiguration)
 * **supportingScriptUris**: string[]
 * **timeout**: string
 
@@ -86,7 +87,7 @@
 * **secureValue**: string
 * **value**: string
 
-## Dictionary<string,Object>
+## DeploymentScriptPropertiesBaseOutputs
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: any
@@ -95,16 +96,16 @@
 ### Properties
 * **containerInstanceId**: string (ReadOnly)
 * **endTime**: string (ReadOnly)
-* **error**: ErrorResponse
+* **error**: [ErrorResponse](#errorresponse)
 * **expirationTime**: string (ReadOnly)
 * **startTime**: string (ReadOnly)
 * **storageAccountId**: string (ReadOnly)
 
 ## ErrorResponse
 ### Properties
-* **additionalInfo**: ErrorAdditionalInfo[] (ReadOnly)
+* **additionalInfo**: [ErrorAdditionalInfo](#erroradditionalinfo)[] (ReadOnly)
 * **code**: string (ReadOnly)
-* **details**: ErrorResponse[] (ReadOnly)
+* **details**: [ErrorResponse](#errorresponse)[] (ReadOnly)
 * **message**: string (ReadOnly)
 * **target**: string (ReadOnly)
 
@@ -118,30 +119,30 @@
 * **storageAccountKey**: string
 * **storageAccountName**: string
 
-## AzurePowerShell
+## AzurePowerShellScript
 ### Properties
 * **kind**: 'AzurePowerShell' (Required)
-* **properties**: AzurePowerShellScriptProperties (Required)
+* **properties**: [AzurePowerShellScriptProperties](#azurepowershellscriptproperties) (Required)
 
 ## AzurePowerShellScriptProperties
 ### Properties
 * **arguments**: string
 * **azPowerShellVersion**: string (Required)
 * **cleanupPreference**: 'Always' | 'OnExpiration' | 'OnSuccess'
-* **containerSettings**: ContainerConfiguration
-* **environmentVariables**: EnvironmentVariable[]
+* **containerSettings**: [ContainerConfiguration](#containerconfiguration)
+* **environmentVariables**: [EnvironmentVariable](#environmentvariable)[]
 * **forceUpdateTag**: string
-* **outputs**: Dictionary<string,Object> (ReadOnly)
+* **outputs**: [DeploymentScriptPropertiesBaseOutputs](#deploymentscriptpropertiesbaseoutputs) (ReadOnly)
 * **primaryScriptUri**: string
 * **provisioningState**: 'Canceled' | 'Creating' | 'Failed' | 'ProvisioningResources' | 'Running' | 'Succeeded' (ReadOnly)
 * **retentionInterval**: string (Required)
 * **scriptContent**: string
-* **status**: ScriptStatus (ReadOnly)
-* **storageAccountSettings**: StorageAccountConfiguration
+* **status**: [ScriptStatus](#scriptstatus) (ReadOnly)
+* **storageAccountSettings**: [StorageAccountConfiguration](#storageaccountconfiguration)
 * **supportingScriptUris**: string[]
 * **timeout**: string
 
-## Dictionary<string,Object>
+## DeploymentScriptPropertiesBaseOutputs
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: any

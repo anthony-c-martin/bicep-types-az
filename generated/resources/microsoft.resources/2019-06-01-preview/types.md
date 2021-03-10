@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: TemplateSpecProperties
-* **systemData**: systemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [TemplateSpecProperties](#templatespecproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TemplateSpecTags](#templatespectags)
 * **type**: 'Microsoft.Resources/templateSpecs' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Resources/templateSpecs/versions@2019-06-01-preview
@@ -19,21 +19,21 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: TemplateSpecVersionProperties (Required)
-* **systemData**: systemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [TemplateSpecVersionProperties](#templatespecversionproperties) (Required)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TemplateSpecVersionTags](#templatespecversiontags)
 * **type**: 'Microsoft.Resources/templateSpecs/versions' (ReadOnly, DeployTimeConstant)
 
 ## TemplateSpecProperties
 ### Properties
 * **description**: string
 * **displayName**: string
-* **versions**: Dictionary<string,TemplateSpecVersionInfo> (ReadOnly)
+* **versions**: [TemplateSpecPropertiesVersions](#templatespecpropertiesversions) (ReadOnly)
 
-## Dictionary<string,TemplateSpecVersionInfo>
+## TemplateSpecPropertiesVersions
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: TemplateSpecVersionInfo
+* **Additional Properties Type**: [TemplateSpecVersionInfo](#templatespecversioninfo)
 
 ## TemplateSpecVersionInfo
 ### Properties
@@ -41,7 +41,7 @@
 * **timeCreated**: string (ReadOnly)
 * **timeModified**: string (ReadOnly)
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string
@@ -50,33 +50,34 @@
 * **lastModifiedBy**: string
 * **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
 
-## Dictionary<string,String>
+## TemplateSpecTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## TemplateSpecVersionProperties
 ### Properties
-* **artifacts**: TemplateSpecArtifact[]
+* **artifacts**: [TemplateSpecArtifact](#templatespecartifact)[]
 * **description**: string
 * **template**: any
 
 ## TemplateSpecArtifact
 * **Discriminator**: kind
+
 ### Base Properties
 * **path**: string (Required)
-### template
+### TemplateSpecTemplateArtifact
 #### Properties
 * **kind**: 'template' (Required)
 * **template**: any (Required)
 
 
-## template
+## TemplateSpecTemplateArtifact
 ### Properties
 * **kind**: 'template' (Required)
 * **template**: any (Required)
 
-## Dictionary<string,String>
+## TemplateSpecVersionTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

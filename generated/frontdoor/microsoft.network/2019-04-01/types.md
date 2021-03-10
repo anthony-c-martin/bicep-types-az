@@ -7,37 +7,37 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: FrontDoorProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [FrontDoorProperties](#frontdoorproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Network/frontDoors' (ReadOnly, DeployTimeConstant)
 
 ## FrontDoorProperties
 ### Properties
-* **backendPools**: BackendPool[]
-* **backendPoolsSettings**: BackendPoolsSettings
+* **backendPools**: [BackendPool](#backendpool)[]
+* **backendPoolsSettings**: [BackendPoolsSettings](#backendpoolssettings)
 * **cname**: string (ReadOnly)
 * **enabledState**: 'Disabled' | 'Enabled'
 * **friendlyName**: string
-* **frontendEndpoints**: FrontendEndpoint[]
-* **healthProbeSettings**: HealthProbeSettingsModel[]
-* **loadBalancingSettings**: LoadBalancingSettingsModel[]
+* **frontendEndpoints**: [FrontendEndpoint](#frontendendpoint)[]
+* **healthProbeSettings**: [HealthProbeSettingsModel](#healthprobesettingsmodel)[]
+* **loadBalancingSettings**: [LoadBalancingSettingsModel](#loadbalancingsettingsmodel)[]
 * **provisioningState**: string (ReadOnly)
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
-* **routingRules**: RoutingRule[]
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
+* **routingRules**: [RoutingRule](#routingrule)[]
 
 ## BackendPool
 ### Properties
 * **id**: string
 * **name**: string
-* **properties**: BackendPoolProperties
+* **properties**: [BackendPoolProperties](#backendpoolproperties)
 * **type**: string (ReadOnly)
 
 ## BackendPoolProperties
 ### Properties
-* **backends**: Backend[]
-* **healthProbeSettings**: SubResource
-* **loadBalancingSettings**: SubResource
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
+* **backends**: [Backend](#backend)[]
+* **healthProbeSettings**: [SubResource](#subresource)
+* **loadBalancingSettings**: [SubResource](#subresource)
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
 
 ## Backend
 ### Properties
@@ -61,25 +61,25 @@
 ### Properties
 * **id**: string
 * **name**: string
-* **properties**: FrontendEndpointProperties
+* **properties**: [FrontendEndpointProperties](#frontendendpointproperties)
 * **type**: string (ReadOnly)
 
 ## FrontendEndpointProperties
 ### Properties
-* **customHttpsConfiguration**: CustomHttpsConfiguration (ReadOnly)
+* **customHttpsConfiguration**: [CustomHttpsConfiguration](#customhttpsconfiguration) (ReadOnly)
 * **customHttpsProvisioningState**: 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' | 'Failed' (ReadOnly)
 * **customHttpsProvisioningSubstate**: 'CertificateDeleted' | 'CertificateDeployed' | 'DeletingCertificate' | 'DeployingCertificate' | 'DomainControlValidationRequestApproved' | 'DomainControlValidationRequestRejected' | 'DomainControlValidationRequestTimedOut' | 'IssuingCertificate' | 'PendingDomainControlValidationREquestApproval' | 'SubmittingDomainControlValidationRequest' (ReadOnly)
 * **hostName**: string
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
 * **sessionAffinityEnabledState**: 'Disabled' | 'Enabled'
 * **sessionAffinityTtlSeconds**: int
-* **webApplicationFirewallPolicyLink**: schemas:31_webApplicationFirewallPolicyLink
+* **webApplicationFirewallPolicyLink**: [FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink](#frontendendpointupdateparameterswebapplicationfirewallpolicylink)
 
 ## CustomHttpsConfiguration
 ### Properties
 * **certificateSource**: 'AzureKeyVault' | 'FrontDoor'
-* **frontDoorCertificateSourceParameters**: FrontDoorCertificateSourceParameters
-* **keyVaultCertificateSourceParameters**: KeyVaultCertificateSourceParameters
+* **frontDoorCertificateSourceParameters**: [FrontDoorCertificateSourceParameters](#frontdoorcertificatesourceparameters)
+* **keyVaultCertificateSourceParameters**: [KeyVaultCertificateSourceParameters](#keyvaultcertificatesourceparameters)
 * **protocolType**: 'ServerNameIndication'
 
 ## FrontDoorCertificateSourceParameters
@@ -90,13 +90,13 @@
 ### Properties
 * **secretName**: string
 * **secretVersion**: string
-* **vault**: schemas:26_vault
+* **vault**: [KeyVaultCertificateSourceParametersVault](#keyvaultcertificatesourceparametersvault)
 
-## schemas:26_vault
+## KeyVaultCertificateSourceParametersVault
 ### Properties
 * **id**: string
 
-## schemas:31_webApplicationFirewallPolicyLink
+## FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink
 ### Properties
 * **id**: string
 
@@ -104,7 +104,7 @@
 ### Properties
 * **id**: string
 * **name**: string
-* **properties**: HealthProbeSettingsProperties
+* **properties**: [HealthProbeSettingsProperties](#healthprobesettingsproperties)
 * **type**: string (ReadOnly)
 
 ## HealthProbeSettingsProperties
@@ -112,19 +112,19 @@
 * **intervalInSeconds**: int
 * **path**: string
 * **protocol**: 'Http' | 'Https'
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
 
 ## LoadBalancingSettingsModel
 ### Properties
 * **id**: string
 * **name**: string
-* **properties**: LoadBalancingSettingsProperties
+* **properties**: [LoadBalancingSettingsProperties](#loadbalancingsettingsproperties)
 * **type**: string (ReadOnly)
 
 ## LoadBalancingSettingsProperties
 ### Properties
 * **additionalLatencyMilliseconds**: int
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
 * **sampleSize**: int
 * **successfulSamplesRequired**: int
 
@@ -132,30 +132,31 @@
 ### Properties
 * **id**: string
 * **name**: string
-* **properties**: RoutingRuleProperties
+* **properties**: [RoutingRuleProperties](#routingruleproperties)
 * **type**: string (ReadOnly)
 
 ## RoutingRuleProperties
 ### Properties
 * **acceptedProtocols**: 'Http' | 'Https'[]
 * **enabledState**: 'Disabled' | 'Enabled'
-* **frontendEndpoints**: SubResource[]
+* **frontendEndpoints**: [SubResource](#subresource)[]
 * **patternsToMatch**: string[]
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
-* **routeConfiguration**: RouteConfiguration
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
+* **routeConfiguration**: [RouteConfiguration](#routeconfiguration)
 
 ## RouteConfiguration
 * **Discriminator**: @odata.type
+
 ### Base Properties
-### #Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration
+### ForwardingConfiguration
 #### Properties
 * **@odata.type**: '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration' (Required)
-* **backendPool**: SubResource
-* **cacheConfiguration**: CacheConfiguration
+* **backendPool**: [SubResource](#subresource)
+* **cacheConfiguration**: [CacheConfiguration](#cacheconfiguration)
 * **customForwardingPath**: string
 * **forwardingProtocol**: 'HttpOnly' | 'HttpsOnly' | 'MatchRequest'
 
-### #Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration
+### RedirectConfiguration
 #### Properties
 * **@odata.type**: '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration' (Required)
 * **customFragment**: string
@@ -166,11 +167,11 @@
 * **redirectType**: 'Found' | 'Moved' | 'PermanentRedirect' | 'TemporaryRedirect'
 
 
-## #Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration
+## ForwardingConfiguration
 ### Properties
 * **@odata.type**: '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration' (Required)
-* **backendPool**: SubResource
-* **cacheConfiguration**: CacheConfiguration
+* **backendPool**: [SubResource](#subresource)
+* **cacheConfiguration**: [CacheConfiguration](#cacheconfiguration)
 * **customForwardingPath**: string
 * **forwardingProtocol**: 'HttpOnly' | 'HttpsOnly' | 'MatchRequest'
 
@@ -179,7 +180,7 @@
 * **dynamicCompression**: 'Disabled' | 'Enabled'
 * **queryParameterStripDirective**: 'StripAll' | 'StripNone'
 
-## #Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration
+## RedirectConfiguration
 ### Properties
 * **@odata.type**: '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration' (Required)
 * **customFragment**: string
@@ -189,7 +190,7 @@
 * **redirectProtocol**: 'HttpOnly' | 'HttpsOnly' | 'MatchRequest'
 * **redirectType**: 'Found' | 'Moved' | 'PermanentRedirect' | 'TemporaryRedirect'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

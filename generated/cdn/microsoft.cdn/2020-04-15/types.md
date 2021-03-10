@@ -8,9 +8,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CdnWebApplicationFirewallPolicyProperties
-* **sku**: Sku (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [CdnWebApplicationFirewallPolicyProperties](#cdnwebapplicationfirewallpolicyproperties)
+* **sku**: [Sku](#sku) (Required)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Cdn/CdnWebApplicationFirewallPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles@2020-04-15
@@ -20,9 +20,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ProfileProperties
-* **sku**: Sku (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [ProfileProperties](#profileproperties)
+* **sku**: [Sku](#sku) (Required)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Cdn/profiles' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles/endpoints@2020-04-15
@@ -32,8 +32,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: EndpointProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [EndpointProperties](#endpointproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Cdn/profiles/endpoints' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles/endpoints/customDomains@2020-04-15
@@ -42,7 +42,7 @@
 * **apiVersion**: '2020-04-15' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CustomDomainPropertiesParameters
+* **properties**: [CustomDomainPropertiesParameters](#customdomainpropertiesparameters)
 * **type**: 'Microsoft.Cdn/profiles/endpoints/customDomains' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles/endpoints/originGroups@2020-04-15
@@ -51,7 +51,7 @@
 * **apiVersion**: '2020-04-15' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: OriginGroupProperties
+* **properties**: [OriginGroupProperties](#origingroupproperties)
 * **type**: 'Microsoft.Cdn/profiles/endpoints/originGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles/endpoints/origins@2020-04-15
@@ -60,35 +60,35 @@
 * **apiVersion**: '2020-04-15' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: OriginProperties
+* **properties**: [OriginProperties](#originproperties)
 * **type**: 'Microsoft.Cdn/profiles/endpoints/origins' (ReadOnly, DeployTimeConstant)
 
 ## CdnWebApplicationFirewallPolicyProperties
 ### Properties
-* **customRules**: CustomRuleList
-* **endpointLinks**: CdnEndpoint[] (ReadOnly)
-* **managedRules**: ManagedRuleSetList
-* **policySettings**: policySettings
+* **customRules**: [CustomRuleList](#customrulelist)
+* **endpointLinks**: [CdnEndpoint](#cdnendpoint)[] (ReadOnly)
+* **managedRules**: [ManagedRuleSetList](#managedrulesetlist)
+* **policySettings**: [PolicySettings](#policysettings)
 * **provisioningState**: 'Creating' | 'Failed' | 'Succeeded' (ReadOnly)
-* **rateLimitRules**: RateLimitRuleList
+* **rateLimitRules**: [RateLimitRuleList](#ratelimitrulelist)
 * **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
 
 ## CustomRuleList
 ### Properties
-* **rules**: CustomRule[]
+* **rules**: [CustomRule](#customrule)[]
 
 ## CustomRule
 ### Properties
 * **action**: 'Allow' | 'Block' | 'Log' | 'Redirect' (Required)
 * **enabledState**: 'Disabled' | 'Enabled'
-* **matchConditions**: MatchCondition[] (Required)
+* **matchConditions**: [MatchCondition](#matchcondition)[] (Required)
 * **name**: string (Required)
 * **priority**: int (Required)
 
 ## MatchCondition
 ### Properties
 * **matchValue**: string[] (Required)
-* **matchVariable**: 'Cookies' | 'PostArgs' | 'QueryString' | 'RemoteAddr' | 'RequestBody' | 'RequestHeader' | 'RequestMethod' | 'RequestUri' | 'SocketAddr' (Required)
+* **matchVariable**: 'Cookies' | 'HttpVersion' | 'IsDevice' | 'PostArgs' | 'QueryString' | 'RemoteAddr' | 'RemoteAddress' | 'RequestBody' | 'RequestHeader' | 'RequestMethod' | 'RequestScheme' | 'RequestUri' | 'SocketAddr' | 'UrlFileExtension' | 'UrlFileName' | 'UrlPath' (Required)
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GeoMatch' | 'GreaterThan' | 'GreaterThanOrEqual' | 'IPMatch' | 'LessThan' | 'LessThanOrEqual' | 'RegEx' (Required)
 * **selector**: string
@@ -100,19 +100,19 @@
 
 ## ManagedRuleSetList
 ### Properties
-* **managedRuleSets**: ManagedRuleSet[]
+* **managedRuleSets**: [ManagedRuleSet](#managedruleset)[]
 
 ## ManagedRuleSet
 ### Properties
 * **anomalyScore**: int
-* **ruleGroupOverrides**: ManagedRuleGroupOverride[]
+* **ruleGroupOverrides**: [ManagedRuleGroupOverride](#managedrulegroupoverride)[]
 * **ruleSetType**: string (Required)
 * **ruleSetVersion**: string (Required)
 
 ## ManagedRuleGroupOverride
 ### Properties
 * **ruleGroupName**: string (Required)
-* **rules**: ManagedRuleOverride[]
+* **rules**: [ManagedRuleOverride](#managedruleoverride)[]
 
 ## ManagedRuleOverride
 ### Properties
@@ -120,7 +120,7 @@
 * **enabledState**: 'Disabled' | 'Enabled'
 * **ruleId**: string (Required)
 
-## policySettings
+## PolicySettings
 ### Properties
 * **defaultCustomBlockResponseBody**: string
 * **defaultCustomBlockResponseStatusCode**: int
@@ -130,13 +130,13 @@
 
 ## RateLimitRuleList
 ### Properties
-* **rules**: RateLimitRule[]
+* **rules**: [RateLimitRule](#ratelimitrule)[]
 
 ## RateLimitRule
 ### Properties
 * **action**: 'Allow' | 'Block' | 'Log' | 'Redirect' (Required)
 * **enabledState**: 'Disabled' | 'Enabled'
-* **matchConditions**: MatchCondition[] (Required)
+* **matchConditions**: [MatchCondition](#matchcondition)[] (Required)
 * **name**: string (Required)
 * **priority**: int (Required)
 * **rateLimitDurationInMinutes**: int (Required)
@@ -146,7 +146,7 @@
 ### Properties
 * **name**: 'Custom_Verizon' | 'Premium_ChinaCdn' | 'Premium_Verizon' | 'Standard_Akamai' | 'Standard_ChinaCdn' | 'Standard_Microsoft' | 'Standard_Verizon'
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -156,7 +156,7 @@
 * **provisioningState**: string (ReadOnly)
 * **resourceState**: 'Active' | 'Creating' | 'Deleting' | 'Disabled' (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -164,128 +164,129 @@
 ## EndpointProperties
 ### Properties
 * **contentTypesToCompress**: string[]
-* **defaultOriginGroup**: ResourceReference
-* **deliveryPolicy**: schemas:10_deliveryPolicy
-* **geoFilters**: GeoFilter[]
+* **defaultOriginGroup**: [ResourceReference](#resourcereference)
+* **deliveryPolicy**: [EndpointPropertiesUpdateParametersDeliveryPolicy](#endpointpropertiesupdateparametersdeliverypolicy)
+* **geoFilters**: [GeoFilter](#geofilter)[]
 * **hostName**: string (ReadOnly)
 * **isCompressionEnabled**: bool
 * **isHttpAllowed**: bool
 * **isHttpsAllowed**: bool
 * **optimizationType**: 'DynamicSiteAcceleration' | 'GeneralMediaStreaming' | 'GeneralWebDelivery' | 'LargeFileDownload' | 'VideoOnDemandMediaStreaming'
-* **originGroups**: DeepCreatedOriginGroup[]
+* **originGroups**: [DeepCreatedOriginGroup](#deepcreatedorigingroup)[]
 * **originHostHeader**: string
 * **originPath**: string
-* **origins**: DeepCreatedOrigin[] (Required)
+* **origins**: [DeepCreatedOrigin](#deepcreatedorigin)[] (Required)
 * **probePath**: string
 * **provisioningState**: string (ReadOnly)
 * **queryStringCachingBehavior**: 'BypassCaching' | 'IgnoreQueryString' | 'NotSet' | 'UseQueryString'
 * **resourceState**: 'Creating' | 'Deleting' | 'Running' | 'Starting' | 'Stopped' | 'Stopping' (ReadOnly)
-* **urlSigningKeys**: UrlSigningKey[]
-* **webApplicationFirewallPolicyLink**: schemas:10_webApplicationFirewallPolicyLink
+* **urlSigningKeys**: [UrlSigningKey](#urlsigningkey)[]
+* **webApplicationFirewallPolicyLink**: [EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink](#endpointpropertiesupdateparameterswebapplicationfirewallpolicylink)
 
 ## ResourceReference
 ### Properties
 * **id**: string
 
-## schemas:10_deliveryPolicy
+## EndpointPropertiesUpdateParametersDeliveryPolicy
 ### Properties
 * **description**: string
-* **rules**: DeliveryRule[] (Required)
+* **rules**: [DeliveryRule](#deliveryrule)[] (Required)
 
 ## DeliveryRule
 ### Properties
-* **actions**: DeliveryRuleAction[] (Required)
-* **conditions**: DeliveryRuleCondition[]
+* **actions**: [DeliveryRuleAction](#deliveryruleaction)[] (Required)
+* **conditions**: [DeliveryRuleCondition](#deliveryrulecondition)[]
 * **name**: string
 * **order**: int (Required)
 
 ## DeliveryRuleAction
 * **Discriminator**: name
+
 ### Base Properties
-### CacheExpiration
+### DeliveryRuleCacheExpirationAction
 #### Properties
 * **name**: 'CacheExpiration' (Required)
-* **parameters**: CacheExpirationActionParameters (Required)
+* **parameters**: [CacheExpirationActionParameters](#cacheexpirationactionparameters) (Required)
 
-### CacheKeyQueryString
+### DeliveryRuleCacheKeyQueryStringAction
 #### Properties
 * **name**: 'CacheKeyQueryString' (Required)
-* **parameters**: CacheKeyQueryStringActionParameters (Required)
+* **parameters**: [CacheKeyQueryStringActionParameters](#cachekeyquerystringactionparameters) (Required)
 
-### ModifyRequestHeader
+### DeliveryRuleRequestHeaderAction
 #### Properties
 * **name**: 'ModifyRequestHeader' (Required)
-* **parameters**: HeaderActionParameters (Required)
+* **parameters**: [HeaderActionParameters](#headeractionparameters) (Required)
 
-### ModifyResponseHeader
+### DeliveryRuleResponseHeaderAction
 #### Properties
 * **name**: 'ModifyResponseHeader' (Required)
-* **parameters**: HeaderActionParameters (Required)
+* **parameters**: [HeaderActionParameters](#headeractionparameters) (Required)
 
-### UrlRedirect
+### UrlRedirectAction
 #### Properties
 * **name**: 'UrlRedirect' (Required)
-* **parameters**: UrlRedirectActionParameters (Required)
+* **parameters**: [UrlRedirectActionParameters](#urlredirectactionparameters) (Required)
 
-### UrlRewrite
+### UrlRewriteAction
 #### Properties
 * **name**: 'UrlRewrite' (Required)
-* **parameters**: UrlRewriteActionParameters (Required)
+* **parameters**: [UrlRewriteActionParameters](#urlrewriteactionparameters) (Required)
 
-### UrlSigning
+### UrlSigningAction
 #### Properties
 * **name**: 'UrlSigning' (Required)
-* **parameters**: UrlSigningActionParameters (Required)
+* **parameters**: [UrlSigningActionParameters](#urlsigningactionparameters) (Required)
 
 
-## CacheExpiration
+## DeliveryRuleCacheExpirationAction
 ### Properties
 * **name**: 'CacheExpiration' (Required)
-* **parameters**: CacheExpirationActionParameters (Required)
+* **parameters**: [CacheExpirationActionParameters](#cacheexpirationactionparameters) (Required)
 
 ## CacheExpirationActionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters' (Required)
 * **cacheBehavior**: 'BypassCache' | 'Override' | 'SetIfMissing' (Required)
 * **cacheDuration**: string
-* **cacheType**: string (Required)
+* **cacheType**: 'All' (Required)
 
-## CacheKeyQueryString
+## DeliveryRuleCacheKeyQueryStringAction
 ### Properties
 * **name**: 'CacheKeyQueryString' (Required)
-* **parameters**: CacheKeyQueryStringActionParameters (Required)
+* **parameters**: [CacheKeyQueryStringActionParameters](#cachekeyquerystringactionparameters) (Required)
 
 ## CacheKeyQueryStringActionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheKeyQueryStringBehaviorActionParameters' (Required)
 * **queryParameters**: string
 * **queryStringBehavior**: 'Exclude' | 'ExcludeAll' | 'Include' | 'IncludeAll' (Required)
 
-## ModifyRequestHeader
+## DeliveryRuleRequestHeaderAction
 ### Properties
 * **name**: 'ModifyRequestHeader' (Required)
-* **parameters**: HeaderActionParameters (Required)
+* **parameters**: [HeaderActionParameters](#headeractionparameters) (Required)
 
 ## HeaderActionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters' (Required)
 * **headerAction**: 'Append' | 'Delete' | 'Overwrite' (Required)
 * **headerName**: string (Required)
 * **value**: string
 
-## ModifyResponseHeader
+## DeliveryRuleResponseHeaderAction
 ### Properties
 * **name**: 'ModifyResponseHeader' (Required)
-* **parameters**: HeaderActionParameters (Required)
+* **parameters**: [HeaderActionParameters](#headeractionparameters) (Required)
 
-## UrlRedirect
+## UrlRedirectAction
 ### Properties
 * **name**: 'UrlRedirect' (Required)
-* **parameters**: UrlRedirectActionParameters (Required)
+* **parameters**: [UrlRedirectActionParameters](#urlredirectactionparameters) (Required)
 
 ## UrlRedirectActionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters' (Required)
 * **customFragment**: string
 * **customHostname**: string
 * **customPath**: string
@@ -293,22 +294,22 @@
 * **destinationProtocol**: 'Http' | 'Https' | 'MatchRequest'
 * **redirectType**: 'Found' | 'Moved' | 'PermanentRedirect' | 'TemporaryRedirect' (Required)
 
-## UrlRewrite
+## UrlRewriteAction
 ### Properties
 * **name**: 'UrlRewrite' (Required)
-* **parameters**: UrlRewriteActionParameters (Required)
+* **parameters**: [UrlRewriteActionParameters](#urlrewriteactionparameters) (Required)
 
 ## UrlRewriteActionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters' (Required)
 * **destination**: string (Required)
 * **preserveUnmatchedPath**: bool
 * **sourcePattern**: string (Required)
 
-## UrlSigning
+## UrlSigningAction
 ### Properties
 * **name**: 'UrlSigning' (Required)
-* **parameters**: UrlSigningActionParameters (Required)
+* **parameters**: [UrlSigningActionParameters](#urlsigningactionparameters) (Required)
 
 ## UrlSigningActionParameters
 ### Properties
@@ -316,7 +317,7 @@
 * **algorithm**: 'SHA256'
 * **ipSubnets**: string[]
 * **keyId**: string (Required)
-* **parameterNameOverride**: UrlSigningParamIdentifier[]
+* **parameterNameOverride**: [UrlSigningParamIdentifier](#urlsigningparamidentifier)[]
 
 ## UrlSigningParamIdentifier
 ### Properties
@@ -325,255 +326,256 @@
 
 ## DeliveryRuleCondition
 * **Discriminator**: name
+
 ### Base Properties
-### Cookies
+### DeliveryRuleCookiesCondition
 #### Properties
 * **name**: 'Cookies' (Required)
-* **parameters**: CookiesMatchConditionParameters (Required)
+* **parameters**: [CookiesMatchConditionParameters](#cookiesmatchconditionparameters) (Required)
 
-### HttpVersion
+### DeliveryRuleHttpVersionCondition
 #### Properties
 * **name**: 'HttpVersion' (Required)
-* **parameters**: HttpVersionMatchConditionParameters (Required)
+* **parameters**: [HttpVersionMatchConditionParameters](#httpversionmatchconditionparameters) (Required)
 
-### IsDevice
+### DeliveryRuleIsDeviceCondition
 #### Properties
 * **name**: 'IsDevice' (Required)
-* **parameters**: IsDeviceMatchConditionParameters (Required)
+* **parameters**: [IsDeviceMatchConditionParameters](#isdevicematchconditionparameters) (Required)
 
-### PostArgs
+### DeliveryRulePostArgsCondition
 #### Properties
 * **name**: 'PostArgs' (Required)
-* **parameters**: PostArgsMatchConditionParameters (Required)
+* **parameters**: [PostArgsMatchConditionParameters](#postargsmatchconditionparameters) (Required)
 
-### QueryString
+### DeliveryRuleQueryStringCondition
 #### Properties
 * **name**: 'QueryString' (Required)
-* **parameters**: QueryStringMatchConditionParameters (Required)
+* **parameters**: [QueryStringMatchConditionParameters](#querystringmatchconditionparameters) (Required)
 
-### RemoteAddress
+### DeliveryRuleRemoteAddressCondition
 #### Properties
 * **name**: 'RemoteAddress' (Required)
-* **parameters**: RemoteAddressMatchConditionParameters (Required)
+* **parameters**: [RemoteAddressMatchConditionParameters](#remoteaddressmatchconditionparameters) (Required)
 
-### RequestBody
+### DeliveryRuleRequestBodyCondition
 #### Properties
 * **name**: 'RequestBody' (Required)
-* **parameters**: RequestBodyMatchConditionParameters (Required)
+* **parameters**: [RequestBodyMatchConditionParameters](#requestbodymatchconditionparameters) (Required)
 
-### RequestHeader
+### DeliveryRuleRequestHeaderCondition
 #### Properties
 * **name**: 'RequestHeader' (Required)
-* **parameters**: RequestHeaderMatchConditionParameters (Required)
+* **parameters**: [RequestHeaderMatchConditionParameters](#requestheadermatchconditionparameters) (Required)
 
-### RequestMethod
+### DeliveryRuleRequestMethodCondition
 #### Properties
 * **name**: 'RequestMethod' (Required)
-* **parameters**: RequestMethodMatchConditionParameters (Required)
+* **parameters**: [RequestMethodMatchConditionParameters](#requestmethodmatchconditionparameters) (Required)
 
-### RequestScheme
+### DeliveryRuleRequestSchemeCondition
 #### Properties
 * **name**: 'RequestScheme' (Required)
-* **parameters**: RequestSchemeMatchConditionParameters (Required)
+* **parameters**: [RequestSchemeMatchConditionParameters](#requestschemematchconditionparameters) (Required)
 
-### RequestUri
+### DeliveryRuleRequestUriCondition
 #### Properties
 * **name**: 'RequestUri' (Required)
-* **parameters**: RequestUriMatchConditionParameters (Required)
+* **parameters**: [RequestUriMatchConditionParameters](#requesturimatchconditionparameters) (Required)
 
-### UrlFileExtension
+### DeliveryRuleUrlFileExtensionCondition
 #### Properties
 * **name**: 'UrlFileExtension' (Required)
-* **parameters**: UrlFileExtensionMatchConditionParameters (Required)
+* **parameters**: [UrlFileExtensionMatchConditionParameters](#urlfileextensionmatchconditionparameters) (Required)
 
-### UrlFileName
+### DeliveryRuleUrlFileNameCondition
 #### Properties
 * **name**: 'UrlFileName' (Required)
-* **parameters**: UrlFileNameMatchConditionParameters (Required)
+* **parameters**: [UrlFileNameMatchConditionParameters](#urlfilenamematchconditionparameters) (Required)
 
-### UrlPath
+### DeliveryRuleUrlPathCondition
 #### Properties
 * **name**: 'UrlPath' (Required)
-* **parameters**: UrlPathMatchConditionParameters (Required)
+* **parameters**: [UrlPathMatchConditionParameters](#urlpathmatchconditionparameters) (Required)
 
 
-## Cookies
+## DeliveryRuleCookiesCondition
 ### Properties
 * **name**: 'Cookies' (Required)
-* **parameters**: CookiesMatchConditionParameters (Required)
+* **parameters**: [CookiesMatchConditionParameters](#cookiesmatchconditionparameters) (Required)
 
 ## CookiesMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **selector**: string
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## HttpVersion
+## DeliveryRuleHttpVersionCondition
 ### Properties
 * **name**: 'HttpVersion' (Required)
-* **parameters**: HttpVersionMatchConditionParameters (Required)
+* **parameters**: [HttpVersionMatchConditionParameters](#httpversionmatchconditionparameters) (Required)
 
 ## HttpVersionMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
-* **operator**: string (Required)
+* **operator**: 'Equal' (Required)
 
-## IsDevice
+## DeliveryRuleIsDeviceCondition
 ### Properties
 * **name**: 'IsDevice' (Required)
-* **parameters**: IsDeviceMatchConditionParameters (Required)
+* **parameters**: [IsDeviceMatchConditionParameters](#isdevicematchconditionparameters) (Required)
 
 ## IsDeviceMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters' (Required)
 * **matchValues**: 'Desktop' | 'Mobile'[]
 * **negateCondition**: bool
-* **operator**: string (Required)
+* **operator**: 'Equal' (Required)
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## PostArgs
+## DeliveryRulePostArgsCondition
 ### Properties
 * **name**: 'PostArgs' (Required)
-* **parameters**: PostArgsMatchConditionParameters (Required)
+* **parameters**: [PostArgsMatchConditionParameters](#postargsmatchconditionparameters) (Required)
 
 ## PostArgsMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **selector**: string
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## QueryString
+## DeliveryRuleQueryStringCondition
 ### Properties
 * **name**: 'QueryString' (Required)
-* **parameters**: QueryStringMatchConditionParameters (Required)
+* **parameters**: [QueryStringMatchConditionParameters](#querystringmatchconditionparameters) (Required)
 
 ## QueryStringMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## RemoteAddress
+## DeliveryRuleRemoteAddressCondition
 ### Properties
 * **name**: 'RemoteAddress' (Required)
-* **parameters**: RemoteAddressMatchConditionParameters (Required)
+* **parameters**: [RemoteAddressMatchConditionParameters](#remoteaddressmatchconditionparameters) (Required)
 
 ## RemoteAddressMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'GeoMatch' | 'IPMatch' (Required)
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## RequestBody
+## DeliveryRuleRequestBodyCondition
 ### Properties
 * **name**: 'RequestBody' (Required)
-* **parameters**: RequestBodyMatchConditionParameters (Required)
+* **parameters**: [RequestBodyMatchConditionParameters](#requestbodymatchconditionparameters) (Required)
 
 ## RequestBodyMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## RequestHeader
+## DeliveryRuleRequestHeaderCondition
 ### Properties
 * **name**: 'RequestHeader' (Required)
-* **parameters**: RequestHeaderMatchConditionParameters (Required)
+* **parameters**: [RequestHeaderMatchConditionParameters](#requestheadermatchconditionparameters) (Required)
 
 ## RequestHeaderMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **selector**: string
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## RequestMethod
+## DeliveryRuleRequestMethodCondition
 ### Properties
 * **name**: 'RequestMethod' (Required)
-* **parameters**: RequestMethodMatchConditionParameters (Required)
+* **parameters**: [RequestMethodMatchConditionParameters](#requestmethodmatchconditionparameters) (Required)
 
 ## RequestMethodMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters' (Required)
 * **matchValues**: 'DELETE' | 'GET' | 'HEAD' | 'OPTIONS' | 'POST' | 'PUT' | 'TRACE'[]
 * **negateCondition**: bool
-* **operator**: string (Required)
+* **operator**: 'Equal' (Required)
 
-## RequestScheme
+## DeliveryRuleRequestSchemeCondition
 ### Properties
 * **name**: 'RequestScheme' (Required)
-* **parameters**: RequestSchemeMatchConditionParameters (Required)
+* **parameters**: [RequestSchemeMatchConditionParameters](#requestschemematchconditionparameters) (Required)
 
 ## RequestSchemeMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters' (Required)
 * **matchValues**: 'HTTP' | 'HTTPS'[]
 * **negateCondition**: bool
-* **operator**: string (Required)
+* **operator**: 'Equal' (Required)
 
-## RequestUri
+## DeliveryRuleRequestUriCondition
 ### Properties
 * **name**: 'RequestUri' (Required)
-* **parameters**: RequestUriMatchConditionParameters (Required)
+* **parameters**: [RequestUriMatchConditionParameters](#requesturimatchconditionparameters) (Required)
 
 ## RequestUriMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## UrlFileExtension
+## DeliveryRuleUrlFileExtensionCondition
 ### Properties
 * **name**: 'UrlFileExtension' (Required)
-* **parameters**: UrlFileExtensionMatchConditionParameters (Required)
+* **parameters**: [UrlFileExtensionMatchConditionParameters](#urlfileextensionmatchconditionparameters) (Required)
 
 ## UrlFileExtensionMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## UrlFileName
+## DeliveryRuleUrlFileNameCondition
 ### Properties
 * **name**: 'UrlFileName' (Required)
-* **parameters**: UrlFileNameMatchConditionParameters (Required)
+* **parameters**: [UrlFileNameMatchConditionParameters](#urlfilenamematchconditionparameters) (Required)
 
 ## UrlFileNameMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **transforms**: 'Lowercase' | 'Uppercase'[]
 
-## UrlPath
+## DeliveryRuleUrlPathCondition
 ### Properties
 * **name**: 'UrlPath' (Required)
-* **parameters**: UrlPathMatchConditionParameters (Required)
+* **parameters**: [UrlPathMatchConditionParameters](#urlpathmatchconditionparameters) (Required)
 
 ## UrlPathMatchConditionParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters' (Required)
 * **matchValues**: string[]
 * **negateCondition**: bool
 * **operator**: 'Any' | 'BeginsWith' | 'Contains' | 'EndsWith' | 'Equal' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' | 'Wildcard' (Required)
@@ -588,13 +590,13 @@
 ## DeepCreatedOriginGroup
 ### Properties
 * **name**: string (Required)
-* **properties**: DeepCreatedOriginGroupProperties
+* **properties**: [DeepCreatedOriginGroupProperties](#deepcreatedorigingroupproperties)
 
 ## DeepCreatedOriginGroupProperties
 ### Properties
-* **healthProbeSettings**: HealthProbeParameters
-* **origins**: ResourceReference[] (Required)
-* **responseBasedOriginErrorDetectionSettings**: ResponseBasedOriginErrorDetectionParameters
+* **healthProbeSettings**: [HealthProbeParameters](#healthprobeparameters)
+* **origins**: [ResourceReference](#resourcereference)[] (Required)
+* **responseBasedOriginErrorDetectionSettings**: [ResponseBasedOriginErrorDetectionParameters](#responsebasedoriginerrordetectionparameters)
 * **trafficRestorationTimeToHealedOrNewEndpointsInMinutes**: int
 
 ## HealthProbeParameters
@@ -606,7 +608,7 @@
 
 ## ResponseBasedOriginErrorDetectionParameters
 ### Properties
-* **httpErrorRanges**: HttpErrorRangeParameters[]
+* **httpErrorRanges**: [HttpErrorRangeParameters](#httperrorrangeparameters)[]
 * **responseBasedDetectedErrorTypes**: 'None' | 'TcpAndHttpErrors' | 'TcpErrorsOnly'
 * **responseBasedFailoverThresholdPercentage**: int
 
@@ -618,7 +620,7 @@
 ## DeepCreatedOrigin
 ### Properties
 * **name**: string (Required)
-* **properties**: DeepCreatedOriginProperties
+* **properties**: [DeepCreatedOriginProperties](#deepcreatedoriginproperties)
 
 ## DeepCreatedOriginProperties
 ### Properties
@@ -637,22 +639,22 @@
 ## UrlSigningKey
 ### Properties
 * **keyId**: string (Required)
-* **keySourceParameters**: KeyVaultSigningKeyParameters (Required)
+* **keySourceParameters**: [KeyVaultSigningKeyParameters](#keyvaultsigningkeyparameters) (Required)
 
 ## KeyVaultSigningKeyParameters
 ### Properties
-* **@odata.type**: string (Required)
+* **@odata.type**: '#Microsoft.Azure.Cdn.Models.KeyVaultSigningKeyParameters' (Required)
 * **resourceGroupName**: string (Required)
 * **secretName**: string (Required)
 * **secretVersion**: string (Required)
 * **subscriptionId**: string (Required)
 * **vaultName**: string (Required)
 
-## schemas:10_webApplicationFirewallPolicyLink
+## EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink
 ### Properties
 * **id**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -668,11 +670,11 @@
 
 ## OriginGroupProperties
 ### Properties
-* **healthProbeSettings**: HealthProbeParameters
-* **origins**: ResourceReference[]
+* **healthProbeSettings**: [HealthProbeParameters](#healthprobeparameters)
+* **origins**: [ResourceReference](#resourcereference)[]
 * **provisioningState**: string (ReadOnly)
 * **resourceState**: 'Active' | 'Creating' | 'Deleting' (ReadOnly)
-* **responseBasedOriginErrorDetectionSettings**: ResponseBasedOriginErrorDetectionParameters
+* **responseBasedOriginErrorDetectionSettings**: [ResponseBasedOriginErrorDetectionParameters](#responsebasedoriginerrordetectionparameters)
 * **trafficRestorationTimeToHealedOrNewEndpointsInMinutes**: int
 
 ## OriginProperties

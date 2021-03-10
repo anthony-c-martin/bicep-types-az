@@ -1,14 +1,14 @@
 # Microsoft.Resources @ 2020-06-01
 
 ## Resource Microsoft.Resources/deployments@2020-06-01
-* **Valid Scope(s)**: Unknown
+* **Valid Scope(s)**: Tenant, ManagementGroup, Subscription, ResourceGroup
 ### Properties
 * **apiVersion**: '2020-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DeploymentProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [DeploymentProperties](#deploymentproperties) (Required)
+* **tags**: [DeploymentTags](#deploymenttags)
 * **type**: 'Microsoft.Resources/deployments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Resources/resourceGroups@2020-06-01
@@ -19,8 +19,8 @@
 * **location**: string (Required)
 * **managedBy**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ResourceGroupProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ResourceGroupProperties](#resourcegroupproperties)
+* **tags**: [ResourceGroupTags](#resourcegrouptags)
 * **type**: 'Microsoft.Resources/resourceGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Resources/tags@2020-06-01
@@ -29,30 +29,30 @@
 * **apiVersion**: '2020-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: 'default' (Required, DeployTimeConstant)
-* **properties**: Tags (Required)
+* **properties**: [Tags](#tags) (Required)
 * **type**: 'Microsoft.Resources/tags' (ReadOnly, DeployTimeConstant)
 
 ## DeploymentProperties
 ### Properties
 * **correlationId**: string (ReadOnly)
-* **debugSetting**: DebugSetting
-* **dependencies**: Dependency[] (ReadOnly)
+* **debugSetting**: [DebugSetting](#debugsetting)
+* **dependencies**: [Dependency](#dependency)[] (ReadOnly)
 * **duration**: string (ReadOnly)
-* **error**: ErrorResponse (ReadOnly)
-* **expressionEvaluationOptions**: ExpressionEvaluationOptions (WriteOnly)
+* **error**: [ErrorResponse](#errorresponse) (ReadOnly)
+* **expressionEvaluationOptions**: [ExpressionEvaluationOptions](#expressionevaluationoptions) (WriteOnly)
 * **mode**: 'Complete' | 'Incremental' (Required)
-* **onErrorDeployment**: OnErrorDeployment
-* **outputResources**: ResourceReference[] (ReadOnly)
+* **onErrorDeployment**: [OnErrorDeployment](#onerrordeployment)
+* **outputResources**: [ResourceReference](#resourcereference)[] (ReadOnly)
 * **outputs**: any (ReadOnly)
 * **parameters**: any
-* **parametersLink**: ParametersLink
-* **providers**: Provider[] (ReadOnly)
+* **parametersLink**: [ParametersLink](#parameterslink)
+* **providers**: [Provider](#provider)[] (ReadOnly)
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Created' | 'Creating' | 'Deleted' | 'Deleting' | 'Failed' | 'NotSpecified' | 'Ready' | 'Running' | 'Succeeded' | 'Updating' (ReadOnly)
 * **template**: any (WriteOnly)
 * **templateHash**: string (ReadOnly)
-* **templateLink**: TemplateLink
+* **templateLink**: [TemplateLink](#templatelink)
 * **timestamp**: string (ReadOnly)
-* **validatedResources**: ResourceReference[] (ReadOnly)
+* **validatedResources**: [ResourceReference](#resourcereference)[] (ReadOnly)
 
 ## DebugSetting
 ### Properties
@@ -60,7 +60,7 @@
 
 ## Dependency
 ### Properties
-* **dependsOn**: BasicDependency[] (ReadOnly)
+* **dependsOn**: [BasicDependency](#basicdependency)[] (ReadOnly)
 * **id**: string (ReadOnly)
 * **resourceName**: string (ReadOnly)
 * **resourceType**: string (ReadOnly)
@@ -73,9 +73,9 @@
 
 ## ErrorResponse
 ### Properties
-* **additionalInfo**: ErrorAdditionalInfo[] (ReadOnly)
+* **additionalInfo**: [ErrorAdditionalInfo](#erroradditionalinfo)[] (ReadOnly)
 * **code**: string (ReadOnly)
-* **details**: ErrorResponse[] (ReadOnly)
+* **details**: [ErrorResponse](#errorresponse)[] (ReadOnly)
 * **message**: string (ReadOnly)
 * **target**: string (ReadOnly)
 
@@ -109,26 +109,26 @@
 * **namespace**: string (ReadOnly)
 * **registrationPolicy**: string (ReadOnly)
 * **registrationState**: string (ReadOnly)
-* **resourceTypes**: ProviderResourceType[] (ReadOnly)
+* **resourceTypes**: [ProviderResourceType](#providerresourcetype)[] (ReadOnly)
 
 ## ProviderResourceType
 ### Properties
-* **aliases**: Alias[] (ReadOnly)
-* **apiProfiles**: ApiProfile[] (ReadOnly)
+* **aliases**: [Alias](#alias)[] (ReadOnly)
+* **apiProfiles**: [ApiProfile](#apiprofile)[] (ReadOnly)
 * **apiVersions**: string[] (ReadOnly)
 * **capabilities**: string (ReadOnly)
 * **defaultApiVersion**: string (ReadOnly)
 * **locations**: string[] (ReadOnly)
-* **properties**: Dictionary<string,String> (ReadOnly)
+* **properties**: [ProviderResourceTypeProperties](#providerresourcetypeproperties) (ReadOnly)
 * **resourceType**: string (ReadOnly)
 
 ## Alias
 ### Properties
-* **defaultMetadata**: AliasPathMetadata (ReadOnly)
+* **defaultMetadata**: [AliasPathMetadata](#aliaspathmetadata) (ReadOnly)
 * **defaultPath**: string (ReadOnly)
-* **defaultPattern**: AliasPattern (ReadOnly)
+* **defaultPattern**: [AliasPattern](#aliaspattern) (ReadOnly)
 * **name**: string (ReadOnly)
-* **paths**: AliasPath[] (ReadOnly)
+* **paths**: [AliasPath](#aliaspath)[] (ReadOnly)
 * **type**: 'Mask' | 'NotSpecified' | 'PlainText' (ReadOnly)
 
 ## AliasPathMetadata
@@ -145,16 +145,16 @@
 ## AliasPath
 ### Properties
 * **apiVersions**: string[] (ReadOnly)
-* **metadata**: AliasPathMetadata (ReadOnly)
+* **metadata**: [AliasPathMetadata](#aliaspathmetadata) (ReadOnly)
 * **path**: string (ReadOnly)
-* **pattern**: AliasPattern (ReadOnly)
+* **pattern**: [AliasPattern](#aliaspattern) (ReadOnly)
 
 ## ApiProfile
 ### Properties
 * **apiVersion**: string (ReadOnly)
 * **profileVersion**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ProviderResourceTypeProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -166,7 +166,7 @@
 * **relativePath**: string
 * **uri**: string
 
-## Dictionary<string,String>
+## DeploymentTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -175,16 +175,16 @@
 ### Properties
 * **provisioningState**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceGroupTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## Tags
 ### Properties
-* **tags**: Dictionary<string,String>
+* **tags**: [Tags](#tags)
 
-## Dictionary<string,String>
+## Tags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

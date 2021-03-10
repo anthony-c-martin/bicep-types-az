@@ -7,15 +7,15 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AlertRule (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [AlertRule](#alertrule) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Insights/alertrules' (ReadOnly, DeployTimeConstant)
 
 ## AlertRule
 ### Properties
-* **action**: RuleAction
-* **actions**: RuleAction[]
-* **condition**: RuleCondition (Required)
+* **action**: [RuleAction](#ruleaction)
+* **actions**: [RuleAction](#ruleaction)[]
+* **condition**: [RuleCondition](#rulecondition) (Required)
 * **description**: string
 * **isEnabled**: bool (Required)
 * **lastUpdatedTime**: string (ReadOnly)
@@ -24,53 +24,55 @@
 
 ## RuleAction
 * **Discriminator**: odata.type
+
 ### Base Properties
-### Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+### RuleEmailAction
 #### Properties
 * **customEmails**: string[]
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction' (Required)
 * **sendToServiceOwners**: bool
 
-### Microsoft.Azure.Management.Insights.Models.RuleWebhookAction
+### RuleWebhookAction
 #### Properties
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction' (Required)
-* **properties**: Dictionary<string,String>
+* **properties**: [RuleWebhookActionProperties](#rulewebhookactionproperties)
 * **serviceUri**: string
 
 
-## Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+## RuleEmailAction
 ### Properties
 * **customEmails**: string[]
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction' (Required)
 * **sendToServiceOwners**: bool
 
-## Microsoft.Azure.Management.Insights.Models.RuleWebhookAction
+## RuleWebhookAction
 ### Properties
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction' (Required)
-* **properties**: Dictionary<string,String>
+* **properties**: [RuleWebhookActionProperties](#rulewebhookactionproperties)
 * **serviceUri**: string
 
-## Dictionary<string,String>
+## RuleWebhookActionProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## RuleCondition
 * **Discriminator**: odata.type
+
 ### Base Properties
-* **dataSource**: RuleDataSource
-### Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition
+* **dataSource**: [RuleDataSource](#ruledatasource)
+### LocationThresholdRuleCondition
 #### Properties
 * **failedLocationCount**: int (Required)
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition' (Required)
 * **windowSize**: string
 
-### Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition
+### ManagementEventRuleCondition
 #### Properties
-* **aggregation**: ManagementEventAggregationCondition
+* **aggregation**: [ManagementEventAggregationCondition](#managementeventaggregationcondition)
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition' (Required)
 
-### Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition
+### ThresholdRuleCondition
 #### Properties
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition' (Required)
 * **operator**: 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
@@ -81,14 +83,15 @@
 
 ## RuleDataSource
 * **Discriminator**: odata.type
+
 ### Base Properties
 * **legacyResourceId**: string
 * **metricNamespace**: string
 * **resourceLocation**: string
 * **resourceUri**: string
-### Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource
+### RuleManagementEventDataSource
 #### Properties
-* **claims**: RuleManagementEventClaimsDataSource
+* **claims**: [RuleManagementEventClaimsDataSource](#rulemanagementeventclaimsdatasource)
 * **eventName**: string
 * **eventSource**: string
 * **level**: string
@@ -99,15 +102,15 @@
 * **status**: string
 * **subStatus**: string
 
-### Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource
+### RuleMetricDataSource
 #### Properties
 * **metricName**: string
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource' (Required)
 
 
-## Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource
+## RuleManagementEventDataSource
 ### Properties
-* **claims**: RuleManagementEventClaimsDataSource
+* **claims**: [RuleManagementEventClaimsDataSource](#rulemanagementeventclaimsdatasource)
 * **eventName**: string
 * **eventSource**: string
 * **level**: string
@@ -122,20 +125,20 @@
 ### Properties
 * **emailAddress**: string
 
-## Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource
+## RuleMetricDataSource
 ### Properties
 * **metricName**: string
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource' (Required)
 
-## Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition
+## LocationThresholdRuleCondition
 ### Properties
 * **failedLocationCount**: int (Required)
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition' (Required)
 * **windowSize**: string
 
-## Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition
+## ManagementEventRuleCondition
 ### Properties
-* **aggregation**: ManagementEventAggregationCondition
+* **aggregation**: [ManagementEventAggregationCondition](#managementeventaggregationcondition)
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition' (Required)
 
 ## ManagementEventAggregationCondition
@@ -144,7 +147,7 @@
 * **threshold**: int
 * **windowSize**: string
 
-## Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition
+## ThresholdRuleCondition
 ### Properties
 * **odata.type**: 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition' (Required)
 * **operator**: 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
@@ -152,7 +155,7 @@
 * **timeAggregation**: 'Average' | 'Last' | 'Maximum' | 'Minimum' | 'Total'
 * **windowSize**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

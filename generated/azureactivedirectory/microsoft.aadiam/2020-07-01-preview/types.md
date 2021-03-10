@@ -7,15 +7,15 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AzureADMetricsPropertiesFormat
-* **tags**: Dictionary<string,String>
+* **properties**: [AzureADMetricsPropertiesFormat](#azureadmetricspropertiesformat)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'microsoft.aadiam/azureADMetrics' (ReadOnly, DeployTimeConstant)
 
 ## AzureADMetricsPropertiesFormat
 ### Properties
 * **provisioningState**: 'Created' | 'Failed' | 'Succeeded' (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

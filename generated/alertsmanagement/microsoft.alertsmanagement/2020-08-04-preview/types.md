@@ -7,14 +7,14 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: HealthAlertProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [HealthAlertProperties](#healthalertproperties) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.AlertsManagement/resourceHealthAlertRules' (ReadOnly, DeployTimeConstant)
 
 ## HealthAlertProperties
 ### Properties
-* **actions**: HealthAlertAction[]
-* **criteria**: HealthAlertCriteria (Required)
+* **actions**: [HealthAlertAction](#healthalertaction)[]
+* **criteria**: [HealthAlertCriteria](#healthalertcriteria) (Required)
 * **description**: string (Required)
 * **enabled**: bool (Required)
 * **lastUpdatedTime**: string (ReadOnly)
@@ -23,31 +23,32 @@
 ## HealthAlertAction
 ### Properties
 * **actionGroupId**: string
-* **webHookProperties**: Dictionary<string,String>
+* **webHookProperties**: [HealthAlertActionWebHookProperties](#healthalertactionwebhookproperties)
 
-## Dictionary<string,String>
+## HealthAlertActionWebHookProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## HealthAlertCriteria
 ### Properties
-* **allOf**: HealthAlertCriterion[]
+* **allOf**: [HealthAlertCriterion](#healthalertcriterion)[]
 
 ## HealthAlertCriterion
 * **Discriminator**: namespace
+
 ### Base Properties
-### GuestVmHealth
+### VmGuestHealthAlertCriterion
 #### Properties
-* **healthStates**: HealthState[] (Required)
+* **healthStates**: [HealthState](#healthstate)[] (Required)
 * **monitorNames**: string[]
 * **monitorTypes**: string[]
 * **namespace**: 'GuestVmHealth' (Required)
 
 
-## GuestVmHealth
+## VmGuestHealthAlertCriterion
 ### Properties
-* **healthStates**: HealthState[] (Required)
+* **healthStates**: [HealthState](#healthstate)[] (Required)
 * **monitorNames**: string[]
 * **monitorTypes**: string[]
 * **namespace**: 'GuestVmHealth' (Required)
@@ -57,7 +58,7 @@
 * **healthStateName**: 'Critical' | 'Warning' (Required)
 * **severity**: int (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

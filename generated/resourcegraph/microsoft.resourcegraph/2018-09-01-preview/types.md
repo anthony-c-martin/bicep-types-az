@@ -8,8 +8,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: GraphQueryProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [GraphQueryProperties](#graphqueryproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.ResourceGraph/queries' (ReadOnly, DeployTimeConstant)
 
 ## GraphQueryProperties
@@ -19,7 +19,7 @@
 * **resultKind**: 'basic' (ReadOnly)
 * **timeModified**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

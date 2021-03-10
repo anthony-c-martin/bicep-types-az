@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2020-10-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: CacheIdentity
+* **identity**: [CacheIdentity](#cacheidentity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:7_properties
-* **sku**: schemas:7_sku
-* **systemData**: systemData (ReadOnly)
+* **properties**: [CacheProperties](#cacheproperties)
+* **sku**: [CacheSku](#cachesku)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
 * **tags**: any
 * **type**: 'Microsoft.StorageCache/caches' (ReadOnly, DeployTimeConstant)
 
@@ -21,8 +21,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: StorageTargetProperties
-* **systemData**: systemData (ReadOnly)
+* **properties**: [StorageTargetProperties](#storagetargetproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
 * **type**: 'Microsoft.StorageCache/caches/storageTargets' (ReadOnly, DeployTimeConstant)
 
 ## CacheIdentity
@@ -31,35 +31,35 @@
 * **tenantId**: string (ReadOnly)
 * **type**: 'None' | 'SystemAssigned'
 
-## schemas:7_properties
+## CacheProperties
 ### Properties
 * **cacheSizeGB**: int
-* **directoryServicesSettings**: CacheDirectorySettings
-* **encryptionSettings**: CacheEncryptionSettings
-* **health**: CacheHealth (ReadOnly)
+* **directoryServicesSettings**: [CacheDirectorySettings](#cachedirectorysettings)
+* **encryptionSettings**: [CacheEncryptionSettings](#cacheencryptionsettings)
+* **health**: [CacheHealth](#cachehealth) (ReadOnly)
 * **mountAddresses**: string[] (ReadOnly)
-* **networkSettings**: CacheNetworkSettings
+* **networkSettings**: [CacheNetworkSettings](#cachenetworksettings)
 * **provisioningState**: 'Cancelled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating'
-* **securitySettings**: CacheSecuritySettings
+* **securitySettings**: [CacheSecuritySettings](#cachesecuritysettings)
 * **subnet**: string
-* **upgradeStatus**: CacheUpgradeStatus
+* **upgradeStatus**: [CacheUpgradeStatus](#cacheupgradestatus)
 
 ## CacheDirectorySettings
 ### Properties
-* **activeDirectory**: CacheActiveDirectorySettings
-* **usernameDownload**: CacheUsernameDownloadSettings
+* **activeDirectory**: [CacheActiveDirectorySettings](#cacheactivedirectorysettings)
+* **usernameDownload**: [CacheUsernameDownloadSettings](#cacheusernamedownloadsettings)
 
 ## CacheActiveDirectorySettings
 ### Properties
 * **cacheNetBiosName**: string (Required)
-* **credentials**: schemas:13_credentials
+* **credentials**: [CacheActiveDirectorySettingsCredentials](#cacheactivedirectorysettingscredentials)
 * **domainJoined**: 'Error' | 'No' | 'Yes' (ReadOnly)
 * **domainName**: string (Required)
 * **domainNetBiosName**: string (Required)
 * **primaryDnsIpAddress**: string (Required)
 * **secondaryDnsIpAddress**: string
 
-## schemas:13_credentials
+## CacheActiveDirectorySettingsCredentials
 ### Properties
 * **password**: string (Required)
 * **username**: string (Required)
@@ -68,7 +68,7 @@
 ### Properties
 * **autoDownloadCertificate**: bool
 * **caCertificateURI**: string
-* **credentials**: schemas:14_credentials
+* **credentials**: [CacheUsernameDownloadSettingsCredentials](#cacheusernamedownloadsettingscredentials)
 * **encryptLdapConnection**: bool
 * **extendedGroups**: bool
 * **groupFileURI**: string
@@ -79,21 +79,21 @@
 * **usernameDownloaded**: 'Error' | 'No' | 'Yes' (ReadOnly)
 * **usernameSource**: 'AD' | 'File' | 'LDAP' | 'None'
 
-## schemas:14_credentials
+## CacheUsernameDownloadSettingsCredentials
 ### Properties
 * **bindDn**: string
 * **bindPassword**: string
 
 ## CacheEncryptionSettings
 ### Properties
-* **keyEncryptionKey**: KeyVaultKeyReference
+* **keyEncryptionKey**: [KeyVaultKeyReference](#keyvaultkeyreference)
 
 ## KeyVaultKeyReference
 ### Properties
 * **keyUrl**: string (Required)
-* **sourceVault**: schemas:17_sourceVault (Required)
+* **sourceVault**: [KeyVaultKeyReferenceSourceVault](#keyvaultkeyreferencesourcevault) (Required)
 
-## schemas:17_sourceVault
+## KeyVaultKeyReferenceSourceVault
 ### Properties
 * **id**: string
 
@@ -109,11 +109,11 @@
 
 ## CacheSecuritySettings
 ### Properties
-* **accessPolicies**: NfsAccessPolicy[]
+* **accessPolicies**: [NfsAccessPolicy](#nfsaccesspolicy)[]
 
 ## NfsAccessPolicy
 ### Properties
-* **accessRules**: NfsAccessRule[] (Required)
+* **accessRules**: [NfsAccessRule](#nfsaccessrule)[] (Required)
 * **name**: string (Required)
 
 ## NfsAccessRule
@@ -135,11 +135,11 @@
 * **lastFirmwareUpdate**: string (ReadOnly)
 * **pendingFirmwareVersion**: string (ReadOnly)
 
-## schemas:7_sku
+## CacheSku
 ### Properties
 * **name**: string
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string
@@ -150,21 +150,22 @@
 
 ## StorageTargetProperties
 * **Discriminator**: targetType
+
 ### Base Properties
-* **clfs**: ClfsTarget
-* **junctions**: NamespaceJunction[]
-* **nfs3**: Nfs3Target
+* **clfs**: [ClfsTarget](#clfstarget)
+* **junctions**: [NamespaceJunction](#namespacejunction)[]
+* **nfs3**: [Nfs3Target](#nfs3target)
 * **provisioningState**: 'Cancelled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating'
-* **unknown**: UnknownTarget
-### clfs
+* **unknown**: [UnknownTarget](#unknowntarget)
+### ClfsTargetProperties
 #### Properties
 * **targetType**: 'clfs' (Required)
 
-### nfs3
+### Nfs3TargetProperties
 #### Properties
 * **targetType**: 'nfs3' (Required)
 
-### unknown
+### UnknownTargetProperties
 #### Properties
 * **targetType**: 'unknown' (Required)
 
@@ -187,22 +188,22 @@
 
 ## UnknownTarget
 ### Properties
-* **unknownMap**: Dictionary<string,String>
+* **unknownMap**: [UnknownProperties](#unknownproperties)
 
-## Dictionary<string,String>
+## UnknownProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## clfs
+## ClfsTargetProperties
 ### Properties
 * **targetType**: 'clfs' (Required)
 
-## nfs3
+## Nfs3TargetProperties
 ### Properties
 * **targetType**: 'nfs3' (Required)
 
-## unknown
+## UnknownTargetProperties
 ### Properties
 * **targetType**: 'unknown' (Required)
 

@@ -6,7 +6,7 @@
 * **apiVersion**: '2020-03-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: 'default' (Required, DeployTimeConstant)
-* **properties**: ConfluentAgreementProperties
+* **properties**: [ConfluentAgreementProperties](#confluentagreementproperties)
 * **type**: 'Microsoft.Confluent/agreements' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Confluent/organizations@2020-03-01
@@ -16,8 +16,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:13_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [OrganizationResourceProperties](#organizationresourceproperties)
+* **tags**: [OrganizationResourceTags](#organizationresourcetags)
 * **type**: 'Microsoft.Confluent/organizations' (ReadOnly, DeployTimeConstant)
 
 ## ConfluentAgreementProperties
@@ -31,16 +31,16 @@
 * **retrieveDatetime**: string
 * **signature**: string
 
-## schemas:13_properties
+## OrganizationResourceProperties
 ### Properties
 * **createdTime**: string (ReadOnly)
-* **offerDetail**: schemas:12_offerDetail
+* **offerDetail**: [OrganizationResourcePropertiesOfferDetail](#organizationresourcepropertiesofferdetail)
 * **organizationId**: string (ReadOnly)
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Creating' | 'Deleted' | 'Deleting' | 'Failed' | 'NotSpecified' | 'Succeeded' | 'Updating' (ReadOnly)
 * **ssoUrl**: string (ReadOnly)
-* **userDetail**: schemas:12_userDetail
+* **userDetail**: [OrganizationResourcePropertiesUserDetail](#organizationresourcepropertiesuserdetail)
 
-## schemas:12_offerDetail
+## OrganizationResourcePropertiesOfferDetail
 ### Properties
 * **id**: string
 * **planId**: string
@@ -49,13 +49,13 @@
 * **status**: 'Failed' | 'InProgress' | 'PendingFulfillmentStart' | 'Reinstated' | 'Started' | 'Subscribed' | 'Succeeded' | 'Suspended' | 'Unsubscribed' | 'Updating'
 * **termUnit**: string
 
-## schemas:12_userDetail
+## OrganizationResourcePropertiesUserDetail
 ### Properties
 * **emailAddress**: string
 * **firstName**: string
 * **lastName**: string
 
-## Dictionary<string,String>
+## OrganizationResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

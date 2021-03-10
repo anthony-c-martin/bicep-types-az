@@ -8,35 +8,35 @@
 * **kind**: 'multistep' | 'ping'
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WebTestProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [WebTestProperties](#webtestproperties)
+* **tags**: [WebtestsResourceTags](#webtestsresourcetags)
 * **type**: 'Microsoft.Insights/webtests' (ReadOnly, DeployTimeConstant)
 
 ## WebTestProperties
 ### Properties
-* **Configuration**: schemas:4_Configuration
-* **ContentValidation**: schemas:4_ContentValidation
+* **Configuration**: [WebTestPropertiesConfiguration](#webtestpropertiesconfiguration)
+* **ContentValidation**: [WebTestPropertiesContentValidation](#webtestpropertiescontentvalidation)
 * **Description**: string
 * **Enabled**: bool
 * **ExpectedHttpStatusCode**: int
 * **Frequency**: int
 * **IgnoreHttpsStatusCode**: bool
 * **Kind**: 'basic' | 'multistep' | 'ping' | 'standard' (Required)
-* **Locations**: WebTestGeolocation[] (Required)
+* **Locations**: [WebTestGeolocation](#webtestgeolocation)[] (Required)
 * **Name**: string (Required)
 * **provisioningState**: string (ReadOnly)
-* **Request**: schemas:4_Request
+* **Request**: [WebTestPropertiesRequest](#webtestpropertiesrequest)
 * **RetryEnabled**: bool
 * **SSLCertRemainingLifetimeCheck**: int
 * **SSLCheck**: bool
 * **SyntheticMonitorId**: string (Required)
 * **Timeout**: int
 
-## schemas:4_Configuration
+## WebTestPropertiesConfiguration
 ### Properties
 * **WebTest**: string
 
-## schemas:4_ContentValidation
+## WebTestPropertiesContentValidation
 ### Properties
 * **ContentMatch**: string
 * **IgnoreCase**: bool
@@ -46,10 +46,10 @@
 ### Properties
 * **Id**: string
 
-## schemas:4_Request
+## WebTestPropertiesRequest
 ### Properties
 * **FollowRedirects**: bool
-* **Headers**: HeaderField[]
+* **Headers**: [HeaderField](#headerfield)[]
 * **HttpVerb**: string
 * **ParseDependentRequests**: bool
 * **RequestBody**: string
@@ -60,7 +60,7 @@
 * **key**: string
 * **value**: string
 
-## Dictionary<string,String>
+## WebtestsResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

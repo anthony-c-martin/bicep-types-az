@@ -5,11 +5,11 @@
 ### Properties
 * **apiVersion**: '2020-07-30-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: schemas:6_identity
+* **identity**: [MachineIdentity](#machineidentity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:6_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [MachineProperties](#machineproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.HybridCompute/machines' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.HybridCompute/machines/extensions@2020-07-30-preview
@@ -19,17 +19,17 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:13_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [MachineExtensionProperties](#machineextensionproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.HybridCompute/machines/extensions' (ReadOnly, DeployTimeConstant)
 
-## schemas:6_identity
+## MachineIdentity
 ### Properties
 * **principalId**: string (ReadOnly)
 * **tenantId**: string (ReadOnly)
 * **type**: string
 
-## schemas:6_properties
+## MachineProperties
 ### Properties
 * **adFqdn**: string (ReadOnly)
 * **agentVersion**: string (ReadOnly)
@@ -37,13 +37,13 @@
 * **displayName**: string (ReadOnly)
 * **dnsFqdn**: string (ReadOnly)
 * **domainName**: string (ReadOnly)
-* **errorDetails**: ErrorDetail[] (ReadOnly)
-* **extensions**: MachineExtensionInstanceView[]
+* **errorDetails**: [ErrorDetail](#errordetail)[] (ReadOnly)
+* **extensions**: [MachineExtensionInstanceView](#machineextensioninstanceview)[]
 * **lastStatusChange**: string (ReadOnly)
-* **locationData**: locationData
+* **locationData**: [LocationData](#locationdata)
 * **machineFqdn**: string (ReadOnly)
 * **osName**: string (ReadOnly)
-* **osProfile**: schemas:4_osProfile
+* **osProfile**: [MachinePropertiesOsProfile](#machinepropertiesosprofile)
 * **osSku**: string (ReadOnly)
 * **osVersion**: string (ReadOnly)
 * **provisioningState**: string (ReadOnly)
@@ -54,18 +54,18 @@
 ## ErrorDetail
 ### Properties
 * **code**: string (Required)
-* **details**: ErrorDetail[]
+* **details**: [ErrorDetail](#errordetail)[]
 * **message**: string (Required)
 * **target**: string
 
 ## MachineExtensionInstanceView
 ### Properties
 * **name**: string
-* **status**: schemas:17_status
+* **status**: [MachineExtensionInstanceViewStatus](#machineextensioninstanceviewstatus)
 * **type**: string
 * **typeHandlerVersion**: string
 
-## schemas:17_status
+## MachineExtensionInstanceViewStatus
 ### Properties
 * **code**: string
 * **displayStatus**: string
@@ -73,27 +73,27 @@
 * **message**: string
 * **time**: string
 
-## locationData
+## LocationData
 ### Properties
 * **city**: string
 * **countryOrRegion**: string
 * **district**: string
 * **name**: string (Required)
 
-## schemas:4_osProfile
+## MachinePropertiesOsProfile
 ### Properties
 * **computerName**: string (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:13_properties
+## MachineExtensionProperties
 ### Properties
 * **autoUpgradeMinorVersion**: bool
 * **forceUpdateTag**: string
-* **instanceView**: schemas:15_instanceView
+* **instanceView**: [MachineExtensionPropertiesInstanceView](#machineextensionpropertiesinstanceview)
 * **protectedSettings**: any
 * **provisioningState**: string (ReadOnly)
 * **publisher**: string
@@ -101,14 +101,14 @@
 * **type**: string
 * **typeHandlerVersion**: string
 
-## schemas:15_instanceView
+## MachineExtensionPropertiesInstanceView
 ### Properties
 * **name**: string
-* **status**: schemas:17_status
+* **status**: [MachineExtensionInstanceViewStatus](#machineextensioninstanceviewstatus)
 * **type**: string
 * **typeHandlerVersion**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

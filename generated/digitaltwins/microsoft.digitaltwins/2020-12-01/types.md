@@ -5,11 +5,11 @@
 ### Properties
 * **apiVersion**: '2020-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: DigitalTwinsIdentity
+* **identity**: [DigitalTwinsIdentity](#digitaltwinsidentity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DigitalTwinsProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [DigitalTwinsProperties](#digitaltwinsproperties)
+* **tags**: [DigitalTwinsResourceTags](#digitaltwinsresourcetags)
 * **type**: 'Microsoft.DigitalTwins/digitalTwinsInstances' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DigitalTwins/digitalTwinsInstances/endpoints@2020-12-01
@@ -18,7 +18,7 @@
 * **apiVersion**: '2020-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DigitalTwinsEndpointResourceProperties (Required)
+* **properties**: [DigitalTwinsEndpointResourceProperties](#digitaltwinsendpointresourceproperties) (Required)
 * **type**: 'Microsoft.DigitalTwins/digitalTwinsInstances/endpoints' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections@2020-12-01
@@ -27,7 +27,7 @@
 * **apiVersion**: '2020-12-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:29_properties (Required)
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties) (Required)
 * **type**: 'Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections' (ReadOnly, DeployTimeConstant)
 
 ## DigitalTwinsIdentity
@@ -41,7 +41,7 @@
 * **createdTime**: string (ReadOnly)
 * **hostName**: string (ReadOnly)
 * **lastUpdatedTime**: string (ReadOnly)
-* **privateEndpointConnections**: PrivateEndpointConnection[]
+* **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[]
 * **provisioningState**: 'Canceled' | 'Deleted' | 'Deleting' | 'Failed' | 'Moving' | 'Provisioning' | 'Restoring' | 'Succeeded' | 'Suspending' | 'Updating' | 'Warning' (ReadOnly)
 * **publicNetworkAccess**: 'Disabled' | 'Enabled'
 
@@ -49,23 +49,34 @@
 ### Properties
 * **id**: string (ReadOnly)
 * **name**: string (ReadOnly)
-* **properties**: schemas:29_properties (Required)
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties) (Required)
 * **type**: string (ReadOnly)
 
-## schemas:29_properties
+## PrivateEndpointConnectionProperties
 ### Properties
 * **groupIds**: string[]
-* **privateEndpoint**: schemas:29_properties
-* **privateLinkServiceConnectionState**: schemas:29_properties
+* **privateEndpoint**: [ConnectionPropertiesPrivateEndpoint](#connectionpropertiesprivateendpoint)
+* **privateLinkServiceConnectionState**: [ConnectionPropertiesPrivateLinkServiceConnectionState](#connectionpropertiesprivatelinkserviceconnectionstate)
 * **provisioningState**: 'Approved' | 'Disconnected' | 'Pending' | 'Rejected' (ReadOnly)
 
-## Dictionary<string,String>
+## ConnectionPropertiesPrivateEndpoint
+### Properties
+* **id**: string (ReadOnly)
+
+## ConnectionPropertiesPrivateLinkServiceConnectionState
+### Properties
+* **actionsRequired**: string
+* **description**: string (Required)
+* **status**: 'Approved' | 'Disconnected' | 'Pending' | 'Rejected' (Required)
+
+## DigitalTwinsResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## DigitalTwinsEndpointResourceProperties
 * **Discriminator**: endpointType
+
 ### Base Properties
 * **authenticationType**: 'IdentityBased' | 'KeyBased'
 * **createdTime**: string (ReadOnly)

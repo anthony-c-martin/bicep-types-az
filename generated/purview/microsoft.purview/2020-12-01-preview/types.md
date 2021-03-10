@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2020-12-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AccountProperties
-* **sku**: AccountSku
-* **tags**: Dictionary<string,String>
+* **properties**: [AccountProperties](#accountproperties)
+* **sku**: [AccountSku](#accountsku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Purview/accounts' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Purview/accounts/privateEndpointConnections@2020-12-01-preview
@@ -19,7 +19,7 @@
 * **apiVersion**: '2020-12-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 * **type**: 'Microsoft.Purview/accounts/privateEndpointConnections' (ReadOnly, DeployTimeConstant)
 
 ## Identity
@@ -30,14 +30,14 @@
 
 ## AccountProperties
 ### Properties
-* **cloudConnectors**: CloudConnectors
+* **cloudConnectors**: [CloudConnectors](#cloudconnectors)
 * **createdAt**: string (ReadOnly)
 * **createdBy**: string (ReadOnly)
 * **createdByObjectId**: string (ReadOnly)
-* **endpoints**: schemas:3_endpoints (ReadOnly)
+* **endpoints**: [AccountPropertiesEndpoints](#accountpropertiesendpoints) (ReadOnly)
 * **friendlyName**: string (ReadOnly)
-* **managedResources**: schemas:3_managedResources (ReadOnly)
-* **privateEndpointConnections**: PrivateEndpointConnection[] (ReadOnly)
+* **managedResources**: [AccountPropertiesManagedResources](#accountpropertiesmanagedresources) (ReadOnly)
+* **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[] (ReadOnly)
 * **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Moving' | 'SoftDeleted' | 'SoftDeleting' | 'Succeeded' | 'Unknown' (ReadOnly)
 * **publicNetworkAccess**: 'Disabled' | 'Enabled' | 'NotSpecified'
 
@@ -45,13 +45,13 @@
 ### Properties
 * **awsExternalId**: string (ReadOnly)
 
-## schemas:3_endpoints
+## AccountPropertiesEndpoints
 ### Properties
 * **catalog**: string (ReadOnly)
 * **guardian**: string (ReadOnly)
 * **scan**: string (ReadOnly)
 
-## schemas:3_managedResources
+## AccountPropertiesManagedResources
 ### Properties
 * **eventHubNamespace**: string (ReadOnly)
 * **resourceGroup**: string (ReadOnly)
@@ -61,13 +61,13 @@
 ### Properties
 * **id**: string (ReadOnly)
 * **name**: string (ReadOnly)
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 * **type**: string (ReadOnly)
 
 ## PrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: PrivateEndpoint
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState
+* **privateEndpoint**: [PrivateEndpoint](#privateendpoint)
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate)
 * **provisioningState**: string (ReadOnly)
 
 ## PrivateEndpoint
@@ -85,7 +85,7 @@
 * **capacity**: int
 * **name**: 'Standard'
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

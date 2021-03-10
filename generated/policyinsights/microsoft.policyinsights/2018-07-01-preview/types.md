@@ -1,19 +1,19 @@
 # Microsoft.PolicyInsights @ 2018-07-01-preview
 
 ## Resource Microsoft.PolicyInsights/remediations@2018-07-01-preview
-* **Valid Scope(s)**: Unknown
+* **Valid Scope(s)**: Subscription, ResourceGroup, Extension
 ### Properties
 * **apiVersion**: '2018-07-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RemediationProperties
+* **properties**: [RemediationProperties](#remediationproperties)
 * **type**: 'Microsoft.PolicyInsights/remediations' (ReadOnly, DeployTimeConstant)
 
 ## RemediationProperties
 ### Properties
 * **createdOn**: string (ReadOnly)
-* **deploymentStatus**: RemediationDeploymentSummary
-* **filters**: RemediationFilters
+* **deploymentStatus**: [RemediationDeploymentSummary](#remediationdeploymentsummary)
+* **filters**: [RemediationFilters](#remediationfilters)
 * **lastUpdatedOn**: string (ReadOnly)
 * **policyAssignmentId**: string
 * **policyDefinitionReferenceId**: string

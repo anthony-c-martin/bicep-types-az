@@ -7,16 +7,25 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ProfileProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ProfileProperties](#profileproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Network/trafficmanagerprofiles' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Network/trafficManagerUserMetricsKeys@2018-04-01
+* **Valid Scope(s)**: Subscription
+### Properties
+* **apiVersion**: '2018-04-01' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [UserMetricsProperties](#usermetricsproperties) (ReadOnly)
+* **type**: 'Microsoft.Network/trafficManagerUserMetricsKeys' (ReadOnly, DeployTimeConstant)
 
 ## ProfileProperties
 ### Properties
-* **dnsConfig**: DnsConfig
-* **endpoints**: Endpoint[]
+* **dnsConfig**: [DnsConfig](#dnsconfig)
+* **endpoints**: [Endpoint](#endpoint)[]
 * **maxReturn**: int
-* **monitorConfig**: MonitorConfig
+* **monitorConfig**: [MonitorConfig](#monitorconfig)
 * **profileStatus**: 'Disabled' | 'Enabled'
 * **trafficRoutingMethod**: 'Geographic' | 'MultiValue' | 'Performance' | 'Priority' | 'Subnet' | 'Weighted'
 * **trafficViewEnrollmentStatus**: 'Disabled' | 'Enabled'
@@ -31,29 +40,29 @@
 ### Properties
 * **id**: string
 * **name**: string
-* **properties**: EndpointProperties
+* **properties**: [EndpointProperties](#endpointproperties)
 * **type**: string
 
 ## EndpointProperties
 ### Properties
-* **customHeaders**: schemas:1_customHeadersItem[]
+* **customHeaders**: [EndpointPropertiesCustomHeadersItem](#endpointpropertiescustomheadersitem)[]
 * **endpointLocation**: string
 * **endpointMonitorStatus**: 'CheckingEndpoint' | 'Degraded' | 'Disabled' | 'Inactive' | 'Online' | 'Stopped'
 * **endpointStatus**: 'Disabled' | 'Enabled'
 * **geoMapping**: string[]
 * **minChildEndpoints**: int
 * **priority**: int
-* **subnets**: schemas:1_subnetsItem[]
+* **subnets**: [EndpointPropertiesSubnetsItem](#endpointpropertiessubnetsitem)[]
 * **target**: string
 * **targetResourceId**: string
 * **weight**: int
 
-## schemas:1_customHeadersItem
+## EndpointPropertiesCustomHeadersItem
 ### Properties
 * **name**: string
 * **value**: string
 
-## schemas:1_subnetsItem
+## EndpointPropertiesSubnetsItem
 ### Properties
 * **first**: string
 * **last**: string
@@ -61,8 +70,8 @@
 
 ## MonitorConfig
 ### Properties
-* **customHeaders**: schemas:1_customHeadersItem[]
-* **expectedStatusCodeRanges**: schemas:11_expectedStatusCodeRangesItem[]
+* **customHeaders**: [MonitorConfigCustomHeadersItem](#monitorconfigcustomheadersitem)[]
+* **expectedStatusCodeRanges**: [MonitorConfigExpectedStatusCodeRangesItem](#monitorconfigexpectedstatuscoderangesitem)[]
 * **intervalInSeconds**: int
 * **path**: string
 * **port**: int
@@ -71,13 +80,22 @@
 * **timeoutInSeconds**: int
 * **toleratedNumberOfFailures**: int
 
-## schemas:11_expectedStatusCodeRangesItem
+## MonitorConfigCustomHeadersItem
+### Properties
+* **name**: string
+* **value**: string
+
+## MonitorConfigExpectedStatusCodeRangesItem
 ### Properties
 * **max**: int
 * **min**: int
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
+
+## UserMetricsProperties
+### Properties
+* **key**: string (ReadOnly)
 

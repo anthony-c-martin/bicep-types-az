@@ -4,31 +4,31 @@
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
 * **apiVersion**: '2020-10-20' (ReadOnly, DeployTimeConstant)
-* **etag**: Dictionary<string,String>
+* **etag**: [MyWorkbookResourceEtag](#myworkbookresourceetag)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ManagedIdentity
+* **identity**: [ManagedIdentity](#managedidentity)
 * **kind**: 'shared' | 'user'
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MyWorkbookProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [MyWorkbookProperties](#myworkbookproperties)
+* **tags**: [MyWorkbookResourceTags](#myworkbookresourcetags)
 * **type**: 'Microsoft.Insights/myWorkbooks' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Insights/workbooks@2020-10-20
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
 * **apiVersion**: '2020-10-20' (ReadOnly, DeployTimeConstant)
-* **etag**: Dictionary<string,String>
+* **etag**: [ResourceEtag](#resourceetag)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ManagedIdentity
+* **identity**: [ManagedIdentity](#managedidentity)
 * **kind**: 'shared' | 'user'
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkbookProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [WorkbookProperties](#workbookproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Insights/workbooks' (ReadOnly, DeployTimeConstant)
 
-## Dictionary<string,String>
+## MyWorkbookResourceEtag
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -36,7 +36,7 @@
 ## ManagedIdentity
 ### Properties
 * **type**: 'None' | 'UserAssigned'
-* **userAssignedIdentities**: UserAssignedIdentities
+* **userAssignedIdentities**: [UserAssignedIdentities](#userassignedidentities)
 
 ## UserAssignedIdentities
 ### Properties
@@ -55,12 +55,12 @@
 * **userId**: string (ReadOnly)
 * **version**: string
 
-## Dictionary<string,String>
+## MyWorkbookResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceEtag
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -77,7 +77,7 @@
 * **userId**: string (ReadOnly)
 * **version**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

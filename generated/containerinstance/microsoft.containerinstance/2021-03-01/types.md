@@ -5,63 +5,63 @@
 ### Properties
 * **apiVersion**: '2021-03-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ContainerGroupIdentity
+* **identity**: [ContainerGroupIdentity](#containergroupidentity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:17_properties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [ContainerGroupProperties](#containergroupproperties) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.ContainerInstance/containerGroups' (ReadOnly, DeployTimeConstant)
 
 ## ContainerGroupIdentity
 ### Properties
 * **principalId**: string (ReadOnly)
 * **tenantId**: string (ReadOnly)
-* **type**: 'None' | 'SystemAssigned, UserAssigned' | 'SystemAssigned' | 'UserAssigned'
-* **userAssignedIdentities**: Dictionary<string,Schemas18UserAssignedIdentitiesValue>
+* **type**: 'None' | 'SystemAssigned' | 'SystemAssigned, UserAssigned' | 'UserAssigned'
+* **userAssignedIdentities**: [ContainerGroupIdentityUserAssignedIdentities](#containergroupidentityuserassignedidentities)
 
-## Dictionary<string,Schemas18UserAssignedIdentitiesValue>
+## ContainerGroupIdentityUserAssignedIdentities
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: schemas:18_userAssignedIdentitiesValue
+* **Additional Properties Type**: [Components10Wh5UdSchemasContainergroupidentityPropertiesUserassignedidentitiesAdditionalproperties](#components10wh5udschemascontainergroupidentitypropertiesuserassignedidentitiesadditionalproperties)
 
-## schemas:18_userAssignedIdentitiesValue
+## Components10Wh5UdSchemasContainergroupidentityPropertiesUserassignedidentitiesAdditionalproperties
 ### Properties
 * **clientId**: string (ReadOnly)
 * **principalId**: string (ReadOnly)
 
-## schemas:17_properties
+## ContainerGroupProperties
 ### Properties
-* **containers**: Container[] (Required)
-* **diagnostics**: ContainerGroupDiagnostics
-* **dnsConfig**: DnsConfiguration
-* **encryptionProperties**: EncryptionProperties
-* **imageRegistryCredentials**: ImageRegistryCredential[]
-* **initContainers**: InitContainerDefinition[]
-* **instanceView**: schemas:17_properties_instanceView (ReadOnly)
-* **ipAddress**: IpAddress
-* **networkProfile**: ContainerGroupNetworkProfile
+* **containers**: [Container](#container)[] (Required)
+* **diagnostics**: [ContainerGroupDiagnostics](#containergroupdiagnostics)
+* **dnsConfig**: [DnsConfiguration](#dnsconfiguration)
+* **encryptionProperties**: [EncryptionProperties](#encryptionproperties)
+* **imageRegistryCredentials**: [ImageRegistryCredential](#imageregistrycredential)[]
+* **initContainers**: [InitContainerDefinition](#initcontainerdefinition)[]
+* **instanceView**: [ContainerGroupPropertiesInstanceView](#containergrouppropertiesinstanceview) (ReadOnly)
+* **ipAddress**: [IpAddress](#ipaddress)
+* **networkProfile**: [ContainerGroupNetworkProfile](#containergroupnetworkprofile)
 * **osType**: 'Linux' | 'Windows' (Required)
 * **provisioningState**: string (ReadOnly)
 * **restartPolicy**: 'Always' | 'Never' | 'OnFailure'
 * **sku**: 'Dedicated' | 'Standard'
-* **volumes**: Volume[]
+* **volumes**: [Volume](#volume)[]
 
 ## Container
 ### Properties
 * **name**: string (Required)
-* **properties**: ContainerProperties (Required)
+* **properties**: [ContainerProperties](#containerproperties) (Required)
 
 ## ContainerProperties
 ### Properties
 * **command**: string[]
-* **environmentVariables**: EnvironmentVariable[]
+* **environmentVariables**: [EnvironmentVariable](#environmentvariable)[]
 * **image**: string (Required)
-* **instanceView**: schemas:1_instanceView (ReadOnly)
-* **livenessProbe**: ContainerProbe
-* **ports**: ContainerPort[]
-* **readinessProbe**: ContainerProbe
-* **resources**: ResourceRequirements (Required)
-* **volumeMounts**: VolumeMount[]
+* **instanceView**: [ContainerPropertiesInstanceView](#containerpropertiesinstanceview) (ReadOnly)
+* **livenessProbe**: [ContainerProbe](#containerprobe)
+* **ports**: [ContainerPort](#containerport)[]
+* **readinessProbe**: [ContainerProbe](#containerprobe)
+* **resources**: [ResourceRequirements](#resourcerequirements) (Required)
+* **volumeMounts**: [VolumeMount](#volumemount)[]
 
 ## EnvironmentVariable
 ### Properties
@@ -69,11 +69,11 @@
 * **secureValue**: string
 * **value**: string
 
-## schemas:1_instanceView
+## ContainerPropertiesInstanceView
 ### Properties
-* **currentState**: ContainerState (ReadOnly)
-* **events**: Event[] (ReadOnly)
-* **previousState**: ContainerState (ReadOnly)
+* **currentState**: [ContainerState](#containerstate) (ReadOnly)
+* **events**: [Event](#event)[] (ReadOnly)
+* **previousState**: [ContainerState](#containerstate) (ReadOnly)
 * **restartCount**: int (ReadOnly)
 
 ## ContainerState
@@ -95,9 +95,9 @@
 
 ## ContainerProbe
 ### Properties
-* **exec**: ContainerExec
+* **exec**: [ContainerExec](#containerexec)
 * **failureThreshold**: int
-* **httpGet**: ContainerHttpGet
+* **httpGet**: [ContainerHttpGet](#containerhttpget)
 * **initialDelaySeconds**: int
 * **periodSeconds**: int
 * **successThreshold**: int
@@ -109,7 +109,7 @@
 
 ## ContainerHttpGet
 ### Properties
-* **httpHeaders**: HttpHeaders
+* **httpHeaders**: [HttpHeaders](#httpheaders)
 * **path**: string
 * **port**: int (Required)
 * **scheme**: 'http' | 'https'
@@ -126,13 +126,13 @@
 
 ## ResourceRequirements
 ### Properties
-* **limits**: ResourceLimits
-* **requests**: ResourceRequests (Required)
+* **limits**: [ResourceLimits](#resourcelimits)
+* **requests**: [ResourceRequests](#resourcerequests) (Required)
 
 ## ResourceLimits
 ### Properties
 * **cpu**: int
-* **gpu**: GpuResource
+* **gpu**: [GpuResource](#gpuresource)
 * **memoryInGB**: int
 
 ## GpuResource
@@ -143,7 +143,7 @@
 ## ResourceRequests
 ### Properties
 * **cpu**: int (Required)
-* **gpu**: GpuResource
+* **gpu**: [GpuResource](#gpuresource)
 * **memoryInGB**: int (Required)
 
 ## VolumeMount
@@ -154,22 +154,22 @@
 
 ## ContainerGroupDiagnostics
 ### Properties
-* **logAnalytics**: LogAnalytics
+* **logAnalytics**: [LogAnalytics](#loganalytics)
 
 ## LogAnalytics
 ### Properties
 * **logType**: 'ContainerInsights' | 'ContainerInstanceLogs'
-* **metadata**: Dictionary<string,String>
+* **metadata**: [LogAnalyticsMetadata](#loganalyticsmetadata)
 * **workspaceId**: string (Required)
 * **workspaceKey**: string (Required)
-* **workspaceResourceId**: Dictionary<string,String>
+* **workspaceResourceId**: [LogAnalyticsWorkspaceResourceId](#loganalyticsworkspaceresourceid)
 
-## Dictionary<string,String>
+## LogAnalyticsMetadata
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## LogAnalyticsWorkspaceResourceId
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -195,26 +195,26 @@
 ## InitContainerDefinition
 ### Properties
 * **name**: string (Required)
-* **properties**: InitContainerPropertiesDefinition (Required)
+* **properties**: [InitContainerPropertiesDefinition](#initcontainerpropertiesdefinition) (Required)
 
 ## InitContainerPropertiesDefinition
 ### Properties
 * **command**: string[]
-* **environmentVariables**: EnvironmentVariable[]
+* **environmentVariables**: [EnvironmentVariable](#environmentvariable)[]
 * **image**: string
-* **instanceView**: schemas:46_instanceView (ReadOnly)
-* **volumeMounts**: VolumeMount[]
+* **instanceView**: [InitContainerPropertiesDefinitionInstanceView](#initcontainerpropertiesdefinitioninstanceview) (ReadOnly)
+* **volumeMounts**: [VolumeMount](#volumemount)[]
 
-## schemas:46_instanceView
+## InitContainerPropertiesDefinitionInstanceView
 ### Properties
-* **currentState**: ContainerState (ReadOnly)
-* **events**: Event[] (ReadOnly)
-* **previousState**: ContainerState (ReadOnly)
+* **currentState**: [ContainerState](#containerstate) (ReadOnly)
+* **events**: [Event](#event)[] (ReadOnly)
+* **previousState**: [ContainerState](#containerstate) (ReadOnly)
 * **restartCount**: int (ReadOnly)
 
-## schemas:17_properties_instanceView
+## ContainerGroupPropertiesInstanceView
 ### Properties
-* **events**: Event[] (ReadOnly)
+* **events**: [Event](#event)[] (ReadOnly)
 * **state**: string (ReadOnly)
 
 ## IpAddress
@@ -222,7 +222,7 @@
 * **dnsNameLabel**: string
 * **fqdn**: string (ReadOnly)
 * **ip**: string
-* **ports**: Port[] (Required)
+* **ports**: [Port](#port)[] (Required)
 * **type**: 'Private' | 'Public' (Required)
 
 ## Port
@@ -236,11 +236,11 @@
 
 ## Volume
 ### Properties
-* **azureFile**: AzureFileVolume
+* **azureFile**: [AzureFileVolume](#azurefilevolume)
 * **emptyDir**: any
-* **gitRepo**: GitRepoVolume
+* **gitRepo**: [GitRepoVolume](#gitrepovolume)
 * **name**: string (Required)
-* **secret**: Dictionary<string,String>
+* **secret**: [SecretVolume](#secretvolume)
 
 ## AzureFileVolume
 ### Properties
@@ -255,12 +255,12 @@
 * **repository**: string (Required)
 * **revision**: string
 
-## Dictionary<string,String>
+## SecretVolume
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

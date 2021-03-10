@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2020-03-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: CacheIdentity
+* **identity**: [CacheIdentity](#cacheidentity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:7_properties
-* **sku**: schemas:7_sku
-* **systemData**: systemData (ReadOnly)
+* **properties**: [CacheProperties](#cacheproperties)
+* **sku**: [CacheSku](#cachesku)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
 * **tags**: any
 * **type**: 'Microsoft.StorageCache/caches' (ReadOnly, DeployTimeConstant)
 
@@ -21,8 +21,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: StorageTargetProperties
-* **systemData**: systemData (ReadOnly)
+* **properties**: [StorageTargetProperties](#storagetargetproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
 * **type**: 'Microsoft.StorageCache/caches/storageTargets' (ReadOnly, DeployTimeConstant)
 
 ## CacheIdentity
@@ -31,28 +31,28 @@
 * **tenantId**: string (ReadOnly)
 * **type**: 'None' | 'SystemAssigned'
 
-## schemas:7_properties
+## CacheProperties
 ### Properties
 * **cacheSizeGB**: int
-* **encryptionSettings**: CacheEncryptionSettings
-* **health**: CacheHealth (ReadOnly)
+* **encryptionSettings**: [CacheEncryptionSettings](#cacheencryptionsettings)
+* **health**: [CacheHealth](#cachehealth) (ReadOnly)
 * **mountAddresses**: string[] (ReadOnly)
-* **networkSettings**: CacheNetworkSettings
+* **networkSettings**: [CacheNetworkSettings](#cachenetworksettings)
 * **provisioningState**: 'Cancelled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating'
-* **securitySettings**: CacheSecuritySettings
+* **securitySettings**: [CacheSecuritySettings](#cachesecuritysettings)
 * **subnet**: string
-* **upgradeStatus**: CacheUpgradeStatus
+* **upgradeStatus**: [CacheUpgradeStatus](#cacheupgradestatus)
 
 ## CacheEncryptionSettings
 ### Properties
-* **keyEncryptionKey**: KeyVaultKeyReference
+* **keyEncryptionKey**: [KeyVaultKeyReference](#keyvaultkeyreference)
 
 ## KeyVaultKeyReference
 ### Properties
 * **keyUrl**: string (Required)
-* **sourceVault**: schemas:12_sourceVault (Required)
+* **sourceVault**: [KeyVaultKeyReferenceSourceVault](#keyvaultkeyreferencesourcevault) (Required)
 
-## schemas:12_sourceVault
+## KeyVaultKeyReferenceSourceVault
 ### Properties
 * **id**: string
 
@@ -78,11 +78,11 @@
 * **lastFirmwareUpdate**: string (ReadOnly)
 * **pendingFirmwareVersion**: string (ReadOnly)
 
-## schemas:7_sku
+## CacheSku
 ### Properties
 * **name**: string
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string
@@ -93,21 +93,22 @@
 
 ## StorageTargetProperties
 * **Discriminator**: targetType
+
 ### Base Properties
-* **clfs**: ClfsTarget
-* **junctions**: NamespaceJunction[]
-* **nfs3**: Nfs3Target
+* **clfs**: [ClfsTarget](#clfstarget)
+* **junctions**: [NamespaceJunction](#namespacejunction)[]
+* **nfs3**: [Nfs3Target](#nfs3target)
 * **provisioningState**: 'Cancelled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating'
-* **unknown**: UnknownTarget
-### clfs
+* **unknown**: [UnknownTarget](#unknowntarget)
+### ClfsTargetProperties
 #### Properties
 * **targetType**: 'clfs' (Required)
 
-### nfs3
+### Nfs3TargetProperties
 #### Properties
 * **targetType**: 'nfs3' (Required)
 
-### unknown
+### UnknownTargetProperties
 #### Properties
 * **targetType**: 'unknown' (Required)
 
@@ -129,22 +130,22 @@
 
 ## UnknownTarget
 ### Properties
-* **unknownMap**: Dictionary<string,String>
+* **unknownMap**: [UnknownProperties](#unknownproperties)
 
-## Dictionary<string,String>
+## UnknownProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## clfs
+## ClfsTargetProperties
 ### Properties
 * **targetType**: 'clfs' (Required)
 
-## nfs3
+## Nfs3TargetProperties
 ### Properties
 * **targetType**: 'nfs3' (Required)
 
-## unknown
+## UnknownTargetProperties
 ### Properties
 * **targetType**: 'unknown' (Required)
 

@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2021-04-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ConnectedClusterIdentity (Required)
+* **identity**: [ConnectedClusterIdentity](#connectedclusteridentity) (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ConnectedClusterProperties (Required)
-* **systemData**: SystemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [ConnectedClusterProperties](#connectedclusterproperties) (Required)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Kubernetes/connectedClusters' (ReadOnly, DeployTimeConstant)
 
 ## ConnectedClusterIdentity
@@ -43,7 +43,7 @@
 * **lastModifiedBy**: string
 * **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

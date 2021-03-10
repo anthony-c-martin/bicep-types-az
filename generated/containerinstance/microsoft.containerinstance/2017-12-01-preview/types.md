@@ -7,46 +7,46 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:13_properties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [ContainerGroupProperties](#containergroupproperties) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.ContainerInstance/containerGroups' (ReadOnly, DeployTimeConstant)
 
-## schemas:13_properties
+## ContainerGroupProperties
 ### Properties
-* **containers**: Container[] (Required)
-* **imageRegistryCredentials**: ImageRegistryCredential[]
-* **instanceView**: schemas:13_properties_instanceView (ReadOnly)
-* **ipAddress**: IpAddress
+* **containers**: [Container](#container)[] (Required)
+* **imageRegistryCredentials**: [ImageRegistryCredential](#imageregistrycredential)[]
+* **instanceView**: [ContainerGroupPropertiesInstanceView](#containergrouppropertiesinstanceview) (ReadOnly)
+* **ipAddress**: [IpAddress](#ipaddress)
 * **osType**: 'Linux' | 'Windows' (Required)
 * **provisioningState**: string (ReadOnly)
 * **restartPolicy**: 'Always' | 'Never' | 'OnFailure'
-* **volumes**: Volume[]
+* **volumes**: [Volume](#volume)[]
 
 ## Container
 ### Properties
 * **name**: string (Required)
-* **properties**: ContainerProperties (Required)
+* **properties**: [ContainerProperties](#containerproperties) (Required)
 
 ## ContainerProperties
 ### Properties
 * **command**: string[]
-* **environmentVariables**: EnvironmentVariable[]
+* **environmentVariables**: [EnvironmentVariable](#environmentvariable)[]
 * **image**: string (Required)
-* **instanceView**: schemas:1_instanceView (ReadOnly)
-* **ports**: ContainerPort[]
-* **resources**: ResourceRequirements (Required)
-* **volumeMounts**: VolumeMount[]
+* **instanceView**: [ContainerPropertiesInstanceView](#containerpropertiesinstanceview) (ReadOnly)
+* **ports**: [ContainerPort](#containerport)[]
+* **resources**: [ResourceRequirements](#resourcerequirements) (Required)
+* **volumeMounts**: [VolumeMount](#volumemount)[]
 
 ## EnvironmentVariable
 ### Properties
 * **name**: string (Required)
 * **value**: string (Required)
 
-## schemas:1_instanceView
+## ContainerPropertiesInstanceView
 ### Properties
-* **currentState**: ContainerState (ReadOnly)
-* **events**: Event[] (ReadOnly)
-* **previousState**: ContainerState (ReadOnly)
+* **currentState**: [ContainerState](#containerstate) (ReadOnly)
+* **events**: [Event](#event)[] (ReadOnly)
+* **previousState**: [ContainerState](#containerstate) (ReadOnly)
 * **restartCount**: int (ReadOnly)
 
 ## ContainerState
@@ -73,8 +73,8 @@
 
 ## ResourceRequirements
 ### Properties
-* **limits**: ResourceLimits
-* **requests**: ResourceRequests (Required)
+* **limits**: [ResourceLimits](#resourcelimits)
+* **requests**: [ResourceRequests](#resourcerequests) (Required)
 
 ## ResourceLimits
 ### Properties
@@ -98,16 +98,16 @@
 * **server**: string (Required)
 * **username**: string (Required)
 
-## schemas:13_properties_instanceView
+## ContainerGroupPropertiesInstanceView
 ### Properties
-* **events**: Event[] (ReadOnly)
+* **events**: [Event](#event)[] (ReadOnly)
 * **state**: string (ReadOnly)
 
 ## IpAddress
 ### Properties
 * **ip**: string
-* **ports**: Port[] (Required)
-* **type**: string (Required)
+* **ports**: [Port](#port)[] (Required)
+* **type**: 'Public' (Required)
 
 ## Port
 ### Properties
@@ -116,11 +116,11 @@
 
 ## Volume
 ### Properties
-* **azureFile**: AzureFileVolume
+* **azureFile**: [AzureFileVolume](#azurefilevolume)
 * **emptyDir**: any
-* **gitRepo**: GitRepoVolume
+* **gitRepo**: [GitRepoVolume](#gitrepovolume)
 * **name**: string (Required)
-* **secret**: Dictionary<string,String>
+* **secret**: [SecretVolume](#secretvolume)
 
 ## AzureFileVolume
 ### Properties
@@ -135,12 +135,12 @@
 * **repository**: string (Required)
 * **revision**: string
 
-## Dictionary<string,String>
+## SecretVolume
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

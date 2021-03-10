@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2016-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ManagedServiceIdentity
+* **identity**: [ManagedServiceIdentity](#managedserviceidentity)
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:134_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [SiteProperties](#siteproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Web/sites' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/backups@2016-08-01
@@ -20,7 +20,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:49_properties
+* **properties**: [RestoreRequestProperties](#restorerequestproperties)
 * **type**: 'Microsoft.Web/sites/backups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/deployments@2016-08-01
@@ -30,7 +30,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:16_properties
+* **properties**: [DeploymentProperties](#deploymentproperties)
 * **type**: 'Microsoft.Web/sites/deployments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/domainOwnershipIdentifiers@2016-08-01
@@ -40,7 +40,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:109_properties
+* **properties**: [IdentifierProperties](#identifierproperties)
 * **type**: 'Microsoft.Web/sites/domainOwnershipIdentifiers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/extensions@2016-08-01
@@ -50,7 +50,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MSDeployCore
+* **properties**: [MSDeployCore](#msdeploycore)
 * **type**: 'Microsoft.Web/sites/extensions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/functions@2016-08-01
@@ -60,7 +60,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:21_properties
+* **properties**: [FunctionEnvelopeProperties](#functionenvelopeproperties)
 * **type**: 'Microsoft.Web/sites/functions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/hostNameBindings@2016-08-01
@@ -70,7 +70,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:24_properties
+* **properties**: [HostNameBindingProperties](#hostnamebindingproperties)
 * **type**: 'Microsoft.Web/sites/hostNameBindings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/hybridconnection@2016-08-01
@@ -80,7 +80,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:48_properties
+* **properties**: [RelayServiceConnectionEntityProperties](#relayserviceconnectionentityproperties)
 * **type**: 'Microsoft.Web/sites/hybridconnection' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/hybridConnectionNamespaces/relays@2016-08-01
@@ -90,7 +90,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:107_properties
+* **properties**: [HybridConnectionProperties](#hybridconnectionproperties)
 * **type**: 'Microsoft.Web/sites/hybridConnectionNamespaces/relays' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/instances/extensions@2016-08-01
@@ -100,7 +100,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MSDeployCore
+* **properties**: [MSDeployCore](#msdeploycore)
 * **type**: 'Microsoft.Web/sites/instances/extensions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/premieraddons@2016-08-01
@@ -111,8 +111,8 @@
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:39_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [PremierAddOnProperties](#premieraddonproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Web/sites/premieraddons' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/publicCertificates@2016-08-01
@@ -122,20 +122,30 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:46_properties
+* **properties**: [PublicCertificateProperties](#publiccertificateproperties)
 * **type**: 'Microsoft.Web/sites/publicCertificates' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Web/sites/siteextensions@2016-08-01
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2016-08-01' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **kind**: string (ReadOnly)
+* **name**: string (Required, DeployTimeConstant)
+* **properties**: [SiteExtensionInfoProperties](#siteextensioninfoproperties) (ReadOnly)
+* **type**: 'Microsoft.Web/sites/siteextensions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots@2016-08-01
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
 * **apiVersion**: '2016-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ManagedServiceIdentity
+* **identity**: [ManagedServiceIdentity](#managedserviceidentity)
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:134_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [SiteProperties](#siteproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Web/sites/slots' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/backups@2016-08-01
@@ -145,7 +155,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:49_properties
+* **properties**: [RestoreRequestProperties](#restorerequestproperties)
 * **type**: 'Microsoft.Web/sites/slots/backups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/deployments@2016-08-01
@@ -155,7 +165,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:16_properties
+* **properties**: [DeploymentProperties](#deploymentproperties)
 * **type**: 'Microsoft.Web/sites/slots/deployments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/domainOwnershipIdentifiers@2016-08-01
@@ -165,7 +175,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:109_properties
+* **properties**: [IdentifierProperties](#identifierproperties)
 * **type**: 'Microsoft.Web/sites/slots/domainOwnershipIdentifiers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/extensions@2016-08-01
@@ -175,7 +185,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MSDeployCore
+* **properties**: [MSDeployCore](#msdeploycore)
 * **type**: 'Microsoft.Web/sites/slots/extensions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/functions@2016-08-01
@@ -185,7 +195,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:21_properties
+* **properties**: [FunctionEnvelopeProperties](#functionenvelopeproperties)
 * **type**: 'Microsoft.Web/sites/slots/functions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/hostNameBindings@2016-08-01
@@ -195,7 +205,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:24_properties
+* **properties**: [HostNameBindingProperties](#hostnamebindingproperties)
 * **type**: 'Microsoft.Web/sites/slots/hostNameBindings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/hybridconnection@2016-08-01
@@ -205,7 +215,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:48_properties
+* **properties**: [RelayServiceConnectionEntityProperties](#relayserviceconnectionentityproperties)
 * **type**: 'Microsoft.Web/sites/slots/hybridconnection' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays@2016-08-01
@@ -215,7 +225,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:107_properties
+* **properties**: [HybridConnectionProperties](#hybridconnectionproperties)
 * **type**: 'Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/instances/extensions@2016-08-01
@@ -225,7 +235,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MSDeployCore
+* **properties**: [MSDeployCore](#msdeploycore)
 * **type**: 'Microsoft.Web/sites/slots/instances/extensions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/premieraddons@2016-08-01
@@ -236,8 +246,8 @@
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:39_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [PremierAddOnProperties](#premieraddonproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Web/sites/slots/premieraddons' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/publicCertificates@2016-08-01
@@ -247,8 +257,18 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:46_properties
+* **properties**: [PublicCertificateProperties](#publiccertificateproperties)
 * **type**: 'Microsoft.Web/sites/slots/publicCertificates' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Web/sites/slots/siteextensions@2016-08-01
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2016-08-01' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **kind**: string (ReadOnly)
+* **name**: string (Required, DeployTimeConstant)
+* **properties**: [SiteExtensionInfoProperties](#siteextensioninfoproperties) (ReadOnly)
+* **type**: 'Microsoft.Web/sites/slots/siteextensions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/sourcecontrols@2016-08-01
 * **Valid Scope(s)**: ResourceGroup
@@ -257,7 +277,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:64_properties
+* **properties**: [SiteSourceControlProperties](#sitesourcecontrolproperties)
 * **type**: 'Microsoft.Web/sites/slots/sourcecontrols' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/virtualNetworkConnections@2016-08-01
@@ -267,7 +287,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:152_properties
+* **properties**: [VnetInfoProperties](#vnetinfoproperties)
 * **type**: 'Microsoft.Web/sites/slots/virtualNetworkConnections' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/slots/virtualNetworkConnections/gateways@2016-08-01
@@ -277,7 +297,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:151_properties
+* **properties**: [VnetGatewayProperties](#vnetgatewayproperties)
 * **type**: 'Microsoft.Web/sites/slots/virtualNetworkConnections/gateways' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/sourcecontrols@2016-08-01
@@ -287,7 +307,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:64_properties
+* **properties**: [SiteSourceControlProperties](#sitesourcecontrolproperties)
 * **type**: 'Microsoft.Web/sites/sourcecontrols' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/virtualNetworkConnections@2016-08-01
@@ -297,7 +317,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:152_properties
+* **properties**: [VnetInfoProperties](#vnetinfoproperties)
 * **type**: 'Microsoft.Web/sites/virtualNetworkConnections' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sites/virtualNetworkConnections/gateways@2016-08-01
@@ -307,7 +327,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:151_properties
+* **properties**: [VnetGatewayProperties](#vnetgatewayproperties)
 * **type**: 'Microsoft.Web/sites/virtualNetworkConnections/gateways' (ReadOnly, DeployTimeConstant)
 
 ## ManagedServiceIdentity
@@ -316,21 +336,21 @@
 * **tenantId**: string (ReadOnly)
 * **type**: 'SystemAssigned'
 
-## schemas:134_properties
+## SiteProperties
 ### Properties
 * **availabilityState**: 'DisasterRecoveryMode' | 'Limited' | 'Normal' (ReadOnly)
 * **clientAffinityEnabled**: bool
 * **clientCertEnabled**: bool
-* **cloningInfo**: CloningInfo
+* **cloningInfo**: [CloningInfo](#cloninginfo)
 * **containerSize**: int
 * **dailyMemoryTimeQuota**: int
 * **defaultHostName**: string (ReadOnly)
 * **enabled**: bool
 * **enabledHostNames**: string[] (ReadOnly)
-* **hostingEnvironmentProfile**: HostingEnvironmentProfile
+* **hostingEnvironmentProfile**: [HostingEnvironmentProfile](#hostingenvironmentprofile)
 * **hostNames**: string[] (ReadOnly)
 * **hostNamesDisabled**: bool
-* **hostNameSslStates**: HostNameSslState[]
+* **hostNameSslStates**: [HostNameSslState](#hostnamesslstate)[]
 * **httpsOnly**: bool
 * **isDefaultContainer**: bool (ReadOnly)
 * **lastModifiedTimeUtc**: string (ReadOnly)
@@ -342,9 +362,9 @@
 * **resourceGroup**: string (ReadOnly)
 * **scmSiteAlsoStopped**: bool
 * **serverFarmId**: string
-* **siteConfig**: SiteConfig
-* **slotSwapStatus**: SlotSwapStatus (ReadOnly)
-* **snapshotInfo**: SnapshotRecoveryRequest
+* **siteConfig**: [SiteConfig](#siteconfig)
+* **slotSwapStatus**: [SlotSwapStatus](#slotswapstatus) (ReadOnly)
+* **snapshotInfo**: [SnapshotRecoveryRequest](#snapshotrecoveryrequest)
 * **state**: string (ReadOnly)
 * **suspendedTill**: string (ReadOnly)
 * **targetSwapSlot**: string (ReadOnly)
@@ -353,7 +373,7 @@
 
 ## CloningInfo
 ### Properties
-* **appSettingsOverrides**: Dictionary<string,String>
+* **appSettingsOverrides**: [CloningInfoAppSettingsOverrides](#cloninginfoappsettingsoverrides)
 * **cloneCustomHostNames**: bool
 * **cloneSourceControl**: bool
 * **configureLoadBalancing**: bool
@@ -365,7 +385,7 @@
 * **trafficManagerProfileId**: string
 * **trafficManagerProfileName**: string
 
-## Dictionary<string,String>
+## CloningInfoAppSettingsOverrides
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -388,31 +408,31 @@
 ## SiteConfig
 ### Properties
 * **alwaysOn**: bool
-* **apiDefinition**: ApiDefinitionInfo
+* **apiDefinition**: [ApiDefinitionInfo](#apidefinitioninfo)
 * **appCommandLine**: string
-* **appSettings**: NameValuePair[]
+* **appSettings**: [NameValuePair](#namevaluepair)[]
 * **autoHealEnabled**: bool
-* **autoHealRules**: AutoHealRules
+* **autoHealRules**: [AutoHealRules](#autohealrules)
 * **autoSwapSlotName**: string
-* **connectionStrings**: ConnStringInfo[]
-* **cors**: CorsSettings
+* **connectionStrings**: [ConnStringInfo](#connstringinfo)[]
+* **cors**: [CorsSettings](#corssettings)
 * **defaultDocuments**: string[]
 * **detailedErrorLoggingEnabled**: bool
 * **documentRoot**: string
-* **experiments**: Experiments
-* **handlerMappings**: HandlerMapping[]
+* **experiments**: [Experiments](#experiments)
+* **handlerMappings**: [HandlerMapping](#handlermapping)[]
 * **http20Enabled**: bool
 * **httpLoggingEnabled**: bool
-* **ipSecurityRestrictions**: IpSecurityRestriction[]
+* **ipSecurityRestrictions**: [IpSecurityRestriction](#ipsecurityrestriction)[]
 * **javaContainer**: string
 * **javaContainerVersion**: string
 * **javaVersion**: string
-* **limits**: SiteLimits
+* **limits**: [SiteLimits](#sitelimits)
 * **linuxFxVersion**: string
 * **loadBalancing**: 'LeastRequests' | 'LeastResponseTime' | 'RequestHash' | 'WeightedRoundRobin' | 'WeightedTotalTraffic'
 * **localMySqlEnabled**: bool
 * **logsDirectorySizeLimit**: int
-* **machineKey**: SiteMachineKey (ReadOnly)
+* **machineKey**: [SiteMachineKey](#sitemachinekey) (ReadOnly)
 * **managedPipelineMode**: 'Classic' | 'Integrated'
 * **minTlsVersion**: '1.0' | '1.1' | '1.2'
 * **netFrameworkVersion**: string
@@ -420,7 +440,7 @@
 * **numberOfWorkers**: int
 * **phpVersion**: string
 * **publishingUsername**: string
-* **push**: PushSettings
+* **push**: [PushSettings](#pushsettings)
 * **pythonVersion**: string
 * **remoteDebuggingEnabled**: bool
 * **remoteDebuggingVersion**: string
@@ -429,7 +449,7 @@
 * **scmType**: 'BitbucketGit' | 'BitbucketHg' | 'CodePlexGit' | 'CodePlexHg' | 'Dropbox' | 'ExternalGit' | 'ExternalHg' | 'GitHub' | 'LocalGit' | 'None' | 'OneDrive' | 'Tfs' | 'VSO'
 * **tracingOptions**: string
 * **use32BitWorkerProcess**: bool
-* **virtualApplications**: VirtualApplication[]
+* **virtualApplications**: [VirtualApplication](#virtualapplication)[]
 * **vnetName**: string
 * **webSocketsEnabled**: bool
 
@@ -444,13 +464,13 @@
 
 ## AutoHealRules
 ### Properties
-* **actions**: AutoHealActions
-* **triggers**: AutoHealTriggers
+* **actions**: [AutoHealActions](#autohealactions)
+* **triggers**: [AutoHealTriggers](#autohealtriggers)
 
 ## AutoHealActions
 ### Properties
 * **actionType**: 'CustomAction' | 'LogEvent' | 'Recycle'
-* **customAction**: AutoHealCustomAction
+* **customAction**: [AutoHealCustomAction](#autohealcustomaction)
 * **minProcessExecutionTime**: string
 
 ## AutoHealCustomAction
@@ -461,9 +481,9 @@
 ## AutoHealTriggers
 ### Properties
 * **privateBytesInKB**: int
-* **requests**: RequestsBasedTrigger
-* **slowRequests**: SlowRequestsBasedTrigger
-* **statusCodes**: StatusCodesBasedTrigger[]
+* **requests**: [RequestsBasedTrigger](#requestsbasedtrigger)
+* **slowRequests**: [SlowRequestsBasedTrigger](#slowrequestsbasedtrigger)
+* **statusCodes**: [StatusCodesBasedTrigger](#statuscodesbasedtrigger)[]
 
 ## RequestsBasedTrigger
 ### Properties
@@ -488,7 +508,7 @@
 ### Properties
 * **connectionString**: string
 * **name**: string
-* **type**: 'ApiHub' | 'Custom' | 'DocDb' | 'EventHub' | 'MySql' | 'NotificationHub' | 'PostgreSQL' | 'RedisCache' | 'ServiceBus' | 'SQLAzure' | 'SQLServer'
+* **type**: 'ApiHub' | 'Custom' | 'DocDb' | 'EventHub' | 'MySql' | 'NotificationHub' | 'PostgreSQL' | 'RedisCache' | 'SQLAzure' | 'SQLServer' | 'ServiceBus'
 
 ## CorsSettings
 ### Properties
@@ -496,7 +516,7 @@
 
 ## Experiments
 ### Properties
-* **rampUpRules**: RampUpRule[]
+* **rampUpRules**: [RampUpRule](#rampuprule)[]
 
 ## RampUpRule
 ### Properties
@@ -538,10 +558,10 @@
 * **id**: string (ReadOnly)
 * **kind**: string
 * **name**: string (ReadOnly)
-* **properties**: schemas:121_properties
+* **properties**: [PushSettingsProperties](#pushsettingsproperties)
 * **type**: string (ReadOnly)
 
-## schemas:121_properties
+## PushSettingsProperties
 ### Properties
 * **dynamicTagsJson**: string
 * **isPushEnabled**: bool (Required)
@@ -552,7 +572,7 @@
 ### Properties
 * **physicalPath**: string
 * **preloadEnabled**: bool
-* **virtualDirectories**: VirtualDirectory[]
+* **virtualDirectories**: [VirtualDirectory](#virtualdirectory)[]
 * **virtualPath**: string
 
 ## VirtualDirectory
@@ -571,15 +591,15 @@
 * **id**: string (ReadOnly)
 * **kind**: string
 * **name**: string (ReadOnly)
-* **properties**: schemas:142_properties
+* **properties**: [SnapshotRecoveryRequestProperties](#snapshotrecoveryrequestproperties)
 * **type**: string (ReadOnly)
 
-## schemas:142_properties
+## SnapshotRecoveryRequestProperties
 ### Properties
 * **ignoreConflictingHostNames**: bool
 * **overwrite**: bool (Required)
 * **recoverConfiguration**: bool
-* **recoveryTarget**: SnapshotRecoveryTarget
+* **recoveryTarget**: [SnapshotRecoveryTarget](#snapshotrecoverytarget)
 * **snapshotTime**: string
 
 ## SnapshotRecoveryTarget
@@ -587,17 +607,17 @@
 * **id**: string
 * **location**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:49_properties
+## RestoreRequestProperties
 ### Properties
 * **adjustConnectionStrings**: bool
 * **appServicePlan**: string
 * **blobName**: string
-* **databases**: DatabaseBackupSetting[]
+* **databases**: [DatabaseBackupSetting](#databasebackupsetting)[]
 * **hostingEnvironment**: string
 * **ignoreConflictingHostNames**: bool
 * **ignoreDatabases**: bool
@@ -613,7 +633,7 @@
 * **databaseType**: 'LocalMySql' | 'MySql' | 'PostgreSql' | 'SqlAzure' (Required)
 * **name**: string
 
-## schemas:16_properties
+## DeploymentProperties
 ### Properties
 * **active**: bool
 * **author**: string
@@ -626,7 +646,7 @@
 * **startTime**: string
 * **status**: int
 
-## schemas:109_properties
+## IdentifierProperties
 ### Properties
 * **id**: string
 
@@ -640,21 +660,21 @@
 * **endTime**: string (ReadOnly)
 * **packageUri**: string (WriteOnly)
 * **provisioningState**: 'accepted' | 'canceled' | 'failed' | 'running' | 'succeeded' (ReadOnly)
-* **setParameters**: Dictionary<string,String> (WriteOnly)
+* **setParameters**: [MSDeployCoreSetParameters](#msdeploycoresetparameters) (WriteOnly)
 * **setParametersXmlFileUri**: string (WriteOnly)
 * **skipAppData**: bool (WriteOnly)
 * **startTime**: string (ReadOnly)
 
-## Dictionary<string,String>
+## MSDeployCoreSetParameters
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:21_properties
+## FunctionEnvelopeProperties
 ### Properties
 * **config**: any
 * **configHref**: string
-* **files**: Dictionary<string,String>
+* **files**: [FunctionEnvelopePropertiesFiles](#functionenvelopepropertiesfiles)
 * **functionAppId**: string (ReadOnly)
 * **href**: string
 * **name**: string (ReadOnly)
@@ -663,12 +683,12 @@
 * **secretsFileHref**: string
 * **testData**: string
 
-## Dictionary<string,String>
+## FunctionEnvelopePropertiesFiles
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:24_properties
+## HostNameBindingProperties
 ### Properties
 * **azureResourceName**: string
 * **azureResourceType**: 'TrafficManager' | 'Website'
@@ -680,7 +700,7 @@
 * **thumbprint**: string
 * **virtualIP**: string (ReadOnly)
 
-## schemas:48_properties
+## RelayServiceConnectionEntityProperties
 ### Properties
 * **biztalkUri**: string
 * **entityConnectionString**: string
@@ -690,7 +710,7 @@
 * **resourceConnectionString**: string
 * **resourceType**: string
 
-## schemas:107_properties
+## HybridConnectionProperties
 ### Properties
 * **hostname**: string
 * **port**: int
@@ -701,7 +721,7 @@
 * **serviceBusNamespace**: string
 * **serviceBusSuffix**: string
 
-## schemas:39_properties
+## PremierAddOnProperties
 ### Properties
 * **location**: string
 * **marketplaceOffer**: string
@@ -709,36 +729,59 @@
 * **name**: string
 * **product**: string
 * **sku**: string
-* **tags**: Dictionary<string,String>
+* **tags**: [PremierAddOnPropertiesTags](#premieraddonpropertiestags)
 * **vendor**: string
 
-## Dictionary<string,String>
+## PremierAddOnPropertiesTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:46_properties
+## PublicCertificateProperties
 ### Properties
-* **blob**: array
+* **blob**: any
 * **publicCertificateLocation**: 'CurrentUserMy' | 'LocalMachineMy' | 'Unknown'
 * **thumbprint**: string (ReadOnly)
 
-## Dictionary<string,String>
+## SiteExtensionInfoProperties
+### Properties
+* **authors**: string[] (ReadOnly)
+* **comment**: string (ReadOnly)
+* **description**: string (ReadOnly)
+* **downloadCount**: int (ReadOnly)
+* **extensionUrl**: string (ReadOnly)
+* **feedUrl**: string (ReadOnly)
+* **iconUrl**: string (ReadOnly)
+* **id**: string (ReadOnly)
+* **installationArgs**: string (ReadOnly)
+* **installedDateTime**: string (ReadOnly)
+* **licenseUrl**: string (ReadOnly)
+* **localIsLatestVersion**: bool (ReadOnly)
+* **localPath**: string (ReadOnly)
+* **projectUrl**: string (ReadOnly)
+* **provisioningState**: string (ReadOnly)
+* **publishedDateTime**: string (ReadOnly)
+* **summary**: string (ReadOnly)
+* **title**: string (ReadOnly)
+* **type**: 'Gallery' | 'WebRoot' (ReadOnly)
+* **version**: string (ReadOnly)
+
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:64_properties
+## SiteSourceControlProperties
 ### Properties
 * **branch**: string
 * **deploymentRollbackEnabled**: bool
@@ -746,13 +789,13 @@
 * **isMercurial**: bool
 * **repoUrl**: string
 
-## schemas:152_properties
+## VnetInfoProperties
 ### Properties
-* **certBlob**: array
+* **certBlob**: any
 * **certThumbprint**: string (ReadOnly)
 * **dnsServers**: string
 * **resyncRequired**: bool (ReadOnly)
-* **routes**: VnetRoute[] (ReadOnly)
+* **routes**: [VnetRoute](#vnetroute)[] (ReadOnly)
 * **vnetResourceId**: string
 
 ## VnetRoute
@@ -760,17 +803,17 @@
 * **id**: string (ReadOnly)
 * **kind**: string
 * **name**: string (ReadOnly)
-* **properties**: schemas:153_properties
+* **properties**: [VnetRouteProperties](#vnetrouteproperties)
 * **type**: string (ReadOnly)
 
-## schemas:153_properties
+## VnetRouteProperties
 ### Properties
 * **endAddress**: string
 * **name**: string
 * **routeType**: 'DEFAULT' | 'INHERITED' | 'STATIC'
 * **startAddress**: string
 
-## schemas:151_properties
+## VnetGatewayProperties
 ### Properties
 * **vnetName**: string
 * **vpnPackageUri**: string (Required)

@@ -7,16 +7,16 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SignalRCreateOrUpdateProperties
-* **sku**: ResourceSku
-* **tags**: Dictionary<string,String>
+* **properties**: [SignalRCreateOrUpdateProperties](#signalrcreateorupdateproperties)
+* **sku**: [ResourceSku](#resourcesku)
+* **tags**: [SignalRUpdateParametersTags](#signalrupdateparameterstags)
 * **type**: 'Microsoft.SignalRService/signalR' (ReadOnly, DeployTimeConstant)
 
 ## SignalRCreateOrUpdateProperties
 ### Properties
-* **cors**: SignalRCorsSettings
+* **cors**: [SignalRCorsSettings](#signalrcorssettings)
 * **externalIP**: string (ReadOnly)
-* **features**: SignalRFeature[]
+* **features**: [SignalRFeature](#signalrfeature)[]
 * **hostName**: string (ReadOnly)
 * **hostNamePrefix**: string
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Moving' | 'Running' | 'Succeeded' | 'Unknown' | 'Updating' (ReadOnly)
@@ -31,10 +31,10 @@
 ## SignalRFeature
 ### Properties
 * **flag**: 'EnableConnectivityLogs' | 'ServiceMode' (Required)
-* **properties**: Dictionary<string,String>
+* **properties**: [SignalRFeatureProperties](#signalrfeatureproperties)
 * **value**: string (Required)
 
-## Dictionary<string,String>
+## SignalRFeatureProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -47,7 +47,7 @@
 * **size**: string
 * **tier**: 'Basic' | 'Free' | 'Premium' | 'Standard'
 
-## Dictionary<string,String>
+## SignalRUpdateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

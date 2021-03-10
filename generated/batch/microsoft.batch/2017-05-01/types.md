@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: BatchAccountCreateProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [BatchAccountCreateProperties](#batchaccountcreateproperties)
+* **tags**: [BatchAccountCreateParametersTags](#batchaccountcreateparameterstags)
 * **type**: 'Microsoft.Batch/batchAccounts' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Batch/batchAccounts/applications@2017-05-01
@@ -20,16 +20,30 @@
 * **displayName**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **packages**: ApplicationPackage[] (ReadOnly)
+* **packages**: [ApplicationPackage](#applicationpackage)[] (ReadOnly)
 * **type**: 'Microsoft.Batch/batchAccounts/applications' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Batch/batchAccounts/applications/versions@2017-05-01
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2017-05-01' (ReadOnly, DeployTimeConstant)
+* **format**: string (ReadOnly)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **lastActivationTime**: string (ReadOnly)
+* **name**: string (Required, DeployTimeConstant)
+* **state**: 'active' | 'pending' | 'unmapped' (ReadOnly)
+* **storageUrl**: string (ReadOnly)
+* **storageUrlExpiry**: string (ReadOnly)
+* **type**: 'Microsoft.Batch/batchAccounts/applications/versions' (ReadOnly, DeployTimeConstant)
+* **version**: string (ReadOnly)
 
 ## BatchAccountCreateProperties
 ### Properties
 * **accountEndpoint**: string (ReadOnly)
 * **activeJobAndJobScheduleQuota**: int (ReadOnly)
-* **autoStorage**: AutoStorageBaseProperties
+* **autoStorage**: [AutoStorageBaseProperties](#autostoragebaseproperties)
 * **dedicatedCoreQuota**: int (ReadOnly)
-* **keyVaultReference**: KeyVaultReference
+* **keyVaultReference**: [KeyVaultReference](#keyvaultreference)
 * **lowPriorityCoreQuota**: int (ReadOnly)
 * **poolAllocationMode**: 'BatchService' | 'UserSubscription'
 * **poolQuota**: int (ReadOnly)
@@ -45,7 +59,7 @@
 * **id**: string (Required)
 * **url**: string (Required)
 
-## Dictionary<string,String>
+## BatchAccountCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

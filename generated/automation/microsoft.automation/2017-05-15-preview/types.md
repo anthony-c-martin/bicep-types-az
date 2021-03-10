@@ -6,7 +6,7 @@
 * **apiVersion**: '2017-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobCreateProperties (Required)
+* **properties**: [JobCreateProperties](#jobcreateproperties) (Required)
 * **type**: 'Microsoft.Automation/automationAccounts/jobs' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Automation/automationAccounts/softwareUpdateConfigurations@2017-05-15-preview
@@ -15,7 +15,7 @@
 * **apiVersion**: '2017-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: softwareUpdateConfigurationProperties (Required)
+* **properties**: [SoftwareUpdateConfigurationProperties](#softwareupdateconfigurationproperties) (Required)
 * **type**: 'Microsoft.Automation/automationAccounts/softwareUpdateConfigurations' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Automation/automationAccounts/sourceControls@2017-05-15-preview
@@ -24,7 +24,7 @@
 * **apiVersion**: '2017-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SourceControlCreateOrUpdateProperties (Required)
+* **properties**: [SourceControlCreateOrUpdateProperties](#sourcecontrolcreateorupdateproperties) (Required)
 * **type**: 'Microsoft.Automation/automationAccounts/sourceControls' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs@2017-05-15-preview
@@ -33,7 +33,7 @@
 * **apiVersion**: '2017-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SourceControlSyncJobCreateProperties (Required)
+* **properties**: [SourceControlSyncJobCreateProperties](#sourcecontrolsyncjobcreateproperties) (Required)
 * **type**: 'Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs' (ReadOnly, DeployTimeConstant)
 
 ## JobCreateProperties
@@ -44,16 +44,16 @@
 * **jobId**: string (ReadOnly)
 * **lastModifiedTime**: string (ReadOnly)
 * **lastStatusModifiedTime**: string (ReadOnly)
-* **parameters**: Dictionary<string,String>
+* **parameters**: [JobCreatePropertiesParameters](#jobcreatepropertiesparameters)
 * **provisioningState**: 'Failed' | 'Processing' | 'Succeeded' | 'Suspended' (ReadOnly)
-* **runbook**: RunbookAssociationProperty
+* **runbook**: [RunbookAssociationProperty](#runbookassociationproperty)
 * **runOn**: string
 * **startedBy**: string (ReadOnly)
 * **startTime**: string (ReadOnly)
 * **status**: 'Activating' | 'Blocked' | 'Completed' | 'Disconnected' | 'Failed' | 'New' | 'Removing' | 'Resuming' | 'Running' | 'Stopped' | 'Stopping' | 'Suspended' | 'Suspending' (ReadOnly)
 * **statusDetails**: string (ReadOnly)
 
-## Dictionary<string,String>
+## JobCreatePropertiesParameters
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -62,17 +62,17 @@
 ### Properties
 * **name**: string
 
-## softwareUpdateConfigurationProperties
+## SoftwareUpdateConfigurationProperties
 ### Properties
 * **createdBy**: string (ReadOnly)
 * **creationTime**: string (ReadOnly)
-* **error**: ErrorResponse
+* **error**: [ErrorResponse](#errorresponse)
 * **lastModifiedBy**: string (ReadOnly)
 * **lastModifiedTime**: string (ReadOnly)
 * **provisioningState**: string (ReadOnly)
-* **scheduleInfo**: ScheduleProperties (Required)
-* **tasks**: softwareUpdateConfigurationTasks
-* **updateConfiguration**: updateConfiguration (Required)
+* **scheduleInfo**: [ScheduleProperties](#scheduleproperties) (Required)
+* **tasks**: [SoftwareUpdateConfigurationTasks](#softwareupdateconfigurationtasks)
+* **updateConfiguration**: [UpdateConfiguration](#updateconfiguration) (Required)
 
 ## ErrorResponse
 ### Properties
@@ -81,7 +81,7 @@
 
 ## ScheduleProperties
 ### Properties
-* **advancedSchedule**: AdvancedSchedule
+* **advancedSchedule**: [AdvancedSchedule](#advancedschedule)
 * **creationTime**: string
 * **description**: string
 * **expiryTime**: string
@@ -99,7 +99,7 @@
 ## AdvancedSchedule
 ### Properties
 * **monthDays**: int[]
-* **monthlyOccurrences**: AdvancedScheduleMonthlyOccurrence[]
+* **monthlyOccurrences**: [AdvancedScheduleMonthlyOccurrence](#advancedschedulemonthlyoccurrence)[]
 * **weekDays**: string[]
 
 ## AdvancedScheduleMonthlyOccurrence
@@ -107,30 +107,30 @@
 * **day**: 'Friday' | 'Monday' | 'Saturday' | 'Sunday' | 'Thursday' | 'Tuesday' | 'Wednesday'
 * **occurrence**: int
 
-## softwareUpdateConfigurationTasks
+## SoftwareUpdateConfigurationTasks
 ### Properties
-* **postTask**: taskProperties
-* **preTask**: taskProperties
+* **postTask**: [TaskProperties](#taskproperties)
+* **preTask**: [TaskProperties](#taskproperties)
 
-## taskProperties
+## TaskProperties
 ### Properties
-* **parameters**: Dictionary<string,String>
+* **parameters**: [TaskPropertiesParameters](#taskpropertiesparameters)
 * **source**: string
 
-## Dictionary<string,String>
+## TaskPropertiesParameters
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## updateConfiguration
+## UpdateConfiguration
 ### Properties
 * **azureVirtualMachines**: string[]
 * **duration**: string
-* **linux**: LinuxProperties
+* **linux**: [LinuxProperties](#linuxproperties)
 * **nonAzureComputerNames**: string[]
 * **operatingSystem**: 'Linux' | 'Windows' (Required)
-* **targets**: TargetProperties
-* **windows**: WindowsProperties
+* **targets**: [TargetProperties](#targetproperties)
+* **windows**: [WindowsProperties](#windowsproperties)
 
 ## LinuxProperties
 ### Properties
@@ -141,21 +141,21 @@
 
 ## TargetProperties
 ### Properties
-* **azureQueries**: AzureQueryProperties[]
-* **nonAzureQueries**: NonAzureQueryProperties[]
+* **azureQueries**: [AzureQueryProperties](#azurequeryproperties)[]
+* **nonAzureQueries**: [NonAzureQueryProperties](#nonazurequeryproperties)[]
 
 ## AzureQueryProperties
 ### Properties
 * **locations**: string[]
 * **scope**: string[]
-* **tagSettings**: TagSettingsProperties
+* **tagSettings**: [TagSettingsProperties](#tagsettingsproperties)
 
 ## TagSettingsProperties
 ### Properties
 * **filterOperator**: 'All' | 'Any'
-* **tags**: Dictionary<string,IList<String>>
+* **tags**: [TagSettingsPropertiesTags](#tagsettingspropertiestags)
 
-## Dictionary<string,IList<String>>
+## TagSettingsPropertiesTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string[]
@@ -182,7 +182,7 @@
 * **lastModifiedTime**: string (ReadOnly)
 * **publishRunbook**: bool
 * **repoUrl**: string
-* **securityToken**: SourceControlSecurityTokenProperties (WriteOnly)
+* **securityToken**: [SourceControlSecurityTokenProperties](#sourcecontrolsecuritytokenproperties) (WriteOnly)
 * **sourceType**: 'GitHub' | 'VsoGit' | 'VsoTfvc'
 
 ## SourceControlSecurityTokenProperties

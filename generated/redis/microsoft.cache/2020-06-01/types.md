@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RedisCreateProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [RedisCreateProperties](#rediscreateproperties) (Required)
+* **tags**: [RedisCreateParametersTags](#rediscreateparameterstags)
 * **type**: 'Microsoft.Cache/redis' (ReadOnly, DeployTimeConstant)
 * **zones**: string[]
 
@@ -18,7 +18,7 @@
 * **apiVersion**: '2020-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RedisFirewallRuleProperties (Required)
+* **properties**: [RedisFirewallRuleProperties](#redisfirewallruleproperties) (Required)
 * **type**: 'Microsoft.Cache/redis/firewallRules' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cache/redis/linkedServers@2020-06-01
@@ -27,7 +27,7 @@
 * **apiVersion**: '2020-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RedisLinkedServerCreateProperties (Required)
+* **properties**: [RedisLinkedServerCreateProperties](#redislinkedservercreateproperties) (Required)
 * **type**: 'Microsoft.Cache/redis/linkedServers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cache/redis/patchSchedules@2020-06-01
@@ -35,8 +35,8 @@
 ### Properties
 * **apiVersion**: '2020-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ScheduleEntries (Required)
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ScheduleEntries](#scheduleentries) (Required)
 * **type**: 'Microsoft.Cache/redis/patchSchedules' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cache/redis/privateEndpointConnections@2020-06-01
@@ -45,30 +45,30 @@
 * **apiVersion**: '2020-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 * **type**: 'Microsoft.Cache/redis/privateEndpointConnections' (ReadOnly, DeployTimeConstant)
 
 ## RedisCreateProperties
 ### Properties
-* **accessKeys**: RedisAccessKeys (ReadOnly)
+* **accessKeys**: [RedisAccessKeys](#redisaccesskeys) (ReadOnly)
 * **enableNonSslPort**: bool
 * **hostName**: string (ReadOnly)
-* **instances**: RedisInstanceDetails[] (ReadOnly)
-* **linkedServers**: RedisLinkedServer[] (ReadOnly)
+* **instances**: [RedisInstanceDetails](#redisinstancedetails)[] (ReadOnly)
+* **linkedServers**: [RedisLinkedServer](#redislinkedserver)[] (ReadOnly)
 * **minimumTlsVersion**: '1.0' | '1.1' | '1.2'
 * **port**: int (ReadOnly)
-* **privateEndpointConnections**: PrivateEndpointConnection[] (ReadOnly)
+* **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[] (ReadOnly)
 * **provisioningState**: 'Creating' | 'Deleting' | 'Disabled' | 'Failed' | 'Linking' | 'Provisioning' | 'RecoveringScaleFailure' | 'Scaling' | 'Succeeded' | 'Unlinking' | 'Unprovisioning' | 'Updating' (ReadOnly)
 * **publicNetworkAccess**: 'Disabled' | 'Enabled'
-* **redisConfiguration**: Dictionary<string,String>
+* **redisConfiguration**: [RedisCommonPropertiesRedisConfiguration](#rediscommonpropertiesredisconfiguration)
 * **redisVersion**: string (ReadOnly)
 * **replicasPerMaster**: int
 * **shardCount**: int
-* **sku**: Sku (Required)
+* **sku**: [Sku](#sku) (Required)
 * **sslPort**: int (ReadOnly)
 * **staticIP**: string
 * **subnetId**: string
-* **tenantSettings**: Dictionary<string,String>
+* **tenantSettings**: [RedisCommonPropertiesTenantSettings](#rediscommonpropertiestenantsettings)
 
 ## RedisAccessKeys
 ### Properties
@@ -91,13 +91,13 @@
 ### Properties
 * **id**: string (ReadOnly)
 * **name**: string (ReadOnly)
-* **properties**: PrivateEndpointConnectionProperties (ReadOnly)
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties) (ReadOnly)
 * **type**: string (ReadOnly)
 
 ## PrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: PrivateEndpoint (ReadOnly)
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState (ReadOnly)
+* **privateEndpoint**: [PrivateEndpoint](#privateendpoint) (ReadOnly)
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate) (ReadOnly)
 * **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' (ReadOnly)
 
 ## PrivateEndpoint
@@ -110,7 +110,7 @@
 * **description**: string (ReadOnly)
 * **status**: 'Approved' | 'Pending' | 'Rejected' (ReadOnly)
 
-## Dictionary<string,String>
+## RedisCommonPropertiesRedisConfiguration
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -121,12 +121,12 @@
 * **family**: 'C' | 'P' (Required)
 * **name**: 'Basic' | 'Premium' | 'Standard' (Required)
 
-## Dictionary<string,String>
+## RedisCommonPropertiesTenantSettings
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## RedisCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -145,7 +145,7 @@
 
 ## ScheduleEntries
 ### Properties
-* **scheduleEntries**: ScheduleEntry[] (Required)
+* **scheduleEntries**: [ScheduleEntry](#scheduleentry)[] (Required)
 
 ## ScheduleEntry
 ### Properties

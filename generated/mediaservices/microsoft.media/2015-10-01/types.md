@@ -7,14 +7,14 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MediaServiceProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [MediaServiceProperties](#mediaserviceproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Media/mediaservices' (ReadOnly, DeployTimeConstant)
 
 ## MediaServiceProperties
 ### Properties
-* **apiEndpoints**: ApiEndpoint[] (ReadOnly)
-* **storageAccounts**: StorageAccount[]
+* **apiEndpoints**: [ApiEndpoint](#apiendpoint)[] (ReadOnly)
+* **storageAccounts**: [StorageAccount](#storageaccount)[]
 
 ## ApiEndpoint
 ### Properties
@@ -26,7 +26,7 @@
 * **id**: string (Required)
 * **isPrimary**: bool (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

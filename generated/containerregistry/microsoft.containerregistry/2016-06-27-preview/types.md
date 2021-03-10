@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RegistryProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [RegistryProperties](#registryproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.ContainerRegistry/registries' (ReadOnly, DeployTimeConstant)
 
 ## RegistryProperties
@@ -16,14 +16,14 @@
 * **adminUserEnabled**: bool
 * **creationDate**: string (ReadOnly)
 * **loginServer**: string (ReadOnly)
-* **storageAccount**: StorageAccountProperties (Required)
+* **storageAccount**: [StorageAccountProperties](#storageaccountproperties) (Required)
 
 ## StorageAccountProperties
 ### Properties
 * **accessKey**: string (Required)
 * **name**: string (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

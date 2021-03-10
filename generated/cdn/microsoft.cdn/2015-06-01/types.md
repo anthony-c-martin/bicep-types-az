@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ProfilePropertiesCreateParameters
-* **tags**: Dictionary<string,String>
+* **properties**: [ProfilePropertiesCreateParameters](#profilepropertiescreateparameters)
+* **tags**: [ProfileCreateParametersTags](#profilecreateparameterstags)
 * **type**: 'Microsoft.Cdn/profiles' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles/endpoints@2015-06-01
@@ -18,8 +18,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: EndpointPropertiesCreateParameters
-* **tags**: Dictionary<string,String>
+* **properties**: [EndpointPropertiesCreateParameters](#endpointpropertiescreateparameters)
+* **tags**: [EndpointCreateParametersTags](#endpointcreateparameterstags)
 * **type**: 'Microsoft.Cdn/profiles/endpoints' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles/endpoints/customDomains@2015-06-01
@@ -28,7 +28,7 @@
 * **apiVersion**: '2015-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CustomDomainPropertiesParameters
+* **properties**: [CustomDomainPropertiesParameters](#customdomainpropertiesparameters)
 * **type**: 'Microsoft.Cdn/profiles/endpoints/customDomains' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cdn/profiles/endpoints/origins@2015-06-01
@@ -37,20 +37,20 @@
 * **apiVersion**: '2015-06-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: OriginPropertiesParameters
+* **properties**: [OriginPropertiesParameters](#originpropertiesparameters)
 * **type**: 'Microsoft.Cdn/profiles/endpoints/origins' (ReadOnly, DeployTimeConstant)
 
 ## ProfilePropertiesCreateParameters
 ### Properties
 * **provisioningState**: 'Creating' | 'Failed' | 'Succeeded' (ReadOnly)
 * **resourceState**: 'Active' | 'Creating' | 'Deleting' | 'Disabled' (ReadOnly)
-* **sku**: Sku (Required)
+* **sku**: [Sku](#sku) (Required)
 
 ## Sku
 ### Properties
 * **name**: 'Premium' | 'Standard'
 
-## Dictionary<string,String>
+## ProfileCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -64,7 +64,7 @@
 * **isHttpsAllowed**: bool
 * **originHostHeader**: string
 * **originPath**: string
-* **origins**: DeepCreatedOrigin[] (Required)
+* **origins**: [DeepCreatedOrigin](#deepcreatedorigin)[] (Required)
 * **provisioningState**: 'Creating' | 'Failed' | 'Succeeded' (ReadOnly)
 * **queryStringCachingBehavior**: 'BypassCaching' | 'IgnoreQueryString' | 'NotSet' | 'UseQueryString'
 * **resourceState**: 'Creating' | 'Deleting' | 'Running' | 'Starting' | 'Stopped' | 'Stopping' (ReadOnly)
@@ -72,7 +72,7 @@
 ## DeepCreatedOrigin
 ### Properties
 * **name**: string (Required)
-* **properties**: DeepCreatedOriginProperties
+* **properties**: [DeepCreatedOriginProperties](#deepcreatedoriginproperties)
 
 ## DeepCreatedOriginProperties
 ### Properties
@@ -80,7 +80,7 @@
 * **httpPort**: int
 * **httpsPort**: int
 
-## Dictionary<string,String>
+## EndpointCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedHsmProperties
-* **sku**: ManagedHsmSku
-* **tags**: Dictionary<string,String>
+* **properties**: [ManagedHsmProperties](#managedhsmproperties)
+* **sku**: [ManagedHsmSku](#managedhsmsku)
+* **tags**: [ManagedHsmResourceTags](#managedhsmresourcetags)
 * **type**: 'Microsoft.KeyVault/managedHSMs' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.KeyVault/vaults@2020-04-01-preview
@@ -19,8 +19,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VaultProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [VaultProperties](#vaultproperties) (Required)
+* **tags**: [VaultCreateOrUpdateParametersTags](#vaultcreateorupdateparameterstags)
 * **type**: 'Microsoft.KeyVault/vaults' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.KeyVault/vaults/accessPolicies@2020-04-01-preview
@@ -30,7 +30,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: 'add' | 'remove' | 'replace' (Required, DeployTimeConstant)
-* **properties**: VaultAccessPolicyProperties (Required)
+* **properties**: [VaultAccessPolicyProperties](#vaultaccesspolicyproperties) (Required)
 * **type**: 'Microsoft.KeyVault/vaults/accessPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.KeyVault/vaults/privateEndpointConnections@2020-04-01-preview
@@ -41,8 +41,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PrivateEndpointConnectionProperties
-* **tags**: Dictionary<string,String> (ReadOnly)
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
+* **tags**: [ResourceTags](#resourcetags) (ReadOnly)
 * **type**: 'Microsoft.KeyVault/vaults/privateEndpointConnections' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.KeyVault/vaults/secrets@2020-04-01-preview
@@ -52,8 +52,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SecretProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [SecretProperties](#secretproperties) (Required)
+* **tags**: [SecretCreateOrUpdateParametersTags](#secretcreateorupdateparameterstags)
 * **type**: 'Microsoft.KeyVault/vaults/secrets' (ReadOnly, DeployTimeConstant)
 
 ## ManagedHsmProperties
@@ -70,17 +70,17 @@
 
 ## ManagedHsmSku
 ### Properties
-* **family**: string (Required)
+* **family**: 'B' (Required)
 * **name**: 'Custom_B32' | 'Standard_B1' (Required)
 
-## Dictionary<string,String>
+## ManagedHsmResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## VaultProperties
 ### Properties
-* **accessPolicies**: AccessPolicyEntry[]
+* **accessPolicies**: [AccessPolicyEntry](#accesspolicyentry)[]
 * **createMode**: 'default' | 'recover'
 * **enabledForDeployment**: bool
 * **enabledForDiskEncryption**: bool
@@ -88,10 +88,10 @@
 * **enablePurgeProtection**: bool
 * **enableRbacAuthorization**: bool
 * **enableSoftDelete**: bool
-* **networkAcls**: NetworkRuleSet
-* **privateEndpointConnections**: PrivateEndpointConnectionItem[] (ReadOnly)
+* **networkAcls**: [NetworkRuleSet](#networkruleset)
+* **privateEndpointConnections**: [PrivateEndpointConnectionItem](#privateendpointconnectionitem)[] (ReadOnly)
 * **provisioningState**: 'RegisteringDns' | 'Succeeded'
-* **sku**: Sku (Required)
+* **sku**: [Sku](#sku) (Required)
 * **softDeleteRetentionInDays**: int
 * **tenantId**: string (Required)
 * **vaultUri**: string
@@ -100,7 +100,7 @@
 ### Properties
 * **applicationId**: string
 * **objectId**: string (Required)
-* **permissions**: Permissions (Required)
+* **permissions**: [Permissions](#permissions) (Required)
 * **tenantId**: string (Required)
 
 ## Permissions
@@ -114,8 +114,8 @@
 ### Properties
 * **bypass**: 'AzureServices' | 'None'
 * **defaultAction**: 'Allow' | 'Deny'
-* **ipRules**: IPRule[]
-* **virtualNetworkRules**: VirtualNetworkRule[]
+* **ipRules**: [IPRule](#iprule)[]
+* **virtualNetworkRules**: [VirtualNetworkRule](#virtualnetworkrule)[]
 
 ## IPRule
 ### Properties
@@ -129,13 +129,13 @@
 ## PrivateEndpointConnectionItem
 ### Properties
 * **id**: string
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 
 ## PrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: PrivateEndpoint
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState
-* **provisioningState**: 'Creating' | 'Deleting' | 'Disconnected' | 'Failed' | 'Succeeded' | 'Updating'
+* **privateEndpoint**: [PrivateEndpoint](#privateendpoint)
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate)
+* **provisioningState**: 'Creating' | 'Deleting' | 'Disconnected' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 
 ## PrivateEndpoint
 ### Properties
@@ -149,26 +149,26 @@
 
 ## Sku
 ### Properties
-* **family**: string (Required)
+* **family**: 'A' (Required)
 * **name**: 'premium' | 'standard' (Required)
 
-## Dictionary<string,String>
+## VaultCreateOrUpdateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## VaultAccessPolicyProperties
 ### Properties
-* **accessPolicies**: AccessPolicyEntry[] (Required)
+* **accessPolicies**: [AccessPolicyEntry](#accesspolicyentry)[] (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## SecretProperties
 ### Properties
-* **attributes**: SecretAttributes
+* **attributes**: [SecretAttributes](#secretattributes)
 * **contentType**: string
 * **secretUri**: string (ReadOnly)
 * **secretUriWithVersion**: string (ReadOnly)
@@ -182,7 +182,7 @@
 * **nbf**: int
 * **updated**: int (ReadOnly)
 
-## Dictionary<string,String>
+## SecretCreateOrUpdateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

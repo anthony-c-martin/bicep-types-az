@@ -6,20 +6,28 @@
 * **apiVersion**: '2018-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CreateManagementGroupProperties
+* **properties**: [CreateManagementGroupProperties](#createmanagementgroupproperties)
 * **type**: 'Microsoft.Management/managementGroups' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Management/managementGroups/subscriptions@2018-03-01-preview
+* **Valid Scope(s)**: Tenant
+### Properties
+* **apiVersion**: '2018-03-01-preview' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: string (Required, DeployTimeConstant)
+* **type**: 'Microsoft.Management/managementGroups/subscriptions' (ReadOnly, DeployTimeConstant)
 
 ## CreateManagementGroupProperties
 ### Properties
-* **children**: CreateManagementGroupChildInfo[] (ReadOnly)
-* **details**: CreateManagementGroupDetails
+* **children**: [CreateManagementGroupChildInfo](#createmanagementgroupchildinfo)[] (ReadOnly)
+* **details**: [CreateManagementGroupDetails](#createmanagementgroupdetails)
 * **displayName**: string
 * **roles**: string[] (ReadOnly)
 * **tenantId**: string (ReadOnly)
 
 ## CreateManagementGroupChildInfo
 ### Properties
-* **children**: CreateManagementGroupChildInfo[] (ReadOnly)
+* **children**: [CreateManagementGroupChildInfo](#createmanagementgroupchildinfo)[] (ReadOnly)
 * **displayName**: string (ReadOnly)
 * **id**: string (ReadOnly)
 * **name**: string (ReadOnly)
@@ -28,7 +36,7 @@
 
 ## CreateManagementGroupDetails
 ### Properties
-* **parent**: CreateParentGroupInfo
+* **parent**: [CreateParentGroupInfo](#createparentgroupinfo)
 * **updatedBy**: string (ReadOnly)
 * **updatedTime**: string (ReadOnly)
 * **version**: int (ReadOnly)

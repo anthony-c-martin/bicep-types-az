@@ -7,15 +7,15 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ProfileProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ProfileProperties](#profileproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Network/trafficmanagerprofiles' (ReadOnly, DeployTimeConstant)
 
 ## ProfileProperties
 ### Properties
-* **dnsConfig**: DnsConfig
-* **endpoints**: Endpoint[]
-* **monitorConfig**: MonitorConfig
+* **dnsConfig**: [DnsConfig](#dnsconfig)
+* **endpoints**: [Endpoint](#endpoint)[]
+* **monitorConfig**: [MonitorConfig](#monitorconfig)
 * **profileStatus**: string
 * **trafficRoutingMethod**: string
 
@@ -29,7 +29,7 @@
 ### Properties
 * **id**: string
 * **name**: string
-* **properties**: EndpointProperties
+* **properties**: [EndpointProperties](#endpointproperties)
 * **type**: string
 
 ## EndpointProperties
@@ -51,7 +51,7 @@
 * **profileMonitorStatus**: string
 * **protocol**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ClusterResourceProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [ClusterResourceProperties](#clusterresourceproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.AppPlatform/Spring' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AppPlatform/Spring/apps@2019-05-01-preview
@@ -17,10 +17,10 @@
 ### Properties
 * **apiVersion**: '2019-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ManagedIdentityProperties
+* **identity**: [ManagedIdentityProperties](#managedidentityproperties)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AppResourceProperties
+* **properties**: [AppResourceProperties](#appresourceproperties)
 * **type**: 'Microsoft.AppPlatform/Spring/apps' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AppPlatform/Spring/apps/bindings@2019-05-01-preview
@@ -29,7 +29,7 @@
 * **apiVersion**: '2019-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: BindingResourceProperties
+* **properties**: [BindingResourceProperties](#bindingresourceproperties)
 * **type**: 'Microsoft.AppPlatform/Spring/apps/bindings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AppPlatform/Spring/apps/deployments@2019-05-01-preview
@@ -38,8 +38,8 @@
 * **apiVersion**: '2019-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DeploymentResourceProperties
-* **sku**: Sku
+* **properties**: [DeploymentResourceProperties](#deploymentresourceproperties)
+* **sku**: [Sku](#sku)
 * **type**: 'Microsoft.AppPlatform/Spring/apps/deployments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AppPlatform/Spring/apps/domains@2019-05-01-preview
@@ -48,7 +48,7 @@
 * **apiVersion**: '2019-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CustomDomainProperties
+* **properties**: [CustomDomainProperties](#customdomainproperties)
 * **type**: 'Microsoft.AppPlatform/Spring/apps/domains' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AppPlatform/Spring/certificates@2019-05-01-preview
@@ -57,27 +57,27 @@
 * **apiVersion**: '2019-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CertificateProperties
+* **properties**: [CertificateProperties](#certificateproperties)
 * **type**: 'Microsoft.AppPlatform/Spring/certificates' (ReadOnly, DeployTimeConstant)
 
 ## ClusterResourceProperties
 ### Properties
-* **configServerProperties**: ConfigServerProperties
-* **networkProfile**: NetworkProfile
-* **provisioningState**: 'Creating' | 'Deleted' | 'Deleting' | 'Failed' | 'Moved' | 'MoveFailed' | 'Moving' | 'Succeeded' | 'Updating' (ReadOnly)
+* **configServerProperties**: [ConfigServerProperties](#configserverproperties)
+* **networkProfile**: [NetworkProfile](#networkprofile)
+* **provisioningState**: 'Creating' | 'Deleted' | 'Deleting' | 'Failed' | 'MoveFailed' | 'Moved' | 'Moving' | 'Succeeded' | 'Updating' (ReadOnly)
 * **serviceId**: string (ReadOnly)
-* **trace**: TraceProperties
+* **trace**: [TraceProperties](#traceproperties)
 * **version**: int (ReadOnly)
 
 ## ConfigServerProperties
 ### Properties
-* **configServer**: ConfigServerSettings
-* **error**: Error
+* **configServer**: [ConfigServerSettings](#configserversettings)
+* **error**: [Error](#error)
 * **state**: 'Deleted' | 'Failed' | 'NotAvailable' | 'Succeeded' | 'Updating' (ReadOnly)
 
 ## ConfigServerSettings
 ### Properties
-* **gitProperty**: ConfigServerGitProperty
+* **gitProperty**: [ConfigServerGitProperty](#configservergitproperty)
 
 ## ConfigServerGitProperty
 ### Properties
@@ -86,7 +86,7 @@
 * **label**: string
 * **password**: string
 * **privateKey**: string
-* **repositories**: GitPatternRepository[]
+* **repositories**: [GitPatternRepository](#gitpatternrepository)[]
 * **searchPaths**: string[]
 * **strictHostKeyChecking**: bool
 * **uri**: string (Required)
@@ -115,12 +115,12 @@
 ### Properties
 * **appNetworkResourceGroup**: string
 * **appSubnetId**: string
-* **outboundIPs**: schemas:8_outboundIPs (ReadOnly)
+* **outboundIPs**: [NetworkProfileOutboundIPs](#networkprofileoutboundips) (ReadOnly)
 * **serviceCidr**: string
 * **serviceRuntimeNetworkResourceGroup**: string
 * **serviceRuntimeSubnetId**: string
 
-## schemas:8_outboundIPs
+## NetworkProfileOutboundIPs
 ### Properties
 * **publicIPs**: string[] (ReadOnly)
 
@@ -128,7 +128,7 @@
 ### Properties
 * **appInsightInstrumentationKey**: string
 * **enabled**: bool
-* **error**: Error
+* **error**: [Error](#error)
 * **state**: 'Failed' | 'NotAvailable' | 'Succeeded' | 'Updating' (ReadOnly)
 
 ## Sku
@@ -137,7 +137,7 @@
 * **name**: string
 * **tier**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -146,7 +146,7 @@
 ### Properties
 * **principalId**: string
 * **tenantId**: string
-* **type**: 'None' | 'SystemAssigned,UserAssigned' | 'SystemAssigned' | 'UserAssigned'
+* **type**: 'None' | 'SystemAssigned' | 'SystemAssigned,UserAssigned' | 'UserAssigned'
 
 ## AppResourceProperties
 ### Properties
@@ -154,10 +154,10 @@
 * **createdTime**: string (ReadOnly)
 * **fqdn**: string
 * **httpsOnly**: bool
-* **persistentDisk**: PersistentDisk
+* **persistentDisk**: [PersistentDisk](#persistentdisk)
 * **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **public**: bool
-* **temporaryDisk**: TemporaryDisk
+* **temporaryDisk**: [TemporaryDisk](#temporarydisk)
 * **url**: string (ReadOnly)
 
 ## PersistentDisk
@@ -173,7 +173,7 @@
 
 ## BindingResourceProperties
 ### Properties
-* **bindingParameters**: Dictionary<string,Object>
+* **bindingParameters**: [BindingResourcePropertiesBindingParameters](#bindingresourcepropertiesbindingparameters)
 * **createdAt**: string (ReadOnly)
 * **generatedProperties**: string (ReadOnly)
 * **key**: string
@@ -182,7 +182,7 @@
 * **resourceType**: string (ReadOnly)
 * **updatedAt**: string (ReadOnly)
 
-## Dictionary<string,Object>
+## BindingResourcePropertiesBindingParameters
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: any
@@ -192,23 +192,23 @@
 * **active**: bool (ReadOnly)
 * **appName**: string (ReadOnly)
 * **createdTime**: string (ReadOnly)
-* **deploymentSettings**: DeploymentSettings
-* **instances**: DeploymentInstance[] (ReadOnly)
+* **deploymentSettings**: [DeploymentSettings](#deploymentsettings)
+* **instances**: [DeploymentInstance](#deploymentinstance)[] (ReadOnly)
 * **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **source**: UserSourceInfo
+* **source**: [UserSourceInfo](#usersourceinfo)
 * **status**: 'Allocating' | 'Compiling' | 'Failed' | 'Running' | 'Stopped' | 'Unknown' | 'Upgrading' (ReadOnly)
 
 ## DeploymentSettings
 ### Properties
 * **cpu**: int
-* **environmentVariables**: Dictionary<string,String>
+* **environmentVariables**: [DeploymentSettingsEnvironmentVariables](#deploymentsettingsenvironmentvariables)
 * **instanceCount**: int
 * **jvmOptions**: string
 * **memoryInGB**: int
 * **netCoreMainEntryPath**: string
 * **runtimeVersion**: 'Java_11' | 'Java_8' | 'NetCore_31'
 
-## Dictionary<string,String>
+## DeploymentSettingsEnvironmentVariables
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

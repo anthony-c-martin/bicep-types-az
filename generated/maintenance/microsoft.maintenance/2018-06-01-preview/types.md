@@ -1,5 +1,13 @@
 # Microsoft.Maintenance @ 2018-06-01-preview
 
+## Resource Microsoft.Maintenance/applyUpdates@2018-06-01-preview
+* **Valid Scope(s)**: Extension
+### Properties
+* **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: 'default' (Required, DeployTimeConstant)
+* **type**: 'Microsoft.Maintenance/applyUpdates' (ReadOnly, DeployTimeConstant)
+
 ## Resource Microsoft.Maintenance/configurationAssignments@2018-06-01-preview
 * **Valid Scope(s)**: Extension
 ### Properties
@@ -7,7 +15,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ConfigurationAssignmentProperties
+* **properties**: [ConfigurationAssignmentProperties](#configurationassignmentproperties)
 * **type**: 'Microsoft.Maintenance/configurationAssignments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Maintenance/maintenanceConfigurations@2018-06-01-preview
@@ -17,8 +25,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MaintenanceConfigurationProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [MaintenanceConfigurationProperties](#maintenanceconfigurationproperties)
+* **tags**: [MaintenanceConfigurationTags](#maintenanceconfigurationtags)
 * **type**: 'Microsoft.Maintenance/maintenanceConfigurations' (ReadOnly, DeployTimeConstant)
 
 ## ConfigurationAssignmentProperties
@@ -28,16 +36,16 @@
 
 ## MaintenanceConfigurationProperties
 ### Properties
-* **extensionProperties**: Dictionary<string,String>
+* **extensionProperties**: [MaintenanceConfigurationPropertiesExtensionProperties](#maintenanceconfigurationpropertiesextensionproperties)
 * **maintenanceScope**: 'All' | 'Host' | 'InResource' | 'Resource'
 * **namespace**: string
 
-## Dictionary<string,String>
+## MaintenanceConfigurationPropertiesExtensionProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## MaintenanceConfigurationTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

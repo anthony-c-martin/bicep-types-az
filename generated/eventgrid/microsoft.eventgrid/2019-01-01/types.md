@@ -6,7 +6,7 @@
 * **apiVersion**: '2019-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: EventSubscriptionProperties
+* **properties**: [EventSubscriptionProperties](#eventsubscriptionproperties)
 * **type**: 'Microsoft.EventGrid/eventSubscriptions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.EventGrid/topics@2019-01-01
@@ -16,33 +16,34 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: TopicProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [TopicProperties](#topicproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.EventGrid/topics' (ReadOnly, DeployTimeConstant)
 
 ## EventSubscriptionProperties
 ### Properties
-* **deadLetterDestination**: DeadLetterDestination
-* **destination**: EventSubscriptionDestination
-* **filter**: EventSubscriptionFilter
+* **deadLetterDestination**: [DeadLetterDestination](#deadletterdestination)
+* **destination**: [EventSubscriptionDestination](#eventsubscriptiondestination)
+* **filter**: [EventSubscriptionFilter](#eventsubscriptionfilter)
 * **labels**: string[]
 * **provisioningState**: 'AwaitingManualAction' | 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **retryPolicy**: RetryPolicy
+* **retryPolicy**: [RetryPolicy](#retrypolicy)
 * **topic**: string (ReadOnly)
 
 ## DeadLetterDestination
 * **Discriminator**: endpointType
+
 ### Base Properties
-### StorageBlob
+### StorageBlobDeadLetterDestination
 #### Properties
 * **endpointType**: 'StorageBlob' (Required)
-* **properties**: StorageBlobDeadLetterDestinationProperties
+* **properties**: [StorageBlobDeadLetterDestinationProperties](#storageblobdeadletterdestinationproperties)
 
 
-## StorageBlob
+## StorageBlobDeadLetterDestination
 ### Properties
 * **endpointType**: 'StorageBlob' (Required)
-* **properties**: StorageBlobDeadLetterDestinationProperties
+* **properties**: [StorageBlobDeadLetterDestinationProperties](#storageblobdeadletterdestinationproperties)
 
 ## StorageBlobDeadLetterDestinationProperties
 ### Properties
@@ -51,60 +52,61 @@
 
 ## EventSubscriptionDestination
 * **Discriminator**: endpointType
+
 ### Base Properties
-### EventHub
+### EventHubEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'EventHub' (Required)
-* **properties**: EventHubEventSubscriptionDestinationProperties
+* **properties**: [EventHubEventSubscriptionDestinationProperties](#eventhubeventsubscriptiondestinationproperties)
 
-### HybridConnection
+### HybridConnectionEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'HybridConnection' (Required)
-* **properties**: HybridConnectionEventSubscriptionDestinationProperties
+* **properties**: [HybridConnectionEventSubscriptionDestinationProperties](#hybridconnectioneventsubscriptiondestinationproperties)
 
-### StorageQueue
+### StorageQueueEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'StorageQueue' (Required)
-* **properties**: StorageQueueEventSubscriptionDestinationProperties
+* **properties**: [StorageQueueEventSubscriptionDestinationProperties](#storagequeueeventsubscriptiondestinationproperties)
 
-### WebHook
+### WebHookEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'WebHook' (Required)
-* **properties**: WebHookEventSubscriptionDestinationProperties
+* **properties**: [WebHookEventSubscriptionDestinationProperties](#webhookeventsubscriptiondestinationproperties)
 
 
-## EventHub
+## EventHubEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'EventHub' (Required)
-* **properties**: EventHubEventSubscriptionDestinationProperties
+* **properties**: [EventHubEventSubscriptionDestinationProperties](#eventhubeventsubscriptiondestinationproperties)
 
 ## EventHubEventSubscriptionDestinationProperties
 ### Properties
 * **resourceId**: string
 
-## HybridConnection
+## HybridConnectionEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'HybridConnection' (Required)
-* **properties**: HybridConnectionEventSubscriptionDestinationProperties
+* **properties**: [HybridConnectionEventSubscriptionDestinationProperties](#hybridconnectioneventsubscriptiondestinationproperties)
 
 ## HybridConnectionEventSubscriptionDestinationProperties
 ### Properties
 * **resourceId**: string
 
-## StorageQueue
+## StorageQueueEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'StorageQueue' (Required)
-* **properties**: StorageQueueEventSubscriptionDestinationProperties
+* **properties**: [StorageQueueEventSubscriptionDestinationProperties](#storagequeueeventsubscriptiondestinationproperties)
 
 ## StorageQueueEventSubscriptionDestinationProperties
 ### Properties
 * **queueName**: string
 * **resourceId**: string
 
-## WebHook
+## WebHookEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'WebHook' (Required)
-* **properties**: WebHookEventSubscriptionDestinationProperties
+* **properties**: [WebHookEventSubscriptionDestinationProperties](#webhookeventsubscriptiondestinationproperties)
 
 ## WebHookEventSubscriptionDestinationProperties
 ### Properties
@@ -128,7 +130,7 @@
 * **endpoint**: string (ReadOnly)
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

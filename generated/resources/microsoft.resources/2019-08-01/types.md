@@ -1,13 +1,13 @@
 # Microsoft.Resources @ 2019-08-01
 
 ## Resource Microsoft.Resources/deployments@2019-08-01
-* **Valid Scope(s)**: Unknown
+* **Valid Scope(s)**: Tenant, ManagementGroup, Subscription, ResourceGroup
 ### Properties
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DeploymentProperties (Required)
+* **properties**: [DeploymentProperties](#deploymentproperties) (Required)
 * **type**: 'Microsoft.Resources/deployments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Resources/resourceGroups@2019-08-01
@@ -18,25 +18,25 @@
 * **location**: string (Required)
 * **managedBy**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ResourceGroupProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ResourceGroupProperties](#resourcegroupproperties)
+* **tags**: [ResourceGroupTags](#resourcegrouptags)
 * **type**: 'Microsoft.Resources/resourceGroups' (ReadOnly, DeployTimeConstant)
 
 ## DeploymentProperties
 ### Properties
 * **correlationId**: string (ReadOnly)
-* **debugSetting**: DebugSetting
-* **dependencies**: Dependency[] (ReadOnly)
+* **debugSetting**: [DebugSetting](#debugsetting)
+* **dependencies**: [Dependency](#dependency)[] (ReadOnly)
 * **duration**: string (ReadOnly)
 * **mode**: 'Complete' | 'Incremental' (Required)
-* **onErrorDeployment**: OnErrorDeployment
+* **onErrorDeployment**: [OnErrorDeployment](#onerrordeployment)
 * **outputs**: any (ReadOnly)
 * **parameters**: any
-* **parametersLink**: ParametersLink
-* **providers**: Provider[] (ReadOnly)
+* **parametersLink**: [ParametersLink](#parameterslink)
+* **providers**: [Provider](#provider)[] (ReadOnly)
 * **provisioningState**: string (ReadOnly)
 * **template**: any
-* **templateLink**: TemplateLink
+* **templateLink**: [TemplateLink](#templatelink)
 * **timestamp**: string (ReadOnly)
 
 ## DebugSetting
@@ -45,7 +45,7 @@
 
 ## Dependency
 ### Properties
-* **dependsOn**: BasicDependency[] (ReadOnly)
+* **dependsOn**: [BasicDependency](#basicdependency)[] (ReadOnly)
 * **id**: string (ReadOnly)
 * **resourceName**: string (ReadOnly)
 * **resourceType**: string (ReadOnly)
@@ -73,28 +73,28 @@
 * **namespace**: string (ReadOnly)
 * **registrationPolicy**: string (ReadOnly)
 * **registrationState**: string (ReadOnly)
-* **resourceTypes**: ProviderResourceType[] (ReadOnly)
+* **resourceTypes**: [ProviderResourceType](#providerresourcetype)[] (ReadOnly)
 
 ## ProviderResourceType
 ### Properties
-* **aliases**: AliasType[] (ReadOnly)
+* **aliases**: [AliasType](#aliastype)[] (ReadOnly)
 * **apiVersions**: string[] (ReadOnly)
 * **capabilities**: string (ReadOnly)
 * **locations**: string[] (ReadOnly)
-* **properties**: Dictionary<string,String> (ReadOnly)
+* **properties**: [ProviderResourceTypeProperties](#providerresourcetypeproperties) (ReadOnly)
 * **resourceType**: string (ReadOnly)
 
 ## AliasType
 ### Properties
 * **name**: string (ReadOnly)
-* **paths**: AliasPathType[] (ReadOnly)
+* **paths**: [AliasPathType](#aliaspathtype)[] (ReadOnly)
 
 ## AliasPathType
 ### Properties
 * **apiVersions**: string[] (ReadOnly)
 * **path**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ProviderResourceTypeProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -108,7 +108,7 @@
 ### Properties
 * **provisioningState**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceGroupTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

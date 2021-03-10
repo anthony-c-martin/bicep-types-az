@@ -8,9 +8,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DataBoxEdgeDeviceProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [DataBoxEdgeDeviceProperties](#databoxedgedeviceproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [DataBoxEdgeDeviceTags](#databoxedgedevicetags)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules@2019-08-01
@@ -19,7 +19,7 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: BandwidthScheduleProperties (Required)
+* **properties**: [BandwidthScheduleProperties](#bandwidthscheduleproperties) (Required)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders@2019-08-01
@@ -28,21 +28,22 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: OrderProperties
+* **properties**: [OrderProperties](#orderproperties)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles@2019-08-01
 * **Valid Scope(s)**: ResourceGroup
 * **Discriminator**: kind
+
 ### Base Properties
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles' (ReadOnly, DeployTimeConstant)
-### IOT
+### IoTRole
 #### Properties
 * **kind**: 'IOT' (Required)
-* **properties**: IoTRoleProperties
+* **properties**: [IoTRoleProperties](#iotroleproperties)
 
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares@2019-08-01
@@ -51,7 +52,7 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ShareProperties (Required)
+* **properties**: [ShareProperties](#shareproperties) (Required)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials@2019-08-01
@@ -60,7 +61,7 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: StorageAccountCredentialProperties (Required)
+* **properties**: [StorageAccountCredentialProperties](#storageaccountcredentialproperties) (Required)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccounts@2019-08-01
@@ -69,7 +70,7 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: StorageAccountProperties (Required)
+* **properties**: [StorageAccountProperties](#storageaccountproperties) (Required)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccounts' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccounts/containers@2019-08-01
@@ -78,26 +79,27 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ContainerProperties (Required)
+* **properties**: [ContainerProperties](#containerproperties) (Required)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccounts/containers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers@2019-08-01
 * **Valid Scope(s)**: ResourceGroup
 * **Discriminator**: kind
+
 ### Base Properties
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers' (ReadOnly, DeployTimeConstant)
-### FileEvent
+### FileEventTrigger
 #### Properties
 * **kind**: 'FileEvent' (Required)
-* **properties**: FileTriggerProperties (Required)
+* **properties**: [FileTriggerProperties](#filetriggerproperties) (Required)
 
-### PeriodicTimerEvent
+### PeriodicTimerEventTrigger
 #### Properties
 * **kind**: 'PeriodicTimerEvent' (Required)
-* **properties**: PeriodicTimerProperties (Required)
+* **properties**: [PeriodicTimerProperties](#periodictimerproperties) (Required)
 
 
 ## Resource Microsoft.DataBoxEdge/dataBoxEdgeDevices/users@2019-08-01
@@ -106,7 +108,7 @@
 * **apiVersion**: '2019-08-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: UserProperties (Required)
+* **properties**: [UserProperties](#userproperties) (Required)
 * **type**: 'Microsoft.DataBoxEdge/dataBoxEdgeDevices/users' (ReadOnly, DeployTimeConstant)
 
 ## DataBoxEdgeDeviceProperties
@@ -128,10 +130,10 @@
 
 ## Sku
 ### Properties
-* **name**: 'Edge' | 'Gateway' | 'TEA_1Node_Heater' | 'TEA_1Node_UPS_Heater' | 'TEA_1Node_UPS' | 'TEA_1Node' | 'TEA_4Node_Heater' | 'TEA_4Node_UPS_Heater' | 'TMA'
+* **name**: 'Edge' | 'Gateway' | 'TEA_1Node' | 'TEA_1Node_Heater' | 'TEA_1Node_UPS' | 'TEA_1Node_UPS_Heater' | 'TEA_4Node_Heater' | 'TEA_4Node_UPS_Heater' | 'TMA'
 * **tier**: 'Standard'
 
-## Dictionary<string,String>
+## DataBoxEdgeDeviceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -145,13 +147,13 @@
 
 ## OrderProperties
 ### Properties
-* **contactInformation**: ContactDetails (Required)
-* **currentStatus**: OrderStatus
-* **deliveryTrackingInfo**: TrackingInfo[] (ReadOnly)
-* **orderHistory**: OrderStatus[] (ReadOnly)
-* **returnTrackingInfo**: TrackingInfo[] (ReadOnly)
+* **contactInformation**: [ContactDetails](#contactdetails) (Required)
+* **currentStatus**: [OrderStatus](#orderstatus)
+* **deliveryTrackingInfo**: [TrackingInfo](#trackinginfo)[] (ReadOnly)
+* **orderHistory**: [OrderStatus](#orderstatus)[] (ReadOnly)
+* **returnTrackingInfo**: [TrackingInfo](#trackinginfo)[] (ReadOnly)
 * **serialNumber**: string (ReadOnly)
-* **shippingAddress**: Address (Required)
+* **shippingAddress**: [Address](#address) (Required)
 
 ## ContactDetails
 ### Properties
@@ -162,12 +164,12 @@
 
 ## OrderStatus
 ### Properties
-* **additionalOrderDetails**: Dictionary<string,String> (ReadOnly)
+* **additionalOrderDetails**: [OrderStatusAdditionalOrderDetails](#orderstatusadditionalorderdetails) (ReadOnly)
 * **comments**: string
 * **status**: 'Arriving' | 'AwaitingFulfilment' | 'AwaitingPreparation' | 'AwaitingReturnShipment' | 'AwaitingShipment' | 'CollectedAtMicrosoft' | 'Declined' | 'Delivered' | 'LostDevice' | 'ReplacementRequested' | 'ReturnInitiated' | 'Shipped' | 'ShippedBack' | 'Untracked' (Required)
 * **updateDateTime**: string (ReadOnly)
 
-## Dictionary<string,String>
+## OrderStatusAdditionalOrderDetails
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -189,33 +191,33 @@
 * **postalCode**: string (Required)
 * **state**: string (Required)
 
-## IOT
+## IoTRole
 ### Properties
 * **kind**: 'IOT' (Required)
-* **properties**: IoTRoleProperties
+* **properties**: [IoTRoleProperties](#iotroleproperties)
 
 ## IoTRoleProperties
 ### Properties
 * **hostPlatform**: 'Linux' | 'Windows' (Required)
-* **ioTDeviceDetails**: IoTDeviceInfo (Required)
-* **ioTEdgeDeviceDetails**: IoTDeviceInfo (Required)
+* **ioTDeviceDetails**: [IoTDeviceInfo](#iotdeviceinfo) (Required)
+* **ioTEdgeDeviceDetails**: [IoTDeviceInfo](#iotdeviceinfo) (Required)
 * **roleStatus**: 'Disabled' | 'Enabled' (Required)
-* **shareMappings**: MountPointMap[]
+* **shareMappings**: [MountPointMap](#mountpointmap)[]
 
 ## IoTDeviceInfo
 ### Properties
-* **authentication**: Authentication
+* **authentication**: [Authentication](#authentication)
 * **deviceId**: string (Required)
 * **ioTHostHub**: string (Required)
 * **ioTHostHubId**: string
 
 ## Authentication
 ### Properties
-* **symmetricKey**: SymmetricKey
+* **symmetricKey**: [SymmetricKey](#symmetrickey)
 
 ## SymmetricKey
 ### Properties
-* **connectionString**: AsymmetricEncryptedSecret
+* **connectionString**: [AsymmetricEncryptedSecret](#asymmetricencryptedsecret)
 
 ## AsymmetricEncryptedSecret
 ### Properties
@@ -233,15 +235,15 @@
 ## ShareProperties
 ### Properties
 * **accessProtocol**: 'NFS' | 'SMB' (Required)
-* **azureContainerInfo**: AzureContainerInfo
-* **clientAccessRights**: ClientAccessRight[]
+* **azureContainerInfo**: [AzureContainerInfo](#azurecontainerinfo)
+* **clientAccessRights**: [ClientAccessRight](#clientaccessright)[]
 * **dataPolicy**: 'Cloud' | 'Local'
 * **description**: string
 * **monitoringStatus**: 'Disabled' | 'Enabled' (Required)
-* **refreshDetails**: RefreshDetails
-* **shareMappings**: MountPointMap[] (ReadOnly)
-* **shareStatus**: 'NeedsAttention' | 'Offline' | 'OK' | 'Unknown' | 'Updating' (Required)
-* **userAccessRights**: UserAccessRight[]
+* **refreshDetails**: [RefreshDetails](#refreshdetails)
+* **shareMappings**: [MountPointMap](#mountpointmap)[] (ReadOnly)
+* **shareStatus**: 'NeedsAttention' | 'OK' | 'Offline' | 'Unknown' | 'Updating' (Required)
+* **userAccessRights**: [UserAccessRight](#useraccessright)[]
 
 ## AzureContainerInfo
 ### Properties
@@ -268,7 +270,7 @@
 
 ## StorageAccountCredentialProperties
 ### Properties
-* **accountKey**: AsymmetricEncryptedSecret
+* **accountKey**: [AsymmetricEncryptedSecret](#asymmetricencryptedsecret)
 * **accountType**: 'BlobStorage' | 'GeneralPurposeStorage' (Required)
 * **alias**: string (Required)
 * **blobDomainName**: string
@@ -284,25 +286,25 @@
 * **dataPolicy**: 'Cloud' | 'Local'
 * **description**: string
 * **storageAccountCredentialId**: string
-* **storageAccountStatus**: 'NeedsAttention' | 'Offline' | 'OK' | 'Unknown' | 'Updating'
+* **storageAccountStatus**: 'NeedsAttention' | 'OK' | 'Offline' | 'Unknown' | 'Updating'
 
 ## ContainerProperties
 ### Properties
-* **containerStatus**: 'NeedsAttention' | 'Offline' | 'OK' | 'Unknown' | 'Updating' (ReadOnly)
+* **containerStatus**: 'NeedsAttention' | 'OK' | 'Offline' | 'Unknown' | 'Updating' (ReadOnly)
 * **createdDateTime**: string (ReadOnly)
 * **dataFormat**: 'AzureFile' | 'BlockBlob' | 'PageBlob' (Required)
-* **refreshDetails**: RefreshDetails (ReadOnly)
+* **refreshDetails**: [RefreshDetails](#refreshdetails) (ReadOnly)
 
-## FileEvent
+## FileEventTrigger
 ### Properties
 * **kind**: 'FileEvent' (Required)
-* **properties**: FileTriggerProperties (Required)
+* **properties**: [FileTriggerProperties](#filetriggerproperties) (Required)
 
 ## FileTriggerProperties
 ### Properties
 * **customContextTag**: string
-* **sinkInfo**: RoleSinkInfo (Required)
-* **sourceInfo**: FileSourceInfo (Required)
+* **sinkInfo**: [RoleSinkInfo](#rolesinkinfo) (Required)
+* **sourceInfo**: [FileSourceInfo](#filesourceinfo) (Required)
 
 ## RoleSinkInfo
 ### Properties
@@ -312,16 +314,16 @@
 ### Properties
 * **shareId**: string (Required)
 
-## PeriodicTimerEvent
+## PeriodicTimerEventTrigger
 ### Properties
 * **kind**: 'PeriodicTimerEvent' (Required)
-* **properties**: PeriodicTimerProperties (Required)
+* **properties**: [PeriodicTimerProperties](#periodictimerproperties) (Required)
 
 ## PeriodicTimerProperties
 ### Properties
 * **customContextTag**: string
-* **sinkInfo**: RoleSinkInfo (Required)
-* **sourceInfo**: PeriodicTimerSourceInfo (Required)
+* **sinkInfo**: [RoleSinkInfo](#rolesinkinfo) (Required)
+* **sourceInfo**: [PeriodicTimerSourceInfo](#periodictimersourceinfo) (Required)
 
 ## PeriodicTimerSourceInfo
 ### Properties
@@ -331,8 +333,8 @@
 
 ## UserProperties
 ### Properties
-* **encryptedPassword**: AsymmetricEncryptedSecret
-* **shareAccessRights**: ShareAccessRight[]
+* **encryptedPassword**: [AsymmetricEncryptedSecret](#asymmetricencryptedsecret)
+* **shareAccessRights**: [ShareAccessRight](#shareaccessright)[]
 * **userType**: 'ARM' | 'LocalManagement' | 'Share' (Required)
 
 ## ShareAccessRight

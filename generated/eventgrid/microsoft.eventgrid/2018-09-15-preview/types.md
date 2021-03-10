@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DomainProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [DomainProperties](#domainproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.EventGrid/domains' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.EventGrid/eventSubscriptions@2018-09-15-preview
@@ -17,7 +17,7 @@
 * **apiVersion**: '2018-09-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: EventSubscriptionProperties
+* **properties**: [EventSubscriptionProperties](#eventsubscriptionproperties)
 * **type**: 'Microsoft.EventGrid/eventSubscriptions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.EventGrid/topics@2018-09-15-preview
@@ -27,39 +27,40 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: TopicProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [TopicProperties](#topicproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.EventGrid/topics' (ReadOnly, DeployTimeConstant)
 
 ## DomainProperties
 ### Properties
 * **endpoint**: string (ReadOnly)
 * **inputSchema**: 'CloudEventV01Schema' | 'CustomEventSchema' | 'EventGridSchema'
-* **inputSchemaMapping**: InputSchemaMapping
+* **inputSchemaMapping**: [InputSchemaMapping](#inputschemamapping)
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 
 ## InputSchemaMapping
 * **Discriminator**: inputSchemaMappingType
+
 ### Base Properties
-### Json
+### JsonInputSchemaMapping
 #### Properties
 * **inputSchemaMappingType**: 'Json' (Required)
-* **properties**: JsonInputSchemaMappingProperties
+* **properties**: [JsonInputSchemaMappingProperties](#jsoninputschemamappingproperties)
 
 
-## Json
+## JsonInputSchemaMapping
 ### Properties
 * **inputSchemaMappingType**: 'Json' (Required)
-* **properties**: JsonInputSchemaMappingProperties
+* **properties**: [JsonInputSchemaMappingProperties](#jsoninputschemamappingproperties)
 
 ## JsonInputSchemaMappingProperties
 ### Properties
-* **dataVersion**: JsonFieldWithDefault
-* **eventTime**: JsonField
-* **eventType**: JsonFieldWithDefault
-* **id**: JsonField
-* **subject**: JsonFieldWithDefault
-* **topic**: JsonField
+* **dataVersion**: [JsonFieldWithDefault](#jsonfieldwithdefault)
+* **eventTime**: [JsonField](#jsonfield)
+* **eventType**: [JsonFieldWithDefault](#jsonfieldwithdefault)
+* **id**: [JsonField](#jsonfield)
+* **subject**: [JsonFieldWithDefault](#jsonfieldwithdefault)
+* **topic**: [JsonField](#jsonfield)
 
 ## JsonFieldWithDefault
 ### Properties
@@ -70,36 +71,37 @@
 ### Properties
 * **sourceField**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## EventSubscriptionProperties
 ### Properties
-* **deadLetterDestination**: DeadLetterDestination
-* **destination**: EventSubscriptionDestination
+* **deadLetterDestination**: [DeadLetterDestination](#deadletterdestination)
+* **destination**: [EventSubscriptionDestination](#eventsubscriptiondestination)
 * **eventDeliverySchema**: 'CloudEventV01Schema' | 'CustomInputSchema' | 'EventGridSchema'
 * **expirationTimeUtc**: string
-* **filter**: EventSubscriptionFilter
+* **filter**: [EventSubscriptionFilter](#eventsubscriptionfilter)
 * **labels**: string[]
 * **provisioningState**: 'AwaitingManualAction' | 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **retryPolicy**: RetryPolicy
+* **retryPolicy**: [RetryPolicy](#retrypolicy)
 * **topic**: string (ReadOnly)
 
 ## DeadLetterDestination
 * **Discriminator**: endpointType
+
 ### Base Properties
-### StorageBlob
+### StorageBlobDeadLetterDestination
 #### Properties
 * **endpointType**: 'StorageBlob' (Required)
-* **properties**: StorageBlobDeadLetterDestinationProperties
+* **properties**: [StorageBlobDeadLetterDestinationProperties](#storageblobdeadletterdestinationproperties)
 
 
-## StorageBlob
+## StorageBlobDeadLetterDestination
 ### Properties
 * **endpointType**: 'StorageBlob' (Required)
-* **properties**: StorageBlobDeadLetterDestinationProperties
+* **properties**: [StorageBlobDeadLetterDestinationProperties](#storageblobdeadletterdestinationproperties)
 
 ## StorageBlobDeadLetterDestinationProperties
 ### Properties
@@ -108,60 +110,61 @@
 
 ## EventSubscriptionDestination
 * **Discriminator**: endpointType
+
 ### Base Properties
-### EventHub
+### EventHubEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'EventHub' (Required)
-* **properties**: EventHubEventSubscriptionDestinationProperties
+* **properties**: [EventHubEventSubscriptionDestinationProperties](#eventhubeventsubscriptiondestinationproperties)
 
-### HybridConnection
+### HybridConnectionEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'HybridConnection' (Required)
-* **properties**: HybridConnectionEventSubscriptionDestinationProperties
+* **properties**: [HybridConnectionEventSubscriptionDestinationProperties](#hybridconnectioneventsubscriptiondestinationproperties)
 
-### StorageQueue
+### StorageQueueEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'StorageQueue' (Required)
-* **properties**: StorageQueueEventSubscriptionDestinationProperties
+* **properties**: [StorageQueueEventSubscriptionDestinationProperties](#storagequeueeventsubscriptiondestinationproperties)
 
-### WebHook
+### WebHookEventSubscriptionDestination
 #### Properties
 * **endpointType**: 'WebHook' (Required)
-* **properties**: WebHookEventSubscriptionDestinationProperties
+* **properties**: [WebHookEventSubscriptionDestinationProperties](#webhookeventsubscriptiondestinationproperties)
 
 
-## EventHub
+## EventHubEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'EventHub' (Required)
-* **properties**: EventHubEventSubscriptionDestinationProperties
+* **properties**: [EventHubEventSubscriptionDestinationProperties](#eventhubeventsubscriptiondestinationproperties)
 
 ## EventHubEventSubscriptionDestinationProperties
 ### Properties
 * **resourceId**: string
 
-## HybridConnection
+## HybridConnectionEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'HybridConnection' (Required)
-* **properties**: HybridConnectionEventSubscriptionDestinationProperties
+* **properties**: [HybridConnectionEventSubscriptionDestinationProperties](#hybridconnectioneventsubscriptiondestinationproperties)
 
 ## HybridConnectionEventSubscriptionDestinationProperties
 ### Properties
 * **resourceId**: string
 
-## StorageQueue
+## StorageQueueEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'StorageQueue' (Required)
-* **properties**: StorageQueueEventSubscriptionDestinationProperties
+* **properties**: [StorageQueueEventSubscriptionDestinationProperties](#storagequeueeventsubscriptiondestinationproperties)
 
 ## StorageQueueEventSubscriptionDestinationProperties
 ### Properties
 * **queueName**: string
 * **resourceId**: string
 
-## WebHook
+## WebHookEventSubscriptionDestination
 ### Properties
 * **endpointType**: 'WebHook' (Required)
-* **properties**: WebHookEventSubscriptionDestinationProperties
+* **properties**: [WebHookEventSubscriptionDestinationProperties](#webhookeventsubscriptiondestinationproperties)
 
 ## WebHookEventSubscriptionDestinationProperties
 ### Properties
@@ -170,7 +173,7 @@
 
 ## EventSubscriptionFilter
 ### Properties
-* **advancedFilters**: AdvancedFilter[]
+* **advancedFilters**: [AdvancedFilter](#advancedfilter)[]
 * **includedEventTypes**: string[]
 * **isSubjectCaseSensitive**: bool
 * **subjectBeginsWith**: string
@@ -178,125 +181,126 @@
 
 ## AdvancedFilter
 * **Discriminator**: operatorType
+
 ### Base Properties
 * **key**: string
-### BoolEquals
+### BoolEqualsAdvancedFilter
 #### Properties
 * **operatorType**: 'BoolEquals' (Required)
 * **value**: bool
 
-### NumberGreaterThan
+### NumberGreaterThanAdvancedFilter
 #### Properties
 * **operatorType**: 'NumberGreaterThan' (Required)
 * **value**: int
 
-### NumberGreaterThanOrEquals
+### NumberGreaterThanOrEqualsAdvancedFilter
 #### Properties
 * **operatorType**: 'NumberGreaterThanOrEquals' (Required)
 * **value**: int
 
-### NumberIn
+### NumberInAdvancedFilter
 #### Properties
 * **operatorType**: 'NumberIn' (Required)
 * **values**: int[]
 
-### NumberLessThan
+### NumberLessThanAdvancedFilter
 #### Properties
 * **operatorType**: 'NumberLessThan' (Required)
 * **value**: int
 
-### NumberLessThanOrEquals
+### NumberLessThanOrEqualsAdvancedFilter
 #### Properties
 * **operatorType**: 'NumberLessThanOrEquals' (Required)
 * **value**: int
 
-### NumberNotIn
+### NumberNotInAdvancedFilter
 #### Properties
 * **operatorType**: 'NumberNotIn' (Required)
 * **values**: int[]
 
-### StringBeginsWith
+### StringBeginsWithAdvancedFilter
 #### Properties
 * **operatorType**: 'StringBeginsWith' (Required)
 * **values**: string[]
 
-### StringContains
+### StringContainsAdvancedFilter
 #### Properties
 * **operatorType**: 'StringContains' (Required)
 * **values**: string[]
 
-### StringEndsWith
+### StringEndsWithAdvancedFilter
 #### Properties
 * **operatorType**: 'StringEndsWith' (Required)
 * **values**: string[]
 
-### StringIn
+### StringInAdvancedFilter
 #### Properties
 * **operatorType**: 'StringIn' (Required)
 * **values**: string[]
 
-### StringNotIn
+### StringNotInAdvancedFilter
 #### Properties
 * **operatorType**: 'StringNotIn' (Required)
 * **values**: string[]
 
 
-## BoolEquals
+## BoolEqualsAdvancedFilter
 ### Properties
 * **operatorType**: 'BoolEquals' (Required)
 * **value**: bool
 
-## NumberGreaterThan
+## NumberGreaterThanAdvancedFilter
 ### Properties
 * **operatorType**: 'NumberGreaterThan' (Required)
 * **value**: int
 
-## NumberGreaterThanOrEquals
+## NumberGreaterThanOrEqualsAdvancedFilter
 ### Properties
 * **operatorType**: 'NumberGreaterThanOrEquals' (Required)
 * **value**: int
 
-## NumberIn
+## NumberInAdvancedFilter
 ### Properties
 * **operatorType**: 'NumberIn' (Required)
 * **values**: int[]
 
-## NumberLessThan
+## NumberLessThanAdvancedFilter
 ### Properties
 * **operatorType**: 'NumberLessThan' (Required)
 * **value**: int
 
-## NumberLessThanOrEquals
+## NumberLessThanOrEqualsAdvancedFilter
 ### Properties
 * **operatorType**: 'NumberLessThanOrEquals' (Required)
 * **value**: int
 
-## NumberNotIn
+## NumberNotInAdvancedFilter
 ### Properties
 * **operatorType**: 'NumberNotIn' (Required)
 * **values**: int[]
 
-## StringBeginsWith
+## StringBeginsWithAdvancedFilter
 ### Properties
 * **operatorType**: 'StringBeginsWith' (Required)
 * **values**: string[]
 
-## StringContains
+## StringContainsAdvancedFilter
 ### Properties
 * **operatorType**: 'StringContains' (Required)
 * **values**: string[]
 
-## StringEndsWith
+## StringEndsWithAdvancedFilter
 ### Properties
 * **operatorType**: 'StringEndsWith' (Required)
 * **values**: string[]
 
-## StringIn
+## StringInAdvancedFilter
 ### Properties
 * **operatorType**: 'StringIn' (Required)
 * **values**: string[]
 
-## StringNotIn
+## StringNotInAdvancedFilter
 ### Properties
 * **operatorType**: 'StringNotIn' (Required)
 * **values**: string[]
@@ -310,10 +314,10 @@
 ### Properties
 * **endpoint**: string (ReadOnly)
 * **inputSchema**: 'CloudEventV01Schema' | 'CustomEventSchema' | 'EventGridSchema'
-* **inputSchemaMapping**: InputSchemaMapping
+* **inputSchemaMapping**: [InputSchemaMapping](#inputschemamapping)
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

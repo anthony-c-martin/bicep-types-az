@@ -8,8 +8,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ProtectionContainer
-* **tags**: Dictionary<string,String>
+* **properties**: [ProtectionContainer](#protectioncontainer)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.RecoveryServices/vaults/backupstorageconfig@2016-12-01
@@ -20,56 +20,45 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: BackupResourceConfig
-* **tags**: Dictionary<string,String>
+* **properties**: [BackupResourceConfig](#backupresourceconfig)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.RecoveryServices/vaults/backupstorageconfig' (ReadOnly, DeployTimeConstant)
 
 ## ProtectionContainer
 * **Discriminator**: containerType
+
 ### Base Properties
-* **backupManagementType**: 'AzureBackupServer' | 'AzureIaasVM' | 'AzureSql' | 'AzureStorage' | 'AzureWorkload' | 'DefaultBackup' | 'DPM' | 'Invalid' | 'MAB'
+* **backupManagementType**: 'AzureBackupServer' | 'AzureIaasVM' | 'AzureSql' | 'AzureStorage' | 'AzureWorkload' | 'DPM' | 'DefaultBackup' | 'Invalid' | 'MAB'
 * **friendlyName**: string
 * **healthStatus**: string
 * **registrationStatus**: string
+### AzureBackupServerContainer
+#### Properties
+* **containerType**: 'AzureBackupServerContainer' (Required)
+
 ### AzureSqlContainer
 #### Properties
 * **containerType**: 'AzureSqlContainer' (Required)
 
-### AzureWorkloadContainer
-#### Properties
-* **containerType**: 'AzureWorkloadContainer' (Required)
-* **extendedInfo**: AzureWorkloadContainerExtendedInfo
-* **lastUpdatedTime**: string
-* **operationType**: 'Invalid' | 'Register' | 'Reregister'
-* **sourceResourceId**: string
-* **workloadType**: 'AzureFileShare' | 'AzureSqlDb' | 'Client' | 'Exchange' | 'FileFolder' | 'GenericDataSource' | 'Invalid' | 'SAPAseDatabase' | 'SAPHanaDatabase' | 'Sharepoint' | 'SQLDataBase' | 'SQLDB' | 'SystemState' | 'VM' | 'VMwareVM'
-
-### DPMContainer
-#### Properties
-* **canReRegister**: bool
-* **containerId**: string
-* **containerType**: 'DPMContainer' (Required)
-* **dpmAgentVersion**: string
-* **dpmServers**: string[]
-* **extendedInfo**: DPMContainerExtendedInfo
-* **protectedItemCount**: int
-* **protectionStatus**: string
-* **upgradeAvailable**: bool
-
 ### GenericContainer
 #### Properties
 * **containerType**: 'GenericContainer' (Required)
-* **extendedInformation**: GenericContainerExtendedInfo
+* **extendedInformation**: [GenericContainerExtendedInfo](#genericcontainerextendedinfo)
 * **fabricName**: string
 
-### IaaSVMContainer
+### AzureIaaSClassicComputeVMContainer
 #### Properties
-* **containerType**: 'IaaSVMContainer' (Required)
-* **resourceGroup**: string
-* **virtualMachineId**: string
-* **virtualMachineVersion**: string
+* **containerType**: 'Microsoft.ClassicCompute/virtualMachines' (Required)
 
-### StorageContainer
+### AzureIaaSComputeVMContainer
+#### Properties
+* **containerType**: 'Microsoft.Compute/virtualMachines' (Required)
+
+### AzureSqlagWorkloadContainerProtectionContainer
+#### Properties
+* **containerType**: 'SQLAGWorkLoadContainer' (Required)
+
+### AzureStorageContainer
 #### Properties
 * **containerType**: 'StorageContainer' (Required)
 * **protectedItemCount**: int
@@ -77,94 +66,41 @@
 * **sourceResourceId**: string
 * **storageAccountVersion**: string
 
-### Windows
+### AzureVMAppContainerProtectionContainer
+#### Properties
+* **containerType**: 'VMAppContainer' (Required)
+
+### MabContainer
 #### Properties
 * **agentVersion**: string
 * **canReRegister**: bool
 * **containerHealthState**: string
 * **containerId**: int
 * **containerType**: 'Windows' (Required)
-* **extendedInfo**: MabContainerExtendedInfo
-* **mabContainerHealthDetails**: MABContainerHealthDetails[]
+* **extendedInfo**: [MabContainerExtendedInfo](#mabcontainerextendedinfo)
+* **mabContainerHealthDetails**: [MABContainerHealthDetails](#mabcontainerhealthdetails)[]
 * **protectedItemCount**: int
 
+
+## AzureBackupServerContainer
+### Properties
+* **containerType**: 'AzureBackupServerContainer' (Required)
 
 ## AzureSqlContainer
 ### Properties
 * **containerType**: 'AzureSqlContainer' (Required)
 
-## AzureWorkloadContainer
-### Properties
-* **containerType**: 'AzureWorkloadContainer' (Required)
-* **extendedInfo**: AzureWorkloadContainerExtendedInfo
-* **lastUpdatedTime**: string
-* **operationType**: 'Invalid' | 'Register' | 'Reregister'
-* **sourceResourceId**: string
-* **workloadType**: 'AzureFileShare' | 'AzureSqlDb' | 'Client' | 'Exchange' | 'FileFolder' | 'GenericDataSource' | 'Invalid' | 'SAPAseDatabase' | 'SAPHanaDatabase' | 'Sharepoint' | 'SQLDataBase' | 'SQLDB' | 'SystemState' | 'VM' | 'VMwareVM'
-
-## AzureWorkloadContainerExtendedInfo
-### Properties
-* **hostServerName**: string
-* **inquiryInfo**: InquiryInfo
-* **nodesList**: DistributedNodesInfo[]
-
-## InquiryInfo
-### Properties
-* **errorDetail**: ErrorDetail
-* **inquiryDetails**: WorkloadInquiryDetails[]
-* **status**: string
-
-## ErrorDetail
-### Properties
-* **code**: string (ReadOnly)
-* **message**: string (ReadOnly)
-* **recommendations**: string[] (ReadOnly)
-
-## WorkloadInquiryDetails
-### Properties
-* **inquiryValidation**: InquiryValidation
-* **itemCount**: int
-* **type**: string
-
-## InquiryValidation
-### Properties
-* **additionalDetail**: string (ReadOnly)
-* **errorDetail**: ErrorDetail
-* **status**: string
-
-## DistributedNodesInfo
-### Properties
-* **errorDetail**: ErrorDetail
-* **nodeName**: string
-* **status**: string
-
-## DPMContainer
-### Properties
-* **canReRegister**: bool
-* **containerId**: string
-* **containerType**: 'DPMContainer' (Required)
-* **dpmAgentVersion**: string
-* **dpmServers**: string[]
-* **extendedInfo**: DPMContainerExtendedInfo
-* **protectedItemCount**: int
-* **protectionStatus**: string
-* **upgradeAvailable**: bool
-
-## DPMContainerExtendedInfo
-### Properties
-* **lastRefreshedAt**: string
-
 ## GenericContainer
 ### Properties
 * **containerType**: 'GenericContainer' (Required)
-* **extendedInformation**: GenericContainerExtendedInfo
+* **extendedInformation**: [GenericContainerExtendedInfo](#genericcontainerextendedinfo)
 * **fabricName**: string
 
 ## GenericContainerExtendedInfo
 ### Properties
-* **containerIdentityInfo**: ContainerIdentityInfo
+* **containerIdentityInfo**: [ContainerIdentityInfo](#containeridentityinfo)
 * **rawCertData**: string
-* **serviceEndpoints**: Dictionary<string,String>
+* **serviceEndpoints**: [GenericContainerExtendedInfoServiceEndpoints](#genericcontainerextendedinfoserviceendpoints)
 
 ## ContainerIdentityInfo
 ### Properties
@@ -173,19 +109,24 @@
 * **servicePrincipalClientId**: string
 * **uniqueName**: string
 
-## Dictionary<string,String>
+## GenericContainerExtendedInfoServiceEndpoints
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## IaaSVMContainer
+## AzureIaaSClassicComputeVMContainer
 ### Properties
-* **containerType**: 'IaaSVMContainer' (Required)
-* **resourceGroup**: string
-* **virtualMachineId**: string
-* **virtualMachineVersion**: string
+* **containerType**: 'Microsoft.ClassicCompute/virtualMachines' (Required)
 
-## StorageContainer
+## AzureIaaSComputeVMContainer
+### Properties
+* **containerType**: 'Microsoft.Compute/virtualMachines' (Required)
+
+## AzureSqlagWorkloadContainerProtectionContainer
+### Properties
+* **containerType**: 'SQLAGWorkLoadContainer' (Required)
+
+## AzureStorageContainer
 ### Properties
 * **containerType**: 'StorageContainer' (Required)
 * **protectedItemCount**: int
@@ -193,21 +134,25 @@
 * **sourceResourceId**: string
 * **storageAccountVersion**: string
 
-## Windows
+## AzureVMAppContainerProtectionContainer
+### Properties
+* **containerType**: 'VMAppContainer' (Required)
+
+## MabContainer
 ### Properties
 * **agentVersion**: string
 * **canReRegister**: bool
 * **containerHealthState**: string
 * **containerId**: int
 * **containerType**: 'Windows' (Required)
-* **extendedInfo**: MabContainerExtendedInfo
-* **mabContainerHealthDetails**: MABContainerHealthDetails[]
+* **extendedInfo**: [MabContainerExtendedInfo](#mabcontainerextendedinfo)
+* **mabContainerHealthDetails**: [MABContainerHealthDetails](#mabcontainerhealthdetails)[]
 * **protectedItemCount**: int
 
 ## MabContainerExtendedInfo
 ### Properties
 * **backupItems**: string[]
-* **backupItemType**: 'AzureFileShare' | 'AzureSqlDb' | 'Client' | 'Exchange' | 'FileFolder' | 'GenericDataSource' | 'Invalid' | 'SAPAseDatabase' | 'SAPHanaDatabase' | 'Sharepoint' | 'SQLDataBase' | 'SQLDB' | 'SystemState' | 'VM' | 'VMwareVM'
+* **backupItemType**: 'AzureFileShare' | 'AzureSqlDb' | 'Client' | 'Exchange' | 'FileFolder' | 'GenericDataSource' | 'Invalid' | 'SAPAseDatabase' | 'SAPHanaDatabase' | 'SQLDB' | 'SQLDataBase' | 'Sharepoint' | 'SystemState' | 'VM' | 'VMwareVM'
 * **lastBackupStatus**: string
 * **lastRefreshedAt**: string
 * **policyName**: string
@@ -219,7 +164,7 @@
 * **recommendations**: string[]
 * **title**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -230,7 +175,7 @@
 * **storageType**: 'GeoRedundant' | 'Invalid' | 'LocallyRedundant'
 * **storageTypeState**: 'Invalid' | 'Locked' | 'Unlocked'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

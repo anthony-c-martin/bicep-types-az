@@ -4,19 +4,19 @@
 * **Valid Scope(s)**: Subscription
 ### Properties
 * **apiVersion**: '2018-05-01-preview' (ReadOnly, DeployTimeConstant)
-* **createdBy**: AccessReviewActorIdentity (ReadOnly, WriteOnly)
+* **createdBy**: [AccessReviewActorIdentity](#accessreviewactoridentity) (ReadOnly, WriteOnly)
 * **descriptionForAdmins**: string (WriteOnly)
 * **descriptionForReviewers**: string (WriteOnly)
 * **displayName**: string (WriteOnly)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **instances**: AccessReviewInstance[] (WriteOnly)
+* **instances**: [AccessReviewInstance](#accessreviewinstance)[] (WriteOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AccessReviewScheduleDefinitionProperties (ReadOnly)
-* **reviewers**: AccessReviewReviewer[] (WriteOnly)
+* **properties**: [AccessReviewScheduleDefinitionProperties](#accessreviewscheduledefinitionproperties) (ReadOnly)
+* **reviewers**: [AccessReviewReviewer](#accessreviewreviewer)[] (WriteOnly)
 * **reviewersType**: 'Assigned' | 'Managers' | 'Self' (ReadOnly, WriteOnly)
-* **scope**: AccessReviewScope (ReadOnly, WriteOnly)
-* **settings**: AccessReviewScheduleSettings (WriteOnly)
-* **status**: 'Applied' | 'Applying' | 'AutoReviewed' | 'AutoReviewing' | 'Completed' | 'Completing' | 'Initializing' | 'InProgress' | 'NotStarted' | 'Scheduled' | 'Starting' (ReadOnly, WriteOnly)
+* **scope**: [AccessReviewScope](#accessreviewscope) (ReadOnly, WriteOnly)
+* **settings**: [AccessReviewScheduleSettings](#accessreviewschedulesettings) (WriteOnly)
+* **status**: 'Applied' | 'Applying' | 'AutoReviewed' | 'AutoReviewing' | 'Completed' | 'Completing' | 'InProgress' | 'Initializing' | 'NotStarted' | 'Scheduled' | 'Starting' (ReadOnly, WriteOnly)
 * **type**: 'Microsoft.Authorization/accessReviewScheduleDefinitions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Authorization/accessReviewScheduleSettings@2018-05-01-preview
@@ -31,9 +31,9 @@
 * **justificationRequiredOnApproval**: bool (WriteOnly)
 * **mailNotificationsEnabled**: bool (WriteOnly)
 * **name**: 'default' (Required, DeployTimeConstant)
-* **properties**: AccessReviewScheduleSettings (ReadOnly)
+* **properties**: [AccessReviewScheduleSettings](#accessreviewschedulesettings) (ReadOnly)
 * **recommendationsEnabled**: bool (WriteOnly)
-* **recurrence**: AccessReviewRecurrenceSettings (WriteOnly)
+* **recurrence**: [AccessReviewRecurrenceSettings](#accessreviewrecurrencesettings) (WriteOnly)
 * **reminderNotificationsEnabled**: bool (WriteOnly)
 * **type**: 'Microsoft.Authorization/accessReviewScheduleSettings' (ReadOnly, DeployTimeConstant)
 
@@ -48,27 +48,27 @@
 ### Properties
 * **id**: string (ReadOnly, WriteOnly)
 * **name**: string (ReadOnly, WriteOnly)
-* **properties**: AccessReviewInstanceProperties (WriteOnly)
+* **properties**: [AccessReviewInstanceProperties](#accessreviewinstanceproperties) (WriteOnly)
 * **type**: string (ReadOnly, WriteOnly)
 
 ## AccessReviewInstanceProperties
 ### Properties
 * **endDateTime**: string (WriteOnly)
 * **startDateTime**: string (WriteOnly)
-* **status**: 'Applied' | 'Applying' | 'AutoReviewed' | 'AutoReviewing' | 'Completed' | 'Completing' | 'Initializing' | 'InProgress' | 'NotStarted' | 'Scheduled' | 'Starting' (ReadOnly, WriteOnly)
+* **status**: 'Applied' | 'Applying' | 'AutoReviewed' | 'AutoReviewing' | 'Completed' | 'Completing' | 'InProgress' | 'Initializing' | 'NotStarted' | 'Scheduled' | 'Starting' (ReadOnly, WriteOnly)
 
 ## AccessReviewScheduleDefinitionProperties
 ### Properties
-* **createdBy**: AccessReviewActorIdentity (ReadOnly)
+* **createdBy**: [AccessReviewActorIdentity](#accessreviewactoridentity) (ReadOnly)
 * **descriptionForAdmins**: string (ReadOnly)
 * **descriptionForReviewers**: string (ReadOnly)
 * **displayName**: string (ReadOnly)
-* **instances**: AccessReviewInstance[] (ReadOnly)
-* **reviewers**: AccessReviewReviewer[] (ReadOnly)
+* **instances**: [AccessReviewInstance](#accessreviewinstance)[] (ReadOnly)
+* **reviewers**: [AccessReviewReviewer](#accessreviewreviewer)[] (ReadOnly)
 * **reviewersType**: 'Assigned' | 'Managers' | 'Self' (ReadOnly)
-* **scope**: AccessReviewScope (ReadOnly)
-* **settings**: AccessReviewScheduleSettings (ReadOnly)
-* **status**: 'Applied' | 'Applying' | 'AutoReviewed' | 'AutoReviewing' | 'Completed' | 'Completing' | 'Initializing' | 'InProgress' | 'NotStarted' | 'Scheduled' | 'Starting' (ReadOnly)
+* **scope**: [AccessReviewScope](#accessreviewscope) (ReadOnly)
+* **settings**: [AccessReviewScheduleSettings](#accessreviewschedulesettings) (ReadOnly)
+* **status**: 'Applied' | 'Applying' | 'AutoReviewed' | 'AutoReviewing' | 'Completed' | 'Completing' | 'InProgress' | 'Initializing' | 'NotStarted' | 'Scheduled' | 'Starting' (ReadOnly)
 
 ## AccessReviewReviewer
 ### Properties
@@ -90,13 +90,13 @@
 * **justificationRequiredOnApproval**: bool (WriteOnly)
 * **mailNotificationsEnabled**: bool (WriteOnly)
 * **recommendationsEnabled**: bool (WriteOnly)
-* **recurrence**: AccessReviewRecurrenceSettings (WriteOnly)
+* **recurrence**: [AccessReviewRecurrenceSettings](#accessreviewrecurrencesettings) (WriteOnly)
 * **reminderNotificationsEnabled**: bool (WriteOnly)
 
 ## AccessReviewRecurrenceSettings
 ### Properties
-* **pattern**: AccessReviewRecurrencePattern (WriteOnly)
-* **range**: AccessReviewRecurrenceRange (WriteOnly)
+* **pattern**: [AccessReviewRecurrencePattern](#accessreviewrecurrencepattern) (WriteOnly)
+* **range**: [AccessReviewRecurrenceRange](#accessreviewrecurrencerange) (WriteOnly)
 
 ## AccessReviewRecurrencePattern
 ### Properties

@@ -8,9 +8,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: IotDpsPropertiesDescription (Required)
-* **sku**: IotDpsSkuInfo (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [IotDpsPropertiesDescription](#iotdpspropertiesdescription) (Required)
+* **sku**: [IotDpsSkuInfo](#iotdpsskuinfo) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Devices/provisioningServices' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Devices/provisioningServices/certificates@2017-11-15
@@ -21,21 +21,21 @@
 * **etag**: string (ReadOnly)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CertificateProperties (ReadOnly)
+* **properties**: [CertificateProperties](#certificateproperties) (ReadOnly)
 * **type**: 'Microsoft.Devices/provisioningServices/certificates' (ReadOnly, DeployTimeConstant)
 
 ## IotDpsPropertiesDescription
 ### Properties
 * **allocationPolicy**: 'GeoLatency' | 'Hashed' | 'Static'
-* **authorizationPolicies**: SharedAccessSignatureAuthorizationRule_AccessRightsDescription_[]
+* **authorizationPolicies**: [SharedAccessSignatureAuthorizationRuleAccessRightsDescription](#sharedaccesssignatureauthorizationruleaccessrightsdescription)[]
 * **deviceProvisioningHostName**: string (ReadOnly)
 * **idScope**: string (ReadOnly)
-* **iotHubs**: IotHubDefinitionDescription[]
+* **iotHubs**: [IotHubDefinitionDescription](#iothubdefinitiondescription)[]
 * **provisioningState**: string
 * **serviceOperationsHostName**: string (ReadOnly)
 * **state**: 'Activating' | 'ActivationFailed' | 'Active' | 'Deleted' | 'Deleting' | 'DeletionFailed' | 'FailingOver' | 'FailoverFailed' | 'Resuming' | 'Suspended' | 'Suspending' | 'Transitioning'
 
-## SharedAccessSignatureAuthorizationRule_AccessRightsDescription_
+## SharedAccessSignatureAuthorizationRuleAccessRightsDescription
 ### Properties
 * **keyName**: string (Required)
 * **primaryKey**: string
@@ -56,7 +56,7 @@
 * **name**: 'S1'
 * **tier**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

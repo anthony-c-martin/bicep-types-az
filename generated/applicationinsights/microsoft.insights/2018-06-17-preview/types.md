@@ -8,8 +8,8 @@
 * **kind**: 'shared' | 'user'
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkbookProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [WorkbookProperties](#workbookproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'microsoft.insights/workbooks' (ReadOnly, DeployTimeConstant)
 
 ## WorkbookProperties
@@ -23,7 +23,7 @@
 * **userId**: string (ReadOnly)
 * **version**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

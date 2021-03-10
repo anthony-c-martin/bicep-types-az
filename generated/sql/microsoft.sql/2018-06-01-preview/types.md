@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: InstancePoolProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [InstancePoolProperties](#instancepoolproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/instancePools' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances@2018-06-01-preview
@@ -17,12 +17,12 @@
 ### Properties
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ResourceIdentity
+* **identity**: [ResourceIdentity](#resourceidentity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedInstanceProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [ManagedInstanceProperties](#managedinstanceproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/managedInstances' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/databases@2018-06-01-preview
@@ -32,8 +32,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedDatabaseProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ManagedDatabaseProperties](#manageddatabaseproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/managedInstances/databases' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/databases/backupLongTermRetentionPolicies@2018-06-01-preview
@@ -41,8 +41,8 @@
 ### Properties
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: BaseLongTermRetentionPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [BaseLongTermRetentionPolicyProperties](#baselongtermretentionpolicyproperties)
 * **type**: 'Microsoft.Sql/managedInstances/databases/backupLongTermRetentionPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels@2018-06-01-preview
@@ -50,8 +50,8 @@
 ### Properties
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: SensitivityLabelProperties
+* **name**: 'current' (Required, DeployTimeConstant)
+* **properties**: [SensitivityLabelProperties](#sensitivitylabelproperties)
 * **type**: 'Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/vulnerabilityAssessments@2018-06-01-preview
@@ -59,8 +59,8 @@
 ### Properties
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedInstanceVulnerabilityAssessmentProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ManagedInstanceVulnerabilityAssessmentProperties](#managedinstancevulnerabilityassessmentproperties)
 * **type**: 'Microsoft.Sql/managedInstances/vulnerabilityAssessments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/administrators@2018-06-01-preview
@@ -68,8 +68,8 @@
 ### Properties
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: AdministratorProperties
+* **name**: 'ActiveDirectory' (Required, DeployTimeConstant)
+* **properties**: [AdministratorProperties](#administratorproperties)
 * **type**: 'Microsoft.Sql/servers/administrators' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/securityAlertPolicies@2018-06-01-preview
@@ -77,8 +77,8 @@
 ### Properties
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: SecurityAlertPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [SecurityAlertPolicyProperties](#securityalertpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/databases/securityAlertPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/privateEndpointConnections@2018-06-01-preview
@@ -87,7 +87,7 @@
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 * **type**: 'Microsoft.Sql/servers/privateEndpointConnections' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/vulnerabilityAssessments@2018-06-01-preview
@@ -95,8 +95,8 @@
 ### Properties
 * **apiVersion**: '2018-06-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerVulnerabilityAssessmentProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ServerVulnerabilityAssessmentProperties](#servervulnerabilityassessmentproperties)
 * **type**: 'Microsoft.Sql/servers/vulnerabilityAssessments' (ReadOnly, DeployTimeConstant)
 
 ## InstancePoolProperties
@@ -113,7 +113,7 @@
 * **size**: string
 * **tier**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -147,7 +147,7 @@
 * **timezoneId**: string
 * **vCores**: int
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -170,7 +170,7 @@
 * **storageContainerSasToken**: string
 * **storageContainerUri**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -193,7 +193,7 @@
 
 ## ManagedInstanceVulnerabilityAssessmentProperties
 ### Properties
-* **recurringScans**: VulnerabilityAssessmentRecurringScansProperties
+* **recurringScans**: [VulnerabilityAssessmentRecurringScansProperties](#vulnerabilityassessmentrecurringscansproperties)
 * **storageAccountAccessKey**: string
 * **storageContainerPath**: string (Required)
 * **storageContainerSasKey**: string
@@ -206,7 +206,7 @@
 
 ## AdministratorProperties
 ### Properties
-* **administratorType**: string (Required)
+* **administratorType**: 'ActiveDirectory' (Required)
 * **login**: string (Required)
 * **sid**: string (Required)
 * **tenantId**: string
@@ -224,8 +224,8 @@
 
 ## PrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: PrivateEndpointProperty
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionStateProperty
+* **privateEndpoint**: [PrivateEndpointProperty](#privateendpointproperty)
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionStateProperty](#privatelinkserviceconnectionstateproperty)
 * **provisioningState**: string (ReadOnly)
 
 ## PrivateEndpointProperty
@@ -240,7 +240,7 @@
 
 ## ServerVulnerabilityAssessmentProperties
 ### Properties
-* **recurringScans**: VulnerabilityAssessmentRecurringScansProperties
+* **recurringScans**: [VulnerabilityAssessmentRecurringScansProperties](#vulnerabilityassessmentrecurringscansproperties)
 * **storageAccountAccessKey**: string
 * **storageContainerPath**: string (Required)
 * **storageContainerSasKey**: string

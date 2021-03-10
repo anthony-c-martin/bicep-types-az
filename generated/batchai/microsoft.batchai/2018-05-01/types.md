@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkspaceProperties (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [WorkspaceProperties](#workspaceproperties) (ReadOnly)
+* **tags**: [WorkspaceCreateParametersTags](#workspacecreateparameterstags)
 * **type**: 'Microsoft.BatchAI/workspaces' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.BatchAI/workspaces/clusters@2018-05-01
@@ -17,8 +17,17 @@
 * **apiVersion**: '2018-05-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ClusterBaseProperties
+* **properties**: [ClusterBaseProperties](#clusterbaseproperties)
 * **type**: 'Microsoft.BatchAI/workspaces/clusters' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.BatchAI/workspaces/experiments@2018-05-01
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2018-05-01' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: string (Required, DeployTimeConstant)
+* **properties**: [ExperimentProperties](#experimentproperties) (ReadOnly)
+* **type**: 'Microsoft.BatchAI/workspaces/experiments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.BatchAI/workspaces/experiments/jobs@2018-05-01
 * **Valid Scope(s)**: ResourceGroup
@@ -26,7 +35,7 @@
 * **apiVersion**: '2018-05-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobBaseProperties
+* **properties**: [JobBaseProperties](#jobbaseproperties)
 * **type**: 'Microsoft.BatchAI/workspaces/experiments/jobs' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.BatchAI/workspaces/fileServers@2018-05-01
@@ -35,7 +44,7 @@
 * **apiVersion**: '2018-05-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: FileServerBaseProperties
+* **properties**: [FileServerBaseProperties](#fileserverbaseproperties)
 * **type**: 'Microsoft.BatchAI/workspaces/fileServers' (ReadOnly, DeployTimeConstant)
 
 ## WorkspaceProperties
@@ -44,7 +53,7 @@
 * **provisioningState**: 'creating' | 'deleting' | 'failed' | 'succeeded' (ReadOnly)
 * **provisioningStateTransitionTime**: string (ReadOnly)
 
-## Dictionary<string,String>
+## WorkspaceCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -55,22 +64,22 @@
 * **allocationStateTransitionTime**: string (ReadOnly)
 * **creationTime**: string (ReadOnly)
 * **currentNodeCount**: int (ReadOnly)
-* **errors**: BatchAIError[] (ReadOnly)
-* **nodeSetup**: NodeSetup
-* **nodeStateCounts**: NodeStateCounts (ReadOnly)
+* **errors**: [BatchAIError](#batchaierror)[] (ReadOnly)
+* **nodeSetup**: [NodeSetup](#nodesetup)
+* **nodeStateCounts**: [NodeStateCounts](#nodestatecounts) (ReadOnly)
 * **provisioningState**: 'creating' | 'deleting' | 'failed' | 'succeeded' (ReadOnly)
 * **provisioningStateTransitionTime**: string (ReadOnly)
-* **scaleSettings**: ScaleSettings
-* **subnet**: ResourceId
-* **userAccountSettings**: UserAccountSettings (Required)
-* **virtualMachineConfiguration**: VirtualMachineConfiguration
+* **scaleSettings**: [ScaleSettings](#scalesettings)
+* **subnet**: [ResourceId](#resourceid)
+* **userAccountSettings**: [UserAccountSettings](#useraccountsettings) (Required)
+* **virtualMachineConfiguration**: [VirtualMachineConfiguration](#virtualmachineconfiguration)
 * **vmPriority**: 'dedicated' | 'lowpriority'
 * **vmSize**: string (Required)
 
 ## BatchAIError
 ### Properties
 * **code**: string (ReadOnly)
-* **details**: NameValuePair[] (ReadOnly)
+* **details**: [NameValuePair](#namevaluepair)[] (ReadOnly)
 * **message**: string (ReadOnly)
 
 ## NameValuePair
@@ -80,34 +89,34 @@
 
 ## NodeSetup
 ### Properties
-* **mountVolumes**: MountVolumes
-* **performanceCountersSettings**: PerformanceCountersSettings
-* **setupTask**: SetupTask
+* **mountVolumes**: [MountVolumes](#mountvolumes)
+* **performanceCountersSettings**: [PerformanceCountersSettings](#performancecounterssettings)
+* **setupTask**: [SetupTask](#setuptask)
 
 ## MountVolumes
 ### Properties
-* **azureBlobFileSystems**: AzureBlobFileSystemReference[]
-* **azureFileShares**: AzureFileShareReference[]
-* **fileServers**: FileServerReference[]
-* **unmanagedFileSystems**: UnmanagedFileSystemReference[]
+* **azureBlobFileSystems**: [AzureBlobFileSystemReference](#azureblobfilesystemreference)[]
+* **azureFileShares**: [AzureFileShareReference](#azurefilesharereference)[]
+* **fileServers**: [FileServerReference](#fileserverreference)[]
+* **unmanagedFileSystems**: [UnmanagedFileSystemReference](#unmanagedfilesystemreference)[]
 
 ## AzureBlobFileSystemReference
 ### Properties
 * **accountName**: string (Required)
 * **containerName**: string (Required)
-* **credentials**: AzureStorageCredentialsInfo (Required)
+* **credentials**: [AzureStorageCredentialsInfo](#azurestoragecredentialsinfo) (Required)
 * **mountOptions**: string
 * **relativeMountPath**: string (Required)
 
 ## AzureStorageCredentialsInfo
 ### Properties
 * **accountKey**: string
-* **accountKeySecretReference**: KeyVaultSecretReference
+* **accountKeySecretReference**: [KeyVaultSecretReference](#keyvaultsecretreference)
 
 ## KeyVaultSecretReference
 ### Properties
 * **secretUrl**: string (Required)
-* **sourceVault**: ResourceId (Required)
+* **sourceVault**: [ResourceId](#resourceid) (Required)
 
 ## ResourceId
 ### Properties
@@ -117,14 +126,14 @@
 ### Properties
 * **accountName**: string (Required)
 * **azureFileUrl**: string (Required)
-* **credentials**: AzureStorageCredentialsInfo (Required)
+* **credentials**: [AzureStorageCredentialsInfo](#azurestoragecredentialsinfo) (Required)
 * **directoryMode**: string
 * **fileMode**: string
 * **relativeMountPath**: string (Required)
 
 ## FileServerReference
 ### Properties
-* **fileServer**: ResourceId (Required)
+* **fileServer**: [ResourceId](#resourceid) (Required)
 * **mountOptions**: string
 * **relativeMountPath**: string (Required)
 * **sourceDirectory**: string
@@ -136,19 +145,19 @@
 
 ## PerformanceCountersSettings
 ### Properties
-* **appInsightsReference**: AppInsightsReference (Required)
+* **appInsightsReference**: [AppInsightsReference](#appinsightsreference) (Required)
 
 ## AppInsightsReference
 ### Properties
-* **component**: ResourceId (Required)
+* **component**: [ResourceId](#resourceid) (Required)
 * **instrumentationKey**: string
-* **instrumentationKeySecretReference**: KeyVaultSecretReference
+* **instrumentationKeySecretReference**: [KeyVaultSecretReference](#keyvaultsecretreference)
 
 ## SetupTask
 ### Properties
 * **commandLine**: string (Required)
-* **environmentVariables**: EnvironmentVariable[]
-* **secrets**: EnvironmentVariableWithSecretValue[]
+* **environmentVariables**: [EnvironmentVariable](#environmentvariable)[]
+* **secrets**: [EnvironmentVariableWithSecretValue](#environmentvariablewithsecretvalue)[]
 * **stdOutErrPathPrefix**: string (Required)
 * **stdOutErrPathSuffix**: string (ReadOnly)
 
@@ -161,7 +170,7 @@
 ### Properties
 * **name**: string (Required)
 * **value**: string
-* **valueSecretReference**: KeyVaultSecretReference
+* **valueSecretReference**: [KeyVaultSecretReference](#keyvaultsecretreference)
 
 ## NodeStateCounts
 ### Properties
@@ -173,8 +182,8 @@
 
 ## ScaleSettings
 ### Properties
-* **autoScale**: AutoScaleSettings
-* **manual**: ManualScaleSettings
+* **autoScale**: [AutoScaleSettings](#autoscalesettings)
+* **manual**: [ManualScaleSettings](#manualscalesettings)
 
 ## AutoScaleSettings
 ### Properties
@@ -195,7 +204,7 @@
 
 ## VirtualMachineConfiguration
 ### Properties
-* **imageReference**: ImageReference
+* **imageReference**: [ImageReference](#imagereference)
 
 ## ImageReference
 ### Properties
@@ -205,36 +214,42 @@
 * **version**: string
 * **virtualMachineImageId**: string
 
-## JobBaseProperties
+## ExperimentProperties
 ### Properties
-* **caffe2Settings**: Caffe2Settings
-* **caffeSettings**: CaffeSettings
-* **chainerSettings**: ChainerSettings
-* **cluster**: ResourceId (Required)
-* **cntkSettings**: CNTKsettings
-* **constraints**: schemas:31_constraints
-* **containerSettings**: ContainerSettings
 * **creationTime**: string (ReadOnly)
-* **customMpiSettings**: CustomMpiSettings
-* **customToolkitSettings**: CustomToolkitSettings
-* **environmentVariables**: EnvironmentVariable[]
-* **executionInfo**: schemas:33_executionInfo (ReadOnly)
-* **executionState**: 'failed' | 'queued' | 'running' | 'succeeded' | 'terminating' (ReadOnly)
-* **executionStateTransitionTime**: string (ReadOnly)
-* **horovodSettings**: HorovodSettings
-* **inputDirectories**: InputDirectory[]
-* **jobOutputDirectoryPathSegment**: string (ReadOnly)
-* **jobPreparation**: JobPreparation
-* **mountVolumes**: MountVolumes
-* **nodeCount**: int (Required)
-* **outputDirectories**: OutputDirectory[]
 * **provisioningState**: 'creating' | 'deleting' | 'failed' | 'succeeded' (ReadOnly)
 * **provisioningStateTransitionTime**: string (ReadOnly)
-* **pyTorchSettings**: PyTorchSettings
+
+## JobBaseProperties
+### Properties
+* **caffe2Settings**: [Caffe2Settings](#caffe2settings)
+* **caffeSettings**: [CaffeSettings](#caffesettings)
+* **chainerSettings**: [ChainerSettings](#chainersettings)
+* **cluster**: [ResourceId](#resourceid) (Required)
+* **cntkSettings**: [CNTKsettings](#cntksettings)
+* **constraints**: [JobBasePropertiesConstraints](#jobbasepropertiesconstraints)
+* **containerSettings**: [ContainerSettings](#containersettings)
+* **creationTime**: string (ReadOnly)
+* **customMpiSettings**: [CustomMpiSettings](#custommpisettings)
+* **customToolkitSettings**: [CustomToolkitSettings](#customtoolkitsettings)
+* **environmentVariables**: [EnvironmentVariable](#environmentvariable)[]
+* **executionInfo**: [JobPropertiesExecutionInfo](#jobpropertiesexecutioninfo) (ReadOnly)
+* **executionState**: 'failed' | 'queued' | 'running' | 'succeeded' | 'terminating' (ReadOnly)
+* **executionStateTransitionTime**: string (ReadOnly)
+* **horovodSettings**: [HorovodSettings](#horovodsettings)
+* **inputDirectories**: [InputDirectory](#inputdirectory)[]
+* **jobOutputDirectoryPathSegment**: string (ReadOnly)
+* **jobPreparation**: [JobPreparation](#jobpreparation)
+* **mountVolumes**: [MountVolumes](#mountvolumes)
+* **nodeCount**: int (Required)
+* **outputDirectories**: [OutputDirectory](#outputdirectory)[]
+* **provisioningState**: 'creating' | 'deleting' | 'failed' | 'succeeded' (ReadOnly)
+* **provisioningStateTransitionTime**: string (ReadOnly)
+* **pyTorchSettings**: [PyTorchSettings](#pytorchsettings)
 * **schedulingPriority**: 'high' | 'low' | 'normal'
-* **secrets**: EnvironmentVariableWithSecretValue[]
+* **secrets**: [EnvironmentVariableWithSecretValue](#environmentvariablewithsecretvalue)[]
 * **stdOutErrPathPrefix**: string (Required)
-* **tensorFlowSettings**: TensorFlowSettings
+* **tensorFlowSettings**: [TensorFlowSettings](#tensorflowsettings)
 * **toolType**: 'caffe' | 'caffe2' | 'chainer' | 'cntk' | 'custom' | 'custommpi' | 'horovod' | 'tensorflow' (ReadOnly)
 
 ## Caffe2Settings
@@ -267,25 +282,25 @@
 * **pythonInterpreterPath**: string
 * **pythonScriptFilePath**: string
 
-## schemas:31_constraints
+## JobBasePropertiesConstraints
 ### Properties
 * **maxWallClockTime**: string
 
 ## ContainerSettings
 ### Properties
-* **imageSourceRegistry**: ImageSourceRegistry (Required)
+* **imageSourceRegistry**: [ImageSourceRegistry](#imagesourceregistry) (Required)
 * **shmSize**: string
 
 ## ImageSourceRegistry
 ### Properties
-* **credentials**: PrivateRegistryCredentials
+* **credentials**: [PrivateRegistryCredentials](#privateregistrycredentials)
 * **image**: string (Required)
 * **serverUrl**: string
 
 ## PrivateRegistryCredentials
 ### Properties
 * **password**: string
-* **passwordSecretReference**: KeyVaultSecretReference
+* **passwordSecretReference**: [KeyVaultSecretReference](#keyvaultsecretreference)
 * **username**: string (Required)
 
 ## CustomMpiSettings
@@ -297,10 +312,10 @@
 ### Properties
 * **commandLine**: string
 
-## schemas:33_executionInfo
+## JobPropertiesExecutionInfo
 ### Properties
 * **endTime**: string (ReadOnly)
-* **errors**: BatchAIError[] (ReadOnly)
+* **errors**: [BatchAIError](#batchaierror)[] (ReadOnly)
 * **exitCode**: int (ReadOnly)
 * **startTime**: string (ReadOnly)
 
@@ -347,12 +362,12 @@
 ## FileServerBaseProperties
 ### Properties
 * **creationTime**: string (ReadOnly)
-* **dataDisks**: DataDisks (Required)
-* **mountSettings**: MountSettings (ReadOnly)
+* **dataDisks**: [DataDisks](#datadisks) (Required)
+* **mountSettings**: [MountSettings](#mountsettings) (ReadOnly)
 * **provisioningState**: 'creating' | 'deleting' | 'failed' | 'succeeded' | 'updating' (ReadOnly)
 * **provisioningStateTransitionTime**: string (ReadOnly)
-* **sshConfiguration**: SshConfiguration (Required)
-* **subnet**: ResourceId
+* **sshConfiguration**: [SshConfiguration](#sshconfiguration) (Required)
+* **subnet**: [ResourceId](#resourceid)
 * **vmSize**: string (Required)
 
 ## DataDisks
@@ -371,5 +386,5 @@
 ## SshConfiguration
 ### Properties
 * **publicIPsToAllow**: string[]
-* **userAccountSettings**: UserAccountSettings (Required)
+* **userAccountSettings**: [UserAccountSettings](#useraccountsettings) (Required)
 

@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ApplicationGroupProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [ApplicationGroupProperties](#applicationgroupproperties) (Required)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.DesktopVirtualization/applicationGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DesktopVirtualization/applicationGroups/applications@2020-11-10-preview
@@ -17,7 +17,7 @@
 * **apiVersion**: '2020-11-10-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ApplicationProperties (Required)
+* **properties**: [ApplicationProperties](#applicationproperties) (Required)
 * **type**: 'Microsoft.DesktopVirtualization/applicationGroups/applications' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DesktopVirtualization/hostPools@2020-11-10-preview
@@ -27,8 +27,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: HostPoolProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [HostPoolProperties](#hostpoolproperties) (Required)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.DesktopVirtualization/hostPools' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DesktopVirtualization/hostPools/msixPackages@2020-11-10-preview
@@ -37,7 +37,7 @@
 * **apiVersion**: '2020-11-10-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MSIXPackageProperties (Required)
+* **properties**: [MsixPackageProperties](#msixpackageproperties) (Required)
 * **type**: 'Microsoft.DesktopVirtualization/hostPools/msixPackages' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DesktopVirtualization/scalingPlans@2020-11-10-preview
@@ -47,8 +47,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ScalingPlanProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ScalingPlanProperties](#scalingplanproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.DesktopVirtualization/scalingPlans' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DesktopVirtualization/workspaces@2020-11-10-preview
@@ -58,8 +58,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkspaceProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [WorkspaceProperties](#workspaceproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.DesktopVirtualization/workspaces' (ReadOnly, DeployTimeConstant)
 
 ## ApplicationGroupProperties
@@ -70,7 +70,7 @@
 * **hostPoolArmPath**: string (Required)
 * **workspaceArmPath**: string (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -83,7 +83,7 @@
 * **description**: string
 * **filePath**: string
 * **friendlyName**: string
-* **iconContent**: array (ReadOnly)
+* **iconContent**: any (ReadOnly)
 * **iconHash**: string (ReadOnly)
 * **iconIndex**: int
 * **iconPath**: string
@@ -102,7 +102,7 @@
 * **maxSessionLimit**: int
 * **personalDesktopAssignmentType**: 'Automatic' | 'Direct'
 * **preferredAppGroupType**: 'Desktop' | 'None' | 'RailApplications' (Required)
-* **registrationInfo**: RegistrationInfo
+* **registrationInfo**: [RegistrationInfo](#registrationinfo)
 * **ring**: int
 * **ssoadfsAuthority**: string
 * **ssoClientId**: string
@@ -118,20 +118,20 @@
 * **registrationTokenOperation**: 'Delete' | 'None' | 'Update'
 * **token**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## MSIXPackageProperties
+## MsixPackageProperties
 ### Properties
 * **displayName**: string
 * **imagePath**: string
 * **isActive**: bool
 * **isRegularRegistration**: bool
 * **lastUpdated**: string
-* **packageApplications**: MsixPackageApplications[]
-* **packageDependencies**: MsixPackageDependencies[]
+* **packageApplications**: [MsixPackageApplications](#msixpackageapplications)[]
+* **packageDependencies**: [MsixPackageDependencies](#msixpackagedependencies)[]
 * **packageFamilyName**: string
 * **packageName**: string
 * **packageRelativePath**: string
@@ -144,8 +144,8 @@
 * **description**: string
 * **friendlyName**: string
 * **iconImageName**: string
-* **rawIcon**: array
-* **rawPng**: array
+* **rawIcon**: any
+* **rawPng**: any
 
 ## MsixPackageDependencies
 ### Properties
@@ -158,9 +158,9 @@
 * **description**: string
 * **exclusionTag**: string
 * **friendlyName**: string
-* **hostPoolReferences**: ScalingHostPoolReference[]
+* **hostPoolReferences**: [ScalingHostPoolReference](#scalinghostpoolreference)[]
 * **hostPoolType**: 'Personal' | 'Pooled'
-* **schedules**: ScalingSchedule[]
+* **schedules**: [ScalingSchedule](#scalingschedule)[]
 * **timeZone**: string
 
 ## ScalingHostPoolReference
@@ -189,7 +189,7 @@
 * **rampUpMinimumHostsPct**: int
 * **rampUpStartTime**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -200,7 +200,7 @@
 * **description**: string
 * **friendlyName**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SqlDatabaseProperties
-* **systemData**: SystemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [SqlDatabaseProperties](#sqldatabaseproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Synapse/workspaces/sqlDatabases' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Synapse/workspaces/sqlPools@2020-04-01-preview
@@ -20,10 +20,10 @@
 * **kind**: string (ReadOnly)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SqlPoolProperties
-* **sku**: Sku
-* **systemData**: SystemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [SqlPoolProperties](#sqlpoolproperties)
+* **sku**: [Sku](#sku)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Synapse/workspaces/sqlPools' (ReadOnly, DeployTimeConstant)
 
 ## SqlDatabaseProperties
@@ -42,7 +42,7 @@
 * **lastModifiedBy**: string (ReadOnly)
 * **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User' (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -59,7 +59,7 @@
 * **name**: string (Required)
 * **tier**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

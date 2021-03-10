@@ -7,14 +7,14 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DedicatedCapacityProperties
-* **sku**: ResourceSku (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [DedicatedCapacityProperties](#dedicatedcapacityproperties)
+* **sku**: [ResourceSku](#resourcesku) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.PowerBIDedicated/capacities' (ReadOnly, DeployTimeConstant)
 
 ## DedicatedCapacityProperties
 ### Properties
-* **administration**: DedicatedCapacityAdministrators
+* **administration**: [DedicatedCapacityAdministrators](#dedicatedcapacityadministrators)
 * **provisioningState**: 'Deleting' | 'Failed' | 'Paused' | 'Pausing' | 'Preparing' | 'Provisioning' | 'Resuming' | 'Scaling' | 'Succeeded' | 'Suspended' | 'Suspending' | 'Updating' (ReadOnly)
 * **state**: 'Deleting' | 'Failed' | 'Paused' | 'Pausing' | 'Preparing' | 'Provisioning' | 'Resuming' | 'Scaling' | 'Succeeded' | 'Suspended' | 'Suspending' | 'Updating' (ReadOnly)
 
@@ -27,7 +27,7 @@
 * **name**: string (Required)
 * **tier**: 'PBIE_Azure'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

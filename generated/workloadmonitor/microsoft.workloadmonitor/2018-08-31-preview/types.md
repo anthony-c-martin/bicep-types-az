@@ -6,8 +6,8 @@
 * **apiVersion**: '2018-08-31-preview' (ReadOnly, DeployTimeConstant)
 * **etag**: string (ReadOnly)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: NotificationSettingProperties (ReadOnly)
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [NotificationSettingProperties](#notificationsettingproperties) (ReadOnly)
 * **type**: 'Microsoft.WorkloadMonitor/notificationSettings' (ReadOnly, DeployTimeConstant)
 
 ## NotificationSettingProperties

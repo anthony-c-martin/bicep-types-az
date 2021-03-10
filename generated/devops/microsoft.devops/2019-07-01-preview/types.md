@@ -7,41 +7,41 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PipelineProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [PipelineProperties](#pipelineproperties) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.DevOps/pipelines' (ReadOnly, DeployTimeConstant)
 
 ## PipelineProperties
 ### Properties
-* **bootstrapConfiguration**: BootstrapConfiguration (Required)
-* **organization**: OrganizationReference (Required)
+* **bootstrapConfiguration**: [BootstrapConfiguration](#bootstrapconfiguration) (Required)
+* **organization**: [OrganizationReference](#organizationreference) (Required)
 * **pipelineId**: int (ReadOnly)
-* **project**: ProjectReference (Required)
+* **project**: [ProjectReference](#projectreference) (Required)
 
 ## BootstrapConfiguration
 ### Properties
-* **repository**: CodeRepository
-* **template**: PipelineTemplate (Required)
+* **repository**: [CodeRepository](#coderepository)
+* **template**: [PipelineTemplate](#pipelinetemplate) (Required)
 
 ## CodeRepository
 ### Properties
-* **authorization**: Authorization
+* **authorization**: [Authorization](#authorization)
 * **defaultBranch**: string (Required)
 * **id**: string (Required)
-* **properties**: Dictionary<string,String>
+* **properties**: [CodeRepositoryProperties](#coderepositoryproperties)
 * **repositoryType**: 'gitHub' | 'vstsGit' (Required)
 
 ## Authorization
 ### Properties
-* **authorizationType**: string (Required)
-* **parameters**: Dictionary<string,String>
+* **authorizationType**: 'personalAccessToken' (Required)
+* **parameters**: [AuthorizationParameters](#authorizationparameters)
 
-## Dictionary<string,String>
+## AuthorizationParameters
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## CodeRepositoryProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -49,9 +49,9 @@
 ## PipelineTemplate
 ### Properties
 * **id**: string (Required)
-* **parameters**: Dictionary<string,String>
+* **parameters**: [PipelineTemplateParameters](#pipelinetemplateparameters)
 
-## Dictionary<string,String>
+## PipelineTemplateParameters
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -66,7 +66,7 @@
 * **id**: string (ReadOnly)
 * **name**: string (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

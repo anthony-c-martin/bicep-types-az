@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ActionGroup
-* **tags**: Dictionary<string,String>
+* **properties**: [ActionGroup](#actiongroup)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'microsoft.insights/actionGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource microsoft.insights/activityLogAlerts@2017-04-01
@@ -18,20 +18,20 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ActivityLogAlert
-* **tags**: Dictionary<string,String>
+* **properties**: [ActivityLogAlert](#activitylogalert)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'microsoft.insights/activityLogAlerts' (ReadOnly, DeployTimeConstant)
 
 ## ActionGroup
 ### Properties
-* **automationRunbookReceivers**: AutomationRunbookReceiver[]
-* **azureAppPushReceivers**: AzureAppPushReceiver[]
-* **emailReceivers**: EmailReceiver[]
+* **automationRunbookReceivers**: [AutomationRunbookReceiver](#automationrunbookreceiver)[]
+* **azureAppPushReceivers**: [AzureAppPushReceiver](#azureapppushreceiver)[]
+* **emailReceivers**: [EmailReceiver](#emailreceiver)[]
 * **enabled**: bool (Required)
 * **groupShortName**: string (Required)
-* **itsmReceivers**: ItsmReceiver[]
-* **smsReceivers**: SmsReceiver[]
-* **webhookReceivers**: WebhookReceiver[]
+* **itsmReceivers**: [ItsmReceiver](#itsmreceiver)[]
+* **smsReceivers**: [SmsReceiver](#smsreceiver)[]
+* **webhookReceivers**: [WebhookReceiver](#webhookreceiver)[]
 
 ## AutomationRunbookReceiver
 ### Properties
@@ -73,43 +73,43 @@
 * **name**: string (Required)
 * **serviceUri**: string (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## ActivityLogAlert
 ### Properties
-* **actions**: ActivityLogAlertActionList (Required)
-* **condition**: ActivityLogAlertAllOfCondition (Required)
+* **actions**: [ActivityLogAlertActionList](#activitylogalertactionlist) (Required)
+* **condition**: [ActivityLogAlertAllOfCondition](#activitylogalertallofcondition) (Required)
 * **description**: string
 * **enabled**: bool
 * **scopes**: string[] (Required)
 
 ## ActivityLogAlertActionList
 ### Properties
-* **actionGroups**: ActivityLogAlertActionGroup[]
+* **actionGroups**: [ActivityLogAlertActionGroup](#activitylogalertactiongroup)[]
 
 ## ActivityLogAlertActionGroup
 ### Properties
 * **actionGroupId**: string (Required)
-* **webhookProperties**: Dictionary<string,String>
+* **webhookProperties**: [ActivityLogAlertActionGroupWebhookProperties](#activitylogalertactiongroupwebhookproperties)
 
-## Dictionary<string,String>
+## ActivityLogAlertActionGroupWebhookProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## ActivityLogAlertAllOfCondition
 ### Properties
-* **allOf**: ActivityLogAlertLeafCondition[] (Required)
+* **allOf**: [ActivityLogAlertLeafCondition](#activitylogalertleafcondition)[] (Required)
 
 ## ActivityLogAlertLeafCondition
 ### Properties
 * **equals**: string (Required)
 * **field**: string (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

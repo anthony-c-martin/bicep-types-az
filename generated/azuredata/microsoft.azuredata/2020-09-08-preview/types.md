@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DataControllerProperties (Required)
-* **systemData**: SystemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [DataControllerProperties](#datacontrollerproperties) (Required)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.AzureData/dataControllers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AzureData/postgresInstances@2020-09-08-preview
@@ -19,9 +19,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PostgresInstanceProperties
-* **systemData**: SystemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [PostgresInstanceProperties](#postgresinstanceproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.AzureData/postgresInstances' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AzureData/sqlManagedInstances@2020-09-08-preview
@@ -31,9 +31,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SqlManagedInstanceProperties
-* **systemData**: SystemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [SqlManagedInstanceProperties](#sqlmanagedinstanceproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.AzureData/sqlManagedInstances' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.AzureData/sqlServerInstances@2020-09-08-preview
@@ -43,16 +43,16 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SqlServerInstanceProperties
-* **systemData**: SystemData (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [SqlServerInstanceProperties](#sqlserverinstanceproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.AzureData/sqlServerInstances' (ReadOnly, DeployTimeConstant)
 
 ## DataControllerProperties
 ### Properties
 * **k8sRaw**: any
 * **lastUploadedDate**: string
-* **onPremiseProperty**: OnPremiseProperty (Required)
+* **onPremiseProperty**: [OnPremiseProperty](#onpremiseproperty) (Required)
 
 ## OnPremiseProperty
 ### Properties
@@ -69,7 +69,7 @@
 * **lastModifiedBy**: string
 * **lastModifiedByType**: 'application' | 'key' | 'managedIdentity' | 'user'
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -81,7 +81,7 @@
 * **k8sRaw**: any
 * **lastUploadedDate**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -97,7 +97,7 @@
 * **startTime**: string
 * **vCore**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -112,7 +112,7 @@
 * **vCore**: string (Required)
 * **version**: string (Required)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

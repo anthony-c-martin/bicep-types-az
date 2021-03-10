@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DiskAccessProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [DiskAccessProperties](#diskaccessproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Compute/diskAccesses' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Compute/diskEncryptionSets@2020-06-30
@@ -16,11 +16,11 @@
 ### Properties
 * **apiVersion**: '2020-06-30' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: EncryptionSetIdentity
+* **identity**: [EncryptionSetIdentity](#encryptionsetidentity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: EncryptionSetProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [EncryptionSetProperties](#encryptionsetproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Compute/diskEncryptionSets' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Compute/disks@2020-06-30
@@ -32,9 +32,9 @@
 * **managedBy**: string (ReadOnly)
 * **managedByExtended**: string[] (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DiskProperties
-* **sku**: DiskSku
-* **tags**: Dictionary<string,String>
+* **properties**: [DiskProperties](#diskproperties)
+* **sku**: [DiskSku](#disksku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Compute/disks' (ReadOnly, DeployTimeConstant)
 * **zones**: string[]
 
@@ -46,14 +46,14 @@
 * **location**: string (Required)
 * **managedBy**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SnapshotProperties
-* **sku**: SnapshotSku
-* **tags**: Dictionary<string,String>
+* **properties**: [SnapshotProperties](#snapshotproperties)
+* **sku**: [SnapshotSku](#snapshotsku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Compute/snapshots' (ReadOnly, DeployTimeConstant)
 
 ## DiskAccessProperties
 ### Properties
-* **privateEndpointConnections**: PrivateEndpointConnection[] (ReadOnly)
+* **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[] (ReadOnly)
 * **provisioningState**: string (ReadOnly)
 * **timeCreated**: string (ReadOnly)
 
@@ -61,14 +61,14 @@
 ### Properties
 * **id**: string (ReadOnly)
 * **name**: string (ReadOnly)
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 * **type**: string (ReadOnly)
 
 ## PrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: PrivateEndpoint
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState (Required)
-* **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded'
+* **privateEndpoint**: [PrivateEndpoint](#privateendpoint)
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate) (Required)
+* **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' (ReadOnly)
 
 ## PrivateEndpoint
 ### Properties
@@ -80,7 +80,7 @@
 * **description**: string
 * **status**: 'Approved' | 'Pending' | 'Rejected'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -93,28 +93,28 @@
 
 ## EncryptionSetProperties
 ### Properties
-* **activeKey**: KeyVaultAndKeyReference
+* **activeKey**: [KeyVaultAndKeyReference](#keyvaultandkeyreference)
 * **encryptionType**: 'EncryptionAtRestWithCustomerKey' | 'EncryptionAtRestWithPlatformAndCustomerKeys'
-* **previousKeys**: KeyVaultAndKeyReference[] (ReadOnly)
+* **previousKeys**: [KeyVaultAndKeyReference](#keyvaultandkeyreference)[] (ReadOnly)
 * **provisioningState**: string (ReadOnly)
 
 ## KeyVaultAndKeyReference
 ### Properties
 * **keyUrl**: string (Required)
-* **sourceVault**: SourceVault (Required)
+* **sourceVault**: [SourceVault](#sourcevault) (Required)
 
 ## SourceVault
 ### Properties
 * **id**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## DiskProperties
 ### Properties
-* **creationData**: CreationData (Required)
+* **creationData**: [CreationData](#creationdata) (Required)
 * **diskAccessId**: string
 * **diskIOPSReadOnly**: int
 * **diskIOPSReadWrite**: int
@@ -122,15 +122,15 @@
 * **diskMBpsReadWrite**: int
 * **diskSizeBytes**: int (ReadOnly)
 * **diskSizeGB**: int
-* **diskState**: 'ActiveSAS' | 'ActiveUpload' | 'Attached' | 'ReadyToUpload' | 'Reserved' | 'Unattached'
-* **encryption**: Encryption
-* **encryptionSettingsCollection**: EncryptionSettingsCollection
+* **diskState**: 'ActiveSAS' | 'ActiveUpload' | 'Attached' | 'ReadyToUpload' | 'Reserved' | 'Unattached' (ReadOnly)
+* **encryption**: [Encryption](#encryption)
+* **encryptionSettingsCollection**: [EncryptionSettingsCollection](#encryptionsettingscollection)
 * **hyperVGeneration**: 'V1' | 'V2'
 * **maxShares**: int
 * **networkAccessPolicy**: 'AllowAll' | 'AllowPrivate' | 'DenyAll'
 * **osType**: 'Linux' | 'Windows'
 * **provisioningState**: string (ReadOnly)
-* **shareInfo**: ShareInfoElement[] (ReadOnly)
+* **shareInfo**: [ShareInfoElement](#shareinfoelement)[] (ReadOnly)
 * **tier**: string
 * **timeCreated**: string (ReadOnly)
 * **uniqueId**: string (ReadOnly)
@@ -138,8 +138,8 @@
 ## CreationData
 ### Properties
 * **createOption**: 'Attach' | 'Copy' | 'Empty' | 'FromImage' | 'Import' | 'Restore' | 'Upload' (Required)
-* **galleryImageReference**: ImageDiskReference
-* **imageReference**: ImageDiskReference
+* **galleryImageReference**: [ImageDiskReference](#imagediskreference)
+* **imageReference**: [ImageDiskReference](#imagediskreference)
 * **logicalSectorSize**: int
 * **sourceResourceId**: string
 * **sourceUniqueId**: string (ReadOnly)
@@ -160,18 +160,18 @@
 ## EncryptionSettingsCollection
 ### Properties
 * **enabled**: bool (Required)
-* **encryptionSettings**: EncryptionSettingsElement[]
+* **encryptionSettings**: [EncryptionSettingsElement](#encryptionsettingselement)[]
 * **encryptionSettingsVersion**: string
 
 ## EncryptionSettingsElement
 ### Properties
-* **diskEncryptionKey**: KeyVaultAndSecretReference
-* **keyEncryptionKey**: KeyVaultAndKeyReference
+* **diskEncryptionKey**: [KeyVaultAndSecretReference](#keyvaultandsecretreference)
+* **keyEncryptionKey**: [KeyVaultAndKeyReference](#keyvaultandkeyreference)
 
 ## KeyVaultAndSecretReference
 ### Properties
 * **secretUrl**: string (Required)
-* **sourceVault**: SourceVault (Required)
+* **sourceVault**: [SourceVault](#sourcevault) (Required)
 
 ## ShareInfoElement
 ### Properties
@@ -179,23 +179,23 @@
 
 ## DiskSku
 ### Properties
-* **name**: 'Premium_LRS' | 'Standard_LRS' | 'StandardSSD_LRS' | 'UltraSSD_LRS'
+* **name**: 'Premium_LRS' | 'StandardSSD_LRS' | 'Standard_LRS' | 'UltraSSD_LRS'
 * **tier**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## SnapshotProperties
 ### Properties
-* **creationData**: CreationData (Required)
+* **creationData**: [CreationData](#creationdata) (Required)
 * **diskAccessId**: string
 * **diskSizeBytes**: int (ReadOnly)
 * **diskSizeGB**: int
-* **diskState**: 'ActiveSAS' | 'ActiveUpload' | 'Attached' | 'ReadyToUpload' | 'Reserved' | 'Unattached'
-* **encryption**: Encryption
-* **encryptionSettingsCollection**: EncryptionSettingsCollection
+* **diskState**: 'ActiveSAS' | 'ActiveUpload' | 'Attached' | 'ReadyToUpload' | 'Reserved' | 'Unattached' (ReadOnly)
+* **encryption**: [Encryption](#encryption)
+* **encryptionSettingsCollection**: [EncryptionSettingsCollection](#encryptionsettingscollection)
 * **hyperVGeneration**: 'V1' | 'V2'
 * **incremental**: bool
 * **networkAccessPolicy**: 'AllowAll' | 'AllowPrivate' | 'DenyAll'
@@ -209,7 +209,7 @@
 * **name**: 'Premium_LRS' | 'Standard_LRS' | 'Standard_ZRS'
 * **tier**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

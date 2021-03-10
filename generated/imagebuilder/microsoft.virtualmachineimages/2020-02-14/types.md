@@ -5,24 +5,24 @@
 ### Properties
 * **apiVersion**: '2020-02-14' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ImageTemplateIdentity (Required)
+* **identity**: [ImageTemplateIdentity](#imagetemplateidentity) (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ImageTemplateProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ImageTemplateProperties](#imagetemplateproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.VirtualMachineImages/imageTemplates' (ReadOnly, DeployTimeConstant)
 
 ## ImageTemplateIdentity
 ### Properties
 * **type**: 'None' | 'UserAssigned'
-* **userAssignedIdentities**: Dictionary<string,Schemas22UserAssignedIdentitiesValue>
+* **userAssignedIdentities**: [ImageTemplateIdentityUserAssignedIdentities](#imagetemplateidentityuserassignedidentities)
 
-## Dictionary<string,Schemas22UserAssignedIdentitiesValue>
+## ImageTemplateIdentityUserAssignedIdentities
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: schemas:22_userAssignedIdentitiesValue
+* **Additional Properties Type**: [ComponentsVrq145SchemasImagetemplateidentityPropertiesUserassignedidentitiesAdditionalproperties](#componentsvrq145schemasimagetemplateidentitypropertiesuserassignedidentitiesadditionalproperties)
 
-## schemas:22_userAssignedIdentitiesValue
+## ComponentsVrq145SchemasImagetemplateidentityPropertiesUserassignedidentitiesAdditionalproperties
 ### Properties
 * **clientId**: string (ReadOnly)
 * **principalId**: string (ReadOnly)
@@ -30,26 +30,27 @@
 ## ImageTemplateProperties
 ### Properties
 * **buildTimeoutInMinutes**: int
-* **customize**: ImageTemplateCustomizer[]
-* **distribute**: ImageTemplateDistributor[] (Required)
-* **lastRunStatus**: ImageTemplateLastRunStatus (ReadOnly)
-* **provisioningError**: ProvisioningError (ReadOnly)
+* **customize**: [ImageTemplateCustomizer](#imagetemplatecustomizer)[]
+* **distribute**: [ImageTemplateDistributor](#imagetemplatedistributor)[] (Required)
+* **lastRunStatus**: [ImageTemplateLastRunStatus](#imagetemplatelastrunstatus) (ReadOnly)
+* **provisioningError**: [ProvisioningError](#provisioningerror) (ReadOnly)
 * **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **source**: ImageTemplateSource (Required)
-* **vmProfile**: ImageTemplateVmProfile
+* **source**: [ImageTemplateSource](#imagetemplatesource) (Required)
+* **vmProfile**: [ImageTemplateVmProfile](#imagetemplatevmprofile)
 
 ## ImageTemplateCustomizer
 * **Discriminator**: type
+
 ### Base Properties
 * **name**: string
-### File
+### ImageTemplateFileCustomizer
 #### Properties
 * **destination**: string
 * **sha256Checksum**: string
 * **sourceUri**: string
 * **type**: 'File' (Required)
 
-### PowerShell
+### ImageTemplatePowerShellCustomizer
 #### Properties
 * **inline**: string[]
 * **runAsSystem**: bool
@@ -59,21 +60,21 @@
 * **type**: 'PowerShell' (Required)
 * **validExitCodes**: int[]
 
-### Shell
+### ImageTemplateShellCustomizer
 #### Properties
 * **inline**: string[]
 * **scriptUri**: string
 * **sha256Checksum**: string
 * **type**: 'Shell' (Required)
 
-### WindowsRestart
+### ImageTemplateRestartCustomizer
 #### Properties
 * **restartCheckCommand**: string
 * **restartCommand**: string
 * **restartTimeout**: string
 * **type**: 'WindowsRestart' (Required)
 
-### WindowsUpdate
+### ImageTemplateWindowsUpdateCustomizer
 #### Properties
 * **filters**: string[]
 * **searchCriteria**: string
@@ -81,14 +82,14 @@
 * **updateLimit**: int
 
 
-## File
+## ImageTemplateFileCustomizer
 ### Properties
 * **destination**: string
 * **sha256Checksum**: string
 * **sourceUri**: string
 * **type**: 'File' (Required)
 
-## PowerShell
+## ImageTemplatePowerShellCustomizer
 ### Properties
 * **inline**: string[]
 * **runAsSystem**: bool
@@ -98,21 +99,21 @@
 * **type**: 'PowerShell' (Required)
 * **validExitCodes**: int[]
 
-## Shell
+## ImageTemplateShellCustomizer
 ### Properties
 * **inline**: string[]
 * **scriptUri**: string
 * **sha256Checksum**: string
 * **type**: 'Shell' (Required)
 
-## WindowsRestart
+## ImageTemplateRestartCustomizer
 ### Properties
 * **restartCheckCommand**: string
 * **restartCommand**: string
 * **restartTimeout**: string
 * **type**: 'WindowsRestart' (Required)
 
-## WindowsUpdate
+## ImageTemplateWindowsUpdateCustomizer
 ### Properties
 * **filters**: string[]
 * **searchCriteria**: string
@@ -121,15 +122,17 @@
 
 ## ImageTemplateDistributor
 * **Discriminator**: type
+
 ### Base Properties
-* **artifactTags**: Dictionary<string,String>
+* **artifactTags**: [ImageTemplateDistributorArtifactTags](#imagetemplatedistributorartifacttags)
 * **runOutputName**: string (Required)
-### ManagedImage
+### ImageTemplateManagedImageDistributor
 #### Properties
 * **imageId**: string (Required)
+* **location**: string (Required)
 * **type**: 'ManagedImage' (Required)
 
-### SharedImage
+### ImageTemplateSharedImageDistributor
 #### Properties
 * **excludeFromLatest**: bool
 * **galleryImageId**: string (Required)
@@ -137,22 +140,23 @@
 * **storageAccountType**: 'Standard_LRS' | 'Standard_ZRS'
 * **type**: 'SharedImage' (Required)
 
-### VHD
+### ImageTemplateVhdDistributor
 #### Properties
 * **type**: 'VHD' (Required)
 
 
-## Dictionary<string,String>
+## ImageTemplateDistributorArtifactTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## ManagedImage
+## ImageTemplateManagedImageDistributor
 ### Properties
 * **imageId**: string (Required)
+* **location**: string (Required)
 * **type**: 'ManagedImage' (Required)
 
-## SharedImage
+## ImageTemplateSharedImageDistributor
 ### Properties
 * **excludeFromLatest**: bool
 * **galleryImageId**: string (Required)
@@ -160,7 +164,7 @@
 * **storageAccountType**: 'Standard_LRS' | 'Standard_ZRS'
 * **type**: 'SharedImage' (Required)
 
-## VHD
+## ImageTemplateVhdDistributor
 ### Properties
 * **type**: 'VHD' (Required)
 
@@ -179,31 +183,37 @@
 
 ## ImageTemplateSource
 * **Discriminator**: type
+
 ### Base Properties
-### ManagedImage
+### ImageTemplateManagedImageSource
 #### Properties
 * **imageId**: string (Required)
 * **type**: 'ManagedImage' (Required)
 
-### PlatformImage
+### ImageTemplatePlatformImageSource
 #### Properties
 * **offer**: string
-* **planInfo**: PlatformImagePurchasePlan
+* **planInfo**: [PlatformImagePurchasePlan](#platformimagepurchaseplan)
 * **publisher**: string
 * **sku**: string
 * **type**: 'PlatformImage' (Required)
 * **version**: string
 
-### SharedImageVersion
+### ImageTemplateSharedImageVersionSource
 #### Properties
 * **imageVersionId**: string (Required)
 * **type**: 'SharedImageVersion' (Required)
 
 
-## PlatformImage
+## ImageTemplateManagedImageSource
+### Properties
+* **imageId**: string (Required)
+* **type**: 'ManagedImage' (Required)
+
+## ImageTemplatePlatformImageSource
 ### Properties
 * **offer**: string
-* **planInfo**: PlatformImagePurchasePlan
+* **planInfo**: [PlatformImagePurchasePlan](#platformimagepurchaseplan)
 * **publisher**: string
 * **sku**: string
 * **type**: 'PlatformImage' (Required)
@@ -215,7 +225,7 @@
 * **planProduct**: string (Required)
 * **planPublisher**: string (Required)
 
-## SharedImageVersion
+## ImageTemplateSharedImageVersionSource
 ### Properties
 * **imageVersionId**: string (Required)
 * **type**: 'SharedImageVersion' (Required)
@@ -224,13 +234,13 @@
 ### Properties
 * **osDiskSizeGB**: int
 * **vmSize**: string
-* **vnetConfig**: VirtualNetworkConfig
+* **vnetConfig**: [VirtualNetworkConfig](#virtualnetworkconfig)
 
 ## VirtualNetworkConfig
 ### Properties
 * **subnetId**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

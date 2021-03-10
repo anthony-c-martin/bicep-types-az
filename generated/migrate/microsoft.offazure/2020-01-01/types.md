@@ -8,8 +8,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SiteProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [SiteProperties](#siteproperties)
+* **tags**: [HyperVSiteTags](#hypervsitetags)
 * **type**: 'Microsoft.OffAzure/HyperVSites' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.OffAzure/HyperVSites/clusters@2020-01-01
@@ -18,7 +18,7 @@
 * **apiVersion**: '2020-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: HyperVClusterProperties
+* **properties**: [HyperVClusterProperties](#hypervclusterproperties)
 * **type**: 'Microsoft.OffAzure/HyperVSites/clusters' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.OffAzure/HyperVSites/hosts@2020-01-01
@@ -27,7 +27,7 @@
 * **apiVersion**: '2020-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: HyperVHostProperties
+* **properties**: [HyperVHostProperties](#hypervhostproperties)
 * **type**: 'Microsoft.OffAzure/HyperVSites/hosts' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.OffAzure/VMwareSites@2020-01-01
@@ -38,8 +38,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SiteProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [SiteProperties](#siteproperties)
+* **tags**: [VMwareSiteTags](#vmwaresitetags)
 * **type**: 'Microsoft.OffAzure/VMwareSites' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.OffAzure/VMwareSites/vCenters@2020-01-01
@@ -48,16 +48,16 @@
 * **apiVersion**: '2020-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VCenterProperties
+* **properties**: [VCenterProperties](#vcenterproperties)
 * **type**: 'Microsoft.OffAzure/VMwareSites/vCenters' (ReadOnly, DeployTimeConstant)
 
 ## SiteProperties
 ### Properties
-* **agentDetails**: SiteAgentProperties
+* **agentDetails**: [SiteAgentProperties](#siteagentproperties)
 * **applianceName**: string
 * **discoverySolutionId**: string
 * **serviceEndpoint**: string (ReadOnly)
-* **servicePrincipalIdentityDetails**: SiteSpnProperties
+* **servicePrincipalIdentityDetails**: [SiteSpnProperties](#sitespnproperties)
 
 ## SiteAgentProperties
 ### Properties
@@ -76,7 +76,7 @@
 * **rawCertData**: string
 * **tenantId**: string
 
-## Dictionary<string,String>
+## HyperVSiteTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -84,7 +84,7 @@
 ## HyperVClusterProperties
 ### Properties
 * **createdTimestamp**: string (ReadOnly)
-* **errors**: HealthErrorDetails[] (ReadOnly)
+* **errors**: [HealthErrorDetails](#healtherrordetails)[] (ReadOnly)
 * **fqdn**: string
 * **functionalLevel**: int (ReadOnly)
 * **hostFqdnList**: string[]
@@ -97,14 +97,14 @@
 * **code**: string (ReadOnly)
 * **id**: int (ReadOnly)
 * **message**: string (ReadOnly)
-* **messageParameters**: Dictionary<string,String> (ReadOnly)
+* **messageParameters**: [HealthErrorDetailsMessageParameters](#healtherrordetailsmessageparameters) (ReadOnly)
 * **possibleCauses**: string (ReadOnly)
 * **recommendedAction**: string (ReadOnly)
 * **severity**: string (ReadOnly)
 * **source**: string (ReadOnly)
 * **summaryMessage**: string (ReadOnly)
 
-## Dictionary<string,String>
+## HealthErrorDetailsMessageParameters
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -112,13 +112,13 @@
 ## HyperVHostProperties
 ### Properties
 * **createdTimestamp**: string (ReadOnly)
-* **errors**: HealthErrorDetails[] (ReadOnly)
+* **errors**: [HealthErrorDetails](#healtherrordetails)[] (ReadOnly)
 * **fqdn**: string
 * **runAsAccountId**: string
 * **updatedTimestamp**: string (ReadOnly)
 * **version**: string (ReadOnly)
 
-## Dictionary<string,String>
+## VMwareSiteTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -126,7 +126,7 @@
 ## VCenterProperties
 ### Properties
 * **createdTimestamp**: string (ReadOnly)
-* **errors**: HealthErrorDetails[] (ReadOnly)
+* **errors**: [HealthErrorDetails](#healtherrordetails)[] (ReadOnly)
 * **fqdn**: string
 * **instanceUuid**: string (ReadOnly)
 * **perfStatisticsLevel**: string (ReadOnly)

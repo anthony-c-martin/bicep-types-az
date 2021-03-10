@@ -6,40 +6,40 @@
 * **apiVersion**: '2018-05-31' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ReportConfigProperties
-* **tags**: Dictionary<string,String> (ReadOnly)
+* **properties**: [ReportConfigProperties](#reportconfigproperties)
+* **tags**: [ResourceTags](#resourcetags) (ReadOnly)
 * **type**: 'Microsoft.CostManagement/reportconfigs' (ReadOnly, DeployTimeConstant)
 
 ## ReportConfigProperties
 ### Properties
-* **definition**: ReportConfigDefinition (Required)
-* **deliveryInfo**: ReportConfigDeliveryInfo (Required)
+* **definition**: [ReportConfigDefinition](#reportconfigdefinition) (Required)
+* **deliveryInfo**: [ReportConfigDeliveryInfo](#reportconfigdeliveryinfo) (Required)
 * **format**: 'Csv'
-* **schedule**: ReportConfigSchedule
+* **schedule**: [ReportConfigSchedule](#reportconfigschedule)
 
 ## ReportConfigDefinition
 ### Properties
-* **dataset**: ReportConfigDataset
+* **dataset**: [ReportConfigDataset](#reportconfigdataset)
 * **timeframe**: 'Custom' | 'MonthToDate' | 'WeekToDate' | 'YearToDate' (Required)
-* **timePeriod**: ReportConfigTimePeriod
-* **type**: string (Required)
+* **timePeriod**: [ReportConfigTimePeriod](#reportconfigtimeperiod)
+* **type**: 'Usage' (Required)
 
 ## ReportConfigDataset
 ### Properties
-* **aggregation**: Dictionary<string,ReportConfigAggregation>
-* **configuration**: ReportConfigDatasetConfiguration
-* **filter**: ReportConfigFilter
+* **aggregation**: [ReportConfigDatasetAggregation](#reportconfigdatasetaggregation)
+* **configuration**: [ReportConfigDatasetConfiguration](#reportconfigdatasetconfiguration)
+* **filter**: [ReportConfigFilter](#reportconfigfilter)
 * **granularity**: 'Daily'
-* **grouping**: ReportConfigGrouping[]
+* **grouping**: [ReportConfigGrouping](#reportconfiggrouping)[]
 
-## Dictionary<string,ReportConfigAggregation>
+## ReportConfigDatasetAggregation
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: ReportConfigAggregation
+* **Additional Properties Type**: [ReportConfigAggregation](#reportconfigaggregation)
 
 ## ReportConfigAggregation
 ### Properties
-* **function**: string (Required)
+* **function**: 'Sum' (Required)
 * **name**: string (Required)
 
 ## ReportConfigDatasetConfiguration
@@ -48,16 +48,16 @@
 
 ## ReportConfigFilter
 ### Properties
-* **and**: ReportConfigFilter[]
-* **dimension**: ReportConfigComparisonExpression
-* **not**: ReportConfigFilter
-* **or**: ReportConfigFilter[]
-* **tag**: ReportConfigComparisonExpression
+* **and**: [ReportConfigFilter](#reportconfigfilter)[]
+* **dimension**: [ReportConfigComparisonExpression](#reportconfigcomparisonexpression)
+* **not**: [ReportConfigFilter](#reportconfigfilter)
+* **or**: [ReportConfigFilter](#reportconfigfilter)[]
+* **tag**: [ReportConfigComparisonExpression](#reportconfigcomparisonexpression)
 
 ## ReportConfigComparisonExpression
 ### Properties
 * **name**: string (Required)
-* **operator**: string (Required)
+* **operator**: 'In' (Required)
 * **values**: string[] (Required)
 
 ## ReportConfigGrouping
@@ -72,7 +72,7 @@
 
 ## ReportConfigDeliveryInfo
 ### Properties
-* **destination**: ReportConfigDeliveryDestination (Required)
+* **destination**: [ReportConfigDeliveryDestination](#reportconfigdeliverydestination) (Required)
 
 ## ReportConfigDeliveryDestination
 ### Properties
@@ -83,7 +83,7 @@
 ## ReportConfigSchedule
 ### Properties
 * **recurrence**: 'Annually' | 'Daily' | 'Monthly' | 'Weekly' (Required)
-* **recurrencePeriod**: ReportConfigRecurrencePeriod (Required)
+* **recurrencePeriod**: [ReportConfigRecurrencePeriod](#reportconfigrecurrenceperiod) (Required)
 * **status**: 'Active' | 'Inactive'
 
 ## ReportConfigRecurrencePeriod
@@ -91,7 +91,7 @@
 * **from**: string (Required)
 * **to**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

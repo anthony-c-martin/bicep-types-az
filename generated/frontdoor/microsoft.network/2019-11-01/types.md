@@ -8,8 +8,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ProfileProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ProfileProperties](#profileproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Network/NetworkExperimentProfiles' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Network/NetworkExperimentProfiles/Experiments@2019-11-01
@@ -19,16 +19,16 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ExperimentProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ExperimentProperties](#experimentproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Network/NetworkExperimentProfiles/Experiments' (ReadOnly, DeployTimeConstant)
 
 ## ProfileProperties
 ### Properties
 * **enabledState**: 'Disabled' | 'Enabled'
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -37,9 +37,9 @@
 ### Properties
 * **description**: string
 * **enabledState**: 'Disabled' | 'Enabled'
-* **endpointA**: Endpoint
-* **endpointB**: Endpoint
-* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling'
+* **endpointA**: [Endpoint](#endpoint)
+* **endpointB**: [Endpoint](#endpoint)
+* **resourceState**: 'Creating' | 'Deleting' | 'Disabled' | 'Disabling' | 'Enabled' | 'Enabling' (ReadOnly)
 * **scriptFileUri**: string (ReadOnly)
 * **status**: string (ReadOnly)
 
@@ -48,7 +48,7 @@
 * **endpoint**: string
 * **name**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

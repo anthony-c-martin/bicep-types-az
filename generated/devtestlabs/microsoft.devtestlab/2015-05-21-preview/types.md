@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: LabProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [LabProperties](#labproperties)
+* **tags**: [LabTags](#labtags)
 * **type**: 'Microsoft.DevTestLab/labs' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DevTestLab/labs/artifactsources@2015-05-21-preview
@@ -18,8 +18,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ArtifactSourceProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ArtifactSourceProperties](#artifactsourceproperties)
+* **tags**: [ArtifactSourceTags](#artifactsourcetags)
 * **type**: 'Microsoft.DevTestLab/labs/artifactsources' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DevTestLab/labs/customimages@2015-05-21-preview
@@ -29,8 +29,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CustomImageProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [CustomImageProperties](#customimageproperties)
+* **tags**: [CustomImageTags](#customimagetags)
 * **type**: 'Microsoft.DevTestLab/labs/customimages' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DevTestLab/labs/formulas@2015-05-21-preview
@@ -40,8 +40,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: FormulaProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [FormulaProperties](#formulaproperties)
+* **tags**: [FormulaTags](#formulatags)
 * **type**: 'Microsoft.DevTestLab/labs/formulas' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DevTestLab/labs/policysets/policies@2015-05-21-preview
@@ -51,8 +51,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PolicyProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [PolicyProperties](#policyproperties)
+* **tags**: [PolicyTags](#policytags)
 * **type**: 'Microsoft.DevTestLab/labs/policysets/policies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DevTestLab/labs/schedules@2015-05-21-preview
@@ -62,8 +62,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ScheduleProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ScheduleProperties](#scheduleproperties)
+* **tags**: [ScheduleTags](#scheduletags)
 * **type**: 'Microsoft.DevTestLab/labs/schedules' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DevTestLab/labs/virtualmachines@2015-05-21-preview
@@ -73,8 +73,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: LabVirtualMachineProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [LabVirtualMachineProperties](#labvirtualmachineproperties)
+* **tags**: [LabVirtualMachineTags](#labvirtualmachinetags)
 * **type**: 'Microsoft.DevTestLab/labs/virtualmachines' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DevTestLab/labs/virtualnetworks@2015-05-21-preview
@@ -84,8 +84,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VirtualNetworkProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [VirtualNetworkProperties](#virtualnetworkproperties)
+* **tags**: [VirtualNetworkTags](#virtualnetworktags)
 * **type**: 'Microsoft.DevTestLab/labs/virtualnetworks' (ReadOnly, DeployTimeConstant)
 
 ## LabProperties
@@ -99,7 +99,7 @@
 * **storageAccounts**: string[]
 * **vaultName**: string
 
-## Dictionary<string,String>
+## LabTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -115,7 +115,7 @@
 * **status**: 'Disabled' | 'Enabled'
 * **uri**: string
 
-## Dictionary<string,String>
+## ArtifactSourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -127,8 +127,8 @@
 * **description**: string
 * **osType**: 'Linux' | 'None' | 'Windows'
 * **provisioningState**: string
-* **vhd**: CustomImagePropertiesCustom
-* **vm**: CustomImagePropertiesFromVm
+* **vhd**: [CustomImagePropertiesCustom](#customimagepropertiescustom)
+* **vm**: [CustomImagePropertiesFromVm](#customimagepropertiesfromvm)
 
 ## CustomImagePropertiesCustom
 ### Properties
@@ -137,10 +137,10 @@
 
 ## CustomImagePropertiesFromVm
 ### Properties
-* **linuxOsInfo**: LinuxOsInfo
+* **linuxOsInfo**: [LinuxOsInfo](#linuxosinfo)
 * **sourceVmId**: string
 * **sysPrep**: bool
-* **windowsOsInfo**: WindowsOsInfo
+* **windowsOsInfo**: [WindowsOsInfo](#windowsosinfo)
 
 ## LinuxOsInfo
 ### Properties
@@ -150,7 +150,7 @@
 ### Properties
 * **windowsOsState**: 'NonSysprepped' | 'SysprepApplied' | 'SysprepRequested'
 
-## Dictionary<string,String>
+## CustomImageTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -160,31 +160,31 @@
 * **author**: string
 * **creationDate**: string
 * **description**: string
-* **formulaContent**: LabVirtualMachine
+* **formulaContent**: [LabVirtualMachine](#labvirtualmachine)
 * **osType**: string
 * **provisioningState**: string
-* **vm**: FormulaPropertiesFromVm
+* **vm**: [FormulaPropertiesFromVm](#formulapropertiesfromvm)
 
 ## LabVirtualMachine
 ### Properties
 * **id**: string
 * **location**: string
 * **name**: string
-* **properties**: LabVirtualMachineProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [LabVirtualMachineProperties](#labvirtualmachineproperties)
+* **tags**: [LabVirtualMachineTags](#labvirtualmachinetags)
 * **type**: string
 
 ## LabVirtualMachineProperties
 ### Properties
-* **artifactDeploymentStatus**: ArtifactDeploymentStatusProperties
-* **artifacts**: ArtifactInstallProperties[]
+* **artifactDeploymentStatus**: [ArtifactDeploymentStatusProperties](#artifactdeploymentstatusproperties)
+* **artifacts**: [ArtifactInstallProperties](#artifactinstallproperties)[]
 * **computeId**: string
 * **createdByUser**: string
 * **createdByUserId**: string
 * **customImageId**: string
 * **disallowPublicIpAddress**: bool
 * **fqdn**: string
-* **galleryImageReference**: GalleryImageReference
+* **galleryImageReference**: [GalleryImageReference](#galleryimagereference)
 * **isAuthenticationWithSshKey**: bool
 * **labSubnetName**: string
 * **labVirtualNetworkId**: string
@@ -206,7 +206,7 @@
 ## ArtifactInstallProperties
 ### Properties
 * **artifactId**: string
-* **parameters**: ArtifactParameterProperties[]
+* **parameters**: [ArtifactParameterProperties](#artifactparameterproperties)[]
 
 ## ArtifactParameterProperties
 ### Properties
@@ -221,7 +221,7 @@
 * **sku**: string
 * **version**: string
 
-## Dictionary<string,String>
+## LabVirtualMachineTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -230,7 +230,7 @@
 ### Properties
 * **labVmId**: string
 
-## Dictionary<string,String>
+## FormulaTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -245,20 +245,20 @@
 * **status**: 'Disabled' | 'Enabled'
 * **threshold**: string
 
-## Dictionary<string,String>
+## PolicyTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## ScheduleProperties
 ### Properties
-* **dailyRecurrence**: DayDetails
-* **hourlyRecurrence**: HourDetails
+* **dailyRecurrence**: [DayDetails](#daydetails)
+* **hourlyRecurrence**: [HourDetails](#hourdetails)
 * **provisioningState**: string
 * **status**: 'Disabled' | 'Enabled'
 * **taskType**: 'LabBillingTask' | 'LabVmsShutdownTask' | 'LabVmsStartupTask'
 * **timeZoneId**: string
-* **weeklyRecurrence**: WeekDetails
+* **weeklyRecurrence**: [WeekDetails](#weekdetails)
 
 ## DayDetails
 ### Properties
@@ -273,23 +273,23 @@
 * **time**: string
 * **weekdays**: string[]
 
-## Dictionary<string,String>
+## ScheduleTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## LabVirtualMachineTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## VirtualNetworkProperties
 ### Properties
-* **allowedSubnets**: Subnet[]
+* **allowedSubnets**: [Subnet](#subnet)[]
 * **description**: string
 * **externalProviderResourceId**: string
 * **provisioningState**: string
-* **subnetOverrides**: SubnetOverride[]
+* **subnetOverrides**: [SubnetOverride](#subnetoverride)[]
 
 ## Subnet
 ### Properties
@@ -304,7 +304,7 @@
 * **useInVmCreationPermission**: 'Allow' | 'Default' | 'Deny'
 * **usePublicIpAddressPermission**: 'Allow' | 'Default' | 'Deny'
 
-## Dictionary<string,String>
+## VirtualNetworkTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

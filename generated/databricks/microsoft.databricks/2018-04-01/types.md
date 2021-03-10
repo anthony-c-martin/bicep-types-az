@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkspaceProperties (Required)
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [WorkspaceProperties](#workspaceproperties) (Required)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Databricks/workspaces' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Databricks/workspaces/virtualNetworkPeerings@2018-04-01
@@ -18,20 +18,20 @@
 * **apiVersion**: '2018-04-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VirtualNetworkPeeringPropertiesFormat (Required)
+* **properties**: [VirtualNetworkPeeringPropertiesFormat](#virtualnetworkpeeringpropertiesformat) (Required)
 * **type**: 'Microsoft.Databricks/workspaces/virtualNetworkPeerings' (ReadOnly, DeployTimeConstant)
 
 ## WorkspaceProperties
 ### Properties
-* **authorizations**: WorkspaceProviderAuthorization[]
-* **createdBy**: CreatedBy
-* **createdDateTime**: string
+* **authorizations**: [WorkspaceProviderAuthorization](#workspaceproviderauthorization)[]
+* **createdBy**: [CreatedBy](#createdby)
+* **createdDateTime**: string (ReadOnly)
 * **managedResourceGroupId**: string (Required)
-* **parameters**: WorkspaceCustomParameters
+* **parameters**: [WorkspaceCustomParameters](#workspacecustomparameters)
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Created' | 'Creating' | 'Deleted' | 'Deleting' | 'Failed' | 'Ready' | 'Running' | 'Succeeded' | 'Updating' (ReadOnly)
-* **storageAccountIdentity**: ManagedIdentityConfiguration
+* **storageAccountIdentity**: [ManagedIdentityConfiguration](#managedidentityconfiguration)
 * **uiDefinitionUri**: string
-* **updatedBy**: CreatedBy
+* **updatedBy**: [CreatedBy](#createdby)
 * **workspaceId**: string (ReadOnly)
 * **workspaceUrl**: string (ReadOnly)
 
@@ -48,29 +48,29 @@
 
 ## WorkspaceCustomParameters
 ### Properties
-* **amlWorkspaceId**: WorkspaceCustomStringParameter
-* **customPrivateSubnetName**: WorkspaceCustomStringParameter
-* **customPublicSubnetName**: WorkspaceCustomStringParameter
-* **customVirtualNetworkId**: WorkspaceCustomStringParameter
-* **enableNoPublicIp**: WorkspaceCustomBooleanParameter
-* **encryption**: WorkspaceEncryptionParameter
-* **prepareEncryption**: WorkspaceCustomBooleanParameter
-* **requireInfrastructureEncryption**: WorkspaceCustomBooleanParameter
+* **amlWorkspaceId**: [WorkspaceCustomStringParameter](#workspacecustomstringparameter)
+* **customPrivateSubnetName**: [WorkspaceCustomStringParameter](#workspacecustomstringparameter)
+* **customPublicSubnetName**: [WorkspaceCustomStringParameter](#workspacecustomstringparameter)
+* **customVirtualNetworkId**: [WorkspaceCustomStringParameter](#workspacecustomstringparameter)
+* **enableNoPublicIp**: [WorkspaceCustomBooleanParameter](#workspacecustombooleanparameter)
+* **encryption**: [WorkspaceEncryptionParameter](#workspaceencryptionparameter)
+* **prepareEncryption**: [WorkspaceCustomBooleanParameter](#workspacecustombooleanparameter)
+* **requireInfrastructureEncryption**: [WorkspaceCustomBooleanParameter](#workspacecustombooleanparameter)
 
 ## WorkspaceCustomStringParameter
 ### Properties
-* **type**: 'Bool' | 'Object' | 'String'
+* **type**: 'Bool' | 'Object' | 'String' (ReadOnly)
 * **value**: string (Required)
 
 ## WorkspaceCustomBooleanParameter
 ### Properties
-* **type**: 'Bool' | 'Object' | 'String'
+* **type**: 'Bool' | 'Object' | 'String' (ReadOnly)
 * **value**: bool (Required)
 
 ## WorkspaceEncryptionParameter
 ### Properties
-* **type**: 'Bool' | 'Object' | 'String'
-* **value**: Encryption
+* **type**: 'Bool' | 'Object' | 'String' (ReadOnly)
+* **value**: [Encryption](#encryption)
 
 ## Encryption
 ### Properties
@@ -90,7 +90,7 @@
 * **name**: string (Required)
 * **tier**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -100,19 +100,23 @@
 * **allowForwardedTraffic**: bool
 * **allowGatewayTransit**: bool
 * **allowVirtualNetworkAccess**: bool
-* **databricksAddressSpace**: AddressSpace
-* **databricksVirtualNetwork**: schemas:27_databricksVirtualNetwork
+* **databricksAddressSpace**: [AddressSpace](#addressspace)
+* **databricksVirtualNetwork**: [VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork](#virtualnetworkpeeringpropertiesformatdatabricksvirtualnetwork)
 * **peeringState**: 'Connected' | 'Disconnected' | 'Initiated' (ReadOnly)
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
-* **remoteAddressSpace**: AddressSpace
-* **remoteVirtualNetwork**: schemas:27_databricksVirtualNetwork (Required)
+* **remoteAddressSpace**: [AddressSpace](#addressspace)
+* **remoteVirtualNetwork**: [VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork](#virtualnetworkpeeringpropertiesformatremotevirtualnetwork) (Required)
 * **useRemoteGateways**: bool
 
 ## AddressSpace
 ### Properties
 * **addressPrefixes**: string[]
 
-## schemas:27_databricksVirtualNetwork
+## VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork
+### Properties
+* **id**: string
+
+## VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork
 ### Properties
 * **id**: string
 

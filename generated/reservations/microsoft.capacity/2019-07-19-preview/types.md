@@ -6,17 +6,17 @@
 * **apiVersion**: '2019-07-19-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: QuotaProperties
+* **properties**: [QuotaProperties](#quotaproperties)
 * **type**: 'Microsoft.Capacity/resourceProviders/locations/serviceLimits' (ReadOnly, DeployTimeConstant)
 
 ## QuotaProperties
 ### Properties
 * **currentValue**: int (ReadOnly)
 * **limit**: int
-* **name**: ResourceName
+* **name**: [ResourceName](#resourcename)
 * **properties**: any
 * **quotaPeriod**: string (ReadOnly)
-* **resourceType**: any
+* **resourceType**: 'dedicated' | 'lowPriority' | 'serviceSpecific' | 'shared' | 'standard'
 * **unit**: string
 
 ## ResourceName

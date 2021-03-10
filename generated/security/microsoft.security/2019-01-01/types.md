@@ -5,13 +5,14 @@
 ### Properties
 * **apiVersion**: '2019-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: AdvancedThreatProtectionProperties
+* **name**: 'current' (Required, DeployTimeConstant)
+* **properties**: [AdvancedThreatProtectionProperties](#advancedthreatprotectionproperties)
 * **type**: 'Microsoft.Security/advancedThreatProtectionSettings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Security/settings@2019-01-01
 * **Valid Scope(s)**: Subscription
 * **Discriminator**: kind
+
 ### Base Properties
 * **apiVersion**: '2019-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
@@ -20,7 +21,7 @@
 ### DataExportSettings
 #### Properties
 * **kind**: 'DataExportSettings' (Required)
-* **properties**: DataExportSettingProperties
+* **properties**: [DataExportSettingProperties](#dataexportsettingproperties)
 
 
 ## AdvancedThreatProtectionProperties
@@ -30,7 +31,7 @@
 ## DataExportSettings
 ### Properties
 * **kind**: 'DataExportSettings' (Required)
-* **properties**: DataExportSettingProperties
+* **properties**: [DataExportSettingProperties](#dataexportsettingproperties)
 
 ## DataExportSettingProperties
 ### Properties

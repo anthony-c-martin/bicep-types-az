@@ -7,28 +7,28 @@
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: BudgetProperties
+* **properties**: [BudgetProperties](#budgetproperties)
 * **type**: 'Microsoft.CostManagement/budgets' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.CostManagement/views@2019-04-01-preview
-* **Valid Scope(s)**: Unknown
+* **Valid Scope(s)**: Tenant
 ### Properties
 * **apiVersion**: '2019-04-01-preview' (ReadOnly, DeployTimeConstant)
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ViewProperties
+* **properties**: [ViewProperties](#viewproperties)
 * **type**: 'Microsoft.CostManagement/views' (ReadOnly, DeployTimeConstant)
 
 ## BudgetProperties
 ### Properties
 * **amount**: int (Required)
 * **category**: 'Cost' | 'Usage' (Required)
-* **currentSpend**: CurrentSpend (ReadOnly)
-* **filter**: ReportConfigFilter
-* **notifications**: Dictionary<string,Notification>
+* **currentSpend**: [CurrentSpend](#currentspend) (ReadOnly)
+* **filter**: [ReportConfigFilter](#reportconfigfilter)
+* **notifications**: [BudgetPropertiesNotifications](#budgetpropertiesnotifications)
 * **timeGrain**: 'Annually' | 'Monthly' | 'Quarterly' (Required)
-* **timePeriod**: BudgetTimePeriod (Required)
+* **timePeriod**: [BudgetTimePeriod](#budgettimeperiod) (Required)
 
 ## CurrentSpend
 ### Properties
@@ -37,11 +37,11 @@
 
 ## ReportConfigFilter
 ### Properties
-* **and**: ReportConfigFilter[]
-* **dimension**: ReportConfigComparisonExpression
-* **not**: ReportConfigFilter
-* **or**: ReportConfigFilter[]
-* **tag**: ReportConfigComparisonExpression
+* **and**: [ReportConfigFilter](#reportconfigfilter)[]
+* **dimension**: [ReportConfigComparisonExpression](#reportconfigcomparisonexpression)
+* **not**: [ReportConfigFilter](#reportconfigfilter)
+* **or**: [ReportConfigFilter](#reportconfigfilter)[]
+* **tag**: [ReportConfigComparisonExpression](#reportconfigcomparisonexpression)
 
 ## ReportConfigComparisonExpression
 ### Properties
@@ -49,10 +49,10 @@
 * **operator**: 'Contains' | 'In' (Required)
 * **values**: string[] (Required)
 
-## Dictionary<string,Notification>
+## BudgetPropertiesNotifications
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: Notification
+* **Additional Properties Type**: [Notification](#notification)
 
 ## Notification
 ### Properties
@@ -74,11 +74,11 @@
 * **chart**: 'Area' | 'GroupedColumn' | 'Line' | 'StackedColumn' | 'Table'
 * **createdOn**: string (ReadOnly)
 * **displayName**: string
-* **kpis**: KpiProperties[]
-* **metric**: 'ActualCost' | 'AHUB' | 'AmortizedCost'
+* **kpis**: [KpiProperties](#kpiproperties)[]
+* **metric**: 'AHUB' | 'ActualCost' | 'AmortizedCost'
 * **modifiedOn**: string (ReadOnly)
-* **pivots**: PivotProperties[]
-* **query**: ReportConfigDefinition
+* **pivots**: [PivotProperties](#pivotproperties)[]
+* **query**: [ReportConfigDefinition](#reportconfigdefinition)
 * **scope**: string
 
 ## KpiProperties
@@ -94,28 +94,28 @@
 
 ## ReportConfigDefinition
 ### Properties
-* **dataset**: ReportConfigDataset
+* **dataset**: [ReportConfigDataset](#reportconfigdataset)
 * **timeframe**: 'Custom' | 'MonthToDate' | 'WeekToDate' | 'YearToDate' (Required)
-* **timePeriod**: ReportConfigTimePeriod
-* **type**: string (Required)
+* **timePeriod**: [ReportConfigTimePeriod](#reportconfigtimeperiod)
+* **type**: 'Usage' (Required)
 
 ## ReportConfigDataset
 ### Properties
-* **aggregation**: Dictionary<string,ReportConfigAggregation>
-* **configuration**: ReportConfigDatasetConfiguration
-* **filter**: ReportConfigFilter
+* **aggregation**: [ReportConfigDatasetAggregation](#reportconfigdatasetaggregation)
+* **configuration**: [ReportConfigDatasetConfiguration](#reportconfigdatasetconfiguration)
+* **filter**: [ReportConfigFilter](#reportconfigfilter)
 * **granularity**: 'Daily' | 'Monthly'
-* **grouping**: ReportConfigGrouping[]
-* **sorting**: ReportConfigSorting[]
+* **grouping**: [ReportConfigGrouping](#reportconfiggrouping)[]
+* **sorting**: [ReportConfigSorting](#reportconfigsorting)[]
 
-## Dictionary<string,ReportConfigAggregation>
+## ReportConfigDatasetAggregation
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: ReportConfigAggregation
+* **Additional Properties Type**: [ReportConfigAggregation](#reportconfigaggregation)
 
 ## ReportConfigAggregation
 ### Properties
-* **function**: string (Required)
+* **function**: 'Sum' (Required)
 * **name**: string (Required)
 
 ## ReportConfigDatasetConfiguration

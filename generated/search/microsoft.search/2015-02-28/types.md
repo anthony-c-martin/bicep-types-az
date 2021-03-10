@@ -7,21 +7,21 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SearchServiceProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [SearchServiceProperties](#searchserviceproperties)
+* **tags**: [SearchServiceCreateOrUpdateParametersTags](#searchservicecreateorupdateparameterstags)
 * **type**: 'Microsoft.Search/searchServices' (ReadOnly, DeployTimeConstant)
 
 ## SearchServiceProperties
 ### Properties
 * **partitionCount**: int
 * **replicaCount**: int
-* **sku**: Sku
+* **sku**: [Sku](#sku)
 
 ## Sku
 ### Properties
 * **name**: 'free' | 'standard' | 'standard2'
 
-## Dictionary<string,String>
+## SearchServiceCreateOrUpdateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

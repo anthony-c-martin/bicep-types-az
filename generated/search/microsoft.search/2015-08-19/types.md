@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2015-08-19' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SearchServiceProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [SearchServiceProperties](#searchserviceproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Search/searchServices' (ReadOnly, DeployTimeConstant)
 
 ## Identity
@@ -32,7 +32,7 @@
 ### Properties
 * **name**: 'basic' | 'free' | 'standard' | 'standard2' | 'standard3' | 'storage_optimized_l1' | 'storage_optimized_l2'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

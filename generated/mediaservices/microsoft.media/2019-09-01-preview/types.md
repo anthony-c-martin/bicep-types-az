@@ -6,7 +6,7 @@
 * **apiVersion**: '2019-09-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MediaGraphProperties
+* **properties**: [MediaGraphProperties](#mediagraphproperties)
 * **type**: 'Microsoft.Media/mediaServices/mediaGraphs' (ReadOnly, DeployTimeConstant)
 
 ## MediaGraphProperties
@@ -14,41 +14,43 @@
 * **created**: string (ReadOnly)
 * **description**: string
 * **lastModified**: string (ReadOnly)
-* **sinks**: MediaGraphSink[] (Required)
-* **sources**: MediaGraphSource[] (Required)
+* **sinks**: [MediaGraphSink](#mediagraphsink)[] (Required)
+* **sources**: [MediaGraphSource](#mediagraphsource)[] (Required)
 * **state**: 'Running' | 'Starting' | 'Stopped' | 'Stopping' (ReadOnly)
 
 ## MediaGraphSink
 * **Discriminator**: @odata.type
+
 ### Base Properties
 * **inputs**: string[] (Required)
 * **name**: string (Required)
-### #Microsoft.Media.MediaGraphAssetSink
+### MediaGraphAssetSink
 #### Properties
 * **@odata.type**: '#Microsoft.Media.MediaGraphAssetSink' (Required)
 * **assetName**: string (Required)
 
 
-## #Microsoft.Media.MediaGraphAssetSink
+## MediaGraphAssetSink
 ### Properties
 * **@odata.type**: '#Microsoft.Media.MediaGraphAssetSink' (Required)
 * **assetName**: string (Required)
 
 ## MediaGraphSource
 * **Discriminator**: @odata.type
+
 ### Base Properties
 * **name**: string (Required)
-### #Microsoft.Media.MediaGraphRtspSource
+### MediaGraphRtspSource
 #### Properties
 * **@odata.type**: '#Microsoft.Media.MediaGraphRtspSource' (Required)
-* **credentials**: MediaGraphUserCredentials
+* **credentials**: [MediaGraphUserCredentials](#mediagraphusercredentials)
 * **rtspUrl**: string (Required)
 
 
-## #Microsoft.Media.MediaGraphRtspSource
+## MediaGraphRtspSource
 ### Properties
 * **@odata.type**: '#Microsoft.Media.MediaGraphRtspSource' (Required)
-* **credentials**: MediaGraphUserCredentials
+* **credentials**: [MediaGraphUserCredentials](#mediagraphusercredentials)
 * **rtspUrl**: string (Required)
 
 ## MediaGraphUserCredentials

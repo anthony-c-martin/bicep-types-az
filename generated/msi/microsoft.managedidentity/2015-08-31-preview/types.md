@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: IdentityProperties (ReadOnly)
-* **tags**: Dictionary<string,String>
+* **properties**: [IdentityProperties](#identityproperties) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.ManagedIdentity/userAssignedIdentities' (ReadOnly, DeployTimeConstant)
 
 ## IdentityProperties
@@ -18,7 +18,7 @@
 * **principalId**: string (ReadOnly)
 * **tenantId**: string (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

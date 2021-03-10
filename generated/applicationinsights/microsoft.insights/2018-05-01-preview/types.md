@@ -8,19 +8,9 @@
 * **kind**: string (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ApplicationInsightsComponentProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ApplicationInsightsComponentProperties](#applicationinsightscomponentproperties)
+* **tags**: [ComponentsResourceTags](#componentsresourcetags)
 * **type**: 'Microsoft.Insights/components' (ReadOnly, DeployTimeConstant)
-
-## Resource Microsoft.Insights/components/ProactiveDetectionConfigs@2018-05-01-preview
-* **Valid Scope(s)**: ResourceGroup
-### Properties
-* **apiVersion**: '2018-05-01-preview' (ReadOnly, DeployTimeConstant)
-* **id**: string (ReadOnly, DeployTimeConstant)
-* **location**: string
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ApplicationInsightsComponentProactiveDetectionConfigurationProperties
-* **type**: 'Microsoft.Insights/components/ProactiveDetectionConfigs' (ReadOnly, DeployTimeConstant)
 
 ## ApplicationInsightsComponentProperties
 ### Properties
@@ -36,7 +26,7 @@
 * **ImmediatePurgeDataOn30Days**: bool
 * **IngestionMode**: 'ApplicationInsights' | 'ApplicationInsightsWithDiagnosticSettings' | 'LogAnalytics'
 * **InstrumentationKey**: string (ReadOnly)
-* **PrivateLinkScopedResources**: PrivateLinkScopedResource[] (ReadOnly)
+* **PrivateLinkScopedResources**: [PrivateLinkScopedResource](#privatelinkscopedresource)[] (ReadOnly)
 * **provisioningState**: string (ReadOnly)
 * **publicNetworkAccessForIngestion**: 'Disabled' | 'Enabled'
 * **publicNetworkAccessForQuery**: 'Disabled' | 'Enabled'
@@ -50,28 +40,8 @@
 * **ResourceId**: string
 * **ScopeId**: string
 
-## Dictionary<string,String>
+## ComponentsResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
-
-## ApplicationInsightsComponentProactiveDetectionConfigurationProperties
-### Properties
-* **CustomEmails**: string[]
-* **Enabled**: bool
-* **LastUpdatedTime**: string (ReadOnly)
-* **Name**: string (ReadOnly)
-* **RuleDefinitions**: schemas:13_RuleDefinitions
-* **SendEmailsToSubscriptionOwners**: bool
-
-## schemas:13_RuleDefinitions
-### Properties
-* **Description**: string
-* **DisplayName**: string
-* **HelpUrl**: string
-* **IsEnabledByDefault**: bool
-* **IsHidden**: bool
-* **IsInPreview**: bool
-* **Name**: string
-* **SupportsEmailNotifications**: bool
 

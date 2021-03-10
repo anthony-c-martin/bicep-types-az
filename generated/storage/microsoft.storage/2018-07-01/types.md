@@ -5,23 +5,14 @@
 ### Properties
 * **apiVersion**: '2018-07-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **kind**: 'BlobStorage' | 'BlockBlobStorage' | 'FileStorage' | 'Storage' | 'StorageV2' (Required)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: StorageAccountPropertiesCreateParameters
-* **sku**: Sku (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [StorageAccountPropertiesCreateParameters](#storageaccountpropertiescreateparameters)
+* **sku**: [Sku](#sku) (Required)
+* **tags**: [StorageAccountCreateParametersTags](#storageaccountcreateparameterstags)
 * **type**: 'Microsoft.Storage/storageAccounts' (ReadOnly, DeployTimeConstant)
-
-## Resource Microsoft.Storage/storageAccounts/blobServices@2018-07-01
-* **Valid Scope(s)**: ResourceGroup
-### Properties
-* **apiVersion**: '2018-07-01' (ReadOnly, DeployTimeConstant)
-* **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:51_properties
-* **type**: 'Microsoft.Storage/storageAccounts/blobServices' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Storage/storageAccounts/blobServices/containers@2018-07-01
 * **Valid Scope(s)**: ResourceGroup
@@ -30,7 +21,7 @@
 * **etag**: string (ReadOnly)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ContainerProperties
+* **properties**: [ContainerProperties](#containerproperties)
 * **type**: 'Microsoft.Storage/storageAccounts/blobServices/containers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies@2018-07-01
@@ -39,32 +30,32 @@
 * **apiVersion**: '2018-07-01' (ReadOnly, DeployTimeConstant)
 * **etag**: string (ReadOnly)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ImmutabilityPolicyProperty (Required)
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ImmutabilityPolicyProperty](#immutabilitypolicyproperty) (Required)
 * **type**: 'Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Identity
 ### Properties
 * **principalId**: string (ReadOnly)
 * **tenantId**: string (ReadOnly)
-* **type**: string (Required)
+* **type**: 'SystemAssigned' (Required)
 
 ## StorageAccountPropertiesCreateParameters
 ### Properties
 * **accessTier**: 'Cool' | 'Hot'
 * **azureFilesAadIntegration**: bool
 * **creationTime**: string (ReadOnly)
-* **customDomain**: CustomDomain
-* **encryption**: Encryption
+* **customDomain**: [CustomDomain](#customdomain)
+* **encryption**: [Encryption](#encryption)
 * **failoverInProgress**: bool (ReadOnly)
-* **geoReplicationStats**: GeoReplicationStats (ReadOnly)
+* **geoReplicationStats**: [GeoReplicationStats](#georeplicationstats) (ReadOnly)
 * **isHnsEnabled**: bool
 * **lastGeoFailoverTime**: string (ReadOnly)
-* **networkAcls**: NetworkRuleSet
-* **primaryEndpoints**: Endpoints (ReadOnly)
+* **networkAcls**: [NetworkRuleSet](#networkruleset)
+* **primaryEndpoints**: [Endpoints](#endpoints) (ReadOnly)
 * **primaryLocation**: string (ReadOnly)
 * **provisioningState**: 'Creating' | 'ResolvingDNS' | 'Succeeded' (ReadOnly)
-* **secondaryEndpoints**: Endpoints (ReadOnly)
+* **secondaryEndpoints**: [Endpoints](#endpoints) (ReadOnly)
 * **secondaryLocation**: string (ReadOnly)
 * **statusOfPrimary**: 'available' | 'unavailable' (ReadOnly)
 * **statusOfSecondary**: 'available' | 'unavailable' (ReadOnly)
@@ -78,8 +69,8 @@
 ## Encryption
 ### Properties
 * **keySource**: 'Microsoft.Keyvault' | 'Microsoft.Storage' (Required)
-* **keyvaultproperties**: KeyVaultProperties
-* **services**: EncryptionServices
+* **keyvaultproperties**: [KeyVaultProperties](#keyvaultproperties)
+* **services**: [EncryptionServices](#encryptionservices)
 
 ## KeyVaultProperties
 ### Properties
@@ -89,10 +80,10 @@
 
 ## EncryptionServices
 ### Properties
-* **blob**: EncryptionService
-* **file**: EncryptionService
-* **queue**: EncryptionService (ReadOnly)
-* **table**: EncryptionService (ReadOnly)
+* **blob**: [EncryptionService](#encryptionservice)
+* **file**: [EncryptionService](#encryptionservice)
+* **queue**: [EncryptionService](#encryptionservice) (ReadOnly)
+* **table**: [EncryptionService](#encryptionservice) (ReadOnly)
 
 ## EncryptionService
 ### Properties
@@ -109,8 +100,8 @@
 ### Properties
 * **bypass**: 'AzureServices' | 'Logging' | 'Metrics' | 'None'
 * **defaultAction**: 'Allow' | 'Deny' (Required)
-* **ipRules**: IPRule[]
-* **virtualNetworkRules**: VirtualNetworkRule[]
+* **ipRules**: [IPRule](#iprule)[]
+* **virtualNetworkRules**: [VirtualNetworkRule](#virtualnetworkrule)[]
 
 ## IPRule
 ### Properties
@@ -134,12 +125,12 @@
 
 ## Sku
 ### Properties
-* **capabilities**: SKUCapability[] (ReadOnly)
+* **capabilities**: [SKUCapability](#skucapability)[] (ReadOnly)
 * **kind**: 'BlobStorage' | 'BlockBlobStorage' | 'FileStorage' | 'Storage' | 'StorageV2' (ReadOnly)
 * **locations**: string[] (ReadOnly)
 * **name**: 'Premium_LRS' | 'Premium_ZRS' | 'Standard_GRS' | 'Standard_LRS' | 'Standard_RAGRS' | 'Standard_ZRS' (Required)
 * **resourceType**: string (ReadOnly)
-* **restrictions**: Restriction[]
+* **restrictions**: [Restriction](#restriction)[]
 * **tier**: 'Premium' | 'Standard' (ReadOnly)
 
 ## SKUCapability
@@ -153,52 +144,29 @@
 * **type**: string (ReadOnly)
 * **values**: string[] (ReadOnly)
 
-## Dictionary<string,String>
+## StorageAccountCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
-
-## schemas:51_properties
-### Properties
-* **cors**: CorsRules
-* **defaultServiceVersion**: string
-* **deleteRetentionPolicy**: DeleteRetentionPolicy
-
-## CorsRules
-### Properties
-* **corsRules**: CorsRule[]
-
-## CorsRule
-### Properties
-* **allowedHeaders**: string[] (Required)
-* **allowedMethods**: 'DELETE' | 'GET' | 'HEAD' | 'MERGE' | 'OPTIONS' | 'POST' | 'PUT'[] (Required)
-* **allowedOrigins**: string[] (Required)
-* **exposedHeaders**: string[] (Required)
-* **maxAgeInSeconds**: int (Required)
-
-## DeleteRetentionPolicy
-### Properties
-* **days**: int
-* **enabled**: bool
 
 ## ContainerProperties
 ### Properties
 * **hasImmutabilityPolicy**: bool (ReadOnly)
 * **hasLegalHold**: bool (ReadOnly)
-* **immutabilityPolicy**: ImmutabilityPolicyProperties (ReadOnly)
+* **immutabilityPolicy**: [ImmutabilityPolicyProperties](#immutabilitypolicyproperties) (ReadOnly)
 * **lastModifiedTime**: string (ReadOnly)
 * **leaseDuration**: 'Fixed' | 'Infinite' (ReadOnly)
 * **leaseState**: 'Available' | 'Breaking' | 'Broken' | 'Expired' | 'Leased' (ReadOnly)
 * **leaseStatus**: 'Locked' | 'Unlocked' (ReadOnly)
-* **legalHold**: LegalHoldProperties (ReadOnly)
-* **metadata**: Dictionary<string,String>
+* **legalHold**: [LegalHoldProperties](#legalholdproperties) (ReadOnly)
+* **metadata**: [ContainerPropertiesMetadata](#containerpropertiesmetadata)
 * **publicAccess**: 'Blob' | 'Container' | 'None'
 
 ## ImmutabilityPolicyProperties
 ### Properties
 * **etag**: string (ReadOnly)
-* **properties**: ImmutabilityPolicyProperty
-* **updateHistory**: UpdateHistoryProperty[] (ReadOnly)
+* **properties**: [ImmutabilityPolicyProperty](#immutabilitypolicyproperty)
+* **updateHistory**: [UpdateHistoryProperty](#updatehistoryproperty)[] (ReadOnly)
 
 ## ImmutabilityPolicyProperty
 ### Properties
@@ -217,7 +185,7 @@
 ## LegalHoldProperties
 ### Properties
 * **hasLegalHold**: bool (ReadOnly)
-* **tags**: TagProperty[]
+* **tags**: [TagProperty](#tagproperty)[]
 
 ## TagProperty
 ### Properties
@@ -227,7 +195,7 @@
 * **timestamp**: string (ReadOnly)
 * **upn**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ContainerPropertiesMetadata
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

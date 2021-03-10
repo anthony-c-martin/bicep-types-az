@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RedisCreateProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [RedisCreateProperties](#rediscreateproperties) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Cache/Redis' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cache/Redis/firewallRules@2016-04-01
@@ -17,7 +17,7 @@
 * **apiVersion**: '2016-04-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RedisFirewallRuleProperties (Required)
+* **properties**: [RedisFirewallRuleProperties](#redisfirewallruleproperties) (Required)
 * **type**: 'Microsoft.Cache/Redis/firewallRules' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Cache/Redis/patchSchedules@2016-04-01
@@ -27,31 +27,31 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ScheduleEntries (Required)
+* **properties**: [ScheduleEntries](#scheduleentries) (Required)
 * **type**: 'Microsoft.Cache/Redis/patchSchedules' (ReadOnly, DeployTimeConstant)
 
 ## RedisCreateProperties
 ### Properties
-* **accessKeys**: RedisAccessKeys (ReadOnly)
+* **accessKeys**: [RedisAccessKeys](#redisaccesskeys) (ReadOnly)
 * **enableNonSslPort**: bool
 * **hostName**: string (ReadOnly)
 * **port**: int (ReadOnly)
 * **provisioningState**: string (ReadOnly)
-* **redisConfiguration**: Dictionary<string,String>
+* **redisConfiguration**: [RedisPropertiesRedisConfiguration](#redispropertiesredisconfiguration)
 * **redisVersion**: string (ReadOnly)
 * **shardCount**: int
-* **sku**: Sku (Required)
+* **sku**: [Sku](#sku) (Required)
 * **sslPort**: int (ReadOnly)
 * **staticIP**: string
 * **subnetId**: string
-* **tenantSettings**: Dictionary<string,String>
+* **tenantSettings**: [RedisPropertiesTenantSettings](#redispropertiestenantsettings)
 
 ## RedisAccessKeys
 ### Properties
 * **primaryKey**: string (ReadOnly)
 * **secondaryKey**: string (ReadOnly)
 
-## Dictionary<string,String>
+## RedisPropertiesRedisConfiguration
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -62,12 +62,12 @@
 * **family**: 'C' | 'P' (Required)
 * **name**: 'Basic' | 'Premium' | 'Standard' (Required)
 
-## Dictionary<string,String>
+## RedisPropertiesTenantSettings
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -79,7 +79,7 @@
 
 ## ScheduleEntries
 ### Properties
-* **scheduleEntries**: ScheduleEntry[] (Required)
+* **scheduleEntries**: [ScheduleEntry](#scheduleentry)[] (Required)
 
 ## ScheduleEntry
 ### Properties

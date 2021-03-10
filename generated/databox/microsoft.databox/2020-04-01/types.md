@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2020-04-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ResourceIdentity
+* **identity**: [ResourceIdentity](#resourceidentity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobProperties (Required)
-* **sku**: Sku (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [JobProperties](#jobproperties) (Required)
+* **sku**: [Sku](#sku) (Required)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.DataBox/jobs' (ReadOnly, DeployTimeConstant)
 
 ## ResourceIdentity
@@ -22,10 +22,10 @@
 ## JobProperties
 ### Properties
 * **cancellationReason**: string (ReadOnly)
-* **deliveryInfo**: JobDeliveryInfo
+* **deliveryInfo**: [JobDeliveryInfo](#jobdeliveryinfo)
 * **deliveryType**: 'NonScheduled' | 'Scheduled'
-* **details**: JobDetails
-* **error**: CloudError (ReadOnly)
+* **details**: [JobDetails](#jobdetails)
+* **error**: [CloudError](#clouderror) (ReadOnly)
 * **isCancellable**: bool (ReadOnly)
 * **isCancellableWithoutFee**: bool (ReadOnly)
 * **isDeletable**: bool (ReadOnly)
@@ -41,42 +41,39 @@
 
 ## JobDetails
 * **Discriminator**: jobDetailsType
+
 ### Base Properties
 * **chainOfCustodySasKey**: string (ReadOnly)
-* **contactDetails**: ContactDetails (Required)
-* **copyLogDetails**: CopyLogDetails[] (ReadOnly)
-* **dataExportDetails**: DataExportDetails[]
-* **dataImportDetails**: DataImportDetails[]
-* **deliveryPackage**: PackageShippingDetails (ReadOnly)
+* **contactDetails**: [ContactDetails](#contactdetails) (Required)
+* **copyLogDetails**: [CopyLogDetails](#copylogdetails)[] (ReadOnly)
+* **dataExportDetails**: [DataExportDetails](#dataexportdetails)[]
+* **dataImportDetails**: [DataImportDetails](#dataimportdetails)[]
+* **deliveryPackage**: [PackageShippingDetails](#packageshippingdetails) (ReadOnly)
 * **expectedDataSizeInTerabytes**: int
-* **jobStages**: JobStages[] (ReadOnly)
-* **keyEncryptionKey**: KeyEncryptionKey (ReadOnly)
-* **preferences**: Preferences
-* **returnPackage**: PackageShippingDetails (ReadOnly)
+* **jobStages**: [JobStages](#jobstages)[] (ReadOnly)
+* **keyEncryptionKey**: [KeyEncryptionKey](#keyencryptionkey) (ReadOnly)
+* **preferences**: [Preferences](#preferences)
+* **returnPackage**: [PackageShippingDetails](#packageshippingdetails) (ReadOnly)
 * **reverseShipmentLabelSasKey**: string (ReadOnly)
-* **shippingAddress**: ShippingAddress
-### DataBox
+* **shippingAddress**: [ShippingAddress](#shippingaddress)
+### DataBoxJobDetails
 #### Properties
-* **accountName**: string (ReadOnly)
-* **copyLogDetailsType**: 'DataBox' (Required)
-* **copyLogLink**: string (ReadOnly)
-* **copyVerboseLogLink**: string (ReadOnly)
+* **copyProgress**: [CopyProgress](#copyprogress)[] (ReadOnly)
+* **devicePassword**: string
 * **jobDetailsType**: 'DataBox' (Required)
 
-### DataBoxDisk
+### DataBoxDiskJobDetails
 #### Properties
-* **copyLogDetailsType**: 'DataBoxDisk' (Required)
-* **diskSerialNumber**: string (ReadOnly)
-* **errorLogLink**: string (ReadOnly)
+* **copyProgress**: [DataBoxDiskCopyProgress](#databoxdiskcopyprogress)[] (ReadOnly)
+* **disksAndSizeDetails**: [DataBoxDiskJobDetailsDisksAndSizeDetails](#databoxdiskjobdetailsdisksandsizedetails) (ReadOnly)
 * **jobDetailsType**: 'DataBoxDisk' (Required)
-* **verboseLogLink**: string (ReadOnly)
+* **passkey**: string
+* **preferredDisks**: [DataBoxDiskJobDetailsPreferredDisks](#databoxdiskjobdetailspreferreddisks)
 
-### DataBoxHeavy
+### DataBoxHeavyJobDetails
 #### Properties
-* **accountName**: string (ReadOnly)
-* **copyLogDetailsType**: 'DataBoxHeavy' (Required)
-* **copyLogLink**: string[] (ReadOnly)
-* **copyVerboseLogLink**: string[] (ReadOnly)
+* **copyProgress**: [CopyProgress](#copyprogress)[] (ReadOnly)
+* **devicePassword**: string
 * **jobDetailsType**: 'DataBoxHeavy' (Required)
 
 
@@ -85,7 +82,7 @@
 * **contactName**: string (Required)
 * **emailList**: string[] (Required)
 * **mobile**: string
-* **notificationPreference**: NotificationPreference[]
+* **notificationPreference**: [NotificationPreference](#notificationpreference)[]
 * **phone**: string (Required)
 * **phoneExtension**: string
 
@@ -96,98 +93,94 @@
 
 ## CopyLogDetails
 * **Discriminator**: copyLogDetailsType
+
 ### Base Properties
-### DataBox
+### DataBoxAccountCopyLogDetails
 #### Properties
 * **accountName**: string (ReadOnly)
 * **copyLogDetailsType**: 'DataBox' (Required)
 * **copyLogLink**: string (ReadOnly)
 * **copyVerboseLogLink**: string (ReadOnly)
-* **jobDetailsType**: 'DataBox' (Required)
 
-### DataBoxDisk
+### DataBoxDiskCopyLogDetails
 #### Properties
 * **copyLogDetailsType**: 'DataBoxDisk' (Required)
 * **diskSerialNumber**: string (ReadOnly)
 * **errorLogLink**: string (ReadOnly)
-* **jobDetailsType**: 'DataBoxDisk' (Required)
 * **verboseLogLink**: string (ReadOnly)
 
-### DataBoxHeavy
+### DataBoxHeavyAccountCopyLogDetails
 #### Properties
 * **accountName**: string (ReadOnly)
 * **copyLogDetailsType**: 'DataBoxHeavy' (Required)
 * **copyLogLink**: string[] (ReadOnly)
 * **copyVerboseLogLink**: string[] (ReadOnly)
-* **jobDetailsType**: 'DataBoxHeavy' (Required)
 
 
-## DataBox
+## DataBoxAccountCopyLogDetails
 ### Properties
 * **accountName**: string (ReadOnly)
 * **copyLogDetailsType**: 'DataBox' (Required)
 * **copyLogLink**: string (ReadOnly)
 * **copyVerboseLogLink**: string (ReadOnly)
-* **jobDetailsType**: 'DataBox' (Required)
 
-## DataBoxDisk
+## DataBoxDiskCopyLogDetails
 ### Properties
 * **copyLogDetailsType**: 'DataBoxDisk' (Required)
 * **diskSerialNumber**: string (ReadOnly)
 * **errorLogLink**: string (ReadOnly)
-* **jobDetailsType**: 'DataBoxDisk' (Required)
 * **verboseLogLink**: string (ReadOnly)
 
-## DataBoxHeavy
+## DataBoxHeavyAccountCopyLogDetails
 ### Properties
 * **accountName**: string (ReadOnly)
 * **copyLogDetailsType**: 'DataBoxHeavy' (Required)
 * **copyLogLink**: string[] (ReadOnly)
 * **copyVerboseLogLink**: string[] (ReadOnly)
-* **jobDetailsType**: 'DataBoxHeavy' (Required)
 
 ## DataExportDetails
 ### Properties
-* **accountDetails**: DataAccountDetails (Required)
+* **accountDetails**: [DataAccountDetails](#dataaccountdetails) (Required)
 * **logCollectionLevel**: 'Error' | 'Verbose'
-* **transferConfiguration**: TransferConfiguration (Required)
+* **transferConfiguration**: [TransferConfiguration](#transferconfiguration) (Required)
 
 ## DataAccountDetails
 * **Discriminator**: dataAccountType
+
 ### Base Properties
 * **sharePassword**: string
-### ManagedDisk
+### ManagedDiskDetails
 #### Properties
 * **dataAccountType**: 'ManagedDisk' (Required)
 * **resourceGroupId**: string (Required)
 * **stagingStorageAccountId**: string (Required)
 
-### StorageAccount
+### StorageAccountDetails
 #### Properties
 * **dataAccountType**: 'StorageAccount' (Required)
 * **storageAccountId**: string (Required)
 
 
-## ManagedDisk
+## ManagedDiskDetails
 ### Properties
 * **dataAccountType**: 'ManagedDisk' (Required)
 * **resourceGroupId**: string (Required)
 * **stagingStorageAccountId**: string (Required)
 
-## StorageAccount
+## StorageAccountDetails
 ### Properties
 * **dataAccountType**: 'StorageAccount' (Required)
 * **storageAccountId**: string (Required)
 
 ## TransferConfiguration
 ### Properties
-* **transferAllDetails**: schemas:85_transferAllDetails
+* **transferAllDetails**: [TransferConfigurationTransferAllDetails](#transferconfigurationtransferalldetails)
 * **transferConfigurationType**: 'TransferAll' | 'TransferUsingFilter' (Required)
-* **transferFilterDetails**: schemas:85_transferFilterDetails
+* **transferFilterDetails**: [TransferConfigurationTransferFilterDetails](#transferconfigurationtransferfilterdetails)
 
-## schemas:85_transferAllDetails
+## TransferConfigurationTransferAllDetails
 ### Properties
-* **include**: TransferAllDetails
+* **include**: [TransferAllDetails](#transferalldetails)
 
 ## TransferAllDetails
 ### Properties
@@ -195,16 +188,16 @@
 * **transferAllBlobs**: bool
 * **transferAllFiles**: bool
 
-## schemas:85_transferFilterDetails
+## TransferConfigurationTransferFilterDetails
 ### Properties
-* **include**: TransferFilterDetails
+* **include**: [TransferFilterDetails](#transferfilterdetails)
 
 ## TransferFilterDetails
 ### Properties
-* **azureFileFilterDetails**: AzureFileFilterDetails
-* **blobFilterDetails**: BlobFilterDetails
+* **azureFileFilterDetails**: [AzureFileFilterDetails](#azurefilefilterdetails)
+* **blobFilterDetails**: [BlobFilterDetails](#blobfilterdetails)
 * **dataAccountType**: 'ManagedDisk' | 'StorageAccount' (Required)
-* **filterFileDetails**: FilterFileDetails[]
+* **filterFileDetails**: [FilterFileDetails](#filterfiledetails)[]
 
 ## AzureFileFilterDetails
 ### Properties
@@ -225,7 +218,7 @@
 
 ## DataImportDetails
 ### Properties
-* **accountDetails**: DataAccountDetails (Required)
+* **accountDetails**: [DataAccountDetails](#dataaccountdetails) (Required)
 
 ## PackageShippingDetails
 ### Properties
@@ -250,7 +243,7 @@
 ## Preferences
 ### Properties
 * **preferredDataCenterRegion**: string[]
-* **transportPreferences**: TransportPreferences
+* **transportPreferences**: [TransportPreferences](#transportpreferences)
 
 ## TransportPreferences
 ### Properties
@@ -269,11 +262,66 @@
 * **streetAddress3**: string
 * **zipExtendedCode**: string
 
+## DataBoxJobDetails
+### Properties
+* **copyProgress**: [CopyProgress](#copyprogress)[] (ReadOnly)
+* **devicePassword**: string
+* **jobDetailsType**: 'DataBox' (Required)
+
+## CopyProgress
+### Properties
+* **accountId**: string (ReadOnly)
+* **bytesProcessed**: int (ReadOnly)
+* **dataAccountType**: 'ManagedDisk' | 'StorageAccount' (ReadOnly)
+* **directoriesErroredOut**: int (ReadOnly)
+* **filesErroredOut**: int (ReadOnly)
+* **filesProcessed**: int (ReadOnly)
+* **invalidDirectoriesProcessed**: int (ReadOnly)
+* **invalidFileBytesUploaded**: int (ReadOnly)
+* **invalidFilesProcessed**: int (ReadOnly)
+* **isEnumerationInProgress**: bool (ReadOnly)
+* **renamedContainerCount**: int (ReadOnly)
+* **storageAccountName**: string (ReadOnly)
+* **totalBytesToProcess**: int (ReadOnly)
+* **totalFilesToProcess**: int (ReadOnly)
+* **transferType**: 'ExportFromAzure' | 'ImportToAzure' (ReadOnly)
+
+## DataBoxDiskJobDetails
+### Properties
+* **copyProgress**: [DataBoxDiskCopyProgress](#databoxdiskcopyprogress)[] (ReadOnly)
+* **disksAndSizeDetails**: [DataBoxDiskJobDetailsDisksAndSizeDetails](#databoxdiskjobdetailsdisksandsizedetails) (ReadOnly)
+* **jobDetailsType**: 'DataBoxDisk' (Required)
+* **passkey**: string
+* **preferredDisks**: [DataBoxDiskJobDetailsPreferredDisks](#databoxdiskjobdetailspreferreddisks)
+
+## DataBoxDiskCopyProgress
+### Properties
+* **bytesCopied**: int (ReadOnly)
+* **percentComplete**: int (ReadOnly)
+* **serialNumber**: string (ReadOnly)
+* **status**: 'Completed' | 'CompletedWithErrors' | 'DeviceFormatted' | 'DeviceMetadataModified' | 'Failed' | 'HardwareError' | 'InProgress' | 'NotReturned' | 'NotStarted' | 'StorageAccountNotAccessible' | 'UnsupportedData' (ReadOnly)
+
+## DataBoxDiskJobDetailsDisksAndSizeDetails
+### Properties
+### Additional Properties
+* **Additional Properties Type**: int
+
+## DataBoxDiskJobDetailsPreferredDisks
+### Properties
+### Additional Properties
+* **Additional Properties Type**: int
+
+## DataBoxHeavyJobDetails
+### Properties
+* **copyProgress**: [CopyProgress](#copyprogress)[] (ReadOnly)
+* **devicePassword**: string
+* **jobDetailsType**: 'DataBoxHeavy' (Required)
+
 ## CloudError
 ### Properties
-* **additionalInfo**: AdditionalErrorInfo[] (ReadOnly)
+* **additionalInfo**: [AdditionalErrorInfo](#additionalerrorinfo)[] (ReadOnly)
 * **code**: string
-* **details**: CloudError[] (ReadOnly)
+* **details**: [CloudError](#clouderror)[] (ReadOnly)
 * **message**: string
 * **target**: string
 
@@ -288,7 +336,7 @@
 * **family**: string
 * **name**: 'DataBox' | 'DataBoxDisk' | 'DataBoxHeavy' (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

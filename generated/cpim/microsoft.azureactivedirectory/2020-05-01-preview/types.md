@@ -7,15 +7,15 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: GuestUsagesResourceProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [GuestUsagesResourceProperties](#guestusagesresourceproperties)
+* **tags**: [GuestUsagesResourceTags](#guestusagesresourcetags)
 * **type**: 'Microsoft.AzureActiveDirectory/guestUsages' (ReadOnly, DeployTimeConstant)
 
 ## GuestUsagesResourceProperties
 ### Properties
 * **tenantId**: string
 
-## Dictionary<string,String>
+## GuestUsagesResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

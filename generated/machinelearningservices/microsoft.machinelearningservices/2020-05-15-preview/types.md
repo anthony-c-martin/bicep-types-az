@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2020-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkspaceProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [WorkspaceProperties](#workspaceproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.MachineLearningServices/workspaces' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.MachineLearningServices/workspaces/computes@2020-05-15-preview
@@ -18,12 +18,12 @@
 ### Properties
 * **apiVersion**: '2020-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: Compute
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [Compute](#compute)
+* **sku**: [Sku](#sku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.MachineLearningServices/workspaces/computes' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.MachineLearningServices/workspaces/linkedWorkspaces@2020-05-15-preview
@@ -32,7 +32,7 @@
 * **apiVersion**: '2020-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: LinkedWorkspaceProps
+* **properties**: [LinkedWorkspaceProps](#linkedworkspaceprops)
 * **type**: 'Microsoft.MachineLearningServices/workspaces/linkedWorkspaces' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.MachineLearningServices/workspaces/privateEndpointConnections@2020-05-15-preview
@@ -40,65 +40,76 @@
 ### Properties
 * **apiVersion**: '2020-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PrivateEndpointConnectionProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.MachineLearningServices/workspaces/privateEndpointConnections' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.MachineLearningServices/workspaces/services@2020-05-15-preview
 * **Valid Scope(s)**: ResourceGroup
 * **Discriminator**: computeType
+
 ### Base Properties
 * **apiVersion**: '2020-05-15-preview' (ReadOnly, DeployTimeConstant)
 * **description**: string (WriteOnly)
-* **environmentImageRequest**: schemas:120_environmentImageRequest (WriteOnly)
+* **environmentImageRequest**: [CreateServiceRequestEnvironmentImageRequest](#createservicerequestenvironmentimagerequest) (WriteOnly)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity (ReadOnly)
-* **keys**: schemas:120_keys (WriteOnly)
-* **kvTags**: Dictionary<string,String> (WriteOnly)
+* **identity**: [Identity](#identity) (ReadOnly)
+* **keys**: [CreateServiceRequestKeys](#createservicerequestkeys) (WriteOnly)
+* **kvTags**: [CreateServiceRequestKvTags](#createservicerequestkvtags) (WriteOnly)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: Dictionary<string,String>
-* **sku**: Sku (ReadOnly)
-* **tags**: Dictionary<string,String> (ReadOnly)
+* **properties**: [CreateServiceRequestProperties](#createservicerequestproperties)
+* **sku**: [Sku](#sku) (ReadOnly)
+* **tags**: [ResourceTags](#resourcetags) (ReadOnly)
 * **type**: 'Microsoft.MachineLearningServices/workspaces/services' (ReadOnly, DeployTimeConstant)
-### ACI
+### ACIServiceCreateRequest
 #### Properties
 * **appInsightsEnabled**: bool (WriteOnly)
 * **authEnabled**: bool (WriteOnly)
 * **cname**: string (WriteOnly)
 * **computeType**: 'ACI' (Required)
-* **containerResourceRequirements**: ContainerResourceRequirements (WriteOnly)
-* **dataCollection**: schemas:89_dataCollection (WriteOnly)
+* **containerResourceRequirements**: [ContainerResourceRequirements](#containerresourcerequirements) (WriteOnly)
+* **dataCollection**: [ACIServiceCreateRequestDataCollection](#aciservicecreaterequestdatacollection) (WriteOnly)
 * **dnsNameLabel**: string (WriteOnly)
-* **encryptionProperties**: schemas:89_encryptionProperties (WriteOnly)
+* **encryptionProperties**: [ACIServiceCreateRequestEncryptionProperties](#aciservicecreaterequestencryptionproperties) (WriteOnly)
 * **sslCertificate**: string (WriteOnly)
 * **sslEnabled**: bool (WriteOnly)
 * **sslKey**: string (WriteOnly)
-* **vnetConfiguration**: schemas:89_vnetConfiguration (WriteOnly)
+* **vnetConfiguration**: [ACIServiceCreateRequestVnetConfiguration](#aciservicecreaterequestvnetconfiguration) (WriteOnly)
 
-### Custom
+### AKSServiceCreateRequest
 #### Properties
-* **computeType**: 'Custom' (Required)
-* **isDefault**: bool (WriteOnly)
-* **trafficPercentile**: int (WriteOnly)
-* **type**: 'Control' | 'Treatment' (WriteOnly)
+* **aadAuthEnabled**: bool (WriteOnly)
+* **appInsightsEnabled**: bool (WriteOnly)
+* **authEnabled**: bool (WriteOnly)
+* **autoScaler**: [AKSServiceCreateRequestAutoScaler](#aksservicecreaterequestautoscaler) (WriteOnly)
+* **computeName**: string (WriteOnly)
+* **computeType**: 'AKS' (Required)
+* **containerResourceRequirements**: [ContainerResourceRequirements](#containerresourcerequirements) (WriteOnly)
+* **dataCollection**: [AKSServiceCreateRequestDataCollection](#aksservicecreaterequestdatacollection) (WriteOnly)
+* **livenessProbeRequirements**: [AKSServiceCreateRequestLivenessProbeRequirements](#aksservicecreaterequestlivenessproberequirements) (WriteOnly)
+* **maxConcurrentRequestsPerContainer**: int (WriteOnly)
+* **maxQueueWaitMs**: int (WriteOnly)
+* **namespace**: string (WriteOnly)
+* **numReplicas**: int (WriteOnly)
+* **scoringTimeoutMs**: int (WriteOnly)
 
 
 ## Identity
 ### Properties
 * **principalId**: string (ReadOnly)
 * **tenantId**: string (ReadOnly)
-* **type**: 'None' | 'SystemAssigned,UserAssigned' | 'SystemAssigned' | 'UserAssigned'
-* **userAssignedIdentities**: Dictionary<string,UserAssignedIdentity>
+* **type**: 'None' | 'SystemAssigned' | 'SystemAssigned,UserAssigned' | 'UserAssigned'
+* **userAssignedIdentities**: [UserAssignedIdentities](#userassignedidentities)
 
-## Dictionary<string,UserAssignedIdentity>
+## UserAssignedIdentities
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: UserAssignedIdentity
+* **Additional Properties Type**: [UserAssignedIdentity](#userassignedidentity)
 
 ## UserAssignedIdentity
 ### Properties
@@ -114,22 +125,22 @@
 * **creationTime**: string (ReadOnly)
 * **description**: string
 * **discoveryUrl**: string
-* **encryption**: EncryptionProperty
+* **encryption**: [EncryptionProperty](#encryptionproperty)
 * **friendlyName**: string
 * **hbiWorkspace**: bool
 * **imageBuildCompute**: string
 * **keyVault**: string
-* **privateEndpointConnections**: PrivateEndpointConnection[] (ReadOnly)
+* **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[] (ReadOnly)
 * **privateLinkCount**: int (ReadOnly)
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Unknown' | 'Updating' (ReadOnly)
 * **serviceProvisionedResourceGroup**: string (ReadOnly)
-* **sharedPrivateLinkResources**: SharedPrivateLinkResource[]
+* **sharedPrivateLinkResources**: [SharedPrivateLinkResource](#sharedprivatelinkresource)[]
 * **storageAccount**: string
 * **workspaceId**: string (ReadOnly)
 
 ## EncryptionProperty
 ### Properties
-* **keyVaultProperties**: KeyVaultProperties (Required)
+* **keyVaultProperties**: [KeyVaultProperties](#keyvaultproperties) (Required)
 * **status**: 'Disabled' | 'Enabled' (Required)
 
 ## KeyVaultProperties
@@ -141,19 +152,19 @@
 ## PrivateEndpointConnection
 ### Properties
 * **id**: string (ReadOnly)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (ReadOnly)
-* **properties**: PrivateEndpointConnectionProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: string (ReadOnly)
 
 ## PrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: PrivateEndpoint
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState (Required)
-* **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded'
+* **privateEndpoint**: [PrivateEndpoint](#privateendpoint)
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate) (Required)
+* **provisioningState**: 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' (ReadOnly)
 
 ## PrivateEndpoint
 ### Properties
@@ -170,7 +181,7 @@
 * **name**: string
 * **tier**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -178,7 +189,7 @@
 ## SharedPrivateLinkResource
 ### Properties
 * **name**: string
-* **properties**: SharedPrivateLinkResourceProperty
+* **properties**: [SharedPrivateLinkResourceProperty](#sharedprivatelinkresourceproperty)
 
 ## SharedPrivateLinkResourceProperty
 ### Properties
@@ -187,36 +198,37 @@
 * **requestMessage**: string
 * **status**: 'Approved' | 'Disconnected' | 'Pending' | 'Rejected' | 'Timeout'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## Compute
 * **Discriminator**: computeType
+
 ### Base Properties
 * **computeLocation**: string
 * **createdOn**: string (ReadOnly)
 * **description**: string
 * **isAttachedCompute**: bool (ReadOnly)
 * **modifiedOn**: string (ReadOnly)
-* **provisioningErrors**: MachineLearningServiceError[] (ReadOnly)
+* **provisioningErrors**: [MachineLearningServiceError](#machinelearningserviceerror)[] (ReadOnly)
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Unknown' | 'Updating' (ReadOnly)
 * **resourceId**: string
 ### AKS
 #### Properties
 * **computeType**: 'AKS' (Required)
-* **properties**: schemas:34_properties
+* **properties**: [AKSProperties](#aksproperties)
 
 ### AmlCompute
 #### Properties
 * **computeType**: 'AmlCompute' (Required)
-* **properties**: schemas:35_properties
+* **properties**: [AmlComputeProperties](#amlcomputeproperties)
 
 ### Databricks
 #### Properties
 * **computeType**: 'Databricks' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [DatabricksProperties](#databricksproperties)
 
 ### DataFactory
 #### Properties
@@ -225,27 +237,27 @@
 ### DataLakeAnalytics
 #### Properties
 * **computeType**: 'DataLakeAnalytics' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [DataLakeAnalyticsProperties](#datalakeanalyticsproperties)
 
 ### HDInsight
 #### Properties
 * **computeType**: 'HDInsight' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [HDInsightProperties](#hdinsightproperties)
 
 ### VirtualMachine
 #### Properties
 * **computeType**: 'VirtualMachine' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [VirtualMachineProperties](#virtualmachineproperties)
 
 
 ## MachineLearningServiceError
 ### Properties
-* **error**: ErrorResponse (ReadOnly)
+* **error**: [ErrorResponse](#errorresponse) (ReadOnly)
 
 ## ErrorResponse
 ### Properties
 * **code**: string (ReadOnly)
-* **details**: ErrorDetail[] (ReadOnly)
+* **details**: [ErrorDetail](#errordetail)[] (ReadOnly)
 * **message**: string (ReadOnly)
 
 ## ErrorDetail
@@ -256,16 +268,16 @@
 ## AKS
 ### Properties
 * **computeType**: 'AKS' (Required)
-* **properties**: schemas:34_properties
+* **properties**: [AKSProperties](#aksproperties)
 
-## schemas:34_properties
+## AKSProperties
 ### Properties
 * **agentCount**: int
 * **agentVMSize**: string
-* **aksNetworkingConfiguration**: AksNetworkingConfiguration
+* **aksNetworkingConfiguration**: [AksNetworkingConfiguration](#aksnetworkingconfiguration)
 * **clusterFqdn**: string
-* **sslConfiguration**: SslConfiguration
-* **systemServices**: SystemService[] (ReadOnly)
+* **sslConfiguration**: [SslConfiguration](#sslconfiguration)
+* **systemServices**: [SystemService](#systemservice)[] (ReadOnly)
 
 ## AksNetworkingConfiguration
 ### Properties
@@ -290,24 +302,24 @@
 ## AmlCompute
 ### Properties
 * **computeType**: 'AmlCompute' (Required)
-* **properties**: schemas:35_properties
+* **properties**: [AmlComputeProperties](#amlcomputeproperties)
 
-## schemas:35_properties
+## AmlComputeProperties
 ### Properties
 * **allocationState**: 'Resizing' | 'Steady' (ReadOnly)
 * **allocationStateTransitionTime**: string (ReadOnly)
 * **currentNodeCount**: int (ReadOnly)
 * **enableNodePublicIp**: bool
-* **errors**: MachineLearningServiceError[] (ReadOnly)
+* **errors**: [MachineLearningServiceError](#machinelearningserviceerror)[] (ReadOnly)
 * **isolatedNetwork**: bool
-* **nodeStateCounts**: NodeStateCounts (ReadOnly)
+* **nodeStateCounts**: [NodeStateCounts](#nodestatecounts) (ReadOnly)
 * **osType**: 'Linux' | 'Windows'
 * **remoteLoginPortPublicAccess**: 'Disabled' | 'Enabled' | 'NotSpecified'
-* **scaleSettings**: ScaleSettings
-* **subnet**: ResourceId
+* **scaleSettings**: [ScaleSettings](#scalesettings)
+* **subnet**: [ResourceId](#resourceid)
 * **targetNodeCount**: int (ReadOnly)
-* **userAccountCredentials**: UserAccountCredentials
-* **virtualMachineImage**: VirtualMachineImage
+* **userAccountCredentials**: [UserAccountCredentials](#useraccountcredentials)
+* **virtualMachineImage**: [VirtualMachineImage](#virtualmachineimage)
 * **vmPriority**: 'Dedicated' | 'LowPriority'
 * **vmSize**: string
 
@@ -343,21 +355,11 @@
 ## Databricks
 ### Properties
 * **computeType**: 'Databricks' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [DatabricksProperties](#databricksproperties)
 
-## schemas:36_properties
+## DatabricksProperties
 ### Properties
-* **address**: string
-* **administratorAccount**: VirtualMachineSshCredentials
-* **sshPort**: int
-* **virtualMachineSize**: string
-
-## VirtualMachineSshCredentials
-### Properties
-* **password**: string
-* **privateKeyData**: string
-* **publicKeyData**: string
-* **username**: string
+* **databricksAccessToken**: string
 
 ## DataFactory
 ### Properties
@@ -366,19 +368,43 @@
 ## DataLakeAnalytics
 ### Properties
 * **computeType**: 'DataLakeAnalytics' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [DataLakeAnalyticsProperties](#datalakeanalyticsproperties)
+
+## DataLakeAnalyticsProperties
+### Properties
+* **dataLakeStoreAccountName**: string
 
 ## HDInsight
 ### Properties
 * **computeType**: 'HDInsight' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [HDInsightProperties](#hdinsightproperties)
+
+## HDInsightProperties
+### Properties
+* **address**: string
+* **administratorAccount**: [VirtualMachineSshCredentials](#virtualmachinesshcredentials)
+* **sshPort**: int
+
+## VirtualMachineSshCredentials
+### Properties
+* **password**: string
+* **privateKeyData**: string
+* **publicKeyData**: string
+* **username**: string
 
 ## VirtualMachine
 ### Properties
 * **computeType**: 'VirtualMachine' (Required)
-* **properties**: schemas:36_properties
+* **properties**: [VirtualMachineProperties](#virtualmachineproperties)
 
-## Dictionary<string,String>
+## VirtualMachineProperties
+### Properties
+* **address**: string
+* **administratorAccount**: [VirtualMachineSshCredentials](#virtualmachinesshcredentials)
+* **sshPort**: int
+* **virtualMachineSize**: string
+
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -388,19 +414,19 @@
 * **linkedWorkspaceResourceId**: string
 * **userAssignedIdentityResourceId**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:120_environmentImageRequest
+## CreateServiceRequestEnvironmentImageRequest
 ### Properties
-* **assets**: ImageAsset[] (WriteOnly)
+* **assets**: [ImageAsset](#imageasset)[] (WriteOnly)
 * **driverProgram**: string (WriteOnly)
-* **environment**: schemas:95_environment (WriteOnly)
-* **environmentReference**: schemas:95_environmentReference (WriteOnly)
+* **environment**: [EnvironmentImageRequestEnvironment](#environmentimagerequestenvironment) (WriteOnly)
+* **environmentReference**: [EnvironmentImageRequestEnvironmentReference](#environmentimagerequestenvironmentreference) (WriteOnly)
 * **modelIds**: string[] (WriteOnly)
-* **models**: Model[] (WriteOnly)
+* **models**: [Model](#model)[] (WriteOnly)
 
 ## ImageAsset
 ### Properties
@@ -409,47 +435,47 @@
 * **unpack**: bool (WriteOnly)
 * **url**: string (WriteOnly)
 
-## schemas:95_environment
+## EnvironmentImageRequestEnvironment
 ### Properties
-* **docker**: schemas:98_docker (WriteOnly)
-* **environmentVariables**: Dictionary<string,String> (WriteOnly)
+* **docker**: [ModelEnvironmentDefinitionDocker](#modelenvironmentdefinitiondocker) (WriteOnly)
+* **environmentVariables**: [ModelEnvironmentDefinitionEnvironmentVariables](#modelenvironmentdefinitionenvironmentvariables) (WriteOnly)
 * **inferencingStackVersion**: string (WriteOnly)
 * **name**: string (WriteOnly)
-* **python**: schemas:98_python (WriteOnly)
-* **r**: schemas:98_r (WriteOnly)
-* **spark**: schemas:98_spark (WriteOnly)
+* **python**: [ModelEnvironmentDefinitionPython](#modelenvironmentdefinitionpython) (WriteOnly)
+* **r**: [ModelEnvironmentDefinitionR](#modelenvironmentdefinitionr) (WriteOnly)
+* **spark**: [ModelEnvironmentDefinitionSpark](#modelenvironmentdefinitionspark) (WriteOnly)
 * **version**: string (WriteOnly)
 
-## schemas:98_docker
+## ModelEnvironmentDefinitionDocker
 ### Properties
 * **baseDockerfile**: string (WriteOnly)
 * **baseImage**: string (WriteOnly)
-* **baseImageRegistry**: schemas:104_baseImageRegistry (WriteOnly)
+* **baseImageRegistry**: [ModelDockerSectionBaseImageRegistry](#modeldockersectionbaseimageregistry) (WriteOnly)
 
-## schemas:104_baseImageRegistry
+## ModelDockerSectionBaseImageRegistry
 ### Properties
 * **address**: string (WriteOnly)
 * **password**: string (WriteOnly)
 * **username**: string (WriteOnly)
 
-## Dictionary<string,String>
+## ModelEnvironmentDefinitionEnvironmentVariables
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:98_python
+## ModelEnvironmentDefinitionPython
 ### Properties
 * **baseCondaEnvironment**: string (WriteOnly)
 * **condaDependencies**: any (WriteOnly)
 * **interpreterPath**: string (WriteOnly)
 * **userManagedDependencies**: bool (WriteOnly)
 
-## schemas:98_r
+## ModelEnvironmentDefinitionR
 ### Properties
 * **bioConductorPackages**: string[] (WriteOnly)
-* **cranPackages**: RCranPackage[] (WriteOnly)
+* **cranPackages**: [RCranPackage](#rcranpackage)[] (WriteOnly)
 * **customUrlPackages**: string[] (WriteOnly)
-* **gitHubPackages**: RGitHubPackage[] (WriteOnly)
+* **gitHubPackages**: [RGitHubPackage](#rgithubpackage)[] (WriteOnly)
 * **rscriptPath**: string (WriteOnly)
 * **rVersion**: string (WriteOnly)
 * **snapshotDate**: string (WriteOnly)
@@ -465,9 +491,9 @@
 * **authToken**: string (WriteOnly)
 * **repository**: string (WriteOnly)
 
-## schemas:98_spark
+## ModelEnvironmentDefinitionSpark
 ### Properties
-* **packages**: SparkMavenPackage[] (WriteOnly)
+* **packages**: [SparkMavenPackage](#sparkmavenpackage)[] (WriteOnly)
 * **precachePackages**: bool (WriteOnly)
 * **repositories**: string[] (WriteOnly)
 
@@ -477,7 +503,7 @@
 * **group**: string (WriteOnly)
 * **version**: string (WriteOnly)
 
-## schemas:95_environmentReference
+## EnvironmentImageRequestEnvironmentReference
 ### Properties
 * **name**: string (WriteOnly)
 * **version**: string (WriteOnly)
@@ -485,20 +511,20 @@
 ## Model
 ### Properties
 * **createdTime**: string (WriteOnly)
-* **datasets**: DatasetReference[] (WriteOnly)
+* **datasets**: [DatasetReference](#datasetreference)[] (WriteOnly)
 * **derivedModelIds**: string[] (WriteOnly)
 * **description**: string (WriteOnly)
 * **experimentName**: string (WriteOnly)
 * **framework**: string (WriteOnly)
 * **frameworkVersion**: string (WriteOnly)
 * **id**: string (WriteOnly)
-* **kvTags**: Dictionary<string,String> (WriteOnly)
+* **kvTags**: [ModelKvTags](#modelkvtags) (WriteOnly)
 * **mimeType**: string (Required, WriteOnly)
 * **modifiedTime**: string (WriteOnly)
 * **name**: string (Required, WriteOnly)
 * **parentModelId**: string (WriteOnly)
-* **properties**: Dictionary<string,String> (WriteOnly)
-* **resourceRequirements**: ContainerResourceRequirements (WriteOnly)
+* **properties**: [ModelProperties](#modelproperties) (WriteOnly)
+* **resourceRequirements**: [ContainerResourceRequirements](#containerresourcerequirements) (WriteOnly)
 * **runId**: string (WriteOnly)
 * **sampleInputData**: string (WriteOnly)
 * **sampleOutputData**: string (WriteOnly)
@@ -511,12 +537,12 @@
 * **id**: string (WriteOnly)
 * **name**: string (WriteOnly)
 
-## Dictionary<string,String>
+## ModelKvTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ModelProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -528,61 +554,92 @@
 * **gpu**: int (WriteOnly)
 * **memoryInGB**: int (WriteOnly)
 
-## schemas:120_keys
+## CreateServiceRequestKeys
 ### Properties
 * **primaryKey**: string (WriteOnly)
 * **secondaryKey**: string (WriteOnly)
 
-## Dictionary<string,String>
+## CreateServiceRequestKvTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## CreateServiceRequestProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## ACI
+## ACIServiceCreateRequest
 ### Properties
 * **appInsightsEnabled**: bool (WriteOnly)
 * **authEnabled**: bool (WriteOnly)
 * **cname**: string (WriteOnly)
 * **computeType**: 'ACI' (Required)
-* **containerResourceRequirements**: ContainerResourceRequirements (WriteOnly)
-* **dataCollection**: schemas:89_dataCollection (WriteOnly)
+* **containerResourceRequirements**: [ContainerResourceRequirements](#containerresourcerequirements) (WriteOnly)
+* **dataCollection**: [ACIServiceCreateRequestDataCollection](#aciservicecreaterequestdatacollection) (WriteOnly)
 * **dnsNameLabel**: string (WriteOnly)
-* **encryptionProperties**: schemas:89_encryptionProperties (WriteOnly)
+* **encryptionProperties**: [ACIServiceCreateRequestEncryptionProperties](#aciservicecreaterequestencryptionproperties) (WriteOnly)
 * **sslCertificate**: string (WriteOnly)
 * **sslEnabled**: bool (WriteOnly)
 * **sslKey**: string (WriteOnly)
-* **vnetConfiguration**: schemas:89_vnetConfiguration (WriteOnly)
+* **vnetConfiguration**: [ACIServiceCreateRequestVnetConfiguration](#aciservicecreaterequestvnetconfiguration) (WriteOnly)
 
-## schemas:89_dataCollection
+## ACIServiceCreateRequestDataCollection
 ### Properties
 * **eventHubEnabled**: bool (WriteOnly)
 * **storageEnabled**: bool (WriteOnly)
 
-## schemas:89_encryptionProperties
+## ACIServiceCreateRequestEncryptionProperties
 ### Properties
 * **keyName**: string (Required, WriteOnly)
 * **keyVersion**: string (Required, WriteOnly)
 * **vaultBaseUrl**: string (Required, WriteOnly)
 
-## schemas:89_vnetConfiguration
+## ACIServiceCreateRequestVnetConfiguration
 ### Properties
 * **subnetName**: string (WriteOnly)
 * **vnetName**: string (WriteOnly)
 
-## Custom
+## AKSServiceCreateRequest
 ### Properties
-* **computeType**: 'Custom' (Required)
-* **isDefault**: bool (WriteOnly)
-* **trafficPercentile**: int (WriteOnly)
-* **type**: 'Control' | 'Treatment' (WriteOnly)
+* **aadAuthEnabled**: bool (WriteOnly)
+* **appInsightsEnabled**: bool (WriteOnly)
+* **authEnabled**: bool (WriteOnly)
+* **autoScaler**: [AKSServiceCreateRequestAutoScaler](#aksservicecreaterequestautoscaler) (WriteOnly)
+* **computeName**: string (WriteOnly)
+* **computeType**: 'AKS' (Required)
+* **containerResourceRequirements**: [ContainerResourceRequirements](#containerresourcerequirements) (WriteOnly)
+* **dataCollection**: [AKSServiceCreateRequestDataCollection](#aksservicecreaterequestdatacollection) (WriteOnly)
+* **livenessProbeRequirements**: [AKSServiceCreateRequestLivenessProbeRequirements](#aksservicecreaterequestlivenessproberequirements) (WriteOnly)
+* **maxConcurrentRequestsPerContainer**: int (WriteOnly)
+* **maxQueueWaitMs**: int (WriteOnly)
+* **namespace**: string (WriteOnly)
+* **numReplicas**: int (WriteOnly)
+* **scoringTimeoutMs**: int (WriteOnly)
+
+## AKSServiceCreateRequestAutoScaler
+### Properties
+* **autoscaleEnabled**: bool (WriteOnly)
+* **maxReplicas**: int (WriteOnly)
+* **minReplicas**: int (WriteOnly)
+* **refreshPeriodInSeconds**: int (WriteOnly)
+* **targetUtilization**: int (WriteOnly)
+
+## AKSServiceCreateRequestDataCollection
+### Properties
+* **eventHubEnabled**: bool (WriteOnly)
+* **storageEnabled**: bool (WriteOnly)
+
+## AKSServiceCreateRequestLivenessProbeRequirements
+### Properties
+* **failureThreshold**: int (WriteOnly)
+* **initialDelaySeconds**: int (WriteOnly)
+* **periodSeconds**: int (WriteOnly)
+* **successThreshold**: int (WriteOnly)
+* **timeoutSeconds**: int (WriteOnly)
 

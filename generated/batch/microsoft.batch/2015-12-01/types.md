@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: BatchAccountBaseProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [BatchAccountBaseProperties](#batchaccountbaseproperties)
+* **tags**: [BatchAccountCreateParametersTags](#batchaccountcreateparameterstags)
 * **type**: 'Microsoft.Batch/batchAccounts' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Batch/batchAccounts/applications@2015-12-01
@@ -20,14 +20,28 @@
 * **displayName**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **packages**: ApplicationPackage[] (ReadOnly)
+* **packages**: [ApplicationPackage](#applicationpackage)[] (ReadOnly)
 * **type**: 'Microsoft.Batch/batchAccounts/applications' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Batch/batchAccounts/applications/versions@2015-12-01
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2015-12-01' (ReadOnly, DeployTimeConstant)
+* **format**: string (ReadOnly)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **lastActivationTime**: string (ReadOnly)
+* **name**: string (Required, DeployTimeConstant)
+* **state**: 'active' | 'pending' | 'unmapped' (ReadOnly)
+* **storageUrl**: string (ReadOnly)
+* **storageUrlExpiry**: string (ReadOnly)
+* **type**: 'Microsoft.Batch/batchAccounts/applications/versions' (ReadOnly, DeployTimeConstant)
+* **version**: string (ReadOnly)
 
 ## BatchAccountBaseProperties
 ### Properties
 * **accountEndpoint**: string (ReadOnly)
 * **activeJobAndJobScheduleQuota**: int (ReadOnly)
-* **autoStorage**: AutoStorageBaseProperties
+* **autoStorage**: [AutoStorageBaseProperties](#autostoragebaseproperties)
 * **coreQuota**: int (ReadOnly)
 * **poolQuota**: int (ReadOnly)
 * **provisioningState**: 'Cancelled' | 'Creating' | 'Deleting' | 'Failed' | 'Invalid' | 'Succeeded' (ReadOnly)
@@ -37,7 +51,7 @@
 * **lastKeySync**: string (ReadOnly)
 * **storageAccountId**: string (Required)
 
-## Dictionary<string,String>
+## BatchAccountCreateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

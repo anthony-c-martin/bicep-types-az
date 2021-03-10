@@ -8,39 +8,48 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: IotHubProperties
+* **properties**: [IotHubProperties](#iothubproperties)
 * **resourcegroup**: string (Required)
-* **sku**: IotHubSkuInfo (Required)
+* **sku**: [IotHubSkuInfo](#iothubskuinfo) (Required)
 * **subscriptionid**: string (Required)
-* **tags**: Dictionary<string,String>
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Devices/IotHubs' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups@2016-02-03
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2016-02-03' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: string (Required, DeployTimeConstant)
+* **tags**: [EventHubConsumerGroupInfoTags](#eventhubconsumergroupinfotags) (ReadOnly)
+* **type**: 'Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups' (ReadOnly, DeployTimeConstant)
 
 ## IotHubProperties
 ### Properties
-* **authorizationPolicies**: SharedAccessSignatureAuthorizationRule[]
-* **cloudToDevice**: CloudToDeviceProperties
+* **authorizationPolicies**: [SharedAccessSignatureAuthorizationRule](#sharedaccesssignatureauthorizationrule)[]
+* **cloudToDevice**: [CloudToDeviceProperties](#cloudtodeviceproperties)
 * **comments**: string
 * **enableFileUploadNotifications**: bool
-* **eventHubEndpoints**: Dictionary<string,EventHubProperties>
+* **eventHubEndpoints**: [IotHubPropertiesEventHubEndpoints](#iothubpropertieseventhubendpoints)
 * **features**: 'DeviceManagement' | 'None'
 * **hostName**: string (ReadOnly)
-* **ipFilterRules**: IpFilterRule[]
-* **messagingEndpoints**: Dictionary<string,MessagingEndpointProperties>
-* **operationsMonitoringProperties**: OperationsMonitoringProperties
+* **ipFilterRules**: [IpFilterRule](#ipfilterrule)[]
+* **messagingEndpoints**: [IotHubPropertiesMessagingEndpoints](#iothubpropertiesmessagingendpoints)
+* **operationsMonitoringProperties**: [OperationsMonitoringProperties](#operationsmonitoringproperties)
 * **provisioningState**: string (ReadOnly)
-* **storageEndpoints**: Dictionary<string,StorageEndpointProperties>
+* **storageEndpoints**: [IotHubPropertiesStorageEndpoints](#iothubpropertiesstorageendpoints)
 
 ## SharedAccessSignatureAuthorizationRule
 ### Properties
 * **keyName**: string (Required)
 * **primaryKey**: string
-* **rights**: 'DeviceConnect' | 'RegistryRead, DeviceConnect' | 'RegistryRead, RegistryWrite, DeviceConnect' | 'RegistryRead, RegistryWrite, ServiceConnect, DeviceConnect' | 'RegistryRead, RegistryWrite, ServiceConnect' | 'RegistryRead, RegistryWrite' | 'RegistryRead, ServiceConnect, DeviceConnect' | 'RegistryRead, ServiceConnect' | 'RegistryRead' | 'RegistryWrite, DeviceConnect' | 'RegistryWrite, ServiceConnect, DeviceConnect' | 'RegistryWrite, ServiceConnect' | 'RegistryWrite' | 'ServiceConnect, DeviceConnect' | 'ServiceConnect' (Required)
+* **rights**: 'DeviceConnect' | 'RegistryRead' | 'RegistryRead, DeviceConnect' | 'RegistryRead, RegistryWrite' | 'RegistryRead, RegistryWrite, DeviceConnect' | 'RegistryRead, RegistryWrite, ServiceConnect' | 'RegistryRead, RegistryWrite, ServiceConnect, DeviceConnect' | 'RegistryRead, ServiceConnect' | 'RegistryRead, ServiceConnect, DeviceConnect' | 'RegistryWrite' | 'RegistryWrite, DeviceConnect' | 'RegistryWrite, ServiceConnect' | 'RegistryWrite, ServiceConnect, DeviceConnect' | 'ServiceConnect' | 'ServiceConnect, DeviceConnect' (Required)
 * **secondaryKey**: string
 
 ## CloudToDeviceProperties
 ### Properties
 * **defaultTtlAsIso8601**: string
-* **feedback**: FeedbackProperties
+* **feedback**: [FeedbackProperties](#feedbackproperties)
 * **maxDeliveryCount**: int
 
 ## FeedbackProperties
@@ -49,10 +58,10 @@
 * **maxDeliveryCount**: int
 * **ttlAsIso8601**: string
 
-## Dictionary<string,EventHubProperties>
+## IotHubPropertiesEventHubEndpoints
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: EventHubProperties
+* **Additional Properties Type**: [EventHubProperties](#eventhubproperties)
 
 ## EventHubProperties
 ### Properties
@@ -68,10 +77,10 @@
 * **filterName**: string (Required)
 * **ipMask**: string (Required)
 
-## Dictionary<string,MessagingEndpointProperties>
+## IotHubPropertiesMessagingEndpoints
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: MessagingEndpointProperties
+* **Additional Properties Type**: [MessagingEndpointProperties](#messagingendpointproperties)
 
 ## MessagingEndpointProperties
 ### Properties
@@ -81,17 +90,17 @@
 
 ## OperationsMonitoringProperties
 ### Properties
-* **events**: Dictionary<string,OperationMonitoringLevel>
+* **events**: [OperationsMonitoringPropertiesEvents](#operationsmonitoringpropertiesevents)
 
-## Dictionary<string,OperationMonitoringLevel>
+## OperationsMonitoringPropertiesEvents
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: 'Error, Information' | 'Error' | 'Information' | 'None'
+* **Additional Properties Type**: 'Error' | 'Error, Information' | 'Information' | 'None'
 
-## Dictionary<string,StorageEndpointProperties>
+## IotHubPropertiesStorageEndpoints
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: StorageEndpointProperties
+* **Additional Properties Type**: [StorageEndpointProperties](#storageendpointproperties)
 
 ## StorageEndpointProperties
 ### Properties
@@ -105,7 +114,12 @@
 * **name**: 'F1' | 'S1' | 'S2' | 'S3' (Required)
 * **tier**: 'Free' | 'Standard' (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
+### Properties
+### Additional Properties
+* **Additional Properties Type**: string
+
+## EventHubConsumerGroupInfoTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

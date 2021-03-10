@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2020-03-13' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SearchServiceProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [SearchServiceProperties](#searchserviceproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Search/searchServices' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Search/searchServices/privateEndpointConnections@2020-03-13
@@ -19,7 +19,7 @@
 * **apiVersion**: '2020-03-13' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 * **type**: 'Microsoft.Search/searchServices/privateEndpointConnections' (ReadOnly, DeployTimeConstant)
 
 ## Identity
@@ -31,9 +31,9 @@
 ## SearchServiceProperties
 ### Properties
 * **hostingMode**: 'default' | 'highDensity'
-* **networkRuleSet**: NetworkRuleSet
+* **networkRuleSet**: [NetworkRuleSet](#networkruleset)
 * **partitionCount**: int
-* **privateEndpointConnections**: PrivateEndpointConnection[] (ReadOnly)
+* **privateEndpointConnections**: [PrivateEndpointConnection](#privateendpointconnection)[] (ReadOnly)
 * **provisioningState**: 'failed' | 'provisioning' | 'succeeded' (ReadOnly)
 * **publicNetworkAccess**: 'disabled' | 'enabled'
 * **replicaCount**: int
@@ -42,7 +42,7 @@
 
 ## NetworkRuleSet
 ### Properties
-* **ipRules**: IpRule[]
+* **ipRules**: [IpRule](#iprule)[]
 
 ## IpRule
 ### Properties
@@ -52,19 +52,19 @@
 ### Properties
 * **id**: string (ReadOnly)
 * **name**: string (ReadOnly)
-* **properties**: PrivateEndpointConnectionProperties
+* **properties**: [PrivateEndpointConnectionProperties](#privateendpointconnectionproperties)
 * **type**: string (ReadOnly)
 
 ## PrivateEndpointConnectionProperties
 ### Properties
-* **privateEndpoint**: schemas:9_privateEndpoint
-* **privateLinkServiceConnectionState**: schemas:9_privateLinkServiceConnectionState
+* **privateEndpoint**: [PrivateEndpointConnectionPropertiesPrivateEndpoint](#privateendpointconnectionpropertiesprivateendpoint)
+* **privateLinkServiceConnectionState**: [PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState](#privateendpointconnectionpropertiesprivatelinkserviceconnectionstate)
 
-## schemas:9_privateEndpoint
+## PrivateEndpointConnectionPropertiesPrivateEndpoint
 ### Properties
 * **id**: string
 
-## schemas:9_privateLinkServiceConnectionState
+## PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState
 ### Properties
 * **actionsRequired**: string
 * **description**: string
@@ -74,7 +74,7 @@
 ### Properties
 * **name**: 'basic' | 'free' | 'standard' | 'standard2' | 'standard3' | 'storage_optimized_l1' | 'storage_optimized_l2'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

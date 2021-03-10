@@ -7,21 +7,21 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: TaskProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [TaskProperties](#taskproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.ContainerRegistry/registries/tasks' (ReadOnly, DeployTimeConstant)
 
 ## TaskProperties
 ### Properties
-* **agentConfiguration**: AgentProperties
+* **agentConfiguration**: [AgentProperties](#agentproperties)
 * **creationDate**: string (ReadOnly)
-* **credentials**: Credentials
-* **platform**: PlatformProperties (Required)
+* **credentials**: [Credentials](#credentials)
+* **platform**: [PlatformProperties](#platformproperties) (Required)
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **status**: 'Disabled' | 'Enabled'
-* **step**: TaskStepProperties (Required)
+* **step**: [TaskStepProperties](#taskstepproperties) (Required)
 * **timeout**: int
-* **trigger**: TriggerProperties
+* **trigger**: [TriggerProperties](#triggerproperties)
 
 ## AgentProperties
 ### Properties
@@ -29,18 +29,18 @@
 
 ## Credentials
 ### Properties
-* **customRegistries**: Dictionary<string,CustomRegistryCredentials>
-* **sourceRegistry**: SourceRegistryCredentials
+* **customRegistries**: [CredentialsCustomRegistries](#credentialscustomregistries)
+* **sourceRegistry**: [SourceRegistryCredentials](#sourceregistrycredentials)
 
-## Dictionary<string,CustomRegistryCredentials>
+## CredentialsCustomRegistries
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: CustomRegistryCredentials
+* **Additional Properties Type**: [CustomRegistryCredentials](#customregistrycredentials)
 
 ## CustomRegistryCredentials
 ### Properties
-* **password**: SecretObject
-* **userName**: SecretObject
+* **password**: [SecretObject](#secretobject)
+* **userName**: [SecretObject](#secretobject)
 
 ## SecretObject
 ### Properties
@@ -59,13 +59,14 @@
 
 ## TaskStepProperties
 * **Discriminator**: type
+
 ### Base Properties
-* **baseImageDependencies**: BaseImageDependency[] (ReadOnly)
+* **baseImageDependencies**: [BaseImageDependency](#baseimagedependency)[] (ReadOnly)
 * **contextAccessToken**: string
 * **contextPath**: string
-### Docker
+### DockerBuildStep
 #### Properties
-* **arguments**: Argument[]
+* **arguments**: [Argument](#argument)[]
 * **dockerFilePath**: string (Required)
 * **imageNames**: string[]
 * **isPushEnabled**: bool
@@ -73,18 +74,18 @@
 * **target**: string
 * **type**: 'Docker' (Required)
 
-### EncodedTask
+### EncodedTaskStep
 #### Properties
 * **encodedTaskContent**: string (Required)
 * **encodedValuesContent**: string
 * **type**: 'EncodedTask' (Required)
-* **values**: SetValue[]
+* **values**: [SetValue](#setvalue)[]
 
-### FileTask
+### FileTaskStep
 #### Properties
 * **taskFilePath**: string (Required)
 * **type**: 'FileTask' (Required)
-* **values**: SetValue[]
+* **values**: [SetValue](#setvalue)[]
 * **valuesFilePath**: string
 
 
@@ -96,9 +97,9 @@
 * **tag**: string
 * **type**: 'BuildTime' | 'RunTime'
 
-## Docker
+## DockerBuildStep
 ### Properties
-* **arguments**: Argument[]
+* **arguments**: [Argument](#argument)[]
 * **dockerFilePath**: string (Required)
 * **imageNames**: string[]
 * **isPushEnabled**: bool
@@ -112,12 +113,12 @@
 * **name**: string (Required)
 * **value**: string (Required)
 
-## EncodedTask
+## EncodedTaskStep
 ### Properties
 * **encodedTaskContent**: string (Required)
 * **encodedValuesContent**: string
 * **type**: 'EncodedTask' (Required)
-* **values**: SetValue[]
+* **values**: [SetValue](#setvalue)[]
 
 ## SetValue
 ### Properties
@@ -125,17 +126,17 @@
 * **name**: string (Required)
 * **value**: string (Required)
 
-## FileTask
+## FileTaskStep
 ### Properties
 * **taskFilePath**: string (Required)
 * **type**: 'FileTask' (Required)
-* **values**: SetValue[]
+* **values**: [SetValue](#setvalue)[]
 * **valuesFilePath**: string
 
 ## TriggerProperties
 ### Properties
-* **baseImageTrigger**: BaseImageTrigger
-* **sourceTriggers**: SourceTrigger[]
+* **baseImageTrigger**: [BaseImageTrigger](#baseimagetrigger)
+* **sourceTriggers**: [SourceTrigger](#sourcetrigger)[]
 
 ## BaseImageTrigger
 ### Properties
@@ -146,7 +147,7 @@
 ## SourceTrigger
 ### Properties
 * **name**: string (Required)
-* **sourceRepository**: SourceProperties (Required)
+* **sourceRepository**: [SourceProperties](#sourceproperties) (Required)
 * **sourceTriggerEvents**: 'commit' | 'pullrequest'[] (Required)
 * **status**: 'Disabled' | 'Enabled'
 
@@ -154,7 +155,7 @@
 ### Properties
 * **branch**: string
 * **repositoryUrl**: string (Required)
-* **sourceControlAuthProperties**: AuthInfo
+* **sourceControlAuthProperties**: [AuthInfo](#authinfo)
 * **sourceControlType**: 'Github' | 'VisualStudioTeamService' (Required)
 
 ## AuthInfo
@@ -165,7 +166,7 @@
 * **token**: string (Required)
 * **tokenType**: 'OAuth' | 'PAT' (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

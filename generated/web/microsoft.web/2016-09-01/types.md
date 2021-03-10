@@ -8,8 +8,8 @@
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AppServiceEnvironment
-* **tags**: Dictionary<string,String>
+* **properties**: [AppServiceEnvironment](#appserviceenvironment)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Web/hostingEnvironments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/hostingEnvironments/multiRolePools@2016-09-01
@@ -19,8 +19,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkerPool
-* **sku**: SkuDescription
+* **properties**: [WorkerPool](#workerpool)
+* **sku**: [SkuDescription](#skudescription)
 * **type**: 'Microsoft.Web/hostingEnvironments/multiRolePools' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/hostingEnvironments/workerPools@2016-09-01
@@ -30,8 +30,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: WorkerPool
-* **sku**: SkuDescription
+* **properties**: [WorkerPool](#workerpool)
+* **sku**: [SkuDescription](#skudescription)
 * **type**: 'Microsoft.Web/hostingEnvironments/workerPools' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/serverfarms@2016-09-01
@@ -42,9 +42,9 @@
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:20_properties
-* **sku**: SkuDescription
-* **tags**: Dictionary<string,String>
+* **properties**: [AppServicePlanProperties](#appserviceplanproperties)
+* **sku**: [SkuDescription](#skudescription)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Web/serverfarms' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/serverfarms/virtualNetworkConnections/gateways@2016-09-01
@@ -54,7 +54,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:87_properties
+* **properties**: [VnetGatewayProperties](#vnetgatewayproperties)
 * **type**: 'Microsoft.Web/serverfarms/virtualNetworkConnections/gateways' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/serverfarms/virtualNetworkConnections/routes@2016-09-01
@@ -62,9 +62,9 @@
 ### Properties
 * **apiVersion**: '2016-09-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **kind**: string
+* **kind**: string (WriteOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:89_properties
+* **properties**: [VnetRouteProperties](#vnetrouteproperties) (WriteOnly)
 * **type**: 'Microsoft.Web/serverfarms/virtualNetworkConnections/routes' (ReadOnly, DeployTimeConstant)
 
 ## AppServiceEnvironment
@@ -72,13 +72,13 @@
 * **allowedMultiSizes**: string (ReadOnly)
 * **allowedWorkerSizes**: string (ReadOnly)
 * **apiManagementAccountId**: string
-* **clusterSettings**: NameValuePair[]
+* **clusterSettings**: [NameValuePair](#namevaluepair)[]
 * **databaseEdition**: string (ReadOnly)
 * **databaseServiceObjective**: string (ReadOnly)
 * **defaultFrontEndScaleFactor**: int (ReadOnly)
 * **dnsSuffix**: string
 * **dynamicCacheEnabled**: bool
-* **environmentCapacities**: StampCapacity[] (ReadOnly)
+* **environmentCapacities**: [StampCapacity](#stampcapacity)[] (ReadOnly)
 * **environmentIsHealthy**: bool (ReadOnly)
 * **environmentStatus**: string (ReadOnly)
 * **frontEndScaleFactor**: int
@@ -91,7 +91,7 @@
 * **multiRoleCount**: int
 * **multiSize**: string
 * **name**: string (Required)
-* **networkAccessControlList**: NetworkAccessControlEntry[]
+* **networkAccessControlList**: [NetworkAccessControlEntry](#networkaccesscontrolentry)[]
 * **provisioningState**: 'Canceled' | 'Deleting' | 'Failed' | 'InProgress' | 'Succeeded' (ReadOnly)
 * **resourceGroup**: string (ReadOnly)
 * **status**: 'Deleting' | 'Preparing' | 'Ready' | 'Scaling' (ReadOnly)
@@ -99,12 +99,12 @@
 * **suspended**: bool
 * **upgradeDomains**: int (ReadOnly)
 * **userWhitelistedIpRanges**: string[]
-* **vipMappings**: VirtualIPMapping[] (ReadOnly)
-* **virtualNetwork**: VirtualNetworkProfile (Required)
+* **vipMappings**: [VirtualIPMapping](#virtualipmapping)[] (ReadOnly)
+* **virtualNetwork**: [VirtualNetworkProfile](#virtualnetworkprofile) (Required)
 * **vnetName**: string
 * **vnetResourceGroupName**: string
 * **vnetSubnetName**: string
-* **workerPools**: WorkerPool[] (Required)
+* **workerPools**: [WorkerPool](#workerpool)[] (Required)
 
 ## NameValuePair
 ### Properties
@@ -153,20 +153,20 @@
 * **workerSize**: string
 * **workerSizeId**: int
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## SkuDescription
 ### Properties
-* **capabilities**: Capability[]
+* **capabilities**: [Capability](#capability)[]
 * **capacity**: int
 * **family**: string
 * **locations**: string[]
 * **name**: string
 * **size**: string
-* **skuCapacity**: SkuCapacity
+* **skuCapacity**: [SkuCapacity](#skucapacity)
 * **tier**: string
 
 ## Capability
@@ -182,11 +182,11 @@
 * **minimum**: int
 * **scaleType**: string
 
-## schemas:20_properties
+## AppServicePlanProperties
 ### Properties
 * **adminSiteName**: string
 * **geoRegion**: string (ReadOnly)
-* **hostingEnvironmentProfile**: HostingEnvironmentProfile
+* **hostingEnvironmentProfile**: [HostingEnvironmentProfile](#hostingenvironmentprofile)
 * **isSpot**: bool
 * **maximumNumberOfWorkers**: int (ReadOnly)
 * **name**: string (Required)
@@ -208,20 +208,20 @@
 * **name**: string (ReadOnly)
 * **type**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:87_properties
+## VnetGatewayProperties
 ### Properties
 * **vnetName**: string
 * **vpnPackageUri**: string (Required)
 
-## schemas:89_properties
+## VnetRouteProperties
 ### Properties
-* **endAddress**: string
-* **name**: string
-* **routeType**: 'DEFAULT' | 'INHERITED' | 'STATIC'
-* **startAddress**: string
+* **endAddress**: string (WriteOnly)
+* **name**: string (WriteOnly)
+* **routeType**: 'DEFAULT' | 'INHERITED' | 'STATIC' (WriteOnly)
+* **startAddress**: string (WriteOnly)
 

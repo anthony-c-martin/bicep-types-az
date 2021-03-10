@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: CommunicationServiceProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [CommunicationServiceProperties](#communicationserviceproperties)
+* **tags**: [TaggedResourceTags](#taggedresourcetags)
 * **type**: 'Microsoft.Communication/communicationServices' (ReadOnly, DeployTimeConstant)
 
 ## CommunicationServiceProperties
@@ -20,7 +20,7 @@
 * **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'Moving' | 'Running' | 'Succeeded' | 'Unknown' | 'Updating' (ReadOnly)
 * **version**: string (ReadOnly)
 
-## Dictionary<string,String>
+## TaggedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

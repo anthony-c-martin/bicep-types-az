@@ -7,9 +7,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DedicatedCloudNodeProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [DedicatedCloudNodeProperties](#dedicatedcloudnodeproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [Tags](#tags)
 * **type**: 'Microsoft.VMwareCloudSimple/dedicatedCloudNodes' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.VMwareCloudSimple/dedicatedCloudServices@2019-04-01
@@ -19,8 +19,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DedicatedCloudServiceProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [DedicatedCloudServiceProperties](#dedicatedcloudserviceproperties)
+* **tags**: [Tags](#tags)
 * **type**: 'Microsoft.VMwareCloudSimple/dedicatedCloudServices' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.VMwareCloudSimple/virtualMachines@2019-04-01
@@ -30,8 +30,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VirtualMachineProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [VirtualMachineProperties](#virtualmachineproperties)
+* **tags**: [Tags](#tags)
 * **type**: 'Microsoft.VMwareCloudSimple/virtualMachines' (ReadOnly, DeployTimeConstant)
 
 ## DedicatedCloudNodeProperties
@@ -47,7 +47,7 @@
 * **privateCloudName**: string (ReadOnly)
 * **provisioningState**: string (ReadOnly)
 * **purchaseId**: string (Required)
-* **skuDescription**: SkuDescription
+* **skuDescription**: [SkuDescription](#skudescription)
 * **status**: 'unused' | 'used' (ReadOnly)
 * **vmwareClusterName**: string (ReadOnly)
 
@@ -64,7 +64,7 @@
 * **name**: string (Required)
 * **tier**: string
 
-## Dictionary<string,String>
+## Tags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -76,7 +76,7 @@
 * **nodes**: int (ReadOnly)
 * **serviceURL**: string (ReadOnly)
 
-## Dictionary<string,String>
+## Tags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -84,21 +84,21 @@
 ## VirtualMachineProperties
 ### Properties
 * **amountOfRam**: int (Required)
-* **controllers**: VirtualDiskController[] (ReadOnly)
-* **customization**: GuestOSCustomization
-* **disks**: VirtualDisk[]
+* **controllers**: [VirtualDiskController](#virtualdiskcontroller)[] (ReadOnly)
+* **customization**: [GuestOSCustomization](#guestoscustomization)
+* **disks**: [VirtualDisk](#virtualdisk)[]
 * **dnsname**: string (ReadOnly)
 * **exposeToGuestVM**: bool
 * **folder**: string (ReadOnly)
 * **guestOS**: string (ReadOnly)
 * **guestOSType**: 'linux' | 'other' | 'windows' (ReadOnly)
-* **nics**: VirtualNic[]
+* **nics**: [VirtualNic](#virtualnic)[]
 * **numberOfCores**: int (Required)
 * **password**: string
 * **privateCloudId**: string (Required)
 * **provisioningState**: string (ReadOnly)
 * **publicIP**: string (ReadOnly)
-* **resourcePool**: ResourcePool
+* **resourcePool**: [ResourcePool](#resourcepool)
 * **status**: 'deallocating' | 'deleting' | 'poweredoff' | 'running' | 'suspended' | 'updating' (ReadOnly)
 * **templateId**: string
 * **username**: string
@@ -131,16 +131,16 @@
 
 ## VirtualNic
 ### Properties
-* **customization**: GuestOSNICCustomization
+* **customization**: [GuestOsnicCustomization](#guestosniccustomization)
 * **ipAddresses**: string[]
 * **macAddress**: string
-* **network**: VirtualNetwork (Required)
+* **network**: [VirtualNetwork](#virtualnetwork) (Required)
 * **nicType**: 'E1000' | 'E1000E' | 'PCNET32' | 'VMXNET' | 'VMXNET2' | 'VMXNET3' (Required)
 * **powerOnBoot**: bool
 * **virtualNicId**: string
 * **virtualNicName**: string (ReadOnly)
 
-## GuestOSNICCustomization
+## GuestOsnicCustomization
 ### Properties
 * **allocation**: 'dynamic' | 'static'
 * **dnsServers**: string[]
@@ -156,7 +156,7 @@
 * **id**: string (Required)
 * **location**: string (ReadOnly)
 * **name**: string (ReadOnly)
-* **properties**: VirtualNetworkProperties
+* **properties**: [VirtualNetworkProperties](#virtualnetworkproperties)
 * **type**: string (ReadOnly)
 
 ## VirtualNetworkProperties
@@ -169,14 +169,14 @@
 * **location**: string (ReadOnly)
 * **name**: string (ReadOnly)
 * **privateCloudId**: string (ReadOnly)
-* **properties**: ResourcePoolProperties
+* **properties**: [ResourcePoolProperties](#resourcepoolproperties)
 * **type**: string (ReadOnly)
 
 ## ResourcePoolProperties
 ### Properties
 * **fullName**: string (ReadOnly)
 
-## Dictionary<string,String>
+## Tags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

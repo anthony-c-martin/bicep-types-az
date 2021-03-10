@@ -8,9 +8,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedClusterProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [ManagedClusterProperties](#managedclusterproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.ServiceFabric/managedClusters' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.ServiceFabric/managedClusters/nodeTypes@2020-01-01-preview
@@ -19,8 +19,8 @@
 * **apiVersion**: '2020-01-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: NodeTypeProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [NodeTypeProperties](#nodetypeproperties)
+* **tags**: [ManagedProxyResourceTags](#managedproxyresourcetags)
 * **type**: 'Microsoft.ServiceFabric/managedClusters/nodeTypes' (ReadOnly, DeployTimeConstant)
 
 ## ManagedClusterProperties
@@ -28,18 +28,18 @@
 * **addonFeatures**: 'BackupRestoreService' | 'DnsService' | 'ResourceMonitorService'[]
 * **adminPassword**: string
 * **adminUserName**: string (Required)
-* **azureActiveDirectory**: AzureActiveDirectory
+* **azureActiveDirectory**: [AzureActiveDirectory](#azureactivedirectory)
 * **clientConnectionPort**: int
-* **clients**: ClientCertificate[]
+* **clients**: [ClientCertificate](#clientcertificate)[]
 * **clusterCertificateThumbprint**: string (ReadOnly)
 * **clusterCodeVersion**: string
 * **clusterId**: string (ReadOnly)
 * **clusterState**: 'AutoScale' | 'BaselineUpgrade' | 'Deploying' | 'EnforcingClusterVersion' | 'Ready' | 'UpdatingInfrastructure' | 'UpdatingUserCertificate' | 'UpdatingUserConfiguration' | 'UpgradeServiceUnreachable' | 'WaitingForNodes' (ReadOnly)
 * **dnsName**: string (Required)
-* **fabricSettings**: SettingsSectionDescription[]
+* **fabricSettings**: [SettingsSectionDescription](#settingssectiondescription)[]
 * **fqdn**: string (ReadOnly)
 * **httpGatewayConnectionPort**: int
-* **loadBalancingRules**: LoadBalancingRule[]
+* **loadBalancingRules**: [LoadBalancingRule](#loadbalancingrule)[]
 * **provisioningState**: 'Canceled' | 'Created' | 'Creating' | 'Deleted' | 'Deleting' | 'Failed' | 'None' | 'Other' | 'Succeeded' | 'Updating' (ReadOnly)
 
 ## AzureActiveDirectory
@@ -58,7 +58,7 @@
 ## SettingsSectionDescription
 ### Properties
 * **name**: string (Required)
-* **parameters**: SettingsParameterDescription[] (Required)
+* **parameters**: [SettingsParameterDescription](#settingsparameterdescription)[] (Required)
 
 ## SettingsParameterDescription
 ### Properties
@@ -77,27 +77,27 @@
 ### Properties
 * **name**: 'Basic' | 'Standard' (Required)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## NodeTypeProperties
 ### Properties
-* **applicationPorts**: EndpointRangeDescription
-* **capacities**: Dictionary<string,String>
+* **applicationPorts**: [EndpointRangeDescription](#endpointrangedescription)
+* **capacities**: [NodeTypePropertiesCapacities](#nodetypepropertiescapacities)
 * **dataDiskSizeGB**: int (Required)
-* **ephemeralPorts**: EndpointRangeDescription
+* **ephemeralPorts**: [EndpointRangeDescription](#endpointrangedescription)
 * **isPrimary**: bool (Required)
-* **placementProperties**: Dictionary<string,String>
+* **placementProperties**: [NodeTypePropertiesPlacementProperties](#nodetypepropertiesplacementproperties)
 * **provisioningState**: 'Canceled' | 'Created' | 'Creating' | 'Deleted' | 'Deleting' | 'Failed' | 'None' | 'Other' | 'Succeeded' | 'Updating' (ReadOnly)
-* **vmExtensions**: VMSSExtension[]
+* **vmExtensions**: [VmssExtension](#vmssextension)[]
 * **vmImageOffer**: string
 * **vmImagePublisher**: string
 * **vmImageSku**: string
 * **vmImageVersion**: string
 * **vmInstanceCount**: int (Required)
-* **vmSecrets**: VaultSecretGroup[]
+* **vmSecrets**: [VaultSecretGroup](#vaultsecretgroup)[]
 * **vmSize**: string
 
 ## EndpointRangeDescription
@@ -105,22 +105,22 @@
 * **endPort**: int (Required)
 * **startPort**: int (Required)
 
-## Dictionary<string,String>
+## NodeTypePropertiesCapacities
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## NodeTypePropertiesPlacementProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## VMSSExtension
+## VmssExtension
 ### Properties
 * **name**: string (Required)
-* **properties**: VMSSExtensionProperties (Required)
+* **properties**: [VmssExtensionProperties](#vmssextensionproperties) (Required)
 
-## VMSSExtensionProperties
+## VmssExtensionProperties
 ### Properties
 * **autoUpgradeMinorVersion**: bool
 * **forceUpdateTag**: string
@@ -134,8 +134,8 @@
 
 ## VaultSecretGroup
 ### Properties
-* **sourceVault**: SubResource (Required)
-* **vaultCertificates**: VaultCertificate[] (Required)
+* **sourceVault**: [SubResource](#subresource) (Required)
+* **vaultCertificates**: [VaultCertificate](#vaultcertificate)[] (Required)
 
 ## SubResource
 ### Properties
@@ -146,7 +146,7 @@
 * **certificateStore**: string (Required)
 * **certificateUrl**: string (Required)
 
-## Dictionary<string,String>
+## ManagedProxyResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

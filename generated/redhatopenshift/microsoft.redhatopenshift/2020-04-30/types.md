@@ -7,21 +7,21 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: OpenShiftClusterProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [OpenShiftClusterProperties](#openshiftclusterproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.RedHatOpenShift/openShiftClusters' (ReadOnly, DeployTimeConstant)
 
 ## OpenShiftClusterProperties
 ### Properties
-* **apiserverProfile**: APIServerProfile
-* **clusterProfile**: ClusterProfile
-* **consoleProfile**: ConsoleProfile
-* **ingressProfiles**: IngressProfile[]
-* **masterProfile**: MasterProfile
-* **networkProfile**: NetworkProfile
+* **apiserverProfile**: [APIServerProfile](#apiserverprofile)
+* **clusterProfile**: [ClusterProfile](#clusterprofile)
+* **consoleProfile**: [ConsoleProfile](#consoleprofile)
+* **ingressProfiles**: [IngressProfile](#ingressprofile)[]
+* **masterProfile**: [MasterProfile](#masterprofile)
+* **networkProfile**: [NetworkProfile](#networkprofile)
 * **provisioningState**: 'AdminUpdating' | 'Creating' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating'
-* **servicePrincipalProfile**: ServicePrincipalProfile
-* **workerProfiles**: WorkerProfile[]
+* **servicePrincipalProfile**: [ServicePrincipalProfile](#serviceprincipalprofile)
+* **workerProfiles**: [WorkerProfile](#workerprofile)[]
 
 ## APIServerProfile
 ### Properties
@@ -69,7 +69,7 @@
 * **subnetId**: string
 * **vmSize**: 'Standard_D2s_v3' | 'Standard_D4s_v3' | 'Standard_D8s_v3'
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

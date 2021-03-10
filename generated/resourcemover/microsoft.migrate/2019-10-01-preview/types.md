@@ -6,11 +6,11 @@
 * **apiVersion**: '2019-10-01-preview' (ReadOnly, DeployTimeConstant)
 * **etag**: string (ReadOnly)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MoveCollectionProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [MoveCollectionProperties](#movecollectionproperties)
+* **tags**: [MoveCollectionTags](#movecollectiontags)
 * **type**: 'Microsoft.Migrate/moveCollections' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Migrate/moveCollections/moveResources@2019-10-01-preview
@@ -19,7 +19,7 @@
 * **apiVersion**: '2019-10-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MoveResourceProperties
+* **properties**: [MoveResourceProperties](#moveresourceproperties)
 * **type**: 'Microsoft.Migrate/moveCollections/moveResources' (ReadOnly, DeployTimeConstant)
 
 ## Identity
@@ -30,48 +30,48 @@
 
 ## MoveCollectionProperties
 ### Properties
-* **errors**: schemas:18_errors (ReadOnly)
-* **provisioningState**: 'Creating' | 'Failed' | 'Succeeded' | 'Updating'
+* **errors**: [MoveCollectionPropertiesErrors](#movecollectionpropertieserrors) (ReadOnly)
+* **provisioningState**: 'Creating' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
 * **sourceRegion**: string (Required)
 * **targetRegion**: string (Required)
 
-## schemas:18_errors
+## MoveCollectionPropertiesErrors
 ### Properties
-* **properties**: MoveResourceErrorBody
+* **properties**: [MoveResourceErrorBody](#moveresourceerrorbody)
 
 ## MoveResourceErrorBody
 ### Properties
 * **code**: string (ReadOnly)
-* **details**: MoveResourceErrorBody[] (ReadOnly)
+* **details**: [MoveResourceErrorBody](#moveresourceerrorbody)[] (ReadOnly)
 * **message**: string (ReadOnly)
 * **target**: string (ReadOnly)
 
-## Dictionary<string,String>
+## MoveCollectionTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## MoveResourceProperties
 ### Properties
-* **dependsOn**: MoveResourceDependency[] (ReadOnly)
-* **dependsOnOverrides**: MoveResourceDependencyOverride[]
-* **errors**: schemas:14_errors (ReadOnly)
+* **dependsOn**: [MoveResourceDependency](#moveresourcedependency)[] (ReadOnly)
+* **dependsOnOverrides**: [MoveResourceDependencyOverride](#moveresourcedependencyoverride)[]
+* **errors**: [MoveResourcePropertiesErrors](#moveresourcepropertieserrors) (ReadOnly)
 * **existingTargetId**: string
 * **isResolveRequired**: bool (ReadOnly)
-* **moveStatus**: schemas:14_moveStatus (ReadOnly)
-* **provisioningState**: 'Creating' | 'Failed' | 'Succeeded' | 'Updating'
-* **resourceSettings**: ResourceSettings
+* **moveStatus**: [MoveResourcePropertiesMoveStatus](#moveresourcepropertiesmovestatus) (ReadOnly)
+* **provisioningState**: 'Creating' | 'Failed' | 'Succeeded' | 'Updating' (ReadOnly)
+* **resourceSettings**: [ResourceSettings](#resourcesettings)
 * **sourceId**: string (Required)
-* **sourceResourceSettings**: ResourceSettings (ReadOnly)
+* **sourceResourceSettings**: [ResourceSettings](#resourcesettings) (ReadOnly)
 * **targetId**: string (ReadOnly)
 
 ## MoveResourceDependency
 ### Properties
-* **automaticResolution**: AutomaticResolutionProperties
+* **automaticResolution**: [AutomaticResolutionProperties](#automaticresolutionproperties)
 * **dependencyType**: 'RequiredForMove' | 'RequiredForPrepare'
 * **id**: string
 * **isOptional**: string
-* **manualResolution**: ManualResolutionProperties
+* **manualResolution**: [ManualResolutionProperties](#manualresolutionproperties)
 * **resolutionStatus**: string
 * **resolutionType**: 'Automatic' | 'Manual'
 
@@ -88,70 +88,71 @@
 * **id**: string
 * **targetId**: string
 
-## schemas:14_errors
+## MoveResourcePropertiesErrors
 ### Properties
-* **properties**: MoveResourceErrorBody
+* **properties**: [MoveResourceErrorBody](#moveresourceerrorbody)
 
-## schemas:14_moveStatus
+## MoveResourcePropertiesMoveStatus
 ### Properties
-* **errors**: MoveResourceError
-* **jobStatus**: JobStatus
-* **moveState**: 'AssignmentPending' | 'CommitFailed' | 'CommitInProgress' | 'CommitPending' | 'Committed' | 'DeleteSourcePending' | 'DiscardFailed' | 'DiscardInProgress' | 'MoveFailed' | 'MoveInProgress' | 'MovePending' | 'PrepareFailed' | 'PrepareInProgress' | 'PreparePending' | 'ResourceMoveCompleted'
+* **errors**: [MoveResourceError](#moveresourceerror)
+* **jobStatus**: [JobStatus](#jobstatus)
+* **moveState**: 'AssignmentPending' | 'CommitFailed' | 'CommitInProgress' | 'CommitPending' | 'Committed' | 'DeleteSourcePending' | 'DiscardFailed' | 'DiscardInProgress' | 'MoveFailed' | 'MoveInProgress' | 'MovePending' | 'PrepareFailed' | 'PrepareInProgress' | 'PreparePending' | 'ResourceMoveCompleted' (ReadOnly)
 
 ## MoveResourceError
 ### Properties
-* **properties**: MoveResourceErrorBody
+* **properties**: [MoveResourceErrorBody](#moveresourceerrorbody)
 
 ## JobStatus
 ### Properties
-* **jobName**: 'InitialSync'
+* **jobName**: 'InitialSync' (ReadOnly)
 * **jobProgress**: string (ReadOnly)
 
 ## ResourceSettings
 * **Discriminator**: resourceType
+
 ### Base Properties
 * **targetResourceName**: string (Required)
-### Microsoft.Compute/availabilitySets
+### AvailabilitySetResourceSettings
 #### Properties
 * **faultDomain**: int
 * **resourceType**: 'Microsoft.Compute/availabilitySets' (Required)
 * **updateDomain**: int
 
-### Microsoft.Compute/diskEncryptionSets
+### DiskEncryptionSetResourceSettings
 #### Properties
 * **resourceType**: 'Microsoft.Compute/diskEncryptionSets' (Required)
 
-### Microsoft.Compute/virtualMachines
+### VirtualMachineResourceSettings
 #### Properties
 * **resourceType**: 'Microsoft.Compute/virtualMachines' (Required)
 * **targetAvailabilitySetId**: string
 * **targetAvailabilityZone**: '1' | '2' | '3' | 'NA'
 * **targetVmSize**: string
 
-### Microsoft.KeyVault/vaults
+### KeyVaultResourceSettings
 #### Properties
 * **resourceType**: 'Microsoft.KeyVault/vaults' (Required)
 
-### Microsoft.Network/loadBalancers
+### LoadBalancerResourceSettings
 #### Properties
-* **backendAddressPools**: LBBackendAddressPoolResourceSettings[]
-* **frontendIPConfigurations**: LBFrontendIPConfigurationResourceSettings[]
+* **backendAddressPools**: [LBBackendAddressPoolResourceSettings](#lbbackendaddresspoolresourcesettings)[]
+* **frontendIPConfigurations**: [LBFrontendIPConfigurationResourceSettings](#lbfrontendipconfigurationresourcesettings)[]
 * **resourceType**: 'Microsoft.Network/loadBalancers' (Required)
 * **sku**: string
 * **zones**: string
 
-### Microsoft.Network/networkInterfaces
+### NetworkInterfaceResourceSettings
 #### Properties
 * **enableAcceleratedNetworking**: bool
-* **ipConfigurations**: NicIpConfigurationResourceSettings[]
+* **ipConfigurations**: [NicIpConfigurationResourceSettings](#nicipconfigurationresourcesettings)[]
 * **resourceType**: 'Microsoft.Network/networkInterfaces' (Required)
 
-### Microsoft.Network/networkSecurityGroups
+### NetworkSecurityGroupResourceSettings
 #### Properties
 * **resourceType**: 'Microsoft.Network/networkSecurityGroups' (Required)
-* **securityRules**: NsgSecurityRule[]
+* **securityRules**: [NsgSecurityRule](#nsgsecurityrule)[]
 
-### Microsoft.Network/publicIPAddresses
+### PublicIPAddressResourceSettings
 #### Properties
 * **domainNameLabel**: string
 * **fqdn**: string
@@ -160,58 +161,58 @@
 * **sku**: string
 * **zones**: string
 
-### Microsoft.Network/virtualNetworks
+### VirtualNetworkResourceSettings
 #### Properties
 * **addressSpace**: string[]
 * **dnsServers**: string[]
 * **enableDdosProtection**: bool
 * **resourceType**: 'Microsoft.Network/virtualNetworks' (Required)
-* **subnets**: SubnetResourceSettings[]
+* **subnets**: [SubnetResourceSettings](#subnetresourcesettings)[]
 
-### Microsoft.Sql/servers
+### SqlServerResourceSettings
 #### Properties
 * **resourceType**: 'Microsoft.Sql/servers' (Required)
 
-### Microsoft.Sql/servers/databases
+### SqlDatabaseResourceSettings
 #### Properties
 * **resourceType**: 'Microsoft.Sql/servers/databases' (Required)
 * **zoneRedundant**: 'Disable' | 'Enable'
 
-### Microsoft.Sql/servers/elasticPools
+### SqlElasticPoolResourceSettings
 #### Properties
 * **resourceType**: 'Microsoft.Sql/servers/elasticPools' (Required)
 * **zoneRedundant**: 'Disable' | 'Enable'
 
-### resourceGroups
+### ResourceGroupResourceSettings
 #### Properties
 * **resourceType**: 'resourceGroups' (Required)
 
 
-## Microsoft.Compute/availabilitySets
+## AvailabilitySetResourceSettings
 ### Properties
 * **faultDomain**: int
 * **resourceType**: 'Microsoft.Compute/availabilitySets' (Required)
 * **updateDomain**: int
 
-## Microsoft.Compute/diskEncryptionSets
+## DiskEncryptionSetResourceSettings
 ### Properties
 * **resourceType**: 'Microsoft.Compute/diskEncryptionSets' (Required)
 
-## Microsoft.Compute/virtualMachines
+## VirtualMachineResourceSettings
 ### Properties
 * **resourceType**: 'Microsoft.Compute/virtualMachines' (Required)
 * **targetAvailabilitySetId**: string
 * **targetAvailabilityZone**: '1' | '2' | '3' | 'NA'
 * **targetVmSize**: string
 
-## Microsoft.KeyVault/vaults
+## KeyVaultResourceSettings
 ### Properties
 * **resourceType**: 'Microsoft.KeyVault/vaults' (Required)
 
-## Microsoft.Network/loadBalancers
+## LoadBalancerResourceSettings
 ### Properties
-* **backendAddressPools**: LBBackendAddressPoolResourceSettings[]
-* **frontendIPConfigurations**: LBFrontendIPConfigurationResourceSettings[]
+* **backendAddressPools**: [LBBackendAddressPoolResourceSettings](#lbbackendaddresspoolresourcesettings)[]
+* **frontendIPConfigurations**: [LBFrontendIPConfigurationResourceSettings](#lbfrontendipconfigurationresourcesettings)[]
 * **resourceType**: 'Microsoft.Network/loadBalancers' (Required)
 * **sku**: string
 * **zones**: string
@@ -225,7 +226,7 @@
 * **name**: string
 * **privateIpAddress**: string
 * **privateIpAllocationMethod**: string
-* **subnet**: SubnetReference
+* **subnet**: [SubnetReference](#subnetreference)
 * **zones**: string
 
 ## SubnetReference
@@ -233,22 +234,22 @@
 * **name**: string
 * **sourceArmResourceId**: string (Required)
 
-## Microsoft.Network/networkInterfaces
+## NetworkInterfaceResourceSettings
 ### Properties
 * **enableAcceleratedNetworking**: bool
-* **ipConfigurations**: NicIpConfigurationResourceSettings[]
+* **ipConfigurations**: [NicIpConfigurationResourceSettings](#nicipconfigurationresourcesettings)[]
 * **resourceType**: 'Microsoft.Network/networkInterfaces' (Required)
 
 ## NicIpConfigurationResourceSettings
 ### Properties
-* **loadBalancerBackendAddressPools**: LoadBalancerBackendAddressPoolReference[]
-* **loadBalancerNatRules**: LoadBalancerNatRuleReference[]
+* **loadBalancerBackendAddressPools**: [LoadBalancerBackendAddressPoolReference](#loadbalancerbackendaddresspoolreference)[]
+* **loadBalancerNatRules**: [LoadBalancerNatRuleReference](#loadbalancernatrulereference)[]
 * **name**: string
 * **primary**: bool
 * **privateIpAddress**: string
 * **privateIpAllocationMethod**: string
-* **publicIp**: PublicIpReference
-* **subnet**: SubnetReference
+* **publicIp**: [PublicIpReference](#publicipreference)
+* **subnet**: [SubnetReference](#subnetreference)
 
 ## LoadBalancerBackendAddressPoolReference
 ### Properties
@@ -264,10 +265,10 @@
 ### Properties
 * **sourceArmResourceId**: string (Required)
 
-## Microsoft.Network/networkSecurityGroups
+## NetworkSecurityGroupResourceSettings
 ### Properties
 * **resourceType**: 'Microsoft.Network/networkSecurityGroups' (Required)
-* **securityRules**: NsgSecurityRule[]
+* **securityRules**: [NsgSecurityRule](#nsgsecurityrule)[]
 
 ## NsgSecurityRule
 ### Properties
@@ -282,7 +283,7 @@
 * **sourceAddressPrefix**: string
 * **sourcePortRange**: string
 
-## Microsoft.Network/publicIPAddresses
+## PublicIPAddressResourceSettings
 ### Properties
 * **domainNameLabel**: string
 * **fqdn**: string
@@ -291,39 +292,39 @@
 * **sku**: string
 * **zones**: string
 
-## Microsoft.Network/virtualNetworks
+## VirtualNetworkResourceSettings
 ### Properties
 * **addressSpace**: string[]
 * **dnsServers**: string[]
 * **enableDdosProtection**: bool
 * **resourceType**: 'Microsoft.Network/virtualNetworks' (Required)
-* **subnets**: SubnetResourceSettings[]
+* **subnets**: [SubnetResourceSettings](#subnetresourcesettings)[]
 
 ## SubnetResourceSettings
 ### Properties
 * **addressPrefix**: string
 * **name**: string
-* **networkSecurityGroup**: NsgReference
+* **networkSecurityGroup**: [NsgReference](#nsgreference)
 
 ## NsgReference
 ### Properties
 * **sourceArmResourceId**: string (Required)
 
-## Microsoft.Sql/servers
+## SqlServerResourceSettings
 ### Properties
 * **resourceType**: 'Microsoft.Sql/servers' (Required)
 
-## Microsoft.Sql/servers/databases
+## SqlDatabaseResourceSettings
 ### Properties
 * **resourceType**: 'Microsoft.Sql/servers/databases' (Required)
 * **zoneRedundant**: 'Disable' | 'Enable'
 
-## Microsoft.Sql/servers/elasticPools
+## SqlElasticPoolResourceSettings
 ### Properties
 * **resourceType**: 'Microsoft.Sql/servers/elasticPools' (Required)
 * **zoneRedundant**: 'Disable' | 'Enable'
 
-## resourceGroups
+## ResourceGroupResourceSettings
 ### Properties
 * **resourceType**: 'resourceGroups' (Required)
 

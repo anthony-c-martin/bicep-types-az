@@ -5,15 +5,15 @@
 ### Properties
 * **apiVersion**: '2021-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
-* **kind**: Sku
+* **identity**: [Identity](#identity)
+* **kind**: [Sku](#sku)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **plan**: Identity
-* **properties**: MixedRealityAccountProperties
-* **sku**: Sku
-* **systemData**: systemData
-* **tags**: Dictionary<string,String>
+* **plan**: [Identity](#identity)
+* **properties**: [MixedRealityAccountProperties](#mixedrealityaccountproperties)
+* **sku**: [Sku](#sku)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.MixedReality/remoteRenderingAccounts' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.MixedReality/spatialAnchorsAccounts@2021-01-01
@@ -21,15 +21,15 @@
 ### Properties
 * **apiVersion**: '2021-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
-* **kind**: Sku
+* **identity**: [Identity](#identity)
+* **kind**: [Sku](#sku)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **plan**: Identity
-* **properties**: MixedRealityAccountProperties
-* **sku**: Sku
-* **systemData**: systemData
-* **tags**: Dictionary<string,String>
+* **plan**: [Identity](#identity)
+* **properties**: [MixedRealityAccountProperties](#mixedrealityaccountproperties)
+* **sku**: [Sku](#sku)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.MixedReality/spatialAnchorsAccounts' (ReadOnly, DeployTimeConstant)
 
 ## Identity
@@ -52,7 +52,7 @@
 * **accountId**: string (ReadOnly)
 * **storageAccountName**: string
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string
@@ -61,12 +61,12 @@
 * **lastModifiedBy**: string
 * **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

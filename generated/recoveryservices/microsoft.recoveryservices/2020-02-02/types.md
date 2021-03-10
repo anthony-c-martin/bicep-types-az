@@ -6,12 +6,12 @@
 * **apiVersion**: '2020-02-02' (ReadOnly, DeployTimeConstant)
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: IdentityData
+* **identity**: [IdentityData](#identitydata)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VaultProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [VaultProperties](#vaultproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.RecoveryServices/vaults' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.RecoveryServices/vaults/certificates@2020-02-02
@@ -20,7 +20,7 @@
 * **apiVersion**: '2020-02-02' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: RawCertificateData
+* **properties**: [RawCertificateData](#rawcertificatedata)
 * **type**: 'Microsoft.RecoveryServices/vaults/certificates' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.RecoveryServices/vaults/extendedInformation@2020-02-02
@@ -30,20 +30,20 @@
 * **eTag**: string
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VaultExtendedInfo
+* **properties**: [VaultExtendedInfo](#vaultextendedinfo)
 * **type**: 'Microsoft.RecoveryServices/vaults/extendedInformation' (ReadOnly, DeployTimeConstant)
 
 ## IdentityData
 ### Properties
 * **principalId**: string (ReadOnly)
 * **tenantId**: string (ReadOnly)
-* **type**: 'None' | 'SystemAssigned, UserAssigned' | 'SystemAssigned' | 'UserAssigned' (Required)
-* **userAssignedIdentities**: Dictionary<string,UserIdentity>
+* **type**: 'None' | 'SystemAssigned' | 'SystemAssigned, UserAssigned' | 'UserAssigned' (Required)
+* **userAssignedIdentities**: [IdentityDataUserAssignedIdentities](#identitydatauserassignedidentities)
 
-## Dictionary<string,UserIdentity>
+## IdentityDataUserAssignedIdentities
 ### Properties
 ### Additional Properties
-* **Additional Properties Type**: UserIdentity
+* **Additional Properties Type**: [UserIdentity](#useridentity)
 
 ## UserIdentity
 ### Properties
@@ -52,18 +52,18 @@
 
 ## VaultProperties
 ### Properties
-* **encryption**: schemas:28_encryption
-* **privateEndpointConnections**: PrivateEndpointConnectionVaultProperties[] (ReadOnly)
+* **encryption**: [VaultPropertiesEncryption](#vaultpropertiesencryption)
+* **privateEndpointConnections**: [PrivateEndpointConnectionVaultProperties](#privateendpointconnectionvaultproperties)[] (ReadOnly)
 * **privateEndpointStateForBackup**: 'Enabled' | 'None' (ReadOnly)
 * **privateEndpointStateForSiteRecovery**: 'Enabled' | 'None' (ReadOnly)
 * **provisioningState**: string (ReadOnly)
-* **upgradeDetails**: UpgradeDetails
+* **upgradeDetails**: [UpgradeDetails](#upgradedetails)
 
-## schemas:28_encryption
+## VaultPropertiesEncryption
 ### Properties
 * **infrastructureEncryption**: 'Disabled' | 'Enabled'
-* **kekIdentity**: CmkKekIdentity
-* **keyVaultProperties**: CmkKeyVaultProperties
+* **kekIdentity**: [CmkKekIdentity](#cmkkekidentity)
+* **keyVaultProperties**: [CmkKeyVaultProperties](#cmkkeyvaultproperties)
 
 ## CmkKekIdentity
 ### Properties
@@ -77,12 +77,12 @@
 ## PrivateEndpointConnectionVaultProperties
 ### Properties
 * **id**: string (ReadOnly)
-* **properties**: PrivateEndpointConnection
+* **properties**: [PrivateEndpointConnection](#privateendpointconnection) (ReadOnly)
 
 ## PrivateEndpointConnection
 ### Properties
-* **privateEndpoint**: PrivateEndpoint
-* **privateLinkServiceConnectionState**: PrivateLinkServiceConnectionState
+* **privateEndpoint**: [PrivateEndpoint](#privateendpoint) (ReadOnly)
+* **privateLinkServiceConnectionState**: [PrivateLinkServiceConnectionState](#privatelinkserviceconnectionstate) (ReadOnly)
 * **provisioningState**: 'Deleting' | 'Failed' | 'Pending' | 'Succeeded' (ReadOnly)
 
 ## PrivateEndpoint
@@ -111,15 +111,15 @@
 ### Properties
 * **name**: 'RS0' | 'Standard' (Required)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## RawCertificateData
 ### Properties
-* **authType**: 'AAD' | 'AccessControlService' | 'ACS' | 'AzureActiveDirectory' | 'Invalid'
-* **certificate**: array
+* **authType**: 'AAD' | 'ACS' | 'AccessControlService' | 'AzureActiveDirectory' | 'Invalid'
+* **certificate**: any
 
 ## VaultExtendedInfo
 ### Properties

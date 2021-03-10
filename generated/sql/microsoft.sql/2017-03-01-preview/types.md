@@ -5,8 +5,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedInstanceAdministratorProperties
+* **name**: 'ActiveDirectory' (Required, DeployTimeConstant)
+* **properties**: [ManagedInstanceAdministratorProperties](#managedinstanceadministratorproperties)
 * **type**: 'Microsoft.Sql/managedInstances/administrators' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/databases@2017-03-01-preview
@@ -16,8 +16,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedDatabaseProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ManagedDatabaseProperties](#manageddatabaseproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/managedInstances/databases' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies@2017-03-01-preview
@@ -25,8 +25,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedBackupShortTermRetentionPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ManagedBackupShortTermRetentionPolicyProperties](#managedbackupshorttermretentionpolicyproperties)
 * **type**: 'Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/databases/securityAlertPolicies@2017-03-01-preview
@@ -34,8 +34,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: SecurityAlertPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [SecurityAlertPolicyProperties](#securityalertpolicyproperties)
 * **type**: 'Microsoft.Sql/managedInstances/databases/securityAlertPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies@2017-03-01-preview
@@ -43,8 +43,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedBackupShortTermRetentionPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ManagedBackupShortTermRetentionPolicyProperties](#managedbackupshorttermretentionpolicyproperties)
 * **type**: 'Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/managedInstances/securityAlertPolicies@2017-03-01-preview
@@ -52,8 +52,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: SecurityAlertPolicyProperties
+* **name**: 'Default' (Required, DeployTimeConstant)
+* **properties**: [SecurityAlertPolicyProperties](#securityalertpolicyproperties)
 * **type**: 'Microsoft.Sql/managedInstances/securityAlertPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/auditingSettings@2017-03-01-preview
@@ -61,8 +61,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerBlobAuditingPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ServerBlobAuditingPolicyProperties](#serverblobauditingpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/auditingSettings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases@2017-03-01-preview
@@ -73,9 +73,9 @@
 * **kind**: string (ReadOnly)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: DatabaseProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [DatabaseProperties](#databaseproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/servers/databases' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/auditingSettings@2017-03-01-preview
@@ -84,8 +84,8 @@
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string (ReadOnly)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: DatabaseBlobAuditingPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [DatabaseBlobAuditingPolicyProperties](#databaseblobauditingpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/databases/auditingSettings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies@2017-03-01-preview
@@ -93,8 +93,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: LongTermRetentionPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [LongTermRetentionPolicyProperties](#longtermretentionpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/extendedAuditingSettings@2017-03-01-preview
@@ -102,8 +102,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ExtendedDatabaseBlobAuditingPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ExtendedDatabaseBlobAuditingPolicyProperties](#extendeddatabaseblobauditingpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/databases/extendedAuditingSettings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels@2017-03-01-preview
@@ -111,8 +111,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: SensitivityLabelProperties
+* **name**: 'current' (Required, DeployTimeConstant)
+* **properties**: [SensitivityLabelProperties](#sensitivitylabelproperties)
 * **type**: 'Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/vulnerabilityAssessments@2017-03-01-preview
@@ -120,8 +120,8 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: DatabaseVulnerabilityAssessmentProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [DatabaseVulnerabilityAssessmentProperties](#databasevulnerabilityassessmentproperties)
 * **type**: 'Microsoft.Sql/servers/databases/vulnerabilityAssessments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines@2017-03-01-preview
@@ -130,16 +130,25 @@
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: 'default' | 'master' (Required, DeployTimeConstant)
-* **properties**: DatabaseVulnerabilityAssessmentRuleBaselineProperties
+* **properties**: [DatabaseVulnerabilityAssessmentRuleBaselineProperties](#databasevulnerabilityassessmentrulebaselineproperties)
 * **type**: 'Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Sql/servers/dnsAliases@2017-03-01-preview
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: string (Required, DeployTimeConstant)
+* **properties**: [ServerDnsAliasProperties](#serverdnsaliasproperties) (ReadOnly)
+* **type**: 'Microsoft.Sql/servers/dnsAliases' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/extendedAuditingSettings@2017-03-01-preview
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: ExtendedServerBlobAuditingPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [ExtendedServerBlobAuditingPolicyProperties](#extendedserverblobauditingpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/extendedAuditingSettings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/jobAgents@2017-03-01-preview
@@ -149,9 +158,9 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobAgentProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [JobAgentProperties](#jobagentproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/servers/jobAgents' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/jobAgents/credentials@2017-03-01-preview
@@ -160,7 +169,7 @@
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobCredentialProperties
+* **properties**: [JobCredentialProperties](#jobcredentialproperties)
 * **type**: 'Microsoft.Sql/servers/jobAgents/credentials' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/jobAgents/jobs@2017-03-01-preview
@@ -169,8 +178,17 @@
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobProperties
+* **properties**: [JobProperties](#jobproperties)
 * **type**: 'Microsoft.Sql/servers/jobAgents/jobs' (ReadOnly, DeployTimeConstant)
+
+## Resource Microsoft.Sql/servers/jobAgents/jobs/executions@2017-03-01-preview
+* **Valid Scope(s)**: ResourceGroup
+### Properties
+* **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: string (Required, DeployTimeConstant)
+* **properties**: [JobExecutionProperties](#jobexecutionproperties) (ReadOnly)
+* **type**: 'Microsoft.Sql/servers/jobAgents/jobs/executions' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/jobAgents/jobs/steps@2017-03-01-preview
 * **Valid Scope(s)**: ResourceGroup
@@ -178,7 +196,7 @@
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobStepProperties
+* **properties**: [JobStepProperties](#jobstepproperties)
 * **type**: 'Microsoft.Sql/servers/jobAgents/jobs/steps' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/jobAgents/targetGroups@2017-03-01-preview
@@ -187,7 +205,7 @@
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: JobTargetGroupProperties
+* **properties**: [JobTargetGroupProperties](#jobtargetgroupproperties)
 * **type**: 'Microsoft.Sql/servers/jobAgents/targetGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/securityAlertPolicies@2017-03-01-preview
@@ -195,13 +213,13 @@
 ### Properties
 * **apiVersion**: '2017-03-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: SecurityAlertPolicyProperties
+* **name**: 'Default' (Required, DeployTimeConstant)
+* **properties**: [SecurityAlertPolicyProperties](#securityalertpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/securityAlertPolicies' (ReadOnly, DeployTimeConstant)
 
 ## ManagedInstanceAdministratorProperties
 ### Properties
-* **administratorType**: string (Required)
+* **administratorType**: 'ActiveDirectory' (Required)
 * **login**: string (Required)
 * **sid**: string (Required)
 * **tenantId**: string
@@ -224,7 +242,7 @@
 * **storageContainerSasToken**: string
 * **storageContainerUri**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -287,7 +305,7 @@
 * **size**: string
 * **tier**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -335,7 +353,7 @@
 
 ## DatabaseVulnerabilityAssessmentProperties
 ### Properties
-* **recurringScans**: VulnerabilityAssessmentRecurringScansProperties
+* **recurringScans**: [VulnerabilityAssessmentRecurringScansProperties](#vulnerabilityassessmentrecurringscansproperties)
 * **storageAccountAccessKey**: string
 * **storageContainerPath**: string
 * **storageContainerSasKey**: string
@@ -348,11 +366,15 @@
 
 ## DatabaseVulnerabilityAssessmentRuleBaselineProperties
 ### Properties
-* **baselineResults**: DatabaseVulnerabilityAssessmentRuleBaselineItem[] (Required)
+* **baselineResults**: [DatabaseVulnerabilityAssessmentRuleBaselineItem](#databasevulnerabilityassessmentrulebaselineitem)[] (Required)
 
 ## DatabaseVulnerabilityAssessmentRuleBaselineItem
 ### Properties
 * **result**: string[] (Required)
+
+## ServerDnsAliasProperties
+### Properties
+* **azureDnsRecord**: string (ReadOnly)
 
 ## ExtendedServerBlobAuditingPolicyProperties
 ### Properties
@@ -372,7 +394,7 @@
 * **databaseId**: string (Required)
 * **state**: 'Creating' | 'Deleting' | 'Disabled' | 'Ready' | 'Updating' (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -385,7 +407,7 @@
 ## JobProperties
 ### Properties
 * **description**: string
-* **schedule**: JobSchedule
+* **schedule**: [JobSchedule](#jobschedule)
 * **version**: int (ReadOnly)
 
 ## JobSchedule
@@ -396,12 +418,34 @@
 * **startTime**: string
 * **type**: 'Once' | 'Recurring'
 
+## JobExecutionProperties
+### Properties
+* **createTime**: string (ReadOnly)
+* **currentAttempts**: int (ReadOnly)
+* **currentAttemptStartTime**: string (ReadOnly)
+* **endTime**: string (ReadOnly)
+* **jobExecutionId**: string (ReadOnly)
+* **jobVersion**: int (ReadOnly)
+* **lastMessage**: string (ReadOnly)
+* **lifecycle**: 'Canceled' | 'Created' | 'Failed' | 'InProgress' | 'Skipped' | 'Succeeded' | 'SucceededWithSkipped' | 'TimedOut' | 'WaitingForChildJobExecutions' | 'WaitingForRetry' (ReadOnly)
+* **provisioningState**: 'Canceled' | 'Created' | 'Failed' | 'InProgress' | 'Succeeded' (ReadOnly)
+* **startTime**: string (ReadOnly)
+* **stepId**: int (ReadOnly)
+* **stepName**: string (ReadOnly)
+* **target**: [JobExecutionTarget](#jobexecutiontarget) (ReadOnly)
+
+## JobExecutionTarget
+### Properties
+* **databaseName**: string (ReadOnly)
+* **serverName**: string (ReadOnly)
+* **type**: 'SqlDatabase' | 'SqlElasticPool' | 'SqlServer' | 'SqlShardMap' | 'TargetGroup' (ReadOnly)
+
 ## JobStepProperties
 ### Properties
-* **action**: JobStepAction (Required)
+* **action**: [JobStepAction](#jobstepaction) (Required)
 * **credential**: string (Required)
-* **executionOptions**: JobStepExecutionOptions
-* **output**: JobStepOutput
+* **executionOptions**: [JobStepExecutionOptions](#jobstepexecutionoptions)
+* **output**: [JobStepOutput](#jobstepoutput)
 * **stepId**: int
 * **targetGroup**: string (Required)
 
@@ -432,7 +476,7 @@
 
 ## JobTargetGroupProperties
 ### Properties
-* **members**: JobTarget[] (Required)
+* **members**: [JobTarget](#jobtarget)[] (Required)
 
 ## JobTarget
 ### Properties

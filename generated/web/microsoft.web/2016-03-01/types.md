@@ -8,8 +8,8 @@
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:0_properties
-* **tags**: Dictionary<string,String>
+* **properties**: [CertificateProperties](#certificateproperties)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.Web/certificates' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/publishingUsers@2016-03-01
@@ -19,7 +19,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: 'web' (Required, DeployTimeConstant)
-* **properties**: schemas:67_properties
+* **properties**: [UserProperties](#userproperties)
 * **type**: 'Microsoft.Web/publishingUsers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Web/sourcecontrols@2016-03-01
@@ -29,16 +29,16 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:124_properties
+* **properties**: [SourceControlProperties](#sourcecontrolproperties)
 * **type**: 'Microsoft.Web/sourcecontrols' (ReadOnly, DeployTimeConstant)
 
-## schemas:0_properties
+## CertificateProperties
 ### Properties
-* **cerBlob**: array (ReadOnly)
+* **cerBlob**: any (ReadOnly)
 * **expirationDate**: string (ReadOnly)
 * **friendlyName**: string (ReadOnly)
 * **geoRegion**: string (ReadOnly)
-* **hostingEnvironmentProfile**: HostingEnvironmentProfile (ReadOnly)
+* **hostingEnvironmentProfile**: [HostingEnvironmentProfile](#hostingenvironmentprofile) (ReadOnly)
 * **hostNames**: string[]
 * **issueDate**: string (ReadOnly)
 * **issuer**: string (ReadOnly)
@@ -46,7 +46,7 @@
 * **keyVaultSecretName**: string
 * **keyVaultSecretStatus**: 'AzureServiceUnauthorizedToAccessKeyVault' | 'CertificateOrderFailed' | 'ExternalPrivateKey' | 'Initialized' | 'KeyVaultDoesNotExist' | 'KeyVaultSecretDoesNotExist' | 'OperationNotPermittedOnKeyVault' | 'Succeeded' | 'Unknown' | 'UnknownError' | 'WaitingOnCertificateOrder' (ReadOnly)
 * **password**: string (Required)
-* **pfxBlob**: array
+* **pfxBlob**: any
 * **publicKeyHash**: string (ReadOnly)
 * **selfLink**: string (ReadOnly)
 * **serverFarmId**: string
@@ -61,12 +61,12 @@
 * **name**: string (ReadOnly)
 * **type**: string (ReadOnly)
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:67_properties
+## UserProperties
 ### Properties
 * **name**: string
 * **publishingPassword**: string
@@ -74,7 +74,7 @@
 * **publishingPasswordHashSalt**: string
 * **publishingUserName**: string (Required)
 
-## schemas:124_properties
+## SourceControlProperties
 ### Properties
 * **expirationTime**: string
 * **name**: string

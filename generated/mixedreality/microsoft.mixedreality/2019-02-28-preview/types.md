@@ -5,11 +5,11 @@
 ### Properties
 * **apiVersion**: '2019-02-28-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: Identity
+* **identity**: [Identity](#identity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SpatialAnchorsAccountProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [SpatialAnchorsAccountProperties](#spatialanchorsaccountproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.MixedReality/spatialAnchorsAccounts' (ReadOnly, DeployTimeConstant)
 
 ## Identity
@@ -23,7 +23,7 @@
 * **accountDomain**: string (ReadOnly)
 * **accountId**: string (ReadOnly)
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

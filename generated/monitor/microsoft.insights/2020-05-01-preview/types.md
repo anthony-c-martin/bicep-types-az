@@ -9,15 +9,15 @@
 * **kind**: string (ReadOnly)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ScheduledQueryRuleProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [ScheduledQueryRuleProperties](#scheduledqueryruleproperties) (Required)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Insights/scheduledQueryRules' (ReadOnly, DeployTimeConstant)
 
 ## ScheduledQueryRuleProperties
 ### Properties
-* **actions**: Action[]
+* **actions**: [Action](#action)[]
 * **createdWithApiVersion**: string (ReadOnly)
-* **criteria**: ScheduledQueryRuleCriteria
+* **criteria**: [ScheduledQueryRuleCriteria](#scheduledqueryrulecriteria)
 * **description**: string
 * **displayName**: string
 * **enabled**: bool
@@ -33,21 +33,21 @@
 ## Action
 ### Properties
 * **actionGroupId**: string
-* **webHookProperties**: Dictionary<string,String>
+* **webHookProperties**: [ActionWebHookProperties](#actionwebhookproperties)
 
-## Dictionary<string,String>
+## ActionWebHookProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## ScheduledQueryRuleCriteria
 ### Properties
-* **allOf**: Condition[]
+* **allOf**: [Condition](#condition)[]
 
 ## Condition
 ### Properties
-* **dimensions**: Dimension[]
-* **failingPeriods**: schemas:6_failingPeriods
+* **dimensions**: [Dimension](#dimension)[]
+* **failingPeriods**: [ConditionFailingPeriods](#conditionfailingperiods)
 * **metricMeasureColumn**: string
 * **operator**: 'Equals' | 'GreaterThan' | 'GreaterThanOrEqual' | 'LessThan' | 'LessThanOrEqual' (Required)
 * **query**: string
@@ -61,12 +61,12 @@
 * **operator**: 'Exclude' | 'Include' (Required)
 * **values**: string[] (Required)
 
-## schemas:6_failingPeriods
+## ConditionFailingPeriods
 ### Properties
 * **minFailingPeriodsToAlert**: int
 * **numberOfEvaluationPeriods**: int
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

@@ -6,8 +6,8 @@
 * **apiVersion**: '2021-01-01' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: AgreementProperties
-* **systemData**: systemData (ReadOnly)
+* **properties**: [AgreementProperties](#agreementproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
 * **type**: 'Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements' (ReadOnly, DeployTimeConstant)
 
 ## AgreementProperties
@@ -22,7 +22,7 @@
 * **retrieveDatetime**: string
 * **signature**: string
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string

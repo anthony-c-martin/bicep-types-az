@@ -8,9 +8,9 @@
 * **kind**: string
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:2_properties
-* **systemData**: systemData
-* **tags**: Dictionary<string,String>
+* **properties**: [DomainProperties](#domainproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
+* **tags**: [ResourceTags](#resourcetags)
 * **type**: 'Microsoft.DomainRegistration/domains' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers@2020-09-01
@@ -20,26 +20,26 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: schemas:6_properties
-* **systemData**: systemData
+* **properties**: [DomainOwnershipIdentifierProperties](#domainownershipidentifierproperties)
+* **systemData**: [SystemData](#systemdata) (ReadOnly)
 * **type**: 'Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers' (ReadOnly, DeployTimeConstant)
 
-## schemas:2_properties
+## DomainProperties
 ### Properties
 * **authCode**: string
 * **autoRenew**: bool
-* **consent**: DomainPurchaseConsent (Required)
-* **contactAdmin**: Contact (Required)
-* **contactBilling**: Contact (Required)
-* **contactRegistrant**: Contact (Required)
-* **contactTech**: Contact (Required)
+* **consent**: [DomainPurchaseConsent](#domainpurchaseconsent) (Required)
+* **contactAdmin**: [Contact](#contact) (Required)
+* **contactBilling**: [Contact](#contact) (Required)
+* **contactRegistrant**: [Contact](#contact) (Required)
+* **contactTech**: [Contact](#contact) (Required)
 * **createdTime**: string (ReadOnly)
 * **dnsType**: 'AzureDns' | 'DefaultDomainRegistrarDns'
 * **dnsZoneId**: string
 * **domainNotRenewableReasons**: 'ExpirationNotInRenewalTimeRange' | 'RegistrationStatusNotSupportedForRenewal' | 'SubscriptionNotActive'[] (ReadOnly)
 * **expirationTime**: string (ReadOnly)
 * **lastRenewedTime**: string (ReadOnly)
-* **managedHostNames**: HostName[] (ReadOnly)
+* **managedHostNames**: [HostName](#hostname)[] (ReadOnly)
 * **nameServers**: string[] (ReadOnly)
 * **privacy**: bool
 * **provisioningState**: 'Canceled' | 'Deleting' | 'Failed' | 'InProgress' | 'Succeeded' (ReadOnly)
@@ -55,7 +55,7 @@
 
 ## Contact
 ### Properties
-* **addressMailing**: Address
+* **addressMailing**: [Address](#address)
 * **email**: string (Required)
 * **fax**: string
 * **jobTitle**: string
@@ -83,7 +83,7 @@
 * **name**: string
 * **siteNames**: string[]
 
-## systemData
+## SystemData
 ### Properties
 * **createdAt**: string
 * **createdBy**: string
@@ -92,12 +92,12 @@
 * **lastModifiedBy**: string
 * **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User'
 
-## Dictionary<string,String>
+## ResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
-## schemas:6_properties
+## DomainOwnershipIdentifierProperties
 ### Properties
 * **ownershipId**: string
 

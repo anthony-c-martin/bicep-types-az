@@ -5,12 +5,12 @@
 ### Properties
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ResourceIdentity
+* **identity**: [ResourceIdentity](#resourceidentity)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ManagedInstanceProperties
-* **sku**: Sku
-* **tags**: Dictionary<string,String>
+* **properties**: [ManagedInstanceProperties](#managedinstanceproperties)
+* **sku**: [Sku](#sku)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/managedInstances' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers@2015-05-01-preview
@@ -18,12 +18,12 @@
 ### Properties
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
-* **identity**: ResourceIdentity
+* **identity**: [ResourceIdentity](#resourceidentity)
 * **kind**: string (ReadOnly)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [ServerProperties](#serverproperties)
+* **tags**: [TrackedResourceTags](#trackedresourcetags)
 * **type**: 'Microsoft.Sql/servers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/auditingSettings@2015-05-01-preview
@@ -32,8 +32,8 @@
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string (ReadOnly)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: DatabaseBlobAuditingPolicyProperties
+* **name**: 'default' (Required, DeployTimeConstant)
+* **properties**: [DatabaseBlobAuditingPolicyProperties](#databaseblobauditingpolicyproperties)
 * **type**: 'Microsoft.Sql/servers/databases/auditingSettings' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/syncGroups@2015-05-01-preview
@@ -42,7 +42,7 @@
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SyncGroupProperties
+* **properties**: [SyncGroupProperties](#syncgroupproperties)
 * **type**: 'Microsoft.Sql/servers/databases/syncGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/databases/syncGroups/syncMembers@2015-05-01-preview
@@ -51,7 +51,7 @@
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SyncMemberProperties
+* **properties**: [SyncMemberProperties](#syncmemberproperties)
 * **type**: 'Microsoft.Sql/servers/databases/syncGroups/syncMembers' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/encryptionProtector@2015-05-01-preview
@@ -61,8 +61,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **kind**: string (ReadOnly)
 * **location**: string (ReadOnly)
-* **name**: string (Required, DeployTimeConstant)
-* **properties**: EncryptionProtectorProperties
+* **name**: 'current' (Required, DeployTimeConstant)
+* **properties**: [EncryptionProtectorProperties](#encryptionprotectorproperties)
 * **type**: 'Microsoft.Sql/servers/encryptionProtector' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/failoverGroups@2015-05-01-preview
@@ -72,8 +72,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: FailoverGroupProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [FailoverGroupProperties](#failovergroupproperties)
+* **tags**: [FailoverGroupTags](#failovergrouptags)
 * **type**: 'Microsoft.Sql/servers/failoverGroups' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/firewallRules@2015-05-01-preview
@@ -82,7 +82,7 @@
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerFirewallRuleProperties
+* **properties**: [ServerFirewallRuleProperties](#serverfirewallruleproperties)
 * **type**: 'Microsoft.Sql/servers/firewallRules' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/keys@2015-05-01-preview
@@ -93,7 +93,7 @@
 * **kind**: string
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ServerKeyProperties
+* **properties**: [ServerKeyProperties](#serverkeyproperties)
 * **type**: 'Microsoft.Sql/servers/keys' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/syncAgents@2015-05-01-preview
@@ -102,7 +102,7 @@
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SyncAgentProperties
+* **properties**: [SyncAgentProperties](#syncagentproperties)
 * **type**: 'Microsoft.Sql/servers/syncAgents' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Sql/servers/virtualNetworkRules@2015-05-01-preview
@@ -111,7 +111,7 @@
 * **apiVersion**: '2015-05-01-preview' (ReadOnly, DeployTimeConstant)
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VirtualNetworkRuleProperties
+* **properties**: [VirtualNetworkRuleProperties](#virtualnetworkruleproperties)
 * **type**: 'Microsoft.Sql/servers/virtualNetworkRules' (ReadOnly, DeployTimeConstant)
 
 ## ResourceIdentity
@@ -151,7 +151,7 @@
 * **size**: string
 * **tier**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -164,7 +164,7 @@
 * **state**: string (ReadOnly)
 * **version**: string
 
-## Dictionary<string,String>
+## TrackedResourceTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -188,18 +188,18 @@
 * **hubDatabaseUserName**: string
 * **interval**: int
 * **lastSyncTime**: string (ReadOnly)
-* **schema**: SyncGroupSchema
+* **schema**: [SyncGroupSchema](#syncgroupschema)
 * **syncDatabaseId**: string
 * **syncState**: 'Error' | 'Good' | 'NotReady' | 'Progressing' | 'Warning' (ReadOnly)
 
 ## SyncGroupSchema
 ### Properties
 * **masterSyncMemberName**: string
-* **tables**: SyncGroupSchemaTable[]
+* **tables**: [SyncGroupSchemaTable](#syncgroupschematable)[]
 
 ## SyncGroupSchemaTable
 ### Properties
-* **columns**: SyncGroupSchemaTableColumn[]
+* **columns**: [SyncGroupSchemaTableColumn](#syncgroupschematablecolumn)[]
 * **quotedName**: string
 
 ## SyncGroupSchemaTableColumn
@@ -217,7 +217,7 @@
 * **sqlServerDatabaseId**: string
 * **syncAgentId**: string
 * **syncDirection**: 'Bidirectional' | 'OneWayHubToMember' | 'OneWayMemberToHub'
-* **syncState**: 'DeProvisioned' | 'DeProvisionFailed' | 'DeProvisioning' | 'DisabledBackupRestore' | 'DisabledTombstoneCleanup' | 'Provisioned' | 'ProvisionFailed' | 'Provisioning' | 'ReprovisionFailed' | 'Reprovisioning' | 'SyncCancelled' | 'SyncCancelling' | 'SyncFailed' | 'SyncInProgress' | 'SyncSucceeded' | 'SyncSucceededWithWarnings' | 'UnProvisioned' | 'UnReprovisioned' (ReadOnly)
+* **syncState**: 'DeProvisionFailed' | 'DeProvisioned' | 'DeProvisioning' | 'DisabledBackupRestore' | 'DisabledTombstoneCleanup' | 'ProvisionFailed' | 'Provisioned' | 'Provisioning' | 'ReprovisionFailed' | 'Reprovisioning' | 'SyncCancelled' | 'SyncCancelling' | 'SyncFailed' | 'SyncInProgress' | 'SyncSucceeded' | 'SyncSucceededWithWarnings' | 'UnProvisioned' | 'UnReprovisioned' (ReadOnly)
 * **userName**: string
 
 ## EncryptionProtectorProperties
@@ -231,9 +231,9 @@
 ## FailoverGroupProperties
 ### Properties
 * **databases**: string[]
-* **partnerServers**: PartnerInfo[] (Required)
-* **readOnlyEndpoint**: FailoverGroupReadOnlyEndpoint
-* **readWriteEndpoint**: FailoverGroupReadWriteEndpoint (Required)
+* **partnerServers**: [PartnerInfo](#partnerinfo)[] (Required)
+* **readOnlyEndpoint**: [FailoverGroupReadOnlyEndpoint](#failovergroupreadonlyendpoint)
+* **readWriteEndpoint**: [FailoverGroupReadWriteEndpoint](#failovergroupreadwriteendpoint) (Required)
 * **replicationRole**: 'Primary' | 'Secondary' (ReadOnly)
 * **replicationState**: string (ReadOnly)
 
@@ -252,7 +252,7 @@
 * **failoverPolicy**: 'Automatic' | 'Manual' (Required)
 * **failoverWithDataLossGracePeriodMinutes**: int
 
-## Dictionary<string,String>
+## FailoverGroupTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -283,6 +283,6 @@
 ## VirtualNetworkRuleProperties
 ### Properties
 * **ignoreMissingVnetServiceEndpoint**: bool
-* **state**: 'Deleting' | 'Initializing' | 'InProgress' | 'Ready' | 'Unknown' (ReadOnly)
+* **state**: 'Deleting' | 'InProgress' | 'Initializing' | 'Ready' | 'Unknown' (ReadOnly)
 * **virtualNetworkSubnetId**: string (Required)
 

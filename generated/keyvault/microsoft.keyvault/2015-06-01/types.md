@@ -7,18 +7,18 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VaultProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [VaultProperties](#vaultproperties) (Required)
+* **tags**: [VaultCreateOrUpdateParametersTags](#vaultcreateorupdateparameterstags)
 * **type**: 'Microsoft.KeyVault/vaults' (ReadOnly, DeployTimeConstant)
 
 ## VaultProperties
 ### Properties
-* **accessPolicies**: AccessPolicyEntry[] (Required)
+* **accessPolicies**: [AccessPolicyEntry](#accesspolicyentry)[] (Required)
 * **enabledForDeployment**: bool
 * **enabledForDiskEncryption**: bool
 * **enabledForTemplateDeployment**: bool
 * **enableSoftDelete**: bool
-* **sku**: Sku (Required)
+* **sku**: [Sku](#sku) (Required)
 * **tenantId**: string (Required)
 * **vaultUri**: string
 
@@ -26,7 +26,7 @@
 ### Properties
 * **applicationId**: string
 * **objectId**: string (Required)
-* **permissions**: Permissions (Required)
+* **permissions**: [Permissions](#permissions) (Required)
 * **tenantId**: string (Required)
 
 ## Permissions
@@ -37,10 +37,10 @@
 
 ## Sku
 ### Properties
-* **family**: string (Required)
+* **family**: 'A' (Required)
 * **name**: 'premium' | 'standard' (Required)
 
-## Dictionary<string,String>
+## VaultCreateOrUpdateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

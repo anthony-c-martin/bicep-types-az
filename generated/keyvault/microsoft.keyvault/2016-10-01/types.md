@@ -7,8 +7,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (Required)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: VaultProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [VaultProperties](#vaultproperties) (Required)
+* **tags**: [VaultCreateOrUpdateParametersTags](#vaultcreateorupdateparameterstags)
 * **type**: 'Microsoft.KeyVault/vaults' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.KeyVault/vaults/accessPolicies@2016-10-01
@@ -18,7 +18,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: 'add' | 'remove' | 'replace' (Required, DeployTimeConstant)
-* **properties**: VaultAccessPolicyProperties (Required)
+* **properties**: [VaultAccessPolicyProperties](#vaultaccesspolicyproperties) (Required)
 * **type**: 'Microsoft.KeyVault/vaults/accessPolicies' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.KeyVault/vaults/secrets@2016-10-01
@@ -28,20 +28,20 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string (ReadOnly)
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: SecretProperties (Required)
-* **tags**: Dictionary<string,String>
+* **properties**: [SecretProperties](#secretproperties) (Required)
+* **tags**: [SecretCreateOrUpdateParametersTags](#secretcreateorupdateparameterstags)
 * **type**: 'Microsoft.KeyVault/vaults/secrets' (ReadOnly, DeployTimeConstant)
 
 ## VaultProperties
 ### Properties
-* **accessPolicies**: AccessPolicyEntry[]
+* **accessPolicies**: [AccessPolicyEntry](#accesspolicyentry)[]
 * **createMode**: 'default' | 'recover'
 * **enabledForDeployment**: bool
 * **enabledForDiskEncryption**: bool
 * **enabledForTemplateDeployment**: bool
 * **enablePurgeProtection**: bool
 * **enableSoftDelete**: bool
-* **sku**: Sku (Required)
+* **sku**: [Sku](#sku) (Required)
 * **tenantId**: string (Required)
 * **vaultUri**: string
 
@@ -49,7 +49,7 @@
 ### Properties
 * **applicationId**: string
 * **objectId**: string (Required)
-* **permissions**: Permissions (Required)
+* **permissions**: [Permissions](#permissions) (Required)
 * **tenantId**: string (Required)
 
 ## Permissions
@@ -61,21 +61,21 @@
 
 ## Sku
 ### Properties
-* **family**: string (Required)
+* **family**: 'A' (Required)
 * **name**: 'premium' | 'standard' (Required)
 
-## Dictionary<string,String>
+## VaultCreateOrUpdateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
 
 ## VaultAccessPolicyProperties
 ### Properties
-* **accessPolicies**: AccessPolicyEntry[] (Required)
+* **accessPolicies**: [AccessPolicyEntry](#accesspolicyentry)[] (Required)
 
 ## SecretProperties
 ### Properties
-* **attributes**: SecretAttributes
+* **attributes**: [SecretAttributes](#secretattributes)
 * **contentType**: string
 * **secretUri**: string (ReadOnly)
 * **secretUriWithVersion**: string (ReadOnly)
@@ -89,7 +89,7 @@
 * **nbf**: int
 * **updated**: int (ReadOnly)
 
-## Dictionary<string,String>
+## SecretCreateOrUpdateParametersTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string

@@ -1,5 +1,13 @@
 # Microsoft.Maintenance @ 2020-07-01-preview
 
+## Resource Microsoft.Maintenance/applyUpdates@2020-07-01-preview
+* **Valid Scope(s)**: Extension
+### Properties
+* **apiVersion**: '2020-07-01-preview' (ReadOnly, DeployTimeConstant)
+* **id**: string (ReadOnly, DeployTimeConstant)
+* **name**: 'default' (Required, DeployTimeConstant)
+* **type**: 'Microsoft.Maintenance/applyUpdates' (ReadOnly, DeployTimeConstant)
+
 ## Resource Microsoft.Maintenance/configurationAssignments@2020-07-01-preview
 * **Valid Scope(s)**: Extension
 ### Properties
@@ -7,7 +15,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: ConfigurationAssignmentProperties
+* **properties**: [ConfigurationAssignmentProperties](#configurationassignmentproperties)
 * **type**: 'Microsoft.Maintenance/configurationAssignments' (ReadOnly, DeployTimeConstant)
 
 ## Resource Microsoft.Maintenance/maintenanceConfigurations@2020-07-01-preview
@@ -17,8 +25,8 @@
 * **id**: string (ReadOnly, DeployTimeConstant)
 * **location**: string
 * **name**: string (Required, DeployTimeConstant)
-* **properties**: MaintenanceConfigurationProperties
-* **tags**: Dictionary<string,String>
+* **properties**: [MaintenanceConfigurationProperties](#maintenanceconfigurationproperties)
+* **tags**: [MaintenanceConfigurationTags](#maintenanceconfigurationtags)
 * **type**: 'Microsoft.Maintenance/maintenanceConfigurations' (ReadOnly, DeployTimeConstant)
 
 ## ConfigurationAssignmentProperties
@@ -28,13 +36,13 @@
 
 ## MaintenanceConfigurationProperties
 ### Properties
-* **extensionProperties**: Dictionary<string,String>
+* **extensionProperties**: [MaintenanceConfigurationPropertiesExtensionProperties](#maintenanceconfigurationpropertiesextensionproperties)
 * **maintenanceScope**: 'All' | 'Extension' | 'Host' | 'InGuestPatch' | 'InResource' | 'OSImage' | 'Resource' | 'SQLDB' | 'SQLManagedInstance'
-* **maintenanceWindow**: MaintenanceWindow
+* **maintenanceWindow**: [MaintenanceWindow](#maintenancewindow)
 * **namespace**: string
 * **visibility**: 'Custom' | 'Public'
 
-## Dictionary<string,String>
+## MaintenanceConfigurationPropertiesExtensionProperties
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
@@ -47,7 +55,7 @@
 * **startDateTime**: string
 * **timeZone**: string
 
-## Dictionary<string,String>
+## MaintenanceConfigurationTags
 ### Properties
 ### Additional Properties
 * **Additional Properties Type**: string
