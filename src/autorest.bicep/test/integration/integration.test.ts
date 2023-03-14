@@ -5,12 +5,14 @@ import path from 'path';
 import { rm, mkdir } from 'fs/promises';
 import { compare } from 'dir-compare';
 import { defaultLogger, executeCmd, ILogger } from './utils';
+import { describe, it, expect, jest } from '@jest/globals';
+import { readFile } from 'fs/promises';
 
 const extensionDir = path.resolve(`${__dirname}/../../`);
 const autorestBinary = os.platform() === 'win32' ? 'autorest.cmd' : 'autorest';
 const outputBaseDir = `${__dirname}/generated`;
 
-async function generateSchema(logger: ILogger, readme: string, outputBaseDir: string, verbose: boolean, waitForDebugger: boolean) {
+async function generateSchema(logger: ILogger, readme: string, outputBaseDir: string, schema: boolean, verbose: boolean, waitForDebugger: boolean) {
   let autoRestParams = [
     `--use=@autorest/modelerfour`,
     `--use=${extensionDir}`,
@@ -24,6 +26,12 @@ async function generateSchema(logger: ILogger, readme: string, outputBaseDir: st
     `--skip-semantics-validation`,
     readme,
   ];
+
+  if (schema) {
+    autoRestParams = autoRestParams.concat([
+      `--arm-schema=true`,
+    ]);
+  }
 
   if (verbose) {
     autoRestParams = autoRestParams.concat([
@@ -45,6 +53,7 @@ describe('integration tests', () => {
   // add any new spec paths under ./specs to this list
   const specs = [
     `basic`,
+    `keyvault`
   ]
 
   // set to true to overwrite baselines
@@ -60,12 +69,12 @@ describe('integration tests', () => {
 
       if (record) {
         await rm(outputDir, { recursive: true, force: true, });
-        await generateSchema(defaultLogger, readmePath, outputDir, false, false);
+        await generateSchema(defaultLogger, readmePath, outputDir, true, false, false);
       } else {
         const stagingOutputDir = `${__dirname}/temp/${spec}`;
         await rm(stagingOutputDir, { recursive: true, force: true, });
   
-        await generateSchema(defaultLogger, readmePath, stagingOutputDir, false, false);
+        await generateSchema(defaultLogger, readmePath, stagingOutputDir, true, false, false);
   
         const compareResult = await compare(stagingOutputDir, outputDir, { compareContent: true });
 
@@ -75,4 +84,11 @@ describe('integration tests', () => {
       }
     });
   }
+
+  it('compare against real schemas', async () => {
+    const generated = await readFile(`${outputBaseDir}/keyvault/microsoft.keyvault/2023-02-01/schema.json`, { encoding: 'utf-8' });
+    const reference = await readFile(`${__dirname}/keyvault_reference.json`, { encoding: 'utf-8' });
+
+    expect(JSON.parse(generated)).toMatchObject(JSON.parse(reference));
+  });
 });

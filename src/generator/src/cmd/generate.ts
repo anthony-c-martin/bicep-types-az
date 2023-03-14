@@ -194,6 +194,7 @@ async function generateSchema(logger: ILogger, readme: string, outputBaseDir: st
     `--level=${logLevel}`,
     `--multiapi`,
     '--title=none',
+    '--arm-schema=true',
     // This is necessary to avoid failures such as "ERROR: Semantic violation: Discriminator must be a required property." blocking type generation.
     // In an ideal world, we'd raise issues in https://github.com/Azure/azure-rest-api-specs and force RP teams to fix them, but this isn't very practical
     // as new validations are added continuously, and there's often quite a lag before teams will fix them - we don't want to be blocked by this in generating types.

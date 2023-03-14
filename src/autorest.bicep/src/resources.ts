@@ -115,6 +115,7 @@ export function getSerializedName(metadata: Metadata) {
 interface ParameterizedName {
   type: 'parameterized';
   schema: Schema;
+  description?: string;
 }
 
 interface ConstantName {
@@ -122,7 +123,7 @@ interface ConstantName {
   value: string;
 }
 
-type NameSchema = ParameterizedName|ConstantName;
+export type NameSchema = ParameterizedName | ConstantName;
 
 export function getNameSchema(request: HttpRequest, parameters: Parameter[]): Result<NameSchema, string> {
   const path = getNormalizedMethodPath(request.path);
@@ -146,7 +147,7 @@ export function getNameSchema(request: HttpRequest, parameters: Parameter[]): Re
       return failure(`Unable to locate parameter with name '${resNameParam}'`);
     }
 
-    return success({type: 'parameterized', schema: param.schema});
+    return success({type: 'parameterized', schema: param.schema, description: param.language.default.description });
   }
 
   if (!/^[a-zA-Z0-9]*$/.test(resNameParam)) {
