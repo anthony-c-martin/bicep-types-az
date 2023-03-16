@@ -102,6 +102,7 @@ ${err}
 
   // build the type index
   await buildTypeIndex(defaultLogger, outputBaseDir);
+  await buildSchemaIndex(defaultLogger, outputBaseDir);
 });
 
 function normalizeJsonPath(jsonPath: string) {
@@ -235,6 +236,79 @@ async function findReadmePaths(specsPath: string) {
       .split(path.sep)
       .some(parent => parent == 'resource-manager');
   });
+}
+
+async function buildSchemaIndex(logger: ILogger, baseDir: string) {
+  type scopeType = 'tenant' | 'mg' | 'subscription' | 'rg';
+  const schemaPaths = await findRecursive(baseDir, filePath => {
+    return path.basename(filePath) === 'schema.json';
+  });
+
+  const index: Record<scopeType, Record<string, string>> = {
+    tenant: {},
+    mg: {},
+    subscription: {},
+    rg: {},
+  };
+
+  const typeFiles: TypeFile[] = [];
+  for (const schemaPath of schemaPaths) {
+    const content = await readFile(schemaPath, { encoding: 'utf8' });
+    const schema = JSON.parse(content);
+
+    const scopeMapping: Record<string, scopeType[]> = {
+      'resourceDefinitions': ['rg'],
+      'subscription_resourceDefinitions': ['subscription'],
+      'managementGroup_resourceDefinitions': ['mg'],
+      'tenant_resourceDefinitions': ['tenant'],
+      'unknown_resourceDefinitions': ['tenant', 'mg', 'subscription', 'rg'],
+    }
+
+    for (const scopeName in scopeMapping) {
+      const scopes = scopeMapping[scopeName];
+      
+      for (const definition in schema[scopeName] || {}) {
+        const type = schema[scopeName][definition].properties.type.enum[0];
+        const apiVersion = schema[scopeName][definition].properties.apiVersion.enum[0];
+
+        for (const scope of scopes) {
+          const schemaRef = `https://schema.management.azure.com/schemas/${path.relative(baseDir, schemaPath)}#/${scopeName}/${definition}`;
+          const indexKey = `${type}#${apiVersion}`.toLowerCase();
+
+          if (index[scope][indexKey]) {
+            logOut(logger, `WARNING: Found duplicate schema at scope "${scope}" for type "${type}" with apiVersion "${apiVersion}"`);
+            continue;
+          }
+    
+          index[scope][indexKey] = schemaRef;
+        }
+      }
+    }
+  }
+
+  const getResourcesDefinition = (schemaIndex: Record<string, string>) => ({ 
+    allOf: [
+      {
+        '$ref': 'https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase',
+      },
+      {
+        oneOf: Object.values(schemaIndex).map(x => ({ '$ref': x })),
+      }
+    ]
+  });
+
+  const output = {
+    id: 'https://schema.management.azure.com/schemas.json',
+    '$schema': 'http://json-schema.org/draft-04/schema#',
+    definitions: {
+      TenantResources: getResourcesDefinition(index['tenant']),
+      ManagementGroupResources: getResourcesDefinition(index['mg']),
+      SubscriptionResources: getResourcesDefinition(index['subscription']),
+      ResourceGroupResources: getResourcesDefinition(index['rg']),
+    },
+  };
+
+  await writeFile(`${baseDir}/schemas.json`, JSON.stringify(output, null, 2));
 }
 
 async function buildTypeIndex(logger: ILogger, baseDir: string) {
