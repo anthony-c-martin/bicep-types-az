@@ -1,0 +1,1100 @@
+{
+  "id": "https://schema.management.azure.com/schemas.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "TenantResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": []
+        }
+      ]
+    },
+    "ManagementGroupResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": []
+        }
+      ]
+    },
+    "SubscriptionResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": []
+        }
+      ]
+    },
+    "ResourceGroupResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": [
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2015-06-15/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2015-06-15/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2015-06-15/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2015-06-15/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-03-30/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-03-30/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-03-30/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-03-30/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-04-30-preview/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-04-30-preview/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-04-30-preview/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-04-30-preview/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-04-30-preview/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-04-30-preview/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2016-04-30-preview/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-03-30/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-12-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-12-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-12-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2017-12-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-04-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-06-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-09-30/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-09-30/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2018-10-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-03-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-07-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-11-01/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-11-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-11-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2019-12-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-05-01/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-05-01/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-05-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-05-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-30/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-30/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-30/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-06-30/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-09-30/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-10-01-preview/schema.json#/resourceDefinitions/cloudServices"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-10-01-preview/schema.json#/resourceDefinitions/cloudServices_updateDomains"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2020-12-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/cloudServices"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/cloudServices_updateDomains"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/restorePointCollections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/restorePointCollections_restorePoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-03-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/capacityReservationGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/capacityReservationGroups_capacityReservations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/restorePointCollections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/restorePointCollections_restorePoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-04-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/capacityReservationGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/capacityReservationGroups_capacityReservations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/restorePointCollections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/restorePointCollections_restorePoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualmachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-07-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-08-01/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-08-01/schema.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-08-01/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-08-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-08-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-10-01/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-10-01/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-10-01/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-10-01/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-10-01/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/capacityReservationGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/capacityReservationGroups_capacityReservations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/restorePointCollections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/restorePointCollections_restorePoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-11-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-12-01/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-12-01/schema.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-12-01/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-12-01/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2021-12-01/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-01-03/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-01-03/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-01-03/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-01-03/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-01-03/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/capacityReservationGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/capacityReservationGroups_capacityReservations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/restorePointCollections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/restorePointCollections_restorePoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-02/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-02/schema.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-02/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-02/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-02/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-03/schema.json#/resourceDefinitions/galleries"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-03/schema.json#/resourceDefinitions/galleries_applications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-03/schema.json#/resourceDefinitions/galleries_applications_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-03/schema.json#/resourceDefinitions/galleries_images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-03-03/schema.json#/resourceDefinitions/galleries_images_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-04-04/schema.json#/resourceDefinitions/cloudServices"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-04-04/schema.json#/resourceDefinitions/cloudServices_updateDomains"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-07-02/schema.json#/resourceDefinitions/diskAccesses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-07-02/schema.json#/resourceDefinitions/diskAccesses_privateEndpointConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-07-02/schema.json#/resourceDefinitions/diskEncryptionSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-07-02/schema.json#/resourceDefinitions/disks"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-07-02/schema.json#/resourceDefinitions/snapshots"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/capacityReservationGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/capacityReservationGroups_capacityReservations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/restorePointCollections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/restorePointCollections_restorePoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-08-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-09-04/schema.json#/resourceDefinitions/cloudServices"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-09-04/schema.json#/resourceDefinitions/cloudServices_updateDomains"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/availabilitySets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/capacityReservationGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/capacityReservationGroups_capacityReservations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/hostGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/hostGroups_hosts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/images"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/proximityPlacementGroups"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/restorePointCollections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/restorePointCollections_restorePoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/sshPublicKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachineScaleSets_virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachines"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachines_extensions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.compute/2022-11-01/schema.json#/resourceDefinitions/virtualMachines_runCommands"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.containerservice/2015-11-01-preview/schema.json#/resourceDefinitions/containerServices"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.containerservice/2016-03-30/schema.json#/resourceDefinitions/containerServices"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.containerservice/2016-09-30/schema.json#/resourceDefinitions/containerServices"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/compute/microsoft.containerservice/2017-01-31/schema.json#/resourceDefinitions/containerServices"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
