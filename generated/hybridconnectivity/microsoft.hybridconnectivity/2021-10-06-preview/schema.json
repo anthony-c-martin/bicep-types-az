@@ -1,0 +1,165 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-10-06-preview/Microsoft.HybridConnectivity.json#",
+  "title": "Microsoft.HybridConnectivity",
+  "description": "Microsoft HybridConnectivity Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "endpoints": {
+      "description": "Microsoft.HybridConnectivity/endpoints",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-10-06-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The endpoint name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The endpoint properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EndpointProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "System data of endpoint resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "EndpointProperties": {
+      "properties": {
+        "provisioningState": {
+          "description": "",
+          "type": "string"
+        },
+        "resourceId": {
+          "description": "The resource Id of the connectivity endpoint (optional).",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of endpoint.",
+          "oneOf": [
+            {
+              "enum": [
+                "default",
+                "custom"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The timestamp of resource last modification (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,1805 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-06-05-preview/Microsoft.ScVmm.json#",
+  "title": "Microsoft.ScVmm",
+  "description": "Microsoft ScVmm Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "availabilitySets": {
+      "description": "Microsoft.ScVmm/availabilitySets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "The extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the AvailabilitySet.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AvailabilitySetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/availabilitySets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "clouds": {
+      "description": "Microsoft.ScVmm/clouds",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "The extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Cloud.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CloudProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/clouds"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "virtualMachineTemplates": {
+      "description": "Microsoft.ScVmm/virtualMachineTemplates",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "The extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the VirtualMachineTemplate.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineTemplateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineTemplates"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "virtualMachines": {
+      "description": "Microsoft.ScVmm/virtualMachines",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "The extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the VirtualMachine.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachines"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "virtualNetworks": {
+      "description": "Microsoft.ScVmm/virtualNetworks",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "The extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the VirtualNetwork.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualNetworks"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vmmServers": {
+      "description": "Microsoft.ScVmm/vmmServers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "The extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the VMMServer.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VMMServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/vmmServers_inventoryItems_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/vmmServers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vmmServers_inventoryItems": {
+      "description": "Microsoft.ScVmm/vmmServers/inventoryItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the inventoryItem.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InventoryItemProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/vmmServers/inventoryItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AvailabilitySetListItem": {
+      "properties": {
+        "id": {
+          "description": "Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets the name of the availability set.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AvailabilitySetProperties": {
+      "properties": {
+        "availabilitySetName": {
+          "description": "Name of the availability set.",
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
+          "type": "string"
+        },
+        "vmmServerId": {
+          "description": "ARM Id of the vmmServer resource in which this resource resides.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Checkpoint": {
+      "properties": {
+        "checkpointID": {
+          "description": "Gets ID of the checkpoint.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Gets description of the checkpoint.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets name of the checkpoint.",
+          "type": "string"
+        },
+        "parentCheckpointID": {
+          "description": "Gets ID of parent of the checkpoint.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CloudCapacity": {
+      "properties": {
+        "cpuCount": {
+          "description": "CPUCount specifies the maximum number of CPUs that can be allocated in the cloud.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "memoryMB": {
+          "description": "MemoryMB specifies a memory usage limit in megabytes.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vmCount": {
+          "description": "VMCount gives the max number of VMs that can be deployed in the cloud.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudProperties": {
+      "properties": {
+        "cloudCapacity": {
+          "description": "Capacity of the cloud.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CloudCapacity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "cloudName": {
+          "description": "Name of the cloud in VMMServer.",
+          "type": "string"
+        },
+        "inventoryItemId": {
+          "description": "Gets or sets the inventory Item ID for the resource.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
+          "type": "string"
+        },
+        "storageQoSPolicies": {
+          "description": "List of QoS policies available for the cloud.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/StorageQoSPolicy"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uuid": {
+          "description": "Unique ID of the cloud.",
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vmmServerId": {
+          "description": "ARM Id of the vmmServer resource in which this resource resides.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ExtendedLocation": {
+      "properties": {
+        "name": {
+          "description": "The extended location name.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The extended location type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HardwareProfile": {
+      "properties": {
+        "cpuCount": {
+          "description": "Gets or sets the number of vCPUs for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dynamicMemoryEnabled": {
+          "description": "Gets or sets a value indicating whether to enable dynamic memory or not.",
+          "oneOf": [
+            {
+              "enum": [
+                "false",
+                "true"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dynamicMemoryMaxMB": {
+          "description": "Gets or sets the max dynamic memory for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dynamicMemoryMinMB": {
+          "description": "Gets or sets the min dynamic memory for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isHighlyAvailable": {
+          "description": "Gets highly available property.",
+          "type": "string"
+        },
+        "limitCpuForMigration": {
+          "description": "Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.",
+          "oneOf": [
+            {
+              "enum": [
+                "false",
+                "true"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "memoryMB": {
+          "description": "MemoryMB is the size of a virtual machine's memory, in MB.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InventoryItemDetails": {
+      "properties": {
+        "inventoryItemId": {
+          "description": "Gets or sets the inventory Item ID for the resource.",
+          "type": "string"
+        },
+        "inventoryItemName": {
+          "description": "Gets or sets the Managed Object name in VMM for the resource.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InventoryItemProperties": {
+      "properties": {
+        "inventoryItemName": {
+          "description": "Gets the Managed Object name in VMM for the inventory item.",
+          "type": "string"
+        },
+        "managedResourceId": {
+          "description": "Gets the tracked resource id corresponding to the inventory resource.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Gets the provisioning state.",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Gets the UUID (which is assigned by VMM) for the inventory item.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkInterfaces": {
+      "properties": {
+        "displayName": {
+          "description": "Gets the display name of the network interface as shown in the vmmServer. This is the fallback label for a NIC when the name is not set.",
+          "type": "string"
+        },
+        "ipv4AddressType": {
+          "description": "Gets or sets the ipv4 address type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Dynamic",
+                "Static"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "ipv4Addresses": {
+          "description": "Gets or sets the nic ipv4 addresses.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "ipv6AddressType": {
+          "description": "Gets or sets the ipv6 address type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Dynamic",
+                "Static"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "ipv6Addresses": {
+          "description": "Gets or sets the nic ipv6 addresses.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "macAddress": {
+          "description": "Gets or sets the nic MAC address.",
+          "type": "string"
+        },
+        "macAddressType": {
+          "description": "Gets or sets the mac address type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Dynamic",
+                "Static"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Gets or sets the name of the network interface.",
+          "type": "string"
+        },
+        "networkName": {
+          "description": "Gets or sets the name of the virtual network in vmmServer that the nic is connected to.",
+          "type": "string"
+        },
+        "nicId": {
+          "description": "Gets or sets the nic id.",
+          "type": "string"
+        },
+        "virtualNetworkId": {
+          "description": "Gets or sets the ARM Id of the Microsoft.ScVmm/virtualNetwork resource to connect the nic.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkProfile": {
+      "properties": {
+        "networkInterfaces": {
+          "description": "Gets or sets the list of network interfaces associated with the virtual machine.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/NetworkInterfaces"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OsProfile": {
+      "properties": {
+        "adminPassword": {
+          "description": "Admin password of the virtual machine.",
+          "type": "string"
+        },
+        "computerName": {
+          "description": "Gets or sets computer name.",
+          "type": "string"
+        },
+        "osName": {
+          "description": "Gets or sets os name.",
+          "type": "string"
+        },
+        "osType": {
+          "description": "Gets or sets the type of the os.",
+          "oneOf": [
+            {
+              "enum": [
+                "Windows",
+                "Linux",
+                "Other"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StorageProfile": {
+      "properties": {
+        "disks": {
+          "description": "Gets or sets the list of virtual disks associated with the virtual machine.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/VirtualDisk"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StorageQoSPolicy": {
+      "properties": {
+        "bandwidthLimit": {
+          "description": "The Bandwidth Limit for internet traffic.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "The ID of the QoS policy.",
+          "type": "string"
+        },
+        "iopsMaximum": {
+          "description": "The maximum IO operations per second.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "iopsMinimum": {
+          "description": "The minimum IO operations per second.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The name of the policy.",
+          "type": "string"
+        },
+        "policyId": {
+          "description": "The underlying policy.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StorageQoSPolicyDetails": {
+      "properties": {
+        "id": {
+          "description": "The ID of the QoS policy.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The timestamp of resource last modification (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VMMServerProperties": {
+      "properties": {
+        "connectionStatus": {
+          "description": "Gets or sets the connection status to the vmmServer.",
+          "type": "string"
+        },
+        "credentials": {
+          "description": "Credentials to connect to VMMServer.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VMMServerPropertiesCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "errorMessage": {
+          "description": "Gets or sets any error message if connection to vmmServer is having any issue.",
+          "type": "string"
+        },
+        "fqdn": {
+          "description": "Fqdn is the hostname/ip of the vmmServer.",
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "port": {
+          "description": "Port is the port on which the vmmServer is listening.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Unique ID of vmmServer.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Version is the version of the vmmSever.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fqdn"
+      ],
+      "type": "object"
+    },
+    "VMMServerPropertiesCredentials": {
+      "properties": {
+        "password": {
+          "description": "Credentials to use to connect to VMMServer.",
+          "type": "string"
+        },
+        "username": {
+          "description": "Username to use to connect to VMMServer.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualDisk": {
+      "properties": {
+        "bus": {
+          "description": "Gets or sets the disk bus.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "busType": {
+          "description": "Gets or sets the disk bus type.",
+          "type": "string"
+        },
+        "createDiffDisk": {
+          "description": "Gets or sets a value indicating diff disk.",
+          "oneOf": [
+            {
+              "enum": [
+                "false",
+                "true"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "diskId": {
+          "description": "Gets or sets the disk id.",
+          "type": "string"
+        },
+        "diskSizeGB": {
+          "description": "Gets or sets the disk total size.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "displayName": {
+          "description": "Gets the display name of the virtual disk as shown in the vmmServer. This is the fallback label for a disk when the name is not set.",
+          "type": "string"
+        },
+        "lun": {
+          "description": "Gets or sets the disk lun.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "maxDiskSizeGB": {
+          "description": "Gets or sets the max disk size.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Gets or sets the name of the disk.",
+          "type": "string"
+        },
+        "storageQoSPolicy": {
+          "description": "The QoS policy for the disk.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageQoSPolicyDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "templateDiskId": {
+          "description": "Gets or sets the disk id in the template.",
+          "type": "string"
+        },
+        "vhdFormatType": {
+          "description": "Gets the disk vhd format type.",
+          "type": "string"
+        },
+        "vhdType": {
+          "description": "Gets or sets the disk vhd type.",
+          "type": "string"
+        },
+        "volumeType": {
+          "description": "Gets or sets the disk volume type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualMachineProperties": {
+      "properties": {
+        "availabilitySets": {
+          "description": "Availability Sets in vm.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/AvailabilitySetListItem"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "checkpointType": {
+          "description": "Type of checkpoint supported for the vm.",
+          "type": "string"
+        },
+        "checkpoints": {
+          "description": "Checkpoints in the vm.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Checkpoint"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "cloudId": {
+          "description": "ARM Id of the cloud resource to use for deploying the vm.",
+          "type": "string"
+        },
+        "generation": {
+          "description": "Gets or sets the generation for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hardwareProfile": {
+          "description": "Hardware properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HardwareProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "inventoryItemId": {
+          "description": "Gets or sets the inventory Item ID for the resource.",
+          "type": "string"
+        },
+        "networkProfile": {
+          "description": "Network properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "osProfile": {
+          "description": "OS properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OsProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "powerState": {
+          "description": "Gets the power state of the virtual machine.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
+          "type": "string"
+        },
+        "storageProfile": {
+          "description": "Storage properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "templateId": {
+          "description": "ARM Id of the template resource to use for deploying the vm.",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Unique ID of the virtual machine.",
+          "type": "string"
+        },
+        "vmName": {
+          "description": "VMName is the name of VM on the SCVMM server.",
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vmmServerId": {
+          "description": "ARM Id of the vmmServer resource in which this resource resides.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualMachineTemplateProperties": {
+      "properties": {
+        "computerName": {
+          "description": "Gets or sets computer name.",
+          "type": "string"
+        },
+        "cpuCount": {
+          "description": "Gets or sets the desired number of vCPUs for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "disks": {
+          "description": "Gets or sets the disks of the template.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/VirtualDisk"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dynamicMemoryEnabled": {
+          "description": "Gets or sets a value indicating whether to enable dynamic memory or not.",
+          "oneOf": [
+            {
+              "enum": [
+                "false",
+                "true"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dynamicMemoryMaxMB": {
+          "description": "Gets or sets the max dynamic memory for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dynamicMemoryMinMB": {
+          "description": "Gets or sets the min dynamic memory for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "generation": {
+          "description": "Gets or sets the generation for the vm.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "inventoryItemId": {
+          "description": "Gets or sets the inventory Item ID for the resource.",
+          "type": "string"
+        },
+        "isCustomizable": {
+          "description": "Gets or sets a value indicating whether the vm template is customizable or not.",
+          "oneOf": [
+            {
+              "enum": [
+                "false",
+                "true"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isHighlyAvailable": {
+          "description": "Gets highly available property.",
+          "type": "string"
+        },
+        "limitCpuForMigration": {
+          "description": "Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.",
+          "oneOf": [
+            {
+              "enum": [
+                "false",
+                "true"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "memoryMB": {
+          "description": "MemoryMB is the desired size of a virtual machine's memory, in MB.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "networkInterfaces": {
+          "description": "Gets or sets the network interfaces of the template.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/NetworkInterfaces"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "osName": {
+          "description": "Gets or sets os name.",
+          "type": "string"
+        },
+        "osType": {
+          "description": "Gets or sets the type of the os.",
+          "oneOf": [
+            {
+              "enum": [
+                "Windows",
+                "Linux",
+                "Other"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Unique ID of the virtual machine template.",
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vmmServerId": {
+          "description": "ARM Id of the vmmServer resource in which this resource resides.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNetworkProperties": {
+      "properties": {
+        "inventoryItemId": {
+          "description": "Gets or sets the inventory Item ID for the resource.",
+          "type": "string"
+        },
+        "networkName": {
+          "description": "Name of the virtual network in vmmServer.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Unique ID of the virtual network.",
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vmmServerId": {
+          "description": "ARM Id of the vmmServer resource in which this resource resides.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vmmServers_inventoryItems_childResource": {
+      "description": "Microsoft.ScVmm/vmmServers/inventoryItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-05-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the inventoryItem.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InventoryItemProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/vmmServers/inventoryItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

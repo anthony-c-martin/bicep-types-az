@@ -1,0 +1,326 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-10-01/Microsoft.PolicyInsights.json#",
+  "title": "Microsoft.PolicyInsights",
+  "description": "Microsoft PolicyInsights Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-10-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The ID of the remediation.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "RemediationDeploymentSummary": {
+      "properties": {
+        "failedDeployments": {
+          "description": "The number of deployments required by the remediation that have failed.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "successfulDeployments": {
+          "description": "The number of deployments required by the remediation that have succeeded.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "totalDeployments": {
+          "description": "The number of deployments required by the remediation.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RemediationFilters": {
+      "properties": {
+        "locations": {
+          "description": "The resource locations that will be remediated.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RemediationProperties": {
+      "properties": {
+        "correlationId": {
+          "description": "The remediation correlation Id. Can be used to find events related to the remediation in the activity log.",
+          "type": "string"
+        },
+        "createdOn": {
+          "description": "The time at which the remediation was created.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "deploymentStatus": {
+          "description": "The deployment status summary for all deployments created by the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationDeploymentSummary"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "failureThreshold": {
+          "description": "The remediation failure threshold settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationPropertiesFailureThreshold"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "filters": {
+          "description": "The filters that will be applied to determine which resources to remediate.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationFilters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastUpdatedOn": {
+          "description": "The time at which the remediation was last updated.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "parallelDeployments": {
+          "description": "Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyAssignmentId": {
+          "description": "The resource ID of the policy assignment that should be remediated.",
+          "type": "string"
+        },
+        "policyDefinitionReferenceId": {
+          "description": "The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "The status of the remediation.",
+          "type": "string"
+        },
+        "resourceCount": {
+          "description": "Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceDiscoveryMode": {
+          "description": "The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.",
+          "oneOf": [
+            {
+              "enum": [
+                "ExistingNonCompliant",
+                "ReEvaluateCompliance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "statusMessage": {
+          "description": "The remediation status message. Provides additional details regarding the state of the remediation.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RemediationPropertiesFailureThreshold": {
+      "properties": {
+        "percentage": {
+          "description": "A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The timestamp of resource last modification (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

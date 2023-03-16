@@ -1,0 +1,780 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-03-20/Microsoft.AVS.json#",
+  "title": "Microsoft.AVS",
+  "description": "Microsoft AVS Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "privateClouds": {
+      "description": "Microsoft.AVS/privateClouds",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-03-20"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the private cloud",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a private cloud resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateCloudProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/privateClouds_clusters_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_authorizations_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateClouds_hcxEnterpriseSites_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "sku": {
+          "description": "The private cloud SKU",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AVS/privateClouds"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateClouds_authorizations": {
+      "description": "Microsoft.AVS/privateClouds/authorizations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-03-20"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an ExpressRoute Circuit Authorization resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpressRouteAuthorizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AVS/privateClouds/authorizations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateClouds_clusters": {
+      "description": "Microsoft.AVS/privateClouds/clusters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-03-20"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the cluster in the private cloud",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a cluster resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "The cluster SKU",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AVS/privateClouds/clusters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateClouds_hcxEnterpriseSites": {
+      "description": "Microsoft.AVS/privateClouds/hcxEnterpriseSites",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-03-20"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the HCX Enterprise Site in the private cloud",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an HCX Enterprise Site resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HcxEnterpriseSiteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AVS/privateClouds/hcxEnterpriseSites"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "Circuit": {
+      "properties": {
+        "expressRouteID": {
+          "description": "Identifier of the ExpressRoute Circuit (Microsoft Colo only)",
+          "type": "string"
+        },
+        "expressRoutePrivatePeeringID": {
+          "description": "ExpressRoute Circuit private peering identifier",
+          "type": "string"
+        },
+        "primarySubnet": {
+          "description": "CIDR of primary subnet",
+          "type": "string"
+        },
+        "secondarySubnet": {
+          "description": "CIDR of secondary subnet",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ClusterProperties": {
+      "properties": {
+        "clusterId": {
+          "description": "The identity",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "clusterSize": {
+          "description": "The cluster size",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hosts": {
+          "description": "The hosts",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The state of the cluster provisioning",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Cancelled",
+                "Deleting",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Endpoints": {
+      "properties": {
+        "hcxCloudManager": {
+          "description": "Endpoint for the HCX Cloud Manager",
+          "type": "string"
+        },
+        "nsxtManager": {
+          "description": "Endpoint for the NSX-T Data Center manager",
+          "type": "string"
+        },
+        "vcsa": {
+          "description": "Endpoint for Virtual Center Server Appliance",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ExpressRouteAuthorizationProperties": {
+      "properties": {
+        "expressRouteAuthorizationId": {
+          "description": "The ID of the ExpressRoute Circuit Authorization",
+          "type": "string"
+        },
+        "expressRouteAuthorizationKey": {
+          "description": "The key of the ExpressRoute Circuit Authorization",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "The state of the  ExpressRoute Circuit Authorization provisioning",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HcxEnterpriseSiteProperties": {
+      "properties": {
+        "activationKey": {
+          "description": "The activation key",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the HCX Enterprise Site",
+          "oneOf": [
+            {
+              "enum": [
+                "Available",
+                "Consumed",
+                "Deactivated",
+                "Deleted"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IdentitySource": {
+      "properties": {
+        "alias": {
+          "description": "The domain's NetBIOS name",
+          "type": "string"
+        },
+        "baseGroupDN": {
+          "description": "The base distinguished name for groups",
+          "type": "string"
+        },
+        "baseUserDN": {
+          "description": "The base distinguished name for users",
+          "type": "string"
+        },
+        "domain": {
+          "description": "The domain's dns name",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the identity source",
+          "type": "string"
+        },
+        "password": {
+          "description": "The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.",
+          "type": "string"
+        },
+        "primaryServer": {
+          "description": "Primary server URL",
+          "type": "string"
+        },
+        "secondaryServer": {
+          "description": "Secondary server URL",
+          "type": "string"
+        },
+        "ssl": {
+          "description": "Protect LDAP communication using SSL certificate (LDAPS)",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "username": {
+          "description": "The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ManagementCluster": {
+      "properties": {
+        "clusterId": {
+          "description": "The identity",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "clusterSize": {
+          "description": "The cluster size",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hosts": {
+          "description": "The hosts",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The state of the cluster provisioning",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Cancelled",
+                "Deleting",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrivateCloudProperties": {
+      "properties": {
+        "circuit": {
+          "description": "An ExpressRoute Circuit",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Circuit"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "endpoints": {
+          "description": "The endpoints",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Endpoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "identitySources": {
+          "description": "vCenter Single Sign On Identity Sources",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/IdentitySource"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "internet": {
+          "description": "Connectivity to internet is enabled or disabled",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "managementCluster": {
+          "description": "The default cluster used for management",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementCluster"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "managementNetwork": {
+          "description": "Network used to access vCenter Server and NSX-T Manager",
+          "type": "string"
+        },
+        "networkBlock": {
+          "description": "The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22",
+          "type": "string"
+        },
+        "nsxtCertificateThumbprint": {
+          "description": "Thumbprint of the NSX-T Manager SSL certificate",
+          "type": "string"
+        },
+        "nsxtPassword": {
+          "description": "Optionally, set the NSX-T Manager password when the private cloud is created",
+          "type": "string"
+        },
+        "provisioningNetwork": {
+          "description": "Used for virtual machine cold migration, cloning, and snapshot migration",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "The provisioning state",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Cancelled",
+                "Pending",
+                "Building",
+                "Deleting",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vcenterCertificateThumbprint": {
+          "description": "Thumbprint of the vCenter Server SSL certificate",
+          "type": "string"
+        },
+        "vcenterPassword": {
+          "description": "Optionally, set the vCenter admin password when the private cloud is created",
+          "type": "string"
+        },
+        "vmotionNetwork": {
+          "description": "Used for live migration of virtual machines",
+          "type": "string"
+        }
+      },
+      "required": [
+        "networkBlock"
+      ],
+      "type": "object"
+    },
+    "Sku": {
+      "properties": {
+        "name": {
+          "description": "The name of the SKU.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "privateClouds_authorizations_childResource": {
+      "description": "Microsoft.AVS/privateClouds/authorizations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-03-20"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an ExpressRoute Circuit Authorization resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpressRouteAuthorizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AVS/privateClouds/authorizations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateClouds_clusters_childResource": {
+      "description": "Microsoft.AVS/privateClouds/clusters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-03-20"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the cluster in the private cloud",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a cluster resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "The cluster SKU",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AVS/privateClouds/clusters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateClouds_hcxEnterpriseSites_childResource": {
+      "description": "Microsoft.AVS/privateClouds/hcxEnterpriseSites",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-03-20"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the HCX Enterprise Site in the private cloud",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an HCX Enterprise Site resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HcxEnterpriseSiteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AVS/privateClouds/hcxEnterpriseSites"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

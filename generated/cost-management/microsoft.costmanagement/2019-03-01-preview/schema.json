@@ -1,0 +1,510 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2019-03-01-preview/Microsoft.CostManagement.json#",
+  "title": "Microsoft.CostManagement",
+  "description": "Microsoft CostManagement Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "tenant_resourceDefinitions": {
+    "cloudConnectors": {
+      "description": "Microsoft.CostManagement/cloudConnectors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-03-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Connector id",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Connector kind (eg aws)",
+          "type": "string"
+        },
+        "name": {
+          "description": "Connector Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Connector properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/cloudConnectors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
+    "showbackRules": {
+      "description": "Microsoft.CostManagement/showbackRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-03-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Rule id",
+          "type": "string"
+        },
+        "name": {
+          "description": "Showback rule name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Showback rule properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ShowbackRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/showbackRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ConnectorCollectionErrorInfo": {
+      "properties": {
+        "errorCode": {
+          "description": "Short error code",
+          "type": "string"
+        },
+        "errorInnerMessage": {
+          "description": "External Provider error message",
+          "type": "string"
+        },
+        "errorMessage": {
+          "description": "Detailed error message",
+          "type": "string"
+        },
+        "errorStartTime": {
+          "description": "Time the error started occurring (Last time error occurred in lastChecked)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectorCollectionInfo": {
+      "properties": {
+        "error": {
+          "description": "Error information of last collection",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorCollectionErrorInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastChecked": {
+          "description": "Last time the data acquisition process initiated connecting to the external provider",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastUpdated": {
+          "description": "Last time the external data was updated into Azure",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceLastUpdated": {
+          "description": "Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectorProperties": {
+      "properties": {
+        "billingModel": {
+          "description": "Connector billing model",
+          "oneOf": [
+            {
+              "enum": [
+                "trial",
+                "autoUpgrade",
+                "premium",
+                "expired"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "collectionInfo": {
+          "description": "Collection information",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorCollectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdOn": {
+          "description": "Connector definition creation datetime",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "credentialsKey": {
+          "description": "Credentials authentication key (eg AWS ARN)",
+          "type": "string"
+        },
+        "credentialsSecret": {
+          "description": "Credentials secret (eg AWS ExternalId)",
+          "type": "string"
+        },
+        "daysTrialRemaining": {
+          "description": "Number of days remaining of trial",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "defaultManagementGroupId": {
+          "description": "Default ManagementGroupId",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Connector DisplayName",
+          "type": "string"
+        },
+        "externalBillingAccountId": {
+          "description": "Associated ExternalBillingAccountId",
+          "type": "string"
+        },
+        "modifiedOn": {
+          "description": "Connector last modified datetime",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "providerBillingAccountDisplayName": {
+          "description": "The display name of the providerBillingAccountId as defined on the external provider",
+          "type": "string"
+        },
+        "providerBillingAccountId": {
+          "description": "Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)",
+          "type": "string"
+        },
+        "reportId": {
+          "description": "Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)",
+          "type": "string"
+        },
+        "status": {
+          "description": "Connector status",
+          "oneOf": [
+            {
+              "enum": [
+                "active",
+                "error",
+                "expired",
+                "warning"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subscriptionId": {
+          "description": "Billing SubscriptionId",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CostAllocationDetails": {
+      "properties": {
+        "policy": {
+          "description": "Cost allocation policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "Proportional",
+                "Evenly",
+                "Fixed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CustomPriceDetails": {
+      "properties": {
+        "benefits": {
+          "description": "Array of benefits.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "Sum",
+                      "None",
+                      "All",
+                      "AHUB",
+                      "Reservations"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "markups": {
+          "description": "List of markups.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Markup"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "pricesheet": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Markup": {
+      "properties": {
+        "percentage": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Scope": {
+      "properties": {
+        "childScope": {
+          "description": "The Scope model definition",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Scope"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Scope id",
+          "type": "string"
+        },
+        "name": {
+          "description": "Scope name",
+          "type": "string"
+        },
+        "type": {
+          "description": "Scope type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ShowbackRuleProperties": {
+      "properties": {
+        "creationTime": {
+          "description": "The time when the showback rule was created.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "deprecationTime": {
+          "description": "The current time when showback rule was deprecate.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "Description of a showback rule.",
+          "type": "string"
+        },
+        "modificationTime": {
+          "description": "The current status when showback rule was modified.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scopes": {
+          "description": "List of authorized assigned scopes.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Scope"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "The current status of the showback rule.",
+          "oneOf": [
+            {
+              "enum": [
+                "NotActive",
+                "Active"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "version": {
+          "description": "The current version of showback rule.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

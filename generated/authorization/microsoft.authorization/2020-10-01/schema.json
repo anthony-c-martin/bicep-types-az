@@ -1,0 +1,1198 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-10-01/Microsoft.Authorization.json#",
+  "title": "Microsoft.Authorization",
+  "description": "Microsoft Authorization Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "roleAssignmentScheduleRequests": {
+      "description": "Microsoft.Authorization/roleAssignmentScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-10-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The role assignment schedule request ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignmentScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleEligibilityScheduleRequests": {
+      "description": "Microsoft.Authorization/roleEligibilityScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-10-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The role eligibility schedule request ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the role eligibility to create. It can be any valid GUID.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role eligibility schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleEligibilityScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleManagementPolicyAssignments": {
+      "description": "Microsoft.Authorization/roleManagementPolicyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-10-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The role management policy Id.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of format {guid_guid} the role management policy assignment to upsert.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role management policy properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleManagementPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleManagementPolicyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ApprovalSettings": {
+      "properties": {
+        "approvalMode": {
+          "description": "The type of rule",
+          "oneOf": [
+            {
+              "enum": [
+                "SingleStage",
+                "Serial",
+                "Parallel",
+                "NoApproval"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "approvalStages": {
+          "description": "The approval stages of the request.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ApprovalStage"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isApprovalRequired": {
+          "description": "Determines whether approval is required or not.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isApprovalRequiredForExtension": {
+          "description": "Determines whether approval is required for assignment extension.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isRequestorJustificationRequired": {
+          "description": "Determine whether requestor justification is required.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ApprovalStage": {
+      "properties": {
+        "approvalStageTimeOutInDays": {
+          "description": "The time in days when approval request would be timed out",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "escalationApprovers": {
+          "description": "The escalation approver of the request.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/UserSet"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "escalationTimeInMinutes": {
+          "description": "The time in minutes when the approval request would be escalated if the primary approver does not approve",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isApproverJustificationRequired": {
+          "description": "Determines whether approver need to provide justification for his decision.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isEscalationEnabled": {
+          "description": "The value determine whether escalation feature is enabled.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "primaryApprovers": {
+          "description": "The primary approver of the request.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/UserSet"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ExpandedProperties": {
+      "properties": {
+        "principal": {
+          "description": "Details of the principal",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpandedPropertiesPrincipal"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "roleDefinition": {
+          "description": "Details of role definition",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpandedPropertiesRoleDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scope": {
+          "description": "Details of the resource scope",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpandedPropertiesScope"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ExpandedPropertiesPrincipal": {
+      "properties": {
+        "displayName": {
+          "description": "Display name of the principal",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email id of the principal",
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the principal",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the principal",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ExpandedPropertiesRoleDefinition": {
+      "properties": {
+        "displayName": {
+          "description": "Display name of the role definition",
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the role definition",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the role definition",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ExpandedPropertiesScope": {
+      "properties": {
+        "displayName": {
+          "description": "Display name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "Scope id of the resource",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the resource",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PolicyAssignmentProperties": {
+      "properties": {
+        "policy": {
+          "description": "Details of the policy",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentPropertiesPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "roleDefinition": {
+          "description": "Details of role definition",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentPropertiesRoleDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scope": {
+          "description": "Details of the resource scope",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentPropertiesScope"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PolicyAssignmentPropertiesPolicy": {
+      "properties": {
+        "id": {
+          "description": "Id of the policy",
+          "type": "string"
+        },
+        "lastModifiedBy": {
+          "description": "The name of the entity last modified it",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Principal"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedDateTime": {
+          "description": "The last modified date time.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PolicyAssignmentPropertiesRoleDefinition": {
+      "properties": {
+        "displayName": {
+          "description": "Display name of the role definition",
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the role definition",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the role definition",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PolicyAssignmentPropertiesScope": {
+      "properties": {
+        "displayName": {
+          "description": "Display name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "Scope id of the resource",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the resource",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Principal": {
+      "properties": {
+        "displayName": {
+          "description": "The name of the principal made changes",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email of principal",
+          "type": "string"
+        },
+        "id": {
+          "description": "The id of the principal made changes",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of principal such as user , group etc",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RoleAssignmentScheduleRequestProperties": {
+      "properties": {
+        "approvalId": {
+          "description": "The approvalId of the role assignment schedule request.",
+          "type": "string"
+        },
+        "condition": {
+          "description": "The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+          "type": "string"
+        },
+        "conditionVersion": {
+          "description": "Version of the condition. Currently accepted value is '2.0'",
+          "type": "string"
+        },
+        "createdOn": {
+          "description": "DateTime when role assignment schedule request was created",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "expandedProperties": {
+          "description": "Additional properties of principal, scope and role definition",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpandedProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "justification": {
+          "description": "Justification for the role assignment",
+          "type": "string"
+        },
+        "linkedRoleEligibilityScheduleId": {
+          "description": "The linked role eligibility schedule id - to activate an eligibility.",
+          "type": "string"
+        },
+        "principalId": {
+          "description": "The principal ID.",
+          "type": "string"
+        },
+        "principalType": {
+          "description": "The principal type of the assigned principal ID.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Group",
+                "ServicePrincipal",
+                "ForeignGroup",
+                "Device"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "requestType": {
+          "description": "The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc",
+          "oneOf": [
+            {
+              "enum": [
+                "AdminAssign",
+                "AdminRemove",
+                "AdminUpdate",
+                "AdminExtend",
+                "AdminRenew",
+                "SelfActivate",
+                "SelfDeactivate",
+                "SelfExtend",
+                "SelfRenew"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "requestorId": {
+          "description": "Id of the user who created this request",
+          "type": "string"
+        },
+        "roleDefinitionId": {
+          "description": "The role definition ID.",
+          "type": "string"
+        },
+        "scheduleInfo": {
+          "description": "Schedule info of the role assignment schedule",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestPropertiesScheduleInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scope": {
+          "description": "The role assignment schedule request scope.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the role assignment schedule request.",
+          "oneOf": [
+            {
+              "enum": [
+                "Accepted",
+                "PendingEvaluation",
+                "Granted",
+                "Denied",
+                "PendingProvisioning",
+                "Provisioned",
+                "PendingRevocation",
+                "Revoked",
+                "Canceled",
+                "Failed",
+                "PendingApprovalProvisioning",
+                "PendingApproval",
+                "FailedAsResourceIsLocked",
+                "PendingAdminDecision",
+                "AdminApproved",
+                "AdminDenied",
+                "TimedOut",
+                "ProvisioningStarted",
+                "Invalid",
+                "PendingScheduleCreation",
+                "ScheduleCreated",
+                "PendingExternalProvisioning"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetRoleAssignmentScheduleId": {
+          "description": "The resultant role assignment schedule id or the role assignment schedule id being updated",
+          "type": "string"
+        },
+        "targetRoleAssignmentScheduleInstanceId": {
+          "description": "The role assignment schedule instance id being updated",
+          "type": "string"
+        },
+        "ticketInfo": {
+          "description": "Ticket Info of the role assignment",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestPropertiesTicketInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "roleDefinitionId",
+        "principalId",
+        "requestType"
+      ],
+      "type": "object"
+    },
+    "RoleAssignmentScheduleRequestPropertiesScheduleInfo": {
+      "properties": {
+        "expiration": {
+          "description": "Expiration of the role assignment schedule",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestPropertiesScheduleInfoExpiration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startDateTime": {
+          "description": "Start DateTime of the role assignment schedule.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoleAssignmentScheduleRequestPropertiesScheduleInfoExpiration": {
+      "properties": {
+        "duration": {
+          "description": "Duration of the role assignment schedule in TimeSpan.",
+          "type": "string"
+        },
+        "endDateTime": {
+          "description": "End DateTime of the role assignment schedule.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Type of the role assignment schedule expiration",
+          "oneOf": [
+            {
+              "enum": [
+                "AfterDuration",
+                "AfterDateTime",
+                "NoExpiration"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoleAssignmentScheduleRequestPropertiesTicketInfo": {
+      "properties": {
+        "ticketNumber": {
+          "description": "Ticket number for the role assignment",
+          "type": "string"
+        },
+        "ticketSystem": {
+          "description": "Ticket system name for the role assignment",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RoleEligibilityScheduleRequestProperties": {
+      "properties": {
+        "approvalId": {
+          "description": "The approvalId of the role eligibility schedule request.",
+          "type": "string"
+        },
+        "condition": {
+          "description": "The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+          "type": "string"
+        },
+        "conditionVersion": {
+          "description": "Version of the condition. Currently accepted value is '2.0'",
+          "type": "string"
+        },
+        "createdOn": {
+          "description": "DateTime when role eligibility schedule request was created",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "expandedProperties": {
+          "description": "Additional properties of principal, scope and role definition",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExpandedProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "justification": {
+          "description": "Justification for the role eligibility",
+          "type": "string"
+        },
+        "principalId": {
+          "description": "The principal ID.",
+          "type": "string"
+        },
+        "principalType": {
+          "description": "The principal type of the assigned principal ID.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Group",
+                "ServicePrincipal",
+                "ForeignGroup",
+                "Device"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "requestType": {
+          "description": "The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc",
+          "oneOf": [
+            {
+              "enum": [
+                "AdminAssign",
+                "AdminRemove",
+                "AdminUpdate",
+                "AdminExtend",
+                "AdminRenew",
+                "SelfActivate",
+                "SelfDeactivate",
+                "SelfExtend",
+                "SelfRenew"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "requestorId": {
+          "description": "Id of the user who created this request",
+          "type": "string"
+        },
+        "roleDefinitionId": {
+          "description": "The role definition ID.",
+          "type": "string"
+        },
+        "scheduleInfo": {
+          "description": "Schedule info of the role eligibility schedule",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestPropertiesScheduleInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scope": {
+          "description": "The role eligibility schedule request scope.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the role eligibility schedule request.",
+          "oneOf": [
+            {
+              "enum": [
+                "Accepted",
+                "PendingEvaluation",
+                "Granted",
+                "Denied",
+                "PendingProvisioning",
+                "Provisioned",
+                "PendingRevocation",
+                "Revoked",
+                "Canceled",
+                "Failed",
+                "PendingApprovalProvisioning",
+                "PendingApproval",
+                "FailedAsResourceIsLocked",
+                "PendingAdminDecision",
+                "AdminApproved",
+                "AdminDenied",
+                "TimedOut",
+                "ProvisioningStarted",
+                "Invalid",
+                "PendingScheduleCreation",
+                "ScheduleCreated",
+                "PendingExternalProvisioning"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetRoleEligibilityScheduleId": {
+          "description": "The resultant role eligibility schedule id or the role eligibility schedule id being updated",
+          "type": "string"
+        },
+        "targetRoleEligibilityScheduleInstanceId": {
+          "description": "The role eligibility schedule instance id being updated",
+          "type": "string"
+        },
+        "ticketInfo": {
+          "description": "Ticket Info of the role eligibility",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestPropertiesTicketInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "roleDefinitionId",
+        "principalId",
+        "requestType"
+      ],
+      "type": "object"
+    },
+    "RoleEligibilityScheduleRequestPropertiesScheduleInfo": {
+      "properties": {
+        "expiration": {
+          "description": "Expiration of the role eligibility schedule",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startDateTime": {
+          "description": "Start DateTime of the role eligibility schedule.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration": {
+      "properties": {
+        "duration": {
+          "description": "Duration of the role eligibility schedule in TimeSpan.",
+          "type": "string"
+        },
+        "endDateTime": {
+          "description": "End DateTime of the role eligibility schedule.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Type of the role eligibility schedule expiration",
+          "oneOf": [
+            {
+              "enum": [
+                "AfterDuration",
+                "AfterDateTime",
+                "NoExpiration"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoleEligibilityScheduleRequestPropertiesTicketInfo": {
+      "properties": {
+        "ticketNumber": {
+          "description": "Ticket number for the role eligibility",
+          "type": "string"
+        },
+        "ticketSystem": {
+          "description": "Ticket system name for the role eligibility",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RoleManagementPolicyAssignmentProperties": {
+      "properties": {
+        "effectiveRules": {
+          "description": "The readonly computed rule applied to the policy.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RoleManagementPolicyRule"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyAssignmentProperties": {
+          "description": "Additional properties of scope, role definition and policy",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyId": {
+          "description": "The policy id role management policy assignment.",
+          "type": "string"
+        },
+        "roleDefinitionId": {
+          "description": "The role definition of management policy assignment.",
+          "type": "string"
+        },
+        "scope": {
+          "description": "The role management policy scope.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RoleManagementPolicyRule": {
+      "properties": {
+        "id": {
+          "description": "The id of the rule.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the current rule.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleManagementPolicyRuleTarget"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoleManagementPolicyRuleTarget": {
+      "properties": {
+        "caller": {
+          "description": "The caller of the setting.",
+          "type": "string"
+        },
+        "enforcedSettings": {
+          "description": "The list of enforced settings.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "inheritableSettings": {
+          "description": "The list of inheritable settings.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "level": {
+          "description": "The assignment level to which rule is applied.",
+          "type": "string"
+        },
+        "operations": {
+          "description": "The type of operation.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetObjects": {
+          "description": "The list of target objects.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UserSet": {
+      "properties": {
+        "description": {
+          "description": "The description of the user.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The object id of the user.",
+          "type": "string"
+        },
+        "isBackup": {
+          "description": "The value indicating whether the user is a backup fallback approver",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userType": {
+          "description": "The type of user.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Group"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

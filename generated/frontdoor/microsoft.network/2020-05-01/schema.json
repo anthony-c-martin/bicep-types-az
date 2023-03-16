@@ -1,0 +1,1678 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Network.json#",
+  "title": "Microsoft.Network",
+  "description": "Microsoft Network Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "frontDoors": {
+      "description": "Microsoft.Network/frontDoors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Front Door which is globally unique.",
+          "oneOf": [
+            {
+              "maxLength": 64,
+              "minLength": 5,
+              "pattern": "^[a-zA-Z0-9]+([-a-zA-Z0-9]?[a-zA-Z0-9])*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the Front Door Load Balancer",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FrontDoorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/frontDoors_rulesEngines_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Network/frontDoors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "frontDoors_rulesEngines": {
+      "description": "Microsoft.Network/frontDoors/rulesEngines",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Rules Engine which is unique within the Front Door.",
+          "oneOf": [
+            {
+              "maxLength": 90,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the Rules Engine Configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RulesEngineProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Network/frontDoors/rulesEngines"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "Backend": {
+      "properties": {
+        "address": {
+          "description": "Location of the backend (IP address or FQDN)",
+          "type": "string"
+        },
+        "backendHostHeader": {
+          "description": "The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.",
+          "type": "string"
+        },
+        "enabledState": {
+          "description": "Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "httpPort": {
+          "description": "The HTTP TCP port number. Must be between 1 and 65535.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "httpsPort": {
+          "description": "The HTTPS TCP port number. Must be between 1 and 65535.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "priority": {
+          "description": "Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateEndpointStatus": {
+          "description": "The Approval status for the connection to the Private Link",
+          "oneOf": [
+            {
+              "enum": [
+                "Pending",
+                "Approved",
+                "Rejected",
+                "Disconnected",
+                "Timeout"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateLinkAlias": {
+          "description": "The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'",
+          "type": "string"
+        },
+        "privateLinkApprovalMessage": {
+          "description": "A custom message to be included in the approval request to connect to the Private Link",
+          "type": "string"
+        },
+        "privateLinkLocation": {
+          "description": "The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated",
+          "type": "string"
+        },
+        "privateLinkResourceId": {
+          "description": "The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'",
+          "type": "string"
+        },
+        "weight": {
+          "description": "Weight of this endpoint for load balancing purposes.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BackendPool": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Front Door Backend Pool",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackendPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Resource type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BackendPoolProperties": {
+      "properties": {
+        "backends": {
+          "description": "The set of backends for this pool",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Backend"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "healthProbeSettings": {
+          "description": "L7 health probe settings for a backend pool",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SubResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "loadBalancingSettings": {
+          "description": "Load balancing settings for a backend pool",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SubResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceState": {
+          "description": "Resource status.",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BackendPoolsSettings": {
+      "properties": {
+        "enforceCertificateNameCheck": {
+          "description": "Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sendRecvTimeoutSeconds": {
+          "description": "Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CacheConfiguration": {
+      "properties": {
+        "cacheDuration": {
+          "description": "The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year",
+          "type": "string"
+        },
+        "dynamicCompression": {
+          "description": "Whether to use dynamic compression for cached content",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "queryParameterStripDirective": {
+          "description": "Treatment of URL query terms when forming the cache key.",
+          "oneOf": [
+            {
+              "enum": [
+                "StripNone",
+                "StripAll",
+                "StripOnly",
+                "StripAllExcept"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "queryParameters": {
+          "description": "query parameters to include or exclude (comma separated).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CustomHttpsConfiguration": {
+      "properties": {
+        "certificateSource": {
+          "description": "Defines the source of the SSL certificate",
+          "oneOf": [
+            {
+              "enum": [
+                "AzureKeyVault",
+                "FrontDoor"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "frontDoorCertificateSourceParameters": {
+          "description": "Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FrontDoorCertificateSourceParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keyVaultCertificateSourceParameters": {
+          "description": "KeyVault certificate source parameters (if certificateSource=AzureKeyVault)",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultCertificateSourceParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "minimumTlsVersion": {
+          "description": "The minimum TLS version required from the clients to establish an SSL handshake with Front Door.",
+          "oneOf": [
+            {
+              "enum": [
+                "1.0",
+                "1.2"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protocolType": {
+          "description": "Defines the TLS extension protocol that is used for secure delivery",
+          "oneOf": [
+            {
+              "enum": [
+                "ServerNameIndication"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "certificateSource",
+        "protocolType",
+        "minimumTlsVersion"
+      ],
+      "type": "object"
+    },
+    "FrontDoorCertificateSourceParameters": {
+      "properties": {
+        "certificateType": {
+          "description": "Defines the type of the certificate used for secure connections to a frontendEndpoint",
+          "oneOf": [
+            {
+              "enum": [
+                "Dedicated"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FrontDoorProperties": {
+      "properties": {
+        "backendPools": {
+          "description": "Backend pools available to routing rules.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/BackendPool"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backendPoolsSettings": {
+          "description": "Settings for all backendPools",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackendPoolsSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "cname": {
+          "description": "The host that each frontendEndpoint must CNAME to.",
+          "type": "string"
+        },
+        "enabledState": {
+          "description": "Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "friendlyName": {
+          "description": "A friendly name for the frontDoor",
+          "type": "string"
+        },
+        "frontdoorId": {
+          "description": "The Id of the frontdoor.",
+          "type": "string"
+        },
+        "frontendEndpoints": {
+          "description": "Frontend endpoints available to routing rules.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/FrontendEndpoint"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "healthProbeSettings": {
+          "description": "Health probe settings associated with this Front Door instance.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/HealthProbeSettingsModel"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "loadBalancingSettings": {
+          "description": "Load balancing settings associated with this Front Door instance.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/LoadBalancingSettingsModel"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Provisioning state of the Front Door.",
+          "type": "string"
+        },
+        "resourceState": {
+          "description": "Resource status of the Front Door.",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "routingRules": {
+          "description": "Routing rules associated with this Front Door.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RoutingRule"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rulesEngines": {
+          "description": "Rules Engine Configurations available to routing rules.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RulesEngine"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FrontendEndpoint": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Frontend endpoint",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FrontendEndpointProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Resource type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FrontendEndpointProperties": {
+      "properties": {
+        "customHttpsConfiguration": {
+          "description": "The configuration specifying how to enable HTTPS",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomHttpsConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "customHttpsProvisioningState": {
+          "description": "Provisioning status of Custom Https of the frontendEndpoint.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "customHttpsProvisioningSubstate": {
+          "description": "Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.",
+          "oneOf": [
+            {
+              "enum": [
+                "SubmittingDomainControlValidationRequest",
+                "PendingDomainControlValidationREquestApproval",
+                "DomainControlValidationRequestApproved",
+                "DomainControlValidationRequestRejected",
+                "DomainControlValidationRequestTimedOut",
+                "IssuingCertificate",
+                "DeployingCertificate",
+                "CertificateDeployed",
+                "DeletingCertificate",
+                "CertificateDeleted"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hostName": {
+          "description": "The host name of the frontendEndpoint. Must be a domain name.",
+          "type": "string"
+        },
+        "resourceState": {
+          "description": "Resource status.",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sessionAffinityEnabledState": {
+          "description": "Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sessionAffinityTtlSeconds": {
+          "description": "UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "webApplicationFirewallPolicyLink": {
+          "description": "Defines the Web Application Firewall policy for each host (if applicable)",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HeaderAction": {
+      "properties": {
+        "headerActionType": {
+          "description": "Which type of manipulation to apply to the header.",
+          "oneOf": [
+            {
+              "enum": [
+                "Append",
+                "Delete",
+                "Overwrite"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "headerName": {
+          "description": "The name of the header this action will apply to.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value to update the given header name with. This value is not used if the actionType is Delete.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "headerActionType",
+        "headerName"
+      ],
+      "type": "object"
+    },
+    "HealthProbeSettingsModel": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the health probe settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HealthProbeSettingsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Resource type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HealthProbeSettingsProperties": {
+      "properties": {
+        "enabledState": {
+          "description": "Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "healthProbeMethod": {
+          "description": "Configures which HTTP method to use to probe the backends defined under backendPools.",
+          "oneOf": [
+            {
+              "enum": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "intervalInSeconds": {
+          "description": "The number of seconds between health probes.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "path": {
+          "description": "The path to use for the health probe. Default is /",
+          "type": "string"
+        },
+        "protocol": {
+          "description": "Protocol scheme to use for this probe",
+          "oneOf": [
+            {
+              "enum": [
+                "Http",
+                "Https"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceState": {
+          "description": "Resource status.",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "KeyVaultCertificateSourceParameters": {
+      "properties": {
+        "secretName": {
+          "description": "The name of the Key Vault secret representing the full certificate PFX",
+          "type": "string"
+        },
+        "secretVersion": {
+          "description": "The version of the Key Vault secret representing the full certificate PFX",
+          "type": "string"
+        },
+        "vault": {
+          "description": "The Key Vault containing the SSL certificate",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultCertificateSourceParametersVault"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "KeyVaultCertificateSourceParametersVault": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancingSettingsModel": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the load balancing settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadBalancingSettingsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Resource type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancingSettingsProperties": {
+      "properties": {
+        "additionalLatencyMilliseconds": {
+          "description": "The additional latency in milliseconds for probes to fall into the lowest latency bucket",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceState": {
+          "description": "Resource status.",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sampleSize": {
+          "description": "The number of samples to consider for load balancing decisions",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "successfulSamplesRequired": {
+          "description": "The number of samples within the sample period that must succeed",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RouteConfiguration": {
+      "properties": {},
+      "type": "object"
+    },
+    "RoutingRule": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Front Door Routing Rule",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoutingRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Resource type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RoutingRuleProperties": {
+      "properties": {
+        "acceptedProtocols": {
+          "description": "Protocol schemes to match for this rule",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "Http",
+                      "Https"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enabledState": {
+          "description": "Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "frontendEndpoints": {
+          "description": "Frontend endpoints associated with this rule",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/SubResource"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "patternsToMatch": {
+          "description": "The route patterns of the rule.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceState": {
+          "description": "Resource status.",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "routeConfiguration": {
+          "description": "A reference to the routing configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RouteConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rulesEngine": {
+          "description": "A reference to a specific Rules Engine Configuration to apply to this route.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SubResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "webApplicationFirewallPolicyLink": {
+          "description": "Defines the Web Application Firewall policy for each routing rule (if applicable)",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoutingRuleUpdateParametersWebApplicationFirewallPolicyLink"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RoutingRuleUpdateParametersWebApplicationFirewallPolicyLink": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RulesEngine": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Rules Engine Configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RulesEngineProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Resource type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RulesEngineAction": {
+      "properties": {
+        "requestHeaderActions": {
+          "description": "A list of header actions to apply from the request from AFD to the origin.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/HeaderAction"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "responseHeaderActions": {
+          "description": "A list of header actions to apply from the response from AFD to the client.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/HeaderAction"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "routeConfigurationOverride": {
+          "description": "Override the route configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RouteConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RulesEngineMatchCondition": {
+      "properties": {
+        "negateCondition": {
+          "description": "Describes if this is negate condition or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rulesEngineMatchValue": {
+          "description": "Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rulesEngineMatchVariable": {
+          "description": "Match Variable",
+          "oneOf": [
+            {
+              "enum": [
+                "IsMobile",
+                "RemoteAddr",
+                "RequestMethod",
+                "QueryString",
+                "PostArgs",
+                "RequestUri",
+                "RequestPath",
+                "RequestFilename",
+                "RequestFilenameExtension",
+                "RequestHeader",
+                "RequestBody",
+                "RequestScheme"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rulesEngineOperator": {
+          "description": "Describes operator to apply to the match condition.",
+          "oneOf": [
+            {
+              "enum": [
+                "Any",
+                "IPMatch",
+                "GeoMatch",
+                "Equal",
+                "Contains",
+                "LessThan",
+                "GreaterThan",
+                "LessThanOrEqual",
+                "GreaterThanOrEqual",
+                "BeginsWith",
+                "EndsWith"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selector": {
+          "description": "Name of selector in RequestHeader or RequestBody to be matched",
+          "type": "string"
+        },
+        "transforms": {
+          "description": "List of transforms",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "Lowercase",
+                      "Uppercase",
+                      "Trim",
+                      "UrlDecode",
+                      "UrlEncode",
+                      "RemoveNulls"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "rulesEngineMatchVariable",
+        "rulesEngineOperator",
+        "rulesEngineMatchValue"
+      ],
+      "type": "object"
+    },
+    "RulesEngineProperties": {
+      "properties": {
+        "resourceState": {
+          "description": "Resource status.",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Enabling",
+                "Enabled",
+                "Disabling",
+                "Disabled",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rules": {
+          "description": "A list of rules that define a particular Rules Engine Configuration.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RulesEngineRule"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RulesEngineRule": {
+      "properties": {
+        "action": {
+          "description": "Actions to perform on the request and response if all of the match conditions are met.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RulesEngineAction"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "matchConditions": {
+          "description": "A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RulesEngineMatchCondition"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "matchProcessingBehavior": {
+          "description": "If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.",
+          "oneOf": [
+            {
+              "enum": [
+                "Continue",
+                "Stop"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "A name to refer to this specific rule.",
+          "type": "string"
+        },
+        "priority": {
+          "description": "A priority assigned to this rule. ",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "priority",
+        "action"
+      ],
+      "type": "object"
+    },
+    "SubResource": {
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "frontDoors_rulesEngines_childResource": {
+      "description": "Microsoft.Network/frontDoors/rulesEngines",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Rules Engine which is unique within the Front Door.",
+          "oneOf": [
+            {
+              "maxLength": 90,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the Rules Engine Configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RulesEngineProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Network/frontDoors/rulesEngines"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

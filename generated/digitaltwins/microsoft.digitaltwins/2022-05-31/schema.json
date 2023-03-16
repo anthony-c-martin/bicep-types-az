@@ -1,0 +1,915 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-05-31/Microsoft.DigitalTwins.json#",
+  "title": "Microsoft.DigitalTwins",
+  "description": "Microsoft DigitalTwins Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "digitalTwinsInstances": {
+      "description": "Microsoft.DigitalTwins/digitalTwinsInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-31"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity for the DigitalTwinsInstance.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DigitalTwinsIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the DigitalTwinsInstance.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 3,
+              "pattern": "^(?!-)[A-Za-z0-9-]{3,63}(?<!-)$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "DigitalTwins instance properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DigitalTwinsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/digitalTwinsInstances_endpoints_childResource"
+              },
+              {
+                "$ref": "#/definitions/digitalTwinsInstances_privateEndpointConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/digitalTwinsInstances_timeSeriesDatabaseConnections_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the DigitalTwinsInstance.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DigitalTwins/digitalTwinsInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "digitalTwinsInstances_endpoints": {
+      "description": "Microsoft.DigitalTwins/digitalTwinsInstances/endpoints",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-31"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of Endpoint Resource.",
+          "oneOf": [
+            {
+              "maxLength": 49,
+              "minLength": 2,
+              "pattern": "^(?![0-9]+$)(?!-)[a-zA-Z0-9-]{2,49}[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "DigitalTwinsInstance endpoint resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DigitalTwinsEndpointResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DigitalTwins/digitalTwinsInstances/endpoints"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "digitalTwinsInstances_privateEndpointConnections": {
+      "description": "Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-31"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the private endpoint connection.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The connection properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the private endpoint connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "digitalTwinsInstances_timeSeriesDatabaseConnections": {
+      "description": "Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-31"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of time series database connection.",
+          "oneOf": [
+            {
+              "maxLength": 49,
+              "minLength": 2,
+              "pattern": "^(?![0-9]+$)(?!-)[a-zA-Z0-9-]{2,49}[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a specific time series database connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TimeSeriesDatabaseConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ConnectionProperties": {
+      "properties": {
+        "groupIds": {
+          "description": "The list of group ids for the private endpoint connection.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateEndpoint": {
+          "description": "The private endpoint.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateLinkServiceConnectionState": {
+          "description": "The connection state.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionPropertiesPrivateLinkServiceConnectionState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Pending",
+                "Approved",
+                "Rejected",
+                "Disconnected"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionPropertiesPrivateLinkServiceConnectionState": {
+      "properties": {
+        "actionsRequired": {
+          "description": "Actions required for a private endpoint connection.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description for the current state of a private endpoint connection.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of a private endpoint connection.",
+          "oneOf": [
+            {
+              "enum": [
+                "Pending",
+                "Approved",
+                "Rejected",
+                "Disconnected"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "description"
+      ],
+      "type": "object"
+    },
+    "DigitalTwinsEndpointResourceProperties": {
+      "properties": {
+        "authenticationType": {
+          "description": "Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.",
+          "oneOf": [
+            {
+              "enum": [
+                "KeyBased",
+                "IdentityBased"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdTime": {
+          "description": "Time when the Endpoint was added to DigitalTwinsInstance.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "deadLetterSecret": {
+          "description": "Dead letter storage secret for key-based authentication. Will be obfuscated during read.",
+          "type": "string"
+        },
+        "deadLetterUri": {
+          "description": "Dead letter storage URL for identity-based authentication.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "The provisioning state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Provisioning",
+                "Deleting",
+                "Updating",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Deleted",
+                "Warning",
+                "Suspending",
+                "Restoring",
+                "Moving",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DigitalTwinsIdentity": {
+      "properties": {
+        "principalId": {
+          "description": "The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "SystemAssigned"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DigitalTwinsProperties": {
+      "properties": {
+        "createdTime": {
+          "description": "Time when DigitalTwinsInstance was created.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hostName": {
+          "description": "Api endpoint to work with DigitalTwinsInstance.",
+          "type": "string"
+        },
+        "lastUpdatedTime": {
+          "description": "Time when DigitalTwinsInstance was updated.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateEndpointConnections": {
+          "description": "The private endpoint connections.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/PrivateEndpointConnection"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Provisioning",
+                "Deleting",
+                "Updating",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Deleted",
+                "Warning",
+                "Suspending",
+                "Restoring",
+                "Moving"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publicNetworkAccess": {
+          "description": "Public network access for the DigitalTwinsInstance.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrivateEndpoint": {
+      "properties": {
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PrivateEndpointConnection": {
+      "properties": {
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name.",
+          "oneOf": [
+            {
+              "pattern": "^(?![0-9]+$)(?!-)[a-zA-Z0-9-]{2,49}[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The connection properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the private endpoint connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "The resource type.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The timestamp of resource last modification (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TimeSeriesDatabaseConnectionProperties": {
+      "properties": {
+        "provisioningState": {
+          "description": "The provisioning state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Provisioning",
+                "Deleting",
+                "Updating",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Deleted",
+                "Warning",
+                "Suspending",
+                "Restoring",
+                "Moving",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "digitalTwinsInstances_endpoints_childResource": {
+      "description": "Microsoft.DigitalTwins/digitalTwinsInstances/endpoints",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-31"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of Endpoint Resource.",
+          "oneOf": [
+            {
+              "maxLength": 49,
+              "minLength": 2,
+              "pattern": "^(?![0-9]+$)(?!-)[a-zA-Z0-9-]{2,49}[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "DigitalTwinsInstance endpoint resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DigitalTwinsEndpointResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DigitalTwins/digitalTwinsInstances/endpoints"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "digitalTwinsInstances_privateEndpointConnections_childResource": {
+      "description": "Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-31"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the private endpoint connection.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The connection properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the private endpoint connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "digitalTwinsInstances_timeSeriesDatabaseConnections_childResource": {
+      "description": "Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-31"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of time series database connection.",
+          "oneOf": [
+            {
+              "maxLength": 49,
+              "minLength": 2,
+              "pattern": "^(?![0-9]+$)(?!-)[a-zA-Z0-9-]{2,49}[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a specific time series database connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TimeSeriesDatabaseConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

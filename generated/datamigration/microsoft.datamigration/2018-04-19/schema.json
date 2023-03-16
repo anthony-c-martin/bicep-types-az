@@ -1,0 +1,4017 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2018-04-19/Microsoft.DataMigration.json#",
+  "title": "Microsoft.DataMigration",
+  "description": "Microsoft DataMigration Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "services": {
+      "description": "Microsoft.DataMigration/services",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-04-19"
+          ],
+          "type": "string"
+        },
+        "etag": {
+          "description": "HTTP strong entity tag value. Ignored if submitted",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "The resource kind. Only 'vm' (the default) is supported.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the service",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Custom service properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataMigrationServiceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/services_projects_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "sku": {
+          "description": "Service SKU",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceSku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataMigration/services"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "services_projects": {
+      "description": "Microsoft.DataMigration/services/projects",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-04-19"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the project",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Project properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProjectProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/services_projects_tasks_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataMigration/services/projects"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "services_projects_tasks": {
+      "description": "Microsoft.DataMigration/services/projects/tasks",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-04-19"
+          ],
+          "type": "string"
+        },
+        "etag": {
+          "description": "HTTP strong entity tag value. This is ignored if submitted.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Task",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Custom task properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProjectTaskProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataMigration/services/projects/tasks"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AzureActiveDirectoryApp": {
+      "properties": {
+        "appKey": {
+          "description": "Key used to authenticate to the Azure Active Directory Application",
+          "type": "string"
+        },
+        "applicationId": {
+          "description": "Application ID of the Azure Active Directory Application",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "Tenant id of the customer",
+          "type": "string"
+        }
+      },
+      "required": [
+        "applicationId",
+        "appKey",
+        "tenantId"
+      ],
+      "type": "object"
+    },
+    "BackupFileInfo": {
+      "properties": {
+        "familySequenceNumber": {
+          "description": "Sequence number of the backup file in the backup set",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "fileLocation": {
+          "description": "Location of the backup file in shared folder",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the backup file during migration",
+          "oneOf": [
+            {
+              "enum": [
+                "Arrived",
+                "Queued",
+                "Uploading",
+                "Uploaded",
+                "Restoring",
+                "Restored",
+                "Cancelled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BackupSetInfo": {
+      "properties": {
+        "backupFinishedDate": {
+          "description": "Date and time that the backup operation finished",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupSetId": {
+          "description": "Id for the set of backup files",
+          "type": "string"
+        },
+        "backupStartDate": {
+          "description": "Date and time that the backup operation began",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupType": {
+          "description": "Enum of the different backup types",
+          "oneOf": [
+            {
+              "enum": [
+                "Database",
+                "TransactionLog",
+                "File",
+                "DifferentialDatabase",
+                "DifferentialFile",
+                "Partial",
+                "DifferentialPartial"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "databaseName": {
+          "description": "Name of the database to which the backup set belongs",
+          "type": "string"
+        },
+        "firstLsn": {
+          "description": "First log sequence number of the backup file",
+          "type": "string"
+        },
+        "isBackupRestored": {
+          "description": "Whether the backup set is restored or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastLsn": {
+          "description": "Last log sequence number of the backup file",
+          "type": "string"
+        },
+        "lastModifiedTime": {
+          "description": "Last modified time of the backup file in share location",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "listOfBackupFiles": {
+          "description": "List of files in the backup set",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/BackupFileInfo"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BlobShare": {
+      "properties": {
+        "sasUri": {
+          "description": "SAS URI of Azure Storage Account Container.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sasUri"
+      ],
+      "type": "object"
+    },
+    "CommandProperties": {
+      "properties": {
+        "errors": {
+          "description": "Array of errors. This is ignored if submitted.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ODataError"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "The state of the command. This is ignored if submitted.",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "Accepted",
+                "Running",
+                "Succeeded",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToSourceMySqlTaskInput": {
+      "properties": {
+        "checkPermissionsGroup": {
+          "description": "Permission group for validations",
+          "oneOf": [
+            {
+              "enum": [
+                "Default",
+                "MigrationFromSqlServerToAzureDB",
+                "MigrationFromSqlServerToAzureMI",
+                "MigrationFromMySQLToAzureDBForMySQL"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Information for connecting to MySQL source",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetPlatform": {
+          "description": "Target Platform for the migration",
+          "oneOf": [
+            {
+              "enum": [
+                "SqlServer",
+                "AzureDbForMySQL"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToSourceNonSqlTaskOutput": {
+      "properties": {
+        "databases": {
+          "description": "List of databases on the server",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "serverProperties": {
+          "description": "Server properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceServerBrandVersion": {
+          "description": "Server brand version",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors associated with the task",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToSourcePostgreSqlSyncTaskInput": {
+      "properties": {
+        "sourceConnectionInfo": {
+          "description": "Connection information for source PostgreSQL server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PostgreSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToSourcePostgreSqlSyncTaskOutput": {
+      "properties": {
+        "databases": {
+          "description": "List of databases on source server",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "sourceServerBrandVersion": {
+          "description": "Source server brand version",
+          "type": "string"
+        },
+        "sourceServerVersion": {
+          "description": "Version of the source server",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors associated with the task",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToSourceSqlServerTaskInput": {
+      "properties": {
+        "checkPermissionsGroup": {
+          "description": "Permission group for validations",
+          "oneOf": [
+            {
+              "enum": [
+                "Default",
+                "MigrationFromSqlServerToAzureDB",
+                "MigrationFromSqlServerToAzureMI",
+                "MigrationFromMySQLToAzureDBForMySQL"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "collectAgentJobs": {
+          "description": "Flag for whether to collect agent jobs from source server.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "collectLogins": {
+          "description": "Flag for whether to collect logins from source server.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Connection information for Source SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToSourceSqlServerTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToTargetAzureDbForMySqlTaskInput": {
+      "properties": {
+        "sourceConnectionInfo": {
+          "description": "Connection information for source MySQL server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for target Azure Database for MySQL server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo",
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToTargetAzureDbForMySqlTaskOutput": {
+      "properties": {
+        "databases": {
+          "description": "List of databases on target server",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "serverVersion": {
+          "description": "Version of the target server",
+          "type": "string"
+        },
+        "targetServerBrandVersion": {
+          "description": "Target server brand version",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors associated with the task",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToTargetAzureDbForPostgreSqlSyncTaskInput": {
+      "properties": {
+        "sourceConnectionInfo": {
+          "description": "Connection information for source PostgreSQL server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PostgreSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for target Azure Database for PostgreSQL server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PostgreSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo",
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToTargetAzureDbForPostgreSqlSyncTaskOutput": {
+      "properties": {
+        "databases": {
+          "description": "List of databases on target server",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "targetServerBrandVersion": {
+          "description": "Target server brand version",
+          "type": "string"
+        },
+        "targetServerVersion": {
+          "description": "Version of the target server",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors associated with the task",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToTargetSqlDbSyncTaskInput": {
+      "properties": {
+        "sourceConnectionInfo": {
+          "description": "Connection information for source SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for target SQL DB",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo",
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToTargetSqlDbTaskInput": {
+      "properties": {
+        "targetConnectionInfo": {
+          "description": "Connection information for target SQL DB",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToTargetSqlDbTaskOutput": {
+      "properties": {
+        "databases": {
+          "description": "Source databases as a map from database name to database id",
+          "type": "string"
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "targetServerBrandVersion": {
+          "description": "Target server brand version",
+          "type": "string"
+        },
+        "targetServerVersion": {
+          "description": "Version of the target server",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToTargetSqlMISyncTaskInput": {
+      "properties": {
+        "azureApp": {
+          "description": "Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureActiveDirectoryApp"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for Azure SQL Database Managed Instance",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MiSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetConnectionInfo",
+        "azureApp"
+      ],
+      "type": "object"
+    },
+    "ConnectToTargetSqlMISyncTaskOutput": {
+      "properties": {
+        "targetServerBrandVersion": {
+          "description": "Target server brand version",
+          "type": "string"
+        },
+        "targetServerVersion": {
+          "description": "Target server version",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectToTargetSqlMITaskInput": {
+      "properties": {
+        "targetConnectionInfo": {
+          "description": "Connection information for target SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "ConnectToTargetSqlMITaskOutput": {
+      "properties": {
+        "agentJobs": {
+          "description": "List of agent jobs on the target server.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "logins": {
+          "description": "List of logins on the target server.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetServerBrandVersion": {
+          "description": "Target server brand version",
+          "type": "string"
+        },
+        "targetServerVersion": {
+          "description": "Target server version",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionInfo": {
+      "properties": {
+        "password": {
+          "description": "Password credential.",
+          "type": "string"
+        },
+        "userName": {
+          "description": "User name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DataIntegrityValidationResult": {
+      "properties": {
+        "failedObjects": {
+          "description": "List of failed table names of source and target pair",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "validationErrors": {
+          "description": "List of errors that happened while performing data integrity validation",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ValidationError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DataMigrationServiceProperties": {
+      "properties": {
+        "provisioningState": {
+          "description": "The resource's provisioning state",
+          "oneOf": [
+            {
+              "enum": [
+                "Accepted",
+                "Deleting",
+                "Deploying",
+                "Stopped",
+                "Stopping",
+                "Starting",
+                "FailedToStart",
+                "FailedToStop",
+                "Succeeded",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publicKey": {
+          "description": "The public key of the service, used to encrypt secrets sent to the service",
+          "type": "string"
+        },
+        "virtualSubnetId": {
+          "description": "The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined",
+          "type": "string"
+        }
+      },
+      "required": [
+        "virtualSubnetId"
+      ],
+      "type": "object"
+    },
+    "DatabaseBackupInfo": {
+      "properties": {
+        "backupFiles": {
+          "description": "The list of backup files for the current database.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupFinishDate": {
+          "description": "Date and time when the backup operation finished.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupType": {
+          "description": "Backup Type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Database",
+                "TransactionLog",
+                "File",
+                "DifferentialDatabase",
+                "DifferentialFile",
+                "Partial",
+                "DifferentialPartial"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "databaseName": {
+          "description": "Database name.",
+          "type": "string"
+        },
+        "familyCount": {
+          "description": "Number of files in the backup set.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isCompressed": {
+          "description": "Whether the backup set is compressed",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isDamaged": {
+          "description": "Database was damaged when backed up, but the backup operation was requested to continue despite errors.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "position": {
+          "description": "Position of current database backup in the file.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatabaseFileInfo": {
+      "properties": {
+        "databaseName": {
+          "description": "Name of the database",
+          "type": "string"
+        },
+        "fileType": {
+          "description": "Database file type",
+          "oneOf": [
+            {
+              "enum": [
+                "Rows",
+                "Log",
+                "Filestream",
+                "NotSupported",
+                "Fulltext"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Unique identifier for database file",
+          "type": "string"
+        },
+        "logicalName": {
+          "description": "Logical name of the file",
+          "type": "string"
+        },
+        "physicalFullName": {
+          "description": "Operating-system full path of the file",
+          "type": "string"
+        },
+        "restoreFullName": {
+          "description": "Suggested full path of the file for restoring",
+          "type": "string"
+        },
+        "sizeMB": {
+          "description": "Size of the file in megabytes",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatabaseInfo": {
+      "properties": {
+        "sourceDatabaseName": {
+          "description": "Name of the database",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceDatabaseName"
+      ],
+      "type": "object"
+    },
+    "ExecutionStatistics": {
+      "properties": {
+        "cpuTimeMs": {
+          "description": "CPU Time in millisecond(s) for the query execution",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "elapsedTimeMs": {
+          "description": "Time taken in millisecond(s) for executing the query",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "executionCount": {
+          "description": "No. of query executions",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hasErrors": {
+          "description": "Indicates whether the query resulted in an error",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sqlErrors": {
+          "description": "List of sql Errors",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "waitStats": {
+          "description": "Dictionary of sql query execution wait types and the respective statistics",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/WaitStatistics"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FileShare": {
+      "properties": {
+        "password": {
+          "description": "Password credential used to connect to the share location.",
+          "type": "string"
+        },
+        "path": {
+          "description": "The folder path for this share.",
+          "type": "string"
+        },
+        "userName": {
+          "description": "User name credential to connect to the share location",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "type": "object"
+    },
+    "GetTdeCertificatesSqlTaskInput": {
+      "properties": {
+        "backupFileShare": {
+          "description": "Backup file share information for file share to be used for temporarily storing files.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "connectionInfo": {
+          "description": "Connection information for SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedCertificates": {
+          "description": "List containing certificate names and corresponding password to use for encrypting the exported certificate.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/SelectedCertificateInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "connectionInfo",
+        "backupFileShare",
+        "selectedCertificates"
+      ],
+      "type": "object"
+    },
+    "GetTdeCertificatesSqlTaskOutput": {
+      "properties": {
+        "base64EncodedCertificates": {
+          "description": "Mapping from certificate name to base 64 encoded format.",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetUserTablesSqlSyncTaskInput": {
+      "properties": {
+        "selectedSourceDatabases": {
+          "description": "List of source database names to collect tables for",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedTargetDatabases": {
+          "description": "List of target database names to collect tables for",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Connection information for SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for SQL DB",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo",
+        "targetConnectionInfo",
+        "selectedSourceDatabases",
+        "selectedTargetDatabases"
+      ],
+      "type": "object"
+    },
+    "GetUserTablesSqlSyncTaskOutput": {
+      "properties": {
+        "databasesToSourceTables": {
+          "description": "Mapping from database name to list of source tables",
+          "type": "string"
+        },
+        "databasesToTargetTables": {
+          "description": "Mapping from database name to list of target tables",
+          "type": "string"
+        },
+        "tableValidationErrors": {
+          "description": "Mapping from database name to list of validation errors",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetUserTablesSqlTaskInput": {
+      "properties": {
+        "connectionInfo": {
+          "description": "Connection information for SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedDatabases": {
+          "description": "List of database names to collect tables for",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "connectionInfo",
+        "selectedDatabases"
+      ],
+      "type": "object"
+    },
+    "GetUserTablesSqlTaskOutput": {
+      "properties": {
+        "databasesToTables": {
+          "description": "Mapping from database name to list of tables",
+          "type": "string"
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Validation errors",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MiSqlConnectionInfo": {
+      "properties": {
+        "managedInstanceResourceId": {
+          "description": "Resource id for Azure SQL database Managed instance",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password credential.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of connection info",
+          "type": "string"
+        },
+        "userName": {
+          "description": "User name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "managedInstanceResourceId",
+        "type"
+      ],
+      "type": "object"
+    },
+    "MigrateMISyncCompleteCommandInput": {
+      "properties": {
+        "sourceDatabaseName": {
+          "description": "Name of managed instance database",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceDatabaseName"
+      ],
+      "type": "object"
+    },
+    "MigrateMISyncCompleteCommandOutput": {
+      "properties": {
+        "errors": {
+          "description": "List of errors that happened during the command execution",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MigrateMySqlAzureDbForMySqlSyncDatabaseInput": {
+      "properties": {
+        "migrationSetting": {
+          "description": "Migration settings which tune the migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of the database",
+          "type": "string"
+        },
+        "sourceSetting": {
+          "description": "Source settings to tune source endpoint migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetDatabaseName": {
+          "description": "Name of target database. Note: Target database will be truncated before starting migration.",
+          "type": "string"
+        },
+        "targetSetting": {
+          "description": "Target settings to tune target endpoint migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MigrateMySqlAzureDbForMySqlSyncTaskInput": {
+      "properties": {
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateMySqlAzureDbForMySqlSyncDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Connection information for source MySQL",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for target Azure Database for MySQL",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo",
+        "targetConnectionInfo",
+        "selectedDatabases"
+      ],
+      "type": "object"
+    },
+    "MigrateMySqlAzureDbForMySqlSyncTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput": {
+      "properties": {
+        "migrationSetting": {
+          "description": "Migration settings which tune the migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of the database",
+          "type": "string"
+        },
+        "sourceSetting": {
+          "description": "Source settings to tune source endpoint migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetDatabaseName": {
+          "description": "Name of target database. Note: Target database will be truncated before starting migration.",
+          "type": "string"
+        },
+        "targetSetting": {
+          "description": "Target settings to tune target endpoint migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput": {
+      "properties": {
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Connection information for source PostgreSQL",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PostgreSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for target Azure Database for PostgreSQL",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PostgreSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "selectedDatabases",
+        "targetConnectionInfo",
+        "sourceConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrateSqlServerSqlDbDatabaseInput": {
+      "properties": {
+        "makeSourceDbReadOnly": {
+          "description": "Whether to set database read only before migration",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of the database",
+          "type": "string"
+        },
+        "tableMap": {
+          "description": "Mapping of source to target tables",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetDatabaseName": {
+          "description": "Name of target database. Note: Target database will be truncated before starting migration.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrateSqlServerSqlDbSyncDatabaseInput": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier for database",
+          "type": "string"
+        },
+        "migrationSetting": {
+          "description": "Migration settings which tune the migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of database",
+          "type": "string"
+        },
+        "schemaName": {
+          "description": "Schema name to be migrated",
+          "type": "string"
+        },
+        "sourceSetting": {
+          "description": "Source settings to tune source endpoint migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tableMap": {
+          "description": "Mapping of source to target tables",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetDatabaseName": {
+          "description": "Target database name",
+          "type": "string"
+        },
+        "targetSetting": {
+          "description": "Target settings to tune target endpoint migration behavior",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MigrateSqlServerSqlDbSyncTaskInput": {
+      "properties": {
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateSqlServerSqlDbSyncDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Information for connecting to source",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Information for connecting to target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "validationOptions": {
+          "description": "Validation options",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MigrationValidationOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "selectedDatabases",
+        "sourceConnectionInfo",
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "MigrateSqlServerSqlDbSyncTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrateSqlServerSqlDbTaskInput": {
+      "properties": {
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateSqlServerSqlDbDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Information for connecting to source",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Information for connecting to target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "validationOptions": {
+          "description": "Options for enabling various post migration validations. Available options, \n 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. \n 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MigrationValidationOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "selectedDatabases",
+        "sourceConnectionInfo",
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "MigrateSqlServerSqlDbTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrateSqlServerSqlMIDatabaseInput": {
+      "properties": {
+        "backupFilePaths": {
+          "description": "The list of backup files to be used in case of existing backups.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupFileShare": {
+          "description": "Backup file share information for backing up this database.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of the database",
+          "type": "string"
+        },
+        "restoreDatabaseName": {
+          "description": "Name of the database at destination",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "restoreDatabaseName"
+      ],
+      "type": "object"
+    },
+    "MigrateSqlServerSqlMISyncTaskInput": {
+      "properties": {
+        "azureApp": {
+          "description": "Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureActiveDirectoryApp"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupFileShare": {
+          "description": "Backup file share information for all selected databases.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Connection information for source SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageResourceId": {
+          "description": "Fully qualified resourceId of storage",
+          "type": "string"
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for Azure SQL Database Managed Instance",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MiSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "selectedDatabases",
+        "storageResourceId",
+        "sourceConnectionInfo",
+        "targetConnectionInfo",
+        "azureApp"
+      ],
+      "type": "object"
+    },
+    "MigrateSqlServerSqlMISyncTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrateSqlServerSqlMITaskInput": {
+      "properties": {
+        "backupBlobShare": {
+          "description": "SAS URI of Azure Storage Account Container to be used for storing backup files.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BlobShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupFileShare": {
+          "description": "Backup file share information for all selected databases.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupMode": {
+          "description": "Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.",
+          "oneOf": [
+            {
+              "enum": [
+                "CreateBackup",
+                "ExistingBackup"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedAgentJobs": {
+          "description": "Agent Jobs to migrate.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedLogins": {
+          "description": "Logins to migrate.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Information for connecting to source",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Information for connecting to target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "selectedDatabases",
+        "backupBlobShare",
+        "sourceConnectionInfo",
+        "targetConnectionInfo"
+      ],
+      "type": "object"
+    },
+    "MigrateSqlServerSqlMITaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrateSyncCompleteCommandInput": {
+      "properties": {
+        "commitTimeStamp": {
+          "description": "Time stamp to complete",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "databaseName": {
+          "description": "Name of database",
+          "type": "string"
+        }
+      },
+      "required": [
+        "databaseName"
+      ],
+      "type": "object"
+    },
+    "MigrateSyncCompleteCommandOutput": {
+      "properties": {
+        "errors": {
+          "description": "List of errors that happened during the command execution",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrationEligibilityInfo": {
+      "properties": {
+        "isEligibleForMigration": {
+          "description": "Whether object is eligible for migration or not.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "validationMessages": {
+          "description": "Information about eligibility failure for the server object.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MigrationReportResult": {
+      "properties": {
+        "id": {
+          "description": "Migration validation result identifier",
+          "type": "string"
+        },
+        "reportUrl": {
+          "description": "The url of the report.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrationValidationDatabaseSummaryResult": {
+      "properties": {
+        "endedOn": {
+          "description": "Validation end time",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "migrationId": {
+          "description": "Migration Identifier",
+          "type": "string"
+        },
+        "sourceDatabaseName": {
+          "description": "Name of the source database",
+          "type": "string"
+        },
+        "startedOn": {
+          "description": "Validation start time",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Current status of validation at the database level",
+          "oneOf": [
+            {
+              "enum": [
+                "Default",
+                "NotStarted",
+                "Initialized",
+                "InProgress",
+                "Completed",
+                "CompletedWithIssues",
+                "Failed",
+                "Stopped"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetDatabaseName": {
+          "description": "Name of the target database",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrationValidationOptions": {
+      "properties": {
+        "enableDataIntegrityValidation": {
+          "description": "Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enableQueryAnalysisValidation": {
+          "description": "Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enableSchemaValidation": {
+          "description": "Allows to compare the schema information between source and target.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MySqlConnectionInfo": {
+      "properties": {
+        "password": {
+          "description": "Password credential.",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port for Server",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serverName": {
+          "description": "Name of the server",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of connection info",
+          "type": "string"
+        },
+        "userName": {
+          "description": "User name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "serverName",
+        "port",
+        "type"
+      ],
+      "type": "object"
+    },
+    "ODataError": {
+      "properties": {
+        "code": {
+          "description": "The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'",
+          "type": "string"
+        },
+        "details": {
+          "description": "Inner errors that caused this error",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ODataError"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "message": {
+          "description": "The human-readable description of the error",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OrphanedUserInfo": {
+      "properties": {
+        "databaseName": {
+          "description": "Parent database of the user",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the orphaned user",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PostgreSqlConnectionInfo": {
+      "properties": {
+        "databaseName": {
+          "description": "Name of the database",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password credential.",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port for Server",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serverName": {
+          "description": "Name of the server",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of connection info",
+          "type": "string"
+        },
+        "userName": {
+          "description": "User name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "serverName",
+        "port",
+        "type"
+      ],
+      "type": "object"
+    },
+    "ProjectProperties": {
+      "properties": {
+        "creationTime": {
+          "description": "UTC Date and time when project was created",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "databasesInfo": {
+          "description": "List of DatabaseInfo",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/DatabaseInfo"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The project's provisioning state",
+          "oneOf": [
+            {
+              "enum": [
+                "Deleting",
+                "Succeeded"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Information for connecting to source",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourcePlatform": {
+          "description": "Source platform for the project",
+          "oneOf": [
+            {
+              "enum": [
+                "SQL",
+                "Unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Information for connecting to target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetPlatform": {
+          "description": "Target platform for the project",
+          "oneOf": [
+            {
+              "enum": [
+                "SQLDB",
+                "Unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourcePlatform",
+        "targetPlatform"
+      ],
+      "type": "object"
+    },
+    "ProjectTaskProperties": {
+      "properties": {
+        "commands": {
+          "description": "Array of command properties.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/CommandProperties"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "errors": {
+          "description": "Array of errors. This is ignored if submitted.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ODataError"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "The state of the task. This is ignored if submitted.",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "Queued",
+                "Running",
+                "Canceled",
+                "Succeeded",
+                "Failed",
+                "FailedInputValidation",
+                "Faulted"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "QueryAnalysisValidationResult": {
+      "properties": {
+        "queryResults": {
+          "description": "List of queries executed and it's execution results in source and target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QueryExecutionResult"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "validationErrors": {
+          "description": "Errors that are part of the execution",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ValidationError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "QueryExecutionResult": {
+      "properties": {
+        "queryText": {
+          "description": "Query text retrieved from the source server",
+          "type": "string"
+        },
+        "sourceResult": {
+          "description": "Query analysis result from the source",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExecutionStatistics"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "statementsInBatch": {
+          "description": "Total no. of statements in the batch",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetResult": {
+          "description": "Query analysis result from the target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExecutionStatistics"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ReportableException": {
+      "properties": {
+        "actionableMessage": {
+          "description": "Actionable steps for this exception",
+          "type": "string"
+        },
+        "filePath": {
+          "description": "The path to the file where exception occurred",
+          "type": "string"
+        },
+        "hResult": {
+          "description": "Coded numerical value that is assigned to a specific exception",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lineNumber": {
+          "description": "The line number where exception occurred",
+          "type": "string"
+        },
+        "message": {
+          "description": "Error message",
+          "type": "string"
+        },
+        "stackTrace": {
+          "description": "Stack trace",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SchemaComparisonValidationResult": {
+      "properties": {
+        "schemaDifferences": {
+          "description": "List of schema differences between the source and target databases",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaComparisonValidationResultType"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceDatabaseObjectCount": {
+          "description": "Count of source database objects",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetDatabaseObjectCount": {
+          "description": "Count of target database objects",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "validationErrors": {
+          "description": "List of errors that happened while performing schema compare validation",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ValidationError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SchemaComparisonValidationResultType": {
+      "properties": {
+        "objectName": {
+          "description": "Name of the object that has the difference",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "Type of the object that has the difference. e.g (Table/View/StoredProcedure)",
+          "oneOf": [
+            {
+              "enum": [
+                "StoredProcedures",
+                "Table",
+                "User",
+                "View",
+                "Function"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "updateAction": {
+          "description": "Update action type with respect to target",
+          "oneOf": [
+            {
+              "enum": [
+                "DeletedOnTarget",
+                "ChangedOnTarget",
+                "AddedOnTarget"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SelectedCertificateInput": {
+      "properties": {
+        "certificateName": {
+          "description": "Name of certificate to be exported.",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password to use for encrypting the exported certificate.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "certificateName",
+        "password"
+      ],
+      "type": "object"
+    },
+    "ServerProperties": {
+      "properties": {
+        "serverDatabaseCount": {
+          "description": "Number of databases in the server",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serverEdition": {
+          "description": "Edition of the database server",
+          "type": "string"
+        },
+        "serverName": {
+          "description": "Name of the server",
+          "type": "string"
+        },
+        "serverOperatingSystemVersion": {
+          "description": "Version of the operating system",
+          "type": "string"
+        },
+        "serverPlatform": {
+          "description": "Name of the server platform",
+          "type": "string"
+        },
+        "serverVersion": {
+          "description": "Version of the database server",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ServiceSku": {
+      "properties": {
+        "capacity": {
+          "description": "The capacity of the SKU, if it supports scaling",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "family": {
+          "description": "The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines",
+          "type": "string"
+        },
+        "name": {
+          "description": "The unique name of the SKU, such as 'P3'",
+          "type": "string"
+        },
+        "size": {
+          "description": "The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines",
+          "type": "string"
+        },
+        "tier": {
+          "description": "The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SqlConnectionInfo": {
+      "properties": {
+        "additionalSettings": {
+          "description": "Additional connection settings",
+          "type": "string"
+        },
+        "authentication": {
+          "description": "Authentication type to use for connection",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "WindowsAuthentication",
+                "SqlAuthentication",
+                "ActiveDirectoryIntegrated",
+                "ActiveDirectoryPassword"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dataSource": {
+          "description": "Data source in the format Protocol:MachineName\\SQLServerInstanceName,PortNumber",
+          "type": "string"
+        },
+        "encryptConnection": {
+          "description": "Whether to encrypt the connection",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "password": {
+          "description": "Password credential.",
+          "type": "string"
+        },
+        "platform": {
+          "description": "Server platform type for connection",
+          "oneOf": [
+            {
+              "enum": [
+                "SqlOnPrem"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "trustServerCertificate": {
+          "description": "Whether to trust the server certificate",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Type of connection info",
+          "type": "string"
+        },
+        "userName": {
+          "description": "User name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dataSource",
+        "type"
+      ],
+      "type": "object"
+    },
+    "SyncMigrationDatabaseErrorEvent": {
+      "properties": {
+        "eventText": {
+          "description": "Event text.",
+          "type": "string"
+        },
+        "eventTypeString": {
+          "description": "Event type.",
+          "type": "string"
+        },
+        "timestampString": {
+          "description": "String value of timestamp.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateMigrationInputSqlServerSqlMISyncTaskInput": {
+      "properties": {
+        "azureApp": {
+          "description": "Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AzureActiveDirectoryApp"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupFileShare": {
+          "description": "Backup file share information for all selected databases.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Connection information for source SQL Server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageResourceId": {
+          "description": "Fully qualified resourceId of storage",
+          "type": "string"
+        },
+        "targetConnectionInfo": {
+          "description": "Connection information for Azure SQL Database Managed Instance",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MiSqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "selectedDatabases",
+        "storageResourceId",
+        "sourceConnectionInfo",
+        "targetConnectionInfo",
+        "azureApp"
+      ],
+      "type": "object"
+    },
+    "ValidateMigrationInputSqlServerSqlMISyncTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Database identifier",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of database",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Errors associated with a selected database object",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidateMigrationInputSqlServerSqlMITaskInput": {
+      "properties": {
+        "backupBlobShare": {
+          "description": "SAS URI of Azure Storage Account Container to be used for storing backup files.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BlobShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupFileShare": {
+          "description": "Backup file share information for all selected databases.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShare"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupMode": {
+          "description": "Backup Mode to specify whether to use existing backup or create new backup.",
+          "oneOf": [
+            {
+              "enum": [
+                "CreateBackup",
+                "ExistingBackup"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selectedLogins": {
+          "description": "Logins to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Information for connecting to source",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Information for connecting to target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo",
+        "targetConnectionInfo",
+        "selectedDatabases",
+        "backupBlobShare"
+      ],
+      "type": "object"
+    },
+    "ValidateMigrationInputSqlServerSqlMITaskOutput": {
+      "properties": {
+        "backupFolderErrors": {
+          "description": "Errors associated with the BackupFolder path",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupShareCredentialsErrors": {
+          "description": "Errors associated with backup share user name and password credentials",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupStorageAccountErrors": {
+          "description": "Errors associated with the storage account provided.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "databaseBackupInfo": {
+          "description": "Information about backup files when existing backup mode is used.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseBackupInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "existingBackupErrors": {
+          "description": "Errors associated with existing backup files.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "id": {
+          "description": "Result identifier",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of database",
+          "type": "string"
+        },
+        "restoreDatabaseNameErrors": {
+          "description": "Errors associated with the RestoreDatabaseName",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidateSyncMigrationInputSqlServerTaskInput": {
+      "properties": {
+        "selectedDatabases": {
+          "description": "Databases to migrate",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/MigrateSqlServerSqlDbSyncDatabaseInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionInfo": {
+          "description": "Information for connecting to source SQL server",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetConnectionInfo": {
+          "description": "Information for connecting to target",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SqlConnectionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionInfo",
+        "targetConnectionInfo",
+        "selectedDatabases"
+      ],
+      "type": "object"
+    },
+    "ValidateSyncMigrationInputSqlServerTaskOutput": {
+      "properties": {
+        "id": {
+          "description": "Database identifier",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of database",
+          "type": "string"
+        },
+        "validationErrors": {
+          "description": "Errors associated with a selected database object",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReportableException"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidationError": {
+      "properties": {
+        "severity": {
+          "description": "Severity of the error",
+          "oneOf": [
+            {
+              "enum": [
+                "Message",
+                "Warning",
+                "Error"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "text": {
+          "description": "Error Text",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WaitStatistics": {
+      "properties": {
+        "waitCount": {
+          "description": "Total no. of waits",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "waitTimeMs": {
+          "description": "Total wait time in millisecond(s)",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "waitType": {
+          "description": "Type of the Wait",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "services_projects_childResource": {
+      "description": "Microsoft.DataMigration/services/projects",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-04-19"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the project",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Project properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProjectProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataMigration/services/projects"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "services_projects_tasks_childResource": {
+      "description": "Microsoft.DataMigration/services/projects/tasks",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-04-19"
+          ],
+          "type": "string"
+        },
+        "etag": {
+          "description": "HTTP strong entity tag value. This is ignored if submitted.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Task",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Custom task properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProjectTaskProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataMigration/services/projects/tasks"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

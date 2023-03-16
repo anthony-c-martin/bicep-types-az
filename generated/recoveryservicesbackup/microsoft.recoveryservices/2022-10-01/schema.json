@@ -1,0 +1,3095 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-10-01/Microsoft.RecoveryServices.json#",
+  "title": "Microsoft.RecoveryServices",
+  "description": "Microsoft RecoveryServices Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "vaults_backupEncryptionConfigs": {
+      "description": "Microsoft.RecoveryServices/vaults/backupEncryptionConfigs",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/backupResourceEncryptionConfig$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BackupResourceEncryptionConfigResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupResourceEncryptionConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupEncryptionConfigs"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupFabrics_backupProtectionIntent": {
+      "description": "Microsoft.RecoveryServices/vaults/backupFabrics/backupProtectionIntent",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Intent object name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ProtectionIntentResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectionIntent"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupFabrics/backupProtectionIntent"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupFabrics_protectionContainers": {
+      "description": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the container to be registered.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ProtectionContainerResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectionContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/vaults_backupFabrics_protectionContainers_protectedItems_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupFabrics_protectionContainers_protectedItems": {
+      "description": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Item name to be backed up.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ProtectedItemResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectedItem"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupPolicies": {
+      "description": "Microsoft.RecoveryServices/vaults/backupPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Backup policy to be created.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ProtectionPolicyResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectionPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupResourceGuardProxies": {
+      "description": "Microsoft.RecoveryServices/vaults/backupResourceGuardProxies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ResourceGuardProxyBaseResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceGuardProxyBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupResourceGuardProxies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupconfig": {
+      "description": "Microsoft.RecoveryServices/vaults/backupconfig",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/vaultconfig$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BackupResourceVaultConfigResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupResourceVaultConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupconfig"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupstorageconfig": {
+      "description": "Microsoft.RecoveryServices/vaults/backupstorageconfig",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/vaultstorageconfig$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BackupResourceConfigResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupResourceConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupstorageconfig"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_privateEndpointConnections": {
+      "description": "Microsoft.RecoveryServices/vaults/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the private endpoint connection.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "PrivateEndpointConnectionResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnection"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AzureFileshareProtectedItemExtendedInfo": {
+      "properties": {
+        "oldestRecoveryPoint": {
+          "description": "The oldest backup copy available for this item in the service.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyState": {
+          "description": "Indicates consistency of policy object and policy applied to this backup item.",
+          "type": "string"
+        },
+        "recoveryPointCount": {
+          "description": "Number of available backup copies associated with this backup item.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceState": {
+          "description": "Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}",
+          "type": "string"
+        },
+        "resourceStateSyncTime": {
+          "description": "The resource state sync time for this backup item.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AzureIaaSVMHealthDetails": {
+      "properties": {
+        "code": {
+          "description": "Health Code",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "message": {
+          "description": "Health Message",
+          "type": "string"
+        },
+        "recommendations": {
+          "description": "Health Recommended Actions",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "title": {
+          "description": "Health Title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AzureIaaSVMProtectedItemExtendedInfo": {
+      "properties": {
+        "newestRecoveryPointInArchive": {
+          "description": "The latest backup copy available for this backup item in archive tier",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPoint": {
+          "description": "The oldest backup copy available for this backup item across all tiers.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPointInArchive": {
+          "description": "The oldest backup copy available for this backup item in archive tier",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPointInVault": {
+          "description": "The oldest backup copy available for this backup item in vault tier",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyInconsistent": {
+          "description": "Specifies if backup policy associated with the backup item is inconsistent.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryPointCount": {
+          "description": "Number of backup copies available for this backup item.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AzureSqlProtectedItemExtendedInfo": {
+      "properties": {
+        "oldestRecoveryPoint": {
+          "description": "The oldest backup copy available for this item in the service.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyState": {
+          "description": "State of the backup policy associated with this backup item.",
+          "type": "string"
+        },
+        "recoveryPointCount": {
+          "description": "Number of available backup copies associated with this backup item.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AzureVmWorkloadProtectedItemExtendedInfo": {
+      "properties": {
+        "newestRecoveryPointInArchive": {
+          "description": "The latest backup copy available for this backup item in archive tier",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPoint": {
+          "description": "The oldest backup copy available for this backup item across all tiers.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPointInArchive": {
+          "description": "The oldest backup copy available for this backup item in archive tier",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPointInVault": {
+          "description": "The oldest backup copy available for this backup item in vault tier",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyState": {
+          "description": "Indicates consistency of policy object and policy applied to this backup item.",
+          "type": "string"
+        },
+        "recoveryModel": {
+          "description": "Indicates consistency of policy object and policy applied to this backup item.",
+          "type": "string"
+        },
+        "recoveryPointCount": {
+          "description": "Number of backup copies available for this backup item.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AzureWorkloadContainerExtendedInfo": {
+      "properties": {
+        "hostServerName": {
+          "description": "Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.",
+          "type": "string"
+        },
+        "inquiryInfo": {
+          "description": "Inquiry Status for the container.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InquiryInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "nodesList": {
+          "description": "List of the nodes in case of distributed container.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/DistributedNodesInfo"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BackupResourceConfig": {
+      "properties": {
+        "crossRegionRestoreFlag": {
+          "description": "Opt in details of Cross Region Restore feature.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dedupState": {
+          "description": "Vault Dedup state",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageModelType": {
+          "description": "Storage type",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "GeoRedundant",
+                "LocallyRedundant",
+                "ZoneRedundant",
+                "ReadAccessGeoZoneRedundant"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageType": {
+          "description": "Storage type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "GeoRedundant",
+                "LocallyRedundant",
+                "ZoneRedundant",
+                "ReadAccessGeoZoneRedundant"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageTypeState": {
+          "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Locked",
+                "Unlocked"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "xcoolState": {
+          "description": "Vault x-cool state",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BackupResourceEncryptionConfig": {
+      "properties": {
+        "encryptionAtRestType": {
+          "description": "Encryption At Rest Type",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "MicrosoftManaged",
+                "CustomerManaged"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "infrastructureEncryptionState": {
+          "description": "",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Disabled",
+                "Enabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keyUri": {
+          "description": "Key Vault Key URI",
+          "type": "string"
+        },
+        "lastUpdateStatus": {
+          "description": "",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "NotEnabled",
+                "PartiallySucceeded",
+                "PartiallyFailed",
+                "Failed",
+                "Succeeded",
+                "Initialized",
+                "FirstInitialization"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subscriptionId": {
+          "description": "Key Vault Subscription Id",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BackupResourceVaultConfig": {
+      "properties": {
+        "enhancedSecurityState": {
+          "description": "Enabled or Disabled.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isSoftDeleteFeatureStateEditable": {
+          "description": "Is soft delete feature state editable",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceGuardOperationRequests": {
+          "description": "ResourceGuard Operation Requests",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "softDeleteFeatureState": {
+          "description": "Soft Delete feature state",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageModelType": {
+          "description": "Storage type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "GeoRedundant",
+                "LocallyRedundant",
+                "ZoneRedundant",
+                "ReadAccessGeoZoneRedundant"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageType": {
+          "description": "Storage type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "GeoRedundant",
+                "LocallyRedundant",
+                "ZoneRedundant",
+                "ReadAccessGeoZoneRedundant"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageTypeState": {
+          "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Locked",
+                "Unlocked"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContainerIdentityInfo": {
+      "properties": {
+        "aadTenantId": {
+          "description": "Protection container identity - AAD Tenant",
+          "type": "string"
+        },
+        "audience": {
+          "description": "Protection container identity - Audience",
+          "type": "string"
+        },
+        "servicePrincipalClientId": {
+          "description": "Protection container identity - AAD Service Principal",
+          "type": "string"
+        },
+        "uniqueName": {
+          "description": "Unique name of the container",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DPMContainerExtendedInfo": {
+      "properties": {
+        "lastRefreshedAt": {
+          "description": "Last refresh time of the DPMContainer.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DPMProtectedItemExtendedInfo": {
+      "properties": {
+        "diskStorageUsedInBytes": {
+          "description": "Used Disk storage in bytes.",
+          "type": "string"
+        },
+        "isCollocated": {
+          "description": "To check if backup item is collocated.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isPresentOnCloud": {
+          "description": "To check if backup item is cloud protected.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastBackupStatus": {
+          "description": "Last backup status information on backup item.",
+          "type": "string"
+        },
+        "lastRefreshedAt": {
+          "description": "Last refresh time on backup item.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPoint": {
+          "description": "Oldest cloud recovery point time.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "onPremiseLatestRecoveryPoint": {
+          "description": "latest disk recovery point time.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "onPremiseOldestRecoveryPoint": {
+          "description": "Oldest disk recovery point time.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "onPremiseRecoveryPointCount": {
+          "description": "disk recovery point count.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protectableObjectLoadPath": {
+          "description": "Attribute to provide information on various DBs.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protected": {
+          "description": "To check if backup item is disk protected.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protectionGroupName": {
+          "description": "Protection group name of the backup item.",
+          "type": "string"
+        },
+        "recoveryPointCount": {
+          "description": "cloud recovery point count.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "totalDiskStorageSizeInBytes": {
+          "description": "total Disk storage in bytes.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DailyRetentionFormat": {
+      "properties": {
+        "daysOfTheMonth": {
+          "description": "List of days of the month.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Day"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DailyRetentionSchedule": {
+      "properties": {
+        "retentionDuration": {
+          "description": "Retention duration of retention Policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionTimes": {
+          "description": "Retention times of retention policy.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DailySchedule": {
+      "properties": {
+        "scheduleRunTimes": {
+          "description": "List of times of day this schedule has to be run.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Day": {
+      "properties": {
+        "date": {
+          "description": "Date of the month",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isLast": {
+          "description": "Whether Date is last date of month",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DiskExclusionProperties": {
+      "properties": {
+        "diskLunList": {
+          "description": "List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isInclusionList": {
+          "description": "Flag to indicate whether DiskLunList is to be included/ excluded from backup.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DistributedNodesInfo": {
+      "properties": {
+        "errorDetail": {
+          "description": "Error Details if the Status is non-success.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "nodeName": {
+          "description": "Name of the node under a distributed container.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of this Node.\r\nFailed | Succeeded",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorDetail": {
+      "properties": {
+        "code": {
+          "description": "Error code.",
+          "type": "string"
+        },
+        "message": {
+          "description": "Error Message related to the Code.",
+          "type": "string"
+        },
+        "recommendations": {
+          "description": "List of recommendation strings.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ExtendedProperties": {
+      "properties": {
+        "diskExclusionProperties": {
+          "description": "Extended Properties for Disk Exclusion.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiskExclusionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "linuxVmApplicationName": {
+          "description": "Linux VM name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GenericContainerExtendedInfo": {
+      "properties": {
+        "containerIdentityInfo": {
+          "description": "Container identity information",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerIdentityInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rawCertData": {
+          "description": "Public key of container cert",
+          "type": "string"
+        },
+        "serviceEndpoints": {
+          "description": "Azure Backup Service Endpoints for the container",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HourlySchedule": {
+      "properties": {
+        "interval": {
+          "description": "Interval at which backup needs to be triggered. For hourly the value\r\n can be 4/6/8/12",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scheduleWindowDuration": {
+          "description": "To specify duration of the backup window",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scheduleWindowStartTime": {
+          "description": "To specify start time of the backup window",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InquiryInfo": {
+      "properties": {
+        "errorDetail": {
+          "description": "Error Details if the Status is non-success.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "inquiryDetails": {
+          "description": "Inquiry Details which will have workload specific details.\r\nFor e.g. - For SQL and oracle this will contain different details.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/WorkloadInquiryDetails"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Inquiry Status for this container such as\r\nInProgress | Failed | Succeeded",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InquiryValidation": {
+      "properties": {
+        "additionalDetail": {
+          "description": "Error Additional Detail in case the status is non-success.",
+          "type": "string"
+        },
+        "errorDetail": {
+          "description": "Error Detail in case the status is non-success.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Status for the Inquiry Validation.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InstantRPAdditionalDetails": {
+      "properties": {
+        "azureBackupRGNamePrefix": {
+          "description": "",
+          "type": "string"
+        },
+        "azureBackupRGNameSuffix": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "KPIResourceHealthDetails": {
+      "properties": {
+        "resourceHealthDetails": {
+          "description": "Resource Health Status",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ResourceHealthDetails"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceHealthStatus": {
+          "description": "Resource Health Status",
+          "oneOf": [
+            {
+              "enum": [
+                "Healthy",
+                "TransientDegraded",
+                "PersistentDegraded",
+                "TransientUnhealthy",
+                "PersistentUnhealthy",
+                "Invalid"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MABContainerHealthDetails": {
+      "properties": {
+        "code": {
+          "description": "Health Code",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "message": {
+          "description": "Health Message",
+          "type": "string"
+        },
+        "recommendations": {
+          "description": "Health Recommended Actions",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "title": {
+          "description": "Health Title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MabContainerExtendedInfo": {
+      "properties": {
+        "backupItemType": {
+          "description": "Type of backup items associated with this container.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "VM",
+                "FileFolder",
+                "AzureSqlDb",
+                "SQLDB",
+                "Exchange",
+                "Sharepoint",
+                "VMwareVM",
+                "SystemState",
+                "Client",
+                "GenericDataSource",
+                "SQLDataBase",
+                "AzureFileShare",
+                "SAPHanaDatabase",
+                "SAPAseDatabase",
+                "SAPHanaDBInstance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupItems": {
+          "description": "List of backup items associated with this container.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastBackupStatus": {
+          "description": "Latest backup status of this container.",
+          "type": "string"
+        },
+        "lastRefreshedAt": {
+          "description": "Time stamp when this container was refreshed.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyName": {
+          "description": "Backup policy associated with this container.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MabFileFolderProtectedItemExtendedInfo": {
+      "properties": {
+        "lastRefreshedAt": {
+          "description": "Last time when the agent data synced to service.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "oldestRecoveryPoint": {
+          "description": "The oldest backup copy available.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryPointCount": {
+          "description": "Number of backup copies associated with the backup item.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MonthlyRetentionSchedule": {
+      "properties": {
+        "retentionDuration": {
+          "description": "Retention duration of retention Policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionScheduleDaily": {
+          "description": "Daily retention format for monthly retention policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DailyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionScheduleFormatType": {
+          "description": "Retention schedule format type for monthly retention policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Daily",
+                "Weekly"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionScheduleWeekly": {
+          "description": "Weekly retention format for monthly retention policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WeeklyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionTimes": {
+          "description": "Retention times of retention policy.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrivateEndpoint": {
+      "properties": {
+        "id": {
+          "description": "Gets or sets id",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PrivateEndpointConnection": {
+      "properties": {
+        "privateEndpoint": {
+          "description": "Gets or sets private endpoint associated with the private endpoint connection",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateLinkServiceConnectionState": {
+          "description": "Gets or sets private link service connection state",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateLinkServiceConnectionState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Gets or sets provisioning state of the private endpoint connection",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Deleting",
+                "Failed",
+                "Pending"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrivateLinkServiceConnectionState": {
+      "properties": {
+        "actionRequired": {
+          "description": "Gets or sets actions required",
+          "type": "string"
+        },
+        "description": {
+          "description": "Gets or sets description",
+          "type": "string"
+        },
+        "status": {
+          "description": "Gets or sets the status",
+          "oneOf": [
+            {
+              "enum": [
+                "Pending",
+                "Approved",
+                "Rejected",
+                "Disconnected"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProtectedItem": {
+      "properties": {
+        "backupManagementType": {
+          "description": "Type of backup management for the backed up item.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "AzureIaasVM",
+                "MAB",
+                "DPM",
+                "AzureBackupServer",
+                "AzureSql",
+                "AzureStorage",
+                "AzureWorkload",
+                "DefaultBackup"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupSetName": {
+          "description": "Name of the backup set the backup item belongs to",
+          "type": "string"
+        },
+        "containerName": {
+          "description": "Unique name of container",
+          "type": "string"
+        },
+        "createMode": {
+          "description": "Create mode to indicate recovery of existing soft deleted data source or creation of new data source.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Default",
+                "Recover"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "deferredDeleteTimeInUTC": {
+          "description": "Time for deferred deletion in UTC",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "deferredDeleteTimeRemaining": {
+          "description": "Time remaining before the DS marked for deferred delete is permanently deleted",
+          "type": "string"
+        },
+        "isArchiveEnabled": {
+          "description": "Flag to identify whether datasource is protected in archive",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isDeferredDeleteScheduleUpcoming": {
+          "description": "Flag to identify whether the deferred deleted DS is to be purged soon",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isRehydrate": {
+          "description": "Flag to identify that deferred deleted DS is to be moved into Pause state",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isScheduledForDeferredDelete": {
+          "description": "Flag to identify whether the DS is scheduled for deferred delete",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastRecoveryPoint": {
+          "description": "Timestamp when the last (latest) backup copy was created for this backup item.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyId": {
+          "description": "ID of the backup policy with which this item is backed up.",
+          "type": "string"
+        },
+        "policyName": {
+          "description": "Name of the policy used for protection",
+          "type": "string"
+        },
+        "resourceGuardOperationRequests": {
+          "description": "ResourceGuardOperationRequests on which LAC check will be performed",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "softDeleteRetentionPeriod": {
+          "description": "Soft delete retention period in days",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceResourceId": {
+          "description": "ARM ID of the resource to be backed up.",
+          "type": "string"
+        },
+        "workloadType": {
+          "description": "Type of workload this item represents.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "VM",
+                "FileFolder",
+                "AzureSqlDb",
+                "SQLDB",
+                "Exchange",
+                "Sharepoint",
+                "VMwareVM",
+                "SystemState",
+                "Client",
+                "GenericDataSource",
+                "SQLDataBase",
+                "AzureFileShare",
+                "SAPHanaDatabase",
+                "SAPAseDatabase",
+                "SAPHanaDBInstance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProtectionContainer": {
+      "properties": {
+        "backupManagementType": {
+          "description": "Type of backup management for the container.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "AzureIaasVM",
+                "MAB",
+                "DPM",
+                "AzureBackupServer",
+                "AzureSql",
+                "AzureStorage",
+                "AzureWorkload",
+                "DefaultBackup"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "friendlyName": {
+          "description": "Friendly name of the container.",
+          "type": "string"
+        },
+        "healthStatus": {
+          "description": "Status of health of the container.",
+          "type": "string"
+        },
+        "protectableObjectType": {
+          "description": "Type of the protectable object associated with this container",
+          "type": "string"
+        },
+        "registrationStatus": {
+          "description": "Status of registration of the container with the Recovery Services Vault.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ProtectionIntent": {
+      "properties": {
+        "backupManagementType": {
+          "description": "Type of backup management for the backed up item.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "AzureIaasVM",
+                "MAB",
+                "DPM",
+                "AzureBackupServer",
+                "AzureSql",
+                "AzureStorage",
+                "AzureWorkload",
+                "DefaultBackup"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "itemId": {
+          "description": "ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId",
+          "type": "string"
+        },
+        "policyId": {
+          "description": "ID of the backup policy with which this item is backed up.",
+          "type": "string"
+        },
+        "protectionState": {
+          "description": "Backup state of this backup item.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "NotProtected",
+                "Protecting",
+                "Protected",
+                "ProtectionFailed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceResourceId": {
+          "description": "ARM ID of the resource to be backed up.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ProtectionPolicy": {
+      "properties": {
+        "protectedItemsCount": {
+          "description": "Number of items associated with this policy.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceGuardOperationRequests": {
+          "description": "ResourceGuard Operation Requests",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceGuardOperationDetail": {
+      "properties": {
+        "defaultResourceRequest": {
+          "description": "",
+          "type": "string"
+        },
+        "vaultCriticalOperation": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceGuardProxyBase": {
+      "properties": {
+        "description": {
+          "description": "",
+          "type": "string"
+        },
+        "lastUpdatedTime": {
+          "description": "",
+          "type": "string"
+        },
+        "resourceGuardOperationDetails": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ResourceGuardOperationDetail"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceGuardResourceId": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceHealthDetails": {
+      "properties": {
+        "code": {
+          "description": "Health Code",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "message": {
+          "description": "Health Message",
+          "type": "string"
+        },
+        "recommendations": {
+          "description": "Health Recommended Actions",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "title": {
+          "description": "Health Title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RetentionDuration": {
+      "properties": {
+        "count": {
+          "description": "Count of duration types. Retention duration is obtained by the counting the duration type Count times.\r\nFor example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "durationType": {
+          "description": "Retention duration type of retention policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Days",
+                "Weeks",
+                "Months",
+                "Years"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RetentionPolicy": {
+      "properties": {},
+      "type": "object"
+    },
+    "SchedulePolicy": {
+      "properties": {},
+      "type": "object"
+    },
+    "Settings": {
+      "properties": {
+        "isCompression": {
+          "description": "Workload compression flag. This has been added so that 'isSqlCompression'\r\nwill be deprecated once clients upgrade to consider this flag.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "issqlcompression": {
+          "description": "SQL compression flag",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "timeZone": {
+          "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SubProtectionPolicy": {
+      "properties": {
+        "policyType": {
+          "description": "Type of backup policy type",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Full",
+                "Differential",
+                "Log",
+                "CopyOnlyFull",
+                "Incremental",
+                "SnapshotFull",
+                "SnapshotCopyOnlyFull"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionPolicy": {
+          "description": "Retention policy with the details on backup copy retention ranges.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "schedulePolicy": {
+          "description": "Backup schedule specified as part of backup policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchedulePolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tieringPolicy": {
+          "description": "Tiering policy to automatically move RPs to another tier.\r\nKey is Target Tier, defined in RecoveryPointTierType enum.\r\nTiering policy specifies the criteria to move RP to the target tier.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/TieringPolicy"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TieringPolicy": {
+      "properties": {
+        "duration": {
+          "description": "Number of days/weeks/months/years to retain backups in current tier before tiering.\r\nUsed only if TieringMode is set to TierAfter",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "durationType": {
+          "description": "Retention duration type: days/weeks/months/years\r\nUsed only if TieringMode is set to TierAfter",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Days",
+                "Weeks",
+                "Months",
+                "Years"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tieringMode": {
+          "description": "Tiering Mode to control automatic tiering of recovery points. Supported values are:\r\n1. TierRecommended: Tier all recovery points recommended to be tiered\r\n2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.\r\n3. DoNotTier: Do not tier any recovery points",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "TierRecommended",
+                "TierAfter",
+                "DoNotTier"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "WeeklyRetentionFormat": {
+      "properties": {
+        "daysOfTheWeek": {
+          "description": "List of days of the week.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "Sunday",
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "weeksOfTheMonth": {
+          "description": "List of weeks of month.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "First",
+                      "Second",
+                      "Third",
+                      "Fourth",
+                      "Last",
+                      "Invalid"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "WeeklyRetentionSchedule": {
+      "properties": {
+        "daysOfTheWeek": {
+          "description": "List of days of week for weekly retention policy.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "Sunday",
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionDuration": {
+          "description": "Retention duration of retention Policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionTimes": {
+          "description": "Retention times of retention policy.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "WeeklySchedule": {
+      "properties": {
+        "scheduleRunDays": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "Sunday",
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scheduleRunTimes": {
+          "description": "List of times of day this schedule has to be run.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "WorkloadInquiryDetails": {
+      "properties": {
+        "inquiryValidation": {
+          "description": "Inquiry validation such as permissions and other backup validations.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InquiryValidation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "itemCount": {
+          "description": "Contains the protectable item Count inside this Container.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Type of the Workload such as SQL, Oracle etc.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YearlyRetentionSchedule": {
+      "properties": {
+        "monthsOfYear": {
+          "description": "List of months of year of yearly retention policy.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "Invalid",
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionDuration": {
+          "description": "Retention duration of retention Policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionDuration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionScheduleDaily": {
+          "description": "Daily retention format for yearly retention policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DailyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionScheduleFormatType": {
+          "description": "Retention schedule format for yearly retention policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Daily",
+                "Weekly"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionScheduleWeekly": {
+          "description": "Weekly retention format for yearly retention policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WeeklyRetentionFormat"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionTimes": {
+          "description": "Retention times of retention policy.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "vaults_backupFabrics_protectionContainers_protectedItems_childResource": {
+      "description": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Item name to be backed up.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ProtectedItemResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectedItem"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

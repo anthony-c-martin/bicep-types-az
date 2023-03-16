@@ -1,0 +1,395 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2016-03-01/Microsoft.Web.json#",
+  "title": "Microsoft.Web",
+  "description": "Microsoft Web Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "certificates": {
+      "description": "Microsoft.Web/certificates",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-03-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource Location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the certificate.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Certificate resource specific properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/certificates"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "publishingUsers": {
+      "description": "Microsoft.Web/publishingUsers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-03-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of resource.",
+          "type": "string"
+        },
+        "name": {
+          "enum": [
+            "web"
+          ],
+          "type": "string"
+        },
+        "properties": {
+          "description": "User resource specific properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/publishingUsers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "sourcecontrols": {
+      "description": "Microsoft.Web/sourcecontrols",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-03-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Type of source control",
+          "type": "string"
+        },
+        "properties": {
+          "description": "SourceControl resource specific properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SourceControlProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/sourcecontrols"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "CertificateProperties": {
+      "properties": {
+        "cerBlob": {
+          "description": "Raw bytes of .cer file"
+        },
+        "expirationDate": {
+          "description": "Certificate expiration date.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "friendlyName": {
+          "description": "Friendly name of the certificate.",
+          "type": "string"
+        },
+        "geoRegion": {
+          "description": "Region of the certificate.",
+          "type": "string"
+        },
+        "hostNames": {
+          "description": "Host names the certificate applies to.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hostingEnvironmentProfile": {
+          "description": "Specification for the App Service Environment to use for the certificate.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HostingEnvironmentProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "issueDate": {
+          "description": "Certificate issue Date.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "issuer": {
+          "description": "Certificate issuer.",
+          "type": "string"
+        },
+        "keyVaultId": {
+          "description": "Key Vault Csm resource Id.",
+          "type": "string"
+        },
+        "keyVaultSecretName": {
+          "description": "Key Vault secret name.",
+          "type": "string"
+        },
+        "keyVaultSecretStatus": {
+          "description": "Status of the Key Vault secret.",
+          "oneOf": [
+            {
+              "enum": [
+                "Initialized",
+                "WaitingOnCertificateOrder",
+                "Succeeded",
+                "CertificateOrderFailed",
+                "OperationNotPermittedOnKeyVault",
+                "AzureServiceUnauthorizedToAccessKeyVault",
+                "KeyVaultDoesNotExist",
+                "KeyVaultSecretDoesNotExist",
+                "UnknownError",
+                "ExternalPrivateKey",
+                "Unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "password": {
+          "description": "Certificate password.",
+          "type": "string"
+        },
+        "pfxBlob": {
+          "description": "Pfx blob."
+        },
+        "publicKeyHash": {
+          "description": "Public key hash.",
+          "type": "string"
+        },
+        "selfLink": {
+          "description": "Self link.",
+          "type": "string"
+        },
+        "serverFarmId": {
+          "description": "Resource ID of the associated App Service plan, formatted as: \"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}\".",
+          "type": "string"
+        },
+        "siteName": {
+          "description": "App name.",
+          "type": "string"
+        },
+        "subjectName": {
+          "description": "Subject name of the certificate.",
+          "type": "string"
+        },
+        "thumbprint": {
+          "description": "Certificate thumbprint.",
+          "type": "string"
+        },
+        "valid": {
+          "description": "Is the certificate valid?.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "password"
+      ],
+      "type": "object"
+    },
+    "HostingEnvironmentProfile": {
+      "properties": {
+        "id": {
+          "description": "Resource ID of the App Service Environment.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the App Service Environment.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Resource type of the App Service Environment.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SourceControlProperties": {
+      "properties": {
+        "expirationTime": {
+          "description": "OAuth token expiration.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name or source control type.",
+          "type": "string"
+        },
+        "refreshToken": {
+          "description": "OAuth refresh token.",
+          "type": "string"
+        },
+        "token": {
+          "description": "OAuth access token.",
+          "type": "string"
+        },
+        "tokenSecret": {
+          "description": "OAuth access token secret.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UserProperties": {
+      "properties": {
+        "name": {
+          "description": "Username",
+          "type": "string"
+        },
+        "publishingPassword": {
+          "description": "Password used for publishing.",
+          "type": "string"
+        },
+        "publishingPasswordHash": {
+          "description": "Password hash used for publishing.",
+          "type": "string"
+        },
+        "publishingPasswordHashSalt": {
+          "description": "Password hash salt used for publishing.",
+          "type": "string"
+        },
+        "publishingUserName": {
+          "description": "Username used for publishing.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "publishingUserName"
+      ],
+      "type": "object"
+    }
+  }
+}

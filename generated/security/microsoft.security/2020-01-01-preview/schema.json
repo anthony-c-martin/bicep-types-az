@@ -1,0 +1,383 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-01-01-preview/Microsoft.Security.json#",
+  "title": "Microsoft.Security",
+  "description": "Microsoft Security Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "subscription_resourceDefinitions": {
+    "connectors": {
+      "description": "Microsoft.Security/connectors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the cloud account connector",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Connector setting data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/connectors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "securityContacts": {
+      "description": "Microsoft.Security/securityContacts",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the security contact object",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Security contact data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContactProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/securityContacts"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AuthenticationDetailsProperties": {
+      "properties": {
+        "authenticationProvisioningState": {
+          "description": "State of the multi-cloud connector",
+          "oneOf": [
+            {
+              "enum": [
+                "Valid",
+                "Invalid",
+                "Expired",
+                "IncorrectPolicy"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "grantedPermissions": {
+          "description": "The permissions detected in the cloud account.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "AWS::AWSSecurityHubReadOnlyAccess",
+                      "AWS::SecurityAudit",
+                      "AWS::AmazonSSMAutomationRole",
+                      "GCP::Security Center Admin Viewer"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectorSettingProperties": {
+      "properties": {
+        "authenticationDetails": {
+          "description": "Settings for authentication management, these settings are relevant only for the cloud connector.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthenticationDetailsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hybridComputeSettings": {
+          "description": "Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HybridComputeSettingsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HybridComputeSettingsProperties": {
+      "properties": {
+        "autoProvision": {
+          "description": "Whether or not to automatically install Azure Arc (hybrid compute) agents on machines",
+          "oneOf": [
+            {
+              "enum": [
+                "On",
+                "Off"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hybridComputeProvisioningState": {
+          "description": "State of the service principal and its secret",
+          "oneOf": [
+            {
+              "enum": [
+                "Valid",
+                "Invalid",
+                "Expired"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "proxyServer": {
+          "description": "For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProxyServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "region": {
+          "description": "The location where the metadata of machines will be stored",
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "description": "The name of the resource group where Arc (Hybrid Compute) connectors are connected.",
+          "type": "string"
+        },
+        "servicePrincipal": {
+          "description": "An object to access resources that are secured by an Azure AD tenant.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServicePrincipalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "autoProvision"
+      ],
+      "type": "object"
+    },
+    "ProxyServerProperties": {
+      "properties": {
+        "ip": {
+          "description": "Proxy server IP",
+          "type": "string"
+        },
+        "port": {
+          "description": "Proxy server port",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SecurityContactProperties": {
+      "properties": {
+        "alertNotifications": {
+          "description": "Defines whether to send email notifications about new security alerts",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContactPropertiesAlertNotifications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "emails": {
+          "description": "List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.",
+          "type": "string"
+        },
+        "notificationsByRole": {
+          "description": "Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContactPropertiesNotificationsByRole"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "phone": {
+          "description": "The security contact's phone number",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SecurityContactPropertiesAlertNotifications": {
+      "properties": {
+        "minimalSeverity": {
+          "description": "Defines the minimal alert severity which will be sent as email notifications",
+          "oneOf": [
+            {
+              "enum": [
+                "High",
+                "Medium",
+                "Low"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "Defines if email notifications will be sent about new security alerts",
+          "oneOf": [
+            {
+              "enum": [
+                "On",
+                "Off"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SecurityContactPropertiesNotificationsByRole": {
+      "properties": {
+        "roles": {
+          "description": "Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: ",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "AccountAdmin",
+                      "ServiceAdmin",
+                      "Owner",
+                      "Contributor"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.",
+          "oneOf": [
+            {
+              "enum": [
+                "On",
+                "Off"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ServicePrincipalProperties": {
+      "properties": {
+        "applicationId": {
+          "description": "Application ID of service principal.",
+          "type": "string"
+        },
+        "secret": {
+          "description": "A secret string that the application uses to prove its identity, also can be referred to as application password (write only).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

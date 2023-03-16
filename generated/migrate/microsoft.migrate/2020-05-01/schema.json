@@ -1,0 +1,578 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-05-01/Microsoft.Migrate.json#",
+  "title": "Microsoft.Migrate",
+  "description": "Microsoft Migrate Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "migrateProjects": {
+      "description": "Microsoft.Migrate/migrateProjects",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "For optimistic concurrency control.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}",
+          "type": "string"
+        },
+        "location": {
+          "description": "Azure location in which project is created.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Migrate project name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of a migrate project.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MigrateProjectProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/migrateProjects_privateEndpointConnections_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Migrate/migrateProjects"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "migrateProjects_privateEndpointConnections": {
+      "description": "Microsoft.Migrate/migrateProjects/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Gets the tag for optimistic concurrency control.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Private endpoint connection name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of Connection state request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionStateRequestBodyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Migrate/migrateProjects/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ConnectionStateRequestBodyProperties": {
+      "properties": {
+        "privateLinkServiceConnectionState": {
+          "description": "Private endpoint connection state.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateLinkServiceConnectionState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MigrateProjectProperties": {
+      "properties": {
+        "lastSummaryRefreshedTime": {
+          "description": "Last summary refresh time.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateEndpointConnections": {
+          "description": "Gets the private endpoint connections.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/PrivateEndpointConnection"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publicNetworkAccess": {
+          "description": "Gets or sets the state of public network access.",
+          "oneOf": [
+            {
+              "enum": [
+                "NotSpecified",
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "refreshSummaryState": {
+          "description": "Refresh summary state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Started",
+                "InProgress",
+                "Completed",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "registeredTools": {
+          "description": "Register tools inside project.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "ServerDiscovery",
+                      "ServerAssessment",
+                      "ServerMigration",
+                      "Cloudamize",
+                      "Turbonomic",
+                      "Zerto",
+                      "CorentTech",
+                      "ServerAssessmentV1",
+                      "ServerMigration_Replication",
+                      "Carbonite",
+                      "DataMigrationAssistant",
+                      "DatabaseMigrationService",
+                      "Device42",
+                      "JetStream",
+                      "RackWare",
+                      "UnifyCloud",
+                      "Flexera",
+                      "ServerDiscovery_Import",
+                      "Lakeside",
+                      "AppServiceMigrationAssistant",
+                      "Movere",
+                      "CloudSphere",
+                      "Unknown"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serviceEndpoint": {
+          "description": "Service endpoint.",
+          "type": "string"
+        },
+        "summary": {
+          "description": "Project summary.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ProjectSummary"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "utilityStorageAccountId": {
+          "description": "Utility storage account id.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PrivateEndpointConnection": {
+      "properties": {
+        "eTag": {
+          "description": "Gets the tag for optimistic concurrency control.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Relative URL to get this Sites.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets the name of the resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Gets the properties of the object.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Gets the resource type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PrivateEndpointConnectionProperties": {
+      "properties": {
+        "privateEndpoint": {
+          "description": "",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateLinkServiceConnectionState": {
+          "description": "Gets the properties of the object.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateLinkServiceConnectionState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Provisioning state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Accepted",
+                "InProgress",
+                "Succeeded",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrivateLinkServiceConnectionState": {
+      "properties": {
+        "actionsRequired": {
+          "description": "Action required.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the object.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Private link connection state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Approved",
+                "Pending",
+                "Rejected",
+                "Disconnected"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProjectSummary": {
+      "properties": {
+        "extendedSummary": {
+          "description": "Extended summary.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "instanceType": {
+          "description": "Instance type.",
+          "type": "string"
+        },
+        "lastSummaryRefreshedTime": {
+          "description": "Last summary refresh time.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "refreshSummaryState": {
+          "description": "Refresh summary state.",
+          "oneOf": [
+            {
+              "enum": [
+                "Started",
+                "InProgress",
+                "Completed",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceId": {
+      "properties": {
+        "id": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "migrateProjects_privateEndpointConnections_childResource": {
+      "description": "Microsoft.Migrate/migrateProjects/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Gets the tag for optimistic concurrency control.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Private endpoint connection name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of Connection state request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionStateRequestBodyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Migrate/migrateProjects/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

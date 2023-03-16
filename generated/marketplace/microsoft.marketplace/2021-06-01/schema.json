@@ -1,0 +1,1174 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-06-01/Microsoft.Marketplace.json#",
+  "title": "Microsoft.Marketplace",
+  "description": "Microsoft Marketplace Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "tenant_resourceDefinitions": {
+    "privateStores": {
+      "description": "Microsoft.Marketplace/privateStores",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The store ID - must use the tenant ID",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The PrivateStore data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateStoreProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/privateStores_collections_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateStores_requestApprovals_childResource"
+              },
+              {
+                "$ref": "#/definitions/privateStores_adminRequestApprovals_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateStores_adminRequestApprovals": {
+      "description": "Microsoft.Marketplace/privateStores/adminRequestApprovals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The admin request approval ID to get create or update",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The privateStore admin Approval request data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdminRequestApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/adminRequestApprovals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateStores_collections": {
+      "description": "Microsoft.Marketplace/privateStores/collections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The collection ID",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The collection data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CollectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/privateStores_collections_offers_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/collections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateStores_collections_offers": {
+      "description": "Microsoft.Marketplace/privateStores/collections/offers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The offer ID to update or delete",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The privateStore offer data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OfferProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/collections/offers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateStores_requestApprovals": {
+      "description": "Microsoft.Marketplace/privateStores/requestApprovals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The request approval ID to get create or update",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The privateStore approval request data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RequestApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/requestApprovals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AdminRequestApprovalProperties": {
+      "properties": {
+        "adminAction": {
+          "description": "Gets or sets admin action",
+          "oneOf": [
+            {
+              "enum": [
+                "Approved",
+                "Rejected"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "administrator": {
+          "description": "Gets or sets admin details",
+          "type": "string"
+        },
+        "approvedPlans": {
+          "description": "Gets or sets Approved plans ids, empty in case of rejected",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "collectionIds": {
+          "description": "Gets or sets list of associated collection ids",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "comment": {
+          "description": "Gets or sets admin comment",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Gets display name",
+          "type": "string"
+        },
+        "offerId": {
+          "description": "Gets or sets offer Id",
+          "type": "string"
+        },
+        "plans": {
+          "description": "Gets list of plans with requesters details",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/PlanRequesterDetails"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publisherId": {
+          "description": "Gets or sets publisher Id",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CollectionProperties": {
+      "properties": {
+        "allSubscriptions": {
+          "description": "Indicating whether all subscriptions are selected (=true) or not (=false).",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "claim": {
+          "description": "Gets or sets the association with Commercial's Billing Account.",
+          "type": "string"
+        },
+        "collectionId": {
+          "description": "Gets collection Id.",
+          "type": "string"
+        },
+        "collectionName": {
+          "description": "Gets or sets collection name.",
+          "type": "string"
+        },
+        "enabled": {
+          "description": "Indicating whether the collection is enabled or disabled.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "numberOfOffers": {
+          "description": "Gets the number of offers associated with the collection.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subscriptionsList": {
+          "description": "Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NotificationsSettingsProperties": {
+      "properties": {
+        "recipients": {
+          "description": "Gets or sets list of notified recipients for new requests",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Recipient"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sendToAllMarketplaceAdmins": {
+          "description": "Gets or sets whether to send email to all marketplace admins for new requests",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OfferProperties": {
+      "properties": {
+        "createdAt": {
+          "description": "Private store offer creation date",
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Identifier for purposes of race condition",
+          "type": "string"
+        },
+        "iconFileUris": {
+          "description": "Icon File Uris",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "modifiedAt": {
+          "description": "Private store offer modification date",
+          "type": "string"
+        },
+        "offerDisplayName": {
+          "description": "It will be displayed prominently in the marketplace",
+          "type": "string"
+        },
+        "plans": {
+          "description": "Offer plans",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Plan"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateStoreId": {
+          "description": "Private store unique id",
+          "type": "string"
+        },
+        "publisherDisplayName": {
+          "description": "Publisher name that will be displayed prominently in the marketplace",
+          "type": "string"
+        },
+        "specificPlanIdsLimitation": {
+          "description": "Plan ids limitation for this offer",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uniqueOfferId": {
+          "description": "Offers unique id",
+          "type": "string"
+        },
+        "updateSuppressedDueIdempotence": {
+          "description": "Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Plan": {
+      "properties": {
+        "accessibility": {
+          "description": "Plan accessibility",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "Public",
+                "PrivateTenantOnLevel",
+                "PrivateSubscriptionOnLevel"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "altStackReference": {
+          "description": "Alternative stack type",
+          "type": "string"
+        },
+        "planDisplayName": {
+          "description": "Friendly name for the plan for display in the marketplace",
+          "type": "string"
+        },
+        "planId": {
+          "description": "Text identifier for this plan",
+          "type": "string"
+        },
+        "skuId": {
+          "description": "Identifier for this plan",
+          "type": "string"
+        },
+        "stackType": {
+          "description": "Stack type (classic or arm)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PlanDetails": {
+      "properties": {
+        "justification": {
+          "description": "Gets or sets user's justification for the plan's request",
+          "type": "string"
+        },
+        "planId": {
+          "description": "Gets or sets Plan Id ",
+          "type": "string"
+        },
+        "requestDate": {
+          "description": "Gets request date"
+        },
+        "status": {
+          "description": "Gets the plan status",
+          "oneOf": [
+            {
+              "enum": [
+                "Pending",
+                "Rejected",
+                "Approved",
+                "None"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subscriptionId": {
+          "description": "Gets or sets the subscription id that the user is requesting to add the plan to",
+          "type": "string"
+        },
+        "subscriptionName": {
+          "description": "Gets or sets the subscription name that the user is requesting to add the plan to",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PlanRequesterDetails": {
+      "properties": {
+        "planDisplayName": {
+          "description": "Gets the plan display name",
+          "type": "string"
+        },
+        "planId": {
+          "description": "Gets the plan id",
+          "type": "string"
+        },
+        "requesters": {
+          "description": "Gets requesters details list",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/UserRequestDetails"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PrivateStoreProperties": {
+      "properties": {
+        "availability": {
+          "description": "Indicates private store availability",
+          "oneOf": [
+            {
+              "enum": [
+                "enabled",
+                "disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "branding": {
+          "description": "Gets or sets list of branding characteristics",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "collectionIds": {
+          "description": "Gets list of associated collection ids",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "eTag": {
+          "description": "Identifier for purposes of race condition",
+          "type": "string"
+        },
+        "isGov": {
+          "description": "Is government",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "notificationsSettings": {
+          "description": "Gets or sets notifications settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NotificationsSettingsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateStoreId": {
+          "description": "Private Store id",
+          "type": "string"
+        },
+        "privateStoreName": {
+          "description": "Private Store Name",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "Tenant id",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Recipient": {
+      "properties": {
+        "displayName": {
+          "description": "Display Name",
+          "type": "string"
+        },
+        "emailAddress": {
+          "description": "Email Address",
+          "type": "string"
+        },
+        "principalId": {
+          "description": "Principal ID",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RequestApprovalProperties": {
+      "properties": {
+        "isClosed": {
+          "description": "Gets a value indicating whether the request is closed",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "messageCode": {
+          "description": "Gets or sets the request approval message code",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "offerDisplayName": {
+          "description": "Gets offer display name",
+          "type": "string"
+        },
+        "offerId": {
+          "description": "Gets or sets unique offer id.",
+          "type": "string"
+        },
+        "plansDetails": {
+          "description": "Gets or sets the plans details",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/PlanDetails"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publisherId": {
+          "description": "The offer's publisher id",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The timestamp of resource last modification (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UserRequestDetails": {
+      "properties": {
+        "date": {
+          "description": "Gets request date",
+          "type": "string"
+        },
+        "justification": {
+          "description": "Gets justification",
+          "type": "string"
+        },
+        "subscriptionId": {
+          "description": "Gets the subscription id that the user is requesting to add the plan to",
+          "type": "string"
+        },
+        "subscriptionName": {
+          "description": "Gets the subscription name that the user is requesting to add the plan to",
+          "type": "string"
+        },
+        "user": {
+          "description": "Gets user id",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "privateStores_adminRequestApprovals_childResource": {
+      "description": "Microsoft.Marketplace/privateStores/adminRequestApprovals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The admin request approval ID to get create or update",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The privateStore admin Approval request data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdminRequestApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/adminRequestApprovals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateStores_collections_childResource": {
+      "description": "Microsoft.Marketplace/privateStores/collections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The collection ID",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The collection data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CollectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/collections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateStores_collections_offers_childResource": {
+      "description": "Microsoft.Marketplace/privateStores/collections/offers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The offer ID to update or delete",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The privateStore offer data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OfferProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/collections/offers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "privateStores_requestApprovals_childResource": {
+      "description": "Microsoft.Marketplace/privateStores/requestApprovals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The request approval ID to get create or update",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The privateStore approval request data structure.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RequestApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Marketplace/privateStores/requestApprovals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2018-08-31-preview/Microsoft.WorkloadMonitor.json#",
+  "title": "Microsoft.WorkloadMonitor",
+  "description": "Microsoft WorkloadMonitor Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "extension_resourceDefinitions": {
+    "notificationSettings": {
+      "description": "Microsoft.WorkloadMonitor/notificationSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-08-31-preview"
+          ],
+          "type": "string"
+        },
+        "etag": {
+          "description": "For optimistic concurrency control.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "Default string modeled as parameter for URL to work correctly.",
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of Notification Settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NotificationSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.WorkloadMonitor/notificationSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "NotificationSettingProperties": {
+      "properties": {
+        "actionGroupResourceIds": {
+          "description": "List of action group resource ids to be notified",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-01-01-preview/Microsoft.Authorization.json#",
+  "title": "Microsoft.Authorization",
+  "description": "Microsoft Authorization Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "roleAssignmentApprovals_stages": {
+      "description": "Microsoft.Authorization/roleAssignmentApprovals/stages",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "assignedToMe": {
+          "description": "Indicates whether the stage is assigned to me for review",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "displayName": {
+          "description": "The display name for the approval stage.",
+          "type": "string"
+        },
+        "justification": {
+          "description": "Justification provided by approvers for their action",
+          "type": "string"
+        },
+        "name": {
+          "description": "The id of the role assignment approval stage.",
+          "type": "string"
+        },
+        "reviewResult": {
+          "description": "The decision on the approval stage. This value is initially set to NotReviewed. Approvers can take action of Approve/Deny",
+          "oneOf": [
+            {
+              "enum": [
+                "Approve",
+                "Deny",
+                "NotReviewed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "reviewedBy": {
+          "description": "Details of the approver.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentApprovalActorIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "reviewedDateTime": {
+          "description": "Date Time when a decision was taken.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "This read-only field specifies the status of an approval.",
+          "oneOf": [
+            {
+              "enum": [
+                "NotStarted",
+                "InProgress",
+                "Completed",
+                "Expired",
+                "Initializing",
+                "Escalating",
+                "Completing",
+                "Escalated"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignmentApprovals/stages"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "RoleAssignmentApprovalActorIdentity": {
+      "properties": {
+        "principalId": {
+          "description": "The identity id",
+          "type": "string"
+        },
+        "principalName": {
+          "description": "The identity display name",
+          "type": "string"
+        },
+        "principalType": {
+          "description": "The identity type : user/servicePrincipal",
+          "oneOf": [
+            {
+              "enum": [
+                "user",
+                "servicePrincipal"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userPrincipalName": {
+          "description": "The user principal name(if valid)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

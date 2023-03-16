@@ -1,0 +1,1828 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-11-01-preview/Microsoft.AppPlatform.json#",
+  "title": "Microsoft.AppPlatform",
+  "description": "Microsoft AppPlatform Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "Spring": {
+      "description": "Microsoft.AppPlatform/Spring",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The GEO location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the Service resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Service resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Spring_apps_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_certificates_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_configServers_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_monitoringSettings_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "sku": {
+          "description": "Sku of the Service resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Tags of the service which is a list of key value pairs that describe the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_apps": {
+      "description": "Microsoft.AppPlatform/Spring/apps",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "The Managed Identity type of the app resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedIdentityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The GEO location of the application, always the same with its parent resource",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the App resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the App resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Spring_apps_domains_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_apps_bindings_childResource"
+              },
+              {
+                "$ref": "#/definitions/Spring_apps_deployments_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_apps_bindings": {
+      "description": "Microsoft.AppPlatform/Spring/apps/bindings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the Binding resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Binding resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BindingResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps/bindings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_apps_deployments": {
+      "description": "Microsoft.AppPlatform/Spring/apps/deployments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the Deployment resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Deployment resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "Sku of the Deployment resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps/deployments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_apps_domains": {
+      "description": "Microsoft.AppPlatform/Spring/apps/domains",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the custom domain resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the custom domain resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomDomainProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps/domains"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_certificates": {
+      "description": "Microsoft.AppPlatform/Spring/certificates",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the certificate resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the certificate resource payload.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/certificates"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_configServers": {
+      "description": "Microsoft.AppPlatform/Spring/configServers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/default$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Config Server resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/configServers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_monitoringSettings": {
+      "description": "Microsoft.AppPlatform/Spring/monitoringSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/default$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Monitoring Setting resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonitoringSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/monitoringSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AppResourceProperties": {
+      "properties": {
+        "activeDeploymentName": {
+          "description": "Name of the active deployment of the App",
+          "type": "string"
+        },
+        "createdTime": {
+          "description": "Date time when the resource is created",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enableEndToEndTLS": {
+          "description": "Indicate if end to end TLS is enabled.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "fqdn": {
+          "description": "Fully qualified dns Name.",
+          "type": "string"
+        },
+        "httpsOnly": {
+          "description": "Indicate if only https is allowed.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "persistentDisk": {
+          "description": "Persistent disk settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PersistentDisk"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Provisioning state of the App",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Creating",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "public": {
+          "description": "Indicates whether the App exposes public endpoint",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "temporaryDisk": {
+          "description": "Temporary disk settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TemporaryDisk"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "url": {
+          "description": "URL of the App",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationInsightsAgentVersions": {
+      "properties": {
+        "java": {
+          "description": "Indicates the version of application insight java agent",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BindingResourceProperties": {
+      "properties": {
+        "bindingParameters": {
+          "description": "Binding parameters of the Binding resource",
+          "oneOf": [
+            {
+              "additionalProperties": {},
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdAt": {
+          "description": "Creation time of the Binding resource",
+          "type": "string"
+        },
+        "generatedProperties": {
+          "description": "The generated Spring Boot property file for this binding. The secret will be deducted.",
+          "type": "string"
+        },
+        "key": {
+          "description": "The key of the bound resource",
+          "type": "string"
+        },
+        "resourceId": {
+          "description": "The Azure resource id of the bound resource",
+          "type": "string"
+        },
+        "resourceName": {
+          "description": "The name of the bound resource",
+          "type": "string"
+        },
+        "resourceType": {
+          "description": "The standard Azure resource type of the bound resource",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "Update time of the Binding resource",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CertificateProperties": {
+      "properties": {
+        "activateDate": {
+          "description": "The activate date of certificate.",
+          "type": "string"
+        },
+        "certVersion": {
+          "description": "The certificate version of key vault.",
+          "type": "string"
+        },
+        "dnsNames": {
+          "description": "The domain list of certificate.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "expirationDate": {
+          "description": "The expiration date of certificate.",
+          "type": "string"
+        },
+        "issuedDate": {
+          "description": "The issue date of certificate.",
+          "type": "string"
+        },
+        "issuer": {
+          "description": "The issuer of certificate.",
+          "type": "string"
+        },
+        "keyVaultCertName": {
+          "description": "The certificate name of key vault.",
+          "type": "string"
+        },
+        "subjectName": {
+          "description": "The subject name of certificate.",
+          "type": "string"
+        },
+        "thumbprint": {
+          "description": "The thumbprint of certificate.",
+          "type": "string"
+        },
+        "vaultUri": {
+          "description": "The vault uri of user key vault.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "vaultUri",
+        "keyVaultCertName"
+      ],
+      "type": "object"
+    },
+    "ClusterResourceProperties": {
+      "properties": {
+        "networkProfile": {
+          "description": "Network profile of the Service",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Provisioning state of the Service",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Deleted",
+                "Succeeded",
+                "Failed",
+                "Moving",
+                "Moved",
+                "MoveFailed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serviceId": {
+          "description": "ServiceInstanceEntity GUID which uniquely identifies a created resource",
+          "type": "string"
+        },
+        "version": {
+          "description": "Version of the Service",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConfigServerGitProperty": {
+      "properties": {
+        "hostKey": {
+          "description": "Public sshKey of git repository.",
+          "type": "string"
+        },
+        "hostKeyAlgorithm": {
+          "description": "SshKey algorithm of git repository.",
+          "type": "string"
+        },
+        "label": {
+          "description": "Label of the repository",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password of git repository basic auth.",
+          "type": "string"
+        },
+        "privateKey": {
+          "description": "Private sshKey algorithm of git repository.",
+          "type": "string"
+        },
+        "repositories": {
+          "description": "Repositories of git.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/GitPatternRepository"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "searchPaths": {
+          "description": "Searching path of the repository",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "strictHostKeyChecking": {
+          "description": "Strict host key checking or not.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uri": {
+          "description": "URI of the repository",
+          "type": "string"
+        },
+        "username": {
+          "description": "Username of git repository basic auth.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "uri"
+      ],
+      "type": "object"
+    },
+    "ConfigServerProperties": {
+      "properties": {
+        "configServer": {
+          "description": "Settings of config server.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigServerSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "error": {
+          "description": "Error when apply config server settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Error"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "State of the config server.",
+          "oneOf": [
+            {
+              "enum": [
+                "NotAvailable",
+                "Deleted",
+                "Failed",
+                "Succeeded",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConfigServerSettings": {
+      "properties": {
+        "gitProperty": {
+          "description": "Property of git environment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigServerGitProperty"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CustomDomainProperties": {
+      "properties": {
+        "appName": {
+          "description": "The app name of domain.",
+          "type": "string"
+        },
+        "certName": {
+          "description": "The bound certificate name of domain.",
+          "type": "string"
+        },
+        "thumbprint": {
+          "description": "The thumbprint of bound certificate.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentInstance": {
+      "properties": {
+        "discoveryStatus": {
+          "description": "Discovery status of the deployment instance",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the deployment instance",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Failed reason of the deployment instance",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start time of the deployment instance",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the deployment instance",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentResourceProperties": {
+      "properties": {
+        "active": {
+          "description": "Indicates whether the Deployment is active",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "appName": {
+          "description": "App name of the deployment",
+          "type": "string"
+        },
+        "createdTime": {
+          "description": "Date time when the resource is created",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "deploymentSettings": {
+          "description": "Deployment settings of the Deployment",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "instances": {
+          "description": "Collection of instances belong to the Deployment",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/DeploymentInstance"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Provisioning state of the Deployment",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Updating",
+                "Succeeded",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "source": {
+          "description": "Uploaded source information of the deployment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserSourceInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Status of the Deployment",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "Stopped",
+                "Running",
+                "Failed",
+                "Allocating",
+                "Upgrading",
+                "Compiling"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentSettings": {
+      "properties": {
+        "cpu": {
+          "description": "Required CPU, basic tier should be 1, standard tier should be in range (1, 4)",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "environmentVariables": {
+          "description": "Collection of environment variables",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "jvmOptions": {
+          "description": "JVM parameter",
+          "type": "string"
+        },
+        "memoryInGB": {
+          "description": "Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "netCoreMainEntryPath": {
+          "description": "The path to the .NET executable relative to zip root",
+          "type": "string"
+        },
+        "runtimeVersion": {
+          "description": "Runtime version",
+          "oneOf": [
+            {
+              "enum": [
+                "Java_8",
+                "Java_11",
+                "NetCore_31"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "description": "The code of error.",
+          "type": "string"
+        },
+        "message": {
+          "description": "The message of error.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GitPatternRepository": {
+      "properties": {
+        "hostKey": {
+          "description": "Public sshKey of git repository.",
+          "type": "string"
+        },
+        "hostKeyAlgorithm": {
+          "description": "SshKey algorithm of git repository.",
+          "type": "string"
+        },
+        "label": {
+          "description": "Label of the repository",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the repository",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password of git repository basic auth.",
+          "type": "string"
+        },
+        "pattern": {
+          "description": "Collection of pattern of the repository",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privateKey": {
+          "description": "Private sshKey algorithm of git repository.",
+          "type": "string"
+        },
+        "searchPaths": {
+          "description": "Searching path of the repository",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "strictHostKeyChecking": {
+          "description": "Strict host key checking or not.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uri": {
+          "description": "URI of the repository",
+          "type": "string"
+        },
+        "username": {
+          "description": "Username of git repository basic auth.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uri"
+      ],
+      "type": "object"
+    },
+    "ManagedIdentityProperties": {
+      "properties": {
+        "principalId": {
+          "description": "Principal Id",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "Tenant Id",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the managed identity",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MonitoringSettingProperties": {
+      "properties": {
+        "appInsightsAgentVersions": {
+          "description": "Indicates the versions of application insight agent",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationInsightsAgentVersions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "appInsightsInstrumentationKey": {
+          "description": "Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings",
+          "type": "string"
+        },
+        "appInsightsSamplingRate": {
+          "description": "Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "error": {
+          "description": "Error when apply Monitoring Setting changes.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Error"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "State of the Monitoring Setting.",
+          "oneOf": [
+            {
+              "enum": [
+                "NotAvailable",
+                "Failed",
+                "Succeeded",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "traceEnabled": {
+          "description": "Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NetworkProfile": {
+      "properties": {
+        "appNetworkResourceGroup": {
+          "description": "Name of the resource group containing network resources of Azure Spring Cloud Apps",
+          "type": "string"
+        },
+        "appSubnetId": {
+          "description": "Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps",
+          "type": "string"
+        },
+        "outboundIPs": {
+          "description": "Desired outbound IP resources for Azure Spring Cloud instance.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkProfileOutboundIPs"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "requiredTraffics": {
+          "description": "Required inbound or outbound traffics for Azure Spring Cloud instance.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RequiredTraffic"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serviceCidr": {
+          "description": "Azure Spring Cloud service reserved CIDR",
+          "type": "string"
+        },
+        "serviceRuntimeNetworkResourceGroup": {
+          "description": "Name of the resource group containing network resources of Azure Spring Cloud Service Runtime",
+          "type": "string"
+        },
+        "serviceRuntimeSubnetId": {
+          "description": "Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkProfileOutboundIPs": {
+      "properties": {
+        "publicIPs": {
+          "description": "A list of public IP addresses.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PersistentDisk": {
+      "properties": {
+        "mountPath": {
+          "description": "Mount path of the persistent disk",
+          "type": "string"
+        },
+        "sizeInGB": {
+          "description": "Size of the persistent disk in GB",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "usedInGB": {
+          "description": "Size of the used persistent disk in GB",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RequiredTraffic": {
+      "properties": {
+        "direction": {
+          "description": "The direction of required traffic",
+          "oneOf": [
+            {
+              "enum": [
+                "Inbound",
+                "Outbound"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "fqdns": {
+          "description": "The FQDN list of required traffic",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "ips": {
+          "description": "The ip list of required traffic",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "port": {
+          "description": "The port of required traffic",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protocol": {
+          "description": "The protocol of required traffic",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Sku": {
+      "properties": {
+        "capacity": {
+          "description": "Current capacity of the target resource",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of the Sku",
+          "type": "string"
+        },
+        "tier": {
+          "description": "Tier of the Sku",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Spring_apps_bindings_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/apps/bindings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the Binding resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Binding resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BindingResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps/bindings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_apps_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/apps",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "The Managed Identity type of the app resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedIdentityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The GEO location of the application, always the same with its parent resource",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the App resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the App resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_apps_deployments_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/apps/deployments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the Deployment resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Deployment resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "Sku of the Deployment resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps/deployments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_apps_domains_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/apps/domains",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the custom domain resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the custom domain resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomDomainProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/apps/domains"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_certificates_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/certificates",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the certificate resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the certificate resource payload.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/certificates"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_configServers_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/configServers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/default$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Config Server resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/configServers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_monitoringSettings_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/monitoringSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/default$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Monitoring Setting resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonitoringSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/monitoringSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "TemporaryDisk": {
+      "properties": {
+        "mountPath": {
+          "description": "Mount path of the temporary disk",
+          "type": "string"
+        },
+        "sizeInGB": {
+          "description": "Size of the temporary disk in GB",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UserSourceInfo": {
+      "properties": {
+        "artifactSelector": {
+          "description": "Selector for the artifact to be used for the deployment for multi-module projects. This should be\r\nthe relative path to the target module/project.",
+          "type": "string"
+        },
+        "relativePath": {
+          "description": "Relative path of the storage which stores the source",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the source uploaded",
+          "oneOf": [
+            {
+              "enum": [
+                "Jar",
+                "NetCoreZip",
+                "Source"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "version": {
+          "description": "Version of the source",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

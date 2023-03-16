@@ -1,0 +1,1515 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-07-01/Microsoft.DataProtection.json#",
+  "title": "Microsoft.DataProtection",
+  "description": "Microsoft DataProtection Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "backupVaults": {
+      "description": "Microsoft.DataProtection/backupVaults",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-07-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "Input Managed Identity Details",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DppIdentityDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the backup vault.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BackupVaultResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupVault"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/backupVaults_backupPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/backupVaults_backupInstances_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataProtection/backupVaults"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "backupVaults_backupInstances": {
+      "description": "Microsoft.DataProtection/backupVaults/backupInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-07-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the backup instance",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BackupInstanceResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupInstance"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataProtection/backupVaults/backupInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "backupVaults_backupPolicies": {
+      "description": "Microsoft.DataProtection/backupVaults/backupPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-07-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the policy",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BaseBackupPolicyResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BaseBackupPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataProtection/backupVaults/backupPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "resourceGuards": {
+      "description": "Microsoft.DataProtection/resourceGuards",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-07-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "Input Managed Identity Details",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DppIdentityDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of ResourceGuard",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ResourceGuardResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceGuard"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataProtection/resourceGuards"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AdhocBasedTaggingCriteria": {
+      "properties": {
+        "tagInfo": {
+          "description": "Retention tag information",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionTag"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AuthCredentials": {
+      "properties": {},
+      "type": "object"
+    },
+    "BackupCriteria": {
+      "properties": {},
+      "type": "object"
+    },
+    "BackupInstance": {
+      "properties": {
+        "currentProtectionState": {
+          "description": "Specifies the current protection state of the resource",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "NotProtected",
+                "ConfiguringProtection",
+                "ProtectionConfigured",
+                "BackupSchedulesSuspended",
+                "RetentionSchedulesSuspended",
+                "ProtectionStopped",
+                "ProtectionError",
+                "ConfiguringProtectionFailed",
+                "SoftDeleting",
+                "SoftDeleted",
+                "UpdatingProtection"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dataSourceInfo": {
+          "description": "Gets or sets the data source information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Datasource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dataSourceSetInfo": {
+          "description": "Gets or sets the data source set information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatasourceSet"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "datasourceAuthCredentials": {
+          "description": "Credentials to use to authenticate with data source provider.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "friendlyName": {
+          "description": "Gets or sets the Backup Instance friendly name.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "",
+          "type": "string"
+        },
+        "policyInfo": {
+          "description": "Gets or sets the policy information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protectionErrorDetails": {
+          "description": "Specifies the protection error of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserFacingError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protectionStatus": {
+          "description": "Specifies the protection status of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectionStatusDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dataSourceInfo",
+        "policyInfo",
+        "objectType"
+      ],
+      "type": "object"
+    },
+    "BackupParameters": {
+      "properties": {},
+      "type": "object"
+    },
+    "BackupSchedule": {
+      "properties": {
+        "repeatingTimeIntervals": {
+          "description": "ISO 8601 repeating time interval format",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "timeZone": {
+          "description": "Time zone for a schedule. Example: Pacific Standard Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "repeatingTimeIntervals"
+      ],
+      "type": "object"
+    },
+    "BackupVault": {
+      "properties": {
+        "provisioningState": {
+          "description": "Provisioning state of the BackupVault resource",
+          "oneOf": [
+            {
+              "enum": [
+                "Failed",
+                "Provisioning",
+                "Succeeded",
+                "Unknown",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceMoveDetails": {
+          "description": "Resource move details for backup vault",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceMoveDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceMoveState": {
+          "description": "Resource move state for backup vault",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "InProgress",
+                "PrepareFailed",
+                "CommitFailed",
+                "Failed",
+                "PrepareTimedout",
+                "CommitTimedout",
+                "CriticalFailure",
+                "PartialSuccess",
+                "MoveSucceeded"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageSettings": {
+          "description": "Storage Settings",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/StorageSetting"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "storageSettings"
+      ],
+      "type": "object"
+    },
+    "BaseBackupPolicy": {
+      "properties": {
+        "datasourceTypes": {
+          "description": "Type of datasource for the backup management",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "datasourceTypes"
+      ],
+      "type": "object"
+    },
+    "BasePolicyRule": {
+      "properties": {
+        "name": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "CopyOption": {
+      "properties": {},
+      "type": "object"
+    },
+    "DataStoreInfoBase": {
+      "properties": {
+        "dataStoreType": {
+          "description": "type of datastore; Operational/Vault/Archive",
+          "oneOf": [
+            {
+              "enum": [
+                "OperationalStore",
+                "VaultStore",
+                "ArchiveStore"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "objectType": {
+          "description": "Type of Datasource object, used to initialize the right inherited type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dataStoreType",
+        "objectType"
+      ],
+      "type": "object"
+    },
+    "DataStoreParameters": {
+      "properties": {
+        "dataStoreType": {
+          "description": "type of datastore; Operational/Vault/Archive",
+          "oneOf": [
+            {
+              "enum": [
+                "OperationalStore",
+                "VaultStore",
+                "ArchiveStore"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataStoreType"
+      ],
+      "type": "object"
+    },
+    "Datasource": {
+      "properties": {
+        "datasourceType": {
+          "description": "DatasourceType of the resource.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "Type of Datasource object, used to initialize the right inherited type",
+          "type": "string"
+        },
+        "resourceID": {
+          "description": "Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.",
+          "type": "string"
+        },
+        "resourceLocation": {
+          "description": "Location of datasource.",
+          "type": "string"
+        },
+        "resourceName": {
+          "description": "Unique identifier of the resource in the context of parent.",
+          "type": "string"
+        },
+        "resourceType": {
+          "description": "Resource Type of Datasource.",
+          "type": "string"
+        },
+        "resourceUri": {
+          "description": "Uri of the resource.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceID"
+      ],
+      "type": "object"
+    },
+    "DatasourceSet": {
+      "properties": {
+        "datasourceType": {
+          "description": "DatasourceType of the resource.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "Type of Datasource object, used to initialize the right inherited type",
+          "type": "string"
+        },
+        "resourceID": {
+          "description": "Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.",
+          "type": "string"
+        },
+        "resourceLocation": {
+          "description": "Location of datasource.",
+          "type": "string"
+        },
+        "resourceName": {
+          "description": "Unique identifier of the resource in the context of parent.",
+          "type": "string"
+        },
+        "resourceType": {
+          "description": "Resource Type of Datasource.",
+          "type": "string"
+        },
+        "resourceUri": {
+          "description": "Uri of the resource.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceID"
+      ],
+      "type": "object"
+    },
+    "Day": {
+      "properties": {
+        "date": {
+          "description": "Date of the month",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isLast": {
+          "description": "Whether Date is last date of month",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteOption": {
+      "properties": {
+        "duration": {
+          "description": "Duration of deletion after given timespan",
+          "type": "string"
+        }
+      },
+      "required": [
+        "duration"
+      ],
+      "type": "object"
+    },
+    "DppIdentityDetails": {
+      "properties": {
+        "principalId": {
+          "description": "The object ID of the service principal object for the managed identity that is used to grant role-based access to an Azure resource.",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the resource is now a member.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The identityType which can be either SystemAssigned or None",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InnerError": {
+      "properties": {
+        "additionalInfo": {
+          "description": "Any Key value pairs that can be provided to the client for additional  verbose information.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "code": {
+          "description": "Unique code for this error",
+          "type": "string"
+        },
+        "embeddedInnerError": {
+          "description": "Child Inner Error, to allow Nesting.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InnerError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PolicyInfo": {
+      "properties": {
+        "policyId": {
+          "description": "",
+          "type": "string"
+        },
+        "policyParameters": {
+          "description": "Policy parameters for the backup instance",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyVersion": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policyId"
+      ],
+      "type": "object"
+    },
+    "PolicyParameters": {
+      "properties": {
+        "dataStoreParametersList": {
+          "description": "Gets or sets the DataStore Parameters",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/DataStoreParameters"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProtectionStatusDetails": {
+      "properties": {
+        "errorDetails": {
+          "description": "Specifies the protection status error of the resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserFacingError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Specifies the protection status of the resource",
+          "oneOf": [
+            {
+              "enum": [
+                "ConfiguringProtection",
+                "ConfiguringProtectionFailed",
+                "ProtectionConfigured",
+                "ProtectionStopped",
+                "SoftDeleted",
+                "SoftDeleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceGuard": {
+      "properties": {
+        "allowAutoApprovals": {
+          "description": "This flag indicates whether auto approval is allowed or not.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "Description about the pre-req steps to perform all the critical operations.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Provisioning state of the BackupVault resource",
+          "oneOf": [
+            {
+              "enum": [
+                "Failed",
+                "Provisioning",
+                "Succeeded",
+                "Unknown",
+                "Updating"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceGuardOperations": {
+          "description": "{readonly} List of operation details those are protected by the ResourceGuard resource",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ResourceGuardOperation"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vaultCriticalOperationExclusionList": {
+          "description": "List of critical operations which are not protected by this resourceGuard",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceGuardOperation": {
+      "properties": {
+        "requestResourceType": {
+          "description": "Type of resource request.",
+          "type": "string"
+        },
+        "vaultCriticalOperation": {
+          "description": "Name of the critical operation.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceMoveDetails": {
+      "properties": {
+        "completionTimeUtc": {
+          "description": "Completion time in UTC of latest ResourceMove operation attempted. ISO 8601 format.",
+          "type": "string"
+        },
+        "operationId": {
+          "description": "CorrelationId of latest ResourceMove operation attempted",
+          "type": "string"
+        },
+        "sourceResourcePath": {
+          "description": "ARM resource path of source resource",
+          "type": "string"
+        },
+        "startTimeUtc": {
+          "description": "Start time in UTC of latest ResourceMove operation attempted. ISO 8601 format.",
+          "type": "string"
+        },
+        "targetResourcePath": {
+          "description": "ARM resource path of target resource used in latest ResourceMove operation",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RetentionTag": {
+      "properties": {
+        "eTag": {
+          "description": "Retention Tag version.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Retention Tag version.",
+          "type": "string"
+        },
+        "tagName": {
+          "description": "Retention Tag Name to relate it to retention rule.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tagName"
+      ],
+      "type": "object"
+    },
+    "SecretStoreResource": {
+      "properties": {
+        "secretStoreType": {
+          "description": "Gets or sets the type of secret store",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "AzureKeyVault"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uri": {
+          "description": "Uri to get to the resource",
+          "type": "string"
+        }
+      },
+      "required": [
+        "secretStoreType"
+      ],
+      "type": "object"
+    },
+    "SourceLifeCycle": {
+      "properties": {
+        "deleteAfter": {
+          "description": "Delete Option",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeleteOption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceDataStore": {
+          "description": "DataStoreInfo base",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataStoreInfoBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetDataStoreCopySettings": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/TargetCopySetting"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "deleteAfter",
+        "sourceDataStore"
+      ],
+      "type": "object"
+    },
+    "StorageSetting": {
+      "properties": {
+        "datastoreType": {
+          "description": "Gets or sets the type of the datastore.",
+          "oneOf": [
+            {
+              "enum": [
+                "ArchiveStore",
+                "SnapshotStore",
+                "VaultStore"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Gets or sets the type.",
+          "oneOf": [
+            {
+              "enum": [
+                "GeoRedundant",
+                "LocallyRedundant"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TaggingCriteria": {
+      "properties": {
+        "criteria": {
+          "description": "Criteria which decides whether the tag can be applied to a triggered backup.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/BackupCriteria"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isDefault": {
+          "description": "Specifies if tag is default.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tagInfo": {
+          "description": "Retention tag information",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetentionTag"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "taggingPriority": {
+          "description": "Retention Tag priority.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "isDefault",
+        "taggingPriority",
+        "tagInfo"
+      ],
+      "type": "object"
+    },
+    "TargetCopySetting": {
+      "properties": {
+        "copyAfter": {
+          "description": "It can be CustomCopyOption or ImmediateCopyOption.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CopyOption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dataStore": {
+          "description": "Info of target datastore",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataStoreInfoBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "copyAfter",
+        "dataStore"
+      ],
+      "type": "object"
+    },
+    "TriggerContext": {
+      "properties": {},
+      "type": "object"
+    },
+    "UserFacingError": {
+      "properties": {
+        "code": {
+          "description": "Unique code for this error",
+          "type": "string"
+        },
+        "details": {
+          "description": "Additional related Errors",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/UserFacingError"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "innerError": {
+          "description": "Inner Error",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InnerError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isRetryable": {
+          "description": "Whether the operation will be retryable or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isUserError": {
+          "description": "Whether the operation is due to a user error or service error",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "message": {
+          "description": "",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Any key value pairs that can be injected inside error object",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recommendedAction": {
+          "description": "RecommendedAction � localized.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "target": {
+          "description": "Target of the error.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "backupVaults_backupInstances_childResource": {
+      "description": "Microsoft.DataProtection/backupVaults/backupInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-07-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the backup instance",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BackupInstanceResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupInstance"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataProtection/backupVaults/backupInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "backupVaults_backupPolicies_childResource": {
+      "description": "Microsoft.DataProtection/backupVaults/backupPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-07-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id represents the complete path to the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the policy",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BaseBackupPolicyResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BaseBackupPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataProtection/backupVaults/backupPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

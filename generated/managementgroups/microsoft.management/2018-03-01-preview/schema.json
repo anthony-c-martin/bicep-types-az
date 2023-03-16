@@ -1,0 +1,238 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2018-03-01-preview/Microsoft.Management.json#",
+  "title": "Microsoft.Management",
+  "description": "Microsoft Management Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "tenant_resourceDefinitions": {
+    "managementGroups": {
+      "description": "Microsoft.Management/managementGroups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-03-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000",
+          "type": "string"
+        },
+        "name": {
+          "description": "Management Group ID.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The generic properties of a management group used during creation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Management/managementGroups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "CreateManagementGroupChildInfo": {
+      "properties": {
+        "children": {
+          "description": "The list of children.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/CreateManagementGroupChildInfo"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "displayName": {
+          "description": "The friendly name of the child resource.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the child entity.",
+          "type": "string"
+        },
+        "roles": {
+          "description": "The roles definitions associated with the management group.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "The fully qualified resource type which includes provider namespace (e.g. /providers/Microsoft.Management/managementGroups)",
+          "oneOf": [
+            {
+              "enum": [
+                "/providers/Microsoft.Management/managementGroups",
+                "/subscriptions"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateManagementGroupDetails": {
+      "properties": {
+        "parent": {
+          "description": "(Optional) The ID of the parent management group used during creation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateParentGroupInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "updatedBy": {
+          "description": "The identity of the principal or process that updated the object.",
+          "type": "string"
+        },
+        "updatedTime": {
+          "description": "The date and time when this object was last updated.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "version": {
+          "description": "The version number of the object.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateManagementGroupProperties": {
+      "properties": {
+        "children": {
+          "description": "The list of children.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/CreateManagementGroupChildInfo"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "details": {
+          "description": "The details of a management group used during creation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateManagementGroupDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "displayName": {
+          "description": "The friendly name of the management group. If no value is passed then this  field will be set to the groupId.",
+          "type": "string"
+        },
+        "roles": {
+          "description": "The roles definitions associated with the management group.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tenantId": {
+          "description": "The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CreateParentGroupInfo": {
+      "properties": {
+        "displayName": {
+          "description": "The friendly name of the parent management group.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the parent management group",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

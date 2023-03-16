@@ -1,0 +1,177 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2019-04-01/Microsoft.DevSpaces.json#",
+  "title": "Microsoft.DevSpaces",
+  "description": "Microsoft DevSpaces Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "controllers": {
+      "description": "Microsoft.DevSpaces/controllers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-04-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource Id for the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Region where the Azure resource is located.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the resource.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9]([_-]*[a-zA-Z0-9])*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ControllerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "Model representing SKU for Azure Dev Spaces Controller.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Tags for the Azure resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DevSpaces/controllers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ControllerProperties": {
+      "properties": {
+        "dataPlaneFqdn": {
+          "description": "DNS name for accessing DataPlane services",
+          "type": "string"
+        },
+        "hostSuffix": {
+          "description": "DNS suffix for public endpoints running in the Azure Dev Spaces Controller.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Provisioning state of the Azure Dev Spaces Controller.",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Updating",
+                "Creating",
+                "Deleting",
+                "Deleted"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetContainerHostApiServerFqdn": {
+          "description": "DNS of the target container host's API server",
+          "type": "string"
+        },
+        "targetContainerHostCredentialsBase64": {
+          "description": "Credentials of the target container host (base64).",
+          "type": "string"
+        },
+        "targetContainerHostResourceId": {
+          "description": "Resource ID of the target container host",
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetContainerHostResourceId",
+        "targetContainerHostCredentialsBase64"
+      ],
+      "type": "object"
+    },
+    "Sku": {
+      "properties": {
+        "name": {
+          "description": "The name of the SKU for Azure Dev Spaces Controller.",
+          "oneOf": [
+            {
+              "enum": [
+                "S1"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tier": {
+          "description": "The tier of the SKU for Azure Dev Spaces Controller.",
+          "oneOf": [
+            {
+              "enum": [
+                "Standard"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    }
+  }
+}

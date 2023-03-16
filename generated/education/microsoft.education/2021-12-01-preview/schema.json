@@ -1,0 +1,492 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-12-01-preview/Microsoft.Education.json#",
+  "title": "Microsoft.Education",
+  "description": "Microsoft Education Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "extension_resourceDefinitions": {
+    "labs": {
+      "description": "Microsoft.Education/labs",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "enum": [
+            "default"
+          ],
+          "type": "string"
+        },
+        "properties": {
+          "description": "Get lab response properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LabProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/labs_students_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "systemData": {
+          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Education/labs"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labs_students": {
+      "description": "Microsoft.Education/labs/students",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "Student alias.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Get student response properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StudentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Education/labs/students"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "Amount": {
+      "properties": {
+        "currency": {
+          "description": "The type of currency being used for the value.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Amount value.",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LabProperties": {
+      "properties": {
+        "budgetPerStudent": {
+          "description": "Default monetary cap for each student in this lab",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "Detail description of this lab",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Lab Display Name",
+          "type": "string"
+        },
+        "effectiveDate": {
+          "description": "Lab creation date",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "expirationDate": {
+          "description": "Default expiration date for each student in this lab",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "invitationCode": {
+          "description": "invitation code for redeemable lab",
+          "type": "string"
+        },
+        "maxStudentCount": {
+          "description": "the total number of students that can be accepted to the lab.",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "The status of this lab",
+          "oneOf": [
+            {
+              "enum": [
+                "Active",
+                "Deleted",
+                "Pending"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "totalAllocatedBudget": {
+          "description": "Total allocated budget",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "totalBudget": {
+          "description": "Total budget",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "displayName",
+        "budgetPerStudent",
+        "description",
+        "expirationDate"
+      ],
+      "type": "object"
+    },
+    "StudentProperties": {
+      "properties": {
+        "budget": {
+          "description": "Student Budget",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "effectiveDate": {
+          "description": "Date student was added to the lab",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "email": {
+          "description": "Student Email",
+          "type": "string"
+        },
+        "expirationDate": {
+          "description": "Date this student is set to expire from the lab.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "firstName": {
+          "description": "First Name",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "Last Name",
+          "type": "string"
+        },
+        "role": {
+          "description": "Student Role",
+          "oneOf": [
+            {
+              "enum": [
+                "Student",
+                "Admin"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Student Lab Status",
+          "oneOf": [
+            {
+              "enum": [
+                "Active",
+                "Disabled",
+                "Expired",
+                "Pending",
+                "Deleted"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subscriptionAlias": {
+          "description": "Subscription alias",
+          "type": "string"
+        },
+        "subscriptionId": {
+          "description": "Subscription Id",
+          "type": "string"
+        },
+        "subscriptionInviteLastSentDate": {
+          "description": "subscription invite last sent date",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "role",
+        "budget",
+        "expirationDate"
+      ],
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The timestamp of resource last modification (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "labs_students_childResource": {
+      "description": "Microsoft.Education/labs/students",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "Student alias.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Get student response properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StudentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Education/labs/students"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

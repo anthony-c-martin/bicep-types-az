@@ -1,0 +1,236 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-11-01-preview/Microsoft.ServiceLinker.json#",
+  "title": "Microsoft.ServiceLinker",
+  "description": "Microsoft ServiceLinker Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "systemData": {
+          "description": "The system data.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemData"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AuthInfoBase": {
+      "properties": {},
+      "type": "object"
+    },
+    "LinkerProperties": {
+      "properties": {
+        "authInfo": {
+          "description": "The authentication type.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthInfoBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "clientType": {
+          "description": "The application client type",
+          "oneOf": [
+            {
+              "enum": [
+                "none",
+                "dotnet",
+                "java",
+                "python",
+                "go",
+                "php",
+                "ruby",
+                "django",
+                "nodejs",
+                "springBoot"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning state. ",
+          "type": "string"
+        },
+        "secretStore": {
+          "description": "An option to store secret value in secure place",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretStore"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetId": {
+          "description": "The resource Id of target service.",
+          "type": "string"
+        },
+        "vNetSolution": {
+          "description": "The VNet solution.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VNetSolution"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SecretStore": {
+      "properties": {
+        "keyVaultId": {
+          "description": "The key vault id to store secret",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SystemData": {
+      "properties": {
+        "createdAt": {
+          "description": "The timestamp of resource creation (UTC).",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdBy": {
+          "description": "The identity that created the resource.",
+          "type": "string"
+        },
+        "createdByType": {
+          "description": "The type of identity that created the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "description": "The timestamp of resource last modification (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastModifiedBy": {
+          "description": "The identity that last modified the resource.",
+          "type": "string"
+        },
+        "lastModifiedByType": {
+          "description": "The type of identity that last modified the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "User",
+                "Application",
+                "ManagedIdentity",
+                "Key"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VNetSolution": {
+      "properties": {
+        "type": {
+          "description": "Type of VNet solution.",
+          "oneOf": [
+            {
+              "enum": [
+                "serviceEndpoint",
+                "privateLink"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

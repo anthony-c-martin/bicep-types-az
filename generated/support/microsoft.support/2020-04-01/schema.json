@@ -1,0 +1,557 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-04-01/Microsoft.Support.json#",
+  "title": "Microsoft.Support",
+  "description": "Microsoft Support Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "subscription_resourceDefinitions": {
+    "supportTickets": {
+      "description": "Microsoft.Support/supportTickets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-04-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Support ticket name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SupportTicketDetailsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/supportTickets_communications_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Support/supportTickets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "supportTickets_communications": {
+      "description": "Microsoft.Support/supportTickets/communications",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-04-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Communication name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommunicationDetailsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Support/supportTickets/communications"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "CommunicationDetailsProperties": {
+      "properties": {
+        "body": {
+          "description": "Body of the communication.",
+          "type": "string"
+        },
+        "communicationDirection": {
+          "description": "Direction of communication.",
+          "oneOf": [
+            {
+              "enum": [
+                "inbound",
+                "outbound"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "communicationType": {
+          "description": "Communication type.",
+          "oneOf": [
+            {
+              "enum": [
+                "web",
+                "phone"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdDate": {
+          "description": "Time in UTC (ISO 8601 format) when the communication was created.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sender": {
+          "description": "Email address of the sender. This property is required if called by a service principal.",
+          "type": "string"
+        },
+        "subject": {
+          "description": "Subject of the communication.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject",
+        "body"
+      ],
+      "type": "object"
+    },
+    "ContactProfile": {
+      "properties": {
+        "additionalEmailAddresses": {
+          "description": "Additional email addresses listed will be copied on any correspondence about the support ticket.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "country": {
+          "description": "Country of the user. This is the ISO 3166-1 alpha-3 code.",
+          "type": "string"
+        },
+        "firstName": {
+          "description": "First name.",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "Last name.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "description": "Phone number. This is required if preferred contact method is phone.",
+          "type": "string"
+        },
+        "preferredContactMethod": {
+          "description": "Preferred contact method.",
+          "oneOf": [
+            {
+              "enum": [
+                "email",
+                "phone"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "preferredSupportLanguage": {
+          "description": "Preferred language of support from Azure. Support languages vary based on the severity you choose for your support ticket. Learn more at [Azure Severity and responsiveness](https://azure.microsoft.com/support/plans/response). Use the standard language-country code. Valid values are 'en-us' for English, 'zh-hans' for Chinese, 'es-es' for Spanish, 'fr-fr' for French, 'ja-jp' for Japanese, 'ko-kr' for Korean, 'ru-ru' for Russian, 'pt-br' for Portuguese, 'it-it' for Italian, 'zh-tw' for Chinese and 'de-de' for German.",
+          "type": "string"
+        },
+        "preferredTimeZone": {
+          "description": "Time zone of the user. This is the name of the time zone from [Microsoft Time Zone Index Values](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values).",
+          "type": "string"
+        },
+        "primaryEmailAddress": {
+          "description": "Primary email address.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "preferredContactMethod",
+        "primaryEmailAddress",
+        "preferredTimeZone",
+        "country",
+        "preferredSupportLanguage"
+      ],
+      "type": "object"
+    },
+    "QuotaChangeRequest": {
+      "properties": {
+        "payload": {
+          "description": "Payload of the quota increase request.",
+          "type": "string"
+        },
+        "region": {
+          "description": "Region for which the quota increase request is being made.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "QuotaTicketDetails": {
+      "properties": {
+        "quotaChangeRequestSubType": {
+          "description": "Required for certain quota types when there is a sub type, such as Batch, for which you are requesting a quota increase.",
+          "type": "string"
+        },
+        "quotaChangeRequestVersion": {
+          "description": "Quota change request version.",
+          "type": "string"
+        },
+        "quotaChangeRequests": {
+          "description": "This property is required for providing the region and new quota limits.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/QuotaChangeRequest"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ServiceLevelAgreement": {
+      "properties": {
+        "expirationTime": {
+          "description": "Time in UTC (ISO 8601 format) when the service level agreement expires.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "slaMinutes": {
+          "description": "Service Level Agreement in minutes.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startTime": {
+          "description": "Time in UTC (ISO 8601 format) when the service level agreement starts.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SupportEngineer": {
+      "properties": {
+        "emailAddress": {
+          "description": "Email address of the Azure Support engineer assigned to the support ticket.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SupportTicketDetailsProperties": {
+      "properties": {
+        "contactDetails": {
+          "description": "Contact information of the user requesting to create a support ticket.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContactProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "createdDate": {
+          "description": "Time in UTC (ISO 8601 format) when the support ticket was created.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "Detailed description of the question or issue.",
+          "type": "string"
+        },
+        "enrollmentId": {
+          "description": "Enrollment Id associated with the support ticket.",
+          "type": "string"
+        },
+        "modifiedDate": {
+          "description": "Time in UTC (ISO 8601 format) when the support ticket was last modified.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "problemClassificationDisplayName": {
+          "description": "Localized name of problem classification.",
+          "type": "string"
+        },
+        "problemClassificationId": {
+          "description": "Each Azure service has its own set of issue categories, also known as problem classification. This parameter is the unique Id for the type of problem you are experiencing.",
+          "type": "string"
+        },
+        "problemStartTime": {
+          "description": "Time in UTC (ISO 8601 format) when the problem started.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "quotaTicketDetails": {
+          "description": "Additional ticket details associated with a quota support ticket request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuotaTicketDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "require24X7Response": {
+          "description": "Indicates if this requires a 24x7 response from Azure.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serviceDisplayName": {
+          "description": "Localized name of the Azure service.",
+          "type": "string"
+        },
+        "serviceId": {
+          "description": "This is the resource Id of the Azure service resource associated with the support ticket.",
+          "type": "string"
+        },
+        "serviceLevelAgreement": {
+          "description": "Service Level Agreement information for this support ticket.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceLevelAgreement"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "severity": {
+          "description": "A value that indicates the urgency of the case, which in turn determines the response time according to the service level agreement of the technical support plan you have with Azure. Note: 'Highest critical impact', also known as the 'Emergency - Severe impact' level in the Azure portal is reserved only for our Premium customers.",
+          "oneOf": [
+            {
+              "enum": [
+                "minimal",
+                "moderate",
+                "critical",
+                "highestcriticalimpact"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Status of the support ticket.",
+          "type": "string"
+        },
+        "supportEngineer": {
+          "description": "Information about the support engineer working on this support ticket.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SupportEngineer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "supportPlanType": {
+          "description": "Support plan type associated with the support ticket.",
+          "type": "string"
+        },
+        "supportTicketId": {
+          "description": "System generated support ticket Id that is unique.",
+          "type": "string"
+        },
+        "technicalTicketDetails": {
+          "description": "Additional ticket details associated with a technical support ticket request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TechnicalTicketDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "title": {
+          "description": "Title of the support ticket.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "problemClassificationId",
+        "severity",
+        "contactDetails",
+        "title",
+        "serviceId"
+      ],
+      "type": "object"
+    },
+    "TechnicalTicketDetails": {
+      "properties": {
+        "resourceId": {
+          "description": "This is the resource Id of the Azure service resource (For example: A virtual machine resource or an HDInsight resource) for which the support ticket is created.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "supportTickets_communications_childResource": {
+      "description": "Microsoft.Support/supportTickets/communications",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-04-01"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Communication name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommunicationDetailsProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Support/supportTickets/communications"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

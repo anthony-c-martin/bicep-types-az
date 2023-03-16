@@ -1,0 +1,1525 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2018-10-15/Microsoft.LabServices.json#",
+  "title": "Microsoft.LabServices",
+  "description": "Microsoft LabServices Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "labaccounts": {
+      "description": "Microsoft.LabServices/labaccounts",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the lab Account.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LabAccountProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/labaccounts_labs_childResource"
+              },
+              {
+                "$ref": "#/definitions/labaccounts_galleryimages_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_galleryimages": {
+      "description": "Microsoft.LabServices/labaccounts/galleryimages",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the gallery Image.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The gallery image properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/galleryimages"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs": {
+      "description": "Microsoft.LabServices/labaccounts/labs",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the lab.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LabProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/labaccounts_labs_users_childResource"
+              },
+              {
+                "$ref": "#/definitions/labaccounts_labs_environmentsettings_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs_environmentsettings": {
+      "description": "Microsoft.LabServices/labaccounts/labs/environmentsettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the environment Setting.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Environment Setting resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/labaccounts_labs_environmentsettings_environments_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs/environmentsettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs_environmentsettings_environments": {
+      "description": "Microsoft.LabServices/labaccounts/labs/environmentsettings/environments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the environment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Environment resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs/environmentsettings/environments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs_users": {
+      "description": "Microsoft.LabServices/labaccounts/labs/users",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the user.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "These are the properties for the user registered under a lab.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs/users"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "EnvironmentProperties": {
+      "properties": {
+        "claimedByUserName": {
+          "description": "The name or email address of the user who has claimed the environment",
+          "type": "string"
+        },
+        "claimedByUserObjectId": {
+          "description": "The AAD object Id of the user who has claimed the environment",
+          "type": "string"
+        },
+        "claimedByUserPrincipalId": {
+          "description": "The user principal Id of the user who has claimed the environment",
+          "type": "string"
+        },
+        "isClaimed": {
+          "description": "Is the environment claimed or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastKnownPowerState": {
+          "description": "Last known power state of the environment",
+          "type": "string"
+        },
+        "latestOperationResult": {
+          "description": "The details of the latest operation. ex: status, error",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LatestOperationResult"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "networkInterface": {
+          "description": "Network details of the environment",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkInterface"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "passwordLastReset": {
+          "description": "When the password was last reset on the environment.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning status of the resource.",
+          "type": "string"
+        },
+        "resourceSets": {
+          "description": "The set of a VM and the setting id it was created for",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceSet"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "totalUsage": {
+          "description": "How long the environment has been used by a lab user",
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "description": "The unique immutable identifier of a resource (Guid).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentSettingProperties": {
+      "properties": {
+        "configurationState": {
+          "description": "Describes the user's progress in configuring their environment setting",
+          "oneOf": [
+            {
+              "enum": [
+                "NotApplicable",
+                "Completed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "Describes the environment and its resource settings",
+          "type": "string"
+        },
+        "lastChanged": {
+          "description": "Time when the template VM was last changed.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastPublished": {
+          "description": "Time when the template VM was last sent for publishing.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "latestOperationResult": {
+          "description": "The details of the latest operation. ex: status, error",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LatestOperationResult"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning status of the resource.",
+          "type": "string"
+        },
+        "publishingState": {
+          "description": "Describes the readiness of this environment setting",
+          "oneOf": [
+            {
+              "enum": [
+                "Draft",
+                "Publishing",
+                "Published",
+                "PublishFailed",
+                "Scaling"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceSettings": {
+          "description": "The resource specific settings",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "title": {
+          "description": "Brief title describing the environment and its resource settings",
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "description": "The unique immutable identifier of a resource (Guid).",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceSettings"
+      ],
+      "type": "object"
+    },
+    "EnvironmentSize": {
+      "properties": {
+        "maxPrice": {
+          "description": "The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "minMemory": {
+          "description": "The amount of memory available (in GB). This is the minimum amount of memory within this tier.",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "minNumberOfCores": {
+          "description": "The number of cores a VM of this size has. This is the minimum number of cores within this tier.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The size category",
+          "oneOf": [
+            {
+              "enum": [
+                "Basic",
+                "Standard",
+                "Performance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vmSizes": {
+          "description": "Represents a set of compute sizes that can serve this given size type",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/SizeInfo"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GalleryImageProperties": {
+      "properties": {
+        "author": {
+          "description": "The author of the gallery image.",
+          "type": "string"
+        },
+        "createdDate": {
+          "description": "The creation date of the gallery image.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "The description of the gallery image.",
+          "type": "string"
+        },
+        "icon": {
+          "description": "The icon of the gallery image.",
+          "type": "string"
+        },
+        "imageReference": {
+          "description": "The image reference of the gallery image.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isEnabled": {
+          "description": "Indicates whether this gallery image is enabled.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isOverride": {
+          "description": "Indicates whether this gallery has been overridden for this lab account",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isPlanAuthorized": {
+          "description": "Indicates if the plan has been authorized for programmatic deployment.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "latestOperationResult": {
+          "description": "The details of the latest operation. ex: status, error",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LatestOperationResult"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "planId": {
+          "description": "The third party plan that applies to this image",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "The provisioning status of the resource.",
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "description": "The unique immutable identifier of a resource (Guid).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GalleryImageReference": {
+      "properties": {
+        "offer": {
+          "description": "The offer of the gallery image.",
+          "type": "string"
+        },
+        "osType": {
+          "description": "The OS type of the gallery image.",
+          "type": "string"
+        },
+        "publisher": {
+          "description": "The publisher of the gallery image.",
+          "type": "string"
+        },
+        "sku": {
+          "description": "The SKU of the gallery image.",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version of the gallery image.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LabAccountProperties": {
+      "properties": {
+        "enabledRegionSelection": {
+          "description": "Represents if region selection is enabled",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "latestOperationResult": {
+          "description": "The details of the latest operation. ex: status, error",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LatestOperationResult"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning status of the resource.",
+          "type": "string"
+        },
+        "sizeConfiguration": {
+          "description": "Represents the size configuration under the lab account",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SizeConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uniqueIdentifier": {
+          "description": "The unique immutable identifier of a resource (Guid).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LabProperties": {
+      "properties": {
+        "createdByObjectId": {
+          "description": "Object id of the user that created the lab.",
+          "type": "string"
+        },
+        "createdByUserPrincipalName": {
+          "description": "Lab creator name",
+          "type": "string"
+        },
+        "createdDate": {
+          "description": "Creation date for the lab",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "invitationCode": {
+          "description": "Invitation code that users can use to join a lab.",
+          "type": "string"
+        },
+        "latestOperationResult": {
+          "description": "The details of the latest operation. ex: status, error",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LatestOperationResult"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "maxUsersInLab": {
+          "description": "Maximum number of users allowed in the lab.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning status of the resource.",
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "description": "The unique immutable identifier of a resource (Guid).",
+          "type": "string"
+        },
+        "usageQuota": {
+          "description": "Maximum duration a user can use an environment for in the lab.",
+          "type": "string"
+        },
+        "userAccessMode": {
+          "description": "Lab user access mode (open to all vs. restricted to those listed on the lab).",
+          "oneOf": [
+            {
+              "enum": [
+                "Restricted",
+                "Open"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userQuota": {
+          "description": "Maximum value MaxUsersInLab can be set to, as specified by the service",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LatestOperationResult": {
+      "properties": {
+        "errorCode": {
+          "description": "Error code on failure.",
+          "type": "string"
+        },
+        "errorMessage": {
+          "description": "The error message.",
+          "type": "string"
+        },
+        "httpMethod": {
+          "description": "The HttpMethod - PUT/POST/DELETE for the operation.",
+          "type": "string"
+        },
+        "operationUrl": {
+          "description": "The URL to use to check long-running operation status",
+          "type": "string"
+        },
+        "requestUri": {
+          "description": "Request URI of the operation.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The current status of the operation.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkInterface": {
+      "properties": {
+        "privateIpAddress": {
+          "description": "PrivateIp address of the Compute VM",
+          "type": "string"
+        },
+        "rdpAuthority": {
+          "description": "Connection information for Windows",
+          "type": "string"
+        },
+        "sshAuthority": {
+          "description": "Connection information for Linux",
+          "type": "string"
+        },
+        "username": {
+          "description": "Username of the VM",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ReferenceVm": {
+      "properties": {
+        "password": {
+          "description": "The password of the virtual machine. This will be set to null in GET resource API",
+          "type": "string"
+        },
+        "userName": {
+          "description": "The username of the virtual machine",
+          "type": "string"
+        },
+        "vmResourceId": {
+          "description": "VM resource Id for the environment",
+          "type": "string"
+        },
+        "vmStateDetails": {
+          "description": "The state details for the reference virtual machine.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VmStateDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "userName"
+      ],
+      "type": "object"
+    },
+    "ResourceSet": {
+      "properties": {
+        "resourceSettingId": {
+          "description": "resourceSettingId for the environment",
+          "type": "string"
+        },
+        "vmResourceId": {
+          "description": "VM resource Id for the environment",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceSettings": {
+      "properties": {
+        "cores": {
+          "description": "The translated compute cores of the virtual machine",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "galleryImageResourceId": {
+          "description": "The resource id of the gallery image used for creating the virtual machine",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique id of the resource setting",
+          "type": "string"
+        },
+        "imageName": {
+          "description": "The name of the image used to created the environment setting",
+          "type": "string"
+        },
+        "referenceVm": {
+          "description": "Details specific to Reference Vm",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReferenceVm"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "size": {
+          "description": "The size of the virtual machine",
+          "oneOf": [
+            {
+              "enum": [
+                "Basic",
+                "Standard",
+                "Performance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "referenceVm"
+      ],
+      "type": "object"
+    },
+    "SizeConfigurationProperties": {
+      "properties": {
+        "environmentSizes": {
+          "description": "Represents a list of size categories supported by this Lab Account (Small, Medium, Large)",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/EnvironmentSize"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SizeInfo": {
+      "properties": {
+        "computeSize": {
+          "description": "Represents the actual compute size, e.g. Standard_A2_v2.",
+          "type": "string"
+        },
+        "memory": {
+          "description": "The amount of memory available (in GB).",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "numberOfCores": {
+          "description": "The number of cores a VM of this size has.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "price": {
+          "description": "The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UserProperties": {
+      "properties": {
+        "email": {
+          "description": "The user email address, as it was specified during registration.",
+          "type": "string"
+        },
+        "familyName": {
+          "description": "The user family name, as it was specified during registration.",
+          "type": "string"
+        },
+        "givenName": {
+          "description": "The user given name, as it was specified during registration.",
+          "type": "string"
+        },
+        "latestOperationResult": {
+          "description": "The details of the latest operation. ex: status, error",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LatestOperationResult"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "The provisioning status of the resource.",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The user tenant ID, as it was specified during registration.",
+          "type": "string"
+        },
+        "totalUsage": {
+          "description": "How long the user has used his VMs in this lab",
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "description": "The unique immutable identifier of a resource (Guid).",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VmStateDetails": {
+      "properties": {
+        "lastKnownPowerState": {
+          "description": "Last known compute power state captured in DTL",
+          "type": "string"
+        },
+        "powerState": {
+          "description": "The power state of the reference virtual machine.",
+          "type": "string"
+        },
+        "rdpAuthority": {
+          "description": "The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).",
+          "type": "string"
+        },
+        "sshAuthority": {
+          "description": "The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "labaccounts_galleryimages_childResource": {
+      "description": "Microsoft.LabServices/labaccounts/galleryimages",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the gallery Image.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The gallery image properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GalleryImageProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/galleryimages"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs_childResource": {
+      "description": "Microsoft.LabServices/labaccounts/labs",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the lab.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LabProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs_environmentsettings_childResource": {
+      "description": "Microsoft.LabServices/labaccounts/labs/environmentsettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the environment Setting.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Environment Setting resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs/environmentsettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs_environmentsettings_environments_childResource": {
+      "description": "Microsoft.LabServices/labaccounts/labs/environmentsettings/environments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the environment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Environment resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs/environmentsettings/environments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "labaccounts_labs_users_childResource": {
+      "description": "Microsoft.LabServices/labaccounts/labs/users",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-10-15"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "The identifier of the resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the user.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "These are the properties for the user registered under a lab.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LabServices/labaccounts/labs/users"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

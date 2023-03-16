@@ -1,0 +1,328 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2019-02-01-preview/Microsoft.VirtualMachineImages.json#",
+  "title": "Microsoft.VirtualMachineImages",
+  "description": "Microsoft VirtualMachineImages Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "imageTemplates": {
+      "description": "Microsoft.VirtualMachineImages/imageTemplates",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the image Template",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9-_]{1,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ImageTemplateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.VirtualMachineImages/imageTemplates"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ImageTemplateCustomizer": {
+      "properties": {
+        "name": {
+          "description": "Friendly Name to provide context on what this customization step does",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ImageTemplateDistributor": {
+      "properties": {
+        "artifactTags": {
+          "description": "Tags that will be applied to the artifact once it has been created/updated by the distributor.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "runOutputName": {
+          "description": "The name to be used for the associated RunOutput.",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9-_]{1,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "runOutputName"
+      ],
+      "type": "object"
+    },
+    "ImageTemplateLastRunStatus": {
+      "properties": {
+        "endTime": {
+          "description": "End time of the last run (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "message": {
+          "description": "Verbose information about the last run state",
+          "type": "string"
+        },
+        "runState": {
+          "description": "State of the last run",
+          "oneOf": [
+            {
+              "enum": [
+                "Running",
+                "Succeeded",
+                "PartiallySucceeded",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "runSubState": {
+          "description": "Sub-state of the last run",
+          "oneOf": [
+            {
+              "enum": [
+                "Queued",
+                "Building",
+                "Customizing",
+                "Distributing"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startTime": {
+          "description": "Start time of the last run (UTC)",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImageTemplateProperties": {
+      "properties": {
+        "customize": {
+          "description": "Specifies the properties used to describe the customization steps of the image, like Image source etc",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ImageTemplateCustomizer"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "distribute": {
+          "description": "The distribution targets where the image output needs to go to.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ImageTemplateDistributor"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastRunStatus": {
+          "description": "State of 'run' that is currently executing or was last executed.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ImageTemplateLastRunStatus"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningError": {
+          "description": "Provisioning error, if any",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProvisioningError"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "Provisioning state of the resource",
+          "oneOf": [
+            {
+              "enum": [
+                "Creating",
+                "Succeeded",
+                "Failed",
+                "Deleting"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "source": {
+          "description": "Specifies the properties used to describe the source image.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ImageTemplateSource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "distribute"
+      ],
+      "type": "object"
+    },
+    "ImageTemplateSource": {
+      "properties": {},
+      "type": "object"
+    },
+    "ProvisioningError": {
+      "properties": {
+        "message": {
+          "description": "Verbose error message about the provisioning failure",
+          "type": "string"
+        },
+        "provisioningErrorCode": {
+          "description": "Error code of the provisioning failure",
+          "oneOf": [
+            {
+              "enum": [
+                "BadSourceType",
+                "BadPIRSource",
+                "BadISOSource",
+                "BadManagedImageSource",
+                "BadCustomizerType",
+                "UnsupportedCustomizerType",
+                "NoCustomizerScript",
+                "BadDistributeType",
+                "BadSharedImageDistribute",
+                "ServerError",
+                "Other"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

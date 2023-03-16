@@ -1,0 +1,904 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2018-06-01-preview/Microsoft.DBforMariaDB.json#",
+  "title": "Microsoft.DBforMariaDB",
+  "description": "Microsoft DBforMariaDB Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "servers": {
+      "description": "Microsoft.DBforMariaDB/servers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "The location the resource resides in.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the server.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerPropertiesForCreate"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/servers_databases_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_firewallRules_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_configurations_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_virtualNetworkRules_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_securityAlertPolicies_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "sku": {
+          "description": "The SKU (pricing tier) of the server.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Application-specific metadata in the form of key-value pairs.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_configurations": {
+      "description": "Microsoft.DBforMariaDB/servers/configurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server configuration.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/configurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_databases": {
+      "description": "Microsoft.DBforMariaDB/servers/databases",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the database.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a database.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/databases"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_firewallRules": {
+      "description": "Microsoft.DBforMariaDB/servers/firewallRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server firewall rule.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a firewall rule.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FirewallRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/firewallRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_securityAlertPolicies": {
+      "description": "Microsoft.DBforMariaDB/servers/securityAlertPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the threat detection policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "Default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAlertPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/securityAlertPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_virtualNetworkRules": {
+      "description": "Microsoft.DBforMariaDB/servers/virtualNetworkRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the virtual network rule.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/virtualNetworkRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "ConfigurationProperties": {
+      "properties": {
+        "allowedValues": {
+          "description": "Allowed values of the configuration.",
+          "type": "string"
+        },
+        "dataType": {
+          "description": "Data type of the configuration.",
+          "type": "string"
+        },
+        "defaultValue": {
+          "description": "Default value of the configuration.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the configuration.",
+          "type": "string"
+        },
+        "source": {
+          "description": "Source of the configuration.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of the configuration.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DatabaseProperties": {
+      "properties": {
+        "charset": {
+          "description": "The charset of the database.",
+          "type": "string"
+        },
+        "collation": {
+          "description": "The collation of the database.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FirewallRuleProperties": {
+      "properties": {
+        "endIpAddress": {
+          "description": "The end IP address of the server firewall rule. Must be IPv4 format.",
+          "oneOf": [
+            {
+              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startIpAddress": {
+          "description": "The start IP address of the server firewall rule. Must be IPv4 format.",
+          "oneOf": [
+            {
+              "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "startIpAddress",
+        "endIpAddress"
+      ],
+      "type": "object"
+    },
+    "SecurityAlertPolicyProperties": {
+      "properties": {
+        "disabledAlerts": {
+          "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "emailAccountAdmins": {
+          "description": "Specifies that the alert is sent to the account administrators.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "emailAddresses": {
+          "description": "Specifies an array of e-mail addresses to which the alert is sent.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "retentionDays": {
+          "description": "Specifies the number of days to keep in the Threat Detection audit logs.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "Specifies the state of the policy, whether it is enabled or disabled.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageAccountAccessKey": {
+          "description": "Specifies the identifier key of the Threat Detection audit storage account.",
+          "type": "string"
+        },
+        "storageEndpoint": {
+          "description": "Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "type": "object"
+    },
+    "ServerPropertiesForCreate": {
+      "properties": {
+        "minimalTlsVersion": {
+          "description": "Enforce a minimal Tls version for the server.",
+          "oneOf": [
+            {
+              "enum": [
+                "TLS1_0",
+                "TLS1_1",
+                "TLS1_2",
+                "TLSEnforcementDisabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sslEnforcement": {
+          "description": "Enable ssl enforcement or not when connect to server.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageProfile": {
+          "description": "Storage profile of a server.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "version": {
+          "description": "Server version.",
+          "oneOf": [
+            {
+              "enum": [
+                "10.2",
+                "10.3"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Sku": {
+      "properties": {
+        "capacity": {
+          "description": "The scale up/out capacity, representing server's compute units.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "family": {
+          "description": "The family of hardware.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.",
+          "type": "string"
+        },
+        "size": {
+          "description": "The size code, to be interpreted by resource as appropriate.",
+          "type": "string"
+        },
+        "tier": {
+          "description": "The tier of the particular SKU, e.g. Basic.",
+          "oneOf": [
+            {
+              "enum": [
+                "Basic",
+                "GeneralPurpose",
+                "MemoryOptimized"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "StorageProfile": {
+      "properties": {
+        "backupRetentionDays": {
+          "description": "Backup retention days for the server.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "geoRedundantBackup": {
+          "description": "Enable Geo-redundant or not for server backup.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageAutogrow": {
+          "description": "Enable Storage Auto Grow.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageMB": {
+          "description": "Max storage allowed for a server.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNetworkRuleProperties": {
+      "properties": {
+        "ignoreMissingVnetServiceEndpoint": {
+          "description": "Create firewall rule before the virtual network has vnet service endpoint enabled.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "Virtual Network Rule State",
+          "oneOf": [
+            {
+              "enum": [
+                "Initializing",
+                "InProgress",
+                "Ready",
+                "Deleting",
+                "Unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "virtualNetworkSubnetId": {
+          "description": "The ARM resource id of the virtual network subnet.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "virtualNetworkSubnetId"
+      ],
+      "type": "object"
+    },
+    "servers_configurations_childResource": {
+      "description": "Microsoft.DBforMariaDB/servers/configurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server configuration.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/configurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_databases_childResource": {
+      "description": "Microsoft.DBforMariaDB/servers/databases",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the database.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a database.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DatabaseProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/databases"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_firewallRules_childResource": {
+      "description": "Microsoft.DBforMariaDB/servers/firewallRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server firewall rule.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a firewall rule.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FirewallRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/firewallRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_securityAlertPolicies_childResource": {
+      "description": "Microsoft.DBforMariaDB/servers/securityAlertPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the threat detection policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "Default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAlertPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/securityAlertPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_virtualNetworkRules_childResource": {
+      "description": "Microsoft.DBforMariaDB/servers/virtualNetworkRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the virtual network rule.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualNetworkRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMariaDB/servers/virtualNetworkRules"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}
