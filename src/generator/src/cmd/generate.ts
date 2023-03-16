@@ -3,7 +3,7 @@
 import os from 'os';
 import path from 'path';
 import { existsSync } from 'fs';
-import { mkdir, rm, writeFile, readFile, rmdir } from 'fs/promises';
+import { mkdir, rm, writeFile, readFile } from 'fs/promises';
 import yargs from 'yargs';
 import { TypeFile, buildIndex, writeIndexJson, writeIndexMarkdown, readJson } from "bicep-types";
 import { GeneratorConfig, getConfig } from '../config';
@@ -258,7 +258,7 @@ async function logStaleReadmes(logger: ILogger, outputBaseDir: string, specsPath
   }
 
   for (const basePath of staleBasePaths) {
-    await rmdir(`${outputBaseDir}/${basePath}`);
+    await rm(`${outputBaseDir}/${basePath}`, { recursive: true, force: true, });
   }
 }
 
