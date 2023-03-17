@@ -1,0 +1,105 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-03-15/Microsoft.Quota.json#",
+  "title": "Microsoft.Quota",
+  "description": "Microsoft Quota Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "quotaLimits": {
+      "description": "Microsoft.Quota/quotaLimits",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- Sku or TotalLowPriorityCores for Microsoft.MachineLearningServices",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Quota properties for the specified resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuotaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Quota/quotaLimits"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "QuotaProperties": {
+      "properties": {
+        "limit": {
+          "description": "Quota limit.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Resource name provided by the resource provider. Use this property name when requesting quota.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceName"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Additional properties for the specific resource provider."
+        },
+        "resourceType": {
+          "description": "Resource type name.",
+          "oneOf": [
+            {
+              "enum": [
+                "standard",
+                "dedicated",
+                "lowPriority",
+                "shared",
+                "serviceSpecific"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceName": {
+      "properties": {
+        "value": {
+          "description": "Resource name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

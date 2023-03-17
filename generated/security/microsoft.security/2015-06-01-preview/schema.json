@@ -1,0 +1,788 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2015-06-01-preview/Microsoft.Security.json#",
+  "title": "Microsoft.Security",
+  "description": "Microsoft Security Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "locations_jitNetworkAccessPolicies": {
+      "description": "Microsoft.Security/locations/jitNetworkAccessPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the resource",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of a Just-in-Time access configuration policy.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/JitNetworkAccessPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/locations/jitNetworkAccessPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "locations_applicationWhitelistings": {
+      "description": "Microsoft.Security/locations/applicationWhitelistings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "enforcementMode": {
+          "description": "The enforcement mode of the group. Can also be defined per collection type by using ProtectionMode",
+          "oneOf": [
+            {
+              "enum": [
+                "Audit",
+                "Enforce",
+                "None"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of an application control VM/server group",
+          "type": "string"
+        },
+        "pathRecommendations": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/PathRecommendation"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protectionMode": {
+          "description": "The protection mode of the group per collection type. Can also be defined for all collection types by using EnforcementMode",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectionMode"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/locations/applicationWhitelistings"
+          ],
+          "type": "string"
+        },
+        "vmRecommendations": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/VmRecommendation"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "JitNetworkAccessPolicyProperties": {
+      "properties": {
+        "requests": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/JitNetworkAccessRequest"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "virtualMachines": {
+          "description": "Configurations for Microsoft.Compute/virtualMachines resource type.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/JitNetworkAccessPolicyVirtualMachine"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "virtualMachines"
+      ],
+      "type": "object"
+    },
+    "JitNetworkAccessPolicyVirtualMachine": {
+      "properties": {
+        "id": {
+          "description": "Resource ID of the virtual machine that is linked to this policy",
+          "type": "string"
+        },
+        "ports": {
+          "description": "Port configurations for the virtual machine",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/JitNetworkAccessPortRule"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publicIpAddress": {
+          "description": "Public IP address of the Azure Firewall that is linked to this policy, if applicable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "ports"
+      ],
+      "type": "object"
+    },
+    "JitNetworkAccessPortRule": {
+      "properties": {
+        "allowedSourceAddressPrefix": {
+          "description": "Mutually exclusive with the \"allowedSourceAddressPrefixes\" parameter. Should be an IP address or CIDR, for example \"192.168.0.3\" or \"192.168.0.0/16\".",
+          "type": "string"
+        },
+        "allowedSourceAddressPrefixes": {
+          "description": "Mutually exclusive with the \"allowedSourceAddressPrefix\" parameter.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "maxRequestAccessDuration": {
+          "description": "Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day",
+          "type": "string"
+        },
+        "number": {
+          "description": "",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "protocol": {
+          "description": "",
+          "oneOf": [
+            {
+              "enum": [
+                "TCP",
+                "UDP",
+                "*"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "number",
+        "protocol",
+        "maxRequestAccessDuration"
+      ],
+      "type": "object"
+    },
+    "JitNetworkAccessRequest": {
+      "properties": {
+        "justification": {
+          "description": "The justification for making the initiate request",
+          "type": "string"
+        },
+        "requestor": {
+          "description": "The identity of the person who made the request",
+          "type": "string"
+        },
+        "startTimeUtc": {
+          "description": "The start time of the request in UTC",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "virtualMachines": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/JitNetworkAccessRequestVirtualMachine"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "virtualMachines",
+        "startTimeUtc",
+        "requestor"
+      ],
+      "type": "object"
+    },
+    "JitNetworkAccessRequestPort": {
+      "properties": {
+        "allowedSourceAddressPrefix": {
+          "description": "Mutually exclusive with the \"allowedSourceAddressPrefixes\" parameter. Should be an IP address or CIDR, for example \"192.168.0.3\" or \"192.168.0.0/16\".",
+          "type": "string"
+        },
+        "allowedSourceAddressPrefixes": {
+          "description": "Mutually exclusive with the \"allowedSourceAddressPrefix\" parameter.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "endTimeUtc": {
+          "description": "The date & time at which the request ends in UTC",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "mappedPort": {
+          "description": "The port which is mapped to this port's `number` in the Azure Firewall, if applicable",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "number": {
+          "description": "",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "The status of the port",
+          "oneOf": [
+            {
+              "enum": [
+                "Revoked",
+                "Initiated"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "statusReason": {
+          "description": "A description of why the `status` has its value",
+          "oneOf": [
+            {
+              "enum": [
+                "Expired",
+                "UserRequested",
+                "NewerRequestInitiated"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "number",
+        "endTimeUtc",
+        "status",
+        "statusReason"
+      ],
+      "type": "object"
+    },
+    "JitNetworkAccessRequestVirtualMachine": {
+      "properties": {
+        "id": {
+          "description": "Resource ID of the virtual machine that is linked to this policy",
+          "type": "string"
+        },
+        "ports": {
+          "description": "The ports that were opened for the virtual machine",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/JitNetworkAccessRequestPort"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "ports"
+      ],
+      "type": "object"
+    },
+    "PathRecommendation": {
+      "properties": {
+        "action": {
+          "description": "The recommendation action of the VM/server or rule",
+          "oneOf": [
+            {
+              "enum": [
+                "Recommended",
+                "Add",
+                "Remove"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "common": {
+          "description": "Whether the path is commonly run on the machine",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "configurationStatus": {
+          "description": "The configuration status of the VM/server group or machine or rule on the machine",
+          "oneOf": [
+            {
+              "enum": [
+                "Configured",
+                "NotConfigured",
+                "InProgress",
+                "Failed",
+                "NoStatus"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "fileType": {
+          "description": "The type of the file (for Linux files - Executable is used)",
+          "oneOf": [
+            {
+              "enum": [
+                "Exe",
+                "Dll",
+                "Msi",
+                "Script",
+                "Executable",
+                "Unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "path": {
+          "description": "The full path to the application to allow",
+          "type": "string"
+        },
+        "publisherInfo": {
+          "description": "Represents the publisher information of a process/rule",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PublisherInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "The type of the rule to be allowed",
+          "oneOf": [
+            {
+              "enum": [
+                "File",
+                "FileHash",
+                "PublisherSignature",
+                "ProductSignature",
+                "BinarySignature",
+                "VersionAndAboveSignature"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userSids": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "usernames": {
+          "description": "",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/UserRecommendation"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProtectionMode": {
+      "properties": {
+        "exe": {
+          "description": "The application control policy enforcement/protection mode of the VM/server group",
+          "oneOf": [
+            {
+              "enum": [
+                "Audit",
+                "Enforce",
+                "None"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "executable": {
+          "description": "The application control policy enforcement/protection mode of the VM/server group",
+          "oneOf": [
+            {
+              "enum": [
+                "Audit",
+                "Enforce",
+                "None"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "msi": {
+          "description": "The application control policy enforcement/protection mode of the VM/server group",
+          "oneOf": [
+            {
+              "enum": [
+                "Audit",
+                "Enforce",
+                "None"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "script": {
+          "description": "The application control policy enforcement/protection mode of the VM/server group",
+          "oneOf": [
+            {
+              "enum": [
+                "Audit",
+                "Enforce",
+                "None"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PublisherInfo": {
+      "properties": {
+        "binaryName": {
+          "description": "The \"OriginalName\" field taken from the file's version resource",
+          "type": "string"
+        },
+        "productName": {
+          "description": "The product name taken from the file's version resource",
+          "type": "string"
+        },
+        "publisherName": {
+          "description": "The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country",
+          "type": "string"
+        },
+        "version": {
+          "description": "The binary file version taken from the file's version resource",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UserRecommendation": {
+      "properties": {
+        "recommendationAction": {
+          "description": "The recommendation action of the VM/server or rule",
+          "oneOf": [
+            {
+              "enum": [
+                "Recommended",
+                "Add",
+                "Remove"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "username": {
+          "description": "Represents a user that is recommended to be allowed for a certain rule",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VmRecommendation": {
+      "properties": {
+        "configurationStatus": {
+          "description": "The configuration status of the VM/server group or machine or rule on the machine",
+          "oneOf": [
+            {
+              "enum": [
+                "Configured",
+                "NotConfigured",
+                "InProgress",
+                "Failed",
+                "NoStatus"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enforcementSupport": {
+          "description": "The VM/server supportability of Enforce feature",
+          "oneOf": [
+            {
+              "enum": [
+                "Supported",
+                "NotSupported",
+                "Unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recommendationAction": {
+          "description": "The recommendation action of the VM/server or rule",
+          "oneOf": [
+            {
+              "enum": [
+                "Recommended",
+                "Add",
+                "Remove"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceId": {
+          "description": "The full azure resource id of the machine",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

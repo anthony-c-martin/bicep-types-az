@@ -1,0 +1,563 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2016-12-01/Microsoft.RecoveryServices.json#",
+  "title": "Microsoft.RecoveryServices",
+  "description": "Microsoft RecoveryServices Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "vaults_backupFabrics_protectionContainers": {
+      "description": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-12-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the container to be registered.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "ProtectionContainerResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProtectionContainer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_backupstorageconfig": {
+      "description": "Microsoft.RecoveryServices/vaults/backupstorageconfig",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-12-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "Optional ETag.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/vaultstorageconfig$",
+          "type": "string"
+        },
+        "properties": {
+          "description": "BackupResourceConfigResource properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BackupResourceConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/backupstorageconfig"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AzureWorkloadContainerExtendedInfo": {
+      "properties": {
+        "hostServerName": {
+          "description": "Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.",
+          "type": "string"
+        },
+        "inquiryInfo": {
+          "description": "Inquiry Status for the container.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InquiryInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "nodesList": {
+          "description": "List of the nodes in case of distributed container.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/DistributedNodesInfo"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BackupResourceConfig": {
+      "properties": {
+        "storageModelType": {
+          "description": "Storage type",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "GeoRedundant",
+                "LocallyRedundant"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageType": {
+          "description": "Storage type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "GeoRedundant",
+                "LocallyRedundant"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageTypeState": {
+          "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "Locked",
+                "Unlocked"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContainerIdentityInfo": {
+      "properties": {
+        "aadTenantId": {
+          "description": "Protection container identity - AAD Tenant",
+          "type": "string"
+        },
+        "audience": {
+          "description": "Protection container identity - Audience",
+          "type": "string"
+        },
+        "servicePrincipalClientId": {
+          "description": "Protection container identity - AAD Service Principal",
+          "type": "string"
+        },
+        "uniqueName": {
+          "description": "Unique name of the container",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DPMContainerExtendedInfo": {
+      "properties": {
+        "lastRefreshedAt": {
+          "description": "Last refresh time of the DPMContainer.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DistributedNodesInfo": {
+      "properties": {
+        "errorDetail": {
+          "description": "Error Details if the Status is non-success.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "nodeName": {
+          "description": "Name of the node under a distributed container.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of this Node.\r\nFailed | Succeeded",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorDetail": {
+      "properties": {},
+      "type": "object"
+    },
+    "GenericContainerExtendedInfo": {
+      "properties": {
+        "containerIdentityInfo": {
+          "description": "Container identity information",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContainerIdentityInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rawCertData": {
+          "description": "Public key of container cert",
+          "type": "string"
+        },
+        "serviceEndpoints": {
+          "description": "Azure Backup Service Endpoints for the container",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InquiryInfo": {
+      "properties": {
+        "errorDetail": {
+          "description": "Error Details if the Status is non-success.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "inquiryDetails": {
+          "description": "Inquiry Details which will have workload specific details.\r\nFor e.g. - For SQL and oracle this will contain different details.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/WorkloadInquiryDetails"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Inquiry Status for this container such as\r\nInProgress | Failed | Succeeded",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InquiryValidation": {
+      "properties": {
+        "errorDetail": {
+          "description": "Error Detail in case the status is non-success.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Status for the Inquiry Validation.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MABContainerHealthDetails": {
+      "properties": {
+        "code": {
+          "description": "Health Code",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "message": {
+          "description": "Health Message",
+          "type": "string"
+        },
+        "recommendations": {
+          "description": "Health Recommended Actions",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "title": {
+          "description": "Health Title",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MabContainerExtendedInfo": {
+      "properties": {
+        "backupItemType": {
+          "description": "Type of backup items associated with this container.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "VM",
+                "FileFolder",
+                "AzureSqlDb",
+                "SQLDB",
+                "Exchange",
+                "Sharepoint",
+                "VMwareVM",
+                "SystemState",
+                "Client",
+                "GenericDataSource",
+                "SQLDataBase",
+                "AzureFileShare",
+                "SAPHanaDatabase",
+                "SAPAseDatabase"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "backupItems": {
+          "description": "List of backup items associated with this container.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "lastBackupStatus": {
+          "description": "Latest backup status of this container.",
+          "type": "string"
+        },
+        "lastRefreshedAt": {
+          "description": "Time stamp when this container was refreshed.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyName": {
+          "description": "Backup policy associated with this container.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ProtectionContainer": {
+      "properties": {
+        "backupManagementType": {
+          "description": "Type of backup management for the container.",
+          "oneOf": [
+            {
+              "enum": [
+                "Invalid",
+                "AzureIaasVM",
+                "MAB",
+                "DPM",
+                "AzureBackupServer",
+                "AzureSql",
+                "AzureStorage",
+                "AzureWorkload",
+                "DefaultBackup"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "friendlyName": {
+          "description": "Friendly name of the container.",
+          "type": "string"
+        },
+        "healthStatus": {
+          "description": "Status of health of the container.",
+          "type": "string"
+        },
+        "registrationStatus": {
+          "description": "Status of registration of the container with the Recovery Services Vault.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WorkloadInquiryDetails": {
+      "properties": {
+        "inquiryValidation": {
+          "description": "Inquiry validation such as permissions and other backup validations.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InquiryValidation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "itemCount": {
+          "description": "Contains the protectable item Count inside this Container.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Type of the Workload such as SQL, Oracle etc.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
