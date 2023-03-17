@@ -97,7 +97,12 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
         continue;
       }
 
-      const putProperty = putProperties[propertyName] as Property | undefined
+      const putProperty = putProperties[propertyName];
+
+      // exclude readonly properties - they cannot be set in template schemas
+      if (isReadOnly(putProperty)) {
+        continue;
+      }
 
       yield { propertyName, putProperty };
     }
@@ -664,4 +669,18 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
   }
 
   return generateSchema();
+}
+
+function isReadOnly(property: Property | undefined) {
+  const mutability = property?.extensions?.["x-ms-mutability"] as string[];
+
+  if (mutability && !(mutability.includes('create') || mutability.includes('update'))) {
+    return true;
+  }
+
+  if (property?.readOnly === true) {
+    return true;
+  }
+
+  return false;
 }
