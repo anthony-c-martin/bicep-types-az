@@ -1,0 +1,65 @@
+{
+  "id": "https://schema.management.azure.com/schemas.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "TenantResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": []
+        }
+      ]
+    },
+    "ManagementGroupResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": []
+        }
+      ]
+    },
+    "SubscriptionResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": []
+        }
+      ]
+    },
+    "ResourceGroupResources": {
+      "allOf": [
+        {
+          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/resourceBase"
+        },
+        {
+          "oneOf": [
+            {
+              "$ref": "https://schema.management.azure.com/schemas/adp/microsoft.autonomousdevelopmentplatform/2020-07-01-preview/schema.json#/resourceDefinitions/accounts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/adp/microsoft.autonomousdevelopmentplatform/2020-07-01-preview/schema.json#/resourceDefinitions/accounts_dataPools"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/adp/microsoft.autonomousdevelopmentplatform/2021-02-01-preview/schema.json#/resourceDefinitions/accounts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/adp/microsoft.autonomousdevelopmentplatform/2021-02-01-preview/schema.json#/resourceDefinitions/accounts_dataPools"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/adp/microsoft.autonomousdevelopmentplatform/2021-11-01-preview/schema.json#/resourceDefinitions/accounts"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/adp/microsoft.autonomousdevelopmentplatform/2021-11-01-preview/schema.json#/resourceDefinitions/accounts_dataPools"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
