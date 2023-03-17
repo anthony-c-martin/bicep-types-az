@@ -1,0 +1,170 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2022-05-01/Microsoft.ServiceLinker.json#",
+  "title": "Microsoft.ServiceLinker",
+  "description": "Microsoft ServiceLinker Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "unknown_resourceDefinitions": {
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AuthInfoBase": {
+      "properties": {},
+      "type": "object"
+    },
+    "AzureResourcePropertiesBase": {
+      "properties": {},
+      "type": "object"
+    },
+    "LinkerProperties": {
+      "properties": {
+        "authInfo": {
+          "description": "The authentication type.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AuthInfoBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "clientType": {
+          "description": "The application client type",
+          "oneOf": [
+            {
+              "enum": [
+                "none",
+                "dotnet",
+                "java",
+                "python",
+                "go",
+                "php",
+                "ruby",
+                "django",
+                "nodejs",
+                "springBoot",
+                "kafka-springBoot"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scope": {
+          "description": "connection scope in source service.",
+          "type": "string"
+        },
+        "secretStore": {
+          "description": "An option to store secret value in secure place",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecretStore"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetService": {
+          "description": "The target service properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TargetServiceBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "vNetSolution": {
+          "description": "The VNet solution.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VNetSolution"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SecretInfoBase": {
+      "properties": {},
+      "type": "object"
+    },
+    "SecretStore": {
+      "properties": {
+        "keyVaultId": {
+          "description": "The key vault id to store secret",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TargetServiceBase": {
+      "properties": {},
+      "type": "object"
+    },
+    "VNetSolution": {
+      "properties": {
+        "type": {
+          "description": "Type of VNet solution.",
+          "oneOf": [
+            {
+              "enum": [
+                "serviceEndpoint",
+                "privateLink"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}
