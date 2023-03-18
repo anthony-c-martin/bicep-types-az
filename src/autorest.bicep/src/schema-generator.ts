@@ -43,9 +43,9 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     return (definition.putOperation ?? definition.getOperation)?.request.path;
   }
 
-  function getResourceNameSchema(descriptor: ResourceDescriptor, nameSchema: NameSchema): JSONSchema4 {
+  function getResourceNameSchema(descriptor: ResourceDescriptor, nameSchema: NameSchema, isChildDefinition: boolean): JSONSchema4 {
     if (nameSchema.type === 'constant') {
-      if (descriptor.typeSegments.length < 2) {
+      if (descriptor.typeSegments.length < 2 || isChildDefinition) {
         return {
           type: 'string',
           enum: [nameSchema.value],
@@ -109,7 +109,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
   }
 
   function getTypeDescription(schema: Schema | undefined) {
-    return schema?.language.default.description;
+    return schema?.language.default.description || undefined;
   }
 
   function getPropertyDescription(putProperty: Property | undefined) {
@@ -318,7 +318,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     };
   }
 
-  function processResourceBody(fullyQualifiedType: string, definition: ResourceDefinition) {
+  function processResourceBody(fullyQualifiedType: string, definition: ResourceDefinition, isChildDefinition: boolean) {
     const { descriptor, putOperation } = definition;
 
     if (!putOperation?.requestSchema) {
@@ -333,7 +333,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       return
     }
 
-    const name = getResourceNameSchema(descriptor, r.value);
+    const name = getResourceNameSchema(descriptor, r.value, isChildDefinition);
     if (r.value.type === 'parameterized') {
       name.description = r.value.description;
     }
@@ -371,7 +371,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     return schema;
   }
 
-  function addResourceTypeAndApiVersion(descriptor: ResourceDescriptor, schema: JSONSchema4): JSONSchema4 {
+  function addResourceTypeAndApiVersion(descriptor: ResourceDescriptor, schema: JSONSchema4, isChildDefinition: boolean): JSONSchema4 {
     schema.properties ??= {};
     schema.required ??= [];
 
@@ -380,9 +380,10 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       enum: [descriptor.apiVersion],
     };
 
+    const typeName = isChildDefinition ? descriptor.typeSegments[descriptor.typeSegments.length - 1] : getFullyQualifiedType(descriptor)
     schema.properties['type'] = {
       type: 'string',
-      enum: [getFullyQualifiedType(descriptor)],
+      enum: [typeName],
     };
 
     schema.required = uniq([
@@ -394,7 +395,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     return schema;
   }
 
-  function processResource(fullyQualifiedType: string, definitions: ResourceDefinition[]) {
+  function processResource(fullyQualifiedType: string, definitions: ResourceDefinition[], isChildDefinition: boolean) {
     const descriptor = definitions[0].descriptor;
     if (definitions.length > 1) {
       for (const definition of definitions) {
@@ -406,7 +407,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
 
       const oneOf: JSONSchema4[] = [];
       for (const definition of definitions) {
-        const bodyType = processResourceBody(fullyQualifiedType, definition);
+        const bodyType = processResourceBody(fullyQualifiedType, definition, isChildDefinition);
         if (!bodyType || !definition.descriptor.constantName) {
           return null;
         }
@@ -423,18 +424,18 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
           ...descriptor,
           constantName: undefined,
         },
-        schema: addResourceTypeAndApiVersion(descriptor, schema),
+        schema: addResourceTypeAndApiVersion(descriptor, schema, isChildDefinition),
       };
     } else {
       const definition = definitions[0];
-      const schema = processResourceBody(fullyQualifiedType, definition);
+      const schema = processResourceBody(fullyQualifiedType, definition, isChildDefinition);
       if (!schema) {
         return null;
       }
 
       return {
         descriptor,
-        schema: addResourceTypeAndApiVersion(descriptor, schema),
+        schema: addResourceTypeAndApiVersion(descriptor, schema, isChildDefinition),
       };
     }
   }
@@ -471,6 +472,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     const additionalProperties = putParentDictionary ? parseType(putParentDictionary?.elementType) : undefined;
 
     const definition = createObject({}, additionalProperties);
+    definition.description = getTypeDescription(combinedSchema);
     if (!ancestorsToExclude) {
       // cache the definition so that it can be re-used
       schemaData.definitions[definitionName] = definition;
@@ -551,7 +553,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
 
     return {
       type: 'string',
-      enum: [constantValue.toString()],
+      enum: [constantValue.value.toString()],
     };
   }
 
@@ -602,12 +604,11 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     for (const fullyQualifiedType of orderBy(keys(resourcesByType), x => x.length)) {
       const definitions = resourcesByType[fullyQualifiedType];
 
-      const output = processResource(fullyQualifiedType, definitions);
+      const output = processResource(fullyQualifiedType, definitions, false);
       if (!output) {
         continue;
       }
 
-      // TODO handle descriptor.readonlyScopes here
       const { descriptor, schema } = output;
       generated[fullyQualifiedType.toLowerCase()] = schema;
       const definitionName = descriptor.typeSegments.join('_');
@@ -636,15 +637,21 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
         const parentSchema = generated[parentType.toLowerCase()];
 
         if (parentSchema) {
-          const childSchema = cloneDeep(schema);
+          // generate nested resource schema definitions
+          const output = processResource(fullyQualifiedType, definitions, true);
+          if (!output) {
+            continue;
+          }
+    
+          const { schema } = output;
           const childResourceDefinitionName = `${definitionName}_childResource`;
-          schemaData.definitions[childResourceDefinitionName] = childSchema;
+          schemaData.definitions[childResourceDefinitionName] = schema;
           
           parentSchema.properties!['resources'] ??= {
             type: 'array',
             items: {
-              oneOf: []
-            }
+              oneOf: [],
+            },
           };
 
           const items = parentSchema.properties!['resources'].items as JSONSchema4;

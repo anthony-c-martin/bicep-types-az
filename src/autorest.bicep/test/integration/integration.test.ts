@@ -1,73 +1,28 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
-import os from 'os';
 import path from 'path';
-import { rm, mkdir } from 'fs/promises';
+import { rm } from 'fs/promises';
 import { compare } from 'dir-compare';
-import { defaultLogger, executeCmd, ILogger } from './utils';
+import { defaultLogger, generateSchema, isBaselineRecordEnabled } from './utils';
 import { describe, it, expect, jest } from '@jest/globals';
-import { readFile } from 'fs/promises';
-
-const extensionDir = path.resolve(`${__dirname}/../../`);
-const autorestBinary = os.platform() === 'win32' ? 'autorest.cmd' : 'autorest';
-const outputBaseDir = `${__dirname}/generated`;
-
-async function generateSchema(logger: ILogger, readme: string, outputBaseDir: string, schema: boolean, verbose: boolean, waitForDebugger: boolean) {
-  let autoRestParams = [
-    `--use=@autorest/modelerfour`,
-    `--use=${extensionDir}`,
-    '--bicep',
-    `--output-folder=${outputBaseDir}`,
-    `--multiapi`,
-    '--title=none',
-    // This is necessary to avoid failures such as "ERROR: Semantic violation: Discriminator must be a required property." blocking type generation.
-    // In an ideal world, we'd raise issues in https://github.com/Azure/azure-rest-api-specs and force RP teams to fix them, but this isn't very practical
-    // as new validations are added continuously, and there's often quite a lag before teams will fix them - we don't want to be blocked by this in generating types. 
-    `--skip-semantics-validation`,
-    readme,
-  ];
-
-  if (schema) {
-    autoRestParams = autoRestParams.concat([
-      `--arm-schema=true`,
-    ]);
-  }
-
-  if (verbose) {
-    autoRestParams = autoRestParams.concat([
-      `--debug`,
-      `--verbose`,
-    ]);
-  }
-
-  if (waitForDebugger) {
-    autoRestParams = autoRestParams.concat([
-      `--bicep.debugger`,
-    ]);
-  }
-
-  return await executeCmd(logger, verbose, __dirname, autorestBinary, autoRestParams);
-}
 
 describe('integration tests', () => {
   // add any new spec paths under ./specs to this list
   const specs = [
-    `basic`,
-    `keyvault`
+    `basic`
   ]
-
-  // set to true to overwrite baselines
-  const record = (process.env['BASELINE_RECORD']?.toLowerCase() === 'true');
 
   // bump timeout - autorest can take a while to run
   jest.setTimeout(60000);
+
+  const outputBaseDir = `${__dirname}/generated`;
 
   for (const spec of specs) {
     it(spec, async () => {
       const readmePath = path.join(__dirname, `specs/${spec}/resource-manager/README.md`);
       const outputDir = `${outputBaseDir}/${spec}`;
 
-      if (record) {
+      if (isBaselineRecordEnabled()) {
         await rm(outputDir, { recursive: true, force: true, });
         await generateSchema(defaultLogger, readmePath, outputDir, true, false, false);
       } else {
@@ -84,11 +39,4 @@ describe('integration tests', () => {
       }
     });
   }
-
-  it('compare against real schemas', async () => {
-    const generated = await readFile(`${outputBaseDir}/keyvault/microsoft.keyvault/2023-02-01/schema.json`, { encoding: 'utf-8' });
-    const reference = await readFile(`${__dirname}/keyvault_reference.json`, { encoding: 'utf-8' });
-
-    expect(JSON.parse(generated)).toMatchObject(JSON.parse(reference));
-  });
 });

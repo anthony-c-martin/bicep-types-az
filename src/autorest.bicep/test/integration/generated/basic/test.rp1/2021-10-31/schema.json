@@ -48,10 +48,6 @@
           ],
           "type": "string"
         },
-        "id": {
-          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
-          "type": "string"
-        },
         "location": {
           "description": "The geo-location where the resource lives",
           "type": "string"
@@ -65,17 +61,6 @@
           "oneOf": [
             {
               "$ref": "#/definitions/TestType1Properties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "systemData": {
-          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -120,10 +105,6 @@
           ],
           "type": "string"
         },
-        "id": {
-          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
-          "type": "string"
-        },
         "location": {
           "description": "The geo-location where the resource lives",
           "type": "string"
@@ -137,17 +118,6 @@
           "oneOf": [
             {
               "$ref": "#/definitions/TestType1CreateOrUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "systemData": {
-          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -194,10 +164,6 @@
           ],
           "type": "string"
         },
-        "id": {
-          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
-          "type": "string"
-        },
         "location": {
           "description": "The geo-location where the resource lives",
           "type": "string"
@@ -213,17 +179,6 @@
           "oneOf": [
             {
               "$ref": "#/definitions/TestType1CreateOrUpdateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "systemData": {
-          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -270,10 +225,6 @@
           ],
           "type": "string"
         },
-        "id": {
-          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
-          "type": "string"
-        },
         "location": {
           "description": "The geo-location where the resource lives",
           "type": "string"
@@ -287,17 +238,6 @@
           "oneOf": [
             {
               "$ref": "#/definitions/TestType1Properties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "systemData": {
-          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SystemData"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -336,6 +276,7 @@
   },
   "definitions": {
     "EncryptionProperties": {
+      "description": "Configuration of key for data encryption",
       "properties": {
         "keyVaultProperties": {
           "description": "Key vault properties.",
@@ -380,6 +321,7 @@
       "type": "object"
     },
     "LocationData": {
+      "description": "Metadata pertaining to the geographic location of the resource.",
       "properties": {
         "city": {
           "description": "The city or locality where the resource is located.",
@@ -409,77 +351,6 @@
       "required": [
         "name"
       ],
-      "type": "object"
-    },
-    "SystemData": {
-      "properties": {
-        "createdAt": {
-          "description": "The timestamp of resource creation (UTC).",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "createdBy": {
-          "description": "The identity that created the resource.",
-          "type": "string"
-        },
-        "createdByType": {
-          "description": "The type of identity that created the resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "User",
-                "Application",
-                "ManagedIdentity",
-                "Key"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "lastModifiedAt": {
-          "description": "The timestamp of resource last modification (UTC)",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "lastModifiedBy": {
-          "description": "The identity that last modified the resource.",
-          "type": "string"
-        },
-        "lastModifiedByType": {
-          "description": "The type of identity that last modified the resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "User",
-                "Application",
-                "ManagedIdentity",
-                "Key"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
       "type": "object"
     },
     "TestType1CreateOrUpdateProperties": {
