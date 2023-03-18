@@ -1,0 +1,1771 @@
+ {
+   resourceDefinitions: {
+     storageAccounts: {
+       properties: {
+         extendedLocation: {
+-          description: "Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location"
++          description: "The complex type of the extended location."
+         }
+         identity: {
+-          description: "The identity of the resource."
++          description: "Identity for the resource."
+         }
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 24
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 24
+         }
+         sku: {
+-          description: "Required. Gets or sets the SKU name."
++          description: "The SKU of the storage account."
+         }
+       }
+       required: [
+         ...
++        "kind"
++        "location"
+         ...
++        "sku"
+         ...
+       ]
+     }
+     storageAccounts_blobServices: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     storageAccounts_blobServices_containers: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 63
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 63
+         }
+         properties: {
+-          description: "Properties of the blob container."
++          description: "The properties of a container."
+         }
+       }
+     }
+     storageAccounts_blobServices_containers_immutabilityPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     storageAccounts_encryptionScopes: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 63
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 63
+         }
+       }
+     }
+     storageAccounts_fileServices: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     storageAccounts_fileServices_shares: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 63
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 63
+         }
+         properties: {
+-          description: "Properties of the file share."
++          description: "The properties of the file share."
+         }
+       }
+     }
+     storageAccounts_inventoryPolicies: {
+       properties: {
++        systemData: {
++          oneOf: [
++            {
++              $ref: "#/definitions/SystemData"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Metadata pertaining to creation and last modification of the resource."
++        }
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+         properties: {
+-          description: "Returns the storage account blob inventory policy rules."
++          description: "The storage account blob inventory policy properties."
+         }
+       }
+     }
+     storageAccounts_localUsers: {
+       properties: {
++        systemData: {
++          oneOf: [
++            {
++              $ref: "#/definitions/SystemData"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Metadata pertaining to creation and last modification of the resource."
++        }
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 64
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 64
+         }
+         properties: {
+-          description: "Storage account local user properties."
++          description: "The Storage Account Local User properties."
+         }
+       }
+     }
+     storageAccounts_managementPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+         properties: {
+-          description: "Returns the Storage Account Data Policies Rules."
++          description: "The Storage Account ManagementPolicy properties."
+         }
+       }
+     }
+     storageAccounts_objectReplicationPolicies: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              minLength: 1
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 1
+         }
+         properties: {
+-          description: "Returns the Storage Account Object Replication Policy."
++          description: "The Storage Account ObjectReplicationPolicy properties."
+         }
+       }
+     }
+     storageAccounts_privateEndpointConnections: {
+       properties: {
+         properties: {
+-          description: "Resource properties."
++          description: "Properties of the PrivateEndpointConnectProperties."
+         }
+       }
+     }
+     storageAccounts_queueServices: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     storageAccounts_queueServices_queues: {
+       properties: {
+         properties: {
+-          description: "Queue resource properties."
+         }
+       }
+     }
+     storageAccounts_tableServices: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     storageAccounts_tableServices_tables: {
+       properties: {
+         properties: {
+-          description: "Table resource properties."
+         }
+       }
+     }
+   }
+   definitions: {
++    SystemData: {
++      type: "object"
++      properties: {
++        createdAt: {
++          type: "string"
++          format: "date-time"
++          description: "The timestamp of resource creation (UTC)."
++        }
++        createdBy: {
++          type: "string"
++          description: "The identity that created the resource."
++        }
++        createdByType: {
++          oneOf: [
++            {
++              type: "string"
++              enum: [
++                "User"
++                "Application"
++                "ManagedIdentity"
++                "Key"
++              ]
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The type of identity that created the resource."
++        }
++        lastModifiedAt: {
++          type: "string"
++          format: "date-time"
++          description: "The timestamp of resource last modification (UTC)"
++        }
++        lastModifiedBy: {
++          type: "string"
++          description: "The identity that last modified the resource."
++        }
++        lastModifiedByType: {
++          oneOf: [
++            {
++              type: "string"
++              enum: [
++                "User"
++                "Application"
++                "ManagedIdentity"
++                "Key"
++              ]
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The type of identity that last modified the resource."
++        }
++      }
++      description: "Metadata pertaining to creation and last modification of the resource."
++    }
+     AccessPolicy: {
+       properties: {
+         expiryTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         startTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+       }
+     }
+     AccountImmutabilityPolicyProperties: {
++      description: "This defines account-level immutability policy properties."
+       properties: {
+         immutabilityPeriodSinceCreationInDays: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 146000
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ActiveDirectoryProperties: {
++      description: "Settings properties for Active Directory (AD)."
+     }
+     AzureFilesIdentityBasedAuthentication: {
++      description: "Settings for Azure Files identity based authentication."
+       properties: {
+         activeDirectoryProperties: {
+-          description: "Required if directoryServiceOptions are AD, optional if they are AADKERB."
++          description: "Settings properties for Active Directory (AD)."
+         }
+       }
+     }
+     BlobInventoryPolicyDefinition: {
++      description: "An object that defines the blob inventory rule."
+       properties: {
+         filters: {
+-          description: "An object that defines the filter set."
++          description: "An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional."
+         }
+       }
+     }
+     BlobInventoryPolicyFilter: {
++      description: "An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional."
+     }
+     BlobInventoryPolicyProperties: {
++      description: "The storage account blob inventory policy properties."
+       properties: {
+         policy: {
+-          description: "The storage account blob inventory policy object. It is composed of policy rules."
++          description: "The storage account blob inventory policy rules."
+         }
+       }
+     }
+     BlobInventoryPolicyRule: {
++      description: "An object that wraps the blob inventory rule. Each rule is uniquely defined by name."
+       properties: {
+         definition: {
+-          description: "An object that defines the blob inventory policy rule."
++          description: "An object that defines the blob inventory rule."
+         }
+       }
+     }
+     BlobInventoryPolicySchema: {
++      description: "The storage account blob inventory policy rules."
+       properties: {
+         rules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/BlobInventoryPolicyRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/BlobInventoryPolicyRule"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     BlobServicePropertiesProperties: {
++      description: "The properties of a storage account’s Blob service."
+       properties: {
+         containerDeleteRetentionPolicy: {
+-          description: "The blob service properties for container soft delete."
++          description: "The service properties for soft delete."
+         }
+         cors: {
+-          description: "Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service."
++          description: "Sets the CORS rules. You can include up to five CorsRule elements in the request. "
+         }
+         deleteRetentionPolicy: {
+-          description: "The blob service properties for blob soft delete."
++          description: "The service properties for soft delete."
+         }
+         lastAccessTimeTrackingPolicy: {
+-          description: "The blob service property to configure last access time based tracking policy."
++          description: "The blob service properties for Last access time based tracking policy."
+         }
+         restorePolicy: {
+-          description: "The blob service properties for blob restore policy."
++          description: "The blob service properties for blob restore policy"
+         }
+       }
+     }
+     ChangeFeed: {
++      description: "The blob service properties for change feed events."
+       properties: {
+         retentionInDays: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 146000
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ContainerProperties: {
++      description: "The properties of a container."
+       properties: {
+         immutableStorageWithVersioning: {
+-          description: "The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process."
++          description: "Object level immutability properties of the container."
+         }
+       }
+     }
+     CorsRule: {
++      description: "Specifies a CORS rule for the Blob service."
+       properties: {
+         allowedMethods: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    enum: [
+-                      "DELETE"
+-                      "GET"
+-                      "HEAD"
+-                      "MERGE"
+-                      "POST"
+-                      "OPTIONS"
+-                      "PUT"
+-                      "PATCH"
+-                    ]
+-                    type: "string"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                type: "string"
++                enum: [
++                  "DELETE"
++                  "GET"
++                  "HEAD"
++                  "MERGE"
++                  "POST"
++                  "OPTIONS"
++                  "PUT"
++                  "PATCH"
++                ]
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     CorsRules: {
++      description: "Sets the CORS rules. You can include up to five CorsRule elements in the request. "
+       properties: {
+         corsRules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/CorsRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/CorsRule"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     CustomDomain: {
++      description: "The custom domain assigned to this storage account. This can be set via Update."
+     }
+     DateAfterCreation: {
++      description: "Object to define snapshot and version action conditions."
+       properties: {
+         daysAfterCreationGreaterThan: {
+           oneOf: [
+             {
++              multipleOf: 1
++              minimum: 0
+             }
+             ...
+           ]
+         }
+         daysAfterLastTierChangeGreaterThan: {
+           oneOf: [
+             {
++              multipleOf: 1
++              minimum: 0
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DateAfterModification: {
++      description: "Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan."
+       properties: {
+         daysAfterCreationGreaterThan: {
+           oneOf: [
+             {
++              multipleOf: 1
++              minimum: 0
+             }
+             ...
+           ]
+         }
+         daysAfterLastAccessTimeGreaterThan: {
+           oneOf: [
+             {
++              multipleOf: 1
++              minimum: 0
+             }
+             ...
+           ]
+         }
+         daysAfterLastTierChangeGreaterThan: {
+           oneOf: [
+             {
++              multipleOf: 1
++              minimum: 0
+             }
+             ...
+           ]
+         }
+         daysAfterModificationGreaterThan: {
+           oneOf: [
+             {
++              multipleOf: 1
++              minimum: 0
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DeleteRetentionPolicy: {
++      description: "The service properties for soft delete."
+       properties: {
+         days: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 365
+             }
+             ...
+           ]
+         }
+       }
+     }
+     Encryption: {
++      description: "The encryption settings on the storage account."
+       properties: {
+         identity: {
+-          description: "The identity to be used with service-side encryption at rest."
++          description: "Encryption identity for the storage account."
+         }
+         keySource: {
+-          description: "The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault"
++          description: "The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault."
+         }
+         keyvaultproperties: {
+-          description: "Properties provided by key vault."
++          description: "Properties of key vault."
+         }
+         services: {
+-          description: "List of services which support encryption."
++          description: "A list of services that support encryption."
+         }
+       }
+     }
+     EncryptionIdentity: {
++      description: "Encryption identity for the storage account."
+     }
+     EncryptionScopeKeyVaultProperties: {
++      description: "The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'."
+     }
+     EncryptionScopeProperties: {
++      description: "Properties of the encryption scope."
+     }
+     EncryptionService: {
++      description: "A service that allows server-side encryption to be used."
+     }
+     EncryptionServices: {
++      description: "A list of services that support encryption."
+       properties: {
+         blob: {
+-          description: "The encryption function of the blob storage service."
++          description: "A service that allows server-side encryption to be used."
+         }
+         file: {
+-          description: "The encryption function of the file storage service."
++          description: "A service that allows server-side encryption to be used."
+         }
+         queue: {
+-          description: "The encryption function of the queue storage service."
++          description: "A service that allows server-side encryption to be used."
+         }
+         table: {
+-          description: "The encryption function of the table storage service."
++          description: "A service that allows server-side encryption to be used."
+         }
+       }
+     }
+     ExtendedLocation: {
++      description: "The complex type of the extended location."
+     }
+     FileServicePropertiesProperties: {
++      description: "The properties of File services in storage account."
+       properties: {
+         cors: {
+-          description: "Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service."
++          description: "Sets the CORS rules. You can include up to five CorsRule elements in the request. "
+         }
+         shareDeleteRetentionPolicy: {
+-          description: "The file service properties for share soft delete."
++          description: "The service properties for soft delete."
+         }
+       }
+     }
+     FileShareProperties: {
++      description: "The properties of the file share."
+       properties: {
+         shareQuota: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 102400
+             }
+             ...
+           ]
+         }
+         signedIdentifiers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SignedIdentifier"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SignedIdentifier"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     IPRule: {
++      description: "IP rule with specific IP or IP range in CIDR format."
+     }
+     Identity: {
++      description: "Identity for the resource."
+       properties: {
+         userAssignedIdentities: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/UserAssignedIdentity"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/UserAssignedIdentity"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ImmutabilityPolicyProperty: {
++      description: "The properties of an ImmutabilityPolicy of a blob container."
+     }
+     ImmutableStorageAccount: {
++      description: "This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning."
+       properties: {
+         immutabilityPolicy: {
+-          description: "Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy."
++          description: "This defines account-level immutability policy properties."
+         }
+       }
+     }
+     ImmutableStorageWithVersioning: {
++      description: "Object level immutability properties of the container."
+     }
+     KeyPolicy: {
++      description: "KeyPolicy assigned to the storage account."
+     }
+     KeyVaultProperties: {
++      description: "Properties of key vault."
+     }
+     LastAccessTimeTrackingPolicy: {
++      description: "The blob service properties for Last access time based tracking policy."
+       properties: {
+         name: {
+-          description: "Name of the policy. The valid value is AccessTimeTracking. This field is currently read only"
++          description: "Name of the policy. The valid value is AccessTimeTracking. This field is currently read only."
+         }
+       }
+     }
+     LocalUserProperties: {
++      description: "The Storage Account Local User properties."
+       properties: {
+         permissionScopes: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/PermissionScope"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/PermissionScope"
+               }
+             }
+             ...
+           ]
+         }
+         sshAuthorizedKeys: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SshPublicKey"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SshPublicKey"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ManagementPolicyAction: {
++      description: "Actions are applied to the filtered blobs when the execution condition is met."
+       properties: {
+         baseBlob: {
+-          description: "The management policy action for base blob"
++          description: "Management policy action for base blob."
+         }
+         snapshot: {
+-          description: "The management policy action for snapshot"
++          description: "Management policy action for snapshot."
+         }
+         version: {
+-          description: "The management policy action for version"
++          description: "Management policy action for blob version."
+         }
+       }
+     }
+     ManagementPolicyBaseBlob: {
++      description: "Management policy action for base blob."
+       properties: {
+         delete: {
+-          description: "The function to delete the blob"
++          description: "Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan."
+         }
+         tierToArchive: {
+-          description: "The function to tier blobs to archive storage."
++          description: "Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan."
+         }
+         tierToCold: {
+-          description: "The function to tier blobs to cold storage."
++          description: "Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan."
+         }
+         tierToCool: {
+-          description: "The function to tier blobs to cool storage."
++          description: "Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan."
+         }
+         tierToHot: {
+-          description: "The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts"
++          description: "Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan."
+         }
+       }
+     }
+     ManagementPolicyDefinition: {
++      description: "An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set."
+       properties: {
+         actions: {
+-          description: "An object that defines the action set."
++          description: "Actions are applied to the filtered blobs when the execution condition is met."
+         }
+         filters: {
+-          description: "An object that defines the filter set."
++          description: "Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. "
+         }
+       }
+     }
+     ManagementPolicyFilter: {
++      description: "Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. "
+       properties: {
+         blobIndexMatch: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/TagFilter"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/TagFilter"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ManagementPolicyProperties: {
++      description: "The Storage Account ManagementPolicy properties."
+       properties: {
+         policy: {
+-          description: "The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts."
++          description: "The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts."
+         }
+       }
+     }
+     ManagementPolicyRule: {
++      description: "An object that wraps the Lifecycle rule. Each rule is uniquely defined by name."
+       properties: {
+         definition: {
+-          description: "An object that defines the Lifecycle rule."
++          description: "An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set."
+         }
+       }
+     }
+     ManagementPolicySchema: {
++      description: "The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts."
+       properties: {
+         rules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ManagementPolicyRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ManagementPolicyRule"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ManagementPolicySnapShot: {
++      description: "Management policy action for snapshot."
+       properties: {
+         delete: {
+-          description: "The function to delete the blob snapshot"
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToArchive: {
+-          description: "The function to tier blob snapshot to archive storage."
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToCold: {
+-          description: "The function to tier blobs to cold storage."
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToCool: {
+-          description: "The function to tier blob snapshot to cool storage."
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToHot: {
+-          description: "The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts"
++          description: "Object to define snapshot and version action conditions."
+         }
+       }
+     }
+     ManagementPolicyVersion: {
++      description: "Management policy action for blob version."
+       properties: {
+         delete: {
+-          description: "The function to delete the blob version"
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToArchive: {
+-          description: "The function to tier blob version to archive storage."
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToCold: {
+-          description: "The function to tier blobs to cold storage."
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToCool: {
+-          description: "The function to tier blob version to cool storage."
++          description: "Object to define snapshot and version action conditions."
+         }
+         tierToHot: {
+-          description: "The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts"
++          description: "Object to define snapshot and version action conditions."
+         }
+       }
+     }
+     Multichannel: {
++      description: "Multichannel setting. Applies to Premium FileStorage only."
+     }
+     NetworkRuleSet: {
++      description: "Network rule set"
+       properties: {
+         ipRules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/IPRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/IPRule"
+               }
+             }
+             ...
+           ]
+         }
+         resourceAccessRules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ResourceAccessRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ResourceAccessRule"
+               }
+             }
+             ...
+           ]
+         }
+         virtualNetworkRules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/VirtualNetworkRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/VirtualNetworkRule"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ObjectReplicationPolicyFilter: {
++      description: "Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters."
+     }
+     ObjectReplicationPolicyProperties: {
++      description: "The Storage Account ObjectReplicationPolicy properties."
+       properties: {
+         rules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ObjectReplicationPolicyRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ObjectReplicationPolicyRule"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ObjectReplicationPolicyRule: {
++      description: "The replication policy rule between two containers."
+       properties: {
+         filters: {
+-          description: "Optional. An object that defines the filter set."
++          description: "Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters."
+         }
+       }
+     }
+     PrivateEndpoint: {
++      description: "The Private Endpoint resource."
+     }
+     PrivateEndpointConnectionProperties: {
++      description: "Properties of the PrivateEndpointConnectProperties."
+       properties: {
++        provisioningState: {
++          oneOf: [
++            {
++              type: "string"
++              enum: [
++                "Succeeded"
++                "Creating"
++                "Deleting"
++                "Failed"
++              ]
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The provisioning state of the private endpoint connection resource."
++        }
+         privateEndpoint: {
+-          description: "The resource of private end point."
++          description: "The Private Endpoint resource."
+         }
+       }
+     }
+     PrivateLinkServiceConnectionState: {
++      description: "A collection of information about the state of the connection between service consumer and provider."
+     }
+     ProtocolSettings: {
++      description: "Protocol settings for file service"
+     }
+     QueueServicePropertiesProperties: {
++      description: "The properties of a storage account’s Queue service."
+       properties: {
+         cors: {
+-          description: "Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service."
++          description: "Sets the CORS rules. You can include up to five CorsRule elements in the request. "
+         }
+       }
+     }
+     ResourceAccessRule: {
++      description: "Resource Access Rule."
+     }
+     RestorePolicyProperties: {
++      description: "The blob service properties for blob restore policy"
+       properties: {
+         days: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 365
+             }
+             ...
+           ]
+         }
+       }
+     }
+     RoutingPreference: {
++      description: "Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing"
+     }
+     SasPolicy: {
++      description: "SasPolicy assigned to the storage account."
+     }
+     SignedIdentifier: {
+       properties: {
+         accessPolicy: {
+-          description: "Access policy"
+         }
+       }
+     }
+     Sku: {
++      description: "The SKU of the storage account."
+       properties: {
++        tier: {
++          oneOf: [
++            {
++              type: "string"
++              enum: [
++                "Standard"
++                "Premium"
++              ]
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
+         name: {
+-          description: "The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType."
+         }
+       }
+     }
+     SmbSetting: {
++      description: "Setting for SMB protocol"
+     }
+     StorageAccountPropertiesCreateParameters: {
++      description: "The parameters used to create the storage account."
+       properties: {
+         azureFilesIdentityBasedAuthentication: {
+-          description: "Provides the identity based authentication settings for Azure Files."
++          description: "Settings for Azure Files identity based authentication."
+         }
+         customDomain: {
+-          description: "User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property."
++          description: "The custom domain assigned to this storage account. This can be set via Update."
+         }
+         encryption: {
+-          description: "Encryption settings to be used for server-side encryption for the storage account."
++          description: "The encryption settings on the storage account."
+         }
+         immutableStorageWithVersioning: {
+-          description: "The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the new containers in the account by default."
++          description: "This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning."
+         }
+         routingPreference: {
+-          description: "Maintains information about the network routing choice opted by the user for data transfer"
++          description: "Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing"
+         }
+       }
+     }
+     TableAccessPolicy: {
++      description: "Table Access Policy Properties Object."
+       properties: {
+         expiryTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         startTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+       }
+     }
+     TableProperties: {
+       properties: {
+         signedIdentifiers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/TableSignedIdentifier"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/TableSignedIdentifier"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     TableServicePropertiesProperties: {
++      description: "The properties of a storage account’s Table service."
+       properties: {
+         cors: {
+-          description: "Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service."
++          description: "Sets the CORS rules. You can include up to five CorsRule elements in the request. "
+         }
+       }
+     }
+     TableSignedIdentifier: {
++      description: "Object to set Table Access Policy."
+       properties: {
+         accessPolicy: {
+-          description: "Access policy"
++          description: "Table Access Policy Properties Object."
+         }
+       }
+     }
+     TagFilter: {
++      description: "Blob index tag based filtering for blob objects"
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 128
+-              minLength: 1
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 1
++          maxLength: 128
+         }
+         value: {
+-          oneOf: [
+-            {
+-              maxLength: 256
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 0
++          maxLength: 256
+         }
+       }
+     }
+     UserAssignedIdentity: {
++      description: "UserAssignedIdentity for the resource."
+     }
+     VirtualNetworkRule: {
++      description: "Virtual Network rule."
+     }
+     storageAccounts_blobServices_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_blobServices_containers_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 63
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 63
+         }
+         properties: {
+-          description: "Properties of the blob container."
++          description: "The properties of a container."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_blobServices_containers_immutabilityPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_encryptionScopes_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 63
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 63
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_fileServices_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_fileServices_shares_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 63
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 63
+         }
+         properties: {
+-          description: "Properties of the file share."
++          description: "The properties of the file share."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_inventoryPolicies_childResource: {
+       properties: {
++        systemData: {
++          oneOf: [
++            {
++              $ref: "#/definitions/SystemData"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Metadata pertaining to creation and last modification of the resource."
++        }
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+         properties: {
+-          description: "Returns the storage account blob inventory policy rules."
++          description: "The storage account blob inventory policy properties."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_localUsers_childResource: {
+       properties: {
++        systemData: {
++          oneOf: [
++            {
++              $ref: "#/definitions/SystemData"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Metadata pertaining to creation and last modification of the resource."
++        }
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 64
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 64
+         }
+         properties: {
+-          description: "Storage account local user properties."
++          description: "The Storage Account Local User properties."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_managementPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+         properties: {
+-          description: "Returns the Storage Account Data Policies Rules."
++          description: "The Storage Account ManagementPolicy properties."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_objectReplicationPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              minLength: 1
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 1
+         }
+         properties: {
+-          description: "Returns the Storage Account Object Replication Policy."
++          description: "The Storage Account ObjectReplicationPolicy properties."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_privateEndpointConnections_childResource: {
+       properties: {
+         properties: {
+-          description: "Resource properties."
++          description: "Properties of the PrivateEndpointConnectProperties."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_queueServices_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_queueServices_queues_childResource: {
+       properties: {
+         properties: {
+-          description: "Queue resource properties."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_tableServices_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     storageAccounts_tableServices_tables_childResource: {
+       properties: {
+         properties: {
+-          description: "Table resource properties."
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+ }

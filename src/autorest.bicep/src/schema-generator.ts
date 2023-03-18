@@ -551,7 +551,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
 
     return {
       type: 'string',
-      enum: [constantValue.toString()],
+      enum: [constantValue.value.toString()],
     };
   }
 
@@ -639,12 +639,17 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
           const childSchema = cloneDeep(schema);
           const childResourceDefinitionName = `${definitionName}_childResource`;
           schemaData.definitions[childResourceDefinitionName] = childSchema;
+
+          childSchema.properties!['type'] = {
+            type: 'string',
+            enum: [descriptor.typeSegments[descriptor.typeSegments.length - 1]]
+          };
           
           parentSchema.properties!['resources'] ??= {
             type: 'array',
             items: {
-              oneOf: []
-            }
+              oneOf: [],
+            },
           };
 
           const items = parentSchema.properties!['resources'].items as JSONSchema4;
