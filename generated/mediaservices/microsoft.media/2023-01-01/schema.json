@@ -4,6 +4,285 @@
   "description": "Microsoft Media Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "mediaServices_accountFilters": {
+      "description": "Microsoft.Media/mediaServices/accountFilters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Account Filter name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Media Filter properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MediaFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Media/mediaServices/accountFilters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_assets": {
+      "description": "Microsoft.Media/mediaServices/assets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Asset name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/mediaServices_assets_tracks_childResource"
+              },
+              {
+                "$ref": "#/definitions/mediaServices_assets_assetFilters_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Media/mediaServices/assets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_assets_assetFilters": {
+      "description": "Microsoft.Media/mediaServices/assets/assetFilters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Asset Filter name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Media Filter properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MediaFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Media/mediaServices/assets/assetFilters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_assets_tracks": {
+      "description": "Microsoft.Media/mediaServices/assets/tracks",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Asset Track name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssetTrackProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Media/mediaServices/assets/tracks"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_contentKeyPolicies": {
+      "description": "Microsoft.Media/mediaServices/contentKeyPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Content Key Policy name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Content Key Policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentKeyPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Media/mediaServices/contentKeyPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_streamingLocators": {
+      "description": "Microsoft.Media/mediaServices/streamingLocators",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Streaming Locator name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Streaming Locator.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingLocatorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Media/mediaServices/streamingLocators"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_streamingPolicies": {
+      "description": "Microsoft.Media/mediaServices/streamingPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Streaming Policy name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Class to specify properties of Streaming Policy",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Media/mediaServices/streamingPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "mediaservices": {
       "description": "Microsoft.Media/mediaservices",
       "properties": {
@@ -46,6 +325,21 @@
         "resources": {
           "items": {
             "oneOf": [
+              {
+                "$ref": "#/definitions/mediaServices_assets_childResource"
+              },
+              {
+                "$ref": "#/definitions/mediaServices_accountFilters_childResource"
+              },
+              {
+                "$ref": "#/definitions/mediaServices_streamingPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/mediaServices_streamingLocators_childResource"
+              },
+              {
+                "$ref": "#/definitions/mediaServices_contentKeyPolicies_childResource"
+              },
               {
                 "$ref": "#/definitions/mediaservices_privateEndpointConnections_childResource"
               }
@@ -201,6 +495,959 @@
       ],
       "type": "object"
     },
+    "AssetProperties": {
+      "properties": {
+        "alternateId": {
+          "description": "The alternate ID of the Asset.",
+          "type": "string"
+        },
+        "container": {
+          "description": "The name of the asset blob container.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The Asset description.",
+          "type": "string"
+        },
+        "encryptionScope": {
+          "description": "The Asset container encryption scope in the storage account.",
+          "type": "string"
+        },
+        "storageAccountName": {
+          "description": "The name of the storage account.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AssetTrackProperties": {
+      "properties": {
+        "track": {
+          "description": "Detailed information about a track in the asset.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrackBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CbcsDrmConfiguration": {
+      "properties": {
+        "fairPlay": {
+          "description": "FairPlay configurations",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyFairPlayConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "playReady": {
+          "description": "PlayReady configurations",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyPlayReadyConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "widevine": {
+          "description": "Widevine configurations",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyWidevineConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CencDrmConfiguration": {
+      "properties": {
+        "playReady": {
+          "description": "PlayReady configurations",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyPlayReadyConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "widevine": {
+          "description": "Widevine configurations",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyWidevineConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ClearKeyEncryptionConfiguration": {
+      "properties": {
+        "customKeysAcquisitionUrlTemplate": {
+          "description": "Template for the URL of the custom service delivering content keys to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token value is {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CommonEncryptionCbcs": {
+      "properties": {
+        "clearKeyEncryptionConfiguration": {
+          "description": "Optional configuration supporting ClearKey in CommonEncryptionCbcs encryption scheme.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClearKeyEncryptionConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "clearTracks": {
+          "description": "Representing which tracks should not be encrypted",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/TrackSelection"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "contentKeys": {
+          "description": "Representing default content key for each encryption scheme and separate content keys for specific tracks",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyContentKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "drm": {
+          "description": "Configuration of DRMs for current encryption scheme",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CbcsDrmConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enabledProtocols": {
+          "description": "Representing supported protocols",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnabledProtocols"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CommonEncryptionCenc": {
+      "properties": {
+        "clearKeyEncryptionConfiguration": {
+          "description": "Optional configuration supporting ClearKey in CommonEncryptionCenc encryption scheme.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClearKeyEncryptionConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "clearTracks": {
+          "description": "Representing which tracks should not be encrypted",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/TrackSelection"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "contentKeys": {
+          "description": "Representing default content key for each encryption scheme and separate content keys for specific tracks",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyContentKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "drm": {
+          "description": "Configuration of DRMs for CommonEncryptionCenc encryption scheme",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CencDrmConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enabledProtocols": {
+          "description": "Representing supported protocols",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnabledProtocols"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ContentKeyPolicyConfiguration": {
+      "properties": {},
+      "type": "object"
+    },
+    "ContentKeyPolicyFairPlayOfflineRentalConfiguration": {
+      "properties": {
+        "playbackDurationSeconds": {
+          "description": "Playback duration",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "storageDurationSeconds": {
+          "description": "Storage duration",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "playbackDurationSeconds",
+        "storageDurationSeconds"
+      ],
+      "type": "object"
+    },
+    "ContentKeyPolicyOption": {
+      "properties": {
+        "configuration": {
+          "description": "The key delivery configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentKeyPolicyConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The Policy Option description.",
+          "type": "string"
+        },
+        "restriction": {
+          "description": "The requirements that must be met to deliver keys with this configuration",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentKeyPolicyRestriction"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "restriction"
+      ],
+      "type": "object"
+    },
+    "ContentKeyPolicyPlayReadyContentKeyLocation": {
+      "properties": {},
+      "type": "object"
+    },
+    "ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction": {
+      "properties": {
+        "bestEffort": {
+          "description": "Indicates whether this restriction is enforced on a Best Effort basis.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "configurationData": {
+          "description": "Configures the restriction control bits. Must be between 0 and 3 inclusive.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "bestEffort",
+        "configurationData"
+      ],
+      "type": "object"
+    },
+    "ContentKeyPolicyPlayReadyLicense": {
+      "properties": {
+        "allowTestDevices": {
+          "description": "A flag indicating whether test devices can use the license.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "beginDate": {
+          "description": "The begin date of license",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "contentKeyLocation": {
+          "description": "The content key location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentKeyPolicyPlayReadyContentKeyLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "contentType": {
+          "description": "The PlayReady content type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "Unspecified",
+                "UltraVioletDownload",
+                "UltraVioletStreaming"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "expirationDate": {
+          "description": "The expiration date of license.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "gracePeriod": {
+          "description": "The grace period of license.",
+          "type": "string"
+        },
+        "licenseType": {
+          "description": "The license type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "NonPersistent",
+                "Persistent"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "playRight": {
+          "description": "The license PlayRight",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentKeyPolicyPlayReadyPlayRight"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "relativeBeginDate": {
+          "description": "The relative begin date of license.",
+          "type": "string"
+        },
+        "relativeExpirationDate": {
+          "description": "The relative expiration date of license.",
+          "type": "string"
+        },
+        "securityLevel": {
+          "description": "The security level.",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "SL150",
+                "SL2000",
+                "SL3000"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "allowTestDevices",
+        "licenseType",
+        "contentKeyLocation",
+        "contentType"
+      ],
+      "type": "object"
+    },
+    "ContentKeyPolicyPlayReadyPlayRight": {
+      "properties": {
+        "agcAndColorStripeRestriction": {
+          "description": "Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "allowPassingVideoContentToUnknownOutput": {
+          "description": "Configures Unknown output handling settings of the license.",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "NotAllowed",
+                "Allowed",
+                "AllowedWithVideoConstriction"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "analogVideoOpl": {
+          "description": "Specifies the output protection level for compressed digital audio.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "compressedDigitalAudioOpl": {
+          "description": "Specifies the output protection level for compressed digital audio.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "compressedDigitalVideoOpl": {
+          "description": "Specifies the output protection level for compressed digital video.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "digitalVideoOnlyContentRestriction": {
+          "description": "Enables the Image Constraint For Analog Component Video Restriction in the license.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "explicitAnalogTelevisionOutputRestriction": {
+          "description": "Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "firstPlayExpiration": {
+          "description": "The amount of time that the license is valid after the license is first used to play content.",
+          "type": "string"
+        },
+        "imageConstraintForAnalogComponentVideoRestriction": {
+          "description": "Enables the Image Constraint For Analog Component Video Restriction in the license.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "imageConstraintForAnalogComputerMonitorRestriction": {
+          "description": "Enables the Image Constraint For Analog Component Video Restriction in the license.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "scmsRestriction": {
+          "description": "Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uncompressedDigitalAudioOpl": {
+          "description": "Specifies the output protection level for uncompressed digital audio.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "uncompressedDigitalVideoOpl": {
+          "description": "Specifies the output protection level for uncompressed digital video.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "digitalVideoOnlyContentRestriction",
+        "imageConstraintForAnalogComponentVideoRestriction",
+        "imageConstraintForAnalogComputerMonitorRestriction",
+        "allowPassingVideoContentToUnknownOutput"
+      ],
+      "type": "object"
+    },
+    "ContentKeyPolicyProperties": {
+      "properties": {
+        "description": {
+          "description": "A description for the Policy.",
+          "type": "string"
+        },
+        "options": {
+          "description": "The Key Policy options.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ContentKeyPolicyOption"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "type": "object"
+    },
+    "ContentKeyPolicyRestriction": {
+      "properties": {},
+      "type": "object"
+    },
+    "ContentKeyPolicyRestrictionTokenKey": {
+      "properties": {},
+      "type": "object"
+    },
+    "ContentKeyPolicyTokenClaim": {
+      "properties": {
+        "claimType": {
+          "description": "Token claim type.",
+          "type": "string"
+        },
+        "claimValue": {
+          "description": "Token claim value.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DashSettings": {
+      "properties": {
+        "role": {
+          "description": "The role for the DASH setting.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DefaultKey": {
+      "properties": {
+        "label": {
+          "description": "Label can be used to specify Content Key when creating a Streaming Locator",
+          "type": "string"
+        },
+        "policyName": {
+          "description": "Policy used by Default Key",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EnabledProtocols": {
+      "properties": {
+        "dash": {
+          "description": "Enable DASH protocol or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "download": {
+          "description": "Enable Download protocol or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "hls": {
+          "description": "Enable HLS protocol or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "smoothStreaming": {
+          "description": "Enable SmoothStreaming protocol or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "download",
+        "dash",
+        "hls",
+        "smoothStreaming"
+      ],
+      "type": "object"
+    },
+    "EnvelopeEncryption": {
+      "properties": {
+        "clearTracks": {
+          "description": "Representing which tracks should not be encrypted",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/TrackSelection"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "contentKeys": {
+          "description": "Representing default content key for each encryption scheme and separate content keys for specific tracks",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyContentKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "customKeyAcquisitionUrlTemplate": {
+          "description": "Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.",
+          "type": "string"
+        },
+        "enabledProtocols": {
+          "description": "Representing supported protocols",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnabledProtocols"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FilterTrackPropertyCondition": {
+      "properties": {
+        "operation": {
+          "description": "The track property condition operation.",
+          "oneOf": [
+            {
+              "enum": [
+                "Equal",
+                "NotEqual"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "property": {
+          "description": "The track property type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "Type",
+                "Name",
+                "Language",
+                "FourCC",
+                "Bitrate"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "value": {
+          "description": "The track property value.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "property",
+        "value",
+        "operation"
+      ],
+      "type": "object"
+    },
+    "FilterTrackSelection": {
+      "properties": {
+        "trackSelections": {
+          "description": "The track selections.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/FilterTrackPropertyCondition"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "trackSelections"
+      ],
+      "type": "object"
+    },
+    "FirstQuality": {
+      "properties": {
+        "bitrate": {
+          "description": "The first quality bitrate.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "bitrate"
+      ],
+      "type": "object"
+    },
+    "HlsSettings": {
+      "properties": {
+        "characteristics": {
+          "description": "The characteristics for the HLS setting.",
+          "type": "string"
+        },
+        "default": {
+          "description": "The default for the HLS setting.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "forced": {
+          "description": "The forced for the HLS setting.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "KeyDelivery": {
       "properties": {
         "accessControl": {
@@ -222,6 +1469,54 @@
         "keyIdentifier": {
           "description": "The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MediaFilterProperties": {
+      "properties": {
+        "firstQuality": {
+          "description": "The first quality.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FirstQuality"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "presentationTimeRange": {
+          "description": "The presentation time range.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PresentationTimeRange"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tracks": {
+          "description": "The tracks selection conditions.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/FilterTrackSelection"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -355,6 +1650,93 @@
       },
       "type": "object"
     },
+    "NoEncryption": {
+      "properties": {
+        "enabledProtocols": {
+          "description": "Representing supported protocols",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnabledProtocols"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PresentationTimeRange": {
+      "properties": {
+        "endTimestamp": {
+          "description": "The absolute end time boundary.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "forceEndTimestamp": {
+          "description": "The indicator of forcing existing of end time stamp.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "liveBackoffDuration": {
+          "description": "The relative to end right edge.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "presentationWindowDuration": {
+          "description": "The relative to end sliding window.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startTimestamp": {
+          "description": "The absolute start time boundary.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "timescale": {
+          "description": "The time scale of time stamps.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "PrivateEndpoint": {
       "properties": {},
       "type": "object"
@@ -479,8 +1861,640 @@
       ],
       "type": "object"
     },
+    "StreamingLocatorContentKey": {
+      "properties": {
+        "id": {
+          "description": "ID of Content Key",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "labelReferenceInStreamingPolicy": {
+          "description": "Label of Content Key as specified in the Streaming Policy",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of Content Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "StreamingLocatorProperties": {
+      "properties": {
+        "alternativeMediaId": {
+          "description": "Alternative Media ID of this Streaming Locator",
+          "type": "string"
+        },
+        "assetName": {
+          "description": "Asset Name",
+          "type": "string"
+        },
+        "contentKeys": {
+          "description": "The ContentKeys used by this Streaming Locator.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/StreamingLocatorContentKey"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "defaultContentKeyPolicyName": {
+          "description": "Name of the default ContentKeyPolicy used by this Streaming Locator.",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "The end time of the Streaming Locator.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "filters": {
+          "description": "A list of asset or account filters which apply to this streaming locator",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startTime": {
+          "description": "The start time of the Streaming Locator.",
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "streamingLocatorId": {
+          "description": "The StreamingLocatorId of the Streaming Locator.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "streamingPolicyName": {
+          "description": "Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'",
+          "type": "string"
+        }
+      },
+      "required": [
+        "assetName",
+        "streamingPolicyName"
+      ],
+      "type": "object"
+    },
+    "StreamingPolicyContentKey": {
+      "properties": {
+        "label": {
+          "description": "Label can be used to specify Content Key when creating a Streaming Locator",
+          "type": "string"
+        },
+        "policyName": {
+          "description": "Policy used by Content Key",
+          "type": "string"
+        },
+        "tracks": {
+          "description": "Tracks which use this content key",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/TrackSelection"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StreamingPolicyContentKeys": {
+      "properties": {
+        "defaultKey": {
+          "description": "Default content key for an encryption scheme",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefaultKey"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keyToTrackMappings": {
+          "description": "Representing tracks needs separate content key",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/StreamingPolicyContentKey"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StreamingPolicyFairPlayConfiguration": {
+      "properties": {
+        "allowPersistentLicense": {
+          "description": "All license to be persistent or not",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "customLicenseAcquisitionUrlTemplate": {
+          "description": "Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowPersistentLicense"
+      ],
+      "type": "object"
+    },
+    "StreamingPolicyPlayReadyConfiguration": {
+      "properties": {
+        "customLicenseAcquisitionUrlTemplate": {
+          "description": "Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.",
+          "type": "string"
+        },
+        "playReadyCustomAttributes": {
+          "description": "Custom attributes for PlayReady",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StreamingPolicyProperties": {
+      "properties": {
+        "commonEncryptionCbcs": {
+          "description": "Configuration of CommonEncryptionCbcs",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommonEncryptionCbcs"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "commonEncryptionCenc": {
+          "description": "Configuration of CommonEncryptionCenc",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommonEncryptionCenc"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "defaultContentKeyPolicyName": {
+          "description": "Default ContentKey used by current Streaming Policy",
+          "type": "string"
+        },
+        "envelopeEncryption": {
+          "description": "Configuration of EnvelopeEncryption",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvelopeEncryption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "noEncryption": {
+          "description": "Configurations of NoEncryption",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NoEncryption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StreamingPolicyWidevineConfiguration": {
+      "properties": {
+        "customLicenseAcquisitionUrlTemplate": {
+          "description": "Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TrackBase": {
+      "properties": {},
+      "type": "object"
+    },
+    "TrackPropertyCondition": {
+      "properties": {
+        "operation": {
+          "description": "Track property condition operation",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "Equal"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "property": {
+          "description": "Track property type",
+          "oneOf": [
+            {
+              "enum": [
+                "Unknown",
+                "FourCC"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "value": {
+          "description": "Track property value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "property",
+        "operation"
+      ],
+      "type": "object"
+    },
+    "TrackSelection": {
+      "properties": {
+        "trackSelections": {
+          "description": "TrackSelections is a track property condition list which can specify track(s)",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/TrackPropertyCondition"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "UserAssignedManagedIdentity": {
       "properties": {},
+      "type": "object"
+    },
+    "mediaServices_accountFilters_childResource": {
+      "description": "Microsoft.Media/mediaServices/accountFilters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Account Filter name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Media Filter properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MediaFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "accountFilters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_assets_assetFilters_childResource": {
+      "description": "Microsoft.Media/mediaServices/assets/assetFilters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Asset Filter name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Media Filter properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MediaFilterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "assetFilters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_assets_childResource": {
+      "description": "Microsoft.Media/mediaServices/assets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Asset name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "assets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_assets_tracks_childResource": {
+      "description": "Microsoft.Media/mediaServices/assets/tracks",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Asset Track name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssetTrackProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "tracks"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_contentKeyPolicies_childResource": {
+      "description": "Microsoft.Media/mediaServices/contentKeyPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Content Key Policy name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Content Key Policy.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ContentKeyPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "contentKeyPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_streamingLocators_childResource": {
+      "description": "Microsoft.Media/mediaServices/streamingLocators",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Streaming Locator name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the Streaming Locator.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingLocatorProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "streamingLocators"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "mediaServices_streamingPolicies_childResource": {
+      "description": "Microsoft.Media/mediaServices/streamingPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Streaming Policy name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Class to specify properties of Streaming Policy",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamingPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "streamingPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
       "type": "object"
     },
     "mediaservices_privateEndpointConnections_childResource": {
@@ -509,7 +2523,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaservices/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

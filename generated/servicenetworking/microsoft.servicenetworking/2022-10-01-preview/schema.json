@@ -21,7 +21,7 @@
           "description": "traffic controller name for path",
           "oneOf": [
             {
-              "pattern": "[A-Za-z0-9]*",
+              "pattern": "[A-Za-z0-9]+[A-Za-z0-9-_.]{0,62}[A-Za-z0-9_]+",
               "type": "string"
             },
             {
@@ -99,7 +99,7 @@
           "description": "Name of Association",
           "oneOf": [
             {
-              "pattern": "[A-Za-z0-9]*",
+              "pattern": "[A-Za-z0-9]+[A-Za-z0-9-_.]{0,62}[A-Za-z0-9_]+",
               "type": "string"
             },
             {
@@ -164,7 +164,7 @@
           "description": "Frontends",
           "oneOf": [
             {
-              "pattern": "[A-Za-z0-9]*",
+              "pattern": "[A-Za-z0-9]+[A-Za-z0-9-_.]{0,62}[A-Za-z0-9_]+",
               "type": "string"
             },
             {
@@ -221,7 +221,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "subnets"
               ],
               "type": "string"
             },
@@ -281,7 +281,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "public"
               ],
               "type": "string"
             },
@@ -337,7 +337,7 @@
           "description": "Name of Association",
           "oneOf": [
             {
-              "pattern": "[A-Za-z0-9]*",
+              "pattern": "[A-Za-z0-9]+[A-Za-z0-9-_.]{0,62}[A-Za-z0-9_]+",
               "type": "string"
             },
             {
@@ -373,7 +373,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceNetworking/trafficControllers/associations"
+            "associations"
           ],
           "type": "string"
         }
@@ -402,7 +402,7 @@
           "description": "Frontends",
           "oneOf": [
             {
-              "pattern": "[A-Za-z0-9]*",
+              "pattern": "[A-Za-z0-9]+[A-Za-z0-9-_.]{0,62}[A-Za-z0-9_]+",
               "type": "string"
             },
             {
@@ -438,7 +438,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceNetworking/trafficControllers/frontends"
+            "frontends"
           ],
           "type": "string"
         }

@@ -250,7 +250,7 @@
           ]
         },
         "keyEncryptionKeyUrl": {
-          "description": "Key encryption key Url, versioned or unversioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.",
+          "description": "Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78",
           "type": "string"
         }
       },
@@ -263,10 +263,6 @@
           "oneOf": [
             {
               "enum": [
-                "None",
-                "SystemAssigned",
-                "UserAssigned",
-                "SystemAssigned, UserAssigned",
                 "systemAssignedIdentity",
                 "userAssignedIdentity"
               ],
@@ -443,9 +439,7 @@
                 "None",
                 "SystemAssigned",
                 "UserAssigned",
-                "SystemAssigned, UserAssigned",
-                "systemAssignedIdentity",
-                "userAssignedIdentity"
+                "SystemAssigned, UserAssigned"
               ],
               "type": "string"
             },
@@ -688,7 +682,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cache/redisEnterprise/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -726,7 +720,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cache/redisEnterprise/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

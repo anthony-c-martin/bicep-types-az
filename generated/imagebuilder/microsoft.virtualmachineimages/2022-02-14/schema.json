@@ -82,10 +82,6 @@
     }
   },
   "definitions": {
-    "ComponentsVrq145SchemasImagetemplateidentityPropertiesUserassignedidentitiesAdditionalproperties": {
-      "properties": {},
-      "type": "object"
-    },
     "ImageTemplateCustomizer": {
       "properties": {
         "name": {
@@ -148,13 +144,13 @@
           ]
         },
         "userAssignedIdentities": {
-          "description": "The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
           "oneOf": [
             {
               "additionalProperties": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/ComponentsVrq145SchemasImagetemplateidentityPropertiesUserassignedidentitiesAdditionalproperties"
+                    "$ref": "#/definitions/UserAssignedIdentity"
                   },
                   {
                     "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -397,6 +393,10 @@
         "planProduct",
         "planPublisher"
       ],
+      "type": "object"
+    },
+    "UserAssignedIdentity": {
+      "properties": {},
       "type": "object"
     },
     "VirtualNetworkConfig": {

@@ -1,0 +1,1992 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.RecoveryServices.json#",
+  "title": "Microsoft.RecoveryServices",
+  "description": "Microsoft RecoveryServices Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "vaults_replicationAlertSettings": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationAlertSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the email notification(alert) configuration.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a configure alert request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigureAlertRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationAlertSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the ASR fabric.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Fabric creation input.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FabricCreationInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/vaults_replicationFabrics_replicationvCenters_childResource"
+              },
+              {
+                "$ref": "#/definitions/vaults_replicationFabrics_replicationProtectionContainers_childResource"
+              },
+              {
+                "$ref": "#/definitions/vaults_replicationFabrics_replicationRecoveryServicesProviders_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationNetworks_replicationNetworkMappings": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Network mapping name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Input properties for creating network mapping.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateNetworkMappingInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Unique protection container ARM name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Create protection container input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateProtectionContainerInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/vaults_replicationFabrics_replicationProtectionContainers_replicationMigrationItems_childResource"
+              },
+              {
+                "$ref": "#/definitions/vaults_replicationFabrics_replicationProtectionContainers_replicationProtectedItems_childResource"
+              },
+              {
+                "$ref": "#/definitions/vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionContainerMappings_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationMigrationItems": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Migration item name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Enable migration input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnableMigrationInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectedItems": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A name for the replication protected item.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Enable protection input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnableProtectionInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionContainerMappings": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Protection container mapping name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Configure protection input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateProtectionContainerMappingInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationRecoveryServicesProviders": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Recovery services provider name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an add provider request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AddRecoveryServicesProviderInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationStorageClassifications_replicationStorageClassificationMappings": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Storage classification mapping name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Storage mapping input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageMappingInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationvCenters": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "vcenter name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an add vCenter request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AddVCenterRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationPolicies": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Replication policy name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Policy creation properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreatePolicyInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationProtectionIntents": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationProtectionIntents",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A name for the replication protection item.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Create protection intent input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateProtectionIntentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationProtectionIntents"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationRecoveryPlans": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationRecoveryPlans",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Recovery plan name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Recovery plan creation properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateRecoveryPlanInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationRecoveryPlans"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationVaultSettings": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationVaultSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Vault setting name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Vault setting creation input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VaultSettingCreationInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.RecoveryServices/vaults/replicationVaultSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "A2AProtectionIntentDiskInputDetails": {
+      "properties": {
+        "diskUri": {
+          "description": "The disk Uri.",
+          "type": "string"
+        },
+        "primaryStagingStorageAccountCustomInput": {
+          "description": "The primary staging storage account input.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageAccountCustomDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryAzureStorageAccountCustomInput": {
+          "description": "The recovery VHD storage account input.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageAccountCustomDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "diskUri"
+      ],
+      "type": "object"
+    },
+    "A2AProtectionIntentManagedDiskInputDetails": {
+      "properties": {
+        "diskEncryptionInfo": {
+          "description": "The recovery disk encryption information (for one / single pass flows).",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiskEncryptionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "diskId": {
+          "description": "The disk Id.",
+          "type": "string"
+        },
+        "primaryStagingStorageAccountCustomInput": {
+          "description": "The primary staging storage account input.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageAccountCustomDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryDiskEncryptionSetId": {
+          "description": "The recovery disk encryption set Id.",
+          "type": "string"
+        },
+        "recoveryReplicaDiskAccountType": {
+          "description": "The replica disk type. Its an optional value and will be same as source disk type if not user provided.",
+          "type": "string"
+        },
+        "recoveryResourceGroupCustomInput": {
+          "description": "The recovery resource group input.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryResourceGroupCustomDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryTargetDiskAccountType": {
+          "description": "The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diskId"
+      ],
+      "type": "object"
+    },
+    "A2AVmDiskInputDetails": {
+      "properties": {
+        "diskUri": {
+          "description": "The disk Uri.",
+          "type": "string"
+        },
+        "primaryStagingAzureStorageAccountId": {
+          "description": "The primary staging storage account Id.",
+          "type": "string"
+        },
+        "recoveryAzureStorageAccountId": {
+          "description": "The recovery VHD storage account Id.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diskUri",
+        "recoveryAzureStorageAccountId",
+        "primaryStagingAzureStorageAccountId"
+      ],
+      "type": "object"
+    },
+    "A2AVmManagedDiskInputDetails": {
+      "properties": {
+        "diskEncryptionInfo": {
+          "description": "The recovery disk encryption information (for one / single pass flows).",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiskEncryptionInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "diskId": {
+          "description": "The disk Id.",
+          "type": "string"
+        },
+        "primaryStagingAzureStorageAccountId": {
+          "description": "The primary staging storage account Arm Id.",
+          "type": "string"
+        },
+        "recoveryDiskEncryptionSetId": {
+          "description": "The recovery disk encryption set Id.",
+          "type": "string"
+        },
+        "recoveryReplicaDiskAccountType": {
+          "description": "The replica disk type. Its an optional value and will be same as source disk type if not user provided.",
+          "type": "string"
+        },
+        "recoveryResourceGroupId": {
+          "description": "The target resource group Arm Id.",
+          "type": "string"
+        },
+        "recoveryTargetDiskAccountType": {
+          "description": "The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diskId",
+        "primaryStagingAzureStorageAccountId",
+        "recoveryResourceGroupId"
+      ],
+      "type": "object"
+    },
+    "AddRecoveryServicesProviderInputProperties": {
+      "properties": {
+        "authenticationIdentityInput": {
+          "description": "The identity provider input for DRA authentication.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdentityProviderInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "biosId": {
+          "description": "The Bios Id of the machine.",
+          "type": "string"
+        },
+        "dataPlaneAuthenticationIdentityInput": {
+          "description": "The identity provider input for data plane authentication.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdentityProviderInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "machineId": {
+          "description": "The Id of the machine where the provider is getting added.",
+          "type": "string"
+        },
+        "machineName": {
+          "description": "The name of the machine where the provider is getting added.",
+          "type": "string"
+        },
+        "resourceAccessIdentityInput": {
+          "description": "The identity provider input for resource access.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IdentityProviderInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "machineName",
+        "authenticationIdentityInput",
+        "resourceAccessIdentityInput"
+      ],
+      "type": "object"
+    },
+    "AddVCenterRequestProperties": {
+      "properties": {
+        "friendlyName": {
+          "description": "The friendly name of the vCenter.",
+          "type": "string"
+        },
+        "ipAddress": {
+          "description": "The IP address of the vCenter to be discovered.",
+          "type": "string"
+        },
+        "port": {
+          "description": "The port number for discovery.",
+          "type": "string"
+        },
+        "processServerId": {
+          "description": "The process server Id from where the discovery is orchestrated.",
+          "type": "string"
+        },
+        "runAsAccountId": {
+          "description": "The account Id which has privileges to discover the vCenter.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConfigureAlertRequestProperties": {
+      "properties": {
+        "customEmailAddresses": {
+          "description": "The custom email address for sending emails.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "locale": {
+          "description": "The locale for the email notification.",
+          "type": "string"
+        },
+        "sendToOwners": {
+          "description": "A value indicating whether to send email to subscription administrator.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CreateNetworkMappingInputProperties": {
+      "properties": {
+        "fabricSpecificDetails": {
+          "description": "Fabric specific input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FabricSpecificCreateNetworkMappingInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryFabricName": {
+          "description": "Recovery fabric Name.",
+          "type": "string"
+        },
+        "recoveryNetworkId": {
+          "description": "Recovery network Id.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "recoveryNetworkId"
+      ],
+      "type": "object"
+    },
+    "CreatePolicyInputProperties": {
+      "properties": {
+        "providerSpecificInput": {
+          "description": "The ReplicationProviderSettings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyProviderSpecificInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateProtectionContainerInputProperties": {
+      "properties": {
+        "providerSpecificInput": {
+          "description": "Provider specific inputs for container creation.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ReplicationProviderSpecificContainerCreationInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateProtectionContainerMappingInputProperties": {
+      "properties": {
+        "policyId": {
+          "description": "Applicable policy.",
+          "type": "string"
+        },
+        "providerSpecificInput": {
+          "description": "Provider specific input for pairing.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReplicationProviderSpecificContainerMappingInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetProtectionContainerId": {
+          "description": "The target unique protection container name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CreateProtectionIntentProperties": {
+      "properties": {
+        "providerSpecificDetails": {
+          "description": "The ReplicationProviderInput. For A2A provider, it will be A2ACreateProtectionIntentInput object.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateProtectionIntentProviderSpecificDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateProtectionIntentProviderSpecificDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "CreateRecoveryPlanInputProperties": {
+      "properties": {
+        "failoverDeploymentModel": {
+          "description": "The failover deployment model.",
+          "oneOf": [
+            {
+              "enum": [
+                "NotApplicable",
+                "Classic",
+                "ResourceManager"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "groups": {
+          "description": "The recovery plan groups.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RecoveryPlanGroup"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "primaryFabricId": {
+          "description": "The primary fabric Id.",
+          "type": "string"
+        },
+        "providerSpecificInput": {
+          "description": "The provider specific input.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RecoveryPlanProviderSpecificInput"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryFabricId": {
+          "description": "The recovery fabric Id.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "primaryFabricId",
+        "recoveryFabricId",
+        "groups"
+      ],
+      "type": "object"
+    },
+    "DiskEncryptionInfo": {
+      "properties": {
+        "diskEncryptionKeyInfo": {
+          "description": "The recovery KeyVault reference for secret.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiskEncryptionKeyInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keyEncryptionKeyInfo": {
+          "description": "The recovery KeyVault reference for key.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyEncryptionKeyInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DiskEncryptionKeyInfo": {
+      "properties": {
+        "keyVaultResourceArmId": {
+          "description": "The KeyVault resource ARM id for secret.",
+          "type": "string"
+        },
+        "secretIdentifier": {
+          "description": "The secret url / identifier.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EnableMigrationInputProperties": {
+      "properties": {
+        "policyId": {
+          "description": "The policy Id.",
+          "type": "string"
+        },
+        "providerSpecificDetails": {
+          "description": "The provider specific details.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnableMigrationProviderSpecificInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "policyId",
+        "providerSpecificDetails"
+      ],
+      "type": "object"
+    },
+    "EnableMigrationProviderSpecificInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "EnableProtectionInputProperties": {
+      "properties": {
+        "policyId": {
+          "description": "The Policy Id.",
+          "type": "string"
+        },
+        "protectableItemId": {
+          "description": "The protectable item Id.",
+          "type": "string"
+        },
+        "providerSpecificDetails": {
+          "description": "The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnableProtectionProviderSpecificInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EnableProtectionProviderSpecificInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "ExtendedLocation": {
+      "properties": {
+        "name": {
+          "description": "The name of the extended location.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The extended location type.",
+          "oneOf": [
+            {
+              "enum": [
+                "EdgeZone"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object"
+    },
+    "FabricCreationInputProperties": {
+      "properties": {
+        "customDetails": {
+          "description": "Fabric provider specific creation input.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FabricSpecificCreationInput"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "FabricSpecificCreateNetworkMappingInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "FabricSpecificCreationInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "HyperVReplicaAzureDiskInputDetails": {
+      "properties": {
+        "diskEncryptionSetId": {
+          "description": "The DiskEncryptionSet ARM ID.",
+          "type": "string"
+        },
+        "diskId": {
+          "description": "The DiskId.",
+          "type": "string"
+        },
+        "diskType": {
+          "description": "The DiskType.",
+          "oneOf": [
+            {
+              "enum": [
+                "Standard_LRS",
+                "Premium_LRS",
+                "StandardSSD_LRS"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "logStorageAccountId": {
+          "description": "The LogStorageAccountId.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IdentityProviderInput": {
+      "properties": {
+        "aadAuthority": {
+          "description": "The base authority for Azure Active Directory authentication.",
+          "type": "string"
+        },
+        "applicationId": {
+          "description": "The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.",
+          "type": "string"
+        },
+        "audience": {
+          "description": "The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.",
+          "type": "string"
+        },
+        "tenantId": {
+          "description": "The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenantId",
+        "applicationId",
+        "objectId",
+        "audience",
+        "aadAuthority"
+      ],
+      "type": "object"
+    },
+    "InMageAzureV2DiskInputDetails": {
+      "properties": {
+        "diskEncryptionSetId": {
+          "description": "The DiskEncryptionSet ARM ID.",
+          "type": "string"
+        },
+        "diskId": {
+          "description": "The DiskId.",
+          "type": "string"
+        },
+        "diskType": {
+          "description": "The DiskType.",
+          "oneOf": [
+            {
+              "enum": [
+                "Standard_LRS",
+                "Premium_LRS",
+                "StandardSSD_LRS"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "logStorageAccountId": {
+          "description": "The LogStorageAccountId.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InMageDiskExclusionInput": {
+      "properties": {
+        "diskSignatureOptions": {
+          "description": "The guest disk signature based option for disk exclusion.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/InMageDiskSignatureExclusionOptions"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "volumeOptions": {
+          "description": "The volume label based option for disk exclusion.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/InMageVolumeExclusionOptions"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InMageDiskSignatureExclusionOptions": {
+      "properties": {
+        "diskSignature": {
+          "description": "The guest signature of disk to be excluded from replication.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InMageRcmDiskInput": {
+      "properties": {
+        "diskEncryptionSetId": {
+          "description": "The DiskEncryptionSet ARM Id.",
+          "type": "string"
+        },
+        "diskId": {
+          "description": "The disk Id.",
+          "type": "string"
+        },
+        "diskType": {
+          "description": "The disk type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Standard_LRS",
+                "Premium_LRS",
+                "StandardSSD_LRS"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "logStorageAccountId": {
+          "description": "The log storage account ARM Id.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diskId",
+        "logStorageAccountId",
+        "diskType"
+      ],
+      "type": "object"
+    },
+    "InMageRcmDisksDefaultInput": {
+      "properties": {
+        "diskEncryptionSetId": {
+          "description": "The DiskEncryptionSet ARM Id.",
+          "type": "string"
+        },
+        "diskType": {
+          "description": "The disk type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Standard_LRS",
+                "Premium_LRS",
+                "StandardSSD_LRS"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "logStorageAccountId": {
+          "description": "The log storage account ARM Id.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "logStorageAccountId",
+        "diskType"
+      ],
+      "type": "object"
+    },
+    "InMageVolumeExclusionOptions": {
+      "properties": {
+        "onlyExcludeIfSingleVolume": {
+          "description": "The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.",
+          "type": "string"
+        },
+        "volumeLabel": {
+          "description": "The volume label. The disk having any volume with this label will be excluded from replication.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "KeyEncryptionKeyInfo": {
+      "properties": {
+        "keyIdentifier": {
+          "description": "The key URL / identifier.",
+          "type": "string"
+        },
+        "keyVaultResourceArmId": {
+          "description": "The KeyVault resource ARM Id for key.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PolicyProviderSpecificInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "ProtectionProfileCustomDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryAvailabilitySetCustomDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryPlanAction": {
+      "properties": {
+        "actionName": {
+          "description": "The action name.",
+          "type": "string"
+        },
+        "customDetails": {
+          "description": "The custom details.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryPlanActionDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "failoverDirections": {
+          "description": "The list of failover directions.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "PrimaryToRecovery",
+                      "RecoveryToPrimary"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "failoverTypes": {
+          "description": "The list of failover types.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "ReverseReplicate",
+                      "Commit",
+                      "PlannedFailover",
+                      "UnplannedFailover",
+                      "DisableProtection",
+                      "TestFailover",
+                      "TestFailoverCleanup",
+                      "Failback",
+                      "FinalizeFailback",
+                      "CancelFailover",
+                      "ChangePit",
+                      "RepairReplication",
+                      "SwitchProtection",
+                      "CompleteMigration"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "actionName",
+        "failoverTypes",
+        "failoverDirections",
+        "customDetails"
+      ],
+      "type": "object"
+    },
+    "RecoveryPlanActionDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryPlanGroup": {
+      "properties": {
+        "endGroupActions": {
+          "description": "The end group actions.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RecoveryPlanAction"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "groupType": {
+          "description": "The group type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Shutdown",
+                "Boot",
+                "Failover"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "replicationProtectedItems": {
+          "description": "The list of protected items.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RecoveryPlanProtectedItem"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startGroupActions": {
+          "description": "The start group actions.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/RecoveryPlanAction"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "groupType"
+      ],
+      "type": "object"
+    },
+    "RecoveryPlanProtectedItem": {
+      "properties": {
+        "id": {
+          "description": "The ARM Id of the recovery plan protected item.",
+          "type": "string"
+        },
+        "virtualMachineId": {
+          "description": "The virtual machine Id.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RecoveryPlanProviderSpecificInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryProximityPlacementGroupCustomDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryResourceGroupCustomDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryVirtualNetworkCustomDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "ReplicationProviderSpecificContainerCreationInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "ReplicationProviderSpecificContainerMappingInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "StorageAccountCustomDetails": {
+      "properties": {},
+      "type": "object"
+    },
+    "StorageMappingInputProperties": {
+      "properties": {
+        "targetStorageClassificationId": {
+          "description": "The ID of the storage object.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VMwareCbtDiskInput": {
+      "properties": {
+        "diskEncryptionSetId": {
+          "description": "The DiskEncryptionSet ARM Id.",
+          "type": "string"
+        },
+        "diskId": {
+          "description": "The disk Id.",
+          "type": "string"
+        },
+        "diskType": {
+          "description": "The disk type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Standard_LRS",
+                "Premium_LRS",
+                "StandardSSD_LRS"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isOSDisk": {
+          "description": "A value indicating whether the disk is the OS disk.",
+          "type": "string"
+        },
+        "logStorageAccountId": {
+          "description": "The log storage account ARM Id.",
+          "type": "string"
+        },
+        "logStorageAccountSasSecretName": {
+          "description": "The key vault secret name of the log storage account.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diskId",
+        "isOSDisk",
+        "logStorageAccountId",
+        "logStorageAccountSasSecretName"
+      ],
+      "type": "object"
+    },
+    "VMwareCbtSecurityProfileProperties": {
+      "properties": {
+        "isTargetVmConfidentialEncryptionEnabled": {
+          "description": "A value indicating whether confidential compute encryption to be enabled.",
+          "type": "string"
+        },
+        "isTargetVmIntegrityMonitoringEnabled": {
+          "description": "A value indicating whether integrity monitoring to be enabled.",
+          "type": "string"
+        },
+        "isTargetVmSecureBootEnabled": {
+          "description": "A value indicating whether secure boot to be enabled.",
+          "type": "string"
+        },
+        "isTargetVmTpmEnabled": {
+          "description": "A value indicating whether trusted platform module to be enabled.",
+          "type": "string"
+        },
+        "targetVmSecurityType": {
+          "description": "The target VM security type.",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "TrustedLaunch",
+                "ConfidentialVM"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VaultSettingCreationInputProperties": {
+      "properties": {
+        "migrationSolutionId": {
+          "description": "The migration solution Id.",
+          "type": "string"
+        },
+        "vmwareToAzureProviderType": {
+          "description": "VMware to Azure provider type.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers_childResource": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Unique protection container ARM name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Create protection container input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateProtectionContainerInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "replicationProtectionContainers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationMigrationItems_childResource": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Migration item name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Enable migration input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnableMigrationInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "replicationMigrationItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectedItems_childResource": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A name for the replication protected item.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Enable protection input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnableProtectionInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "replicationProtectedItems"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationProtectionContainers_replicationProtectionContainerMappings_childResource": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Protection container mapping name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Configure protection input properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CreateProtectionContainerMappingInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "replicationProtectionContainerMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationRecoveryServicesProviders_childResource": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Recovery services provider name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an add provider request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AddRecoveryServicesProviderInputProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "replicationRecoveryServicesProviders"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "vaults_replicationFabrics_replicationvCenters_childResource": {
+      "description": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "vcenter name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of an add vCenter request.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AddVCenterRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "replicationvCenters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

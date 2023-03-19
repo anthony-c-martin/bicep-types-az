@@ -7789,6 +7789,27 @@
             }
           ]
         },
+        "customProperties": {
+          "description": "Custom properties are used to tune the data flow runtime performance.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/IntegrationRuntimeDataFlowPropertiesCustomPropertiesItem"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "timeToLive": {
           "description": "Time to live (in minutes) setting of the cluster which will execute data flow job.",
           "oneOf": [
@@ -7799,6 +7820,19 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "type": "object"
+    },
+    "IntegrationRuntimeDataFlowPropertiesCustomPropertiesItem": {
+      "properties": {
+        "name": {
+          "description": "Name of custom property.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of custom property.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -14195,7 +14229,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/credentials"
+            "credentials"
           ],
           "type": "string"
         }
@@ -14243,7 +14277,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/dataflows"
+            "dataflows"
           ],
           "type": "string"
         }
@@ -14291,7 +14325,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/datasets"
+            "datasets"
           ],
           "type": "string"
         }
@@ -14350,7 +14384,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/globalParameters"
+            "globalParameters"
           ],
           "type": "string"
         }
@@ -14398,7 +14432,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/integrationRuntimes"
+            "integrationRuntimes"
           ],
           "type": "string"
         }
@@ -14446,7 +14480,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/linkedservices"
+            "linkedservices"
           ],
           "type": "string"
         }
@@ -14494,7 +14528,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/managedVirtualNetworks"
+            "managedVirtualNetworks"
           ],
           "type": "string"
         }
@@ -14542,7 +14576,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints"
+            "managedPrivateEndpoints"
           ],
           "type": "string"
         }
@@ -14590,7 +14624,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/pipelines"
+            "pipelines"
           ],
           "type": "string"
         }
@@ -14628,7 +14662,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -14676,7 +14710,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/triggers"
+            "triggers"
           ],
           "type": "string"
         }

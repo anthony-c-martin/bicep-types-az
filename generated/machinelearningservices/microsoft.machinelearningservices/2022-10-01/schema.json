@@ -2563,6 +2563,17 @@
             }
           ]
         },
+        "schedules": {
+          "description": "The list of schedules to be applied on the computes.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ComputeSchedules"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "setupScripts": {
           "description": "Details of customized scripts to execute for setting up the cluster.",
           "oneOf": [
@@ -2616,6 +2627,115 @@
               "enum": [
                 "Enabled",
                 "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComputeSchedules": {
+      "properties": {
+        "computeStartStop": {
+          "description": "The list of compute start stop schedules to be applied.",
+          "oneOf": [
+            {
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/ComputeStartStopSchedule"
+                  },
+                  {
+                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComputeStartStopSchedule": {
+      "properties": {
+        "action": {
+          "description": "[Required] The compute power action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Start",
+                "Stop"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "cron": {
+          "description": "Required if triggerType is Cron.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Cron"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recurrence": {
+          "description": "Required if triggerType is Recurrence.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Recurrence"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "schedule": {
+          "description": "[Deprecated] Not used any more.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduleBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Is the schedule enabled or disabled?",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "triggerType": {
+          "description": "[Required] The schedule trigger type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Recurrence",
+                "Cron"
               ],
               "type": "string"
             },
@@ -2683,6 +2803,23 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "type": "object"
+    },
+    "Cron": {
+      "properties": {
+        "expression": {
+          "description": "[Required] Specifies cron expression of schedule.\r\nThe expression should follow NCronTab format.",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "The start time in yyyy-MM-ddTHH:mm:ss format.",
+          "type": "string"
+        },
+        "timeZone": {
+          "description": "Specifies time zone in which the schedule runs.\r\nTimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11",
+          "type": "string"
         }
       },
       "type": "object"
@@ -5989,6 +6126,59 @@
       },
       "type": "object"
     },
+    "Recurrence": {
+      "properties": {
+        "frequency": {
+          "description": "[Required] The frequency to trigger schedule.",
+          "oneOf": [
+            {
+              "enum": [
+                "Minute",
+                "Hour",
+                "Day",
+                "Week",
+                "Month"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "interval": {
+          "description": "[Required] Specifies schedule interval in conjunction with frequency",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "schedule": {
+          "description": "[Required] The recurrence schedule.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecurrenceSchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startTime": {
+          "description": "The start time in yyyy-MM-ddTHH:mm:ss format.",
+          "type": "string"
+        },
+        "timeZone": {
+          "description": "Specifies time zone in which the schedule runs.\r\nTimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "RecurrenceSchedule": {
       "properties": {
         "hours": {
@@ -6345,6 +6535,46 @@
     },
     "ScheduleActionBase": {
       "properties": {},
+      "type": "object"
+    },
+    "ScheduleBase": {
+      "properties": {
+        "id": {
+          "description": "A system assigned id for the schedule.",
+          "type": "string"
+        },
+        "provisioningStatus": {
+          "description": "The current deployment state of schedule.",
+          "oneOf": [
+            {
+              "enum": [
+                "Completed",
+                "Provisioning",
+                "Failed"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Is the schedule enabled or disabled?",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
       "type": "object"
     },
     "ScheduleProperties": {
@@ -7546,7 +7776,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/batchEndpoints"
+            "batchEndpoints"
           ],
           "type": "string"
         }
@@ -7637,7 +7867,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -7683,7 +7913,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/codes"
+            "codes"
           ],
           "type": "string"
         }
@@ -7721,7 +7951,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/codes/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -7767,7 +7997,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/components"
+            "components"
           ],
           "type": "string"
         }
@@ -7805,7 +8035,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/components/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -7884,7 +8114,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }
@@ -7922,7 +8152,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/connections"
+            "connections"
           ],
           "type": "string"
         }
@@ -7968,7 +8198,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/data"
+            "data"
           ],
           "type": "string"
         }
@@ -8006,7 +8236,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/data/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -8052,7 +8282,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/datastores"
+            "datastores"
           ],
           "type": "string"
         }
@@ -8098,7 +8328,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/environments"
+            "environments"
           ],
           "type": "string"
         }
@@ -8136,7 +8366,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/environments/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -8182,7 +8412,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/jobs"
+            "jobs"
           ],
           "type": "string"
         }
@@ -8228,7 +8458,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/models"
+            "models"
           ],
           "type": "string"
         }
@@ -8266,7 +8496,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/models/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -8357,7 +8587,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints"
+            "onlineEndpoints"
           ],
           "type": "string"
         }
@@ -8448,7 +8678,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -8527,7 +8757,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -8573,7 +8803,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/schedules"
+            "schedules"
           ],
           "type": "string"
         }
