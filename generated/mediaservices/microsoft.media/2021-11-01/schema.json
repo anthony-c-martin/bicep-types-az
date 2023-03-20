@@ -794,6 +794,7 @@
       "type": "object"
     },
     "AkamaiAccessControl": {
+      "description": "Akamai access control",
       "properties": {
         "akamaiSignatureHeaderAuthenticationKeyList": {
           "description": "authentication key list",
@@ -820,6 +821,7 @@
       "type": "object"
     },
     "AkamaiSignatureHeaderAuthenticationKey": {
+      "description": "Akamai Signature Header authentication key.",
       "properties": {
         "base64Key": {
           "description": "authentication key",
@@ -845,6 +847,7 @@
       "type": "object"
     },
     "ArmStreamingEndpointCurrentSku": {
+      "description": "The streaming endpoint current sku.",
       "properties": {
         "capacity": {
           "description": "The streaming endpoint sku capacity.",
@@ -861,6 +864,7 @@
       "type": "object"
     },
     "AssetProperties": {
+      "description": "The Asset properties.",
       "properties": {
         "alternateId": {
           "description": "The alternate ID of the Asset.",
@@ -882,6 +886,7 @@
       "type": "object"
     },
     "AssetTrackProperties": {
+      "description": "Properties of a video, audio or text track in the asset.",
       "properties": {
         "track": {
           "description": "Detailed information about a track in the asset.",
@@ -898,6 +903,7 @@
       "type": "object"
     },
     "CbcsDrmConfiguration": {
+      "description": "Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy",
       "properties": {
         "fairPlay": {
           "description": "FairPlay configurations",
@@ -936,6 +942,7 @@
       "type": "object"
     },
     "CencDrmConfiguration": {
+      "description": "Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy",
       "properties": {
         "playReady": {
           "description": "PlayReady configurations",
@@ -963,10 +970,12 @@
       "type": "object"
     },
     "ClipTime": {
+      "description": "Base class for specifying a clip time. Use sub classes of this class to specify the time position in the media.",
       "properties": {},
       "type": "object"
     },
     "Codec": {
+      "description": "Describes the basic properties of all codecs.",
       "properties": {
         "label": {
           "description": "An optional label for the codec. The label can be used to control muxing behavior.",
@@ -976,6 +985,7 @@
       "type": "object"
     },
     "CommonEncryptionCbcs": {
+      "description": "Class for CommonEncryptionCbcs encryption scheme",
       "properties": {
         "clearTracks": {
           "description": "Representing which tracks should not be encrypted",
@@ -1035,6 +1045,7 @@
       "type": "object"
     },
     "CommonEncryptionCenc": {
+      "description": "Class for envelope encryption scheme",
       "properties": {
         "clearTracks": {
           "description": "Representing which tracks should not be encrypted",
@@ -1094,6 +1105,7 @@
       "type": "object"
     },
     "ContentKeyPolicyConfiguration": {
+      "description": "Base class for Content Key Policy configuration. A derived class must be used to create a configuration.",
       "properties": {},
       "type": "object"
     },
@@ -1129,6 +1141,7 @@
       "type": "object"
     },
     "ContentKeyPolicyOption": {
+      "description": "Represents a policy option.",
       "properties": {
         "configuration": {
           "description": "The key delivery configuration.",
@@ -1164,10 +1177,12 @@
       "type": "object"
     },
     "ContentKeyPolicyPlayReadyContentKeyLocation": {
+      "description": "Base class for content key ID location. A derived class must be used to represent the location.",
       "properties": {},
       "type": "object"
     },
     "ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction": {
+      "description": "Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.",
       "properties": {
         "bestEffort": {
           "description": "Indicates whether this restriction is enforced on a Best Effort basis.",
@@ -1199,6 +1214,7 @@
       "type": "object"
     },
     "ContentKeyPolicyPlayReadyLicense": {
+      "description": "The PlayReady license",
       "properties": {
         "allowTestDevices": {
           "description": "A flag indicating whether test devices can use the license.",
@@ -1312,6 +1328,7 @@
       "type": "object"
     },
     "ContentKeyPolicyPlayReadyPlayRight": {
+      "description": "Configures the Play Right in the PlayReady license.",
       "properties": {
         "agcAndColorStripeRestriction": {
           "description": "Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.",
@@ -1465,6 +1482,7 @@
       "type": "object"
     },
     "ContentKeyPolicyProperties": {
+      "description": "The properties of the Content Key Policy.",
       "properties": {
         "description": {
           "description": "A description for the Policy.",
@@ -1498,14 +1516,17 @@
       "type": "object"
     },
     "ContentKeyPolicyRestriction": {
+      "description": "Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.",
       "properties": {},
       "type": "object"
     },
     "ContentKeyPolicyRestrictionTokenKey": {
+      "description": "Base class for Content Key Policy key for token validation. A derived class must be used to create a token key.",
       "properties": {},
       "type": "object"
     },
     "ContentKeyPolicyTokenClaim": {
+      "description": "Represents a token claim.",
       "properties": {
         "claimType": {
           "description": "Token claim type.",
@@ -1519,6 +1540,7 @@
       "type": "object"
     },
     "CrossSiteAccessPolicies": {
+      "description": "The client access policy.",
       "properties": {
         "clientAccessPolicy": {
           "description": "The content of clientaccesspolicy.xml used by Silverlight.",
@@ -1532,6 +1554,7 @@
       "type": "object"
     },
     "DefaultKey": {
+      "description": "Class to specify properties of default content key for each encryption scheme",
       "properties": {
         "label": {
           "description": "Label can be used to specify Content Key when creating a Streaming Locator",
@@ -1545,6 +1568,7 @@
       "type": "object"
     },
     "Deinterlace": {
+      "description": "Describes the de-interlacing settings.",
       "properties": {
         "mode": {
           "description": "The deinterlacing mode. Defaults to AutoPixelAdaptive.",
@@ -1581,6 +1605,7 @@
       "type": "object"
     },
     "EnabledProtocols": {
+      "description": "Class to specify which protocols are enabled",
       "properties": {
         "dash": {
           "description": "Enable DASH protocol or not",
@@ -1636,6 +1661,7 @@
       "type": "object"
     },
     "EnvelopeEncryption": {
+      "description": "Class for EnvelopeEncryption encryption scheme",
       "properties": {
         "clearTracks": {
           "description": "Representing which tracks should not be encrypted",
@@ -1688,6 +1714,7 @@
       "type": "object"
     },
     "FilterTrackPropertyCondition": {
+      "description": "The class to specify one track property condition.",
       "properties": {
         "operation": {
           "description": "The track property condition operation.",
@@ -1736,6 +1763,7 @@
       "type": "object"
     },
     "FilterTrackSelection": {
+      "description": "Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.",
       "properties": {
         "trackSelections": {
           "description": "The track selections.",
@@ -1765,6 +1793,7 @@
       "type": "object"
     },
     "Filters": {
+      "description": "Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.",
       "properties": {
         "crop": {
           "description": "The parameters for the rectangular window with which to crop the input video.",
@@ -1832,6 +1861,7 @@
       "type": "object"
     },
     "FirstQuality": {
+      "description": "Filter First Quality",
       "properties": {
         "bitrate": {
           "description": "The first quality bitrate.",
@@ -1851,6 +1881,7 @@
       "type": "object"
     },
     "Format": {
+      "description": "Base class for output.",
       "properties": {
         "filenamePattern": {
           "description": "The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.",
@@ -1863,6 +1894,7 @@
       "type": "object"
     },
     "H264Layer": {
+      "description": "Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.",
       "properties": {
         "adaptiveBFrame": {
           "description": "Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.",
@@ -2006,6 +2038,7 @@
       "type": "object"
     },
     "H265Layer": {
+      "description": "Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.265 video codec.",
       "properties": {
         "adaptiveBFrame": {
           "description": "Specifies whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.",
@@ -2131,6 +2164,7 @@
       "type": "object"
     },
     "Hls": {
+      "description": "HTTP Live Streaming (HLS) packing setting for the live output.",
       "properties": {
         "fragmentsPerTsSegment": {
           "description": "The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.",
@@ -2147,6 +2181,7 @@
       "type": "object"
     },
     "HlsSettings": {
+      "description": "The HLS setting for a text track.",
       "properties": {
         "characteristics": {
           "description": "The characteristics for the HLS setting.",
@@ -2178,6 +2213,7 @@
       "type": "object"
     },
     "IPAccessControl": {
+      "description": "The IP access control.",
       "properties": {
         "allow": {
           "description": "The IP allow list.",
@@ -2204,6 +2240,7 @@
       "type": "object"
     },
     "IPRange": {
+      "description": "The IP address range in the CIDR scheme.",
       "properties": {
         "address": {
           "description": "The IP address.",
@@ -2228,6 +2265,7 @@
       "type": "object"
     },
     "InputDefinition": {
+      "description": "Base class for defining an input. Use sub classes of this class to specify tracks selections and related metadata.",
       "properties": {
         "includedTracks": {
           "description": "The list of TrackDescriptors which define the metadata and selection of tracks in the input.",
@@ -2254,10 +2292,12 @@
       "type": "object"
     },
     "JobInput": {
+      "description": "Base class for inputs to a Job.",
       "properties": {},
       "type": "object"
     },
     "JobInputClip": {
+      "description": "Represents input files for a Job.",
       "properties": {
         "end": {
           "description": "Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.",
@@ -2324,6 +2364,7 @@
       "type": "object"
     },
     "JobOutput": {
+      "description": "Describes all the properties of a JobOutput.",
       "properties": {
         "label": {
           "description": "A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.",
@@ -2344,6 +2385,7 @@
       "type": "object"
     },
     "JobProperties": {
+      "description": "Properties of the Job.",
       "properties": {
         "correlationData": {
           "description": "Customer provided key, value pairs that will be returned in Job and JobOutput state events.",
@@ -2420,6 +2462,7 @@
       "type": "object"
     },
     "JpgLayer": {
+      "description": "Describes the settings to produce a JPEG image from the input video.",
       "properties": {
         "height": {
           "description": "The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.",
@@ -2473,6 +2516,7 @@
       "type": "object"
     },
     "LiveEventEncoding": {
+      "description": "Specifies the live event type and optional encoding settings for encoding live events.",
       "properties": {
         "encodingType": {
           "description": "Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.",
@@ -2520,6 +2564,7 @@
       "type": "object"
     },
     "LiveEventEndpoint": {
+      "description": "The live event endpoint.",
       "properties": {
         "protocol": {
           "description": "The endpoint protocol.",
@@ -2533,6 +2578,7 @@
       "type": "object"
     },
     "LiveEventInput": {
+      "description": "The live event input.",
       "properties": {
         "accessControl": {
           "description": "Access control for live event input.",
@@ -2596,6 +2642,7 @@
       "type": "object"
     },
     "LiveEventInputAccessControl": {
+      "description": "The IP access control for live event input.",
       "properties": {
         "ip": {
           "description": "The IP access control properties.",
@@ -2612,6 +2659,7 @@
       "type": "object"
     },
     "LiveEventInputTrackSelection": {
+      "description": "A track selection condition. This property is reserved for future use, any value set on this property will be ignored.",
       "properties": {
         "operation": {
           "description": "Comparing operation. This property is reserved for future use, any value set on this property will be ignored.",
@@ -2629,6 +2677,7 @@
       "type": "object"
     },
     "LiveEventOutputTranscriptionTrack": {
+      "description": "Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.",
       "properties": {
         "trackName": {
           "description": "The output track name. This property is reserved for future use, any value set on this property will be ignored.",
@@ -2641,6 +2690,7 @@
       "type": "object"
     },
     "LiveEventPreview": {
+      "description": "Live event preview settings.",
       "properties": {
         "accessControl": {
           "description": "The access control for live event preview.",
@@ -2690,6 +2740,7 @@
       "type": "object"
     },
     "LiveEventPreviewAccessControl": {
+      "description": "The IP access control for the live event preview endpoint.",
       "properties": {
         "ip": {
           "description": "The IP access control properties.",
@@ -2706,6 +2757,7 @@
       "type": "object"
     },
     "LiveEventProperties": {
+      "description": "The live event properties.",
       "properties": {
         "crossSiteAccessPolicies": {
           "description": "Live event cross site access policies.",
@@ -2824,6 +2876,7 @@
       "type": "object"
     },
     "LiveEventTranscription": {
+      "description": "Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.",
       "properties": {
         "inputTrackSelection": {
           "description": "Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.",
@@ -2865,6 +2918,7 @@
       "type": "object"
     },
     "LiveOutputProperties": {
+      "description": "The JSON object that contains the properties required to create a live output.",
       "properties": {
         "archiveWindowLength": {
           "description": "ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.",
@@ -2912,6 +2966,7 @@
       "type": "object"
     },
     "MediaFilterProperties": {
+      "description": "The Media Filter properties.",
       "properties": {
         "firstQuality": {
           "description": "The first quality.",
@@ -2994,6 +3049,7 @@
       "type": "object"
     },
     "MediaServiceProperties": {
+      "description": "Properties of the Media Services account.",
       "properties": {
         "encryption": {
           "description": "The account encryption properties.",
@@ -3072,6 +3128,7 @@
       "type": "object"
     },
     "NoEncryption": {
+      "description": "Class for NoEncryption scheme",
       "properties": {
         "enabledProtocols": {
           "description": "Representing supported protocols",
@@ -3088,6 +3145,7 @@
       "type": "object"
     },
     "OutputFile": {
+      "description": "Represents an output file produced.",
       "properties": {
         "labels": {
           "description": "The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.",
@@ -3110,6 +3168,7 @@
       "type": "object"
     },
     "Overlay": {
+      "description": "Base type for all overlays - image, audio or video.",
       "properties": {
         "audioGainLevel": {
           "description": "The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.",
@@ -3149,6 +3208,7 @@
       "type": "object"
     },
     "PngLayer": {
+      "description": "Describes the settings to produce a PNG image from the input video.",
       "properties": {
         "height": {
           "description": "The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.",
@@ -3166,6 +3226,7 @@
       "type": "object"
     },
     "PresentationTimeRange": {
+      "description": "The presentation time range, this is asset related and not recommended for Account Filter.",
       "properties": {
         "endTimestamp": {
           "description": "The absolute end time boundary.",
@@ -3237,10 +3298,12 @@
       "type": "object"
     },
     "Preset": {
+      "description": "Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.",
       "properties": {},
       "type": "object"
     },
     "PresetConfigurations": {
+      "description": "An object of optional configuration settings for encoder.",
       "properties": {
         "complexity": {
           "description": "Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.",
@@ -3343,10 +3406,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -3377,6 +3442,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -3406,6 +3472,7 @@
       "type": "object"
     },
     "Rectangle": {
+      "description": "Describes the properties of a rectangular window applied to the input media before processing it.",
       "properties": {
         "height": {
           "description": "The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).",
@@ -3450,6 +3517,7 @@
       "type": "object"
     },
     "StorageAccount": {
+      "description": "The storage account details.",
       "properties": {
         "id": {
           "description": "The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.",
@@ -3488,6 +3556,7 @@
       "type": "object"
     },
     "StreamingEndpointAccessControl": {
+      "description": "Streaming endpoint access control definition.",
       "properties": {
         "akamai": {
           "description": "The access control of Akamai",
@@ -3515,6 +3584,7 @@
       "type": "object"
     },
     "StreamingEndpointProperties": {
+      "description": "The streaming endpoint properties.",
       "properties": {
         "accessControl": {
           "description": "The access control definition of the streaming endpoint.",
@@ -3608,6 +3678,7 @@
       "type": "object"
     },
     "StreamingLocatorContentKey": {
+      "description": "Class for content key in Streaming Locator",
       "properties": {
         "id": {
           "description": "ID of Content Key",
@@ -3636,6 +3707,7 @@
       "type": "object"
     },
     "StreamingLocatorProperties": {
+      "description": "Properties of the Streaming Locator.",
       "properties": {
         "alternativeMediaId": {
           "description": "Alternative Media ID of this Streaming Locator",
@@ -3732,6 +3804,7 @@
       "type": "object"
     },
     "StreamingPolicyContentKey": {
+      "description": "Class to specify properties of content key",
       "properties": {
         "label": {
           "description": "Label can be used to specify Content Key when creating a Streaming Locator",
@@ -3766,6 +3839,7 @@
       "type": "object"
     },
     "StreamingPolicyContentKeys": {
+      "description": "Class to specify properties of all content keys in Streaming Policy",
       "properties": {
         "defaultKey": {
           "description": "Default content key for an encryption scheme",
@@ -3803,6 +3877,7 @@
       "type": "object"
     },
     "StreamingPolicyFairPlayConfiguration": {
+      "description": "Class to specify configurations of FairPlay in Streaming Policy",
       "properties": {
         "allowPersistentLicense": {
           "description": "All license to be persistent or not",
@@ -3826,6 +3901,7 @@
       "type": "object"
     },
     "StreamingPolicyPlayReadyConfiguration": {
+      "description": "Class to specify configurations of PlayReady in Streaming Policy",
       "properties": {
         "customLicenseAcquisitionUrlTemplate": {
           "description": "Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.",
@@ -3839,6 +3915,7 @@
       "type": "object"
     },
     "StreamingPolicyProperties": {
+      "description": "Class to specify properties of Streaming Policy",
       "properties": {
         "commonEncryptionCbcs": {
           "description": "Configuration of CommonEncryptionCbcs",
@@ -3892,6 +3969,7 @@
       "type": "object"
     },
     "StreamingPolicyWidevineConfiguration": {
+      "description": "Class to specify configurations of Widevine in Streaming Policy",
       "properties": {
         "customLicenseAcquisitionUrlTemplate": {
           "description": "Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.",
@@ -3901,14 +3979,17 @@
       "type": "object"
     },
     "TrackBase": {
+      "description": "Base type for concrete track types. A derived type must be used to represent the Track.",
       "properties": {},
       "type": "object"
     },
     "TrackDescriptor": {
+      "description": "Base type for all TrackDescriptor types, which define the metadata and selection for tracks that should be processed by a Job",
       "properties": {},
       "type": "object"
     },
     "TrackPropertyCondition": {
+      "description": "Class to specify one track property condition",
       "properties": {
         "operation": {
           "description": "Track property condition operation",
@@ -3952,6 +4033,7 @@
       "type": "object"
     },
     "TrackSelection": {
+      "description": "Class to select a track",
       "properties": {
         "trackSelections": {
           "description": "TrackSelections is a track property condition list which can specify track(s)",
@@ -3978,6 +4060,7 @@
       "type": "object"
     },
     "TransformOutput": {
+      "description": "Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.",
       "properties": {
         "onError": {
           "description": "A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.",
@@ -4028,6 +4111,7 @@
       "type": "object"
     },
     "TransformProperties": {
+      "description": "A Transform.",
       "properties": {
         "description": {
           "description": "An optional verbose description of the Transform.",
@@ -4090,7 +4174,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/accountFilters"
+            "accountFilters"
           ],
           "type": "string"
         }
@@ -4128,7 +4212,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/assets/assetFilters"
+            "assetFilters"
           ],
           "type": "string"
         }
@@ -4166,7 +4250,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/assets"
+            "assets"
           ],
           "type": "string"
         }
@@ -4204,7 +4288,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/assets/tracks"
+            "tracks"
           ],
           "type": "string"
         }
@@ -4242,7 +4326,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/contentKeyPolicies"
+            "contentKeyPolicies"
           ],
           "type": "string"
         }
@@ -4280,7 +4364,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/streamingLocators"
+            "streamingLocators"
           ],
           "type": "string"
         }
@@ -4318,7 +4402,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/streamingPolicies"
+            "streamingPolicies"
           ],
           "type": "string"
         }
@@ -4356,7 +4440,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/transforms"
+            "transforms"
           ],
           "type": "string"
         }
@@ -4394,7 +4478,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/transforms/jobs"
+            "jobs"
           ],
           "type": "string"
         }
@@ -4461,7 +4545,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaservices/liveEvents"
+            "liveEvents"
           ],
           "type": "string"
         }
@@ -4509,7 +4593,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaservices/liveEvents/liveOutputs"
+            "liveOutputs"
           ],
           "type": "string"
         }
@@ -4547,7 +4631,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaservices/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -4625,7 +4709,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaservices/streamingEndpoints"
+            "streamingEndpoints"
           ],
           "type": "string"
         }

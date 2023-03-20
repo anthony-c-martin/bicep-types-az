@@ -162,6 +162,7 @@
   },
   "definitions": {
     "CustomLocationProperties": {
+      "description": "Properties for a custom location.",
       "properties": {
         "authentication": {
           "description": "This is optional input that contains the authentication that should be used to generate the namespace.",
@@ -222,6 +223,7 @@
       "type": "object"
     },
     "CustomLocationPropertiesAuthentication": {
+      "description": "This is optional input that contains the authentication that should be used to generate the namespace.",
       "properties": {
         "type": {
           "description": "The type of the Custom Locations authentication",
@@ -235,6 +237,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -255,6 +258,7 @@
       "type": "object"
     },
     "MatchExpressionsProperties": {
+      "description": "Resource Sync Rules matchExpression property definition.",
       "properties": {
         "key": {
           "description": "Key is the label key that the selector applies to.",
@@ -282,6 +286,7 @@
       "type": "object"
     },
     "ResourceSyncRuleProperties": {
+      "description": "Properties for a resource sync rule. For an unmapped custom resource, its labels will be used to find out matching resource sync rules using the selector property of the resource sync rule. If this resource sync rule has highest priority among all matching rules, then the unmapped custom resource will be projected to the target resource group associated with this resource sync rule.",
       "properties": {
         "priority": {
           "description": "Priority represents a priority of the Resource Sync Rule",
@@ -313,6 +318,7 @@
       "type": "object"
     },
     "ResourceSyncRulePropertiesSelector": {
+      "description": "A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.",
       "properties": {
         "matchExpressions": {
           "description": "MatchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist.",
@@ -408,7 +414,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ExtendedLocation/customLocations/resourceSyncRules"
+            "resourceSyncRules"
           ],
           "type": "string"
         }

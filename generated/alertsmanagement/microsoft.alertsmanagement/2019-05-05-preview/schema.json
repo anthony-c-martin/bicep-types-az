@@ -64,6 +64,7 @@
   },
   "definitions": {
     "ActionRuleProperties": {
+      "description": "Action rule properties defining scope, conditions, suppression logic for action rule",
       "properties": {
         "conditions": {
           "description": "conditions on which alerts will be filtered",
@@ -110,6 +111,7 @@
       "type": "object"
     },
     "Condition": {
+      "description": "condition to trigger an action rule",
       "properties": {
         "operator": {
           "description": "operator for a given condition",
@@ -146,6 +148,7 @@
       "type": "object"
     },
     "Conditions": {
+      "description": "Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.",
       "properties": {
         "alertContext": {
           "description": "filter alerts by alert context (payload)",
@@ -239,6 +242,7 @@
       "type": "object"
     },
     "Scope": {
+      "description": "Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.",
       "properties": {
         "scopeType": {
           "description": "type of target scope",
@@ -274,6 +278,7 @@
       "type": "object"
     },
     "SuppressionConfig": {
+      "description": "Suppression logic for a given action rule",
       "properties": {
         "recurrenceType": {
           "description": "Specifies when the suppression should be applied",
@@ -311,6 +316,7 @@
       "type": "object"
     },
     "SuppressionSchedule": {
+      "description": "Schedule for a given suppression configuration.",
       "properties": {
         "endDate": {
           "description": "End date for suppression",

@@ -230,6 +230,7 @@
   },
   "definitions": {
     "AlertsSuppressionRuleProperties": {
+      "description": "describes AlertsSuppressionRule properties",
       "properties": {
         "alertType": {
           "description": "Type of the alert to automatically suppress. For all alert types, use '*'",
@@ -291,6 +292,7 @@
       "type": "object"
     },
     "AssessmentStatus": {
+      "description": "The result of the assessment",
       "properties": {
         "cause": {
           "description": "Programmatic code for the cause of the assessment status",
@@ -323,10 +325,12 @@
       "type": "object"
     },
     "AutomationAction": {
+      "description": "The action that should be triggered.",
       "properties": {},
       "type": "object"
     },
     "AutomationProperties": {
+      "description": "A set of properties that defines the behavior of the automation configuration. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.",
       "properties": {
         "actions": {
           "description": "A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.",
@@ -410,6 +414,7 @@
       "type": "object"
     },
     "AutomationRuleSet": {
+      "description": "A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.",
       "properties": {
         "rules": {
           "description": "",
@@ -436,6 +441,7 @@
       "type": "object"
     },
     "AutomationScope": {
+      "description": "A single automation scope.",
       "properties": {
         "description": {
           "description": "The resources scope description.",
@@ -449,6 +455,7 @@
       "type": "object"
     },
     "AutomationSource": {
+      "description": "The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.",
       "properties": {
         "eventSource": {
           "description": "A valid event source type.",
@@ -499,6 +506,7 @@
       "type": "object"
     },
     "AutomationTriggeringRule": {
+      "description": "A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.",
       "properties": {
         "expectedValue": {
           "description": "The expected value.",
@@ -551,11 +559,13 @@
       "type": "object"
     },
     "ResourceDetails": {
+      "description": "Details of the resource that was assessed",
       "properties": {},
       "type": "object"
     },
     "ScopeElement": {
       "additionalProperties": {},
+      "description": "A more specific scope used to identify the alerts to suppress.",
       "properties": {
         "field": {
           "description": "The alert entity type to suppress by.",
@@ -565,6 +575,7 @@
       "type": "object"
     },
     "SecurityAssessmentMetadataProperties": {
+      "description": "Describes properties of an assessment metadata.",
       "properties": {
         "assessmentType": {
           "description": "BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition",
@@ -721,6 +732,7 @@
       "type": "object"
     },
     "SecurityAssessmentProperties": {
+      "description": "Describes properties of an assessment.",
       "properties": {
         "additionalData": {
           "description": "Additional data regarding the assessment",

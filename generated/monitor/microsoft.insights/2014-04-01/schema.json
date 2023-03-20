@@ -121,6 +121,7 @@
   },
   "definitions": {
     "AlertRule": {
+      "description": "An alert rule.",
       "properties": {
         "action": {
           "description": "action that is performed when the alert rule becomes active, and when an alert condition is resolved.",
@@ -197,6 +198,7 @@
       "type": "object"
     },
     "AutoscaleNotification": {
+      "description": "Autoscale notification.",
       "properties": {
         "email": {
           "description": "the email notification.",
@@ -214,7 +216,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Scale"
               ],
               "type": "string"
             },
@@ -251,6 +253,7 @@
       "type": "object"
     },
     "AutoscaleProfile": {
+      "description": "Autoscale profile.",
       "properties": {
         "capacity": {
           "description": "the number of instances that can be used during this profile.",
@@ -319,6 +322,7 @@
       "type": "object"
     },
     "AutoscaleSetting": {
+      "description": "A setting that contains all of the configuration for the automatic scaling of a resource.",
       "properties": {
         "enabled": {
           "description": "the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.",
@@ -392,6 +396,7 @@
       "type": "object"
     },
     "EmailNotification": {
+      "description": "Email notification of an autoscale event.",
       "properties": {
         "customEmails": {
           "description": "the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.",
@@ -433,6 +438,7 @@
       "type": "object"
     },
     "ManagementEventAggregationCondition": {
+      "description": "How the data that is collected should be combined over time.",
       "properties": {
         "operator": {
           "description": "the condition operator.",
@@ -470,6 +476,7 @@
       "type": "object"
     },
     "MetricTrigger": {
+      "description": "The trigger that results in a scaling action.",
       "properties": {
         "dimensions": {
           "description": "List of dimension conditions. For example: [{\"DimensionName\":\"AppName\",\"Operator\":\"Equals\",\"Values\":[\"App1\"]},{\"DimensionName\":\"Deployment\",\"Operator\":\"Equals\",\"Values\":[\"default\"]}].",
@@ -608,6 +615,7 @@
       "type": "object"
     },
     "Recurrence": {
+      "description": "The repeating times at which this profile begins. This element is not used if the FixedDate element is used.",
       "properties": {
         "frequency": {
           "description": "the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.",
@@ -649,6 +657,7 @@
       "type": "object"
     },
     "RecurrentSchedule": {
+      "description": "The scheduling constraints for when the profile begins.",
       "properties": {
         "days": {
           "description": "the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.",
@@ -720,10 +729,12 @@
       "type": "object"
     },
     "RuleAction": {
+      "description": "The action that is performed when the alert rule becomes active, and when an alert condition is resolved.",
       "properties": {},
       "type": "object"
     },
     "RuleCondition": {
+      "description": "The condition that results in the alert rule being activated.",
       "properties": {
         "dataSource": {
           "description": "the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.",
@@ -740,6 +751,7 @@
       "type": "object"
     },
     "RuleDataSource": {
+      "description": "The resource from which the rule collects its data.",
       "properties": {
         "legacyResourceId": {
           "description": "the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.",
@@ -761,6 +773,7 @@
       "type": "object"
     },
     "RuleManagementEventClaimsDataSource": {
+      "description": "The claims for a rule management event data source.",
       "properties": {
         "emailAddress": {
           "description": "the email address.",
@@ -770,6 +783,7 @@
       "type": "object"
     },
     "ScaleAction": {
+      "description": "The parameters for the scaling action.",
       "properties": {
         "cooldown": {
           "description": "the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.",
@@ -821,6 +835,7 @@
       "type": "object"
     },
     "ScaleCapacity": {
+      "description": "The number of instances that can be used during this profile.",
       "properties": {
         "default": {
           "description": "the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.",
@@ -843,6 +858,7 @@
       "type": "object"
     },
     "ScaleRule": {
+      "description": "A rule that provide the triggers and parameters for the scaling action.",
       "properties": {
         "metricTrigger": {
           "description": "the trigger that results in a scaling action.",
@@ -874,6 +890,7 @@
       "type": "object"
     },
     "ScaleRuleMetricDimension": {
+      "description": "Specifies an auto scale rule metric dimension.",
       "properties": {
         "DimensionName": {
           "description": "Name of the dimension.",
@@ -917,6 +934,7 @@
       "type": "object"
     },
     "TimeWindow": {
+      "description": "A specific date-time for the profile.",
       "properties": {
         "end": {
           "description": "the end time for the profile in ISO 8601 format.",
@@ -954,6 +972,7 @@
       "type": "object"
     },
     "WebhookNotification": {
+      "description": "Webhook notification of an autoscale event.",
       "properties": {
         "properties": {
           "description": "a property bag of settings. This value can be empty.",

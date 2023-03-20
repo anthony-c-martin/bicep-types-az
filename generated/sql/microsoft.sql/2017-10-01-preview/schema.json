@@ -422,6 +422,7 @@
   },
   "definitions": {
     "BackupShortTermRetentionPolicyProperties": {
+      "description": "Properties of a short term retention policy",
       "properties": {
         "retentionDays": {
           "description": "The backup retention period in days. This is how many days Point-in-Time Restore will be supported.",
@@ -438,6 +439,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "The database's properties.",
       "properties": {
         "autoPauseDelay": {
           "description": "Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled",
@@ -634,6 +636,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentProperties": {
+      "description": "Properties of a database Vulnerability Assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -662,6 +665,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentRuleBaselineItem": {
+      "description": "Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.",
       "properties": {
         "result": {
           "description": "The rule baseline result",
@@ -684,6 +688,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentRuleBaselineProperties": {
+      "description": "Properties of a database Vulnerability Assessment rule baseline.",
       "properties": {
         "baselineResults": {
           "description": "The rule baseline result",
@@ -713,6 +718,7 @@
       "type": "object"
     },
     "ElasticPoolPerDatabaseSettings": {
+      "description": "Per database settings of an elastic pool.",
       "properties": {
         "maxCapacity": {
           "description": "The maximum capacity any one database can consume.",
@@ -740,6 +746,7 @@
       "type": "object"
     },
     "ElasticPoolProperties": {
+      "description": "Properties of an elastic pool",
       "properties": {
         "licenseType": {
           "description": "The license type to apply for this elastic pool.",
@@ -793,6 +800,7 @@
       "type": "object"
     },
     "InstanceFailoverGroupProperties": {
+      "description": "Properties of a instance failover group.",
       "properties": {
         "managedInstancePairs": {
           "description": "List of managed instance pairs in the failover group.",
@@ -867,6 +875,7 @@
       "type": "object"
     },
     "InstanceFailoverGroupReadOnlyEndpoint": {
+      "description": "Read-only endpoint of the failover group instance.",
       "properties": {
         "failoverPolicy": {
           "description": "Failover policy of the read-only endpoint for the failover group.",
@@ -887,6 +896,7 @@
       "type": "object"
     },
     "InstanceFailoverGroupReadWriteEndpoint": {
+      "description": "Read-write endpoint of the failover group instance.",
       "properties": {
         "failoverPolicy": {
           "description": "Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.",
@@ -921,6 +931,7 @@
       "type": "object"
     },
     "ManagedInstanceEncryptionProtectorProperties": {
+      "description": "Properties for an encryption protector execution.",
       "properties": {
         "serverKeyName": {
           "description": "The name of the managed instance key.",
@@ -948,6 +959,7 @@
       "type": "object"
     },
     "ManagedInstanceKeyProperties": {
+      "description": "Properties for a key execution.",
       "properties": {
         "serverKeyType": {
           "description": "The key type like 'ServiceManaged', 'AzureKeyVault'.",
@@ -975,6 +987,7 @@
       "type": "object"
     },
     "ManagedInstancePairInfo": {
+      "description": "Pairs of Managed Instances in the failover group.",
       "properties": {
         "partnerManagedInstanceId": {
           "description": "Id of Partner Managed Instance in pair.",
@@ -988,6 +1001,7 @@
       "type": "object"
     },
     "PartnerRegionInfo": {
+      "description": "Partner region information for the failover group.",
       "properties": {
         "location": {
           "description": "Geo location of the partner managed instances.",
@@ -997,6 +1011,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "An ARM Resource SKU.",
       "properties": {
         "capacity": {
           "description": "Capacity of the particular SKU.",
@@ -1032,6 +1047,7 @@
       "type": "object"
     },
     "VulnerabilityAssessmentRecurringScansProperties": {
+      "description": "Properties of a Vulnerability Assessment recurring scans.",
       "properties": {
         "emailSubscriptionAdmins": {
           "description": "Specifies that the schedule scan notification will be is sent to the subscription administrators.",
@@ -1108,7 +1124,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies"
+            "backupShortTermRetentionPolicies"
           ],
           "type": "string"
         }

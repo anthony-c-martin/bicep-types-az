@@ -112,6 +112,7 @@
   },
   "definitions": {
     "AttestationServiceCreationSpecificParams": {
+      "description": "Client supplied parameters used to create a new attestation provider.",
       "properties": {
         "policySigningCertificates": {
           "description": "JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations",
@@ -255,10 +256,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -289,6 +292,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -343,7 +347,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Attestation/attestationProviders/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

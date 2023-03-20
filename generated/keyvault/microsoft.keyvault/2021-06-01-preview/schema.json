@@ -455,6 +455,7 @@
   },
   "definitions": {
     "AccessPolicyEntry": {
+      "description": "An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",
       "properties": {
         "applicationId": {
           "description": " Application ID of the client making request on behalf of a principal",
@@ -524,6 +525,7 @@
       "type": "object"
     },
     "IPRule": {
+      "description": "A rule governing the accessibility of a vault from a specific ip address or ip range.",
       "properties": {
         "value": {
           "description": "An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).",
@@ -536,6 +538,7 @@
       "type": "object"
     },
     "KeyAttributes": {
+      "description": "The object attributes managed by the Azure Key Vault service.",
       "properties": {
         "enabled": {
           "description": "Determines whether or not the object is enabled.",
@@ -585,6 +588,7 @@
       "type": "object"
     },
     "KeyProperties": {
+      "description": "The properties of the key.",
       "properties": {
         "attributes": {
           "description": "The attributes of the key.",
@@ -748,6 +752,7 @@
       "type": "object"
     },
     "ManagedHsmProperties": {
+      "description": "Properties of the managed HSM Pool",
       "properties": {
         "createMode": {
           "description": "The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.",
@@ -853,6 +858,7 @@
       "type": "object"
     },
     "ManagedHsmSku": {
+      "description": "SKU details",
       "properties": {
         "family": {
           "description": "SKU Family of the managed HSM Pool",
@@ -891,6 +897,7 @@
       "type": "object"
     },
     "MhsmNetworkRuleSet": {
+      "description": "A set of rules governing the network accessibility of a managed hsm pool.",
       "properties": {
         "bypass": {
           "description": "Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.",
@@ -968,10 +975,12 @@
       "type": "object"
     },
     "MhsmPrivateEndpoint": {
+      "description": "Private endpoint object properties.",
       "properties": {},
       "type": "object"
     },
     "MhsmPrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection resource.",
       "properties": {
         "privateEndpoint": {
           "description": "Properties of the private endpoint object.",
@@ -1018,6 +1027,7 @@
       "type": "object"
     },
     "MhsmPrivateLinkServiceConnectionState": {
+      "description": "An object that represents the approval state of the private link connection.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -1058,6 +1068,7 @@
       "type": "object"
     },
     "MhsmVirtualNetworkRule": {
+      "description": "A rule governing the accessibility of a managed hsm pool from a specific virtual network.",
       "properties": {
         "id": {
           "description": "Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.",
@@ -1070,6 +1081,7 @@
       "type": "object"
     },
     "MhsmipRule": {
+      "description": "A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.",
       "properties": {
         "value": {
           "description": "An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).",
@@ -1082,6 +1094,7 @@
       "type": "object"
     },
     "NetworkRuleSet": {
+      "description": "A set of rules governing the network accessibility of a vault.",
       "properties": {
         "bypass": {
           "description": "Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.",
@@ -1159,6 +1172,7 @@
       "type": "object"
     },
     "Permissions": {
+      "description": "Permissions the identity has for keys, secrets, certificates and storage.",
       "properties": {
         "certificates": {
           "description": "Permissions to certificates",
@@ -1318,10 +1332,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "Private endpoint object properties.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection resource.",
       "properties": {
         "privateEndpoint": {
           "description": "Properties of the private endpoint object.",
@@ -1368,6 +1384,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "An object that represents the approval state of the private link connection.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -1445,6 +1462,7 @@
       "type": "object"
     },
     "SecretAttributes": {
+      "description": "The secret management attributes.",
       "properties": {
         "enabled": {
           "description": "Determines whether the object is enabled.",
@@ -1483,6 +1501,7 @@
       "type": "object"
     },
     "SecretProperties": {
+      "description": "Properties of the secret",
       "properties": {
         "attributes": {
           "description": "The attributes of the secret.",
@@ -1507,6 +1526,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU details",
       "properties": {
         "family": {
           "description": "SKU family name",
@@ -1558,6 +1578,7 @@
       "type": "object"
     },
     "VaultAccessPolicyProperties": {
+      "description": "Properties of the vault access policy",
       "properties": {
         "accessPolicies": {
           "description": "An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",
@@ -1587,6 +1608,7 @@
       "type": "object"
     },
     "VaultProperties": {
+      "description": "Properties of the vault",
       "properties": {
         "accessPolicies": {
           "description": "An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.",
@@ -1766,6 +1788,7 @@
       "type": "object"
     },
     "VirtualNetworkRule": {
+      "description": "A rule governing the accessibility of a vault from a specific virtual network.",
       "properties": {
         "id": {
           "description": "Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.",
@@ -1848,7 +1871,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KeyVault/managedHSMs/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -1898,7 +1921,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KeyVault/vaults/accessPolicies"
+            "accessPolicies"
           ],
           "type": "string"
         }
@@ -1959,7 +1982,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KeyVault/vaults/keys"
+            "keys"
           ],
           "type": "string"
         }
@@ -2001,7 +2024,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KeyVault/vaults/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -2062,7 +2085,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KeyVault/vaults/secrets"
+            "secrets"
           ],
           "type": "string"
         }

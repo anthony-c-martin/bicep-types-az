@@ -217,6 +217,7 @@
   },
   "definitions": {
     "AccountProperties": {
+      "description": "NetApp account properties",
       "properties": {
         "activeDirectories": {
           "description": "Active Directories",
@@ -243,6 +244,7 @@
       "type": "object"
     },
     "ActiveDirectory": {
+      "description": "Active Directory",
       "properties": {
         "activeDirectoryId": {
           "description": "Id of the Active Directory",
@@ -280,6 +282,7 @@
       "type": "object"
     },
     "ExportPolicyRule": {
+      "description": "Volume Export Policy Rule",
       "properties": {
         "allowedClients": {
           "description": "Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names",
@@ -355,6 +358,7 @@
       "type": "object"
     },
     "PoolProperties": {
+      "description": "Pool properties",
       "properties": {
         "serviceLevel": {
           "description": "The service level of the file system",
@@ -391,6 +395,7 @@
       "type": "object"
     },
     "SnapshotProperties": {
+      "description": "Snapshot properties",
       "properties": {
         "fileSystemId": {
           "description": "UUID v4 used to identify the FileSystem",
@@ -410,6 +415,7 @@
       "type": "object"
     },
     "VolumeProperties": {
+      "description": "Volume properties",
       "properties": {
         "creationToken": {
           "description": "A unique file path for the volume. Used when creating mount targets",
@@ -494,6 +500,7 @@
       "type": "object"
     },
     "VolumePropertiesExportPolicy": {
+      "description": "Set of export policy rules",
       "properties": {
         "rules": {
           "description": "Export policy rule",
@@ -552,7 +559,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/capacityPools"
+            "capacityPools"
           ],
           "type": "string"
         }
@@ -597,7 +604,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/capacityPools/volumes"
+            "volumes"
           ],
           "type": "string"
         }
@@ -642,7 +649,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots"
+            "snapshots"
           ],
           "type": "string"
         }

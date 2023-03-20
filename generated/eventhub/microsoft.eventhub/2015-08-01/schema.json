@@ -314,6 +314,7 @@
   },
   "definitions": {
     "ConsumerGroupProperties": {
+      "description": "Properties supplied to the Create Or Update Consumer Group operation.",
       "properties": {
         "userMetadata": {
           "description": "The user metadata.",
@@ -323,6 +324,7 @@
       "type": "object"
     },
     "EventHubProperties": {
+      "description": "Properties supplied to the Create Or Update Event Hub operation.",
       "properties": {
         "messageRetentionInDays": {
           "description": "Number of days to retain the events for this Event Hub.",
@@ -372,6 +374,7 @@
       "type": "object"
     },
     "NamespaceProperties": {
+      "description": "Properties of the Namespace supplied for create or update Namespace operation",
       "properties": {
         "createdAt": {
           "description": "The time the Namespace was created.",
@@ -446,6 +449,7 @@
       "type": "object"
     },
     "SharedAccessAuthorizationRuleProperties": {
+      "description": "Properties supplied to create or update SharedAccessAuthorizationRule",
       "properties": {
         "rights": {
           "description": "The rights associated with the rule.",
@@ -480,6 +484,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU parameters supplied to the create Namespace operation",
       "properties": {
         "capacity": {
           "description": "The Event Hubs throughput units.",
@@ -568,7 +573,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/AuthorizationRules"
+            "AuthorizationRules"
           ],
           "type": "string"
         }
@@ -619,7 +624,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/eventhubs/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -670,7 +675,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/eventhubs"
+            "eventhubs"
           ],
           "type": "string"
         }
@@ -721,7 +726,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/eventhubs/consumergroups"
+            "consumergroups"
           ],
           "type": "string"
         }

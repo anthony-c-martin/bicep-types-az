@@ -168,6 +168,7 @@
   },
   "definitions": {
     "AzureSku": {
+      "description": "Azure SKU definition.",
       "properties": {
         "capacity": {
           "description": "The number of instances of the cluster.",
@@ -228,6 +229,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "Class representing the Kusto cluster properties.",
       "properties": {
         "trustedExternalTenants": {
           "description": "The cluster's external tenants.",
@@ -254,6 +256,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "Class representing the Kusto database properties.",
       "properties": {
         "hotCachePeriod": {
           "description": "The time the data that should be kept in cache for fast queries in TimeSpan.",
@@ -267,6 +270,7 @@
       "type": "object"
     },
     "TrustedExternalTenant": {
+      "description": "Represents a tenant ID that is trusted by the cluster.",
       "properties": {
         "value": {
           "description": "GUID representing an external tenant.",
@@ -305,7 +309,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -336,7 +340,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases/dataConnections"
+            "dataConnections"
           ],
           "type": "string"
         }

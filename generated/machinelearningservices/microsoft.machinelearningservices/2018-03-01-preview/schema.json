@@ -153,6 +153,7 @@
   },
   "definitions": {
     "AKSProperties": {
+      "description": "AKS properties",
       "properties": {
         "agentCount": {
           "description": "Number of agents",
@@ -209,6 +210,7 @@
       "type": "object"
     },
     "BatchAIProperties": {
+      "description": "BatchAI properties",
       "properties": {
         "scaleSettings": {
           "description": "Scale settings for BatchAI",
@@ -233,6 +235,7 @@
       "type": "object"
     },
     "Compute": {
+      "description": "Machine Learning compute object.",
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -281,13 +284,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -300,6 +304,7 @@
       "type": "object"
     },
     "ScaleSettings": {
+      "description": "scale settings for BatchAI Compute",
       "properties": {
         "autoScaleEnabled": {
           "description": "Enable or disable auto scale",
@@ -338,6 +343,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "The SSL configuration for scoring",
       "properties": {
         "cert": {
           "description": "Cert data",
@@ -370,6 +376,7 @@
       "type": "object"
     },
     "SystemService": {
+      "description": "A system service running on a compute.",
       "properties": {},
       "type": "object"
     },
@@ -409,6 +416,7 @@
       "type": "object"
     },
     "VirtualMachineSshCredentials": {
+      "description": "Admin credentials for virtual machine",
       "properties": {
         "password": {
           "description": "Password of admin account",
@@ -430,6 +438,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The properties of a machine learning workspace.",
       "properties": {
         "applicationInsights": {
           "description": "ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created",
@@ -522,7 +531,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }

@@ -191,6 +191,7 @@
   },
   "definitions": {
     "ColumnDefinition": {
+      "description": "Definition of custom data column.",
       "properties": {
         "name": {
           "description": "The name of the column.",
@@ -220,14 +221,17 @@
       "type": "object"
     },
     "DataCollectionEndpointConfigurationAccess": {
+      "description": "The endpoint used by clients to access their configuration.",
       "properties": {},
       "type": "object"
     },
     "DataCollectionEndpointLogsIngestion": {
+      "description": "The endpoint used by clients to ingest logs.",
       "properties": {},
       "type": "object"
     },
     "DataCollectionEndpointNetworkAcls": {
+      "description": "Network access control rules for the endpoints.",
       "properties": {
         "publicNetworkAccess": {
           "description": "The configuration to set whether network access from public internet to the endpoints are allowed.",
@@ -248,6 +252,7 @@
       "type": "object"
     },
     "DataCollectionEndpointResourceProperties": {
+      "description": "Resource properties.",
       "properties": {
         "configurationAccess": {
           "description": "The endpoint used by clients to access their configuration.",
@@ -294,6 +299,7 @@
       "type": "object"
     },
     "DataCollectionRuleAssociationProxyOnlyResourceProperties": {
+      "description": "Resource properties.",
       "properties": {
         "dataCollectionEndpointId": {
           "description": "The resource ID of the data collection endpoint that is to be associated.",
@@ -311,6 +317,7 @@
       "type": "object"
     },
     "DataCollectionRuleDataSources": {
+      "description": "The specification of data sources. \r\nThis property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
       "properties": {
         "extensions": {
           "description": "The list of Azure VM extension data source configurations.",
@@ -442,6 +449,7 @@
       "type": "object"
     },
     "DataCollectionRuleDestinations": {
+      "description": "The specification of destinations.",
       "properties": {
         "azureMonitorMetrics": {
           "description": "Azure Monitor Metrics destination.",
@@ -479,6 +487,7 @@
       "type": "object"
     },
     "DataCollectionRuleResourceProperties": {
+      "description": "Resource properties.",
       "properties": {
         "dataCollectionEndpointId": {
           "description": "The resource ID of the data collection endpoint that this rule can be used with.",
@@ -557,6 +566,7 @@
       "type": "object"
     },
     "DataFlow": {
+      "description": "Definition of which streams are sent to which destinations.",
       "properties": {
         "destinations": {
           "description": "List of destinations for this data flow.",
@@ -612,6 +622,7 @@
       "type": "object"
     },
     "DestinationsSpecAzureMonitorMetrics": {
+      "description": "Azure Monitor Metrics destination.",
       "properties": {
         "name": {
           "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
@@ -621,6 +632,7 @@
       "type": "object"
     },
     "ExtensionDataSource": {
+      "description": "Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.\r\nCollected from either Windows and Linux machines, depending on which extension is defined.",
       "properties": {
         "extensionName": {
           "description": "The name of the VM extension.",
@@ -682,6 +694,7 @@
       "type": "object"
     },
     "IisLogsDataSource": {
+      "description": "Enables IIS logs to be collected by this data collection rule.",
       "properties": {
         "logDirectories": {
           "description": "Absolute paths file location",
@@ -722,6 +735,7 @@
       "type": "object"
     },
     "LogAnalyticsDestination": {
+      "description": "Log Analytics destination.",
       "properties": {
         "name": {
           "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
@@ -735,6 +749,7 @@
       "type": "object"
     },
     "LogFileSettingsText": {
+      "description": "Text settings",
       "properties": {
         "recordStartTimestampFormat": {
           "description": "One of the supported timestamp formats",
@@ -765,6 +780,7 @@
       "type": "object"
     },
     "LogFilesDataSource": {
+      "description": "Definition of which custom log files will be collected by this data collection rule",
       "properties": {
         "filePatterns": {
           "description": "File Patterns where the log files are located",
@@ -832,6 +848,7 @@
       "type": "object"
     },
     "LogFilesDataSourceSettings": {
+      "description": "The log files specific settings.",
       "properties": {
         "text": {
           "description": "Text settings",
@@ -848,6 +865,7 @@
       "type": "object"
     },
     "PerfCounterDataSource": {
+      "description": "Definition of which performance counters will be collected and how they will be collected by this data collection rule.\r\nCollected from both Windows and Linux machines where the counter is present.",
       "properties": {
         "counterSpecifiers": {
           "description": "A list of specifier names of the performance counters you want to collect.\r\nUse a wildcard (*) to collect a counter for all instances.\r\nTo get a list of performance counters on Windows, run the command 'typeperf'.",
@@ -907,6 +925,7 @@
       "type": "object"
     },
     "StreamDeclaration": {
+      "description": "Declaration of a custom stream.",
       "properties": {
         "columns": {
           "description": "List of columns used by data in this stream.",
@@ -933,6 +952,7 @@
       "type": "object"
     },
     "SyslogDataSource": {
+      "description": "Definition of which syslog data will be collected and how it will be collected.\r\nOnly collected from Linux machines.",
       "properties": {
         "facilityNames": {
           "description": "The list of facility names.",
@@ -1042,6 +1062,7 @@
       "type": "object"
     },
     "WindowsEventLogDataSource": {
+      "description": "Definition of which Windows Event Log events will be collected and how they will be collected.\r\nOnly collected from Windows machines.",
       "properties": {
         "name": {
           "description": "A friendly name for the data source. \r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",

@@ -218,6 +218,7 @@
   },
   "definitions": {
     "RedisCreateProperties": {
+      "description": "Properties supplied to Create Redis operation.",
       "properties": {
         "enableNonSslPort": {
           "description": "Specifies whether the non-ssl Redis server port (6379) is enabled.",
@@ -313,6 +314,7 @@
       "type": "object"
     },
     "RedisFirewallRuleProperties": {
+      "description": "Specifies a range of IP addresses permitted to connect to the cache",
       "properties": {
         "endIP": {
           "description": "highest IP address included in the range",
@@ -330,6 +332,7 @@
       "type": "object"
     },
     "RedisLinkedServerCreateProperties": {
+      "description": "Create properties for a linked server",
       "properties": {
         "linkedRedisCacheId": {
           "description": "Fully qualified resourceId of the linked redis cache.",
@@ -388,7 +391,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cache/Redis/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }
@@ -426,7 +429,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cache/Redis/linkedServers"
+            "linkedServers"
           ],
           "type": "string"
         }
@@ -474,7 +477,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cache/Redis/patchSchedules"
+            "patchSchedules"
           ],
           "type": "string"
         }
@@ -487,6 +490,7 @@
       "type": "object"
     },
     "ScheduleEntries": {
+      "description": "List of patch schedules for a Redis cache.",
       "properties": {
         "scheduleEntries": {
           "description": "List of patch schedules for a Redis cache.",
@@ -516,6 +520,7 @@
       "type": "object"
     },
     "ScheduleEntry": {
+      "description": "Patch schedule entry for a Premium Redis Cache.",
       "properties": {
         "dayOfWeek": {
           "description": "Day of the week when a cache can be patched.",
@@ -562,6 +567,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU parameters supplied to the create Redis operation.",
       "properties": {
         "capacity": {
           "description": "The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).",

@@ -183,6 +183,7 @@
   },
   "definitions": {
     "Action": {
+      "description": "Model that represents the base action model.",
       "properties": {
         "name": {
           "description": "String that represents a Capability URN.",
@@ -203,6 +204,7 @@
       "type": "object"
     },
     "Branch": {
+      "description": "Model that represents a branch in the step.",
       "properties": {
         "actions": {
           "description": "List of actions.",
@@ -245,6 +247,7 @@
       "type": "object"
     },
     "ExperimentProperties": {
+      "description": "Model that represents the Experiment properties model.",
       "properties": {
         "selectors": {
           "description": "List of selectors.",
@@ -307,10 +310,12 @@
       "type": "object"
     },
     "Filter": {
+      "description": "Model that represents available filter types that can be applied to a targets list.",
       "properties": {},
       "type": "object"
     },
     "KeyValuePair": {
+      "description": "A map to describe the settings of an action.",
       "properties": {
         "key": {
           "description": "The name of the setting for the action.",
@@ -344,6 +349,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "The managed identity of a resource.",
       "properties": {
         "type": {
           "description": "String of the resource identity type.",
@@ -367,6 +373,7 @@
       "type": "object"
     },
     "Selector": {
+      "description": "Model that represents a selector in the Experiment resource.",
       "properties": {
         "filter": {
           "description": "Model that represents available filter types that can be applied to a targets list.",
@@ -438,6 +445,7 @@
       "type": "object"
     },
     "SimpleFilterParameters": {
+      "description": "Model that represents the Simple filter parameters.",
       "properties": {
         "zones": {
           "description": "List of Azure availability zones to filter targets by.",
@@ -457,6 +465,7 @@
       "type": "object"
     },
     "Step": {
+      "description": "Model that represents a step in the Experiment resource.",
       "properties": {
         "branches": {
           "description": "List of branches.",
@@ -499,6 +508,7 @@
       "type": "object"
     },
     "TargetReference": {
+      "description": "Model that represents a reference to a Target in the selector.",
       "properties": {
         "id": {
           "description": "String of the resource ID of a Target resource.",
@@ -517,7 +527,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "ChaosTarget"
               ],
               "type": "string"
             },
@@ -556,7 +566,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Chaos/targets/capabilities"
+            "capabilities"
           ],
           "type": "string"
         }

@@ -93,10 +93,12 @@
   },
   "definitions": {
     "ClipTime": {
+      "description": "Base class for specifying a clip time. Use sub classes of this class to specify the time position in the media.",
       "properties": {},
       "type": "object"
     },
     "Codec": {
+      "description": "Describes the basic properties of all codecs.",
       "properties": {
         "label": {
           "description": "An optional label for the codec. The label can be used to control muxing behavior.",
@@ -106,6 +108,7 @@
       "type": "object"
     },
     "Deinterlace": {
+      "description": "Describes the de-interlacing settings.",
       "properties": {
         "mode": {
           "description": "The deinterlacing mode. Defaults to AutoPixelAdaptive.",
@@ -142,6 +145,7 @@
       "type": "object"
     },
     "Filters": {
+      "description": "Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.",
       "properties": {
         "crop": {
           "description": "The parameters for the rectangular window with which to crop the input video.",
@@ -209,6 +213,7 @@
       "type": "object"
     },
     "Format": {
+      "description": "Base class for output.",
       "properties": {
         "filenamePattern": {
           "description": "The file naming pattern used for the creation of output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {AudioStream} - string \"Audio\" plus audio stream number(start from 1). {Bitrate} - The audio/video bitrate in kbps. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.",
@@ -221,6 +226,7 @@
       "type": "object"
     },
     "H264Layer": {
+      "description": "Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.",
       "properties": {
         "adaptiveBFrame": {
           "description": "Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.",
@@ -364,6 +370,7 @@
       "type": "object"
     },
     "H265Layer": {
+      "description": "Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.265 video codec.",
       "properties": {
         "adaptiveBFrame": {
           "description": "Specifies whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.",
@@ -489,6 +496,7 @@
       "type": "object"
     },
     "InputDefinition": {
+      "description": "Base class for defining an input. Use sub classes of this class to specify tracks selections and related metadata.",
       "properties": {
         "includedTracks": {
           "description": "The list of TrackDescriptors which define the metadata and selection of tracks in the input.",
@@ -515,10 +523,12 @@
       "type": "object"
     },
     "JobInput": {
+      "description": "Base class for inputs to a Job.",
       "properties": {},
       "type": "object"
     },
     "JobInputClip": {
+      "description": "Represents input files for a Job.",
       "properties": {
         "end": {
           "description": "Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.",
@@ -585,6 +595,7 @@
       "type": "object"
     },
     "JobOutput": {
+      "description": "Describes all the properties of a JobOutput.",
       "properties": {
         "label": {
           "description": "A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.",
@@ -605,6 +616,7 @@
       "type": "object"
     },
     "JobProperties": {
+      "description": "Properties of the Job.",
       "properties": {
         "correlationData": {
           "description": "Customer provided key, value pairs that will be returned in Job and JobOutput state events.",
@@ -681,6 +693,7 @@
       "type": "object"
     },
     "JpgLayer": {
+      "description": "Describes the settings to produce a JPEG image from the input video.",
       "properties": {
         "height": {
           "description": "The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.",
@@ -709,6 +722,7 @@
       "type": "object"
     },
     "OutputFile": {
+      "description": "Represents an output file produced.",
       "properties": {
         "labels": {
           "description": "The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.",
@@ -731,6 +745,7 @@
       "type": "object"
     },
     "Overlay": {
+      "description": "Base type for all overlays - image, audio or video.",
       "properties": {
         "audioGainLevel": {
           "description": "The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.",
@@ -770,6 +785,7 @@
       "type": "object"
     },
     "PngLayer": {
+      "description": "Describes the settings to produce a PNG image from the input video.",
       "properties": {
         "height": {
           "description": "The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.",
@@ -787,10 +803,12 @@
       "type": "object"
     },
     "Preset": {
+      "description": "Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.",
       "properties": {},
       "type": "object"
     },
     "PresetConfigurations": {
+      "description": "An object of optional configuration settings for encoder.",
       "properties": {
         "complexity": {
           "description": "Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.",
@@ -904,6 +922,7 @@
       "type": "object"
     },
     "Rectangle": {
+      "description": "Describes the properties of a rectangular window applied to the input media before processing it.",
       "properties": {
         "height": {
           "description": "The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).",
@@ -925,10 +944,12 @@
       "type": "object"
     },
     "TrackDescriptor": {
+      "description": "Base type for all TrackDescriptor types, which define the metadata and selection for tracks that should be processed by a Job",
       "properties": {},
       "type": "object"
     },
     "TransformOutput": {
+      "description": "Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.",
       "properties": {
         "onError": {
           "description": "A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.",
@@ -979,6 +1000,7 @@
       "type": "object"
     },
     "TransformProperties": {
+      "description": "A Transform.",
       "properties": {
         "description": {
           "description": "An optional verbose description of the Transform.",
@@ -1037,7 +1059,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaServices/transforms/jobs"
+            "jobs"
           ],
           "type": "string"
         }

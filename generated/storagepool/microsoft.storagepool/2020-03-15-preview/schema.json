@@ -122,6 +122,7 @@
   },
   "definitions": {
     "Acl": {
+      "description": "Access Control List (ACL) for an iSCSI target portal group",
       "properties": {
         "credentials": {
           "description": "Challenge Handshake Authentication Protocol (CHAP) credentials to set for the ACL. Credentials can not be updated for an ACL.",
@@ -160,6 +161,7 @@
       "type": "object"
     },
     "Attributes": {
+      "description": "Attributes of a iSCSI target portal group.",
       "properties": {
         "authentication": {
           "description": "Indicates whether or not authentication is enabled on the ACL.",
@@ -191,6 +193,7 @@
       "type": "object"
     },
     "Disk": {
+      "description": "Azure Managed Disk to attach to the Disk pool.",
       "properties": {
         "id": {
           "description": "Unique Azure Resource ID of the Managed Disk.",
@@ -203,6 +206,7 @@
       "type": "object"
     },
     "DiskPoolCreateProperties": {
+      "description": "Properties for Disk pool create or update request.",
       "properties": {
         "additionalCapabilities": {
           "description": "List of additional capabilities for a Disk pool.",
@@ -282,6 +286,7 @@
       "type": "object"
     },
     "IscsiLun": {
+      "description": "LUN to expose the Azure Managed Disk.",
       "properties": {
         "managedDiskAzureResourceId": {
           "description": "Azure Resource ID of the Managed Disk.",
@@ -299,6 +304,7 @@
       "type": "object"
     },
     "IscsiTargetCreateProperties": {
+      "description": "Properties for iSCSI target create or update request.",
       "properties": {
         "targetIqn": {
           "description": "iSCSI target IQN (iSCSI Qualified Name); example: \"iqn.2005-03.org.iscsi:server\".",
@@ -332,6 +338,7 @@
       "type": "object"
     },
     "IscsiTargetCredentials": {
+      "description": "Challenge Handshake Authentication Protocol (CHAP) credentials for an iSCSI target ACL.",
       "properties": {
         "password": {
           "description": "Password for Challenge Handshake Authentication Protocol (CHAP) authentication.",
@@ -368,6 +375,7 @@
       "type": "object"
     },
     "TargetPortalGroupCreate": {
+      "description": "Target portal group properties for create or update iSCSI target request.",
       "properties": {
         "acls": {
           "description": "Access Control List (ACL) for an iSCSI target portal group.",
@@ -456,7 +464,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StoragePool/diskPools/iscsiTargets"
+            "iscsiTargets"
           ],
           "type": "string"
         }

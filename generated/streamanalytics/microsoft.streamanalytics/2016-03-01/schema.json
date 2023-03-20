@@ -235,6 +235,7 @@
   },
   "definitions": {
     "AzureDataLakeStoreOutputDataSourceProperties": {
+      "description": "The properties that are associated with an Azure Data Lake Store.",
       "properties": {
         "accountName": {
           "description": "The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.",
@@ -272,6 +273,7 @@
       "type": "object"
     },
     "AzureMachineLearningWebServiceFunctionBindingProperties": {
+      "description": "The binding properties associated with an Azure Machine learning web service.",
       "properties": {
         "apiKey": {
           "description": "The API key used to authenticate with Request-Response endpoint.",
@@ -328,6 +330,7 @@
       "type": "object"
     },
     "AzureMachineLearningWebServiceInputColumn": {
+      "description": "Describes an input column for the Azure Machine Learning web service endpoint.",
       "properties": {
         "dataType": {
           "description": "The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .",
@@ -352,6 +355,7 @@
       "type": "object"
     },
     "AzureMachineLearningWebServiceInputs": {
+      "description": "The inputs for the Azure Machine Learning web service endpoint.",
       "properties": {
         "columnNames": {
           "description": "A list of input columns for the Azure Machine Learning web service endpoint.",
@@ -382,6 +386,7 @@
       "type": "object"
     },
     "AzureMachineLearningWebServiceOutputColumn": {
+      "description": "Describes an output column for the Azure Machine Learning web service endpoint.",
       "properties": {
         "dataType": {
           "description": "The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .",
@@ -395,6 +400,7 @@
       "type": "object"
     },
     "AzureSqlDatabaseOutputDataSourceProperties": {
+      "description": "The properties that are associated with an Azure SQL database output.",
       "properties": {
         "database": {
           "description": "The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.",
@@ -420,6 +426,7 @@
       "type": "object"
     },
     "AzureTableOutputDataSourceProperties": {
+      "description": "The properties that are associated with an Azure Table output.",
       "properties": {
         "accountKey": {
           "description": "The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.",
@@ -470,6 +477,7 @@
       "type": "object"
     },
     "BlobOutputDataSourceProperties": {
+      "description": "The properties that are associated with a blob output.",
       "properties": {
         "container": {
           "description": "The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.",
@@ -512,6 +520,7 @@
       "type": "object"
     },
     "BlobReferenceInputDataSourceProperties": {
+      "description": "The properties that are associated with a blob input containing reference data.",
       "properties": {
         "container": {
           "description": "The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.",
@@ -554,6 +563,7 @@
       "type": "object"
     },
     "BlobStreamInputDataSourceProperties": {
+      "description": "The properties that are associated with a blob input containing stream data.",
       "properties": {
         "container": {
           "description": "The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.",
@@ -607,6 +617,7 @@
       "type": "object"
     },
     "CsvSerializationProperties": {
+      "description": "The properties that are associated with the CSV serialization type.",
       "properties": {
         "encoding": {
           "description": "Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.",
@@ -630,6 +641,7 @@
       "type": "object"
     },
     "DocumentDbOutputDataSourceProperties": {
+      "description": "The properties that are associated with a DocumentDB output.",
       "properties": {
         "accountId": {
           "description": "The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.",
@@ -659,6 +671,7 @@
       "type": "object"
     },
     "EventHubOutputDataSourceProperties": {
+      "description": "The properties that are associated with an Event Hub output.",
       "properties": {
         "eventHubName": {
           "description": "The name of the Event Hub. Required on PUT (CreateOrReplace) requests.",
@@ -684,6 +697,7 @@
       "type": "object"
     },
     "EventHubStreamInputDataSourceProperties": {
+      "description": "The properties that are associated with a Event Hub input containing stream data.",
       "properties": {
         "consumerGroupName": {
           "description": "The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.",
@@ -709,6 +723,7 @@
       "type": "object"
     },
     "Function": {
+      "description": "A function object, containing all information associated with the named function. All functions are contained under a streaming job.",
       "properties": {
         "name": {
           "description": "Resource name",
@@ -729,10 +744,12 @@
       "type": "object"
     },
     "FunctionBinding": {
+      "description": "The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.",
       "properties": {},
       "type": "object"
     },
     "FunctionInput": {
+      "description": "Describes one input parameter of a function.",
       "properties": {
         "dataType": {
           "description": "The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx",
@@ -753,6 +770,7 @@
       "type": "object"
     },
     "FunctionOutput": {
+      "description": "Describes the output of a function.",
       "properties": {
         "dataType": {
           "description": "The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx",
@@ -762,10 +780,12 @@
       "type": "object"
     },
     "FunctionProperties": {
+      "description": "The properties that are associated with a function.",
       "properties": {},
       "type": "object"
     },
     "Input": {
+      "description": "An input object, containing all information associated with the named input. All inputs are contained under a streaming job.",
       "properties": {
         "name": {
           "description": "Resource name",
@@ -786,6 +806,7 @@
       "type": "object"
     },
     "InputProperties": {
+      "description": "The properties that are associated with an input.",
       "properties": {
         "serialization": {
           "description": "Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.",
@@ -802,6 +823,7 @@
       "type": "object"
     },
     "IoTHubStreamInputDataSourceProperties": {
+      "description": "The properties that are associated with a IoT Hub input containing stream data.",
       "properties": {
         "consumerGroupName": {
           "description": "The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.",
@@ -827,6 +849,7 @@
       "type": "object"
     },
     "JavaScriptFunctionBindingProperties": {
+      "description": "The binding properties associated with a JavaScript function.",
       "properties": {
         "script": {
           "description": "The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'",
@@ -836,6 +859,7 @@
       "type": "object"
     },
     "JsonSerializationProperties": {
+      "description": "The properties that are associated with the JSON serialization type.",
       "properties": {
         "encoding": {
           "description": "Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.",
@@ -870,6 +894,7 @@
       "type": "object"
     },
     "Output": {
+      "description": "An output object, containing all information associated with the named output. All outputs are contained under a streaming job.",
       "properties": {
         "name": {
           "description": "Resource name",
@@ -890,10 +915,12 @@
       "type": "object"
     },
     "OutputDataSource": {
+      "description": "Describes the data source that output will be written to.",
       "properties": {},
       "type": "object"
     },
     "OutputProperties": {
+      "description": "The properties that are associated with an output.",
       "properties": {
         "datasource": {
           "description": "Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.",
@@ -921,6 +948,7 @@
       "type": "object"
     },
     "PowerBIOutputDataSourceProperties": {
+      "description": "The properties that are associated with a Power BI output.",
       "properties": {
         "dataset": {
           "description": "The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.",
@@ -954,10 +982,12 @@
       "type": "object"
     },
     "ReferenceInputDataSource": {
+      "description": "Describes an input data source that contains reference data.",
       "properties": {},
       "type": "object"
     },
     "ScalarFunctionConfiguration": {
+      "description": "Describes the configuration of the scalar function.",
       "properties": {
         "binding": {
           "description": "The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.",
@@ -1006,10 +1036,12 @@
       "type": "object"
     },
     "Serialization": {
+      "description": "Describes how data from an input is serialized or how data is serialized when written to an output.",
       "properties": {},
       "type": "object"
     },
     "ServiceBusQueueOutputDataSourceProperties": {
+      "description": "The properties that are associated with a Service Bus Queue output.",
       "properties": {
         "propertyColumns": {
           "description": "A string array of the names of output columns to be attached to Service Bus messages as custom properties.",
@@ -1045,6 +1077,7 @@
       "type": "object"
     },
     "ServiceBusTopicOutputDataSourceProperties": {
+      "description": "The properties that are associated with a Service Bus Topic output.",
       "properties": {
         "propertyColumns": {
           "description": "A string array of the names of output columns to be attached to Service Bus messages as custom properties.",
@@ -1080,6 +1113,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The properties that are associated with a SKU.",
       "properties": {
         "name": {
           "description": "The name of the SKU. Required on PUT (CreateOrReplace) requests.",
@@ -1099,6 +1133,7 @@
       "type": "object"
     },
     "StorageAccount": {
+      "description": "The properties that are associated with an Azure Storage account",
       "properties": {
         "accountKey": {
           "description": "The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.",
@@ -1112,10 +1147,12 @@
       "type": "object"
     },
     "StreamInputDataSource": {
+      "description": "Describes an input data source that contains stream data.",
       "properties": {},
       "type": "object"
     },
     "StreamingJobProperties": {
+      "description": "The properties that are associated with a streaming job.",
       "properties": {
         "compatibilityLevel": {
           "description": "Controls certain runtime behaviors of the streaming job.",
@@ -1304,6 +1341,7 @@
       "type": "object"
     },
     "Transformation": {
+      "description": "A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.",
       "properties": {
         "name": {
           "description": "Resource name",
@@ -1324,6 +1362,7 @@
       "type": "object"
     },
     "TransformationProperties": {
+      "description": "The properties that are associated with a transformation.",
       "properties": {
         "query": {
           "description": "Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.",
@@ -1369,7 +1408,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StreamAnalytics/streamingjobs/functions"
+            "functions"
           ],
           "type": "string"
         }
@@ -1407,7 +1446,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StreamAnalytics/streamingjobs/inputs"
+            "inputs"
           ],
           "type": "string"
         }
@@ -1445,7 +1484,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StreamAnalytics/streamingjobs/outputs"
+            "outputs"
           ],
           "type": "string"
         }
@@ -1483,7 +1522,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StreamAnalytics/streamingjobs/transformations"
+            "transformations"
           ],
           "type": "string"
         }

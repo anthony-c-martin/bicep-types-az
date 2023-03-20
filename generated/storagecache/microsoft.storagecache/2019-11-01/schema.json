@@ -127,6 +127,7 @@
   },
   "definitions": {
     "CacheProperties": {
+      "description": "Properties of the Cache.",
       "properties": {
         "cacheSizeGB": {
           "description": "The size of this Cache, in GB.",
@@ -177,6 +178,7 @@
       "type": "object"
     },
     "CacheSku": {
+      "description": "SKU for the Cache.",
       "properties": {
         "name": {
           "description": "SKU name for this Cache.",
@@ -186,10 +188,12 @@
       "type": "object"
     },
     "CacheUpgradeStatus": {
+      "description": "Properties describing the software upgrade state of the Cache.",
       "properties": {},
       "type": "object"
     },
     "ClfsTarget": {
+      "description": "Storage container for use as a CLFS Storage Target.",
       "properties": {
         "target": {
           "description": "Resource ID of storage container.",
@@ -199,6 +203,7 @@
       "type": "object"
     },
     "NamespaceJunction": {
+      "description": "A namespace junction.",
       "properties": {
         "namespacePath": {
           "description": "Namespace path on a Cache for a Storage Target.",
@@ -216,6 +221,7 @@
       "type": "object"
     },
     "Nfs3Target": {
+      "description": "An NFSv3 mount point for use as a Storage Target.",
       "properties": {
         "target": {
           "description": "IP address or host name of an NFSv3 host (e.g., 10.0.44.44).",
@@ -237,6 +243,7 @@
       "type": "object"
     },
     "StorageTargetProperties": {
+      "description": "Properties of the Storage Target.",
       "properties": {
         "clfs": {
           "description": "Properties when targetType is clfs.",
@@ -331,6 +338,7 @@
       "type": "object"
     },
     "UnknownTarget": {
+      "description": "Storage container for use as an Unknown Storage Target.",
       "properties": {
         "unknownMap": {
           "description": "Dictionary of string->string pairs containing information about the Storage Target.",
@@ -384,7 +392,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorageCache/caches/storageTargets"
+            "storageTargets"
           ],
           "type": "string"
         }

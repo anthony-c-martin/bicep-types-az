@@ -853,18 +853,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the data masking policy for which the masking rule applies.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/Default$",
+          "type": "string"
         },
         "properties": {
           "description": "The properties of the data masking policy.",
@@ -1083,18 +1073,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The source of the sensitivity label.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/current$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -1451,6 +1431,7 @@
   },
   "definitions": {
     "AadAdminProperties": {
+      "description": "Workspace active directory administrator properties",
       "properties": {
         "administratorType": {
           "description": "Workspace active directory administrator type",
@@ -1472,6 +1453,7 @@
       "type": "object"
     },
     "AutoPauseProperties": {
+      "description": "Auto-pausing properties of a Big Data pool powered by Apache Spark",
       "properties": {
         "delayInMinutes": {
           "description": "Number of minutes of idle time before the Big Data pool is automatically paused.",
@@ -1499,6 +1481,7 @@
       "type": "object"
     },
     "AutoScaleProperties": {
+      "description": "Auto-scaling properties of a Big Data pool powered by Apache Spark",
       "properties": {
         "enabled": {
           "description": "Whether automatic scaling is enabled for the Big Data pool.",
@@ -1537,6 +1520,7 @@
       "type": "object"
     },
     "BigDataPoolResourceProperties": {
+      "description": "Properties of a Big Data pool powered by Apache Spark",
       "properties": {
         "autoPause": {
           "description": "Auto-pausing properties",
@@ -1727,6 +1711,7 @@
       "type": "object"
     },
     "CmdkeySetupTypeProperties": {
+      "description": "Cmdkey command custom setup type properties.",
       "properties": {
         "password": {
           "description": "The password of data source access.",
@@ -1754,10 +1739,12 @@
       "type": "object"
     },
     "CustomSetupBase": {
+      "description": "The base definition of the custom setup.",
       "properties": {},
       "type": "object"
     },
     "CustomerManagedKeyDetails": {
+      "description": "Details of the customer managed key associated with the workspace",
       "properties": {
         "key": {
           "description": "The key object of the workspace",
@@ -1774,6 +1761,7 @@
       "type": "object"
     },
     "DataLakeStorageAccountDetails": {
+      "description": "Details of the data lake storage account associated with the workspace",
       "properties": {
         "accountUrl": {
           "description": "Account URL",
@@ -1787,6 +1775,7 @@
       "type": "object"
     },
     "DataMaskingPolicyProperties": {
+      "description": "The properties of a database data masking policy.",
       "properties": {
         "dataMaskingState": {
           "description": "The state of the data masking policy.",
@@ -1814,6 +1803,7 @@
       "type": "object"
     },
     "DataMaskingRuleProperties": {
+      "description": "The properties of a Sql pool data masking rule.",
       "properties": {
         "aliasName": {
           "description": "The alias name. This is a legacy parameter and is no longer used.",
@@ -1895,6 +1885,7 @@
       "type": "object"
     },
     "DynamicExecutorAllocation": {
+      "description": "Dynamic Executor Allocation Properties",
       "properties": {
         "enabled": {
           "description": "Indicates whether Dynamic Executor Allocation is enabled or not.",
@@ -1911,6 +1902,7 @@
       "type": "object"
     },
     "EncryptionDetails": {
+      "description": "Details of the encryption associated with the workspace",
       "properties": {
         "cmk": {
           "description": "Customer Managed Key Details",
@@ -1927,6 +1919,7 @@
       "type": "object"
     },
     "EncryptionProtectorProperties": {
+      "description": "Properties for an encryption protector execution.",
       "properties": {
         "serverKeyName": {
           "description": "The name of the server key.",
@@ -1954,6 +1947,7 @@
       "type": "object"
     },
     "EntityReference": {
+      "description": "The entity reference.",
       "properties": {
         "referenceName": {
           "description": "The name of this referenced entity.",
@@ -1978,6 +1972,7 @@
       "type": "object"
     },
     "EnvironmentVariableSetupTypeProperties": {
+      "description": "Environment variable custom setup type properties.",
       "properties": {
         "variableName": {
           "description": "The name of the environment variable.",
@@ -1995,6 +1990,7 @@
       "type": "object"
     },
     "ExtendedServerBlobAuditingPolicyProperties": {
+      "description": "Properties of an extended server blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -2100,6 +2096,7 @@
       "type": "object"
     },
     "ExtendedSqlPoolBlobAuditingPolicyProperties": {
+      "description": "Properties of an extended Sql pool blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -2205,6 +2202,7 @@
       "type": "object"
     },
     "GeoBackupPolicyProperties": {
+      "description": "The properties of the geo backup policy.",
       "properties": {
         "state": {
           "description": "The state of the geo backup policy.",
@@ -2229,6 +2227,7 @@
     },
     "IntegrationRuntime": {
       "additionalProperties": {},
+      "description": "Azure Synapse nested object which serves as a compute resource for activities.",
       "properties": {
         "description": {
           "description": "Integration runtime description.",
@@ -2239,6 +2238,7 @@
     },
     "IntegrationRuntimeComputeProperties": {
       "additionalProperties": {},
+      "description": "The compute resource properties for managed integration runtime.",
       "properties": {
         "dataFlowProperties": {
           "description": "Data flow properties for managed integration runtime.",
@@ -2296,6 +2296,7 @@
       "type": "object"
     },
     "IntegrationRuntimeCustomSetupScriptProperties": {
+      "description": "Custom setup script properties for a managed dedicated integration runtime.",
       "properties": {
         "blobContainerUri": {
           "description": "The URI of the Azure blob container that contains the custom setup script.",
@@ -2317,6 +2318,7 @@
     },
     "IntegrationRuntimeDataFlowProperties": {
       "additionalProperties": {},
+      "description": "Data flow properties for managed integration runtime.",
       "properties": {
         "computeType": {
           "description": "Compute type of the cluster which will execute data flow job.",
@@ -2360,6 +2362,7 @@
       "type": "object"
     },
     "IntegrationRuntimeDataProxyProperties": {
+      "description": "Data proxy properties for a managed dedicated integration runtime.",
       "properties": {
         "connectVia": {
           "description": "The self-hosted integration runtime reference.",
@@ -2392,6 +2395,7 @@
     },
     "IntegrationRuntimeSsisCatalogInfo": {
       "additionalProperties": {},
+      "description": "Catalog information for managed dedicated integration runtime.",
       "properties": {
         "catalogAdminPassword": {
           "description": "The password of the administrator user account of the catalog database.",
@@ -2443,6 +2447,7 @@
     },
     "IntegrationRuntimeSsisProperties": {
       "additionalProperties": {},
+      "description": "SSIS properties for managed integration runtime.",
       "properties": {
         "catalogInfo": {
           "description": "Catalog information for managed dedicated integration runtime.",
@@ -2533,6 +2538,7 @@
     },
     "IntegrationRuntimeVNetProperties": {
       "additionalProperties": {},
+      "description": "VNet properties for managed integration runtime.",
       "properties": {
         "publicIPs": {
           "description": "Resource IDs of the public IP addresses that this integration runtime will use.",
@@ -2564,6 +2570,7 @@
       "type": "object"
     },
     "IpFirewallRuleProperties": {
+      "description": "IP firewall rule properties",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress",
@@ -2577,6 +2584,7 @@
       "type": "object"
     },
     "KeyProperties": {
+      "description": "Key properties",
       "properties": {
         "isActiveCMK": {
           "description": "Used to activate the workspace after a customer managed key is provided.",
@@ -2597,6 +2605,7 @@
       "type": "object"
     },
     "LibraryInfo": {
+      "description": "Library/package information of a Big Data pool powered by Apache Spark",
       "properties": {
         "containerName": {
           "description": "Storage blob container name.",
@@ -2618,6 +2627,7 @@
       "type": "object"
     },
     "LibraryRequirements": {
+      "description": "Library requirements for a Big Data pool powered by Apache Spark",
       "properties": {
         "content": {
           "description": "The library requirements.",
@@ -2631,6 +2641,7 @@
       "type": "object"
     },
     "LicensedComponentSetupTypeProperties": {
+      "description": "Installation of licensed component setup type properties.",
       "properties": {
         "componentName": {
           "description": "The name of the 3rd party component.",
@@ -2654,10 +2665,12 @@
       "type": "object"
     },
     "LinkedIntegrationRuntimeType": {
+      "description": "The base definition of a linked integration runtime.",
       "properties": {},
       "type": "object"
     },
     "ManagedIdentity": {
+      "description": "The workspace managed identity",
       "properties": {
         "type": {
           "description": "The type of managed identity for the workspace",
@@ -2678,6 +2691,7 @@
       "type": "object"
     },
     "ManagedIdentitySqlControlSettingsModelProperties": {
+      "description": "Sql Control Settings for workspace managed identity",
       "properties": {
         "grantSqlControlToManagedIdentity": {
           "description": "Grant sql control to managed identity",
@@ -2694,6 +2708,7 @@
       "type": "object"
     },
     "ManagedIdentitySqlControlSettingsModelPropertiesGrantSqlControlToManagedIdentity": {
+      "description": "Grant sql control to managed identity",
       "properties": {
         "desiredState": {
           "description": "Desired state",
@@ -2714,6 +2729,7 @@
       "type": "object"
     },
     "ManagedIntegrationRuntimeTypeProperties": {
+      "description": "Managed integration runtime type properties.",
       "properties": {
         "computeProperties": {
           "description": "The compute resource for managed integration runtime.",
@@ -2741,6 +2757,7 @@
       "type": "object"
     },
     "ManagedVirtualNetworkSettings": {
+      "description": "Managed Virtual Network Settings",
       "properties": {
         "allowedAadTenantIdsForLinking": {
           "description": "Allowed Aad Tenant Ids For Linking",
@@ -2782,6 +2799,7 @@
       "type": "object"
     },
     "MetadataSyncConfigProperties": {
+      "description": "Metadata Sync Config properties",
       "properties": {
         "enabled": {
           "description": "Indicates whether the metadata sync is enabled or disabled",
@@ -2809,10 +2827,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "Private endpoint details",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
+      "description": "A private endpoint connection",
       "properties": {
         "properties": {
           "description": "Private endpoint connection properties.",
@@ -2829,6 +2849,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint which the connection belongs to.",
@@ -2856,6 +2877,7 @@
       "type": "object"
     },
     "PrivateLinkHubProperties": {
+      "description": "PrivateLinkHub properties",
       "properties": {
         "provisioningState": {
           "description": "PrivateLinkHub provisioning state",
@@ -2865,6 +2887,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "Connection state details of the private endpoint",
       "properties": {
         "description": {
           "description": "The private link service connection description.",
@@ -2878,6 +2901,7 @@
       "type": "object"
     },
     "PurviewConfiguration": {
+      "description": "Purview Configuration",
       "properties": {
         "purviewResourceId": {
           "description": "Purview Resource ID",
@@ -2887,10 +2911,12 @@
       "type": "object"
     },
     "SecretBase": {
+      "description": "The base definition of a secret type.",
       "properties": {},
       "type": "object"
     },
     "SecureString": {
+      "description": "Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.",
       "properties": {
         "type": {
           "description": "Type of the secret.",
@@ -2908,6 +2934,7 @@
       "type": "object"
     },
     "SecurityAlertPolicyProperties": {
+      "description": "Properties of a security alert policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action",
@@ -2990,6 +3017,7 @@
       "type": "object"
     },
     "SelfHostedIntegrationRuntimeTypeProperties": {
+      "description": "The self-hosted integration runtime properties.",
       "properties": {
         "linkedInfo": {
           "description": "Linked integration runtime type from data factory",
@@ -3006,6 +3034,7 @@
       "type": "object"
     },
     "SensitivityLabelProperties": {
+      "description": "Properties of a sensitivity label.",
       "properties": {
         "informationType": {
           "description": "The information type.",
@@ -3045,6 +3074,7 @@
       "type": "object"
     },
     "ServerBlobAuditingPolicyProperties": {
+      "description": "Properties of a server blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -3146,6 +3176,7 @@
       "type": "object"
     },
     "ServerSecurityAlertPolicyProperties": {
+      "description": "Properties of a security alert policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action",
@@ -3228,6 +3259,7 @@
       "type": "object"
     },
     "ServerVulnerabilityAssessmentProperties": {
+      "description": "Properties of a server Vulnerability Assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -3259,6 +3291,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SQL pool SKU",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -3283,6 +3316,7 @@
       "type": "object"
     },
     "SqlPoolBlobAuditingPolicyProperties": {
+      "description": "Properties of a Sql pool blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -3373,6 +3407,7 @@
       "type": "object"
     },
     "SqlPoolResourceProperties": {
+      "description": "Properties of a SQL Analytics pool",
       "properties": {
         "collation": {
           "description": "Collation mode",
@@ -3458,6 +3493,7 @@
       "type": "object"
     },
     "SqlPoolVulnerabilityAssessmentProperties": {
+      "description": "Properties of a Sql pool Vulnerability Assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -3486,6 +3522,7 @@
       "type": "object"
     },
     "SqlPoolVulnerabilityAssessmentRuleBaselineItem": {
+      "description": "Properties for an Sql pool vulnerability assessment rule baseline's result.",
       "properties": {
         "result": {
           "description": "The rule baseline result",
@@ -3508,6 +3545,7 @@
       "type": "object"
     },
     "SqlPoolVulnerabilityAssessmentRuleBaselineProperties": {
+      "description": "Properties of a Sql pool vulnerability assessment rule baseline.",
       "properties": {
         "baselineResults": {
           "description": "The rule baseline result",
@@ -3537,6 +3575,7 @@
       "type": "object"
     },
     "TransparentDataEncryptionProperties": {
+      "description": "Represents the properties of a database transparent data encryption.",
       "properties": {
         "status": {
           "description": "The status of the database transparent data encryption.",
@@ -3557,6 +3596,7 @@
       "type": "object"
     },
     "VirtualNetworkProfile": {
+      "description": "Virtual Network Profile",
       "properties": {
         "computeSubnetId": {
           "description": "Subnet ID used for computes in workspace",
@@ -3566,6 +3606,7 @@
       "type": "object"
     },
     "VulnerabilityAssessmentRecurringScansProperties": {
+      "description": "Properties of a Vulnerability Assessment recurring scans.",
       "properties": {
         "emailSubscriptionAdmins": {
           "description": "Specifies that the schedule scan notification will be is sent to the subscription administrators.",
@@ -3607,6 +3648,7 @@
       "type": "object"
     },
     "WorkloadClassifierProperties": {
+      "description": "Workload classifier definition. For more information look at sys.workload_management_workload_classifiers (DMV).",
       "properties": {
         "context": {
           "description": "The workload classifier context.",
@@ -3639,6 +3681,7 @@
       "type": "object"
     },
     "WorkloadGroupProperties": {
+      "description": "Workload group definition. For more information look at sys.workload_management_workload_groups (DMV).",
       "properties": {
         "importance": {
           "description": "The workload group importance level.",
@@ -3708,6 +3751,7 @@
       "type": "object"
     },
     "WorkspaceKeyDetails": {
+      "description": "Details of the customer managed key associated with the workspace",
       "properties": {
         "keyVaultUrl": {
           "description": "Workspace Key sub-resource key vault url",
@@ -3721,6 +3765,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "Workspace properties",
       "properties": {
         "connectivityEndpoints": {
           "description": "Connectivity endpoints",
@@ -3844,6 +3889,7 @@
       "type": "object"
     },
     "WorkspaceRepositoryConfiguration": {
+      "description": "Git integration settings",
       "properties": {
         "accountName": {
           "description": "Account name",
@@ -3902,7 +3948,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/activeDirectory$",
+          "enum": [
+            "activeDirectory"
+          ],
           "type": "string"
         },
         "properties": {
@@ -3918,7 +3966,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/administrators"
+            "administrators"
           ],
           "type": "string"
         }
@@ -3966,7 +4014,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/auditingSettings"
+            "auditingSettings"
           ],
           "type": "string"
         }
@@ -4023,7 +4071,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/bigDataPools"
+            "bigDataPools"
           ],
           "type": "string"
         }
@@ -4071,7 +4119,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/encryptionProtector"
+            "encryptionProtector"
           ],
           "type": "string"
         }
@@ -4119,7 +4167,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/extendedAuditingSettings"
+            "extendedAuditingSettings"
           ],
           "type": "string"
         }
@@ -4157,7 +4205,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }
@@ -4195,7 +4243,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/integrationRuntimes"
+            "integrationRuntimes"
           ],
           "type": "string"
         }
@@ -4233,7 +4281,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/keys"
+            "keys"
           ],
           "type": "string"
         }
@@ -4255,7 +4303,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4271,7 +4321,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings"
+            "managedIdentitySqlControlSettings"
           ],
           "type": "string"
         }
@@ -4309,7 +4359,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -4357,7 +4407,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -4379,7 +4429,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/activeDirectory$",
+          "enum": [
+            "activeDirectory"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4395,7 +4447,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlAdministrators"
+            "sqlAdministrators"
           ],
           "type": "string"
         }
@@ -4443,7 +4495,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/auditingSettings"
+            "auditingSettings"
           ],
           "type": "string"
         }
@@ -4511,7 +4563,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools"
+            "sqlPools"
           ],
           "type": "string"
         }
@@ -4533,18 +4585,10 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the data masking policy for which the masking rule applies.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "Default"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "The properties of the data masking policy.",
@@ -4559,7 +4603,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies"
+            "dataMaskingPolicies"
           ],
           "type": "string"
         }
@@ -4597,7 +4641,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/rules"
+            "rules"
           ],
           "type": "string"
         }
@@ -4645,7 +4689,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/extendedAuditingSettings"
+            "extendedAuditingSettings"
           ],
           "type": "string"
         }
@@ -4693,7 +4737,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/geoBackupPolicies"
+            "geoBackupPolicies"
           ],
           "type": "string"
         }
@@ -4715,7 +4759,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/config$",
+          "enum": [
+            "config"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4731,7 +4777,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/metadataSync"
+            "metadataSync"
           ],
           "type": "string"
         }
@@ -4779,7 +4825,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -4827,7 +4873,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption"
+            "transparentDataEncryption"
           ],
           "type": "string"
         }
@@ -4875,7 +4921,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }
@@ -4913,7 +4959,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/workloadGroups"
+            "workloadGroups"
           ],
           "type": "string"
         }
@@ -4951,7 +4997,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers"
+            "workloadClassifiers"
           ],
           "type": "string"
         }
@@ -4999,7 +5045,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Synapse/workspaces/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }

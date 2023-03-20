@@ -153,10 +153,12 @@
   },
   "definitions": {
     "AzureMonitorPrivateLinkScopeProperties": {
+      "description": "Properties that define a Azure Monitor PrivateLinkScope resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "Private endpoint which the connection belongs to.",
@@ -184,6 +186,7 @@
       "type": "object"
     },
     "PrivateEndpointProperty": {
+      "description": "Private endpoint which the connection belongs to.",
       "properties": {
         "id": {
           "description": "Resource id of the private endpoint.",
@@ -193,6 +196,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionStateProperty": {
+      "description": "State of the private endpoint connection.",
       "properties": {
         "description": {
           "description": "The private link service connection description.",
@@ -210,6 +214,7 @@
       "type": "object"
     },
     "ScopedResourceProperties": {
+      "description": "Properties of a private link scoped resource.",
       "properties": {
         "linkedResourceId": {
           "description": "The resource id of the scoped Azure monitor resource.",
@@ -244,7 +249,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/privateLinkScopes/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -282,7 +287,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/privateLinkScopes/scopedResources"
+            "scopedResources"
           ],
           "type": "string"
         }

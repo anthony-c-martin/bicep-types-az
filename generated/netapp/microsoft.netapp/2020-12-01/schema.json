@@ -435,6 +435,7 @@
   },
   "definitions": {
     "AccountEncryption": {
+      "description": "Encryption settings",
       "properties": {
         "keySource": {
           "description": "Encryption Key Source. Possible values are: 'Microsoft.NetApp'.",
@@ -444,6 +445,7 @@
       "type": "object"
     },
     "AccountProperties": {
+      "description": "NetApp account properties",
       "properties": {
         "activeDirectories": {
           "description": "Active Directories",
@@ -481,6 +483,7 @@
       "type": "object"
     },
     "ActiveDirectory": {
+      "description": "Active Directory",
       "properties": {
         "activeDirectoryId": {
           "description": "Id of the Active Directory",
@@ -654,6 +657,7 @@
       "type": "object"
     },
     "BackupPolicyProperties": {
+      "description": "Backup policy properties",
       "properties": {
         "dailyBackupsToKeep": {
           "description": "Daily backups count to keep",
@@ -746,6 +750,7 @@
       "type": "object"
     },
     "BackupProperties": {
+      "description": "Backup properties",
       "properties": {
         "label": {
           "description": "Label for backup",
@@ -755,6 +760,7 @@
       "type": "object"
     },
     "DailySchedule": {
+      "description": "Daily Schedule properties",
       "properties": {
         "hour": {
           "description": "Indicates which hour in UTC timezone a snapshot should be taken",
@@ -804,6 +810,7 @@
       "type": "object"
     },
     "ExportPolicyRule": {
+      "description": "Volume Export Policy Rule",
       "properties": {
         "allowedClients": {
           "description": "Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names",
@@ -956,6 +963,7 @@
       "type": "object"
     },
     "HourlySchedule": {
+      "description": "Hourly Schedule properties",
       "properties": {
         "minute": {
           "description": "Indicates which minute snapshot should be taken",
@@ -994,6 +1002,7 @@
       "type": "object"
     },
     "MonthlySchedule": {
+      "description": "Monthly Schedule properties",
       "properties": {
         "daysOfMonth": {
           "description": "Indicates which days of the month snapshot should be taken. A comma delimited string.",
@@ -1047,6 +1056,7 @@
       "type": "object"
     },
     "PoolProperties": {
+      "description": "Pool properties",
       "properties": {
         "qosType": {
           "description": "The qos type of the pool",
@@ -1098,6 +1108,7 @@
       "type": "object"
     },
     "ReplicationObject": {
+      "description": "Replication properties",
       "properties": {
         "endpointType": {
           "description": "Indicates whether the local volume is the source or destination for the Volume Replication",
@@ -1150,6 +1161,7 @@
       "type": "object"
     },
     "SnapshotPolicyProperties": {
+      "description": "Snapshot policy properties",
       "properties": {
         "dailySchedule": {
           "description": "Schedule for daily snapshots",
@@ -1210,10 +1222,12 @@
       "type": "object"
     },
     "SnapshotProperties": {
+      "description": "Snapshot properties",
       "properties": {},
       "type": "object"
     },
     "VolumeBackupProperties": {
+      "description": "Volume Backup Properties",
       "properties": {
         "backupEnabled": {
           "description": "Backup Enabled",
@@ -1249,6 +1263,7 @@
       "type": "object"
     },
     "VolumeBackups": {
+      "description": "Volume details using the backup policy",
       "properties": {
         "backupsCount": {
           "description": "Total count of backups for volume",
@@ -1280,6 +1295,7 @@
       "type": "object"
     },
     "VolumeProperties": {
+      "description": "Volume properties",
       "properties": {
         "backupId": {
           "description": "UUID v4 or resource identifier used to identify the Backup.",
@@ -1499,6 +1515,7 @@
       "type": "object"
     },
     "VolumePropertiesDataProtection": {
+      "description": "DataProtection type volumes include an object containing details of the replication",
       "properties": {
         "backup": {
           "description": "Backup Properties",
@@ -1537,6 +1554,7 @@
       "type": "object"
     },
     "VolumePropertiesExportPolicy": {
+      "description": "Set of export policy rules",
       "properties": {
         "rules": {
           "description": "Export policy rule",
@@ -1563,6 +1581,7 @@
       "type": "object"
     },
     "VolumeSnapshotProperties": {
+      "description": "Volume Snapshot Properties",
       "properties": {
         "snapshotPolicyId": {
           "description": "Snapshot Policy ResourceId",
@@ -1572,6 +1591,7 @@
       "type": "object"
     },
     "WeeklySchedule": {
+      "description": "Weekly Schedule properties, make a snapshot every week at a specific day or days",
       "properties": {
         "day": {
           "description": "Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english",
@@ -1669,7 +1689,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/backupPolicies"
+            "backupPolicies"
           ],
           "type": "string"
         }
@@ -1736,7 +1756,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/capacityPools"
+            "capacityPools"
           ],
           "type": "string"
         }
@@ -1778,7 +1798,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups"
+            "backups"
           ],
           "type": "string"
         }
@@ -1845,7 +1865,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/capacityPools/volumes"
+            "volumes"
           ],
           "type": "string"
         }
@@ -1887,7 +1907,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots"
+            "snapshots"
           ],
           "type": "string"
         }
@@ -1944,7 +1964,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetApp/netAppAccounts/snapshotPolicies"
+            "snapshotPolicies"
           ],
           "type": "string"
         }

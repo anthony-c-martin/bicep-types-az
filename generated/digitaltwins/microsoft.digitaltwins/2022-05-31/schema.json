@@ -235,6 +235,7 @@
   },
   "definitions": {
     "ConnectionProperties": {
+      "description": "The properties of a private endpoint connection.",
       "properties": {
         "groupIds": {
           "description": "The list of group ids for the private endpoint connection.",
@@ -276,6 +277,7 @@
       "type": "object"
     },
     "ConnectionPropertiesPrivateLinkServiceConnectionState": {
+      "description": "The connection state.",
       "properties": {
         "actionsRequired": {
           "description": "Actions required for a private endpoint connection.",
@@ -310,6 +312,7 @@
       "type": "object"
     },
     "DigitalTwinsEndpointResourceProperties": {
+      "description": "Properties related to Digital Twins Endpoint",
       "properties": {
         "authenticationType": {
           "description": "Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.",
@@ -338,6 +341,7 @@
       "type": "object"
     },
     "DigitalTwinsIdentity": {
+      "description": "The managed identity for the DigitalTwinsInstance.",
       "properties": {
         "type": {
           "description": "The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.",
@@ -358,6 +362,7 @@
       "type": "object"
     },
     "DigitalTwinsProperties": {
+      "description": "The properties of a DigitalTwinsInstance.",
       "properties": {
         "privateEndpointConnections": {
           "description": "The private endpoint connections.",
@@ -399,10 +404,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The private endpoint property of a private endpoint connection.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
+      "description": "The private endpoint connection of a Digital Twin.",
       "properties": {
         "properties": {
           "description": "The connection properties.",
@@ -422,6 +429,7 @@
       "type": "object"
     },
     "TimeSeriesDatabaseConnectionProperties": {
+      "description": "Properties of a time series database connection resource.",
       "properties": {},
       "type": "object"
     },
@@ -461,7 +469,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DigitalTwins/digitalTwinsInstances/endpoints"
+            "endpoints"
           ],
           "type": "string"
         }
@@ -499,7 +507,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -547,7 +555,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections"
+            "timeSeriesDatabaseConnections"
           ],
           "type": "string"
         }

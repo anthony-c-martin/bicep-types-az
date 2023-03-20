@@ -205,6 +205,7 @@
   },
   "definitions": {
     "AccessPolicyProperties": {
+      "description": "Application level properties for the access policy resource.",
       "properties": {
         "authentication": {
           "description": "Authentication method to be used when validating client API access.",
@@ -235,6 +236,7 @@
       "type": "object"
     },
     "AccountEncryption": {
+      "description": "Defines how the Video Analyzer account is (optionally) encrypted.",
       "properties": {
         "identity": {
           "description": "The Key Vault identity.",
@@ -280,14 +282,17 @@
       "type": "object"
     },
     "AuthenticationBase": {
+      "description": "Base class for access policies authentication methods.",
       "properties": {},
       "type": "object"
     },
     "EdgeModuleProperties": {
+      "description": "Application level properties for the edge module resource.",
       "properties": {},
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "The details for accessing the encryption keys in Key Vault.",
       "properties": {
         "keyIdentifier": {
           "description": "The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).",
@@ -300,6 +305,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "The user assigned managed identity to use when accessing a resource.",
       "properties": {
         "userAssignedIdentity": {
           "description": "The user assigned managed identity's resource identifier to use when accessing a resource.",
@@ -312,6 +318,7 @@
       "type": "object"
     },
     "StorageAccount": {
+      "description": "The details about the associated storage account.",
       "properties": {
         "id": {
           "description": "The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).",
@@ -332,6 +339,7 @@
       "type": "object"
     },
     "TokenClaim": {
+      "description": "Properties for expected token claims.",
       "properties": {
         "name": {
           "description": "Name of the claim which must be present on the token.",
@@ -349,6 +357,7 @@
       "type": "object"
     },
     "TokenKey": {
+      "description": "Key properties for JWT token validation.",
       "properties": {
         "kid": {
           "description": "JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.",
@@ -361,10 +370,12 @@
       "type": "object"
     },
     "UserAssignedManagedIdentity": {
+      "description": "The details of the user assigned managed identity used by the Video Analyzer resource.",
       "properties": {},
       "type": "object"
     },
     "VideoAnalyzerIdentity": {
+      "description": "The managed identity for the Video Analyzer resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -436,6 +447,7 @@
       "type": "object"
     },
     "VideoProperties": {
+      "description": "Application level properties for the video resource.",
       "properties": {
         "description": {
           "description": "Optional video description provided by the user. Value can be up to 2048 characters long.",
@@ -474,7 +486,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/videoAnalyzers/accessPolicies"
+            "accessPolicies"
           ],
           "type": "string"
         }
@@ -512,7 +524,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/videoAnalyzers/edgeModules"
+            "edgeModules"
           ],
           "type": "string"
         }
@@ -550,7 +562,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/videoAnalyzers/videos"
+            "videos"
           ],
           "type": "string"
         }

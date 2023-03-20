@@ -288,6 +288,7 @@
   },
   "definitions": {
     "CustomProfile": {
+      "description": "Specifies the custom settings for the virtual machine.",
       "properties": {
         "metadataConfigurationPath": {
           "description": "Path for metadata configuration.",
@@ -297,6 +298,7 @@
       "type": "object"
     },
     "DataDisk": {
+      "description": "Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).",
       "properties": {
         "createOption": {
           "description": "Specifies how the virtual machine should be created.",
@@ -332,10 +334,12 @@
       "type": "object"
     },
     "DevicePropertiesFormat": {
+      "description": "Device properties.",
       "properties": {},
       "type": "object"
     },
     "ImageReference": {
+      "description": "The image reference properties.",
       "properties": {
         "exactVersion": {
           "description": "Specifies in decimal numbers, the exact version of image used to create the virtual machine.",
@@ -361,6 +365,7 @@
       "type": "object"
     },
     "LinuxConfiguration": {
+      "description": "Specifies the Linux operating system settings on the virtual machine.",
       "properties": {
         "ssh": {
           "description": "Specifies the ssh key configuration for a Linux OS.",
@@ -377,6 +382,7 @@
       "type": "object"
     },
     "NetworkFunctionPropertiesFormat": {
+      "description": "Network function properties.",
       "properties": {
         "device": {
           "description": "The reference to the device resource.",
@@ -425,6 +431,7 @@
       "type": "object"
     },
     "NetworkFunctionRoleConfiguration": {
+      "description": "Network function role configuration.",
       "properties": {
         "customProfile": {
           "description": "Specifies the custom settings for the virtual machine.",
@@ -549,6 +556,7 @@
       "type": "object"
     },
     "NetworkFunctionTemplate": {
+      "description": "The network function template.",
       "properties": {
         "networkFunctionRoleConfigurations": {
           "description": "An array of network function role definitions.",
@@ -575,6 +583,7 @@
       "type": "object"
     },
     "NetworkFunctionUserConfiguration": {
+      "description": "The network function user configuration.",
       "properties": {
         "networkInterfaces": {
           "description": "The network interface configuration.",
@@ -619,6 +628,7 @@
       "type": "object"
     },
     "NetworkFunctionUserConfigurationOsProfile": {
+      "description": "Specifies the operating system settings for the role instance.",
       "properties": {
         "customData": {
           "description": "Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)",
@@ -628,6 +638,7 @@
       "type": "object"
     },
     "NetworkFunctionVendorConfiguration": {
+      "description": "Network function vendor configuration.",
       "properties": {
         "networkInterfaces": {
           "description": "The network interface configurations.",
@@ -669,6 +680,7 @@
       "type": "object"
     },
     "NetworkInterface": {
+      "description": "Network interface properties.",
       "properties": {
         "ipConfigurations": {
           "description": "A list of IP configurations of the network interface.",
@@ -720,6 +732,7 @@
       "type": "object"
     },
     "NetworkInterfaceIPConfiguration": {
+      "description": "Network interface IP configuration properties.",
       "properties": {
         "dnsServers": {
           "description": "The list of DNS servers IP addresses.",
@@ -782,6 +795,7 @@
       "type": "object"
     },
     "OsDisk": {
+      "description": "Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).",
       "properties": {
         "diskSizeGB": {
           "description": "Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.",
@@ -829,6 +843,7 @@
       "type": "object"
     },
     "OsProfile": {
+      "description": "Specifies the operating system settings for the role instance.",
       "properties": {
         "adminUsername": {
           "description": "Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in \".\" <br><br> **Disallowed values:** \"administrator\", \"admin\", \"user\", \"user1\", \"test\", \"user2\", \"test1\", \"user3\", \"admin1\", \"1\", \"123\", \"a\", \"actuser\", \"adm\", \"admin2\", \"aspnet\", \"backup\", \"console\", \"david\", \"guest\", \"john\", \"owner\", \"root\", \"server\", \"sql\", \"support\", \"support_388945a0\", \"sys\", \"test2\", \"test3\", \"user4\", \"user5\". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).",
@@ -864,6 +879,7 @@
       "type": "object"
     },
     "SshConfiguration": {
+      "description": "SSH configuration for Linux based VMs running on Azure",
       "properties": {
         "publicKeys": {
           "description": "The list of SSH public keys used to authenticate with linux based VMs.",
@@ -890,6 +906,7 @@
       "type": "object"
     },
     "SshPublicKey": {
+      "description": "Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.",
       "properties": {
         "keyData": {
           "description": "SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).",
@@ -903,6 +920,7 @@
       "type": "object"
     },
     "StorageProfile": {
+      "description": "Specifies the storage settings for the virtual machine disks.",
       "properties": {
         "dataDisks": {
           "description": "Specifies the parameters that are used to add a data disk to a virtual machine.",
@@ -951,6 +969,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Reference to another sub resource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -960,6 +979,7 @@
       "type": "object"
     },
     "VendorNetworkFunctionPropertiesFormat": {
+      "description": "Vendor network function properties.",
       "properties": {
         "networkFunctionVendorConfigurations": {
           "description": "An array of network function vendor configurations.",
@@ -1005,10 +1025,12 @@
       "type": "object"
     },
     "VendorPropertiesFormat": {
+      "description": "Vendor properties.",
       "properties": {},
       "type": "object"
     },
     "VendorSkuPropertiesFormat": {
+      "description": "Sku properties",
       "properties": {
         "deploymentMode": {
           "description": "The sku deployment mode.",
@@ -1075,6 +1097,7 @@
       "type": "object"
     },
     "VirtualHardDisk": {
+      "description": "Describes the uri of a disk.",
       "properties": {
         "uri": {
           "description": "Specifies the virtual hard disk's uri.",
@@ -1109,7 +1132,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.HybridNetwork/vendors/vendorSkus"
+            "vendorSkus"
           ],
           "type": "string"
         }
@@ -1136,7 +1159,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.HybridNetwork/vendors/vendorSkus/previewSubscriptions"
+            "previewSubscriptions"
           ],
           "type": "string"
         }

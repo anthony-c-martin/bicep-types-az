@@ -704,6 +704,7 @@
   },
   "definitions": {
     "Capability": {
+      "description": "Cosmos DB capability object",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB capability. For example, \"name\": \"EnableCassandra\". Current values also include \"EnableTable\" and \"EnableGremlin\".",
@@ -713,6 +714,7 @@
       "type": "object"
     },
     "CassandraKeyspaceCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Cassandra keyspace.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -748,6 +750,7 @@
       "type": "object"
     },
     "CassandraKeyspaceResource": {
+      "description": "Cosmos DB Cassandra keyspace id object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB Cassandra keyspace",
@@ -760,6 +763,7 @@
       "type": "object"
     },
     "CassandraPartitionKey": {
+      "description": "Cosmos DB Cassandra table partition key",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB Cassandra table partition key",
@@ -769,6 +773,7 @@
       "type": "object"
     },
     "CassandraSchema": {
+      "description": "Cosmos DB Cassandra table schema",
       "properties": {
         "clusterKeys": {
           "description": "List of cluster key.",
@@ -837,6 +842,7 @@
       "type": "object"
     },
     "CassandraTableCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Cassandra table.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -872,6 +878,7 @@
       "type": "object"
     },
     "CassandraTableResource": {
+      "description": "Cosmos DB Cassandra table id object",
       "properties": {
         "defaultTtl": {
           "description": "Time to live of the Cosmos DB Cassandra table",
@@ -906,6 +913,7 @@
       "type": "object"
     },
     "ClusterKey": {
+      "description": "Cosmos DB Cassandra table cluster key",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB Cassandra table cluster key",
@@ -919,6 +927,7 @@
       "type": "object"
     },
     "Column": {
+      "description": "Cosmos DB Cassandra table column",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB Cassandra table column",
@@ -932,6 +941,7 @@
       "type": "object"
     },
     "ConflictResolutionPolicy": {
+      "description": "The conflict resolution policy for the container.",
       "properties": {
         "conflictResolutionPath": {
           "description": "The conflict resolution path in the case of LastWriterWins mode.",
@@ -960,6 +970,7 @@
       "type": "object"
     },
     "ConsistencyPolicy": {
+      "description": "The consistency policy for the Cosmos DB database account.",
       "properties": {
         "defaultConsistencyLevel": {
           "description": "The default consistency level and configuration settings of the Cosmos DB account.",
@@ -1008,6 +1019,7 @@
       "type": "object"
     },
     "ContainerPartitionKey": {
+      "description": "The configuration of the partition key to be used for partitioning data into multiple partitions",
       "properties": {
         "kind": {
           "description": "Indicates the kind of algorithm used for partitioning",
@@ -1042,6 +1054,7 @@
       "type": "object"
     },
     "DatabaseAccountCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB database accounts.",
       "properties": {
         "capabilities": {
           "description": "List of Cosmos DB capabilities for the account",
@@ -1094,7 +1107,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Standard"
               ],
               "type": "string"
             },
@@ -1210,6 +1223,7 @@
       "type": "object"
     },
     "GremlinGraphCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Gremlin graph.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -1245,6 +1259,7 @@
       "type": "object"
     },
     "GremlinGraphResource": {
+      "description": "Cosmos DB Gremlin graph resource object",
       "properties": {
         "conflictResolutionPolicy": {
           "description": "The conflict resolution policy for the graph.",
@@ -1312,6 +1327,7 @@
       "type": "object"
     },
     "IncludedPath": {
+      "description": "The paths that are included in indexing",
       "properties": {
         "indexes": {
           "description": "List of indexes for this path",
@@ -1342,6 +1358,7 @@
       "type": "object"
     },
     "Indexes": {
+      "description": "The indexes for the path.",
       "properties": {
         "dataType": {
           "description": "The datatype for which the indexing behavior is applied to.",
@@ -1393,6 +1410,7 @@
       "type": "object"
     },
     "IndexingPolicy": {
+      "description": "Cosmos DB indexing policy",
       "properties": {
         "automatic": {
           "description": "Indicates if the indexing policy is automatic",
@@ -1467,6 +1485,7 @@
       "type": "object"
     },
     "Location": {
+      "description": "A region in which the Azure Cosmos DB database account is deployed.",
       "properties": {
         "failoverPriority": {
           "description": "The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
@@ -1498,6 +1517,7 @@
       "type": "object"
     },
     "MongoDBCollectionCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB MongoDB collection.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -1533,6 +1553,7 @@
       "type": "object"
     },
     "MongoDBCollectionResource": {
+      "description": "Cosmos DB MongoDB collection resource object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB MongoDB collection",
@@ -1581,6 +1602,7 @@
       "type": "object"
     },
     "MongoIndex": {
+      "description": "Cosmos DB MongoDB collection index key",
       "properties": {
         "key": {
           "description": "Cosmos DB MongoDB collection index keys",
@@ -1608,6 +1630,7 @@
       "type": "object"
     },
     "MongoIndexKeys": {
+      "description": "Cosmos DB MongoDB collection resource object",
       "properties": {
         "keys": {
           "description": "List of keys for each MongoDB collection in the Azure Cosmos DB service",
@@ -1627,6 +1650,7 @@
       "type": "object"
     },
     "MongoIndexOptions": {
+      "description": "Cosmos DB MongoDB collection index options",
       "properties": {
         "expireAfterSeconds": {
           "description": "Expire after seconds",
@@ -1654,6 +1678,7 @@
       "type": "object"
     },
     "SqlContainerCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB container.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -1689,6 +1714,7 @@
       "type": "object"
     },
     "SqlContainerResource": {
+      "description": "Cosmos DB SQL container resource object",
       "properties": {
         "conflictResolutionPolicy": {
           "description": "The conflict resolution policy for the container.",
@@ -1756,6 +1782,7 @@
       "type": "object"
     },
     "SqlDatabaseCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB SQL database.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -1791,6 +1818,7 @@
       "type": "object"
     },
     "SqlDatabaseResource": {
+      "description": "Cosmos DB SQL database id object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB SQL database",
@@ -1803,6 +1831,7 @@
       "type": "object"
     },
     "TableCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Table.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -1838,6 +1867,7 @@
       "type": "object"
     },
     "TableResource": {
+      "description": "Cosmos DB table id object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB table",
@@ -1850,6 +1880,7 @@
       "type": "object"
     },
     "ThroughputResource": {
+      "description": "Cosmos DB resource throughput object",
       "properties": {
         "throughput": {
           "description": "Value of the Cosmos DB resource throughput",
@@ -1869,6 +1900,7 @@
       "type": "object"
     },
     "ThroughputUpdateProperties": {
+      "description": "Properties to update Azure Cosmos DB resource throughput.",
       "properties": {
         "resource": {
           "description": "The standard JSON format of a resource throughput",
@@ -1888,6 +1920,7 @@
       "type": "object"
     },
     "UniqueKey": {
+      "description": "The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.",
       "properties": {
         "paths": {
           "description": "List of paths must be unique for each document in the Azure Cosmos DB service",
@@ -1907,6 +1940,7 @@
       "type": "object"
     },
     "UniqueKeyPolicy": {
+      "description": "The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.",
       "properties": {
         "uniqueKeys": {
           "description": "List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.",
@@ -1933,6 +1967,7 @@
       "type": "object"
     },
     "VirtualNetworkRule": {
+      "description": "Virtual Network ACL Rule object",
       "properties": {
         "id": {
           "description": "Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.",
@@ -1978,7 +2013,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/databases/collections"
+            "collections"
           ],
           "type": "string"
         }
@@ -2000,7 +2035,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/throughput$",
+          "enum": [
+            "throughput"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2016,7 +2053,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings"
+            "settings"
           ],
           "type": "string"
         }
@@ -2054,7 +2091,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/databases/containers"
+            "containers"
           ],
           "type": "string"
         }
@@ -2076,7 +2113,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/throughput$",
+          "enum": [
+            "throughput"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2092,7 +2131,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings"
+            "settings"
           ],
           "type": "string"
         }
@@ -2130,7 +2169,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs"
+            "graphs"
           ],
           "type": "string"
         }
@@ -2152,7 +2191,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/throughput$",
+          "enum": [
+            "throughput"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2168,7 +2209,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings"
+            "settings"
           ],
           "type": "string"
         }
@@ -2190,7 +2231,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/throughput$",
+          "enum": [
+            "throughput"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2206,7 +2249,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/databases/settings"
+            "settings"
           ],
           "type": "string"
         }
@@ -2228,7 +2271,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/throughput$",
+          "enum": [
+            "throughput"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2244,7 +2289,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings"
+            "settings"
           ],
           "type": "string"
         }
@@ -2282,7 +2327,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables"
+            "tables"
           ],
           "type": "string"
         }
@@ -2304,7 +2349,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/throughput$",
+          "enum": [
+            "throughput"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2320,7 +2367,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings"
+            "settings"
           ],
           "type": "string"
         }
@@ -2342,7 +2389,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/throughput$",
+          "enum": [
+            "throughput"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2358,7 +2407,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/apis/tables/settings"
+            "settings"
           ],
           "type": "string"
         }

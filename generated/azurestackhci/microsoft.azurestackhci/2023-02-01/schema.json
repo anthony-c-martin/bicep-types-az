@@ -313,6 +313,7 @@
   },
   "definitions": {
     "ArcSettingProperties": {
+      "description": "ArcSetting properties.",
       "properties": {
         "arcApplicationClientId": {
           "description": "App id of arc AAD identity.",
@@ -341,6 +342,7 @@
       "type": "object"
     },
     "ClusterDesiredProperties": {
+      "description": "Desired properties of the cluster.",
       "properties": {
         "diagnosticLevel": {
           "description": "Desired level of diagnostic data emitted by the cluster.",
@@ -377,6 +379,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "Cluster properties.",
       "properties": {
         "aadApplicationObjectId": {
           "description": "Object id of cluster AAD identity.",
@@ -424,6 +427,7 @@
       "type": "object"
     },
     "ExtensionParameters": {
+      "description": "Describes the properties of a Machine Extension. This object mirrors the definition in HybridCompute.",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
@@ -473,6 +477,7 @@
       "type": "object"
     },
     "ExtensionProperties": {
+      "description": "Status of Arc Extension for a particular node in HCI Cluster.",
       "properties": {
         "extensionParameters": {
           "description": "Parameters specific to this extension type.",
@@ -489,6 +494,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
@@ -536,6 +542,7 @@
       "type": "object"
     },
     "PackageVersionInfo": {
+      "description": "Current version of each updatable component.",
       "properties": {
         "lastUpdated": {
           "description": "Last time this component was updated.",
@@ -660,6 +667,7 @@
       "type": "object"
     },
     "PrecheckResultTags": {
+      "description": "Key-value pairs that allow grouping/filtering individual tests.",
       "properties": {
         "key": {
           "description": "Key that allow grouping/filtering individual tests.",
@@ -673,6 +681,7 @@
       "type": "object"
     },
     "SoftwareAssuranceProperties": {
+      "description": "Software Assurance properties of the cluster.",
       "properties": {
         "softwareAssuranceIntent": {
           "description": "Customer Intent for Software Assurance Benefit.",
@@ -708,6 +717,7 @@
       "type": "object"
     },
     "Step": {
+      "description": "Progress representation of the update run steps.",
       "properties": {
         "description": {
           "description": "More detailed description of the step.",
@@ -786,6 +796,7 @@
       "type": "object"
     },
     "UpdatePrerequisite": {
+      "description": "If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.",
       "properties": {
         "packageName": {
           "description": "Friendly name of the prerequisite.",
@@ -803,6 +814,7 @@
       "type": "object"
     },
     "UpdateProperties": {
+      "description": "Details of a singular Update in HCI Cluster",
       "properties": {
         "additionalProperties": {
           "description": "Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.",
@@ -1031,6 +1043,7 @@
       "type": "object"
     },
     "UpdateRunProperties": {
+      "description": "Details of an Update run",
       "properties": {
         "duration": {
           "description": "Duration of the update run.",
@@ -1092,6 +1105,7 @@
       "type": "object"
     },
     "UpdateStateProperties": {
+      "description": "Additional information regarding the state of the update. See definition of UpdateStateProperties type below for more details on this property.",
       "properties": {
         "notifyMessage": {
           "description": "Brief message with instructions for updates of AvailabilityType Notify.",
@@ -1112,6 +1126,7 @@
       "type": "object"
     },
     "UpdateSummariesProperties": {
+      "description": "Properties of Update summaries",
       "properties": {
         "currentVersion": {
           "description": "Current Solution Bundle version of the stamp.",
@@ -1247,6 +1262,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
@@ -1276,7 +1292,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureStackHCI/clusters/arcSettings"
+            "arcSettings"
           ],
           "type": "string"
         }
@@ -1314,7 +1330,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureStackHCI/clusters/arcSettings/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -1340,7 +1356,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1356,7 +1374,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureStackHCI/clusters/updateSummaries"
+            "updateSummaries"
           ],
           "type": "string"
         }
@@ -1398,7 +1416,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureStackHCI/clusters/updates"
+            "updates"
           ],
           "type": "string"
         }
@@ -1440,7 +1458,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureStackHCI/clusters/updates/updateRuns"
+            "updateRuns"
           ],
           "type": "string"
         }

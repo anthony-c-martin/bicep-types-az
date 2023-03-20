@@ -147,6 +147,7 @@
   },
   "definitions": {
     "CommunicationsGatewayProperties": {
+      "description": "Details of the CommunicationsGateway resource.",
       "properties": {
         "apiBridge": {
           "description": "Details of API bridge functionality, if required"
@@ -312,6 +313,7 @@
       "type": "object"
     },
     "PrimaryRegionProperties": {
+      "description": "The configuration used in this region as primary, and other regions as backup.",
       "properties": {
         "allowedMediaSourceAddressPrefixes": {
           "description": "The allowed source IP address or CIDR ranges for media",
@@ -376,6 +378,7 @@
       "type": "object"
     },
     "ServiceRegionProperties": {
+      "description": "The service region configuration needed for Teams Callings.",
       "properties": {
         "name": {
           "description": "The name of the region in which the resources needed for Teams Calling will be deployed.",
@@ -400,6 +403,7 @@
       "type": "object"
     },
     "TestLineProperties": {
+      "description": "Details of the TestLine resource.",
       "properties": {
         "phoneNumber": {
           "description": "The phone number",
@@ -480,7 +484,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.VoiceServices/communicationsGateways/testLines"
+            "testLines"
           ],
           "type": "string"
         }

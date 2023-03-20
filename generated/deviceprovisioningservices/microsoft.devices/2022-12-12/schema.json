@@ -184,6 +184,7 @@
   },
   "definitions": {
     "CertificateProperties": {
+      "description": "The description of an X509 CA Certificate.",
       "properties": {
         "certificate": {
           "description": "base-64 representation of X509 certificate .cer file or just .pem file content."
@@ -203,6 +204,7 @@
       "type": "object"
     },
     "IotDpsPropertiesDescription": {
+      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -367,6 +369,7 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
+      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
           "description": "The number of units to provision",
@@ -397,6 +400,7 @@
       "type": "object"
     },
     "IotHubDefinitionDescription": {
+      "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
           "description": "weight to apply for a given iot h.",
@@ -436,6 +440,7 @@
       "type": "object"
     },
     "IpFilterRule": {
+      "description": "The IP filter rules for a provisioning Service.",
       "properties": {
         "action": {
           "description": "The desired action for requests captured by this rule.",
@@ -485,10 +490,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The private endpoint property of a private endpoint connection",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
+      "description": "The private endpoint connection of a provisioning service",
       "properties": {
         "properties": {
           "description": "The properties of a private endpoint connection",
@@ -508,6 +515,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "The properties of a private endpoint connection",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint property of a private endpoint connection",
@@ -538,6 +546,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "The current state of a private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "Actions required for a private endpoint connection",
@@ -572,6 +581,7 @@
       "type": "object"
     },
     "SharedAccessSignatureAuthorizationRuleAccessRightsDescription": {
+      "description": "Description of the shared access key.",
       "properties": {
         "keyName": {
           "description": "Name of the key.",
@@ -645,7 +655,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Devices/provisioningServices/certificates"
+            "certificates"
           ],
           "type": "string"
         }
@@ -683,7 +693,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Devices/provisioningServices/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

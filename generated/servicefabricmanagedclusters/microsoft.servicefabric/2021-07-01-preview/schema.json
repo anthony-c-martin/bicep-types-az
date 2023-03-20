@@ -414,6 +414,7 @@
   },
   "definitions": {
     "ApplicationHealthPolicy": {
+      "description": "Defines a health policy used to evaluate the health of an application or one of its children entities.\n",
       "properties": {
         "considerWarningAsError": {
           "description": "Indicates whether warnings are treated with the same severity as errors.",
@@ -478,6 +479,7 @@
       "type": "object"
     },
     "ApplicationResourceProperties": {
+      "description": "The application resource properties.",
       "properties": {
         "managedIdentities": {
           "description": "List of user assigned identities for the application, each mapped to a friendly name.",
@@ -534,10 +536,12 @@
       "type": "object"
     },
     "ApplicationTypeResourceProperties": {
+      "description": "The application type name properties",
       "properties": {},
       "type": "object"
     },
     "ApplicationTypeVersionResourceProperties": {
+      "description": "The properties of the application type version resource.",
       "properties": {
         "appPackageUrl": {
           "description": "The URL to the application package",
@@ -550,6 +554,7 @@
       "type": "object"
     },
     "ApplicationTypeVersionsCleanupPolicy": {
+      "description": "The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.",
       "properties": {
         "maxUnusedVersionsToKeep": {
           "description": "Number of unused versions per application type to keep.",
@@ -569,6 +574,7 @@
       "type": "object"
     },
     "ApplicationUpgradePolicy": {
+      "description": "Describes the policy for a monitored application upgrade.",
       "properties": {
         "applicationHealthPolicy": {
           "description": "Defines a health policy used to evaluate the health of an application or one of its children entities.\n",
@@ -672,6 +678,7 @@
       "type": "object"
     },
     "AzureActiveDirectory": {
+      "description": "The settings to enable AAD authentication on the cluster.",
       "properties": {
         "clientApplication": {
           "description": "Azure active directory client application id.",
@@ -689,6 +696,7 @@
       "type": "object"
     },
     "ClientCertificate": {
+      "description": "Client certificate definition.",
       "properties": {
         "commonName": {
           "description": "Certificate common name.",
@@ -720,6 +728,7 @@
       "type": "object"
     },
     "EndpointRangeDescription": {
+      "description": "Port range details",
       "properties": {
         "endPort": {
           "description": "End port of a range of ports",
@@ -751,6 +760,7 @@
       "type": "object"
     },
     "FrontendConfiguration": {
+      "description": "Describes the frontend configurations for the node type.",
       "properties": {
         "ipAddressType": {
           "description": "The IP address type of this frontend configuration. If omitted the default value is IPv4.",
@@ -779,6 +789,7 @@
       "type": "object"
     },
     "IPTag": {
+      "description": "IPTag associated with the object.",
       "properties": {
         "ipTagType": {
           "description": "The IP tag type.",
@@ -796,6 +807,7 @@
       "type": "object"
     },
     "LoadBalancingRule": {
+      "description": "Describes a load balancing rule.",
       "properties": {
         "backendPort": {
           "description": "The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.",
@@ -875,6 +887,7 @@
       "type": "object"
     },
     "ManagedClusterProperties": {
+      "description": "Describes the managed cluster resource properties.",
       "properties": {
         "addonFeatures": {
           "description": "List of add-on features to enable on the cluster.",
@@ -1154,6 +1167,7 @@
       "type": "object"
     },
     "ManagedIdentity": {
+      "description": "Describes the managed identities for an Azure resource.",
       "properties": {
         "type": {
           "description": "The type of managed identity for the resource.",
@@ -1198,6 +1212,7 @@
       "type": "object"
     },
     "NetworkSecurityRule": {
+      "description": "Describes a network security rule.",
       "properties": {
         "access": {
           "description": "The network traffic is allowed or denied.",
@@ -1335,6 +1350,7 @@
       "type": "object"
     },
     "NodeTypeProperties": {
+      "description": "Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.",
       "properties": {
         "applicationPorts": {
           "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
@@ -1583,6 +1599,7 @@
       "type": "object"
     },
     "NodeTypeSku": {
+      "description": "Describes a node type sku.",
       "properties": {
         "capacity": {
           "description": "The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.",
@@ -1610,10 +1627,12 @@
       "type": "object"
     },
     "Partition": {
+      "description": "Describes how the service is partitioned.",
       "properties": {},
       "type": "object"
     },
     "RollingUpgradeMonitoringPolicy": {
+      "description": "The policy used for monitoring the application upgrade",
       "properties": {
         "failureAction": {
           "description": "The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.",
@@ -1662,10 +1681,12 @@
       "type": "object"
     },
     "ScalingMechanism": {
+      "description": "Describes the mechanism for performing a scaling operation.",
       "properties": {},
       "type": "object"
     },
     "ScalingPolicy": {
+      "description": "Specifies a metric to load balance a service during runtime.",
       "properties": {
         "scalingMechanism": {
           "description": "Specifies the mechanism associated with this scaling policy",
@@ -1697,10 +1718,12 @@
       "type": "object"
     },
     "ScalingTrigger": {
+      "description": "Describes the trigger for performing a scaling operation.",
       "properties": {},
       "type": "object"
     },
     "ServiceCorrelation": {
+      "description": "Creates a particular correlation between services.",
       "properties": {
         "scheme": {
           "description": "The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.",
@@ -1729,6 +1752,7 @@
       "type": "object"
     },
     "ServiceLoadMetric": {
+      "description": "Specifies a metric to load balance a service during runtime.",
       "properties": {
         "defaultLoad": {
           "description": "Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.",
@@ -1791,10 +1815,12 @@
       "type": "object"
     },
     "ServicePlacementPolicy": {
+      "description": "Describes the policy to be used for placement of a Service Fabric service.",
       "properties": {},
       "type": "object"
     },
     "ServiceResourceProperties": {
+      "description": "The service resource properties.",
       "properties": {
         "correlationScheme": {
           "description": "A list that describes the correlation of the service with other services.",
@@ -1939,6 +1965,7 @@
       "type": "object"
     },
     "ServiceTypeHealthPolicy": {
+      "description": "Represents the health policy used to evaluate the health of services belonging to a service type.\n",
       "properties": {
         "maxPercentUnhealthyPartitionsPerService": {
           "description": "The maximum allowed percentage of unhealthy partitions per service.\n\nThe percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.\nIf the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.\nThe percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.\nThe computation rounds up to tolerate one failure on small numbers of partitions.\n",
@@ -1982,6 +2009,7 @@
       "type": "object"
     },
     "SettingsParameterDescription": {
+      "description": "Describes a parameter in fabric settings of the cluster.",
       "properties": {
         "name": {
           "description": "The parameter name of fabric setting.",
@@ -1999,6 +2027,7 @@
       "type": "object"
     },
     "SettingsSectionDescription": {
+      "description": "Describes a section in the fabric settings of the cluster.",
       "properties": {
         "name": {
           "description": "The section name of the fabric settings.",
@@ -2033,6 +2062,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Service Fabric managed cluster Sku definition",
       "properties": {
         "name": {
           "description": "Sku Name.",
@@ -2056,6 +2086,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Azure resource identifier.",
       "properties": {
         "id": {
           "description": "Azure resource identifier.",
@@ -2069,6 +2100,7 @@
       "type": "object"
     },
     "VaultCertificate": {
+      "description": "Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.",
       "properties": {
         "certificateStore": {
           "description": "For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.",
@@ -2086,6 +2118,7 @@
       "type": "object"
     },
     "VaultSecretGroup": {
+      "description": "Specifies set of certificates that should be installed onto the virtual machines.",
       "properties": {
         "sourceVault": {
           "description": "The relative URL of the Key Vault containing all of the certificates in VaultCertificates.",
@@ -2127,6 +2160,7 @@
       "type": "object"
     },
     "VmManagedIdentity": {
+      "description": "Identities for the virtual machine scale set under the node type.",
       "properties": {
         "userAssignedIdentities": {
           "description": "The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
@@ -2146,6 +2180,7 @@
       "type": "object"
     },
     "VmssExtension": {
+      "description": "Specifies set of extensions that should be installed onto the virtual machines.",
       "properties": {
         "name": {
           "description": "The name of the extension.",
@@ -2170,6 +2205,7 @@
       "type": "object"
     },
     "VmssExtensionProperties": {
+      "description": "Describes the properties of a Virtual Machine Scale Set Extension.",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
@@ -2278,7 +2314,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/managedClusters/nodeTypes"
+            "nodeTypes"
           ],
           "type": "string"
         }
@@ -2335,7 +2371,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/managedclusters/applicationTypes"
+            "applicationTypes"
           ],
           "type": "string"
         }
@@ -2392,7 +2428,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -2460,7 +2496,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/managedclusters/applications"
+            "applications"
           ],
           "type": "string"
         }
@@ -2517,7 +2553,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/managedclusters/applications/services"
+            "services"
           ],
           "type": "string"
         }

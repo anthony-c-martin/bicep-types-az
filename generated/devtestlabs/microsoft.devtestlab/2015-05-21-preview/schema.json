@@ -520,6 +520,7 @@
   },
   "definitions": {
     "ArtifactDeploymentStatusProperties": {
+      "description": "Properties of an artifact deployment.",
       "properties": {
         "artifactsApplied": {
           "description": "The total count of the artifacts that were successfully applied.",
@@ -551,6 +552,7 @@
       "type": "object"
     },
     "ArtifactInstallProperties": {
+      "description": "Properties of an artifact.",
       "properties": {
         "artifactId": {
           "description": "The artifact's identifier.",
@@ -581,6 +583,7 @@
       "type": "object"
     },
     "ArtifactParameterProperties": {
+      "description": "Properties of an artifact parameter.",
       "properties": {
         "name": {
           "description": "The name of the artifact parameter.",
@@ -594,6 +597,7 @@
       "type": "object"
     },
     "ArtifactSourceProperties": {
+      "description": "Properties of an artifact source.",
       "properties": {
         "branchRef": {
           "description": "The branch reference of the artifact source.",
@@ -653,6 +657,7 @@
       "type": "object"
     },
     "CustomImageProperties": {
+      "description": "Properties of a custom image.",
       "properties": {
         "author": {
           "description": "The author of the custom image.",
@@ -720,6 +725,7 @@
       "type": "object"
     },
     "CustomImagePropertiesCustom": {
+      "description": "Properties for creating a custom image from a VHD.",
       "properties": {
         "imageName": {
           "description": "The image name.",
@@ -740,6 +746,7 @@
       "type": "object"
     },
     "CustomImagePropertiesFromVm": {
+      "description": "Properties for creating a custom image from a virtual machine.",
       "properties": {
         "linuxOsInfo": {
           "description": "The Linux OS information of the VM.",
@@ -782,6 +789,7 @@
       "type": "object"
     },
     "DayDetails": {
+      "description": "Properties of a daily schedule.",
       "properties": {
         "time": {
           "description": "",
@@ -791,6 +799,7 @@
       "type": "object"
     },
     "FormulaProperties": {
+      "description": "Properties of a formula.",
       "properties": {
         "author": {
           "description": "The author of the formula.",
@@ -846,6 +855,7 @@
       "type": "object"
     },
     "FormulaPropertiesFromVm": {
+      "description": "Information about a VM from which a formula is to be created.",
       "properties": {
         "labVmId": {
           "description": "The identifier of the VM from which a formula is to be created.",
@@ -855,6 +865,7 @@
       "type": "object"
     },
     "GalleryImageReference": {
+      "description": "The reference information for an Azure Marketplace image.",
       "properties": {
         "offer": {
           "description": "The offer of the gallery image.",
@@ -880,6 +891,7 @@
       "type": "object"
     },
     "HourDetails": {
+      "description": "Properties of an hourly schedule.",
       "properties": {
         "minute": {
           "description": "Minutes of the hour the schedule will run.",
@@ -896,6 +908,7 @@
       "type": "object"
     },
     "LabProperties": {
+      "description": "Properties of a lab.",
       "properties": {
         "artifactsStorageAccount": {
           "description": "The artifact storage account of the lab.",
@@ -962,6 +975,7 @@
       "type": "object"
     },
     "LabVirtualMachine": {
+      "description": "A virtual machine.",
       "properties": {
         "id": {
           "description": "The identifier of the resource.",
@@ -1009,6 +1023,7 @@
       "type": "object"
     },
     "LabVirtualMachineProperties": {
+      "description": "Properties of a virtual machine.",
       "properties": {
         "artifactDeploymentStatus": {
           "description": "The artifact deployment status for the virtual machine.",
@@ -1139,6 +1154,7 @@
       "type": "object"
     },
     "LinuxOsInfo": {
+      "description": "Information about a Linux OS.",
       "properties": {
         "linuxOsState": {
           "description": "The state of the Linux OS.",
@@ -1160,6 +1176,7 @@
       "type": "object"
     },
     "PolicyProperties": {
+      "description": "Properties of a Policy.",
       "properties": {
         "description": {
           "description": "The description of the policy.",
@@ -1229,6 +1246,7 @@
       "type": "object"
     },
     "ScheduleProperties": {
+      "description": "Properties of a schedule.",
       "properties": {
         "dailyRecurrence": {
           "description": "The daily recurrence of the schedule.",
@@ -1335,6 +1353,7 @@
       "type": "object"
     },
     "SubnetOverride": {
+      "description": "Property overrides on a subnet of a virtual network.",
       "properties": {
         "labSubnetName": {
           "description": "The name given to the subnet within the lab.",
@@ -1380,6 +1399,7 @@
       "type": "object"
     },
     "VirtualNetworkProperties": {
+      "description": "Properties of a virtual network.",
       "properties": {
         "allowedSubnets": {
           "description": "The allowed subnets of the virtual network.",
@@ -1439,6 +1459,7 @@
       "type": "object"
     },
     "WeekDetails": {
+      "description": "Properties of a weekly schedule.",
       "properties": {
         "time": {
           "description": "The time of the day.",
@@ -1462,6 +1483,7 @@
       "type": "object"
     },
     "WindowsOsInfo": {
+      "description": "Information about a Windows OS.",
       "properties": {
         "windowsOsState": {
           "description": "The state of the Windows OS.",
@@ -1531,7 +1553,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DevTestLab/labs/artifactsources"
+            "artifactsources"
           ],
           "type": "string"
         }
@@ -1592,7 +1614,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DevTestLab/labs/customimages"
+            "customimages"
           ],
           "type": "string"
         }
@@ -1653,7 +1675,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DevTestLab/labs/formulas"
+            "formulas"
           ],
           "type": "string"
         }
@@ -1714,7 +1736,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DevTestLab/labs/schedules"
+            "schedules"
           ],
           "type": "string"
         }
@@ -1775,7 +1797,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DevTestLab/labs/virtualmachines"
+            "virtualmachines"
           ],
           "type": "string"
         }
@@ -1836,7 +1858,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DevTestLab/labs/virtualnetworks"
+            "virtualnetworks"
           ],
           "type": "string"
         }

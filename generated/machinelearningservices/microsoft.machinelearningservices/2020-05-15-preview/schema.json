@@ -388,6 +388,7 @@
   },
   "definitions": {
     "AKSProperties": {
+      "description": "AKS properties",
       "properties": {
         "agentCount": {
           "description": "Number of agents",
@@ -434,6 +435,7 @@
       "type": "object"
     },
     "AksNetworkingConfiguration": {
+      "description": "Advance configuration for AKS networking",
       "properties": {
         "dnsServiceIP": {
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
@@ -479,6 +481,7 @@
       "type": "object"
     },
     "AmlComputeProperties": {
+      "description": "AML Compute properties",
       "properties": {
         "enableNodePublicIp": {
           "description": "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.",
@@ -600,6 +603,7 @@
       "type": "object"
     },
     "Compute": {
+      "description": "Machine Learning compute object.",
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -617,6 +621,7 @@
       "type": "object"
     },
     "ContainerResourceRequirements": {
+      "description": "The resource requirements for the container (cpu and memory).",
       "properties": {
         "cpu": {
           "description": "The number of CPU cores on the container.",
@@ -666,6 +671,7 @@
       "type": "object"
     },
     "CreateServiceRequestEnvironmentImageRequest": {
+      "description": "The Environment, models and assets needed for inferencing.",
       "properties": {
         "assets": {
           "description": "The list of assets.",
@@ -753,6 +759,7 @@
       "type": "object"
     },
     "CreateServiceRequestKeys": {
+      "description": "The authentication keys.",
       "properties": {
         "primaryKey": {
           "description": "The primary key.",
@@ -784,6 +791,7 @@
       "type": "object"
     },
     "DatasetReference": {
+      "description": "The dataset reference object.",
       "properties": {
         "id": {
           "description": "The id of the dataset reference.",
@@ -832,6 +840,7 @@
       "type": "object"
     },
     "EnvironmentImageRequestEnvironment": {
+      "description": "The details of the AZURE ML environment.",
       "properties": {
         "docker": {
           "description": "The definition of a Docker container.",
@@ -908,6 +917,7 @@
       "type": "object"
     },
     "EnvironmentImageRequestEnvironmentReference": {
+      "description": "The unique identifying details of the AZURE ML environment.",
       "properties": {
         "name": {
           "description": "Name of the environment.",
@@ -952,6 +962,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -996,6 +1007,7 @@
       "type": "object"
     },
     "ImageAsset": {
+      "description": "An Image asset.",
       "properties": {
         "id": {
           "description": "The Asset Id.",
@@ -1045,6 +1057,7 @@
       "type": "object"
     },
     "LinkedWorkspaceProps": {
+      "description": "LinkedWorkspace specific properties.",
       "properties": {
         "linkedWorkspaceResourceId": {
           "description": "ResourceId of the link target of the linked workspace.",
@@ -1058,6 +1071,7 @@
       "type": "object"
     },
     "Model": {
+      "description": "An Azure Machine Learning Model.",
       "properties": {
         "createdTime": {
           "description": "The Model creation time (UTC).",
@@ -1238,6 +1252,7 @@
       "type": "object"
     },
     "ModelDockerSectionBaseImageRegistry": {
+      "description": "Image registry that contains the base image.",
       "properties": {
         "address": {
           "description": "",
@@ -1255,6 +1270,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionDocker": {
+      "description": "The definition of a Docker container.",
       "properties": {
         "baseDockerfile": {
           "description": "Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.",
@@ -1279,6 +1295,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionPython": {
+      "description": "Settings for a Python environment.",
       "properties": {
         "baseCondaEnvironment": {
           "description": "",
@@ -1306,6 +1323,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionR": {
+      "description": "Settings for a R environment.",
       "properties": {
         "bioConductorPackages": {
           "description": "The packages from Bioconductor.",
@@ -1404,6 +1422,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionSpark": {
+      "description": "The configuration for a Spark environment.",
       "properties": {
         "packages": {
           "description": "The Spark packages to use.",
@@ -1455,10 +1474,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -1489,6 +1510,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -1546,6 +1568,7 @@
       "type": "object"
     },
     "ResourceId": {
+      "description": "Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.",
       "properties": {
         "id": {
           "description": "The ID of the resource",
@@ -1558,6 +1581,7 @@
       "type": "object"
     },
     "ScaleSettings": {
+      "description": "scale settings for AML Compute",
       "properties": {
         "maxNodeCount": {
           "description": "Max number of nodes to use",
@@ -1612,6 +1636,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperty": {
+      "description": "Properties of a shared private link resource.",
       "properties": {
         "groupId": {
           "description": "The private link resource group id.",
@@ -1647,6 +1672,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku of the resource",
       "properties": {
         "name": {
           "description": "Name of the sku",
@@ -1677,6 +1703,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "The ssl configuration for scoring",
       "properties": {
         "cert": {
           "description": "Cert data",
@@ -1709,6 +1736,7 @@
       "type": "object"
     },
     "UserAccountCredentials": {
+      "description": "Settings for user account that gets created on each on the nodes of a compute.",
       "properties": {
         "adminUserName": {
           "description": "Name of the administrator user account which can be used to SSH to nodes.",
@@ -1729,10 +1757,12 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User Assigned Identity",
       "properties": {},
       "type": "object"
     },
     "VirtualMachineImage": {
+      "description": "Virtual Machine image for Windows AML Compute",
       "properties": {
         "id": {
           "description": "Virtual Machine image path",
@@ -1780,6 +1810,7 @@
       "type": "object"
     },
     "VirtualMachineSshCredentials": {
+      "description": "Admin credentials for virtual machine",
       "properties": {
         "password": {
           "description": "Password of admin account",
@@ -1801,6 +1832,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The properties of a machine learning workspace.",
       "properties": {
         "allowPublicAccessWhenBehindVnet": {
           "description": "The flag to indicate whether to allow public access when behind VNet.",
@@ -1958,7 +1990,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }
@@ -1996,7 +2028,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/linkedWorkspaces"
+            "linkedWorkspaces"
           ],
           "type": "string"
         }
@@ -2075,7 +2107,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -2162,7 +2194,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/services"
+            "services"
           ],
           "type": "string"
         }

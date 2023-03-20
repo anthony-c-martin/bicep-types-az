@@ -126,6 +126,7 @@
   },
   "definitions": {
     "Column": {
+      "description": "Table column.",
       "properties": {
         "dataTypeHint": {
           "description": "Column data type logical hint.",
@@ -181,6 +182,7 @@
       "type": "object"
     },
     "RestoredLogs": {
+      "description": "Restore parameters.",
       "properties": {
         "endRestoreTime": {
           "description": "The timestamp to end the restore by (UTC).",
@@ -214,10 +216,12 @@
       "type": "object"
     },
     "ResultStatistics": {
+      "description": "Search job execution statistics.",
       "properties": {},
       "type": "object"
     },
     "Schema": {
+      "description": "Table's schema.",
       "properties": {
         "columns": {
           "description": "A list of table custom columns.",
@@ -256,6 +260,7 @@
       "type": "object"
     },
     "SearchResults": {
+      "description": "Parameters of the search job that initiated this table.",
       "properties": {
         "description": {
           "description": "Search job Description.",
@@ -304,6 +309,7 @@
       "type": "object"
     },
     "TableProperties": {
+      "description": "Table properties.",
       "properties": {
         "plan": {
           "description": "Instruct the system how to handle and charge the logs ingested to this table.",
@@ -390,6 +396,7 @@
       "type": "object"
     },
     "WorkspaceCapping": {
+      "description": "The daily volume cap for ingestion.",
       "properties": {
         "dailyQuotaGb": {
           "description": "The workspace daily quota for ingestion.",
@@ -407,6 +414,7 @@
     },
     "WorkspaceFeatures": {
       "additionalProperties": {},
+      "description": "Workspace features.",
       "properties": {
         "clusterResourceId": {
           "description": "Dedicated LA cluster resourceId that is linked to the workspaces.",
@@ -460,6 +468,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "Workspace properties.",
       "properties": {
         "defaultDataCollectionRuleResourceId": {
           "description": "The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.",
@@ -554,6 +563,7 @@
       "type": "object"
     },
     "WorkspaceSku": {
+      "description": "The SKU (tier) of a workspace.",
       "properties": {
         "capacityReservationLevel": {
           "description": "The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.",
@@ -626,7 +636,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.OperationalInsights/workspaces/tables"
+            "tables"
           ],
           "type": "string"
         }

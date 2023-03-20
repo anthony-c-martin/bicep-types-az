@@ -257,6 +257,7 @@
   },
   "definitions": {
     "AKSProperties": {
+      "description": "AKS properties",
       "properties": {
         "agentCount": {
           "description": "Number of agents",
@@ -303,6 +304,7 @@
       "type": "object"
     },
     "AksNetworkingConfiguration": {
+      "description": "Advance configuration for AKS networking",
       "properties": {
         "dnsServiceIP": {
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
@@ -348,6 +350,7 @@
       "type": "object"
     },
     "AmlComputeProperties": {
+      "description": "AML Compute properties",
       "properties": {
         "osType": {
           "description": "OS Type.",
@@ -447,6 +450,7 @@
       "type": "object"
     },
     "AssignedUser": {
+      "description": "A user that can be assigned to a compute instance.",
       "properties": {
         "objectId": {
           "description": "User’s AAD Object Id.",
@@ -464,6 +468,7 @@
       "type": "object"
     },
     "Compute": {
+      "description": "Machine Learning compute object.",
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -481,6 +486,7 @@
       "type": "object"
     },
     "ComputeInstanceProperties": {
+      "description": "Compute Instance properties",
       "properties": {
         "applicationSharingPolicy": {
           "description": "Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.",
@@ -552,6 +558,7 @@
       "type": "object"
     },
     "ComputeInstanceSshSettings": {
+      "description": "Specifies policy and settings for SSH access.",
       "properties": {
         "adminPublicKey": {
           "description": "Specifies the SSH rsa public key file as a string. Use \"ssh-keygen -t rsa -b 2048\" to generate your SSH key pairs.",
@@ -660,13 +667,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -700,6 +708,7 @@
       "type": "object"
     },
     "PersonalComputeInstanceSettings": {
+      "description": "Settings for a personal compute instance.",
       "properties": {
         "assignedUser": {
           "description": "A user explicitly assigned to a personal compute instance.",
@@ -716,10 +725,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -750,6 +761,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -779,6 +791,7 @@
       "type": "object"
     },
     "ResourceId": {
+      "description": "Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.",
       "properties": {
         "id": {
           "description": "The ID of the resource",
@@ -791,6 +804,7 @@
       "type": "object"
     },
     "ScaleSettings": {
+      "description": "scale settings for AML Compute",
       "properties": {
         "maxNodeCount": {
           "description": "Max number of nodes to use",
@@ -825,6 +839,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku of the resource",
       "properties": {
         "name": {
           "description": "Name of the sku",
@@ -838,6 +853,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "The ssl configuration for scoring",
       "properties": {
         "cert": {
           "description": "Cert data",
@@ -870,6 +886,7 @@
       "type": "object"
     },
     "UserAccountCredentials": {
+      "description": "Settings for user account that gets created on each on the nodes of a compute.",
       "properties": {
         "adminUserName": {
           "description": "Name of the administrator user account which can be used to SSH to nodes.",
@@ -925,6 +942,7 @@
       "type": "object"
     },
     "VirtualMachineSshCredentials": {
+      "description": "Admin credentials for virtual machine",
       "properties": {
         "password": {
           "description": "Password of admin account",
@@ -946,6 +964,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The properties of a machine learning workspace.",
       "properties": {
         "applicationInsights": {
           "description": "ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created",
@@ -1067,7 +1086,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }
@@ -1146,7 +1165,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

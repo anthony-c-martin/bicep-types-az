@@ -202,6 +202,7 @@
   },
   "definitions": {
     "AzureActiveDirectoryApp": {
+      "description": "Azure Active Directory Application",
       "properties": {
         "appKey": {
           "description": "Key used to authenticate to the Azure Active Directory Application",
@@ -224,6 +225,7 @@
       "type": "object"
     },
     "BlobShare": {
+      "description": "Blob container storage information.",
       "properties": {
         "sasUri": {
           "description": "SAS URI of Azure Storage Account Container.",
@@ -236,6 +238,7 @@
       "type": "object"
     },
     "ConnectToSourceMySqlTaskInput": {
+      "description": "Input for the task that validates MySQL database connection",
       "properties": {
         "checkPermissionsGroup": {
           "description": "Permission group for validations",
@@ -287,6 +290,7 @@
       "type": "object"
     },
     "ConnectToSourcePostgreSqlSyncTaskInput": {
+      "description": "Input for the task that validates connection to PostgreSQL and source server requirements",
       "properties": {
         "sourceConnectionInfo": {
           "description": "Connection information for source PostgreSQL server",
@@ -306,6 +310,7 @@
       "type": "object"
     },
     "ConnectToSourceSqlServerTaskInput": {
+      "description": "Input for the task that validates connection to SQL Server and also validates source server requirements",
       "properties": {
         "checkPermissionsGroup": {
           "description": "Permission group for validations",
@@ -364,6 +369,7 @@
       "type": "object"
     },
     "ConnectToTargetAzureDbForMySqlTaskInput": {
+      "description": "Input for the task that validates connection to Azure Database for MySQL and target server requirements",
       "properties": {
         "sourceConnectionInfo": {
           "description": "Connection information for source MySQL server",
@@ -395,6 +401,7 @@
       "type": "object"
     },
     "ConnectToTargetAzureDbForPostgreSqlSyncTaskInput": {
+      "description": "Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements",
       "properties": {
         "sourceConnectionInfo": {
           "description": "Connection information for source PostgreSQL server",
@@ -426,6 +433,7 @@
       "type": "object"
     },
     "ConnectToTargetSqlDbSyncTaskInput": {
+      "description": "Input for the task that validates connection to Azure SQL DB and target server requirements",
       "properties": {
         "sourceConnectionInfo": {
           "description": "Connection information for source SQL Server",
@@ -457,6 +465,7 @@
       "type": "object"
     },
     "ConnectToTargetSqlDbTaskInput": {
+      "description": "Input for the task that validates connection to SQL DB and target server requirements",
       "properties": {
         "targetConnectionInfo": {
           "description": "Connection information for target SQL DB",
@@ -476,6 +485,7 @@
       "type": "object"
     },
     "ConnectToTargetSqlMISyncTaskInput": {
+      "description": "Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.",
       "properties": {
         "azureApp": {
           "description": "Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account",
@@ -507,6 +517,7 @@
       "type": "object"
     },
     "ConnectToTargetSqlMITaskInput": {
+      "description": "Input for the task that validates connection to Azure SQL Database Managed Instance.",
       "properties": {
         "targetConnectionInfo": {
           "description": "Connection information for target SQL Server",
@@ -526,6 +537,7 @@
       "type": "object"
     },
     "ConnectionInfo": {
+      "description": "Defines the connection properties of a server",
       "properties": {
         "password": {
           "description": "Password credential.",
@@ -539,6 +551,7 @@
       "type": "object"
     },
     "DataMigrationServiceProperties": {
+      "description": "Properties of the Data Migration service instance",
       "properties": {
         "publicKey": {
           "description": "The public key of the service, used to encrypt secrets sent to the service",
@@ -555,6 +568,7 @@
       "type": "object"
     },
     "DatabaseInfo": {
+      "description": "Project Database Details",
       "properties": {
         "sourceDatabaseName": {
           "description": "Name of the database",
@@ -567,6 +581,7 @@
       "type": "object"
     },
     "FileShare": {
+      "description": "File share information with Path, Username, and Password.",
       "properties": {
         "password": {
           "description": "Password credential used to connect to the share location.",
@@ -587,6 +602,7 @@
       "type": "object"
     },
     "GetTdeCertificatesSqlTaskInput": {
+      "description": "Input for the task that gets TDE certificates in Base64 encoded format.",
       "properties": {
         "backupFileShare": {
           "description": "Backup file share information for file share to be used for temporarily storing files.",
@@ -640,6 +656,7 @@
       "type": "object"
     },
     "GetUserTablesSqlSyncTaskInput": {
+      "description": "Input for the task that collects user tables for the given list of databases",
       "properties": {
         "selectedSourceDatabases": {
           "description": "List of source database names to collect tables for",
@@ -701,6 +718,7 @@
       "type": "object"
     },
     "GetUserTablesSqlTaskInput": {
+      "description": "Input for the task that collects user tables for the given list of databases",
       "properties": {
         "connectionInfo": {
           "description": "Connection information for SQL Server",
@@ -735,6 +753,7 @@
       "type": "object"
     },
     "MiSqlConnectionInfo": {
+      "description": "Properties required to create a connection to Azure SQL database Managed instance",
       "properties": {
         "managedInstanceResourceId": {
           "description": "Resource id for Azure SQL database Managed instance",
@@ -760,6 +779,7 @@
       "type": "object"
     },
     "MigrateMySqlAzureDbForMySqlSyncDatabaseInput": {
+      "description": "Database specific information for MySQL to Azure Database for MySQL migration task inputs",
       "properties": {
         "migrationSetting": {
           "description": "Migration settings which tune the migration behavior",
@@ -818,6 +838,7 @@
       "type": "object"
     },
     "MigrateMySqlAzureDbForMySqlSyncTaskInput": {
+      "description": "Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations",
       "properties": {
         "selectedDatabases": {
           "description": "Databases to migrate",
@@ -871,6 +892,7 @@
       "type": "object"
     },
     "MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput": {
+      "description": "Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs",
       "properties": {
         "migrationSetting": {
           "description": "Migration settings which tune the migration behavior",
@@ -929,6 +951,7 @@
       "type": "object"
     },
     "MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput": {
+      "description": "Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations",
       "properties": {
         "selectedDatabases": {
           "description": "Databases to migrate",
@@ -982,6 +1005,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlDbDatabaseInput": {
+      "description": "Database specific information for SQL to Azure SQL DB migration task inputs",
       "properties": {
         "makeSourceDbReadOnly": {
           "description": "Whether to set database read only before migration",
@@ -1021,6 +1045,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlDbSyncDatabaseInput": {
+      "description": "Database specific information for SQL to Azure SQL DB sync migration task inputs",
       "properties": {
         "id": {
           "description": "Unique identifier for database",
@@ -1102,6 +1127,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlDbSyncTaskInput": {
+      "description": "Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations",
       "properties": {
         "selectedDatabases": {
           "description": "Databases to migrate",
@@ -1166,6 +1192,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlDbTaskInput": {
+      "description": "Input for the task that migrates on-prem SQL Server databases to Azure SQL Database",
       "properties": {
         "selectedDatabases": {
           "description": "Databases to migrate",
@@ -1230,6 +1257,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlMIDatabaseInput": {
+      "description": "Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs",
       "properties": {
         "backupFilePaths": {
           "description": "The list of backup files to be used in case of existing backups.",
@@ -1272,6 +1300,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlMISyncTaskInput": {
+      "description": "Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.",
       "properties": {
         "azureApp": {
           "description": "Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account",
@@ -1353,6 +1382,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlMITaskInput": {
+      "description": "Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.",
       "properties": {
         "backupBlobShare": {
           "description": "SAS URI of Azure Storage Account Container to be used for storing backup files.",
@@ -1472,6 +1502,7 @@
       "type": "object"
     },
     "MigrationValidationOptions": {
+      "description": "Types of validations to run after the migration",
       "properties": {
         "enableDataIntegrityValidation": {
           "description": "Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .",
@@ -1510,6 +1541,7 @@
       "type": "object"
     },
     "MySqlConnectionInfo": {
+      "description": "Information for connecting to MySQL server",
       "properties": {
         "password": {
           "description": "Password credential.",
@@ -1547,6 +1579,7 @@
       "type": "object"
     },
     "PostgreSqlConnectionInfo": {
+      "description": "Information for connecting to PostgreSQL server",
       "properties": {
         "databaseName": {
           "description": "Name of the database",
@@ -1588,6 +1621,7 @@
       "type": "object"
     },
     "ProjectProperties": {
+      "description": "Project-specific properties",
       "properties": {
         "databasesInfo": {
           "description": "List of DatabaseInfo",
@@ -1670,10 +1704,12 @@
       "type": "object"
     },
     "ProjectTaskProperties": {
+      "description": "Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.",
       "properties": {},
       "type": "object"
     },
     "SelectedCertificateInput": {
+      "description": "Info for certificate to be exported for TDE enabled databases.",
       "properties": {
         "certificateName": {
           "description": "Name of certificate to be exported.",
@@ -1691,6 +1727,7 @@
       "type": "object"
     },
     "ServiceSku": {
+      "description": "An Azure SKU instance",
       "properties": {
         "capacity": {
           "description": "The capacity of the SKU, if it supports scaling",
@@ -1723,6 +1760,7 @@
       "type": "object"
     },
     "SqlConnectionInfo": {
+      "description": "Information for connecting to SQL database server",
       "properties": {
         "additionalSettings": {
           "description": "Additional connection settings",
@@ -1806,6 +1844,7 @@
       "type": "object"
     },
     "ValidateMigrationInputSqlServerSqlMISyncTaskInput": {
+      "description": "Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.",
       "properties": {
         "azureApp": {
           "description": "Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account",
@@ -1887,6 +1926,7 @@
       "type": "object"
     },
     "ValidateMigrationInputSqlServerSqlMITaskInput": {
+      "description": "Input for task that validates migration input for SQL to Azure SQL Managed Instance",
       "properties": {
         "backupBlobShare": {
           "description": "SAS URI of Azure Storage Account Container to be used for storing backup files.",
@@ -1992,6 +2032,7 @@
       "type": "object"
     },
     "ValidateSyncMigrationInputSqlServerTaskInput": {
+      "description": "Input for task that validates migration input for SQL sync migrations",
       "properties": {
         "selectedDatabases": {
           "description": "Databases to migrate",
@@ -2089,7 +2130,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataMigration/services/projects"
+            "projects"
           ],
           "type": "string"
         }
@@ -2131,7 +2172,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataMigration/services/projects/tasks"
+            "tasks"
           ],
           "type": "string"
         }

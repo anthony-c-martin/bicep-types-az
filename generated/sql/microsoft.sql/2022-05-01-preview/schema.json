@@ -656,18 +656,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The source of the sensitivity label.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/current$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -1599,18 +1589,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/default$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -1919,18 +1899,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/default$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -2159,18 +2129,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/default$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -2341,18 +2301,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The source of the sensitivity label.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/current$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -3025,18 +2975,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/default$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -3737,6 +3677,7 @@
   },
   "definitions": {
     "AdministratorProperties": {
+      "description": "Properties of a active directory administrator.",
       "properties": {
         "administratorType": {
           "description": "Type of the sever administrator.",
@@ -3789,6 +3730,7 @@
       "type": "object"
     },
     "AdvancedThreatProtectionProperties": {
+      "description": "Properties of an Advanced Threat Protection state.",
       "properties": {
         "state": {
           "description": "Specifies the state of the Advanced Threat Protection, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.",
@@ -3813,6 +3755,7 @@
       "type": "object"
     },
     "AzureADOnlyAuthProperties": {
+      "description": "Properties of a active directory only authentication.",
       "properties": {
         "azureADOnlyAuthentication": {
           "description": "Azure Active Directory only Authentication enabled.",
@@ -3832,6 +3775,7 @@
       "type": "object"
     },
     "BackupShortTermRetentionPolicyProperties": {
+      "description": "Properties of a short term retention policy",
       "properties": {
         "diffBackupIntervalInHours": {
           "description": "The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.",
@@ -3866,6 +3810,7 @@
       "type": "object"
     },
     "BaseLongTermRetentionPolicyProperties": {
+      "description": "Properties of a long term retention policy",
       "properties": {
         "monthlyRetention": {
           "description": "The monthly retention policy for an LTR backup in an ISO 8601 format.",
@@ -3894,6 +3839,7 @@
       "type": "object"
     },
     "DataMaskingPolicyProperties": {
+      "description": "The properties of a database data masking policy.",
       "properties": {
         "dataMaskingState": {
           "description": "The state of the data masking policy.",
@@ -3921,6 +3867,7 @@
       "type": "object"
     },
     "DataMaskingRuleProperties": {
+      "description": "The properties of a database data masking rule.",
       "properties": {
         "aliasName": {
           "description": "The alias name. This is a legacy parameter and is no longer used.",
@@ -4002,6 +3949,7 @@
       "type": "object"
     },
     "DatabaseBlobAuditingPolicyProperties": {
+      "description": "Properties of a database blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -4114,6 +4062,7 @@
       "type": "object"
     },
     "DatabaseExtensionsProperties": {
+      "description": "Contains the database information after a successful Import, Export, or PolybaseImport",
       "properties": {
         "administratorLogin": {
           "description": "Administrator login name.",
@@ -4199,6 +4148,7 @@
       "type": "object"
     },
     "DatabaseIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {
         "type": {
           "description": "The identity type",
@@ -4241,6 +4191,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "The database's properties.",
       "properties": {
         "autoPauseDelay": {
           "description": "Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled",
@@ -4516,6 +4467,7 @@
       "type": "object"
     },
     "DatabaseSqlVulnerabilityAssessmentRuleBaselineInputProperties": {
+      "description": "Properties of a database Sql Vulnerability Assessment rule baseline.",
       "properties": {
         "latestScan": {
           "description": "The latest scan flag",
@@ -4560,6 +4512,7 @@
       "type": "object"
     },
     "DatabaseSqlVulnerabilityAssessmentRuleBaselineListInputProperties": {
+      "description": "Properties of a database Sql Vulnerability Assessment rule baseline.",
       "properties": {
         "latestScan": {
           "description": "The latest scan flag",
@@ -4615,10 +4568,12 @@
       "type": "object"
     },
     "DatabaseUserIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {},
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentProperties": {
+      "description": "Properties of a database Vulnerability Assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -4647,6 +4602,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentRuleBaselineItem": {
+      "description": "Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.",
       "properties": {
         "result": {
           "description": "The rule baseline result",
@@ -4669,6 +4625,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentRuleBaselineProperties": {
+      "description": "Properties of a database Vulnerability Assessment rule baseline.",
       "properties": {
         "baselineResults": {
           "description": "The rule baseline result",
@@ -4698,6 +4655,7 @@
       "type": "object"
     },
     "DistributedAvailabilityGroupProperties": {
+      "description": "The properties of a distributed availability group.",
       "properties": {
         "primaryAvailabilityGroupName": {
           "description": "The primary availability group name",
@@ -4734,6 +4692,7 @@
       "type": "object"
     },
     "ElasticPoolPerDatabaseSettings": {
+      "description": "Per database settings of an elastic pool.",
       "properties": {
         "maxCapacity": {
           "description": "The maximum capacity any one database can consume.",
@@ -4761,6 +4720,7 @@
       "type": "object"
     },
     "ElasticPoolProperties": {
+      "description": "Properties of an elastic pool",
       "properties": {
         "highAvailabilityReplicaCount": {
           "description": "The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.",
@@ -4840,6 +4800,7 @@
       "type": "object"
     },
     "EncryptionProtectorProperties": {
+      "description": "Properties for an encryption protector execution.",
       "properties": {
         "autoRotationEnabled": {
           "description": "Key auto rotation opt-in flag. Either true or false.",
@@ -4878,6 +4839,7 @@
       "type": "object"
     },
     "ExtendedDatabaseBlobAuditingPolicyProperties": {
+      "description": "Properties of an extended database blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -4994,6 +4956,7 @@
       "type": "object"
     },
     "ExtendedServerBlobAuditingPolicyProperties": {
+      "description": "Properties of an extended server blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -5121,6 +5084,7 @@
       "type": "object"
     },
     "FailoverGroupProperties": {
+      "description": "Properties of a failover group.",
       "properties": {
         "databases": {
           "description": "List of databases in the failover group.",
@@ -5187,6 +5151,7 @@
       "type": "object"
     },
     "FailoverGroupReadOnlyEndpoint": {
+      "description": "Read-only endpoint of the failover group instance.",
       "properties": {
         "failoverPolicy": {
           "description": "Failover policy of the read-only endpoint for the failover group.",
@@ -5207,6 +5172,7 @@
       "type": "object"
     },
     "FailoverGroupReadWriteEndpoint": {
+      "description": "Read-write endpoint of the failover group instance.",
       "properties": {
         "failoverPolicy": {
           "description": "Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.",
@@ -5241,6 +5207,7 @@
       "type": "object"
     },
     "GeoBackupPolicyProperties": {
+      "description": "The properties of the geo backup policy.",
       "properties": {
         "state": {
           "description": "The state of the geo backup policy.",
@@ -5264,6 +5231,7 @@
       "type": "object"
     },
     "IPv6ServerFirewallRuleProperties": {
+      "description": "The properties of an IPv6 server firewall rule.",
       "properties": {
         "endIPv6Address": {
           "description": "The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.",
@@ -5277,6 +5245,7 @@
       "type": "object"
     },
     "InstanceFailoverGroupProperties": {
+      "description": "Properties of a instance failover group.",
       "properties": {
         "managedInstancePairs": {
           "description": "List of managed instance pairs in the failover group.",
@@ -5366,6 +5335,7 @@
       "type": "object"
     },
     "InstanceFailoverGroupReadOnlyEndpoint": {
+      "description": "Read-only endpoint of the failover group instance.",
       "properties": {
         "failoverPolicy": {
           "description": "Failover policy of the read-only endpoint for the failover group.",
@@ -5386,6 +5356,7 @@
       "type": "object"
     },
     "InstanceFailoverGroupReadWriteEndpoint": {
+      "description": "Read-write endpoint of the failover group instance.",
       "properties": {
         "failoverPolicy": {
           "description": "Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.",
@@ -5420,6 +5391,7 @@
       "type": "object"
     },
     "InstancePoolProperties": {
+      "description": "Properties of an instance pool.",
       "properties": {
         "licenseType": {
           "description": "The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).",
@@ -5460,6 +5432,7 @@
       "type": "object"
     },
     "JobAgentProperties": {
+      "description": "Properties of a job agent.",
       "properties": {
         "databaseId": {
           "description": "Resource ID of the database to store job metadata in.",
@@ -5472,6 +5445,7 @@
       "type": "object"
     },
     "JobCredentialProperties": {
+      "description": "Properties of a job credential.",
       "properties": {
         "password": {
           "description": "The credential password.",
@@ -5489,6 +5463,7 @@
       "type": "object"
     },
     "JobProperties": {
+      "description": "Properties of a job.",
       "properties": {
         "description": {
           "description": "User-defined description of the job.",
@@ -5509,6 +5484,7 @@
       "type": "object"
     },
     "JobSchedule": {
+      "description": "Scheduling properties of a job.",
       "properties": {
         "enabled": {
           "description": "Whether or not the schedule is enabled.",
@@ -5568,6 +5544,7 @@
       "type": "object"
     },
     "JobStepAction": {
+      "description": "The action to be executed by a job step.",
       "properties": {
         "source": {
           "description": "The source of the action to execute.",
@@ -5608,6 +5585,7 @@
       "type": "object"
     },
     "JobStepExecutionOptions": {
+      "description": "The execution options of a job step.",
       "properties": {
         "initialRetryIntervalSeconds": {
           "description": "Initial delay between retries for job step execution.",
@@ -5668,6 +5646,7 @@
       "type": "object"
     },
     "JobStepOutput": {
+      "description": "The output configuration of a job step.",
       "properties": {
         "credential": {
           "description": "The resource ID of the credential to use to connect to the output destination.",
@@ -5729,6 +5708,7 @@
       "type": "object"
     },
     "JobStepProperties": {
+      "description": "Properties of a job step.",
       "properties": {
         "action": {
           "description": "The action payload of the job step.",
@@ -5791,6 +5771,7 @@
       "type": "object"
     },
     "JobTarget": {
+      "description": "A job target, for example a specific database or a container of databases that is evaluated during job execution.",
       "properties": {
         "databaseName": {
           "description": "The target database name.",
@@ -5852,6 +5833,7 @@
       "type": "object"
     },
     "JobTargetGroupProperties": {
+      "description": "Properties of job target group.",
       "properties": {
         "members": {
           "description": "Members of the target group.",
@@ -5881,6 +5863,7 @@
       "type": "object"
     },
     "LedgerDigestUploadsProperties": {
+      "description": "The properties of a database ledger digest upload settings.",
       "properties": {
         "digestStorageEndpoint": {
           "description": "The digest storage endpoint, which must be either an Azure blob storage endpoint or an URI for Azure Confidential Ledger.",
@@ -5890,6 +5873,7 @@
       "type": "object"
     },
     "ManagedBackupShortTermRetentionPolicyProperties": {
+      "description": "Properties of a short term retention policy",
       "properties": {
         "retentionDays": {
           "description": "The backup retention period in days. This is how many days Point-in-Time Restore will be supported.",
@@ -5906,6 +5890,7 @@
       "type": "object"
     },
     "ManagedDatabaseProperties": {
+      "description": "The managed database's properties.",
       "properties": {
         "autoCompleteRestore": {
           "description": "Whether to auto complete restore of this managed database.",
@@ -6015,6 +6000,7 @@
       "type": "object"
     },
     "ManagedInstanceAdministratorProperties": {
+      "description": "The properties of a managed instance administrator.",
       "properties": {
         "administratorType": {
           "description": "Type of the managed instance administrator.",
@@ -6067,6 +6053,7 @@
       "type": "object"
     },
     "ManagedInstanceAzureADOnlyAuthProperties": {
+      "description": "Properties of a active directory only authentication for Managed Instance.",
       "properties": {
         "azureADOnlyAuthentication": {
           "description": "Azure Active Directory only Authentication enabled.",
@@ -6086,6 +6073,7 @@
       "type": "object"
     },
     "ManagedInstanceDtcProperties": {
+      "description": "The properties of managed instance DTC.",
       "properties": {
         "dtcEnabled": {
           "description": "Active status of managed instance DTC.",
@@ -6127,6 +6115,7 @@
       "type": "object"
     },
     "ManagedInstanceDtcSecuritySettings": {
+      "description": "The Security Settings of managed instance DTC.",
       "properties": {
         "snaLu6point2TransactionsEnabled": {
           "description": "Allow SNA LU 6.2 Transactions to managed instance DTC.",
@@ -6187,6 +6176,7 @@
       "type": "object"
     },
     "ManagedInstanceDtcTransactionManagerCommunicationSettings": {
+      "description": "The Transaction Manager Communication Settings of managed instance DTC.",
       "properties": {
         "allowInboundEnabled": {
           "description": "Allow Inbound traffic to managed instance DTC.",
@@ -6218,6 +6208,7 @@
       "type": "object"
     },
     "ManagedInstanceEncryptionProtectorProperties": {
+      "description": "Properties for an encryption protector execution.",
       "properties": {
         "autoRotationEnabled": {
           "description": "Key auto rotation opt-in flag. Either true or false.",
@@ -6256,6 +6247,7 @@
       "type": "object"
     },
     "ManagedInstanceExternalAdministrator": {
+      "description": "Properties of a active directory administrator.",
       "properties": {
         "administratorType": {
           "description": "Type of the sever administrator.",
@@ -6330,6 +6322,7 @@
       "type": "object"
     },
     "ManagedInstanceKeyProperties": {
+      "description": "Properties for a key execution.",
       "properties": {
         "serverKeyType": {
           "description": "The key type like 'ServiceManaged', 'AzureKeyVault'.",
@@ -6357,6 +6350,7 @@
       "type": "object"
     },
     "ManagedInstancePairInfo": {
+      "description": "Pairs of Managed Instances in the failover group.",
       "properties": {
         "partnerManagedInstanceId": {
           "description": "Id of Partner Managed Instance in pair.",
@@ -6370,6 +6364,7 @@
       "type": "object"
     },
     "ManagedInstancePrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "Private endpoint which the connection belongs to.",
@@ -6423,6 +6418,7 @@
       "type": "object"
     },
     "ManagedInstanceProperties": {
+      "description": "The properties of a managed instance.",
       "properties": {
         "administratorLogin": {
           "description": "Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).",
@@ -6617,6 +6613,7 @@
       "type": "object"
     },
     "ManagedInstanceVulnerabilityAssessmentProperties": {
+      "description": "Properties of a managed instance vulnerability assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -6648,6 +6645,7 @@
       "type": "object"
     },
     "ManagedTransparentDataEncryptionProperties": {
+      "description": "Properties of a transparent data encryption.",
       "properties": {
         "state": {
           "description": "Specifies the state of the transparent data encryption.",
@@ -6671,6 +6669,7 @@
       "type": "object"
     },
     "NetworkIsolationSettings": {
+      "description": "Contains the ARM resources for which to create private endpoint connection.",
       "properties": {
         "sqlServerResourceId": {
           "description": "The resource id for the SQL server which is the target of this request. If set, private endpoint connection will be created for the SQL server. Must match server which is target of the operation.",
@@ -6684,6 +6683,7 @@
       "type": "object"
     },
     "PartnerInfo": {
+      "description": "Partner server information for the failover group.",
       "properties": {
         "id": {
           "description": "Resource identifier of the partner server.",
@@ -6696,6 +6696,7 @@
       "type": "object"
     },
     "PartnerRegionInfo": {
+      "description": "Partner region information for the failover group.",
       "properties": {
         "location": {
           "description": "Geo location of the partner managed instances.",
@@ -6705,6 +6706,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "Private endpoint which the connection belongs to.",
@@ -6771,6 +6773,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {
         "type": {
           "description": "The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.",
@@ -6815,6 +6818,7 @@
       "type": "object"
     },
     "SecurityAlertPolicyProperties": {
+      "description": "Properties of a security alert policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force",
@@ -6897,6 +6901,7 @@
       "type": "object"
     },
     "SecurityAlertsPolicyProperties": {
+      "description": "Properties of a security alert policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force",
@@ -6978,6 +6983,7 @@
       "type": "object"
     },
     "SensitivityLabelProperties": {
+      "description": "Properties of a sensitivity label.",
       "properties": {
         "informationType": {
           "description": "The information type.",
@@ -7017,6 +7023,7 @@
       "type": "object"
     },
     "ServerBlobAuditingPolicyProperties": {
+      "description": "Properties of a server blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\nLEDGER_OPERATION_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -7140,6 +7147,7 @@
       "type": "object"
     },
     "ServerConnectionPolicyProperties": {
+      "description": "The properties of a server connection policy.",
       "properties": {
         "connectionType": {
           "description": "The server connection type.",
@@ -7164,6 +7172,7 @@
       "type": "object"
     },
     "ServerDevOpsAuditSettingsProperties": {
+      "description": "Properties of a server DevOps audit settings.",
       "properties": {
         "isAzureMonitorTargetEnabled": {
           "description": "Specifies whether DevOps audit events are sent to Azure Monitor. \r\nIn order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.\r\n\r\nWhen using REST API to configure DevOps audit, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should be also created.\r\n\r\nDiagnostic Settings URI format:\r\nPUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview\r\n\r\nFor more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)\r\nor [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)\r\n",
@@ -7229,6 +7238,7 @@
       "type": "object"
     },
     "ServerExternalAdministrator": {
+      "description": "Properties of a active directory administrator.",
       "properties": {
         "administratorType": {
           "description": "Type of the sever administrator.",
@@ -7303,6 +7313,7 @@
       "type": "object"
     },
     "ServerFirewallRuleProperties": {
+      "description": "The properties of a server firewall rule.",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.",
@@ -7316,6 +7327,7 @@
       "type": "object"
     },
     "ServerInfo": {
+      "description": "Server info for the server trust group.",
       "properties": {
         "serverId": {
           "description": "Server Id.",
@@ -7328,6 +7340,7 @@
       "type": "object"
     },
     "ServerKeyProperties": {
+      "description": "Properties for a server key execution.",
       "properties": {
         "serverKeyType": {
           "description": "The server key type like 'ServiceManaged', 'AzureKeyVault'.",
@@ -7355,6 +7368,7 @@
       "type": "object"
     },
     "ServerProperties": {
+      "description": "The properties of a server.",
       "properties": {
         "administratorLogin": {
           "description": "Administrator username for the server. Once created it cannot be changed.",
@@ -7437,6 +7451,7 @@
       "type": "object"
     },
     "ServerTrustCertificateProperties": {
+      "description": "The properties of a server trust certificate.",
       "properties": {
         "publicBlob": {
           "description": "The certificate public blob",
@@ -7446,6 +7461,7 @@
       "type": "object"
     },
     "ServerTrustGroupProperties": {
+      "description": "Properties of a server trust group.",
       "properties": {
         "groupMembers": {
           "description": "Group members information for the server trust group.",
@@ -7501,6 +7517,7 @@
       "type": "object"
     },
     "ServerVulnerabilityAssessmentProperties": {
+      "description": "Properties of a server Vulnerability Assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -7532,6 +7549,7 @@
       "type": "object"
     },
     "ServicePrincipal": {
+      "description": "The managed instance's service principal configuration for a resource.",
       "properties": {
         "type": {
           "description": "Service principal type.",
@@ -7552,6 +7570,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "An ARM Resource SKU.",
       "properties": {
         "capacity": {
           "description": "Capacity of the particular SKU.",
@@ -7587,6 +7606,7 @@
       "type": "object"
     },
     "SqlAgentConfigurationProperties": {
+      "description": "Sql agent configuration properties.",
       "properties": {
         "state": {
           "description": "The state of Sql Agent.",
@@ -7627,6 +7647,7 @@
       "type": "object"
     },
     "SyncAgentProperties": {
+      "description": "Properties of an Azure SQL Database sync agent.",
       "properties": {
         "syncDatabaseId": {
           "description": "ARM resource id of the sync database in the sync agent.",
@@ -7636,6 +7657,7 @@
       "type": "object"
     },
     "SyncGroupProperties": {
+      "description": "Properties of a sync group.",
       "properties": {
         "conflictLoggingRetentionInDays": {
           "description": "Conflict logging retention period.",
@@ -7723,6 +7745,7 @@
       "type": "object"
     },
     "SyncGroupSchema": {
+      "description": "Properties of sync group schema.",
       "properties": {
         "masterSyncMemberName": {
           "description": "Name of master sync member where the schema is from.",
@@ -7753,6 +7776,7 @@
       "type": "object"
     },
     "SyncGroupSchemaTable": {
+      "description": "Properties of table in sync group schema.",
       "properties": {
         "columns": {
           "description": "List of columns in sync group schema.",
@@ -7783,6 +7807,7 @@
       "type": "object"
     },
     "SyncGroupSchemaTableColumn": {
+      "description": "Properties of column in sync group table.",
       "properties": {
         "dataSize": {
           "description": "Data size of the column.",
@@ -7800,6 +7825,7 @@
       "type": "object"
     },
     "SyncMemberProperties": {
+      "description": "Properties of a sync member.",
       "properties": {
         "databaseName": {
           "description": "Database name of the member database in the sync member.",
@@ -7883,6 +7909,7 @@
       "type": "object"
     },
     "TransparentDataEncryptionProperties": {
+      "description": "Properties of a transparent data encryption.",
       "properties": {
         "state": {
           "description": "Specifies the state of the transparent data encryption.",
@@ -7906,10 +7933,12 @@
       "type": "object"
     },
     "UserIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {},
       "type": "object"
     },
     "VirtualNetworkRuleProperties": {
+      "description": "Properties of a virtual network rule.",
       "properties": {
         "ignoreMissingVnetServiceEndpoint": {
           "description": "Create firewall rule before the virtual network has vnet service endpoint enabled.",
@@ -7933,6 +7962,7 @@
       "type": "object"
     },
     "VulnerabilityAssessmentRecurringScansProperties": {
+      "description": "Properties of a Vulnerability Assessment recurring scans.",
       "properties": {
         "emailSubscriptionAdmins": {
           "description": "Specifies that the schedule scan notification will be is sent to the subscription administrators.",
@@ -7974,6 +8004,7 @@
       "type": "object"
     },
     "WorkloadClassifierProperties": {
+      "description": "Workload classifier definition. For more information look at sys.workload_management_workload_classifiers (DMV).",
       "properties": {
         "context": {
           "description": "The workload classifier context.",
@@ -8006,6 +8037,7 @@
       "type": "object"
     },
     "WorkloadGroupProperties": {
+      "description": "Workload group definition. For more information look at sys.workload_management_workload_groups (DMV).",
       "properties": {
         "importance": {
           "description": "The workload group importance level.",
@@ -8110,7 +8142,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/administrators"
+            "administrators"
           ],
           "type": "string"
         }
@@ -8158,7 +8190,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/advancedThreatProtectionSettings"
+            "advancedThreatProtectionSettings"
           ],
           "type": "string"
         }
@@ -8206,7 +8238,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/azureADOnlyAuthentications"
+            "azureADOnlyAuthentications"
           ],
           "type": "string"
         }
@@ -8254,7 +8286,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/advancedThreatProtectionSettings"
+            "advancedThreatProtectionSettings"
           ],
           "type": "string"
         }
@@ -8302,7 +8334,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/backupLongTermRetentionPolicies"
+            "backupLongTermRetentionPolicies"
           ],
           "type": "string"
         }
@@ -8350,7 +8382,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies"
+            "backupShortTermRetentionPolicies"
           ],
           "type": "string"
         }
@@ -8407,7 +8439,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -8455,7 +8487,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -8503,7 +8535,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/transparentDataEncryption"
+            "transparentDataEncryption"
           ],
           "type": "string"
         }
@@ -8551,7 +8583,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }
@@ -8589,7 +8621,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/distributedAvailabilityGroups"
+            "distributedAvailabilityGroups"
           ],
           "type": "string"
         }
@@ -8627,7 +8659,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/dnsAliases"
+            "dnsAliases"
           ],
           "type": "string"
         }
@@ -8675,7 +8707,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/dtc"
+            "dtc"
           ],
           "type": "string"
         }
@@ -8723,7 +8755,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/encryptionProtector"
+            "encryptionProtector"
           ],
           "type": "string"
         }
@@ -8761,7 +8793,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/keys"
+            "keys"
           ],
           "type": "string"
         }
@@ -8799,7 +8831,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -8847,7 +8879,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -8885,7 +8917,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/serverTrustCertificates"
+            "serverTrustCertificates"
           ],
           "type": "string"
         }
@@ -8907,7 +8939,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/current$",
+          "enum": [
+            "current"
+          ],
           "type": "string"
         },
         "properties": {
@@ -8923,7 +8957,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/sqlAgent"
+            "sqlAgent"
           ],
           "type": "string"
         }
@@ -8971,7 +9005,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }
@@ -9019,7 +9053,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/administrators"
+            "administrators"
           ],
           "type": "string"
         }
@@ -9067,7 +9101,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/advancedThreatProtectionSettings"
+            "advancedThreatProtectionSettings"
           ],
           "type": "string"
         }
@@ -9089,18 +9123,10 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "default"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -9115,7 +9141,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/auditingSettings"
+            "auditingSettings"
           ],
           "type": "string"
         }
@@ -9163,7 +9189,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/azureADOnlyAuthentications"
+            "azureADOnlyAuthentications"
           ],
           "type": "string"
         }
@@ -9211,7 +9237,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/connectionPolicies"
+            "connectionPolicies"
           ],
           "type": "string"
         }
@@ -9259,7 +9285,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/advancedThreatProtectionSettings"
+            "advancedThreatProtectionSettings"
           ],
           "type": "string"
         }
@@ -9281,18 +9307,10 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "default"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -9307,7 +9325,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/auditingSettings"
+            "auditingSettings"
           ],
           "type": "string"
         }
@@ -9355,7 +9373,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies"
+            "backupLongTermRetentionPolicies"
           ],
           "type": "string"
         }
@@ -9403,7 +9421,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies"
+            "backupShortTermRetentionPolicies"
           ],
           "type": "string"
         }
@@ -9482,7 +9500,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -9530,7 +9548,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/dataMaskingPolicies"
+            "dataMaskingPolicies"
           ],
           "type": "string"
         }
@@ -9568,7 +9586,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
+            "rules"
           ],
           "type": "string"
         }
@@ -9590,18 +9608,10 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "default"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -9616,7 +9626,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/extendedAuditingSettings"
+            "extendedAuditingSettings"
           ],
           "type": "string"
         }
@@ -9654,7 +9664,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -9702,7 +9712,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/geoBackupPolicies"
+            "geoBackupPolicies"
           ],
           "type": "string"
         }
@@ -9750,7 +9760,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/ledgerDigestUploads"
+            "ledgerDigestUploads"
           ],
           "type": "string"
         }
@@ -9798,7 +9808,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -9836,7 +9846,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/baselines/rules"
+            "rules"
           ],
           "type": "string"
         }
@@ -9885,7 +9895,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/syncGroups"
+            "syncGroups"
           ],
           "type": "string"
         }
@@ -9923,7 +9933,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/syncGroups/syncMembers"
+            "syncMembers"
           ],
           "type": "string"
         }
@@ -9971,7 +9981,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/transparentDataEncryption"
+            "transparentDataEncryption"
           ],
           "type": "string"
         }
@@ -10019,7 +10029,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }
@@ -10057,7 +10067,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/workloadGroups"
+            "workloadGroups"
           ],
           "type": "string"
         }
@@ -10095,7 +10105,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/workloadGroups/workloadClassifiers"
+            "workloadClassifiers"
           ],
           "type": "string"
         }
@@ -10143,7 +10153,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/devOpsAuditingSettings"
+            "devOpsAuditingSettings"
           ],
           "type": "string"
         }
@@ -10211,7 +10221,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/elasticPools"
+            "elasticPools"
           ],
           "type": "string"
         }
@@ -10259,7 +10269,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/encryptionProtector"
+            "encryptionProtector"
           ],
           "type": "string"
         }
@@ -10281,18 +10291,10 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the blob auditing policy.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "default"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -10307,7 +10309,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/extendedAuditingSettings"
+            "extendedAuditingSettings"
           ],
           "type": "string"
         }
@@ -10360,7 +10362,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/failoverGroups"
+            "failoverGroups"
           ],
           "type": "string"
         }
@@ -10398,7 +10400,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }
@@ -10436,7 +10438,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/ipv6FirewallRules"
+            "ipv6FirewallRules"
           ],
           "type": "string"
         }
@@ -10504,7 +10506,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents"
+            "jobAgents"
           ],
           "type": "string"
         }
@@ -10542,7 +10544,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/credentials"
+            "credentials"
           ],
           "type": "string"
         }
@@ -10580,7 +10582,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/jobs"
+            "jobs"
           ],
           "type": "string"
         }
@@ -10618,7 +10620,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/jobs/steps"
+            "steps"
           ],
           "type": "string"
         }
@@ -10656,7 +10658,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/targetGroups"
+            "targetGroups"
           ],
           "type": "string"
         }
@@ -10694,7 +10696,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/keys"
+            "keys"
           ],
           "type": "string"
         }
@@ -10732,7 +10734,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -10780,7 +10782,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -10828,7 +10830,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/sqlVulnerabilityAssessments"
+            "sqlVulnerabilityAssessments"
           ],
           "type": "string"
         }
@@ -10866,7 +10868,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/syncAgents"
+            "syncAgents"
           ],
           "type": "string"
         }
@@ -10904,7 +10906,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/virtualNetworkRules"
+            "virtualNetworkRules"
           ],
           "type": "string"
         }
@@ -10952,7 +10954,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }

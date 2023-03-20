@@ -446,6 +446,7 @@
   },
   "definitions": {
     "AdministratorProperties": {
+      "description": "Properties of a active directory administrator.",
       "properties": {
         "administratorType": {
           "description": "Type of the sever administrator.",
@@ -498,6 +499,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "The database's properties.",
       "properties": {
         "autoPauseDelay": {
           "description": "Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled",
@@ -714,6 +716,7 @@
       "type": "object"
     },
     "ManagedDatabaseProperties": {
+      "description": "The managed database's properties.",
       "properties": {
         "catalogCollation": {
           "description": "Collation of the metadata catalog.",
@@ -792,6 +795,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {
         "type": {
           "description": "The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.",
@@ -814,6 +818,7 @@
       "type": "object"
     },
     "ServerProperties": {
+      "description": "The properties of a server.",
       "properties": {
         "administratorLogin": {
           "description": "Administrator username for the server. Once created it cannot be changed.",
@@ -850,6 +855,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "An ARM Resource SKU.",
       "properties": {
         "capacity": {
           "description": "Capacity of the particular SKU.",
@@ -885,6 +891,7 @@
       "type": "object"
     },
     "SyncGroupProperties": {
+      "description": "Properties of a sync group.",
       "properties": {
         "conflictResolutionPolicy": {
           "description": "Conflict resolution policy of the sync group.",
@@ -950,6 +957,7 @@
       "type": "object"
     },
     "SyncGroupSchema": {
+      "description": "Properties of sync group schema.",
       "properties": {
         "masterSyncMemberName": {
           "description": "Name of master sync member where the schema is from.",
@@ -980,6 +988,7 @@
       "type": "object"
     },
     "SyncGroupSchemaTable": {
+      "description": "Properties of table in sync group schema.",
       "properties": {
         "columns": {
           "description": "List of columns in sync group schema.",
@@ -1010,6 +1019,7 @@
       "type": "object"
     },
     "SyncGroupSchemaTableColumn": {
+      "description": "Properties of column in sync group table.",
       "properties": {
         "dataSize": {
           "description": "Data size of the column.",
@@ -1027,6 +1037,7 @@
       "type": "object"
     },
     "SyncMemberProperties": {
+      "description": "Properties of a sync member.",
       "properties": {
         "databaseName": {
           "description": "Database name of the member database in the sync member.",
@@ -1110,6 +1121,7 @@
       "type": "object"
     },
     "WorkloadClassifierProperties": {
+      "description": "Workload classifier definition. For more information look at sys.workload_management_workload_classifiers (DMV).",
       "properties": {
         "context": {
           "description": "The workload classifier context.",
@@ -1142,6 +1154,7 @@
       "type": "object"
     },
     "WorkloadGroupProperties": {
+      "description": "Workload group definition. For more information look at sys.workload_management_workload_groups (DMV).",
       "properties": {
         "importance": {
           "description": "The workload group importance level.",
@@ -1246,7 +1259,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/administrators"
+            "administrators"
           ],
           "type": "string"
         }
@@ -1314,7 +1327,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -1352,7 +1365,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/syncGroups"
+            "syncGroups"
           ],
           "type": "string"
         }
@@ -1390,7 +1403,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/syncGroups/syncMembers"
+            "syncMembers"
           ],
           "type": "string"
         }
@@ -1428,7 +1441,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/workloadGroups"
+            "workloadGroups"
           ],
           "type": "string"
         }
@@ -1466,7 +1479,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/workloadGroups/workloadClassifiers"
+            "workloadClassifiers"
           ],
           "type": "string"
         }

@@ -142,6 +142,7 @@
   },
   "definitions": {
     "ApplicationGetEndpoint": {
+      "description": "Gets the application SSH endpoint",
       "properties": {
         "destinationPort": {
           "description": "The destination port to connect to.",
@@ -177,6 +178,7 @@
       "type": "object"
     },
     "ApplicationGetHttpsEndpoint": {
+      "description": "Gets the application HTTP endpoints.",
       "properties": {
         "accessModes": {
           "description": "The list of access modes for the application.",
@@ -226,6 +228,7 @@
       "type": "object"
     },
     "ApplicationProperties": {
+      "description": "The HDInsight cluster application GET response.",
       "properties": {
         "applicationType": {
           "description": "The application type.",
@@ -351,6 +354,7 @@
       "type": "object"
     },
     "Autoscale": {
+      "description": "The autoscale request parameters",
       "properties": {
         "capacity": {
           "description": "Parameters for load-based autoscale",
@@ -378,6 +382,7 @@
       "type": "object"
     },
     "AutoscaleCapacity": {
+      "description": "The load-based autoscale request parameters",
       "properties": {
         "maxInstanceCount": {
           "description": "The maximum instance count of the cluster",
@@ -405,6 +410,7 @@
       "type": "object"
     },
     "AutoscaleRecurrence": {
+      "description": "Schedule-based autoscale request parameters",
       "properties": {
         "schedule": {
           "description": "Array of schedule-based autoscale rules",
@@ -435,6 +441,7 @@
       "type": "object"
     },
     "AutoscaleSchedule": {
+      "description": "Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity",
       "properties": {
         "days": {
           "description": "Days of the week for a schedule-based autoscale rule",
@@ -481,6 +488,7 @@
       "type": "object"
     },
     "AutoscaleTimeAndCapacity": {
+      "description": "Time and capacity request parameters",
       "properties": {
         "maxInstanceCount": {
           "description": "The maximum instance count of the cluster",
@@ -512,6 +520,7 @@
       "type": "object"
     },
     "ClientGroupInfo": {
+      "description": "The information of AAD security group.",
       "properties": {
         "groupId": {
           "description": "The AAD security group id.",
@@ -525,6 +534,7 @@
       "type": "object"
     },
     "ClusterCreateProperties": {
+      "description": "The cluster create parameters.",
       "properties": {
         "clusterDefinition": {
           "description": "The cluster definition.",
@@ -667,6 +677,7 @@
       "type": "object"
     },
     "ClusterDefinition": {
+      "description": "The cluster definition.",
       "properties": {
         "blueprint": {
           "description": "The link to the blueprint.",
@@ -698,6 +709,7 @@
       "type": "object"
     },
     "ClusterIdentity": {
+      "description": "Identity for the cluster.",
       "properties": {
         "type": {
           "description": "The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.",
@@ -751,6 +763,7 @@
       "type": "object"
     },
     "ComputeIsolationProperties": {
+      "description": "The compute isolation properties.",
       "properties": {
         "enableComputeIsolation": {
           "description": "The flag indicates whether enable compute isolation or not.",
@@ -771,6 +784,7 @@
       "type": "object"
     },
     "ComputeProfile": {
+      "description": "Describes the compute profile.",
       "properties": {
         "roles": {
           "description": "The list of roles in the cluster.",
@@ -797,6 +811,7 @@
       "type": "object"
     },
     "DataDisksGroups": {
+      "description": "The data disks groups for the role.",
       "properties": {
         "disksPerNode": {
           "description": "The number of disks per node.",
@@ -813,6 +828,7 @@
       "type": "object"
     },
     "DiskEncryptionProperties": {
+      "description": "The disk encryption properties",
       "properties": {
         "encryptionAlgorithm": {
           "description": "Algorithm identifier for encryption, default RSA-OAEP.",
@@ -861,6 +877,7 @@
       "type": "object"
     },
     "EncryptionInTransitProperties": {
+      "description": "The encryption-in-transit properties.",
       "properties": {
         "isEncryptionInTransitEnabled": {
           "description": "Indicates whether or not inter cluster node communication is encrypted in transit.",
@@ -877,6 +894,7 @@
       "type": "object"
     },
     "Errors": {
+      "description": "The error message associated with the cluster creation.",
       "properties": {
         "code": {
           "description": "The error code.",
@@ -890,6 +908,7 @@
       "type": "object"
     },
     "HardwareProfile": {
+      "description": "The hardware profile.",
       "properties": {
         "vmSize": {
           "description": "The size of the VM",
@@ -899,6 +918,7 @@
       "type": "object"
     },
     "KafkaRestProperties": {
+      "description": "The kafka rest proxy configuration which contains AAD security group information.",
       "properties": {
         "clientGroupInfo": {
           "description": "The information of AAD security group.",
@@ -930,6 +950,7 @@
       "type": "object"
     },
     "LinuxOperatingSystemProfile": {
+      "description": "The ssh username, password, and ssh public key.",
       "properties": {
         "password": {
           "description": "The password.",
@@ -954,6 +975,7 @@
       "type": "object"
     },
     "NetworkProperties": {
+      "description": "The network properties.",
       "properties": {
         "privateLink": {
           "description": "Indicates whether or not private link is enabled.",
@@ -989,6 +1011,7 @@
       "type": "object"
     },
     "OsProfile": {
+      "description": "The Linux operation systems profile.",
       "properties": {
         "linuxOperatingSystemProfile": {
           "description": "The Linux OS profile.",
@@ -1005,6 +1028,7 @@
       "type": "object"
     },
     "Role": {
+      "description": "Describes a role on the cluster.",
       "properties": {
         "VMGroupName": {
           "description": "The name of the virtual machine group.",
@@ -1137,6 +1161,7 @@
       "type": "object"
     },
     "RuntimeScriptAction": {
+      "description": "Describes a script action on a running cluster.",
       "properties": {
         "name": {
           "description": "The name of the script action.",
@@ -1173,6 +1198,7 @@
       "type": "object"
     },
     "ScriptAction": {
+      "description": "Describes a script action on role on the cluster.",
       "properties": {
         "name": {
           "description": "The name of the script action.",
@@ -1195,6 +1221,7 @@
       "type": "object"
     },
     "SecurityProfile": {
+      "description": "The security profile which contains Ssh public key for the HDInsight cluster.",
       "properties": {
         "aaddsResourceId": {
           "description": "The resource ID of the user's Azure Active Directory Domain Service.",
@@ -1219,7 +1246,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "ActiveDirectory"
               ],
               "type": "string"
             },
@@ -1266,6 +1293,7 @@
       "type": "object"
     },
     "SshProfile": {
+      "description": "The list of SSH public keys.",
       "properties": {
         "publicKeys": {
           "description": "The list of SSH public keys.",
@@ -1292,6 +1320,7 @@
       "type": "object"
     },
     "SshPublicKey": {
+      "description": "The SSH public key for the cluster nodes.",
       "properties": {
         "certificateData": {
           "description": "The certificate for SSH.",
@@ -1301,6 +1330,7 @@
       "type": "object"
     },
     "StorageAccount": {
+      "description": "The storage Account.",
       "properties": {
         "container": {
           "description": "The container in the storage account, only to be specified for WASB storage accounts.",
@@ -1349,6 +1379,7 @@
       "type": "object"
     },
     "StorageProfile": {
+      "description": "The storage profile.",
       "properties": {
         "storageaccounts": {
           "description": "The list of storage accounts in the cluster.",
@@ -1375,6 +1406,7 @@
       "type": "object"
     },
     "VirtualNetworkProfile": {
+      "description": "The virtual network properties.",
       "properties": {
         "id": {
           "description": "The ID of the virtual network.",
@@ -1432,7 +1464,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.HDInsight/clusters/applications"
+            "applications"
           ],
           "type": "string"
         }

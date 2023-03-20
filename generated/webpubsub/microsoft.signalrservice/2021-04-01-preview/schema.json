@@ -175,6 +175,7 @@
   },
   "definitions": {
     "EventHandlerSettings": {
+      "description": "The settings for event handler in webpubsub service",
       "properties": {
         "items": {
           "description": "Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.",
@@ -212,6 +213,7 @@
       "type": "object"
     },
     "EventHandlerTemplate": {
+      "description": "EventHandler template item settings.",
       "properties": {
         "auth": {
           "description": "Gets or sets the auth settings for an event handler. If not set, no auth is used.",
@@ -243,6 +245,7 @@
       "type": "object"
     },
     "ManagedIdentity": {
+      "description": "A class represent managed identities used for request and response",
       "properties": {
         "type": {
           "description": "Represent the identity type: systemAssigned, userAssigned, None",
@@ -286,6 +289,7 @@
       "type": "object"
     },
     "ManagedIdentitySettings": {
+      "description": "Managed identity settings for upstream.",
       "properties": {
         "resource": {
           "description": "The Resource indicating the App ID URI of the target resource.\r\nIt also appears in the aud (audience) claim of the issued token.",
@@ -295,6 +299,7 @@
       "type": "object"
     },
     "NetworkACL": {
+      "description": "Network ACL",
       "properties": {
         "allow": {
           "description": "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
@@ -354,6 +359,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "Private endpoint",
       "properties": {
         "id": {
           "description": "Full qualified Id of the private endpoint",
@@ -363,6 +369,7 @@
       "type": "object"
     },
     "PrivateEndpointACL": {
+      "description": "ACL for a private endpoint",
       "properties": {
         "allow": {
           "description": "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
@@ -429,6 +436,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Private endpoint connection properties",
       "properties": {
         "privateEndpoint": {
           "description": "Private endpoint associated with the private endpoint connection",
@@ -456,6 +464,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "Connection state of the private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -486,6 +495,7 @@
       "type": "object"
     },
     "ResourceSku": {
+      "description": "The billing information of the resource.",
       "properties": {
         "capacity": {
           "description": "Optional, integer. The unit count of the resource. 1 by default.\r\n\r\nIf present, following values are allowed:\r\n    Free: 1\r\n    Standard: 1,2,5,10,20,50,100",
@@ -526,6 +536,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperties": {
+      "description": "Describes the properties of an existing Shared Private Link Resource",
       "properties": {
         "groupId": {
           "description": "The group id from the provider of resource the shared private link resource is for",
@@ -547,6 +558,7 @@
       "type": "object"
     },
     "UpstreamAuthSettings": {
+      "description": "Upstream auth settings.",
       "properties": {
         "managedIdentity": {
           "description": "Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.",
@@ -578,10 +590,12 @@
       "type": "object"
     },
     "UserAssignedIdentityProperty": {
+      "description": "Properties of user assigned identity.",
       "properties": {},
       "type": "object"
     },
     "WebPubSubFeature": {
+      "description": "Feature of a resource, which controls the runtime behavior.",
       "properties": {
         "flag": {
           "description": "FeatureFlags is the supported features of Azure SignalR service.\n - EnableConnectivityLogs: \"true\"/\"false\", to enable/disable the connectivity log category respectively.\n - EnableMessagingLogs: \"true\"/\"false\", to enable/disable the connectivity log category respectively.\n - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: \"true\"/\"false\", to enable/disable live trace feature.\n ",
@@ -635,6 +649,7 @@
       "type": "object"
     },
     "WebPubSubNetworkACLs": {
+      "description": "Network ACLs for the resource",
       "properties": {
         "defaultAction": {
           "description": "Default action when no other rule matches",
@@ -687,6 +702,7 @@
       "type": "object"
     },
     "WebPubSubProperties": {
+      "description": "A class that describes the properties of the resource",
       "properties": {
         "eventHandler": {
           "description": "The settings for event handler in webpubsub service.",
@@ -750,6 +766,7 @@
       "type": "object"
     },
     "WebPubSubTlsSettings": {
+      "description": "TLS settings for the resource",
       "properties": {
         "clientCertEnabled": {
           "description": "Request client certificate during TLS handshake if enabled",
@@ -791,7 +808,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/webPubSub/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -829,7 +846,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/webPubSub/sharedPrivateLinkResources"
+            "sharedPrivateLinkResources"
           ],
           "type": "string"
         }

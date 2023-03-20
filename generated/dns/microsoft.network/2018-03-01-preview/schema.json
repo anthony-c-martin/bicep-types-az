@@ -525,6 +525,7 @@
   },
   "definitions": {
     "ARecord": {
+      "description": "An A record.",
       "properties": {
         "ipv4Address": {
           "description": "The IPv4 address of this A record.",
@@ -534,6 +535,7 @@
       "type": "object"
     },
     "AaaaRecord": {
+      "description": "An AAAA record.",
       "properties": {
         "ipv6Address": {
           "description": "The IPv6 address of this AAAA record.",
@@ -543,6 +545,7 @@
       "type": "object"
     },
     "CaaRecord": {
+      "description": "A CAA record.",
       "properties": {
         "flags": {
           "description": "The flags for this CAA record as an integer between 0 and 255.",
@@ -567,6 +570,7 @@
       "type": "object"
     },
     "CnameRecord": {
+      "description": "A CNAME record.",
       "properties": {
         "cname": {
           "description": "The canonical name for this CNAME record.",
@@ -576,6 +580,7 @@
       "type": "object"
     },
     "MxRecord": {
+      "description": "An MX record.",
       "properties": {
         "exchange": {
           "description": "The domain name of the mail host for this MX record.",
@@ -596,6 +601,7 @@
       "type": "object"
     },
     "NsRecord": {
+      "description": "An NS record.",
       "properties": {
         "nsdname": {
           "description": "The name server name for this NS record.",
@@ -605,6 +611,7 @@
       "type": "object"
     },
     "PtrRecord": {
+      "description": "A PTR record.",
       "properties": {
         "ptrdname": {
           "description": "The PTR target domain name for this PTR record.",
@@ -614,6 +621,7 @@
       "type": "object"
     },
     "RecordSetProperties": {
+      "description": "Represents the properties of the records in the record set.",
       "properties": {
         "AAAARecords": {
           "description": "The list of AAAA records in the record set.",
@@ -835,6 +843,7 @@
       "type": "object"
     },
     "SoaRecord": {
+      "description": "An SOA record.",
       "properties": {
         "email": {
           "description": "The email contact for this SOA record.",
@@ -903,6 +912,7 @@
       "type": "object"
     },
     "SrvRecord": {
+      "description": "An SRV record.",
       "properties": {
         "port": {
           "description": "The port value for this SRV record.",
@@ -945,6 +955,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "A reference to a another resource",
       "properties": {
         "id": {
           "description": "Resource Id.",
@@ -954,6 +965,7 @@
       "type": "object"
     },
     "TxtRecord": {
+      "description": "A TXT record.",
       "properties": {
         "value": {
           "description": "The text value of this TXT record.",
@@ -973,6 +985,7 @@
       "type": "object"
     },
     "ZoneProperties": {
+      "description": "Represents the properties of the zone.",
       "properties": {
         "registrationVirtualNetworks": {
           "description": "A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.",
@@ -1064,7 +1077,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/AAAA"
+            "AAAA"
           ],
           "type": "string"
         }
@@ -1106,7 +1119,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/A"
+            "A"
           ],
           "type": "string"
         }
@@ -1148,7 +1161,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/CAA"
+            "CAA"
           ],
           "type": "string"
         }
@@ -1190,7 +1203,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/CNAME"
+            "CNAME"
           ],
           "type": "string"
         }
@@ -1232,7 +1245,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/MX"
+            "MX"
           ],
           "type": "string"
         }
@@ -1274,7 +1287,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/NS"
+            "NS"
           ],
           "type": "string"
         }
@@ -1316,7 +1329,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/PTR"
+            "PTR"
           ],
           "type": "string"
         }
@@ -1358,7 +1371,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/SOA"
+            "SOA"
           ],
           "type": "string"
         }
@@ -1400,7 +1413,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/SRV"
+            "SRV"
           ],
           "type": "string"
         }
@@ -1442,7 +1455,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsZones/TXT"
+            "TXT"
           ],
           "type": "string"
         }

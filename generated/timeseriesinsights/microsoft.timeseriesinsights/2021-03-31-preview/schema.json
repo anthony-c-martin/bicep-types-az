@@ -351,6 +351,7 @@
       "type": "object"
     },
     "LocalTimestamp": {
+      "description": "An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.",
       "properties": {
         "format": {
           "description": "An enum that represents the format of the local timestamp property that needs to be set.",
@@ -381,6 +382,7 @@
       "type": "object"
     },
     "LocalTimestampTimeZoneOffset": {
+      "description": "An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.",
       "properties": {
         "propertyName": {
           "description": "The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)",
@@ -390,10 +392,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "groupIds": {
           "description": "The provisioning state of the private endpoint connection resource.",
@@ -438,6 +442,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -467,6 +472,7 @@
       "type": "object"
     },
     "ReferenceDataSetCreationProperties": {
+      "description": "Properties used to create a reference data set.",
       "properties": {
         "dataStringComparisonBehavior": {
           "description": "The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.",
@@ -511,6 +517,7 @@
       "type": "object"
     },
     "ReferenceDataSetKeyProperty": {
+      "description": "A key property for the reference data set. A reference data set can have multiple key properties.",
       "properties": {
         "name": {
           "description": "The name of the key property.",
@@ -537,6 +544,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.",
       "properties": {
         "capacity": {
           "description": "The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.",
@@ -609,7 +617,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TimeSeriesInsights/environments/accessPolicies"
+            "accessPolicies"
           ],
           "type": "string"
         }
@@ -676,7 +684,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TimeSeriesInsights/environments/eventSources"
+            "eventSources"
           ],
           "type": "string"
         }
@@ -714,7 +722,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TimeSeriesInsights/environments/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -781,7 +789,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TimeSeriesInsights/environments/referenceDataSets"
+            "referenceDataSets"
           ],
           "type": "string"
         }

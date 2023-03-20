@@ -56,10 +56,12 @@
   },
   "definitions": {
     "ErrorDetail": {
+      "description": "The error detail.",
       "properties": {},
       "type": "object"
     },
     "ExtensionProperties": {
+      "description": "Properties of an Extension resource",
       "properties": {
         "aksAssignedIdentity": {
           "description": "Identity of the Extension resource in an AKS cluster",
@@ -172,13 +174,14 @@
       "type": "object"
     },
     "ExtensionPropertiesAksAssignedIdentity": {
+      "description": "Identity of the Extension resource in an AKS cluster",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -191,6 +194,7 @@
       "type": "object"
     },
     "ExtensionStatus": {
+      "description": "Status from the extension.",
       "properties": {
         "code": {
           "description": "Status code provided by the Extension",
@@ -228,13 +232,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -247,6 +252,7 @@
       "type": "object"
     },
     "Scope": {
+      "description": "Scope of the extension. It can be either Cluster or Namespace; but not both.",
       "properties": {
         "cluster": {
           "description": "Specifies that the scope of the extension is Cluster",
@@ -274,6 +280,7 @@
       "type": "object"
     },
     "ScopeCluster": {
+      "description": "Specifies that the scope of the extension is Cluster",
       "properties": {
         "releaseNamespace": {
           "description": "Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created",
@@ -283,6 +290,7 @@
       "type": "object"
     },
     "ScopeNamespace": {
+      "description": "Specifies that the scope of the extension is Namespace",
       "properties": {
         "targetNamespace": {
           "description": "Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created",

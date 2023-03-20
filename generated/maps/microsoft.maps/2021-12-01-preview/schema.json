@@ -172,6 +172,7 @@
       "type": "object"
     },
     "CorsRule": {
+      "description": "Specifies a CORS rule for the Map Account.",
       "properties": {
         "allowedOrigins": {
           "description": "Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or \"*\" to allow all domains",
@@ -194,6 +195,7 @@
       "type": "object"
     },
     "CorsRules": {
+      "description": "Sets the CORS rules. You can include up to five CorsRule elements in the request. ",
       "properties": {
         "corsRules": {
           "description": "The list of CORS rules. You can include up to five CorsRule elements in the request. ",
@@ -220,6 +222,7 @@
       "type": "object"
     },
     "CreatorProperties": {
+      "description": "Creator resource properties",
       "properties": {
         "storageUnits": {
           "description": "The storage units to be allocated. Integer values from 1 to 100, inclusive.",
@@ -239,6 +242,7 @@
       "type": "object"
     },
     "LinkedResource": {
+      "description": "Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.",
       "properties": {
         "id": {
           "description": "ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.",
@@ -256,6 +260,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -300,6 +305,7 @@
       "type": "object"
     },
     "MapsAccountProperties": {
+      "description": "Additional Map account properties",
       "properties": {
         "cors": {
           "description": "Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.",
@@ -348,6 +354,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The SKU of the Maps Account.",
       "properties": {
         "name": {
           "description": "The name of the SKU, in standard format (such as S0).",
@@ -416,7 +423,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Maps/accounts/creators"
+            "creators"
           ],
           "type": "string"
         }

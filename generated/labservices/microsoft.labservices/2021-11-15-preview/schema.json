@@ -306,6 +306,7 @@
   },
   "definitions": {
     "AutoShutdownProfile": {
+      "description": "Profile for how to handle shutting down virtual machines.",
       "properties": {
         "disconnectDelay": {
           "description": "The amount of time a VM will stay running after a user disconnects if this behavior is enabled.",
@@ -369,6 +370,7 @@
       "type": "object"
     },
     "ConnectionProfile": {
+      "description": "Connection profile for how users connect to lab virtual machines.",
       "properties": {
         "clientRdpAccess": {
           "description": "The enabled access level for Client Access over RDP.",
@@ -438,6 +440,7 @@
       "type": "object"
     },
     "Credentials": {
+      "description": "Credentials for a user on a lab VM.",
       "properties": {
         "password": {
           "description": "The password for the user. This is required for the TemplateVM createOption.",
@@ -454,6 +457,7 @@
       "type": "object"
     },
     "ImageProperties": {
+      "description": "Properties of an image resource.",
       "properties": {
         "availableRegions": {
           "description": "The available regions of the image in the shared gallery.",
@@ -488,6 +492,7 @@
       "type": "object"
     },
     "ImageReference": {
+      "description": "Image reference information. Used in the virtual machine profile.",
       "properties": {
         "id": {
           "description": "Image resource ID",
@@ -522,6 +527,7 @@
       "type": "object"
     },
     "LabNetworkProfile": {
+      "description": "Profile for how to handle networking for Labs.",
       "properties": {
         "loadBalancerId": {
           "description": "The external load balancer resource id",
@@ -566,6 +572,7 @@
       "type": "object"
     },
     "LabPlanNetworkProfile": {
+      "description": "Profile for how to handle networking for Lab Plans.",
       "properties": {
         "subnetId": {
           "description": "The external subnet resource id",
@@ -584,6 +591,7 @@
       "type": "object"
     },
     "LabPlanProperties": {
+      "description": "Lab plan resource properties",
       "properties": {
         "allowedRegions": {
           "description": "The allowed regions for the lab creator to use when creating labs using this lab plan.",
@@ -673,6 +681,7 @@
       "type": "object"
     },
     "LabProperties": {
+      "description": "Properties of a lab resource.",
       "properties": {
         "autoShutdownProfile": {
           "description": "The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.",
@@ -774,6 +783,7 @@
       "type": "object"
     },
     "RecurrencePattern": {
+      "description": "Recurrence pattern of a lab schedule.",
       "properties": {
         "expirationDate": {
           "description": "When the recurrence will expire. This date is inclusive.",
@@ -843,6 +853,7 @@
       "type": "object"
     },
     "RosterProfile": {
+      "description": "The lab user list management profile.",
       "properties": {
         "activeDirectoryGroupId": {
           "description": "The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.",
@@ -868,6 +879,7 @@
       "type": "object"
     },
     "ScheduleProperties": {
+      "description": "Schedule resource properties",
       "properties": {
         "notes": {
           "description": "Notes for this schedule.",
@@ -932,6 +944,7 @@
       "type": "object"
     },
     "SecurityProfile": {
+      "description": "The lab security profile.",
       "properties": {
         "openAccess": {
           "description": "Whether any user or only specified users can register to a lab.",
@@ -952,6 +965,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The resource model definition representing SKU",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -1000,6 +1014,7 @@
       "type": "object"
     },
     "SupportInfo": {
+      "description": "Support contact information and instructions.",
       "properties": {
         "email": {
           "description": "Support contact email address.",
@@ -1048,6 +1063,7 @@
       "type": "object"
     },
     "UserProperties": {
+      "description": "User resource properties",
       "properties": {
         "additionalUsageQuota": {
           "description": "The amount of usage quota time the user gets in addition to the lab usage quota.",
@@ -1073,6 +1089,7 @@
       "type": "object"
     },
     "VirtualMachineAdditionalCapabilities": {
+      "description": "The additional capabilities for a lab VM.",
       "properties": {
         "installGpuDrivers": {
           "description": "Flag to pre-install dedicated GPU drivers.",
@@ -1093,6 +1110,7 @@
       "type": "object"
     },
     "VirtualMachineProfile": {
+      "description": "The base virtual machine configuration for a lab.",
       "properties": {
         "additionalCapabilities": {
           "description": "Additional VM capabilities.",
@@ -1229,7 +1247,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labPlans/images"
+            "images"
           ],
           "type": "string"
         }
@@ -1277,7 +1295,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labs/schedules"
+            "schedules"
           ],
           "type": "string"
         }
@@ -1325,7 +1343,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labs/users"
+            "users"
           ],
           "type": "string"
         }

@@ -104,6 +104,7 @@
   },
   "definitions": {
     "AutoscaleNotification": {
+      "description": "Autoscale notification.",
       "properties": {
         "email": {
           "description": "the email notification.",
@@ -121,7 +122,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Scale"
               ],
               "type": "string"
             },
@@ -158,6 +159,7 @@
       "type": "object"
     },
     "AutoscaleProfile": {
+      "description": "Autoscale profile.",
       "properties": {
         "capacity": {
           "description": "the number of instances that can be used during this profile.",
@@ -226,6 +228,7 @@
       "type": "object"
     },
     "AutoscaleSetting": {
+      "description": "A setting that contains all of the configuration for the automatic scaling of a resource.",
       "properties": {
         "enabled": {
           "description": "the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.",
@@ -310,6 +313,7 @@
       "type": "object"
     },
     "DiagnosticSettings": {
+      "description": "The diagnostic settings.",
       "properties": {
         "eventHubAuthorizationRuleId": {
           "description": "The resource Id for the event hub authorization rule.",
@@ -385,6 +389,7 @@
       "type": "object"
     },
     "EmailNotification": {
+      "description": "Email notification of an autoscale event.",
       "properties": {
         "customEmails": {
           "description": "the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.",
@@ -426,6 +431,7 @@
       "type": "object"
     },
     "LogSettings": {
+      "description": "Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.",
       "properties": {
         "category": {
           "description": "Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.",
@@ -464,6 +470,7 @@
       "type": "object"
     },
     "MetricSettings": {
+      "description": "Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.",
       "properties": {
         "category": {
           "description": "Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.",
@@ -502,6 +509,7 @@
       "type": "object"
     },
     "MetricTrigger": {
+      "description": "The trigger that results in a scaling action.",
       "properties": {
         "dimensions": {
           "description": "List of dimension conditions. For example: [{\"DimensionName\":\"AppName\",\"Operator\":\"Equals\",\"Values\":[\"App1\"]},{\"DimensionName\":\"Deployment\",\"Operator\":\"Equals\",\"Values\":[\"default\"]}].",
@@ -640,6 +648,7 @@
       "type": "object"
     },
     "PredictiveAutoscalePolicy": {
+      "description": "The parameters for enabling predictive autoscale.",
       "properties": {
         "scaleLookAheadTime": {
           "description": "the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.",
@@ -668,6 +677,7 @@
       "type": "object"
     },
     "Recurrence": {
+      "description": "The repeating times at which this profile begins. This element is not used if the FixedDate element is used.",
       "properties": {
         "frequency": {
           "description": "the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.",
@@ -709,6 +719,7 @@
       "type": "object"
     },
     "RecurrentSchedule": {
+      "description": "The scheduling constraints for when the profile begins.",
       "properties": {
         "days": {
           "description": "the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.",
@@ -780,6 +791,7 @@
       "type": "object"
     },
     "RetentionPolicy": {
+      "description": "Specifies the retention policy for the log.",
       "properties": {
         "days": {
           "description": "the number of days for the retention in days. A value of 0 will retain the events indefinitely.",
@@ -811,6 +823,7 @@
       "type": "object"
     },
     "ScaleAction": {
+      "description": "The parameters for the scaling action.",
       "properties": {
         "cooldown": {
           "description": "the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.",
@@ -862,6 +875,7 @@
       "type": "object"
     },
     "ScaleCapacity": {
+      "description": "The number of instances that can be used during this profile.",
       "properties": {
         "default": {
           "description": "the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.",
@@ -884,6 +898,7 @@
       "type": "object"
     },
     "ScaleRule": {
+      "description": "A rule that provide the triggers and parameters for the scaling action.",
       "properties": {
         "metricTrigger": {
           "description": "the trigger that results in a scaling action.",
@@ -915,6 +930,7 @@
       "type": "object"
     },
     "ScaleRuleMetricDimension": {
+      "description": "Specifies an auto scale rule metric dimension.",
       "properties": {
         "DimensionName": {
           "description": "Name of the dimension.",
@@ -958,6 +974,7 @@
       "type": "object"
     },
     "TimeWindow": {
+      "description": "A specific date-time for the profile.",
       "properties": {
         "end": {
           "description": "the end time for the profile in ISO 8601 format.",
@@ -995,6 +1012,7 @@
       "type": "object"
     },
     "WebhookNotification": {
+      "description": "Webhook notification of an autoscale event.",
       "properties": {
         "properties": {
           "description": "a property bag of settings. This value can be empty.",

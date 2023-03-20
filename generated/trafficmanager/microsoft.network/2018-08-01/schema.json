@@ -210,6 +210,7 @@
   },
   "definitions": {
     "DnsConfig": {
+      "description": "Class containing DNS settings in a Traffic Manager profile.",
       "properties": {
         "relativeName": {
           "description": "The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.",
@@ -230,6 +231,7 @@
       "type": "object"
     },
     "Endpoint": {
+      "description": "Class representing a Traffic Manager endpoint.",
       "properties": {
         "id": {
           "description": "Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}",
@@ -258,6 +260,7 @@
       "type": "object"
     },
     "EndpointProperties": {
+      "description": "Class representing a Traffic Manager endpoint properties.",
       "properties": {
         "customHeaders": {
           "description": "List of custom headers.",
@@ -420,6 +423,7 @@
       "type": "object"
     },
     "EndpointPropertiesCustomHeadersItem": {
+      "description": "Custom header name and value.",
       "properties": {
         "name": {
           "description": "Header name.",
@@ -433,6 +437,7 @@
       "type": "object"
     },
     "EndpointPropertiesSubnetsItem": {
+      "description": "Subnet first address, scope, and/or last address.",
       "properties": {
         "first": {
           "description": "First address in the subnet.",
@@ -457,6 +462,7 @@
       "type": "object"
     },
     "MonitorConfig": {
+      "description": "Class containing endpoint monitoring settings in a Traffic Manager profile.",
       "properties": {
         "customHeaders": {
           "description": "List of custom headers.",
@@ -586,6 +592,7 @@
       "type": "object"
     },
     "MonitorConfigCustomHeadersItem": {
+      "description": "Custom header name and value.",
       "properties": {
         "name": {
           "description": "Header name.",
@@ -599,6 +606,7 @@
       "type": "object"
     },
     "MonitorConfigExpectedStatusCodeRangesItem": {
+      "description": "Min and max value of a status code range.",
       "properties": {
         "max": {
           "description": "Max status code.",
@@ -626,6 +634,7 @@
       "type": "object"
     },
     "ProfileProperties": {
+      "description": "Class representing the Traffic Manager profile properties.",
       "properties": {
         "allowedEndpointRecordTypes": {
           "description": "The list of allowed endpoint record types.",
@@ -790,7 +799,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/trafficmanagerprofiles/AzureEndpoints"
+            "AzureEndpoints"
           ],
           "type": "string"
         }
@@ -832,7 +841,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/trafficmanagerprofiles/ExternalEndpoints"
+            "ExternalEndpoints"
           ],
           "type": "string"
         }
@@ -874,7 +883,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/trafficmanagerprofiles/NestedEndpoints"
+            "NestedEndpoints"
           ],
           "type": "string"
         }

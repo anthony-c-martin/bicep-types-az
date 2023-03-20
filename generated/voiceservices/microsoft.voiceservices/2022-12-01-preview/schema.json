@@ -215,6 +215,7 @@
   },
   "definitions": {
     "CommunicationsGatewayProperties": {
+      "description": "Details of the CommunicationsGateway resource.",
       "properties": {
         "apiBridge": {
           "description": "Details of API bridge functionality, if required"
@@ -334,6 +335,7 @@
       "type": "object"
     },
     "ContactProperties": {
+      "description": "Details of the Contact resource.",
       "properties": {
         "contactName": {
           "description": "Full name of contact",
@@ -361,6 +363,7 @@
       "type": "object"
     },
     "PrimaryRegionProperties": {
+      "description": "The configuration used in this region as primary, and other regions as backup.",
       "properties": {
         "esrpAddresses": {
           "description": "IP address to use to contact the ESRP from this region",
@@ -397,6 +400,7 @@
       "type": "object"
     },
     "ServiceRegionProperties": {
+      "description": "The service region configuration needed for Teams Callings.",
       "properties": {
         "name": {
           "description": "The name of the region in which the resources needed for Teams Calling will be deployed.",
@@ -421,6 +425,7 @@
       "type": "object"
     },
     "TestLineProperties": {
+      "description": "Details of the TestLine resource.",
       "properties": {
         "phoneNumber": {
           "description": "The phone number",
@@ -501,7 +506,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.VoiceServices/communicationsGateways/contacts"
+            "contacts"
           ],
           "type": "string"
         }
@@ -566,7 +571,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.VoiceServices/communicationsGateways/testLines"
+            "testLines"
           ],
           "type": "string"
         }

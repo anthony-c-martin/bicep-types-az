@@ -1314,6 +1314,7 @@
   },
   "definitions": {
     "AdministrativeCredentials": {
+      "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
       "properties": {
         "password": {
           "description": "The password of the administrator of the device used during initialization.",
@@ -1347,6 +1348,7 @@
       "type": "object"
     },
     "BareMetalMachineConfigurationData": {
+      "description": "BareMetalMachineConfigurationData represents configuration for the bare metal machine.",
       "properties": {
         "bmcCredentials": {
           "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
@@ -1441,6 +1443,7 @@
       "type": "object"
     },
     "BareMetalMachineKeySetProperties": {
+      "description": "BareMetalMachineKeySetProperties represents the properties of bare metal machine key set.",
       "properties": {
         "azureGroupId": {
           "description": "The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.",
@@ -1532,6 +1535,7 @@
       "type": "object"
     },
     "BareMetalMachineProperties": {
+      "description": "BareMetalMachineProperties represents the properties of a bare metal machine.",
       "properties": {
         "bmcConnectionString": {
           "description": "The connection string for the baseboard management controller including IP address and protocol.",
@@ -1666,6 +1670,7 @@
       "type": "object"
     },
     "BgpPeer": {
+      "description": "BgpPeer represents the IP address and ASN(Autonomous System Number) to peer with Hybrid AKS cluster.",
       "properties": {
         "asNumber": {
           "description": "The ASN (Autonomous System Number) of the BGP peer.",
@@ -1703,6 +1708,7 @@
       "type": "object"
     },
     "BmcKeySetProperties": {
+      "description": "BmcKeySetProperties represents the properties of baseboard management controller key set.",
       "properties": {
         "azureGroupId": {
           "description": "The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.",
@@ -1766,6 +1772,7 @@
       "type": "object"
     },
     "CloudServicesNetworkProperties": {
+      "description": "CloudServicesNetworkProperties represents properties of the cloud services network.",
       "properties": {
         "additionalEgressEndpoints": {
           "description": "The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.",
@@ -1807,6 +1814,7 @@
       "type": "object"
     },
     "ClusterCapacity": {
+      "description": "ClusterCapacity represents various details regarding compute capacity.",
       "properties": {
         "availableApplianceStorageGB": {
           "description": "The remaining appliance-based storage in GB available for workload use.",
@@ -1900,6 +1908,7 @@
       "type": "object"
     },
     "ClusterManagerProperties": {
+      "description": "ClusterManagerProperties represents the properties of a cluster manager.",
       "properties": {
         "analyticsWorkspaceId": {
           "description": "The resource ID of the Log Analytics workspace that is used for the logs collection.",
@@ -1945,6 +1954,7 @@
       "type": "object"
     },
     "ClusterMetricsConfigurationProperties": {
+      "description": "ClusterMetricsConfigurationProperties represents the properties of metrics configuration for the cluster.",
       "properties": {
         "collectionInterval": {
           "description": "The interval in minutes by which metrics will be collected.",
@@ -1978,6 +1988,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "ClusterProperties represents the properties of a cluster.",
       "properties": {
         "aggregatorOrSingleRackDefinition": {
           "description": "RackDefinition represents details regarding the rack.",
@@ -2105,6 +2116,7 @@
       "type": "object"
     },
     "CniBgpConfiguration": {
+      "description": "CniBgpConfiguration represents the Calico BGP configuration.",
       "properties": {
         "bgpPeers": {
           "description": "The list of BgpPeer entities that the Hybrid AKS cluster will peer with in addition to peering that occurs automatically with the switch fabric.",
@@ -2193,6 +2205,7 @@
       "type": "object"
     },
     "CommunityAdvertisement": {
+      "description": "CommunityAdvertisement represents the prefix and the communities that should be associated with that prefix.",
       "properties": {
         "communities": {
           "description": "The list of community strings to announce with this prefix.",
@@ -2220,6 +2233,7 @@
       "type": "object"
     },
     "ConsoleProperties": {
+      "description": "ConsoleProperties represents the properties of the virtual machine console.",
       "properties": {
         "enabled": {
           "description": "The indicator of whether the console access is enabled.",
@@ -2267,6 +2281,7 @@
       "type": "object"
     },
     "DefaultCniNetworkProperties": {
+      "description": "DefaultCniNetworkProperties represents properties of the default CNI network.",
       "properties": {
         "cniBgpConfiguration": {
           "description": "CniBgpConfiguration represents the Calico BGP configuration.",
@@ -2326,6 +2341,7 @@
       "type": "object"
     },
     "EgressEndpoint": {
+      "description": "EgressEndpoint represents the connection from a cloud services network to the specified endpoint for a common purpose.",
       "properties": {
         "category": {
           "description": "The descriptive category name of endpoints accessible by the AKS agent node. For example, azure-resource-management, API server, etc. The platform egress endpoints provided by default will use the category 'default'.",
@@ -2360,6 +2376,7 @@
       "type": "object"
     },
     "EndpointDependency": {
+      "description": "EndpointDependency represents the definition of an endpoint, including the domain and details.",
       "properties": {
         "domainName": {
           "description": "The domain name of the dependency.",
@@ -2383,6 +2400,7 @@
       "type": "object"
     },
     "ExtendedLocation": {
+      "description": "ExtendedLocation represents the Azure custom location where the resource will be created.",
       "properties": {
         "name": {
           "description": "The resource ID of the extended location on which the resource will be created.",
@@ -2400,14 +2418,17 @@
       "type": "object"
     },
     "HardwareInventory": {
+      "description": "HardwareInventory represents the hardware configuration of this machine as exposed to the customer, including information acquired from the model/sku information and from the ironic inspector.",
       "properties": {},
       "type": "object"
     },
     "HardwareValidationStatus": {
+      "description": "HardwareValidationStatus represents the latest hardware validation details performed for this bare metal machine.",
       "properties": {},
       "type": "object"
     },
     "HybridAksClusterProperties": {
+      "description": "HybridAksClusterProperties represents the properties of Hybrid AKS cluster resource.",
       "properties": {
         "associatedNetworkIds": {
           "description": "The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.",
@@ -2459,6 +2480,7 @@
       "type": "object"
     },
     "ImageRepositoryCredentials": {
+      "description": "ImageRepositoryCredentials represents the credentials used to login to the image repository.",
       "properties": {
         "password": {
           "description": "The password or token used to access an image in the target repository.",
@@ -2497,6 +2519,7 @@
       "type": "object"
     },
     "KeySetUser": {
+      "description": "KeySetUser represents the properties of the user in the key set.",
       "properties": {
         "azureUserName": {
           "description": "The Azure Active Directory user name (email name).",
@@ -2533,6 +2556,7 @@
       "type": "object"
     },
     "L2NetworkProperties": {
+      "description": "L2NetworkProperties represents properties of the L2 network.",
       "properties": {
         "hybridAksPluginType": {
           "description": "The network plugin type for Hybrid AKS.",
@@ -2574,6 +2598,7 @@
       "type": "object"
     },
     "L3NetworkProperties": {
+      "description": "L3NetworkProperties represents properties of the L3 network.",
       "properties": {
         "hybridAksIpamEnabled": {
           "description": "The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.",
@@ -2666,6 +2691,7 @@
       "type": "object"
     },
     "ManagedResourceGroupConfiguration": {
+      "description": "ManagedResourceGroupConfiguration represents the configuration of the resource group managed by Azure.",
       "properties": {
         "location": {
           "description": "The location of the managed resource group. If not specified, the location of the parent resource is chosen.",
@@ -2687,6 +2713,7 @@
       "type": "object"
     },
     "NetworkAttachment": {
+      "description": "NetworkAttachment represents the single network attachment.",
       "properties": {
         "attachedNetworkId": {
           "description": "The resource ID of the associated network attached to the virtual machine.\nIt can be one of cloudServicesNetwork, l3Network, l2Network or trunkedNetwork resources.",
@@ -2751,6 +2778,7 @@
       "type": "object"
     },
     "OsDisk": {
+      "description": "OsDisk represents configuration of the boot disk.",
       "properties": {
         "createOption": {
           "description": "The strategy for creating the OS disk.",
@@ -2798,6 +2826,7 @@
       "type": "object"
     },
     "RackDefinition": {
+      "description": "RackDefinition represents details regarding the rack.",
       "properties": {
         "availabilityZone": {
           "description": "The zone name used for this rack when created.",
@@ -2895,6 +2924,7 @@
       "type": "object"
     },
     "RackProperties": {
+      "description": "RackProperties represents the properties of the rack.",
       "properties": {
         "availabilityZone": {
           "description": "The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.",
@@ -2947,6 +2977,7 @@
       "type": "object"
     },
     "ServicePrincipalInformation": {
+      "description": "ServicePrincipalInformation represents the details of the service principal to be used by the cluster during Arc Appliance installation.",
       "properties": {
         "applicationId": {
           "description": "The application ID, also known as client ID, of the service principal.",
@@ -2974,6 +3005,7 @@
       "type": "object"
     },
     "SshPublicKey": {
+      "description": "SshPublicKey represents the public key used to authenticate with the virtual machine through SSH.",
       "properties": {
         "keyData": {
           "description": "The public ssh key of the user.",
@@ -2994,6 +3026,7 @@
       "type": "object"
     },
     "StorageApplianceConfigurationData": {
+      "description": "StorageApplianceConfigurationData represents configuration for the storage application.",
       "properties": {
         "adminCredentials": {
           "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
@@ -3042,6 +3075,7 @@
       "type": "object"
     },
     "StorageApplianceProperties": {
+      "description": "StorageApplianceProperties represents the properties of the storage appliance.",
       "properties": {
         "administratorCredentials": {
           "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
@@ -3088,6 +3122,7 @@
       "type": "object"
     },
     "StorageProfile": {
+      "description": "StorageProfile represents information about a disk.",
       "properties": {
         "osDisk": {
           "description": "OsDisk represents configuration of the boot disk.",
@@ -3121,6 +3156,7 @@
       "type": "object"
     },
     "TrunkedNetworkProperties": {
+      "description": "TrunkedNetworkProperties represents properties of the trunked network.",
       "properties": {
         "hybridAksPluginType": {
           "description": "The network plugin type for Hybrid AKS.",
@@ -3194,6 +3230,7 @@
       "type": "object"
     },
     "ValidationThreshold": {
+      "description": "ValidationThreshold indicates allowed machine and node hardware and deployment failures.",
       "properties": {
         "grouping": {
           "description": "Selection of how the type evaluation is applied to the cluster calculation.",
@@ -3245,6 +3282,7 @@
       "type": "object"
     },
     "VirtualMachinePlacementHint": {
+      "description": "VirtualMachinePlacementHint represents a single scheduling hint of the virtual machine.",
       "properties": {
         "hintType": {
           "description": "The specification of whether this hint supports affinity or anti-affinity with the referenced resources.",
@@ -3313,6 +3351,7 @@
       "type": "object"
     },
     "VirtualMachineProperties": {
+      "description": "VirtualMachineProperties represents the properties of the virtual machine.",
       "properties": {
         "adminUsername": {
           "description": "The name of the administrator to which the ssh public keys will be added into the authorized keys.",
@@ -3530,6 +3569,7 @@
       "type": "object"
     },
     "VolumeProperties": {
+      "description": "VolumeProperties represents properties of the volume resource.",
       "properties": {
         "sizeMiB": {
           "description": "The size of the allocation for this volume in Mebibytes.",
@@ -3612,7 +3652,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets"
+            "bareMetalMachineKeySets"
           ],
           "type": "string"
         }
@@ -3688,7 +3728,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetworkCloud/clusters/bmcKeySets"
+            "bmcKeySets"
           ],
           "type": "string"
         }
@@ -3764,7 +3804,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetworkCloud/clusters/metricsConfigurations"
+            "metricsConfigurations"
           ],
           "type": "string"
         }
@@ -3840,7 +3880,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.NetworkCloud/virtualMachines/consoles"
+            "consoles"
           ],
           "type": "string"
         }

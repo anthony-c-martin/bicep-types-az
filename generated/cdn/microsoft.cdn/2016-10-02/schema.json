@@ -190,6 +190,7 @@
   },
   "definitions": {
     "CustomDomainPropertiesParameters": {
+      "description": "The JSON object that contains the properties of the custom domain to create.",
       "properties": {
         "hostName": {
           "description": "The host name of the custom domain. Must be a domain name.",
@@ -202,6 +203,7 @@
       "type": "object"
     },
     "DeepCreatedOrigin": {
+      "description": "Origin to be added when creating a CDN endpoint.",
       "properties": {
         "name": {
           "description": "Origin name",
@@ -225,6 +227,7 @@
       "type": "object"
     },
     "DeepCreatedOriginProperties": {
+      "description": "Properties of origin Properties of the origin created on the CDN endpoint.",
       "properties": {
         "hostName": {
           "description": "The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.",
@@ -259,6 +262,7 @@
       "type": "object"
     },
     "EndpointProperties": {
+      "description": "The JSON object that contains the properties required to create an endpoint.",
       "properties": {
         "contentTypesToCompress": {
           "description": "List of content types on which compression applies. The value should be a valid MIME type.",
@@ -399,6 +403,7 @@
       "type": "object"
     },
     "GeoFilter": {
+      "description": "Rules defining user geo access within a CDN endpoint.",
       "properties": {
         "action": {
           "description": "Action of the geo filter, i.e. allow or block access.",
@@ -442,10 +447,12 @@
       "type": "object"
     },
     "ProfileProperties": {
+      "description": "The JSON object that contains the properties required to create a profile.",
       "properties": {},
       "type": "object"
     },
     "Sku": {
+      "description": "The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.",
       "properties": {
         "name": {
           "description": "Name of the pricing tier.",
@@ -513,7 +520,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/endpoints"
+            "endpoints"
           ],
           "type": "string"
         }
@@ -551,7 +558,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/endpoints/customDomains"
+            "customDomains"
           ],
           "type": "string"
         }

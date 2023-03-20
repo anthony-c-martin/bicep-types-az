@@ -160,6 +160,7 @@
   },
   "definitions": {
     "ArcSettingProperties": {
+      "description": "ArcSetting properties.",
       "properties": {
         "arcInstanceResourceGroup": {
           "description": "The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.",
@@ -169,6 +170,7 @@
       "type": "object"
     },
     "ClusterDesiredProperties": {
+      "description": "Desired properties of the cluster.",
       "properties": {
         "diagnosticLevel": {
           "description": "Desired level of diagnostic data emitted by the cluster.",
@@ -205,6 +207,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "Cluster properties.",
       "properties": {
         "aadClientId": {
           "description": "App id of cluster AAD identity.",
@@ -237,6 +240,7 @@
       "type": "object"
     },
     "ExtensionParameters": {
+      "description": "Describes the properties of a Machine Extension. This object mirrors the definition in HybridCompute.",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
@@ -275,6 +279,7 @@
       "type": "object"
     },
     "ExtensionProperties": {
+      "description": "Status of Arc Extension for a particular node in HCI Cluster.",
       "properties": {
         "extensionParameters": {
           "description": "Parameters specific to this extension type.",
@@ -316,7 +321,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureStackHCI/clusters/arcSettings"
+            "arcSettings"
           ],
           "type": "string"
         }
@@ -354,7 +359,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureStackHCI/clusters/arcSettings/extensions"
+            "extensions"
           ],
           "type": "string"
         }

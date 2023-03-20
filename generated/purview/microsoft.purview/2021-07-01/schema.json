@@ -123,6 +123,7 @@
   },
   "definitions": {
     "AccountProperties": {
+      "description": "The account properties",
       "properties": {
         "cloudConnectors": {
           "description": "Cloud connectors.\r\nExternal cloud identifier used as part of scanning configuration.",
@@ -159,10 +160,12 @@
       "type": "object"
     },
     "CloudConnectors": {
+      "description": "External Cloud Service connectors",
       "properties": {},
       "type": "object"
     },
     "Identity": {
+      "description": "The Managed Identity of the resource",
       "properties": {
         "type": {
           "description": "Identity Type",
@@ -206,6 +209,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "A private endpoint class.",
       "properties": {
         "id": {
           "description": "The private endpoint identifier.",
@@ -215,6 +219,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "A private endpoint connection properties class.",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint information.",
@@ -242,6 +247,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "The private link service connection state.",
       "properties": {
         "actionsRequired": {
           "description": "The required actions.",
@@ -273,6 +279,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "Uses client ID and Principal ID",
       "properties": {},
       "type": "object"
     },
@@ -302,7 +309,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Purview/accounts/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

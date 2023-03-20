@@ -217,6 +217,7 @@
   },
   "definitions": {
     "DatadogAgreementProperties": {
+      "description": "Terms properties.",
       "properties": {
         "accepted": {
           "description": "If any version of the terms have been accepted, otherwise false.",
@@ -269,6 +270,7 @@
       "type": "object"
     },
     "DatadogOrganizationProperties": {
+      "description": "Datadog organization properties",
       "properties": {
         "apiKey": {
           "description": "Api key associated to the Datadog organization.",
@@ -332,6 +334,7 @@
       "type": "object"
     },
     "FilteringTag": {
+      "description": "The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.",
       "properties": {
         "action": {
           "description": "Valid actions for a filtering tag. Exclusion takes priority over inclusion.",
@@ -380,6 +383,7 @@
       "type": "object"
     },
     "LogRules": {
+      "description": "Set of rules for sending logs for the Monitor resource.",
       "properties": {
         "filteringTags": {
           "description": "List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
@@ -439,6 +443,7 @@
       "type": "object"
     },
     "MetricRules": {
+      "description": "Set of rules for sending metrics for the Monitor resource.",
       "properties": {
         "filteringTags": {
           "description": "List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
@@ -465,6 +470,7 @@
       "type": "object"
     },
     "MonitorProperties": {
+      "description": "Properties specific to the monitor resource.",
       "properties": {
         "datadogOrganizationProperties": {
           "description": "Datadog organization properties",
@@ -507,6 +513,7 @@
       "type": "object"
     },
     "MonitoringTagRulesProperties": {
+      "description": "Definition of the properties for a TagRules resource.",
       "properties": {
         "logRules": {
           "description": "Set of rules for sending logs for the Monitor resource.",
@@ -546,6 +553,7 @@
       "type": "object"
     },
     "UserInfo": {
+      "description": "User info",
       "properties": {
         "emailAddress": {
           "description": "Email of the user used by Datadog for contacting them if needed",
@@ -612,7 +620,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Datadog/monitors/singleSignOnConfigurations"
+            "singleSignOnConfigurations"
           ],
           "type": "string"
         }
@@ -650,7 +658,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Datadog/monitors/tagRules"
+            "tagRules"
           ],
           "type": "string"
         }

@@ -482,6 +482,7 @@
       "type": "object"
     },
     "AzureDevOpsOrgMetadata": {
+      "description": "Org onboarding info.",
       "properties": {
         "autoDiscovery": {
           "description": "",
@@ -527,6 +528,7 @@
       "type": "object"
     },
     "AzureDevOpsOrgProperties": {
+      "description": "AzureDevOps Org properties.",
       "properties": {
         "autoDiscovery": {
           "description": "",
@@ -547,6 +549,7 @@
       "type": "object"
     },
     "AzureDevOpsProjectMetadata": {
+      "description": "Project onboarding info.",
       "properties": {
         "autoDiscovery": {
           "description": "",
@@ -585,6 +588,7 @@
       "type": "object"
     },
     "AzureDevOpsProjectProperties": {
+      "description": "AzureDevOps Project properties.",
       "properties": {
         "autoDiscovery": {
           "description": "",
@@ -613,6 +617,7 @@
       "type": "object"
     },
     "AzureDevOpsRepoProperties": {
+      "description": "AzureDevOps Repo properties.",
       "properties": {
         "actionableRemediation": {
           "description": "",
@@ -629,6 +634,7 @@
       "type": "object"
     },
     "GitHubConnectorProperties": {
+      "description": "Properties of the ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.",
       "properties": {
         "code": {
           "description": "Gets or sets one-time OAuth code to exchange for refresh and access tokens.\r\n\r\nOnly used during PUT operations. The secret is cleared during GET.\r\nIn general, RPaaS does not return any property marked as a secret.",
@@ -638,6 +644,7 @@
       "type": "object"
     },
     "GitHubOwnerProperties": {
+      "description": "GitHub Repo Owner properties.",
       "properties": {
         "ownerUrl": {
           "description": "Gets or sets gitHub owner url.",
@@ -647,6 +654,7 @@
       "type": "object"
     },
     "GitHubRepoProperties": {
+      "description": "GitHub Repo properties.",
       "properties": {
         "accountId": {
           "description": "Gets or sets gitHub repo account id.",
@@ -671,6 +679,7 @@
       "type": "object"
     },
     "TargetBranchConfiguration": {
+      "description": "Branch onboarding info.",
       "properties": {
         "names": {
           "description": "Gets or sets branches that should have annotations.\r\n\r\nFor Ignite, we will be supporting a single default branch configuration in the UX.",
@@ -715,7 +724,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs"
+            "orgs"
           ],
           "type": "string"
         }
@@ -753,7 +762,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects"
+            "projects"
           ],
           "type": "string"
         }
@@ -791,7 +800,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos"
+            "repos"
           ],
           "type": "string"
         }
@@ -829,7 +838,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SecurityDevOps/gitHubConnectors/owners"
+            "owners"
           ],
           "type": "string"
         }
@@ -867,7 +876,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SecurityDevOps/gitHubConnectors/owners/repos"
+            "repos"
           ],
           "type": "string"
         }

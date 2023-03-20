@@ -1299,6 +1299,7 @@
   },
   "definitions": {
     "AdditionalRegion": {
+      "description": "Description of an additional API Management resource location.",
       "properties": {
         "location": {
           "description": "The location name of the additional region among Azure Data center regions.",
@@ -1350,6 +1351,7 @@
       "type": "object"
     },
     "ApiManagementServiceProperties": {
+      "description": "Properties of an API Management service resource description.",
       "properties": {
         "additionalLocations": {
           "description": "Additional datacenter locations of the API Management service.",
@@ -1463,6 +1465,7 @@
       "type": "object"
     },
     "ApiManagementServiceSkuProperties": {
+      "description": "API Management service resource SKU properties.",
       "properties": {
         "capacity": {
           "description": "Capacity of the SKU (number of deployed units of the SKU). The default value is 1.",
@@ -1498,6 +1501,7 @@
       "type": "object"
     },
     "AuthenticationSettingsContract": {
+      "description": "API Authentication Settings.",
       "properties": {
         "oAuth2": {
           "description": "API OAuth2 Authentication settings details.",
@@ -1514,6 +1518,7 @@
       "type": "object"
     },
     "CertificateInformation": {
+      "description": "SSL certificate information.",
       "properties": {
         "expiry": {
           "description": "Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.",
@@ -1544,6 +1549,7 @@
       "type": "object"
     },
     "HostnameConfiguration": {
+      "description": "Custom hostname configuration.",
       "properties": {
         "certificate": {
           "description": "Certificate information.",
@@ -1586,6 +1592,7 @@
       "type": "object"
     },
     "OAuth2AuthenticationSettingsContract": {
+      "description": "API OAuth2 Authentication settings details.",
       "properties": {
         "authorizationServerId": {
           "description": "OAuth authorization server identifier.",
@@ -1599,6 +1606,7 @@
       "type": "object"
     },
     "ParameterContract": {
+      "description": "Operation parameters details.",
       "properties": {
         "defaultValue": {
           "description": "Default parameter value.",
@@ -1649,6 +1657,7 @@
       "type": "object"
     },
     "RepresentationContract": {
+      "description": "Operation request/response representation details.",
       "properties": {
         "contentType": {
           "description": "Specifies a registered or custom content type for this representation, e.g. application/xml.",
@@ -1665,6 +1674,7 @@
       "type": "object"
     },
     "RequestContract": {
+      "description": "Operation request details.",
       "properties": {
         "description": {
           "description": "Operation request description.",
@@ -1737,6 +1747,7 @@
       "type": "object"
     },
     "ResultContract": {
+      "description": "Operation response details.",
       "properties": {
         "description": {
           "description": "Operation response description.",
@@ -1781,6 +1792,7 @@
       "type": "object"
     },
     "SubscriptionKeyParameterNamesContract": {
+      "description": "Subscription key parameter names details.",
       "properties": {
         "header": {
           "description": "Subscription key header name.",
@@ -1794,6 +1806,7 @@
       "type": "object"
     },
     "TokenBodyParameterContract": {
+      "description": "OAuth acquire token request body parameter (www-url-form-encoded).",
       "properties": {
         "name": {
           "description": "body parameter name.",
@@ -1811,6 +1824,7 @@
       "type": "object"
     },
     "VirtualNetworkConfiguration": {
+      "description": "Configuration of a virtual network to which API Management service is deployed.",
       "properties": {
         "location": {
           "description": "The location of the virtual network.",
@@ -1924,7 +1938,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis"
+            "apis"
           ],
           "type": "string"
         }
@@ -2030,7 +2044,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/operations"
+            "operations"
           ],
           "type": "string"
         },
@@ -2255,7 +2269,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/authorizationServers"
+            "authorizationServers"
           ],
           "type": "string"
         }
@@ -2316,7 +2330,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/backends"
+            "backends"
           ],
           "type": "string"
         }
@@ -2361,7 +2375,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/certificates"
+            "certificates"
           ],
           "type": "string"
         }
@@ -2406,7 +2420,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/groups"
+            "groups"
           ],
           "type": "string"
         }
@@ -2485,7 +2499,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/identityProviders"
+            "identityProviders"
           ],
           "type": "string"
         }
@@ -2551,7 +2565,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/loggers"
+            "loggers"
           ],
           "type": "string"
         }
@@ -2603,7 +2617,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/openidConnectProviders"
+            "openidConnectProviders"
           ],
           "type": "string"
         }
@@ -2705,7 +2719,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/products"
+            "products"
           ],
           "type": "string"
         }
@@ -2766,7 +2780,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/properties"
+            "properties"
           ],
           "type": "string"
         },
@@ -2865,7 +2879,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/subscriptions"
+            "subscriptions"
           ],
           "type": "string"
         },
@@ -2968,7 +2982,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/users"
+            "users"
           ],
           "type": "string"
         }

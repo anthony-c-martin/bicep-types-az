@@ -132,6 +132,7 @@
   },
   "definitions": {
     "AddressSpace": {
+      "description": "AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.",
       "properties": {
         "addressPrefixes": {
           "description": "A list of address blocks reserved for this virtual network in CIDR notation.",
@@ -151,10 +152,12 @@
       "type": "object"
     },
     "CreatedBy": {
+      "description": "Provides details of the entity that created/updated the workspace.",
       "properties": {},
       "type": "object"
     },
     "Encryption": {
+      "description": "The object that contains details of encryption used on the workspace.",
       "properties": {
         "KeyName": {
           "description": "The name of KeyVault key.",
@@ -187,10 +190,12 @@
       "type": "object"
     },
     "ManagedIdentityConfiguration": {
+      "description": "The Managed Identity details for storage account.",
       "properties": {},
       "type": "object"
     },
     "Sku": {
+      "description": "SKU for the resource.",
       "properties": {
         "name": {
           "description": "The SKU name.",
@@ -207,6 +212,7 @@
       "type": "object"
     },
     "VirtualNetworkPeeringPropertiesFormat": {
+      "description": "Properties of the virtual network peering.",
       "properties": {
         "allowForwardedTraffic": {
           "description": "Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.",
@@ -303,6 +309,7 @@
       "type": "object"
     },
     "VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork": {
+      "description": " The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).",
       "properties": {
         "id": {
           "description": "The Id of the databricks virtual network.",
@@ -312,6 +319,7 @@
       "type": "object"
     },
     "VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork": {
+      "description": " The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).",
       "properties": {
         "id": {
           "description": "The Id of the remote virtual network.",
@@ -321,6 +329,7 @@
       "type": "object"
     },
     "WorkspaceCustomBooleanParameter": {
+      "description": "The value which should be used for this field.",
       "properties": {
         "value": {
           "description": "The value which should be used for this field.",
@@ -340,6 +349,7 @@
       "type": "object"
     },
     "WorkspaceCustomParameters": {
+      "description": "Custom Parameters used for Cluster Creation.",
       "properties": {
         "amlWorkspaceId": {
           "description": "The ID of a Azure Machine Learning workspace to link with Databricks workspace",
@@ -510,6 +520,7 @@
       "type": "object"
     },
     "WorkspaceCustomStringParameter": {
+      "description": "The Value.",
       "properties": {
         "value": {
           "description": "The value which should be used for this field.",
@@ -522,6 +533,7 @@
       "type": "object"
     },
     "WorkspaceEncryptionParameter": {
+      "description": "The object that contains details of encryption used on the workspace.",
       "properties": {
         "value": {
           "description": "The value which should be used for this field.",
@@ -538,6 +550,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The workspace properties.",
       "properties": {
         "authorizations": {
           "description": "The workspace provider authorizations.",
@@ -619,6 +632,7 @@
       "type": "object"
     },
     "WorkspaceProviderAuthorization": {
+      "description": "The workspace provider authorization.",
       "properties": {
         "principalId": {
           "description": "The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.",
@@ -677,7 +691,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Databricks/workspaces/virtualNetworkPeerings"
+            "virtualNetworkPeerings"
           ],
           "type": "string"
         }

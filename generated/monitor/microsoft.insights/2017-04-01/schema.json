@@ -121,6 +121,7 @@
   },
   "definitions": {
     "ActionGroup": {
+      "description": "An Azure action group.",
       "properties": {
         "automationRunbookReceivers": {
           "description": "The list of AutomationRunbook receivers that are part of this action group.",
@@ -279,6 +280,7 @@
       "type": "object"
     },
     "ActivityLogAlert": {
+      "description": "An Azure activity log alert.",
       "properties": {
         "actions": {
           "description": "The actions that will activate when the condition is met.",
@@ -340,6 +342,7 @@
       "type": "object"
     },
     "ActivityLogAlertActionGroup": {
+      "description": "A pointer to an Azure Action Group.",
       "properties": {
         "actionGroupId": {
           "description": "The resourceId of the action group. This cannot be null or empty.",
@@ -367,6 +370,7 @@
       "type": "object"
     },
     "ActivityLogAlertActionList": {
+      "description": "A list of activity log alert actions.",
       "properties": {
         "actionGroups": {
           "description": "The list of activity log alerts.",
@@ -393,6 +397,7 @@
       "type": "object"
     },
     "ActivityLogAlertAllOfCondition": {
+      "description": "An Activity Log alert condition that is met when all its member conditions are met.",
       "properties": {
         "allOf": {
           "description": "The list of activity log alert conditions.",
@@ -422,6 +427,7 @@
       "type": "object"
     },
     "ActivityLogAlertLeafCondition": {
+      "description": "An Activity Log alert condition that is met by comparing an activity log field and value.",
       "properties": {
         "equals": {
           "description": "The field value will be compared to this value (case-insensitive) to determine if the condition is met.",
@@ -439,6 +445,7 @@
       "type": "object"
     },
     "AutomationRunbookReceiver": {
+      "description": "The Azure Automation Runbook notification receiver.",
       "properties": {
         "automationAccountId": {
           "description": "The Azure automation account Id which holds this runbook and authenticate to Azure resource.",
@@ -481,6 +488,7 @@
       "type": "object"
     },
     "AzureAppPushReceiver": {
+      "description": "The Azure mobile App push notification receiver.",
       "properties": {
         "emailAddress": {
           "description": "The email address registered for the Azure mobile app.",
@@ -498,6 +506,7 @@
       "type": "object"
     },
     "EmailReceiver": {
+      "description": "An email receiver.",
       "properties": {
         "emailAddress": {
           "description": "The email address of this receiver.",
@@ -515,6 +524,7 @@
       "type": "object"
     },
     "ItsmReceiver": {
+      "description": "An Itsm receiver.",
       "properties": {
         "connectionId": {
           "description": "Unique identification of ITSM connection among multiple defined in above workspace.",
@@ -547,6 +557,7 @@
       "type": "object"
     },
     "SmsReceiver": {
+      "description": "An SMS receiver.",
       "properties": {
         "countryCode": {
           "description": "The country code of the SMS receiver.",
@@ -569,6 +580,7 @@
       "type": "object"
     },
     "WebhookReceiver": {
+      "description": "A webhook receiver.",
       "properties": {
         "name": {
           "description": "The name of the webhook receiver. Names must be unique across all receivers within an action group.",

@@ -337,6 +337,7 @@
   },
   "definitions": {
     "DnsForwardingRulesetProperties": {
+      "description": "Represents the properties of a DNS forwarding ruleset.",
       "properties": {
         "dnsResolverOutboundEndpoints": {
           "description": "The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.",
@@ -366,6 +367,7 @@
       "type": "object"
     },
     "DnsResolverProperties": {
+      "description": "Represents the properties of a DNS resolver.",
       "properties": {
         "virtualNetwork": {
           "description": "The reference to the virtual network. This cannot be changed after creation.",
@@ -385,6 +387,7 @@
       "type": "object"
     },
     "ForwardingRuleProperties": {
+      "description": "Represents the properties of a forwarding rule within a DNS forwarding ruleset.",
       "properties": {
         "domainName": {
           "description": "The domain name for the forwarding rule.",
@@ -449,6 +452,7 @@
       "type": "object"
     },
     "InboundEndpointProperties": {
+      "description": "Represents the properties of an inbound endpoint for a DNS resolver.",
       "properties": {
         "ipConfigurations": {
           "description": "IP configurations for the inbound endpoint.",
@@ -478,6 +482,7 @@
       "type": "object"
     },
     "IpConfiguration": {
+      "description": "IP configuration.",
       "properties": {
         "privateIpAddress": {
           "description": "Private IP address of the IP configuration.",
@@ -516,6 +521,7 @@
       "type": "object"
     },
     "OutboundEndpointProperties": {
+      "description": "Represents the properties of an outbound endpoint for a DNS resolver.",
       "properties": {
         "subnet": {
           "description": "The reference to the subnet used for the outbound endpoint.",
@@ -535,6 +541,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Reference to another ARM resource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -547,6 +554,7 @@
       "type": "object"
     },
     "TargetDnsServer": {
+      "description": "Describes a server to forward the DNS queries to.",
       "properties": {
         "ipAddress": {
           "description": "DNS server IP address.",
@@ -570,6 +578,7 @@
       "type": "object"
     },
     "VirtualNetworkLinkProperties": {
+      "description": "Represents the properties of a virtual network link.",
       "properties": {
         "metadata": {
           "description": "Metadata attached to the virtual network link.",
@@ -629,7 +638,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsForwardingRulesets/forwardingRules"
+            "forwardingRules"
           ],
           "type": "string"
         }
@@ -667,7 +676,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsForwardingRulesets/virtualNetworkLinks"
+            "virtualNetworkLinks"
           ],
           "type": "string"
         }
@@ -724,7 +733,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsResolvers/inboundEndpoints"
+            "inboundEndpoints"
           ],
           "type": "string"
         }
@@ -781,7 +790,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/dnsResolvers/outboundEndpoints"
+            "outboundEndpoints"
           ],
           "type": "string"
         }

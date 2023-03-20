@@ -593,6 +593,7 @@
   },
   "definitions": {
     "Action": {
+      "description": "Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.",
       "properties": {
         "compatibilityLevel": {
           "description": "This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.",
@@ -624,6 +625,7 @@
       "type": "object"
     },
     "ArmDisasterRecoveryProperties": {
+      "description": "Properties required to the Create Or Update Alias(Disaster Recovery configurations)",
       "properties": {
         "alternateName": {
           "description": "Primary/Secondary eventhub namespace name, which is part of GEO DR pairing",
@@ -637,6 +639,7 @@
       "type": "object"
     },
     "CorrelationFilter": {
+      "description": "Represents the correlation filter expression.",
       "properties": {
         "contentType": {
           "description": "Content type of the message.",
@@ -700,6 +703,7 @@
       "type": "object"
     },
     "MigrationConfigPropertiesProperties": {
+      "description": "Properties required to the Create Migration Configuration",
       "properties": {
         "postMigrationName": {
           "description": "Name to access Standard Namespace after migration",
@@ -717,6 +721,7 @@
       "type": "object"
     },
     "NWRuleSetIpRules": {
+      "description": "Description of NetWorkRuleSet - IpRules resource.",
       "properties": {
         "action": {
           "description": "The IP Filter Action",
@@ -740,6 +745,7 @@
       "type": "object"
     },
     "NWRuleSetVirtualNetworkRules": {
+      "description": "Description of VirtualNetworkRules - NetworkRules resource.",
       "properties": {
         "ignoreMissingVnetServiceEndpoint": {
           "description": "Value that indicates whether to ignore missing VNet Service Endpoint",
@@ -767,6 +773,7 @@
       "type": "object"
     },
     "NetworkRuleSetProperties": {
+      "description": "NetworkRuleSet properties",
       "properties": {
         "defaultAction": {
           "description": "Default Action for Network Rule Set",
@@ -829,6 +836,7 @@
       "type": "object"
     },
     "Ruleproperties": {
+      "description": "Description of Rule Resource.",
       "properties": {
         "action": {
           "description": "Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.",
@@ -882,6 +890,7 @@
       "type": "object"
     },
     "SBAuthorizationRuleProperties": {
+      "description": "AuthorizationRule properties.",
       "properties": {
         "rights": {
           "description": "The rights associated with the rule.",
@@ -916,10 +925,12 @@
       "type": "object"
     },
     "SBNamespaceProperties": {
+      "description": "Properties of the namespace.",
       "properties": {},
       "type": "object"
     },
     "SBQueueProperties": {
+      "description": "The Queue Properties definition.",
       "properties": {
         "autoDeleteOnIdle": {
           "description": "ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.",
@@ -1059,6 +1070,7 @@
       "type": "object"
     },
     "SBSku": {
+      "description": "SKU of the namespace.",
       "properties": {
         "capacity": {
           "description": "The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.",
@@ -1110,6 +1122,7 @@
       "type": "object"
     },
     "SBSubscriptionProperties": {
+      "description": "Description of Subscription Resource.",
       "properties": {
         "autoDeleteOnIdle": {
           "description": "ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.",
@@ -1216,6 +1229,7 @@
       "type": "object"
     },
     "SBTopicProperties": {
+      "description": "The Topic Properties definition.",
       "properties": {
         "autoDeleteOnIdle": {
           "description": "ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.",
@@ -1321,6 +1335,7 @@
       "type": "object"
     },
     "SqlFilter": {
+      "description": "Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.",
       "properties": {
         "compatibilityLevel": {
           "description": "This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.",
@@ -1352,6 +1367,7 @@
       "type": "object"
     },
     "Subnet": {
+      "description": "Properties supplied for Subnet",
       "properties": {
         "id": {
           "description": "Resource ID of Virtual Network Subnet",
@@ -1398,7 +1414,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/AuthorizationRules"
+            "AuthorizationRules"
           ],
           "type": "string"
         }
@@ -1445,7 +1461,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs"
+            "disasterRecoveryConfigs"
           ],
           "type": "string"
         }
@@ -1493,7 +1509,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/migrationConfigurations"
+            "migrationConfigurations"
           ],
           "type": "string"
         }
@@ -1515,7 +1531,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1531,7 +1549,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/networkRuleSets"
+            "networkRuleSets"
           ],
           "type": "string"
         }
@@ -1578,7 +1596,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/queues/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -1624,7 +1642,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/queues"
+            "queues"
           ],
           "type": "string"
         }
@@ -1671,7 +1689,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/topics/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -1717,7 +1735,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/topics"
+            "topics"
           ],
           "type": "string"
         }
@@ -1764,7 +1782,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/topics/subscriptions"
+            "subscriptions"
           ],
           "type": "string"
         }
@@ -1811,7 +1829,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules"
+            "rules"
           ],
           "type": "string"
         }

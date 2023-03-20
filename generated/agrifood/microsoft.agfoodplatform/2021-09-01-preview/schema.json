@@ -237,6 +237,7 @@
   },
   "definitions": {
     "ApiProperties": {
+      "description": "Api properties.",
       "properties": {
         "apiFreshnessTimeInMinutes": {
           "description": "Interval in minutes for which the weather data for the api needs to be refreshed.",
@@ -253,10 +254,12 @@
       "type": "object"
     },
     "ErrorDetail": {
+      "description": "The error detail.",
       "properties": {},
       "type": "object"
     },
     "ErrorResponse": {
+      "description": "Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).",
       "properties": {
         "error": {
           "description": "The error object.",
@@ -273,6 +276,7 @@
       "type": "object"
     },
     "FarmBeatsProperties": {
+      "description": "FarmBeats ARM Resource properties.",
       "properties": {
         "publicNetworkAccess": {
           "description": "Property to allow or block public traffic for an Azure FarmBeats resource.",
@@ -304,13 +308,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -323,10 +328,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The private endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint resource.",
@@ -357,6 +364,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -386,6 +394,7 @@
       "type": "object"
     },
     "SensorIntegration": {
+      "description": "Sensor integration request model.",
       "properties": {
         "enabled": {
           "description": "Sensor integration enable state. Allowed values are True, None",
@@ -407,6 +416,7 @@
     },
     "SolutionProperties": {
       "additionalProperties": {},
+      "description": "Solution resource properties.",
       "properties": {
         "marketplacePublisherId": {
           "description": "SaaS application Publisher Id.",
@@ -541,7 +551,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AgFoodPlatform/farmBeats/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -579,7 +589,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -625,7 +635,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AgFoodPlatform/farmBeats/solutions"
+            "solutions"
           ],
           "type": "string"
         }

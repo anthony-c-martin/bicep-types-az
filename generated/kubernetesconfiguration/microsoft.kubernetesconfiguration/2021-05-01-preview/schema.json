@@ -94,6 +94,7 @@
   },
   "definitions": {
     "ExtensionProperties": {
+      "description": "Properties of an Extension resource",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Flag to note if this extension participates in auto upgrade of minor version, or not.",
@@ -184,6 +185,7 @@
       "type": "object"
     },
     "ExtensionStatus": {
+      "description": "Status from the extension.",
       "properties": {
         "code": {
           "description": "Status code provided by the Extension",
@@ -221,6 +223,7 @@
       "type": "object"
     },
     "HelmOperatorProperties": {
+      "description": "Properties for Helm operator.",
       "properties": {
         "chartValues": {
           "description": "Values override for the operator Helm chart.",
@@ -234,13 +237,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -253,6 +257,7 @@
       "type": "object"
     },
     "Scope": {
+      "description": "Scope of the extension. It can be either Cluster or Namespace; but not both.",
       "properties": {
         "cluster": {
           "description": "Specifies that the scope of the extension is Cluster",
@@ -280,6 +285,7 @@
       "type": "object"
     },
     "ScopeCluster": {
+      "description": "Specifies that the scope of the extension is Cluster",
       "properties": {
         "releaseNamespace": {
           "description": "Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created",
@@ -289,6 +295,7 @@
       "type": "object"
     },
     "ScopeNamespace": {
+      "description": "Specifies that the scope of the extension is Namespace",
       "properties": {
         "targetNamespace": {
           "description": "Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created",
@@ -298,6 +305,7 @@
       "type": "object"
     },
     "SourceControlConfigurationProperties": {
+      "description": "Properties to create a Source Control Configuration resource",
       "properties": {
         "configurationProtectedSettings": {
           "description": "Name-value pairs of protected configuration settings for the configuration",

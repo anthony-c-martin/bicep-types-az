@@ -539,6 +539,7 @@
   },
   "definitions": {
     "ClusterProperties": {
+      "description": "Cluster properties.",
       "properties": {
         "keyVaultProperties": {
           "description": "The associated key properties.",
@@ -559,6 +560,7 @@
       "type": "object"
     },
     "ClusterSku": {
+      "description": "The cluster sku definition.",
       "properties": {
         "capacity": {
           "description": "The capacity value",
@@ -589,6 +591,7 @@
       "type": "object"
     },
     "DataExportProperties": {
+      "description": "Data Export properties.",
       "properties": {
         "createdDate": {
           "description": "The latest data export rule modification time.",
@@ -645,6 +648,7 @@
       "type": "object"
     },
     "Destination": {
+      "description": "Destination properties.",
       "properties": {
         "metaData": {
           "description": "destination meta data.",
@@ -668,6 +672,7 @@
       "type": "object"
     },
     "DestinationMetaData": {
+      "description": "Destination meta data.",
       "properties": {
         "eventHubName": {
           "description": "Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.",
@@ -677,6 +682,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -700,6 +706,7 @@
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "The key vault properties.",
       "properties": {
         "keyName": {
           "description": "The name of the key associated with the Log Analytics cluster.",
@@ -717,6 +724,7 @@
       "type": "object"
     },
     "LinkedServiceProperties": {
+      "description": "Linked service properties.",
       "properties": {
         "provisioningState": {
           "description": "The provisioning state of the linked service.",
@@ -747,6 +755,7 @@
       "type": "object"
     },
     "LinkedStorageAccountsProperties": {
+      "description": "Linked storage accounts properties.",
       "properties": {
         "storageAccountIds": {
           "description": "Linked storage accounts resources ids.",
@@ -766,6 +775,7 @@
       "type": "object"
     },
     "SavedSearchProperties": {
+      "description": "Value object for saved search results.",
       "properties": {
         "category": {
           "description": "The category of the saved search. This helps the user to find a saved search faster. ",
@@ -828,6 +838,7 @@
       "type": "object"
     },
     "StorageAccount": {
+      "description": "Describes a storage account connection.",
       "properties": {
         "id": {
           "description": "The Azure Resource Manager ID of the storage account resource.",
@@ -845,6 +856,7 @@
       "type": "object"
     },
     "StorageInsightProperties": {
+      "description": "Storage insight properties.",
       "properties": {
         "containers": {
           "description": "The names of the blob containers that the workspace should read",
@@ -892,6 +904,7 @@
       "type": "object"
     },
     "Tag": {
+      "description": "A tag of a saved search.",
       "properties": {
         "name": {
           "description": "The tag name.",
@@ -909,6 +922,7 @@
       "type": "object"
     },
     "WorkspaceCapping": {
+      "description": "The daily volume cap for ingestion.",
       "properties": {
         "dailyQuotaGb": {
           "description": "The workspace daily quota for ingestion.",
@@ -925,6 +939,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "Workspace properties.",
       "properties": {
         "features": {
           "description": "Workspace features.",
@@ -1037,6 +1052,7 @@
       "type": "object"
     },
     "WorkspaceSku": {
+      "description": "The SKU (tier) of a workspace.",
       "properties": {
         "capacityReservationLevel": {
           "description": "The capacity reservation level for this workspace, when CapacityReservation sku is selected.",
@@ -1112,7 +1128,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.OperationalInsights/workspaces/dataExports"
+            "dataExports"
           ],
           "type": "string"
         }
@@ -1207,7 +1223,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.OperationalInsights/workspaces/dataSources"
+            "dataSources"
           ],
           "type": "string"
         }
@@ -1260,7 +1276,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.OperationalInsights/workspaces/linkedServices"
+            "linkedServices"
           ],
           "type": "string"
         }
@@ -1312,7 +1328,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
+            "linkedStorageAccounts"
           ],
           "type": "string"
         }
@@ -1354,7 +1370,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.OperationalInsights/workspaces/savedSearches"
+            "savedSearches"
           ],
           "type": "string"
         }
@@ -1411,7 +1427,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.OperationalInsights/workspaces/storageInsightConfigs"
+            "storageInsightConfigs"
           ],
           "type": "string"
         }

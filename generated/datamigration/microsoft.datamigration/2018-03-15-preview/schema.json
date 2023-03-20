@@ -202,6 +202,7 @@
   },
   "definitions": {
     "BlobShare": {
+      "description": "Blob container storage information.",
       "properties": {
         "sasUri": {
           "description": "SAS URI of Azure Storage Account Container.",
@@ -214,6 +215,7 @@
       "type": "object"
     },
     "ConnectToSourceSqlServerTaskInput": {
+      "description": "Input for the task that validates connection to SQL Server and also validates source server requirements",
       "properties": {
         "checkPermissionsGroup": {
           "description": "Permission group for validations",
@@ -248,6 +250,7 @@
       "type": "object"
     },
     "ConnectToTargetSqlDbTaskInput": {
+      "description": "Input for the task that validates connection to SQL DB and target server requirements",
       "properties": {
         "targetConnectionInfo": {
           "description": "Connection information for target SQL DB",
@@ -267,6 +270,7 @@
       "type": "object"
     },
     "ConnectToTargetSqlMITaskInput": {
+      "description": "Input for the task that validates connection to Azure SQL Database Managed Instance.",
       "properties": {
         "targetConnectionInfo": {
           "description": "Connection information for target SQL Server",
@@ -286,6 +290,7 @@
       "type": "object"
     },
     "ConnectionInfo": {
+      "description": "Defines the connection properties of a server",
       "properties": {
         "password": {
           "description": "Password credential.",
@@ -299,6 +304,7 @@
       "type": "object"
     },
     "DataMigrationServiceProperties": {
+      "description": "Properties of the Data Migration service instance",
       "properties": {
         "publicKey": {
           "description": "The public key of the service, used to encrypt secrets sent to the service",
@@ -315,6 +321,7 @@
       "type": "object"
     },
     "DatabaseInfo": {
+      "description": "Project Database Details",
       "properties": {
         "sourceDatabaseName": {
           "description": "Name of the database",
@@ -327,6 +334,7 @@
       "type": "object"
     },
     "FileShare": {
+      "description": "File share information with Path, Username, and Password.",
       "properties": {
         "password": {
           "description": "Password credential used to connect to the share location.",
@@ -347,6 +355,7 @@
       "type": "object"
     },
     "GetUserTablesSqlTaskInput": {
+      "description": "Input for the task that collects user tables for the given list of databases",
       "properties": {
         "connectionInfo": {
           "description": "Connection information for SQL Server",
@@ -381,6 +390,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlDbDatabaseInput": {
+      "description": "Database specific information for SQL to Azure SQL DB migration task inputs",
       "properties": {
         "makeSourceDbReadOnly": {
           "description": "Whether to set database read only before migration",
@@ -420,6 +430,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlDbTaskInput": {
+      "description": "Input for the task that migrates on-prem SQL Server databases to Azure SQL Database",
       "properties": {
         "selectedDatabases": {
           "description": "Databases to migrate",
@@ -484,6 +495,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlMIDatabaseInput": {
+      "description": "Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs",
       "properties": {
         "backupFileShare": {
           "description": "Backup file share information for backing up this database.",
@@ -512,6 +524,7 @@
       "type": "object"
     },
     "MigrateSqlServerSqlMITaskInput": {
+      "description": "Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.",
       "properties": {
         "backupBlobShare": {
           "description": "SAS URI of Azure Storage Account Container to be used for storing backup files.",
@@ -588,6 +601,7 @@
       "type": "object"
     },
     "MigrationValidationOptions": {
+      "description": "Types of validations to run after the migration",
       "properties": {
         "enableDataIntegrityValidation": {
           "description": "Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .",
@@ -626,6 +640,7 @@
       "type": "object"
     },
     "ProjectProperties": {
+      "description": "Project-specific properties",
       "properties": {
         "databasesInfo": {
           "description": "List of DatabaseInfo",
@@ -708,10 +723,12 @@
       "type": "object"
     },
     "ProjectTaskProperties": {
+      "description": "Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.",
       "properties": {},
       "type": "object"
     },
     "ServiceSku": {
+      "description": "An Azure SKU instance",
       "properties": {
         "capacity": {
           "description": "The capacity of the SKU, if it supports scaling",
@@ -744,6 +761,7 @@
       "type": "object"
     },
     "SqlConnectionInfo": {
+      "description": "Information for connecting to SQL database server",
       "properties": {
         "additionalSettings": {
           "description": "Additional connection settings",
@@ -813,6 +831,7 @@
       "type": "object"
     },
     "ValidateMigrationInputSqlServerSqlMITaskInput": {
+      "description": "Input for task that validates migration input for SQL to Azure SQL Managed Instance",
       "properties": {
         "backupBlobShare": {
           "description": "SAS URI of Azure Storage Account Container to be used for storing backup files.",
@@ -921,7 +940,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataMigration/services/projects"
+            "projects"
           ],
           "type": "string"
         }
@@ -963,7 +982,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataMigration/services/projects/tasks"
+            "tasks"
           ],
           "type": "string"
         }

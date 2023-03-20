@@ -290,6 +290,7 @@
   },
   "definitions": {
     "BasicLoginInformation": {
+      "description": "Username and password for basic login authentication.",
       "properties": {
         "password": {
           "description": "Login password.",
@@ -303,6 +304,7 @@
       "type": "object"
     },
     "DataControllerProperties": {
+      "description": "The data controller properties.",
       "properties": {
         "basicLoginInformation": {
           "description": "Username and password for basic login authentication.",
@@ -397,6 +399,7 @@
       "type": "object"
     },
     "ExtendedLocation": {
+      "description": "The complex type of the extended location.",
       "properties": {
         "name": {
           "description": "The name of the extended location.",
@@ -420,6 +423,7 @@
       "type": "object"
     },
     "LogAnalyticsWorkspaceConfig": {
+      "description": "Log analytics workspace id and primary key",
       "properties": {
         "primaryKey": {
           "description": "Primary key of the workspace",
@@ -441,6 +445,7 @@
       "type": "object"
     },
     "OnPremiseProperty": {
+      "description": "Properties from the Kubernetes data controller",
       "properties": {
         "id": {
           "description": "A globally unique ID identifying the associated Kubernetes cluster",
@@ -470,6 +475,7 @@
       "type": "object"
     },
     "PostgresInstanceProperties": {
+      "description": "Postgres Instance properties.",
       "properties": {
         "admin": {
           "description": "The instance admin",
@@ -509,6 +515,7 @@
       "type": "object"
     },
     "PostgresInstanceSku": {
+      "description": "The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -549,7 +556,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Hyperscale"
               ],
               "type": "string"
             },
@@ -565,6 +572,7 @@
       "type": "object"
     },
     "SqlManagedInstanceProperties": {
+      "description": "Properties of sqlManagedInstance.",
       "properties": {
         "admin": {
           "description": "The instance admin user",
@@ -627,6 +635,7 @@
       "type": "object"
     },
     "SqlManagedInstanceSku": {
+      "description": "The resource model definition representing SKU for Azure Managed Instance - Azure Arc",
       "properties": {
         "capacity": {
           "description": "",
@@ -694,6 +703,7 @@
       "type": "object"
     },
     "SqlServerInstanceProperties": {
+      "description": "Properties of SqlServerInstance.",
       "properties": {
         "azureDefenderStatus": {
           "description": "Status of Azure Defender.",
@@ -771,6 +781,7 @@
       "type": "object"
     },
     "UploadServicePrincipal": {
+      "description": "Service principal for uploading billing, metrics and logs.",
       "properties": {
         "authority": {
           "description": "Authority for the service principal. Example: https://login.microsoftonline.com/",
@@ -808,6 +819,7 @@
       "type": "object"
     },
     "UploadWatermark": {
+      "description": "Properties on upload watermark.  Mostly timestamp for each upload data type",
       "properties": {
         "logs": {
           "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",

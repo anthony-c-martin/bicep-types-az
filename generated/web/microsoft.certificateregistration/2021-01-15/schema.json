@@ -139,6 +139,7 @@
   },
   "definitions": {
     "AppServiceCertificate": {
+      "description": "Key Vault container for a certificate that is purchased through Azure.",
       "properties": {
         "keyVaultId": {
           "description": "Key Vault resource Id.",
@@ -152,6 +153,7 @@
       "type": "object"
     },
     "AppServiceCertificateOrderProperties": {
+      "description": "AppServiceCertificateOrder resource specific properties",
       "properties": {
         "autoRenew": {
           "description": "<code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.",
@@ -286,7 +288,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CertificateRegistration/certificateOrders/certificates"
+            "certificates"
           ],
           "type": "string"
         }

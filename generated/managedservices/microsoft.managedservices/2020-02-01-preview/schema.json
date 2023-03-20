@@ -94,6 +94,7 @@
   },
   "definitions": {
     "Authorization": {
+      "description": "The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.",
       "properties": {
         "delegatedRoleDefinitionIds": {
           "description": "The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.",
@@ -137,6 +138,7 @@
       "type": "object"
     },
     "EligibleApprover": {
+      "description": "Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.",
       "properties": {
         "principalId": {
           "description": "The identifier of the Azure Active Directory principal.",
@@ -153,6 +155,7 @@
       "type": "object"
     },
     "EligibleAuthorization": {
+      "description": "The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.",
       "properties": {
         "justInTimeAccessPolicy": {
           "description": "The just-in-time access policy setting.",
@@ -185,6 +188,7 @@
       "type": "object"
     },
     "JustInTimeAccessPolicy": {
+      "description": "Just-in-time access policy setting.",
       "properties": {
         "managedByTenantApprovers": {
           "description": "The list of managedByTenant approvers for the eligible authorization.",
@@ -233,6 +237,7 @@
       "type": "object"
     },
     "Plan": {
+      "description": "The details for the Managed Services offer’s plan in Azure Marketplace.",
       "properties": {
         "name": {
           "description": "Azure Marketplace plan name.",
@@ -260,6 +265,7 @@
       "type": "object"
     },
     "RegistrationAssignmentProperties": {
+      "description": "The properties of the registration assignment.",
       "properties": {
         "registrationDefinitionId": {
           "description": "The fully qualified path of the registration definition.",
@@ -272,6 +278,7 @@
       "type": "object"
     },
     "RegistrationDefinitionProperties": {
+      "description": "The properties of a registration definition.",
       "properties": {
         "authorizations": {
           "description": "The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.",

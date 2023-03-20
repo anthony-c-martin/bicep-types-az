@@ -121,6 +121,7 @@
   },
   "definitions": {
     "ActionGroup": {
+      "description": "An Azure action group.",
       "properties": {
         "automationRunbookReceivers": {
           "description": "The list of AutomationRunbook receivers that are part of this action group.",
@@ -342,6 +343,7 @@
       "type": "object"
     },
     "AutomationRunbookReceiver": {
+      "description": "The Azure Automation Runbook notification receiver.",
       "properties": {
         "automationAccountId": {
           "description": "The Azure automation account Id which holds this runbook and authenticate to Azure resource.",
@@ -384,6 +386,7 @@
       "type": "object"
     },
     "AzureAppPushReceiver": {
+      "description": "The Azure mobile App push notification receiver.",
       "properties": {
         "emailAddress": {
           "description": "The email address registered for the Azure mobile app.",
@@ -401,6 +404,7 @@
       "type": "object"
     },
     "AzureFunctionReceiver": {
+      "description": "An azure function receiver.",
       "properties": {
         "functionAppResourceId": {
           "description": "The azure resource id of the function app.",
@@ -428,6 +432,7 @@
       "type": "object"
     },
     "DynamicThresholdFailingPeriods": {
+      "description": "The minimum number of violations required within the selected lookback time window required to raise an alert.",
       "properties": {
         "minFailingPeriodsToAlert": {
           "description": "The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.",
@@ -459,6 +464,7 @@
       "type": "object"
     },
     "EmailReceiver": {
+      "description": "An email receiver.",
       "properties": {
         "emailAddress": {
           "description": "The email address of this receiver.",
@@ -476,6 +482,7 @@
       "type": "object"
     },
     "ItsmReceiver": {
+      "description": "An Itsm receiver.",
       "properties": {
         "connectionId": {
           "description": "Unique identification of ITSM connection among multiple defined in above workspace.",
@@ -508,6 +515,7 @@
       "type": "object"
     },
     "LogicAppReceiver": {
+      "description": "A logic app receiver.",
       "properties": {
         "callbackUrl": {
           "description": "The callback url where http request sent to.",
@@ -530,6 +538,7 @@
       "type": "object"
     },
     "MetricAlertAction": {
+      "description": "An alert action.",
       "properties": {
         "actionGroupId": {
           "description": "the id of the action group to use.",
@@ -555,10 +564,12 @@
     },
     "MetricAlertCriteria": {
       "additionalProperties": {},
+      "description": "The rule criteria that defines the conditions of the alert rule.",
       "properties": {},
       "type": "object"
     },
     "MetricAlertProperties": {
+      "description": "An alert rule.",
       "properties": {
         "actions": {
           "description": "the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.",
@@ -672,6 +683,7 @@
     },
     "MetricCriteria": {
       "additionalProperties": {},
+      "description": "Criterion to filter metrics.",
       "properties": {
         "criterionType": {
           "description": "Specifies the type of threshold criteria",
@@ -791,6 +803,7 @@
       "type": "object"
     },
     "MetricDimension": {
+      "description": "Specifies a metric dimension.",
       "properties": {
         "name": {
           "description": "Name of the dimension.",
@@ -824,6 +837,7 @@
     },
     "MultiMetricCriteria": {
       "additionalProperties": {},
+      "description": "The types of conditions for a multi resource alert.",
       "properties": {
         "dimensions": {
           "description": "List of dimension conditions.",
@@ -896,6 +910,7 @@
       "type": "object"
     },
     "SmsReceiver": {
+      "description": "An SMS receiver.",
       "properties": {
         "countryCode": {
           "description": "The country code of the SMS receiver.",
@@ -918,6 +933,7 @@
       "type": "object"
     },
     "VoiceReceiver": {
+      "description": "A voice receiver.",
       "properties": {
         "countryCode": {
           "description": "The country code of the voice receiver.",
@@ -940,6 +956,7 @@
       "type": "object"
     },
     "WebhookReceiver": {
+      "description": "A webhook receiver.",
       "properties": {
         "name": {
           "description": "The name of the webhook receiver. Names must be unique across all receivers within an action group.",

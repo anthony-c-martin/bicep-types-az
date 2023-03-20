@@ -442,6 +442,7 @@
       "type": "object"
     },
     "CustomRolloutProperties": {
+      "description": "Properties of the rollout.",
       "properties": {
         "provisioningState": {
           "description": "The provisioned state of the resource.",
@@ -625,6 +626,7 @@
       "type": "object"
     },
     "DefaultRolloutProperties": {
+      "description": "Properties of the rollout.",
       "properties": {
         "provisioningState": {
           "description": "The provisioned state of the resource.",
@@ -1386,6 +1388,7 @@
       "type": "object"
     },
     "OperationsDefinition": {
+      "description": "Properties of an Operation.",
       "properties": {
         "actionType": {
           "description": "",
@@ -1455,6 +1458,7 @@
       "type": "object"
     },
     "OperationsDefinitionDisplay": {
+      "description": "Display information of the operation.",
       "properties": {
         "description": {
           "description": "",
@@ -3755,7 +3759,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/customRollouts"
+            "customRollouts"
           ],
           "type": "string"
         }
@@ -3793,7 +3797,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/defaultRollouts"
+            "defaultRollouts"
           ],
           "type": "string"
         }
@@ -3831,7 +3835,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/notificationRegistrations"
+            "notificationRegistrations"
           ],
           "type": "string"
         }
@@ -3874,12 +3878,14 @@
           ]
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/operations"
+            "operations"
           ],
           "type": "string"
         }
@@ -3917,7 +3923,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/resourcetypeRegistrations"
+            "resourcetypeRegistrations"
           ],
           "type": "string"
         }
@@ -3955,7 +3961,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/resourcetypeRegistrations/skus"
+            "skus"
           ],
           "type": "string"
         }

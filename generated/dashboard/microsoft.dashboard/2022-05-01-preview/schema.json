@@ -134,6 +134,7 @@
   },
   "definitions": {
     "ManagedGrafanaProperties": {
+      "description": "Properties specific to the grafana resource.",
       "properties": {
         "apiKey": {
           "description": "The api key setting of the Grafana instance.",
@@ -213,6 +214,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
@@ -260,10 +262,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "groupIds": {
           "description": "The private endpoint connection group ids.",
@@ -308,6 +312,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -349,6 +354,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
@@ -378,7 +384,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Dashboard/grafana/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

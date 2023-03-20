@@ -54,18 +54,10 @@
           "type": "string"
         },
         "name": {
-          "description": "Advanced Threat Protection setting name.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "current"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "The Advanced Threat Protection settings.",
@@ -95,6 +87,7 @@
   },
   "definitions": {
     "AdvancedThreatProtectionProperties": {
+      "description": "The Advanced Threat Protection settings.",
       "properties": {
         "isEnabled": {
           "description": "Indicates whether Advanced Threat Protection is enabled.",

@@ -235,6 +235,7 @@
   },
   "definitions": {
     "BgpSession": {
+      "description": "The properties that define a BGP session.",
       "properties": {
         "maxPrefixesAdvertisedV4": {
           "description": "The maximum number of prefixes advertised over the IPv4 session.",
@@ -282,6 +283,7 @@
       "type": "object"
     },
     "ContactInfo": {
+      "description": "The contact information of the peer.",
       "properties": {
         "emails": {
           "description": "The list of email addresses.",
@@ -315,6 +317,7 @@
       "type": "object"
     },
     "DirectConnection": {
+      "description": "The properties that define a direct connection.",
       "properties": {
         "bandwidthInMbps": {
           "description": "The bandwidth of the connection.",
@@ -394,6 +397,7 @@
       "type": "object"
     },
     "ExchangeConnection": {
+      "description": "The properties that define an exchange connection.",
       "properties": {
         "bgpSession": {
           "description": "The BGP session associated with the connection.",
@@ -425,6 +429,7 @@
       "type": "object"
     },
     "PeerAsnProperties": {
+      "description": "The properties that define a peer's ASN.",
       "properties": {
         "peerAsn": {
           "description": "The Autonomous System Number (ASN) of the peer.",
@@ -473,6 +478,7 @@
       "type": "object"
     },
     "PeeringProperties": {
+      "description": "The properties that define connectivity to the Microsoft Cloud Edge.",
       "properties": {
         "direct": {
           "description": "The properties that define a direct peering.",
@@ -504,6 +510,7 @@
       "type": "object"
     },
     "PeeringPropertiesDirect": {
+      "description": "The properties that define a direct peering.",
       "properties": {
         "connections": {
           "description": "The set of connections that constitute a direct peering.",
@@ -569,6 +576,7 @@
       "type": "object"
     },
     "PeeringPropertiesExchange": {
+      "description": "The properties that define an exchange peering.",
       "properties": {
         "connections": {
           "description": "The set of connections that constitute an exchange peering.",
@@ -606,6 +614,7 @@
       "type": "object"
     },
     "PeeringServicePrefixProperties": {
+      "description": "The peering service prefix properties class.",
       "properties": {
         "learnedType": {
           "description": "The prefix learned type",
@@ -650,6 +659,7 @@
       "type": "object"
     },
     "PeeringServiceProperties": {
+      "description": "The properties that define connectivity to the Peering Service.",
       "properties": {
         "peeringServiceLocation": {
           "description": "The PeeringServiceLocation of the Customer.",
@@ -663,6 +673,7 @@
       "type": "object"
     },
     "PeeringSku": {
+      "description": "The SKU that defines the tier and kind of the peering.",
       "properties": {
         "family": {
           "description": "The family of the peering SKU.",
@@ -733,6 +744,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "The sub resource.",
       "properties": {
         "id": {
           "description": "The identifier of the referenced resource.",
@@ -767,7 +779,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Peering/peeringServices/prefixes"
+            "prefixes"
           ],
           "type": "string"
         }

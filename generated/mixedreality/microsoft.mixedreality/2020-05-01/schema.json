@@ -118,13 +118,14 @@
   },
   "definitions": {
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -137,6 +138,7 @@
       "type": "object"
     },
     "MixedRealityAccountProperties": {
+      "description": "Common Properties shared by Mixed Reality Accounts",
       "properties": {
         "storageAccountName": {
           "description": "The name of the storage account associated with this accountId",
@@ -146,6 +148,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The resource model definition representing SKU",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",

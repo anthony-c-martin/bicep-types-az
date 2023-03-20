@@ -485,6 +485,7 @@
   },
   "definitions": {
     "AKSProperties": {
+      "description": "AKS properties",
       "properties": {
         "agentCount": {
           "description": "Number of agents",
@@ -531,6 +532,7 @@
       "type": "object"
     },
     "AksNetworkingConfiguration": {
+      "description": "Advance configuration for AKS networking",
       "properties": {
         "dnsServiceIP": {
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
@@ -576,6 +578,7 @@
       "type": "object"
     },
     "AmlComputeProperties": {
+      "description": "AML Compute properties",
       "properties": {
         "enableNodePublicIp": {
           "description": "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.",
@@ -697,6 +700,7 @@
       "type": "object"
     },
     "AssignedUser": {
+      "description": "A user that can be assigned to a compute instance.",
       "properties": {
         "objectId": {
           "description": "User’s AAD Object Id.",
@@ -714,6 +718,7 @@
       "type": "object"
     },
     "Compute": {
+      "description": "Machine Learning compute object.",
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -731,6 +736,7 @@
       "type": "object"
     },
     "ComputeBinding": {
+      "description": "Compute binding definition.",
       "properties": {
         "computeId": {
           "description": "ID of the compute resource.",
@@ -751,6 +757,7 @@
       "type": "object"
     },
     "ComputeInstanceProperties": {
+      "description": "Compute Instance properties",
       "properties": {
         "applicationSharingPolicy": {
           "description": "Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.",
@@ -833,6 +840,7 @@
       "type": "object"
     },
     "ComputeInstanceSshSettings": {
+      "description": "Specifies policy and settings for SSH access.",
       "properties": {
         "adminPublicKey": {
           "description": "Specifies the SSH rsa public key file as a string. Use \"ssh-keygen -t rsa -b 2048\" to generate your SSH key pairs.",
@@ -857,6 +865,7 @@
       "type": "object"
     },
     "ContainerResourceRequirements": {
+      "description": "The resource requirements for the container (cpu and memory).",
       "properties": {
         "cpu": {
           "description": "The number of CPU cores on the container.",
@@ -906,6 +915,7 @@
       "type": "object"
     },
     "CreateServiceRequestEnvironmentImageRequest": {
+      "description": "The Environment, models and assets needed for inferencing.",
       "properties": {
         "assets": {
           "description": "The list of assets.",
@@ -993,6 +1003,7 @@
       "type": "object"
     },
     "CreateServiceRequestKeys": {
+      "description": "The authentication keys.",
       "properties": {
         "primaryKey": {
           "description": "The primary key.",
@@ -1024,6 +1035,7 @@
       "type": "object"
     },
     "DatasetReference": {
+      "description": "The dataset reference object.",
       "properties": {
         "id": {
           "description": "The id of the dataset reference.",
@@ -1072,6 +1084,7 @@
       "type": "object"
     },
     "EnvironmentImageRequestEnvironment": {
+      "description": "The details of the AZURE ML environment.",
       "properties": {
         "docker": {
           "description": "The definition of a Docker container.",
@@ -1148,6 +1161,7 @@
       "type": "object"
     },
     "EnvironmentImageRequestEnvironmentReference": {
+      "description": "The unique identifying details of the AZURE ML environment.",
       "properties": {
         "name": {
           "description": "Name of the environment.",
@@ -1192,6 +1206,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -1236,6 +1251,7 @@
       "type": "object"
     },
     "ImageAsset": {
+      "description": "An Image asset.",
       "properties": {
         "id": {
           "description": "The Asset Id.",
@@ -1285,6 +1301,7 @@
       "type": "object"
     },
     "LabelCategory": {
+      "description": "Represents a category of labels in a labeling job.",
       "properties": {
         "allowMultiSelect": {
           "description": "Indicates whether it is allowed to select multiple classes in this category.",
@@ -1330,6 +1347,7 @@
       "type": "object"
     },
     "LabelClass": {
+      "description": "Represents a label or a category of labels in a labeling job.",
       "properties": {
         "displayName": {
           "description": "Display name of the label class.",
@@ -1361,6 +1379,7 @@
       "type": "object"
     },
     "LabelingDatasetConfiguration": {
+      "description": "Represents configuration of dataset used in a labeling job.",
       "properties": {
         "assetName": {
           "description": "Name of the data asset to perform labeling.",
@@ -1390,6 +1409,7 @@
     },
     "LabelingJobImageProperties": {
       "additionalProperties": {},
+      "description": "Properties in an labeling job of image media.",
       "properties": {
         "annotationType": {
           "description": "Annotation type of image labeling tasks.",
@@ -1429,6 +1449,7 @@
       "type": "object"
     },
     "LabelingJobInstructions": {
+      "description": "Instructions for a labeling job.",
       "properties": {
         "uri": {
           "description": "The link to a page with detailed labeling instructions for labelers.",
@@ -1438,6 +1459,7 @@
       "type": "object"
     },
     "LabelingJobProperties": {
+      "description": "Definition of a labeling job.",
       "properties": {
         "datasetConfiguration": {
           "description": "Dataset configuration for the job.",
@@ -1545,6 +1567,7 @@
       "type": "object"
     },
     "LinkedServiceProps": {
+      "description": "LinkedService specific properties.",
       "properties": {
         "createdTime": {
           "description": "The creation time of the linked service.",
@@ -1563,7 +1586,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Synapse"
               ],
               "type": "string"
             },
@@ -1595,6 +1618,7 @@
       "type": "object"
     },
     "MLAssistConfiguration": {
+      "description": "Represents configuration for machine learning assisted features in a labeling job.",
       "properties": {
         "inferencingComputeBinding": {
           "description": "The compute designated for inferencing.",
@@ -1653,6 +1677,7 @@
       "type": "object"
     },
     "Model": {
+      "description": "An Azure Machine Learning Model.",
       "properties": {
         "createdTime": {
           "description": "The Model creation time (UTC).",
@@ -1833,6 +1858,7 @@
       "type": "object"
     },
     "ModelDockerSectionBaseImageRegistry": {
+      "description": "Image registry that contains the base image.",
       "properties": {
         "address": {
           "description": "",
@@ -1850,6 +1876,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionDocker": {
+      "description": "The definition of a Docker container.",
       "properties": {
         "baseDockerfile": {
           "description": "Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.",
@@ -1874,6 +1901,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionPython": {
+      "description": "Settings for a Python environment.",
       "properties": {
         "baseCondaEnvironment": {
           "description": "",
@@ -1901,6 +1929,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionR": {
+      "description": "Settings for a R environment.",
       "properties": {
         "bioConductorPackages": {
           "description": "The packages from Bioconductor.",
@@ -1999,6 +2028,7 @@
       "type": "object"
     },
     "ModelEnvironmentDefinitionSpark": {
+      "description": "The configuration for a Spark environment.",
       "properties": {
         "packages": {
           "description": "The Spark packages to use.",
@@ -2050,6 +2080,7 @@
       "type": "object"
     },
     "PersonalComputeInstanceSettings": {
+      "description": "Settings for a personal compute instance.",
       "properties": {
         "assignedUser": {
           "description": "A user explicitly assigned to a personal compute instance.",
@@ -2066,10 +2097,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -2100,6 +2133,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -2157,6 +2191,7 @@
       "type": "object"
     },
     "ResourceId": {
+      "description": "Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.",
       "properties": {
         "id": {
           "description": "The ID of the resource",
@@ -2169,6 +2204,7 @@
       "type": "object"
     },
     "ScaleSettings": {
+      "description": "scale settings for AML Compute",
       "properties": {
         "maxNodeCount": {
           "description": "Max number of nodes to use",
@@ -2203,6 +2239,7 @@
       "type": "object"
     },
     "ScriptReference": {
+      "description": "Script reference",
       "properties": {
         "scriptArguments": {
           "description": "Optional command line arguments passed to the script to run.",
@@ -2224,6 +2261,7 @@
       "type": "object"
     },
     "ScriptsToExecute": {
+      "description": "Customized setup scripts",
       "properties": {
         "creationScript": {
           "description": "Script that's run only once during provision of the compute.",
@@ -2251,6 +2289,7 @@
       "type": "object"
     },
     "SetupScripts": {
+      "description": "Details of customized scripts to execute for setting up the cluster.",
       "properties": {
         "scripts": {
           "description": "Customized setup scripts",
@@ -2287,6 +2326,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperty": {
+      "description": "Properties of a shared private link resource.",
       "properties": {
         "groupId": {
           "description": "The private link resource group id.",
@@ -2322,6 +2362,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku of the resource",
       "properties": {
         "name": {
           "description": "Name of the sku",
@@ -2352,6 +2393,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "The ssl configuration for scoring",
       "properties": {
         "cert": {
           "description": "Cert data",
@@ -2385,6 +2427,7 @@
       "type": "object"
     },
     "UserAccountCredentials": {
+      "description": "Settings for user account that gets created on each on the nodes of a compute.",
       "properties": {
         "adminUserName": {
           "description": "Name of the administrator user account which can be used to SSH to nodes.",
@@ -2405,10 +2448,12 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User Assigned Identity",
       "properties": {},
       "type": "object"
     },
     "VirtualMachineImage": {
+      "description": "Virtual Machine image for Windows AML Compute",
       "properties": {
         "id": {
           "description": "Virtual Machine image path",
@@ -2456,6 +2501,7 @@
       "type": "object"
     },
     "VirtualMachineSshCredentials": {
+      "description": "Admin credentials for virtual machine",
       "properties": {
         "password": {
           "description": "Password of admin account",
@@ -2477,6 +2523,7 @@
       "type": "object"
     },
     "WorkspaceConnectionProps": {
+      "description": "Workspace Connection specific properties.",
       "properties": {
         "authType": {
           "description": "Authorization type of the workspace connection.",
@@ -2498,6 +2545,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The properties of a machine learning workspace.",
       "properties": {
         "allowPublicAccessWhenBehindVnet": {
           "description": "The flag to indicate whether to allow public access when behind VNet.",
@@ -2655,7 +2703,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }
@@ -2693,7 +2741,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/connections"
+            "connections"
           ],
           "type": "string"
         }
@@ -2731,7 +2779,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/labelingJobs"
+            "labelingJobs"
           ],
           "type": "string"
         }
@@ -2784,7 +2832,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/linkedServices"
+            "linkedServices"
           ],
           "type": "string"
         }
@@ -2863,7 +2911,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -2950,7 +2998,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/services"
+            "services"
           ],
           "type": "string"
         }

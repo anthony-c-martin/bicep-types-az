@@ -499,6 +499,7 @@
   },
   "definitions": {
     "ARecord": {
+      "description": "An A record.",
       "properties": {
         "ipv4Address": {
           "description": "The IPv4 address of this A record.",
@@ -508,6 +509,7 @@
       "type": "object"
     },
     "AaaaRecord": {
+      "description": "An AAAA record.",
       "properties": {
         "ipv6Address": {
           "description": "The IPv6 address of this AAAA record.",
@@ -517,6 +519,7 @@
       "type": "object"
     },
     "CnameRecord": {
+      "description": "A CNAME record.",
       "properties": {
         "cname": {
           "description": "The canonical name for this CNAME record.",
@@ -526,6 +529,7 @@
       "type": "object"
     },
     "MxRecord": {
+      "description": "An MX record.",
       "properties": {
         "exchange": {
           "description": "The domain name of the mail host for this MX record.",
@@ -546,10 +550,12 @@
       "type": "object"
     },
     "PrivateZoneProperties": {
+      "description": "Represents the properties of the Private DNS zone.",
       "properties": {},
       "type": "object"
     },
     "PtrRecord": {
+      "description": "A PTR record.",
       "properties": {
         "ptrdname": {
           "description": "The PTR target domain name for this PTR record.",
@@ -559,6 +565,7 @@
       "type": "object"
     },
     "RecordSetProperties": {
+      "description": "Represents the properties of the records in the record set.",
       "properties": {
         "aRecords": {
           "description": "The list of A records in the record set.",
@@ -738,6 +745,7 @@
       "type": "object"
     },
     "SoaRecord": {
+      "description": "An SOA record.",
       "properties": {
         "email": {
           "description": "The email contact for this SOA record.",
@@ -806,6 +814,7 @@
       "type": "object"
     },
     "SrvRecord": {
+      "description": "An SRV record.",
       "properties": {
         "port": {
           "description": "The port value for this SRV record.",
@@ -848,6 +857,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Reference to another subresource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -857,6 +867,7 @@
       "type": "object"
     },
     "TxtRecord": {
+      "description": "A TXT record.",
       "properties": {
         "value": {
           "description": "The text value of this TXT record.",
@@ -876,6 +887,7 @@
       "type": "object"
     },
     "VirtualNetworkLinkProperties": {
+      "description": "Represents the properties of the Private DNS zone.",
       "properties": {
         "registrationEnabled": {
           "description": "Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?",
@@ -932,7 +944,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/AAAA"
+            "AAAA"
           ],
           "type": "string"
         }
@@ -974,7 +986,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/A"
+            "A"
           ],
           "type": "string"
         }
@@ -1016,7 +1028,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/CNAME"
+            "CNAME"
           ],
           "type": "string"
         }
@@ -1058,7 +1070,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/MX"
+            "MX"
           ],
           "type": "string"
         }
@@ -1100,7 +1112,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/PTR"
+            "PTR"
           ],
           "type": "string"
         }
@@ -1142,7 +1154,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/SOA"
+            "SOA"
           ],
           "type": "string"
         }
@@ -1184,7 +1196,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/SRV"
+            "SRV"
           ],
           "type": "string"
         }
@@ -1226,7 +1238,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/TXT"
+            "TXT"
           ],
           "type": "string"
         }
@@ -1287,7 +1299,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/privateDnsZones/virtualNetworkLinks"
+            "virtualNetworkLinks"
           ],
           "type": "string"
         }

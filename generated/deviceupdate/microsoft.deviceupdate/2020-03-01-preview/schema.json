@@ -259,6 +259,7 @@
   },
   "definitions": {
     "AccountProperties": {
+      "description": "Device Update account properties.",
       "properties": {
         "privateEndpointConnections": {
           "description": "List of private endpoint connections associated with the account.",
@@ -300,10 +301,12 @@
       "type": "object"
     },
     "ConnectionDetails": {
+      "description": "Private endpoint connection proxy object properties.",
       "properties": {},
       "type": "object"
     },
     "DiagnosticStorageProperties": {
+      "description": "Customer-initiated diagnostic log collection storage properties",
       "properties": {
         "authenticationType": {
           "description": "Authentication Type",
@@ -335,6 +338,7 @@
       "type": "object"
     },
     "GroupConnectivityInformation": {
+      "description": "Group connectivity details.",
       "properties": {
         "customerVisibleFqdns": {
           "description": "List of customer visible FQDNs.",
@@ -362,6 +366,7 @@
       "type": "object"
     },
     "InstanceProperties": {
+      "description": "Device Update instance properties.",
       "properties": {
         "diagnosticStorageProperties": {
           "description": "Customer-initiated diagnostic log collection storage properties",
@@ -410,6 +415,7 @@
       "type": "object"
     },
     "IotHubSettings": {
+      "description": "Device Update account integration with IoT Hub settings.",
       "properties": {
         "eventHubConnectionString": {
           "description": "EventHub connection string.",
@@ -439,6 +445,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
@@ -486,10 +493,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
+      "description": "The Private Endpoint Connection resource.",
       "properties": {
         "properties": {
           "description": "Resource properties.",
@@ -509,6 +518,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "groupIds": {
           "description": "Array of group IDs.",
@@ -553,10 +563,12 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProxyProperties": {
+      "description": "Private endpoint connection proxy object property bag.",
       "properties": {},
       "type": "object"
     },
     "PrivateLinkServiceConnection": {
+      "description": "Private link service connection details.",
       "properties": {
         "groupIds": {
           "description": "List of group IDs.",
@@ -584,6 +596,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -613,6 +626,7 @@
       "type": "object"
     },
     "PrivateLinkServiceProxy": {
+      "description": "Private link service proxy details.",
       "properties": {
         "groupConnectivityInformation": {
           "description": "Group connectivity information.",
@@ -665,10 +679,12 @@
       "type": "object"
     },
     "PrivateLinkServiceProxyRemotePrivateEndpointConnection": {
+      "description": "Remote private endpoint connection details.",
       "properties": {},
       "type": "object"
     },
     "RemotePrivateEndpoint": {
+      "description": "Remote private endpoint details.",
       "properties": {
         "connectionDetails": {
           "description": "List of connection details.",
@@ -778,6 +794,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
@@ -836,7 +853,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DeviceUpdate/accounts/instances"
+            "instances"
           ],
           "type": "string"
         }
@@ -889,7 +906,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DeviceUpdate/accounts/privateEndpointConnectionProxies"
+            "privateEndpointConnectionProxies"
           ],
           "type": "string"
         }
@@ -927,7 +944,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DeviceUpdate/accounts/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

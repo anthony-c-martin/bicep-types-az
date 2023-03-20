@@ -425,6 +425,7 @@
   },
   "definitions": {
     "BotProperties": {
+      "description": "The parameters to provide for the Bot.",
       "properties": {
         "description": {
           "description": "The description of the bot",
@@ -485,10 +486,12 @@
       "type": "object"
     },
     "Channel": {
+      "description": "Channel definition",
       "properties": {},
       "type": "object"
     },
     "ConnectionSettingParameter": {
+      "description": "Extra Parameter in a Connection Setting Properties to indicate service provider specific properties",
       "properties": {
         "key": {
           "description": "Key for the Connection Setting Parameter.",
@@ -502,6 +505,7 @@
       "type": "object"
     },
     "ConnectionSettingProperties": {
+      "description": "Properties for a Connection Setting Item",
       "properties": {
         "clientId": {
           "description": "Client Id associated with the Connection Setting.",
@@ -548,6 +552,7 @@
       "type": "object"
     },
     "DirectLineChannelProperties": {
+      "description": "The parameters to provide for the Direct Line channel.",
       "properties": {
         "sites": {
           "description": "The list of Direct Line sites",
@@ -574,6 +579,7 @@
       "type": "object"
     },
     "DirectLineSite": {
+      "description": "A site for the Direct Line channel",
       "properties": {
         "isEnabled": {
           "description": "Whether this site is enabled for DirectLine channel.",
@@ -647,6 +653,7 @@
       "type": "object"
     },
     "EmailChannelProperties": {
+      "description": "The parameters to provide for the Email channel.",
       "properties": {
         "emailAddress": {
           "description": "The email address",
@@ -676,6 +683,7 @@
       "type": "object"
     },
     "EnterpriseChannelNode": {
+      "description": "The properties specific to an Enterprise Channel Node.",
       "properties": {
         "azureLocation": {
           "description": "The location of the Enterprise Channel Node.",
@@ -721,6 +729,7 @@
       "type": "object"
     },
     "EnterpriseChannelProperties": {
+      "description": "The parameters to provide for the Enterprise Channel.",
       "properties": {
         "nodes": {
           "description": "The nodes associated with the Enterprise Channel.",
@@ -773,6 +782,7 @@
       "type": "object"
     },
     "FacebookChannelProperties": {
+      "description": "The parameters to provide for the Facebook channel.",
       "properties": {
         "appId": {
           "description": "Facebook application id",
@@ -823,6 +833,7 @@
       "type": "object"
     },
     "FacebookPage": {
+      "description": "A Facebook page for Facebook channel registration",
       "properties": {
         "accessToken": {
           "description": "Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.",
@@ -840,6 +851,7 @@
       "type": "object"
     },
     "KikChannelProperties": {
+      "description": "The parameters to provide for the Kik channel.",
       "properties": {
         "apiKey": {
           "description": "Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.",
@@ -880,6 +892,7 @@
       "type": "object"
     },
     "MsTeamsChannelProperties": {
+      "description": "The parameters to provide for the Microsoft Teams channel.",
       "properties": {
         "callingWebHook": {
           "description": "Webhook for Microsoft Teams channel calls",
@@ -914,6 +927,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The SKU of the cognitive services account.",
       "properties": {
         "name": {
           "description": "The sku name",
@@ -937,6 +951,7 @@
       "type": "object"
     },
     "SkypeChannelProperties": {
+      "description": "The parameters to provide for the Microsoft Teams channel.",
       "properties": {
         "callingWebHook": {
           "description": "Calling web hook for Skype channel",
@@ -1030,6 +1045,7 @@
       "type": "object"
     },
     "SlackChannelProperties": {
+      "description": "The parameters to provide for the Slack channel.",
       "properties": {
         "clientId": {
           "description": "The Slack client id",
@@ -1068,6 +1084,7 @@
       "type": "object"
     },
     "SmsChannelProperties": {
+      "description": "The parameters to provide for the Sms channel.",
       "properties": {
         "accountSID": {
           "description": "The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.",
@@ -1113,6 +1130,7 @@
       "type": "object"
     },
     "TelegramChannelProperties": {
+      "description": "The parameters to provide for the Telegram channel.",
       "properties": {
         "accessToken": {
           "description": "The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.",
@@ -1148,6 +1166,7 @@
       "type": "object"
     },
     "WebChatChannelProperties": {
+      "description": "The parameters to provide for the Web Chat channel.",
       "properties": {
         "sites": {
           "description": "The list of Web Chat sites",
@@ -1174,6 +1193,7 @@
       "type": "object"
     },
     "WebChatSite": {
+      "description": "A site for the Webchat channel",
       "properties": {
         "enablePreview": {
           "description": "Whether this site is enabled for preview versions of Webchat",
@@ -1296,7 +1316,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.BotService/botServices/Connections"
+            "Connections"
           ],
           "type": "string"
         }
@@ -1404,7 +1424,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.BotService/botServices/channels"
+            "channels"
           ],
           "type": "string"
         }

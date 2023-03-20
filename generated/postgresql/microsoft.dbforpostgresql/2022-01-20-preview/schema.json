@@ -205,6 +205,7 @@
   },
   "definitions": {
     "Backup": {
+      "description": "Backup properties of a server",
       "properties": {
         "backupRetentionDays": {
           "description": "Backup retention days for the server.",
@@ -236,6 +237,7 @@
       "type": "object"
     },
     "ConfigurationProperties": {
+      "description": "The properties of a configuration.",
       "properties": {
         "source": {
           "description": "Source of the configuration.",
@@ -249,6 +251,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "The properties of a database.",
       "properties": {
         "charset": {
           "description": "The charset of the database.",
@@ -262,6 +265,7 @@
       "type": "object"
     },
     "FirewallRuleProperties": {
+      "description": "The properties of a server firewall rule.",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the server firewall rule. Must be IPv4 format.",
@@ -295,6 +299,7 @@
       "type": "object"
     },
     "HighAvailability": {
+      "description": "High availability properties of a server",
       "properties": {
         "mode": {
           "description": "The HA mode for the server.",
@@ -320,6 +325,7 @@
       "type": "object"
     },
     "MaintenanceWindow": {
+      "description": "Maintenance window properties of a server.",
       "properties": {
         "customWindow": {
           "description": "indicates whether custom window is enabled or disabled",
@@ -362,6 +368,7 @@
       "type": "object"
     },
     "Network": {
+      "description": "Network properties of a server",
       "properties": {
         "delegatedSubnetResourceId": {
           "description": "delegated subnet arm resource id.",
@@ -375,6 +382,7 @@
       "type": "object"
     },
     "ServerProperties": {
+      "description": "The properties of a server.",
       "properties": {
         "administratorLogin": {
           "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).",
@@ -497,6 +505,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku information related properties of a server.",
       "properties": {
         "name": {
           "description": "The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.",
@@ -526,6 +535,7 @@
       "type": "object"
     },
     "Storage": {
+      "description": "Storage properties of a server",
       "properties": {
         "storageSizeGB": {
           "description": "Max storage allowed for a server.",
@@ -567,7 +577,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/flexibleServers/configurations"
+            "configurations"
           ],
           "type": "string"
         }
@@ -605,7 +615,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/flexibleServers/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -643,7 +653,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }

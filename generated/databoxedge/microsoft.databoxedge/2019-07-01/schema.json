@@ -351,6 +351,7 @@
   },
   "definitions": {
     "Address": {
+      "description": "The shipping address of the customer.",
       "properties": {
         "addressLine1": {
           "description": "The address line1.",
@@ -391,6 +392,7 @@
       "type": "object"
     },
     "AsymmetricEncryptedSecret": {
+      "description": "Represent the secrets intended for encryption with asymmetric key pair.",
       "properties": {
         "encryptionAlgorithm": {
           "description": "The algorithm used to encrypt \"Value\".",
@@ -424,6 +426,7 @@
       "type": "object"
     },
     "AzureContainerInfo": {
+      "description": "Azure container mapping of the endpoint.",
       "properties": {
         "containerName": {
           "description": "Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).",
@@ -458,6 +461,7 @@
       "type": "object"
     },
     "BandwidthScheduleProperties": {
+      "description": "The properties of the bandwidth schedule.",
       "properties": {
         "days": {
           "description": "The days of the week when this schedule is applicable.",
@@ -518,6 +522,7 @@
       "type": "object"
     },
     "ClientAccessRight": {
+      "description": "The mapping between a particular client IP and the type of access client has on the NFS share.",
       "properties": {
         "accessPermission": {
           "description": "Type of access to be allowed for the client.",
@@ -547,6 +552,7 @@
       "type": "object"
     },
     "ContactDetails": {
+      "description": "Contains all the contact details of the customer.",
       "properties": {
         "companyName": {
           "description": "The name of the company.",
@@ -584,6 +590,7 @@
       "type": "object"
     },
     "DataBoxEdgeDeviceProperties": {
+      "description": "The properties of the Data Box Edge/Gateway device.",
       "properties": {
         "dataBoxEdgeDeviceStatus": {
           "description": "The status of the Data Box Edge/Gateway device.",
@@ -621,6 +628,7 @@
       "type": "object"
     },
     "OrderProperties": {
+      "description": "Order properties.",
       "properties": {
         "contactInformation": {
           "description": "The contact details.",
@@ -663,6 +671,7 @@
       "type": "object"
     },
     "OrderStatus": {
+      "description": "Represents a single status change.",
       "properties": {
         "comments": {
           "description": "Comments related to this status change.",
@@ -702,6 +711,7 @@
       "type": "object"
     },
     "RefreshDetails": {
+      "description": "Fields for tracking refresh job on the share.",
       "properties": {
         "errorManifestFile": {
           "description": "Indicates the relative path of the error xml for the last refresh job on this particular share, if any. This could be a failed job or a successful job.",
@@ -731,6 +741,7 @@
       "type": "object"
     },
     "ShareAccessRight": {
+      "description": "Specifies the mapping between this particular user and the type of access he has on shares on this device.",
       "properties": {
         "accessType": {
           "description": "Type of access to be allowed on the share for this user.",
@@ -760,6 +771,7 @@
       "type": "object"
     },
     "ShareProperties": {
+      "description": "The share properties.",
       "properties": {
         "accessProtocol": {
           "description": "Access protocol to be used by the share.",
@@ -901,6 +913,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The SKU type.",
       "properties": {
         "name": {
           "description": "SKU name.",
@@ -935,6 +948,7 @@
       "type": "object"
     },
     "StorageAccountCredentialProperties": {
+      "description": "The storage account credential properties.",
       "properties": {
         "accountKey": {
           "description": "Encrypted storage key.",
@@ -1006,6 +1020,7 @@
       "type": "object"
     },
     "UserAccessRight": {
+      "description": "The mapping between a particular user and the access type on the SMB share.",
       "properties": {
         "accessType": {
           "description": "Type of access to be allowed for the user.",
@@ -1035,6 +1050,7 @@
       "type": "object"
     },
     "UserProperties": {
+      "description": "The user properties.",
       "properties": {
         "encryptedPassword": {
           "description": "The password details.",
@@ -1097,7 +1113,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules"
+            "bandwidthSchedules"
           ],
           "type": "string"
         }
@@ -1119,7 +1135,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1135,7 +1153,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders"
+            "orders"
           ],
           "type": "string"
         }
@@ -1162,7 +1180,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles"
+            "roles"
           ],
           "type": "string"
         }
@@ -1200,7 +1218,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares"
+            "shares"
           ],
           "type": "string"
         }
@@ -1238,7 +1256,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials"
+            "storageAccountCredentials"
           ],
           "type": "string"
         }
@@ -1265,7 +1283,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers"
+            "triggers"
           ],
           "type": "string"
         }
@@ -1303,7 +1321,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataBoxEdge/dataBoxEdgeDevices/users"
+            "users"
           ],
           "type": "string"
         }

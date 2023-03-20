@@ -253,6 +253,7 @@
   },
   "definitions": {
     "AmlFilesystemEncryptionSettings": {
+      "description": "AML file system encryption settings.",
       "properties": {
         "keyEncryptionKey": {
           "description": "Specifies the location of the encryption key in Key Vault.",
@@ -269,6 +270,7 @@
       "type": "object"
     },
     "AmlFilesystemHsmSettings": {
+      "description": "AML file system HSM settings.",
       "properties": {
         "container": {
           "description": "Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.",
@@ -290,6 +292,7 @@
       "type": "object"
     },
     "AmlFilesystemIdentity": {
+      "description": "Managed Identity properties.",
       "properties": {
         "type": {
           "description": "The type of identity used for the resource.",
@@ -332,6 +335,7 @@
       "type": "object"
     },
     "AmlFilesystemProperties": {
+      "description": "Properties of the AML file system.",
       "properties": {
         "encryptionSettings": {
           "description": "Specifies encryption settings of the AML file system.",
@@ -390,6 +394,7 @@
       "type": "object"
     },
     "AmlFilesystemPropertiesHsm": {
+      "description": "Hydration and archive settings and status",
       "properties": {
         "settings": {
           "description": "Specifies HSM settings of the AML file system.",
@@ -406,6 +411,7 @@
       "type": "object"
     },
     "AmlFilesystemPropertiesMaintenanceWindow": {
+      "description": "Start time of a 30-minute weekly maintenance window.",
       "properties": {
         "dayOfWeek": {
           "description": "Day of the week on which the maintenance window will occur.",
@@ -443,6 +449,7 @@
       "type": "object"
     },
     "BlobNfsTarget": {
+      "description": "Properties pertaining to the BlobNfsTarget.",
       "properties": {
         "target": {
           "description": "Resource ID of the storage container.",
@@ -478,6 +485,7 @@
       "type": "object"
     },
     "CacheActiveDirectorySettings": {
+      "description": "Active Directory settings used to join a cache to a domain.",
       "properties": {
         "cacheNetBiosName": {
           "description": "The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].",
@@ -528,6 +536,7 @@
       "type": "object"
     },
     "CacheActiveDirectorySettingsCredentials": {
+      "description": "Active Directory admin credentials used to join the HPC Cache to a domain.",
       "properties": {
         "password": {
           "description": "Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.",
@@ -544,6 +553,7 @@
       "type": "object"
     },
     "CacheDirectorySettings": {
+      "description": "Cache Directory Services settings.",
       "properties": {
         "activeDirectory": {
           "description": "Specifies settings for joining the HPC Cache to an Active Directory domain.",
@@ -571,6 +581,7 @@
       "type": "object"
     },
     "CacheEncryptionSettings": {
+      "description": "Cache encryption settings.",
       "properties": {
         "keyEncryptionKey": {
           "description": "Specifies the location of the key encryption key in key vault.",
@@ -598,6 +609,7 @@
       "type": "object"
     },
     "CacheIdentity": {
+      "description": "Cache identity properties.",
       "properties": {
         "type": {
           "description": "The type of identity used for the cache",
@@ -642,6 +654,7 @@
       "type": "object"
     },
     "CacheNetworkSettings": {
+      "description": "Cache network settings.",
       "properties": {
         "dnsSearchDomain": {
           "description": "DNS search domain",
@@ -680,6 +693,7 @@
       "type": "object"
     },
     "CacheProperties": {
+      "description": "Properties of the cache.",
       "properties": {
         "cacheSizeGB": {
           "description": "The size of this cache, in GB, when scalingFactor is 1.0. Values depend on the cache SKU - <a href=\"https://learn.microsoft.com/en-us/rest/api/storagecache/skus/list?tabs=HTTP\">List SKUs</a>.",
@@ -780,6 +794,7 @@
       "type": "object"
     },
     "CacheSecuritySettings": {
+      "description": "Cache security settings.",
       "properties": {
         "accessPolicies": {
           "description": "NFS access policies defined for this cache.",
@@ -806,6 +821,7 @@
       "type": "object"
     },
     "CacheSku": {
+      "description": "SKU for the cache.",
       "properties": {
         "name": {
           "description": "SKU name for this cache.",
@@ -815,6 +831,7 @@
       "type": "object"
     },
     "CacheUpgradeSettings": {
+      "description": "Cache Upgrade Settings.",
       "properties": {
         "scheduledTime": {
           "description": "When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.",
@@ -843,6 +860,7 @@
       "type": "object"
     },
     "CacheUsernameDownloadSettings": {
+      "description": "Settings for Extended Groups username and group download.",
       "properties": {
         "autoDownloadCertificate": {
           "description": "Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.",
@@ -940,6 +958,7 @@
       "type": "object"
     },
     "CacheUsernameDownloadSettingsCredentials": {
+      "description": "When present, these are the credentials for the secure LDAP connection.",
       "properties": {
         "bindDn": {
           "description": "The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.",
@@ -953,6 +972,7 @@
       "type": "object"
     },
     "ClfsTarget": {
+      "description": "Properties pertaining to the ClfsTarget",
       "properties": {
         "target": {
           "description": "Resource ID of storage container.",
@@ -962,6 +982,7 @@
       "type": "object"
     },
     "KeyVaultKeyReference": {
+      "description": "Describes a reference to key vault key.",
       "properties": {
         "keyUrl": {
           "description": "The URL referencing a key encryption key in key vault.",
@@ -986,6 +1007,7 @@
       "type": "object"
     },
     "KeyVaultKeyReferenceSourceVault": {
+      "description": "Describes a resource Id to source key vault.",
       "properties": {
         "id": {
           "description": "Resource Id.",
@@ -995,6 +1017,7 @@
       "type": "object"
     },
     "NamespaceJunction": {
+      "description": "A namespace junction.",
       "properties": {
         "namespacePath": {
           "description": "Namespace path on a cache for a Storage Target.",
@@ -1016,6 +1039,7 @@
       "type": "object"
     },
     "Nfs3Target": {
+      "description": "Properties pertaining to the Nfs3Target",
       "properties": {
         "target": {
           "description": "IP address or host name of an NFSv3 host (e.g., 10.0.44.44).",
@@ -1059,6 +1083,7 @@
       "type": "object"
     },
     "NfsAccessPolicy": {
+      "description": "A set of rules describing access policies applied to NFSv3 clients of the cache.",
       "properties": {
         "accessRules": {
           "description": "The set of rules describing client accesses allowed under this policy.",
@@ -1093,6 +1118,7 @@
       "type": "object"
     },
     "NfsAccessRule": {
+      "description": "Rule to place restrictions on portions of the cache namespace being presented to clients.",
       "properties": {
         "access": {
           "description": "Access allowed by this rule.",
@@ -1179,6 +1205,7 @@
       "type": "object"
     },
     "SkuName": {
+      "description": "SKU for the resource.",
       "properties": {
         "name": {
           "description": "SKU name for this resource.",
@@ -1188,6 +1215,7 @@
       "type": "object"
     },
     "StorageTargetProperties": {
+      "description": "Properties of the Storage Target.",
       "properties": {
         "blobNfs": {
           "description": "Properties when targetType is blobNfs.",
@@ -1295,6 +1323,7 @@
       "type": "object"
     },
     "UnknownTarget": {
+      "description": "Properties pertaining to the UnknownTarget",
       "properties": {
         "attributes": {
           "description": "Dictionary of string->string pairs containing information about the Storage Target.",
@@ -1356,7 +1385,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorageCache/caches/storageTargets"
+            "storageTargets"
           ],
           "type": "string"
         }

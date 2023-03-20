@@ -530,6 +530,7 @@
   },
   "definitions": {
     "ApplicationServerConfiguration": {
+      "description": "Gets or sets the application server configuration.",
       "properties": {
         "instanceCount": {
           "description": "The number of app server instances.",
@@ -566,6 +567,7 @@
       "type": "object"
     },
     "BackupProfile": {
+      "description": "Backup profile",
       "properties": {
         "backupEnabled": {
           "description": "Whether to enable Azure backup for the workload",
@@ -589,6 +591,7 @@
       "type": "object"
     },
     "CacheProfile": {
+      "description": "Cache profile",
       "properties": {
         "capacity": {
           "description": "Cache capacity",
@@ -633,6 +636,7 @@
       "type": "object"
     },
     "CentralServerConfiguration": {
+      "description": "Gets or sets the central server configuration.",
       "properties": {
         "instanceCount": {
           "description": "The number of central server VMs.",
@@ -669,6 +673,7 @@
       "type": "object"
     },
     "DatabaseConfiguration": {
+      "description": "Gets or sets the database configuration.",
       "properties": {
         "databaseType": {
           "description": "The database type.",
@@ -731,6 +736,7 @@
       "type": "object"
     },
     "DatabaseProfile": {
+      "description": "Workload database profile",
       "properties": {
         "backupRetentionDays": {
           "description": "Backup retention days for the server",
@@ -850,6 +856,7 @@
       "type": "object"
     },
     "DeployerVmPackages": {
+      "description": "Defines the url and storage account ID where deployer VM packages are uploaded",
       "properties": {
         "storageAccountId": {
           "description": "The deployer VM packages storage account id",
@@ -863,6 +870,7 @@
       "type": "object"
     },
     "DiskConfiguration": {
+      "description": "The Disk Configuration Details.",
       "properties": {
         "diskVolumeConfigurations": {
           "description": "The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].",
@@ -890,6 +898,7 @@
       "type": "object"
     },
     "DiskInfo": {
+      "description": "Disk resource creation details",
       "properties": {
         "sizeInGB": {
           "description": "Disk size in GB",
@@ -925,6 +934,7 @@
       "type": "object"
     },
     "DiskSku": {
+      "description": "The disk sku.",
       "properties": {
         "name": {
           "description": "Defines the disk sku name.",
@@ -950,6 +960,7 @@
       "type": "object"
     },
     "DiskVolumeConfiguration": {
+      "description": "The disk configuration required for the selected volume.",
       "properties": {
         "count": {
           "description": "The total number of disks required for the concerned volume.",
@@ -988,18 +999,22 @@
       "type": "object"
     },
     "EnqueueReplicationServerProperties": {
+      "description": "Defines the SAP Enqueue Replication Server (ERS) properties.",
       "properties": {},
       "type": "object"
     },
     "EnqueueServerProperties": {
+      "description": "Defines the SAP Enqueue Server properties.",
       "properties": {},
       "type": "object"
     },
     "FileShareConfiguration": {
+      "description": "File Share configuration details, populated with information on storage configuration mounted on the VIS. The createAndMount option is selected in case of missing input.",
       "properties": {},
       "type": "object"
     },
     "FileshareProfile": {
+      "description": "File share profile",
       "properties": {
         "shareSizeInGB": {
           "description": "File share size in GB",
@@ -1052,10 +1067,12 @@
       "type": "object"
     },
     "GatewayServerProperties": {
+      "description": "Defines the SAP Gateway Server properties.",
       "properties": {},
       "type": "object"
     },
     "HighAvailabilityConfiguration": {
+      "description": "Gets or sets the high availability configuration.",
       "properties": {
         "highAvailabilityType": {
           "description": "The high availability type.",
@@ -1079,6 +1096,7 @@
       "type": "object"
     },
     "HighAvailabilitySoftwareConfiguration": {
+      "description": "Gets or sets the HA software configuration.",
       "properties": {
         "fencingClientId": {
           "description": "The fencing client id.",
@@ -1096,6 +1114,7 @@
       "type": "object"
     },
     "ImageReference": {
+      "description": "Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.",
       "properties": {
         "offer": {
           "description": "Specifies the offer of the platform image or marketplace image used to create the virtual machine.",
@@ -1121,6 +1140,7 @@
       "type": "object"
     },
     "InfrastructureConfiguration": {
+      "description": "Deploy SAP Infrastructure Details.",
       "properties": {
         "appResourceGroup": {
           "description": "The application resource group where SAP system resources will be deployed.",
@@ -1133,6 +1153,7 @@
       "type": "object"
     },
     "ManagedRGConfiguration": {
+      "description": "Managed resource group configuration",
       "properties": {
         "name": {
           "description": "Managed resource group name",
@@ -1142,10 +1163,12 @@
       "type": "object"
     },
     "MessageServerProperties": {
+      "description": "Defines the SAP Message Server properties.",
       "properties": {},
       "type": "object"
     },
     "MonitorProperties": {
+      "description": "Describes the properties of a SAP monitor.",
       "properties": {
         "appLocation": {
           "description": "The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.",
@@ -1193,6 +1216,7 @@
       "type": "object"
     },
     "NetworkConfiguration": {
+      "description": "Defines the network configuration type for SAP system infrastructure that is being deployed ",
       "properties": {
         "isSecondaryIpEnabled": {
           "description": "Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed",
@@ -1209,6 +1233,7 @@
       "type": "object"
     },
     "NetworkProfile": {
+      "description": "Network profile",
       "properties": {
         "azureFrontDoorEnabled": {
           "description": "Whether to enable Azure front door",
@@ -1266,6 +1291,7 @@
       "type": "object"
     },
     "NodeProfile": {
+      "description": "VM or VMSS node profile",
       "properties": {
         "dataDisks": {
           "description": "Data disks details. This property is not in use right now",
@@ -1327,10 +1353,12 @@
       "type": "object"
     },
     "OSConfiguration": {
+      "description": "Defines the OS configuration.",
       "properties": {},
       "type": "object"
     },
     "OSProfile": {
+      "description": "Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.",
       "properties": {
         "adminPassword": {
           "description": "Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)",
@@ -1355,6 +1383,7 @@
       "type": "object"
     },
     "OsImageProfile": {
+      "description": "OS image profile",
       "properties": {
         "offer": {
           "description": "OS image offer",
@@ -1417,6 +1446,7 @@
       "type": "object"
     },
     "OsSapConfiguration": {
+      "description": "Defines the OS and SAP Configurations for Deployment",
       "properties": {
         "deployerVmPackages": {
           "description": "The url and storage account ID where deployer VM packages are uploaded",
@@ -1437,6 +1467,7 @@
       "type": "object"
     },
     "PhpProfile": {
+      "description": "PHP profile",
       "properties": {
         "version": {
           "description": "PHP version",
@@ -1461,6 +1492,7 @@
       "type": "object"
     },
     "PhpWorkloadResourceIdentity": {
+      "description": "Identity for the resource. Currently not supported",
       "properties": {
         "type": {
           "description": "Type of manage identity",
@@ -1506,6 +1538,7 @@
       "type": "object"
     },
     "PhpWorkloadResourceProperties": {
+      "description": "PHP workload resource properties",
       "properties": {
         "adminUserProfile": {
           "description": "Admin user profile used for VM and VMSS",
@@ -1654,6 +1687,7 @@
       "type": "object"
     },
     "ProviderInstanceProperties": {
+      "description": "Describes the properties of a provider instance.",
       "properties": {
         "providerSettings": {
           "description": "Defines the provider instance errors.",
@@ -1670,14 +1704,17 @@
       "type": "object"
     },
     "ProviderSpecificProperties": {
+      "description": "Gets or sets the provider specific properties.",
       "properties": {},
       "type": "object"
     },
     "SAPApplicationServerProperties": {
+      "description": "Defines the SAP Application Server instance properties.",
       "properties": {},
       "type": "object"
     },
     "SAPCentralServerProperties": {
+      "description": "Defines the SAP Central Services Instance properties.",
       "properties": {
         "enqueueReplicationServerProperties": {
           "description": "Defines the SAP Enqueue Replication Server (ERS) properties.",
@@ -1727,14 +1764,17 @@
       "type": "object"
     },
     "SAPConfiguration": {
+      "description": "The SAP Configuration.",
       "properties": {},
       "type": "object"
     },
     "SAPDatabaseProperties": {
+      "description": "Defines the Database properties.",
       "properties": {},
       "type": "object"
     },
     "SAPVirtualInstanceProperties": {
+      "description": "Defines the Virtual Instance for SAP solutions resource properties.",
       "properties": {
         "configuration": {
           "description": "Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS",
@@ -1798,6 +1838,7 @@
       "type": "object"
     },
     "SearchProfile": {
+      "description": "Search profile",
       "properties": {
         "dataDisks": {
           "description": "Data disks details. This property is not in use right now",
@@ -1874,6 +1915,7 @@
       "type": "object"
     },
     "SiteProfile": {
+      "description": "Workload website profile",
       "properties": {
         "domainName": {
           "description": "Domain name for the application site URL",
@@ -1883,6 +1925,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The resource model definition representing SKU",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -1931,10 +1974,12 @@
       "type": "object"
     },
     "SoftwareConfiguration": {
+      "description": "The SAP Software configuration Input.",
       "properties": {},
       "type": "object"
     },
     "SshConfiguration": {
+      "description": "SSH configuration for Linux based VMs running on Azure",
       "properties": {
         "publicKeys": {
           "description": "The list of SSH public keys used to authenticate with linux based VMs.",
@@ -1961,6 +2006,7 @@
       "type": "object"
     },
     "SshKeyPair": {
+      "description": "The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).",
       "properties": {
         "privateKey": {
           "description": "SSH private key.",
@@ -1974,6 +2020,7 @@
       "type": "object"
     },
     "SshPublicKey": {
+      "description": "Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.",
       "properties": {
         "keyData": {
           "description": "SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).",
@@ -1983,6 +2030,7 @@
       "type": "object"
     },
     "StorageConfiguration": {
+      "description": "Gets or sets the storage configuration.",
       "properties": {
         "transportFileShareConfiguration": {
           "description": "The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.",
@@ -1999,10 +2047,12 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
     "UserAssignedServiceIdentity": {
+      "description": "Managed service identity (user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of manage identity",
@@ -2048,6 +2098,7 @@
       "type": "object"
     },
     "UserProfile": {
+      "description": "User profile to configure on a compute resources such as VM, VMSS",
       "properties": {
         "sshPublicKey": {
           "description": "SSH public key data",
@@ -2065,6 +2116,7 @@
       "type": "object"
     },
     "VirtualMachineConfiguration": {
+      "description": "Defines the virtual machine configuration.",
       "properties": {
         "imageReference": {
           "description": "The image reference.",
@@ -2101,6 +2153,7 @@
       "type": "object"
     },
     "VmssNodesProfile": {
+      "description": "VMSS profile",
       "properties": {
         "autoScaleMaxCount": {
           "description": "Maximum number of nodes for autoscale",
@@ -2184,6 +2237,7 @@
       "type": "object"
     },
     "WordpressInstanceResourceProperties": {
+      "description": "WordPress instance properties",
       "properties": {
         "databaseName": {
           "description": "Database name used by the application",
@@ -2253,7 +2307,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/monitors/providerInstances"
+            "providerInstances"
           ],
           "type": "string"
         }
@@ -2275,7 +2329,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -2291,7 +2347,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/phpWorkloads/wordpressInstances"
+            "wordpressInstances"
           ],
           "type": "string"
         }
@@ -2348,7 +2404,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/sapVirtualInstances/applicationInstances"
+            "applicationInstances"
           ],
           "type": "string"
         }
@@ -2405,7 +2461,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/sapVirtualInstances/centralInstances"
+            "centralInstances"
           ],
           "type": "string"
         }
@@ -2462,7 +2518,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/sapVirtualInstances/databaseInstances"
+            "databaseInstances"
           ],
           "type": "string"
         }

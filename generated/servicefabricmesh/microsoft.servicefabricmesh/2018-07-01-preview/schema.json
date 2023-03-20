@@ -178,6 +178,7 @@
   },
   "definitions": {
     "ApplicationResourceProperties": {
+      "description": "This type describes properties of an application resource.",
       "properties": {
         "debugParams": {
           "description": "Internal use.",
@@ -223,6 +224,7 @@
       "type": "object"
     },
     "ContainerCodePackageProperties": {
+      "description": "Describes a container and its runtime properties.",
       "properties": {
         "commands": {
           "description": "Command array to execute within the container in exec form.",
@@ -397,6 +399,7 @@
       "type": "object"
     },
     "ContainerLabel": {
+      "description": "Describes a container label.",
       "properties": {
         "name": {
           "description": "The name of the container label.",
@@ -414,6 +417,7 @@
       "type": "object"
     },
     "ContainerVolume": {
+      "description": "Describes how a volume is attached to a container.",
       "properties": {
         "destinationPath": {
           "description": "The path within the container at which the volume should be mounted. Only valid path characters are allowed.",
@@ -442,6 +446,7 @@
       "type": "object"
     },
     "DiagnosticsDescription": {
+      "description": "Describes the diagnostics options available",
       "properties": {
         "defaultSinkRefs": {
           "description": "The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.",
@@ -493,6 +498,7 @@
       "type": "object"
     },
     "DiagnosticsRef": {
+      "description": "Reference to sinks in DiagnosticsDescription.",
       "properties": {
         "enabled": {
           "description": "Status of whether or not sinks are enabled.",
@@ -523,6 +529,7 @@
       "type": "object"
     },
     "DiagnosticsSinkProperties": {
+      "description": "Properties of a DiagnosticsSink.",
       "properties": {
         "description": {
           "description": "A description of the sink.",
@@ -536,6 +543,7 @@
       "type": "object"
     },
     "EndpointProperties": {
+      "description": "Describes a container endpoint.",
       "properties": {
         "name": {
           "description": "The name of the endpoint.",
@@ -559,6 +567,7 @@
       "type": "object"
     },
     "EnvironmentVariable": {
+      "description": "Describes an environment variable for the container.",
       "properties": {
         "name": {
           "description": "The name of the environment variable.",
@@ -572,6 +581,7 @@
       "type": "object"
     },
     "ImageRegistryCredential": {
+      "description": "Image registry credential.",
       "properties": {
         "password": {
           "description": "The password for the private registry.",
@@ -593,6 +603,7 @@
       "type": "object"
     },
     "IngressConfig": {
+      "description": "Describes public connectivity configuration for the network.",
       "properties": {
         "layer4": {
           "description": "Configuration for layer4 public connectivity for this network.",
@@ -633,6 +644,7 @@
       "type": "object"
     },
     "Layer4IngressConfig": {
+      "description": "Describes the layer4 configuration for public connectivity for this network.",
       "properties": {
         "applicationName": {
           "description": "The application name which contains the service to be exposed.",
@@ -665,6 +677,7 @@
       "type": "object"
     },
     "NetworkRef": {
+      "description": "Describes a network reference in a service.",
       "properties": {
         "name": {
           "description": "Name of the network.",
@@ -674,6 +687,7 @@
       "type": "object"
     },
     "NetworkResourceProperties": {
+      "description": "Describes properties of a network resource.",
       "properties": {
         "addressPrefix": {
           "description": "the address prefix for this network.",
@@ -701,6 +715,7 @@
       "type": "object"
     },
     "ResourceLimits": {
+      "description": "This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.",
       "properties": {
         "cpu": {
           "description": "CPU limits in cores. At present, only full cores are supported.",
@@ -728,6 +743,7 @@
       "type": "object"
     },
     "ResourceRequests": {
+      "description": "This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.\n",
       "properties": {
         "cpu": {
           "description": "Requested number of CPU cores. At present, only full cores are supported.",
@@ -759,6 +775,7 @@
       "type": "object"
     },
     "ResourceRequirements": {
+      "description": "This type describes the resource requirements for a container or a service.",
       "properties": {
         "limits": {
           "description": "Describes the maximum limits on the resources for a given container.",
@@ -789,6 +806,7 @@
       "type": "object"
     },
     "ServiceResourceDescription": {
+      "description": "This type describes a service resource.",
       "properties": {
         "name": {
           "description": "The name of the resource",
@@ -812,6 +830,7 @@
       "type": "object"
     },
     "ServiceResourceProperties": {
+      "description": "This type describes properties of a service resource.",
       "properties": {
         "codePackages": {
           "description": "Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).\n",
@@ -922,6 +941,7 @@
       "type": "object"
     },
     "Setting": {
+      "description": "Describes a setting for the container.",
       "properties": {
         "name": {
           "description": "The name of the setting.",
@@ -935,6 +955,7 @@
       "type": "object"
     },
     "VolumeProviderParametersAzureFile": {
+      "description": "This type describes a volume provided by an Azure Files file share.",
       "properties": {
         "accountKey": {
           "description": "Access key of the Azure storage account for the File Share.",
@@ -956,6 +977,7 @@
       "type": "object"
     },
     "VolumeResourceProperties": {
+      "description": "Describes properties of a volume resource.",
       "properties": {
         "azureFileParameters": {
           "description": "This type describes a volume provided by an Azure Files file share.",

@@ -245,7 +245,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection associated with the Azure resource.",
+          "description": "The name of the private endpoint connection associated with the cluster.",
           "oneOf": [
             {
               "pattern": "^[-\\w\\._]+$",
@@ -330,17 +330,18 @@
   },
   "definitions": {
     "ClusterProperties": {
+      "description": "Properties of the cluster.",
       "properties": {
         "administratorLoginPassword": {
           "description": "The password of the administrator login. Required for creation.",
           "type": "string"
         },
         "citusVersion": {
-          "description": "The Citus version of cluster.",
+          "description": "The Citus extension version on all cluster servers.",
           "type": "string"
         },
         "coordinatorEnablePublicIpAccess": {
-          "description": "If public IP is requested or not for a server.",
+          "description": "If public access is enabled on coordinator.",
           "oneOf": [
             {
               "type": "boolean"
@@ -355,7 +356,7 @@
           "type": "string"
         },
         "coordinatorStorageQuotaInMb": {
-          "description": "The storage of a server in MB. Required for creation.",
+          "description": "The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.",
           "oneOf": [
             {
               "type": "integer"
@@ -366,7 +367,7 @@
           ]
         },
         "coordinatorVCores": {
-          "description": "The vCores count of a server (max: 64). Required for creation.",
+          "description": "The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.",
           "oneOf": [
             {
               "type": "integer"
@@ -377,7 +378,7 @@
           ]
         },
         "enableHa": {
-          "description": "If high availability is enabled or not for the server.",
+          "description": "If high availability (HA) is enabled or not for the cluster.",
           "oneOf": [
             {
               "type": "boolean"
@@ -410,7 +411,7 @@
           ]
         },
         "nodeCount": {
-          "description": "Worker node count of the cluster. When node count is 0, it represents a coordinator with the ability to create distributed tables on that node. Node count value can not be 1. Required for creation.",
+          "description": "Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.",
           "oneOf": [
             {
               "type": "integer"
@@ -421,7 +422,7 @@
           ]
         },
         "nodeEnablePublicIpAccess": {
-          "description": "If public IP is requested or not for a server.",
+          "description": "If public access is enabled on worker nodes.",
           "oneOf": [
             {
               "type": "boolean"
@@ -436,7 +437,7 @@
           "type": "string"
         },
         "nodeStorageQuotaInMb": {
-          "description": "The storage of a server in MB.",
+          "description": "The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.",
           "oneOf": [
             {
               "type": "integer"
@@ -447,7 +448,7 @@
           ]
         },
         "nodeVCores": {
-          "description": "The vCores count of a server (max: 64).",
+          "description": "The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.",
           "oneOf": [
             {
               "type": "integer"
@@ -458,7 +459,7 @@
           ]
         },
         "pointInTimeUTC": {
-          "description": "Restore point creation time (ISO8601 format), specifying the time to restore from.",
+          "description": "Date and time in UTC (ISO8601 format) for cluster restore.",
           "oneOf": [
             {
               "format": "date-time",
@@ -470,15 +471,15 @@
           ]
         },
         "postgresqlVersion": {
-          "description": "The PostgreSQL version of cluster.",
+          "description": "The major PostgreSQL version on all cluster servers.",
           "type": "string"
         },
         "preferredPrimaryZone": {
-          "description": "Preferred primary zone for the cluster",
+          "description": "Preferred primary availability zone (AZ) for all cluster servers.",
           "type": "string"
         },
         "sourceLocation": {
-          "description": "The location of source cluster for read replica clusters.",
+          "description": "The Azure region of source cluster for read replica clusters.",
           "type": "string"
         },
         "sourceResourceId": {
@@ -489,6 +490,7 @@
       "type": "object"
     },
     "FirewallRuleProperties": {
+      "description": "The properties of a cluster firewall rule.",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the cluster firewall rule. Must be IPv4 format.",
@@ -522,13 +524,14 @@
       "type": "object"
     },
     "MaintenanceWindow": {
+      "description": "Schedule settings for regular cluster updates.",
       "properties": {
         "customWindow": {
-          "description": "indicates whether custom window is enabled or disabled",
+          "description": "Indicates whether custom maintenance window is enabled or not.",
           "type": "string"
         },
         "dayOfWeek": {
-          "description": "day of week for maintenance window",
+          "description": "Preferred day of the week for maintenance window.",
           "oneOf": [
             {
               "type": "integer"
@@ -539,7 +542,7 @@
           ]
         },
         "startHour": {
-          "description": "start hour for maintenance window",
+          "description": "Start hour within preferred day of the week for maintenance window.",
           "oneOf": [
             {
               "type": "integer"
@@ -550,7 +553,7 @@
           ]
         },
         "startMinute": {
-          "description": "start minute for maintenance window",
+          "description": "Start minute within the start hour for maintenance window.",
           "oneOf": [
             {
               "type": "integer"
@@ -564,10 +567,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The private endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint resource.",
@@ -598,6 +603,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -627,6 +633,7 @@
       "type": "object"
     },
     "RoleProperties": {
+      "description": "The properties of a cluster role.",
       "properties": {
         "password": {
           "description": "The password of the cluster role.",
@@ -639,6 +646,7 @@
       "type": "object"
     },
     "ServerConfigurationProperties": {
+      "description": "The properties of a configuration.",
       "properties": {
         "value": {
           "description": "Value of the configuration.",
@@ -686,7 +694,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/serverGroupsv2/coordinatorConfigurations"
+            "coordinatorConfigurations"
           ],
           "type": "string"
         }
@@ -732,7 +740,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/serverGroupsv2/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }
@@ -780,7 +788,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/serverGroupsv2/nodeConfigurations"
+            "nodeConfigurations"
           ],
           "type": "string"
         }
@@ -802,7 +810,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection associated with the Azure resource.",
+          "description": "The name of the private endpoint connection associated with the cluster.",
           "oneOf": [
             {
               "pattern": "^[-\\w\\._]+$",
@@ -826,7 +834,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -872,7 +880,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/serverGroupsv2/roles"
+            "roles"
           ],
           "type": "string"
         }

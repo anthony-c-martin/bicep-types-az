@@ -349,6 +349,7 @@
   },
   "definitions": {
     "ConfigurationProperties": {
+      "description": "The properties of a configuration.",
       "properties": {
         "source": {
           "description": "Source of the configuration.",
@@ -362,6 +363,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "The properties of a database.",
       "properties": {
         "charset": {
           "description": "The charset of the database.",
@@ -375,6 +377,7 @@
       "type": "object"
     },
     "FirewallRuleProperties": {
+      "description": "The properties of a server firewall rule.",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the server firewall rule. Must be IPv4 format.",
@@ -408,6 +411,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {
         "type": {
           "description": "The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.",
@@ -427,6 +431,7 @@
       "type": "object"
     },
     "SecurityAlertPolicyProperties": {
+      "description": "Properties of a security alert policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly",
@@ -508,13 +513,14 @@
       "type": "object"
     },
     "ServerAdministratorProperties": {
+      "description": "The properties of an server Administrator.",
       "properties": {
         "administratorType": {
           "description": "The type of administrator.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "ActiveDirectory"
               ],
               "type": "string"
             },
@@ -561,6 +567,7 @@
       "type": "object"
     },
     "ServerPropertiesForCreate": {
+      "description": "The properties used to create a new server.",
       "properties": {
         "infrastructureEncryption": {
           "description": "Status showing whether the server enabled infrastructure encryption.",
@@ -658,6 +665,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Billing information related properties of a server.",
       "properties": {
         "capacity": {
           "description": "The scale up/out capacity, representing server's compute units.",
@@ -705,6 +713,7 @@
       "type": "object"
     },
     "StorageProfile": {
+      "description": "Storage Profile properties of a server",
       "properties": {
         "backupRetentionDays": {
           "description": "Backup retention days for the server.",
@@ -762,6 +771,7 @@
       "type": "object"
     },
     "VirtualNetworkRuleProperties": {
+      "description": "Properties of a virtual network rule.",
       "properties": {
         "ignoreMissingVnetServiceEndpoint": {
           "description": "Create firewall rule before the virtual network has vnet service endpoint enabled.",
@@ -794,7 +804,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/activeDirectory$",
+          "enum": [
+            "activeDirectory"
+          ],
           "type": "string"
         },
         "properties": {
@@ -810,7 +822,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/servers/administrators"
+            "administrators"
           ],
           "type": "string"
         }
@@ -848,7 +860,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/servers/configurations"
+            "configurations"
           ],
           "type": "string"
         }
@@ -886,7 +898,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/servers/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -924,7 +936,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/servers/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }
@@ -972,7 +984,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/servers/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -1010,7 +1022,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/servers/virtualNetworkRules"
+            "virtualNetworkRules"
           ],
           "type": "string"
         }

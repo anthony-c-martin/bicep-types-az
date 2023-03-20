@@ -87,6 +87,7 @@
       "type": "object"
     },
     "ImageTemplateCustomizer": {
+      "description": "Describes a unit of image customization",
       "properties": {
         "name": {
           "description": "Friendly Name to provide context on what this customization step does",
@@ -96,6 +97,7 @@
       "type": "object"
     },
     "ImageTemplateDistributor": {
+      "description": "Generic distribution object",
       "properties": {
         "artifactTags": {
           "description": "Tags that will be applied to the artifact once it has been created/updated by the distributor.",
@@ -131,6 +133,7 @@
       "type": "object"
     },
     "ImageTemplateIdentity": {
+      "description": "Identity for the image template.",
       "properties": {
         "type": {
           "description": "The type of identity used for the image template. The type 'None' will remove any identities from the image template.",
@@ -173,6 +176,7 @@
       "type": "object"
     },
     "ImageTemplateProperties": {
+      "description": "Describes the properties of an image template",
       "properties": {
         "buildTimeoutInMinutes": {
           "description": "Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).",
@@ -257,10 +261,12 @@
       "type": "object"
     },
     "ImageTemplateSource": {
+      "description": "Describes a virtual machine image source for building, customizing and distributing",
       "properties": {},
       "type": "object"
     },
     "ImageTemplateVmProfile": {
+      "description": "Describes the virtual machine used to build, customize and capture images",
       "properties": {
         "osDiskSizeGB": {
           "description": "Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.",
@@ -306,6 +312,7 @@
       "type": "object"
     },
     "PlatformImagePurchasePlan": {
+      "description": "Purchase plan configuration for platform image.",
       "properties": {
         "planName": {
           "description": "Name of the purchase plan.",
@@ -328,6 +335,7 @@
       "type": "object"
     },
     "VirtualNetworkConfig": {
+      "description": "Virtual Network configuration.",
       "properties": {
         "proxyVmSize": {
           "description": "Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).",

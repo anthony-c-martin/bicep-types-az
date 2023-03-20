@@ -2032,6 +2032,7 @@
   },
   "definitions": {
     "ApiDefinitionInfo": {
+      "description": "Information about the formal API definition for the app.",
       "properties": {
         "url": {
           "description": "The URL of the API definition.",
@@ -2041,6 +2042,7 @@
       "type": "object"
     },
     "ApplicationLogsConfig": {
+      "description": "Application logs configuration.",
       "properties": {
         "azureBlobStorage": {
           "description": "Application logs to blob storage configuration.",
@@ -2079,6 +2081,7 @@
       "type": "object"
     },
     "AutoHealActions": {
+      "description": "Actions which to take by the auto-heal module when a rule is triggered.",
       "properties": {
         "actionType": {
           "description": "Predefined action to be taken.",
@@ -2115,6 +2118,7 @@
       "type": "object"
     },
     "AutoHealCustomAction": {
+      "description": "Custom action to be executed\nwhen an auto heal rule is triggered.",
       "properties": {
         "exe": {
           "description": "Executable to be run.",
@@ -2128,6 +2132,7 @@
       "type": "object"
     },
     "AutoHealRules": {
+      "description": "Rules that can be defined for auto-heal.",
       "properties": {
         "actions": {
           "description": "Actions to be executed when a rule is triggered.",
@@ -2155,6 +2160,7 @@
       "type": "object"
     },
     "AutoHealTriggers": {
+      "description": "Triggers for auto-heal.",
       "properties": {
         "privateBytesInKB": {
           "description": "A rule based on private bytes.",
@@ -2214,6 +2220,7 @@
       "type": "object"
     },
     "AzureBlobStorageApplicationLogsConfig": {
+      "description": "Application logs azure blob storage configuration.",
       "properties": {
         "level": {
           "description": "Log level.",
@@ -2252,6 +2259,7 @@
       "type": "object"
     },
     "AzureBlobStorageHttpLogsConfig": {
+      "description": "Http logs to azure blob storage configuration.",
       "properties": {
         "enabled": {
           "description": "True if configuration is enabled, false if it is disabled and null if configuration is not set.",
@@ -2283,6 +2291,7 @@
       "type": "object"
     },
     "AzureTableStorageApplicationLogsConfig": {
+      "description": "Application logs to Azure table storage configuration.",
       "properties": {
         "level": {
           "description": "Log level.",
@@ -2313,6 +2322,7 @@
       "type": "object"
     },
     "BackupRequestProperties": {
+      "description": "BackupRequest resource specific properties",
       "properties": {
         "backupSchedule": {
           "description": "Schedule for the backup if it is executed periodically.",
@@ -2390,6 +2400,7 @@
       "type": "object"
     },
     "BackupSchedule": {
+      "description": "Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.",
       "properties": {
         "frequencyInterval": {
           "description": "How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)",
@@ -2461,6 +2472,7 @@
       "type": "object"
     },
     "CloningInfo": {
+      "description": "Information needed for cloning operation.",
       "properties": {
         "appSettingsOverrides": {
           "description": "Application setting overrides for cloned app. If specified, these settings override the settings cloned \nfrom source app. Otherwise, application settings from source app are retained.",
@@ -2567,6 +2579,7 @@
       "type": "object"
     },
     "ConnStringInfo": {
+      "description": "Database connection string information.",
       "properties": {
         "connectionString": {
           "description": "Connection string value.",
@@ -2604,6 +2617,7 @@
       "type": "object"
     },
     "ConnStringValueTypePair": {
+      "description": "Database connection string value to type pair.",
       "properties": {
         "type": {
           "description": "Type of database.",
@@ -2641,6 +2655,7 @@
       "type": "object"
     },
     "CorsSettings": {
+      "description": "Cross-Origin Resource Sharing (CORS) settings for the app.",
       "properties": {
         "allowedOrigins": {
           "description": "Gets or sets the list of origins that should be allowed to make cross-origin\ncalls (for example: http://example.com:12345). Use \"*\" to allow all.",
@@ -2660,6 +2675,7 @@
       "type": "object"
     },
     "DatabaseBackupSetting": {
+      "description": "Database backup settings.",
       "properties": {
         "connectionString": {
           "description": "Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.",
@@ -2697,6 +2713,7 @@
       "type": "object"
     },
     "DeploymentProperties": {
+      "description": "Deployment resource specific properties",
       "properties": {
         "active": {
           "description": "True if deployment is currently active, false if completed and null if not started.",
@@ -2772,6 +2789,7 @@
       "type": "object"
     },
     "EnabledConfig": {
+      "description": "Enabled configuration.",
       "properties": {
         "enabled": {
           "description": "True if configuration is enabled, false if it is disabled and null if configuration is not set.",
@@ -2788,6 +2806,7 @@
       "type": "object"
     },
     "Experiments": {
+      "description": "Routing rules in production experiments.",
       "properties": {
         "rampUpRules": {
           "description": "List of ramp-up rules.",
@@ -2814,6 +2833,7 @@
       "type": "object"
     },
     "FileSystemApplicationLogsConfig": {
+      "description": "Application logs to file system configuration.",
       "properties": {
         "level": {
           "description": "Log level.",
@@ -2837,6 +2857,7 @@
       "type": "object"
     },
     "FileSystemHttpLogsConfig": {
+      "description": "Http logs to file system configuration.",
       "properties": {
         "enabled": {
           "description": "True if configuration is enabled, false if it is disabled and null if configuration is not set.",
@@ -2875,6 +2896,7 @@
       "type": "object"
     },
     "FunctionEnvelopeProperties": {
+      "description": "FunctionEnvelope resource specific properties",
       "properties": {
         "config": {
           "description": "Config information."
@@ -2922,6 +2944,7 @@
       "type": "object"
     },
     "HandlerMapping": {
+      "description": "The IIS handler mappings used to define which handler processes HTTP requests with certain extension. \nFor example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.",
       "properties": {
         "arguments": {
           "description": "Command-line arguments to be passed to the script processor.",
@@ -2939,6 +2962,7 @@
       "type": "object"
     },
     "HostNameBindingProperties": {
+      "description": "HostNameBinding resource specific properties",
       "properties": {
         "azureResourceName": {
           "description": "Azure resource name.",
@@ -3021,6 +3045,7 @@
       "type": "object"
     },
     "HostNameSslState": {
+      "description": "SSL-enabled hostname.",
       "properties": {
         "hostType": {
           "description": "Indicates whether the hostname is a standard or repository hostname.",
@@ -3080,6 +3105,7 @@
       "type": "object"
     },
     "HostingEnvironmentProfile": {
+      "description": "Specification for an App Service Environment to use for this resource.",
       "properties": {
         "id": {
           "description": "Resource ID of the App Service Environment.",
@@ -3089,6 +3115,7 @@
       "type": "object"
     },
     "HttpLogsConfig": {
+      "description": "Http logs configuration.",
       "properties": {
         "azureBlobStorage": {
           "description": "Http logs to azure blob storage configuration.",
@@ -3116,6 +3143,7 @@
       "type": "object"
     },
     "HybridConnectionProperties": {
+      "description": "HybridConnection resource specific properties",
       "properties": {
         "hostname": {
           "description": "The hostname of the endpoint.",
@@ -3160,6 +3188,7 @@
       "type": "object"
     },
     "IdentifierProperties": {
+      "description": "Identifier resource specific properties",
       "properties": {
         "id": {
           "description": "String representation of the identity.",
@@ -3169,6 +3198,7 @@
       "type": "object"
     },
     "IpSecurityRestriction": {
+      "description": "IP security restriction on an app.",
       "properties": {
         "ipAddress": {
           "description": "IP address the security restriction is valid for.",
@@ -3185,6 +3215,7 @@
       "type": "object"
     },
     "MSDeployCore": {
+      "description": "MSDeploy ARM PUT core information",
       "properties": {
         "appOffline": {
           "description": "Sets the AppOffline rule while the MSDeploy operation executes.\nSetting is <code>false</code> by default.",
@@ -3243,6 +3274,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed service identity.",
       "properties": {
         "type": {
           "description": "Type of managed service identity.",
@@ -3262,6 +3294,7 @@
       "type": "object"
     },
     "NameValuePair": {
+      "description": "Name value pair.",
       "properties": {
         "name": {
           "description": "Pair name.",
@@ -3275,6 +3308,7 @@
       "type": "object"
     },
     "PremierAddOnProperties": {
+      "description": "PremierAddOn resource specific properties",
       "properties": {
         "location": {
           "description": "Premier add on Location.",
@@ -3323,6 +3357,7 @@
       "type": "object"
     },
     "PublicCertificateProperties": {
+      "description": "PublicCertificate resource specific properties",
       "properties": {
         "blob": {
           "description": "Public Certificate byte array"
@@ -3347,6 +3382,7 @@
       "type": "object"
     },
     "PushSettings": {
+      "description": "Push settings for the App.",
       "properties": {
         "kind": {
           "description": "Kind of resource.",
@@ -3367,6 +3403,7 @@
       "type": "object"
     },
     "PushSettingsProperties": {
+      "description": "PushSettings resource specific properties",
       "properties": {
         "dynamicTagsJson": {
           "description": "Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.",
@@ -3398,6 +3435,7 @@
       "type": "object"
     },
     "RampUpRule": {
+      "description": "Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.",
       "properties": {
         "actionHostName": {
           "description": "Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.",
@@ -3470,6 +3508,7 @@
       "type": "object"
     },
     "RelayServiceConnectionEntityProperties": {
+      "description": "RelayServiceConnectionEntity resource specific properties",
       "properties": {
         "biztalkUri": {
           "description": "",
@@ -3510,6 +3549,7 @@
       "type": "object"
     },
     "RequestsBasedTrigger": {
+      "description": "Trigger based on total requests.",
       "properties": {
         "count": {
           "description": "Request Count.",
@@ -3530,6 +3570,7 @@
       "type": "object"
     },
     "RestoreRequestProperties": {
+      "description": "RestoreRequest resource specific properties",
       "properties": {
         "adjustConnectionStrings": {
           "description": "<code>true</code> if SiteConfig.ConnectionStrings should be set in new app; otherwise, <code>false</code>.",
@@ -3641,6 +3682,7 @@
       "type": "object"
     },
     "SiteAuthSettingsProperties": {
+      "description": "SiteAuthSettings resource specific properties",
       "properties": {
         "additionalLoginParams": {
           "description": "Login parameters to send to the OpenID Connect authorization endpoint when\na user logs in. Each parameter must be in the form \"key=value\".",
@@ -3844,6 +3886,7 @@
       "type": "object"
     },
     "SiteConfig": {
+      "description": "Configuration of an App Service app.",
       "properties": {
         "alwaysOn": {
           "description": "<code>true</code> if Always On is enabled; otherwise, <code>false</code>.",
@@ -4313,6 +4356,7 @@
       "type": "object"
     },
     "SiteLimits": {
+      "description": "Metric limits set on an app.",
       "properties": {
         "maxDiskSizeInMb": {
           "description": "Maximum allowed disk size usage in MB.",
@@ -4351,6 +4395,7 @@
       "type": "object"
     },
     "SiteLogsConfigProperties": {
+      "description": "SiteLogsConfig resource specific properties",
       "properties": {
         "applicationLogs": {
           "description": "Application logs configuration.",
@@ -4400,6 +4445,7 @@
       "type": "object"
     },
     "SiteProperties": {
+      "description": "Site resource specific properties",
       "properties": {
         "clientAffinityEnabled": {
           "description": "<code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.",
@@ -4573,6 +4619,7 @@
       "type": "object"
     },
     "SiteSourceControlProperties": {
+      "description": "SiteSourceControl resource specific properties",
       "properties": {
         "branch": {
           "description": "Name of branch to use for deployment.",
@@ -4619,6 +4666,7 @@
       "type": "object"
     },
     "SlotConfigNames": {
+      "description": "Names for connection strings and application settings to be marked as sticky to the deployment slot and not moved during a swap operation.\nThis is valid for all deployment slots in an app.",
       "properties": {
         "appSettingNames": {
           "description": "List of application settings names.",
@@ -4652,6 +4700,7 @@
       "type": "object"
     },
     "SlowRequestsBasedTrigger": {
+      "description": "Trigger based on request execution time.",
       "properties": {
         "count": {
           "description": "Request Count.",
@@ -4676,6 +4725,7 @@
       "type": "object"
     },
     "SnapshotRecoveryRequest": {
+      "description": "Details about app recovery operation.",
       "properties": {
         "kind": {
           "description": "Kind of resource.",
@@ -4696,6 +4746,7 @@
       "type": "object"
     },
     "SnapshotRecoveryRequestProperties": {
+      "description": "SnapshotRecoveryRequest resource specific properties",
       "properties": {
         "ignoreConflictingHostNames": {
           "description": "If true, custom hostname conflicts will be ignored when recovering to a target web app.\nThis setting is only necessary when RecoverConfiguration is enabled.",
@@ -4752,6 +4803,7 @@
       "type": "object"
     },
     "SnapshotRecoveryTarget": {
+      "description": "Specifies the web app that snapshot contents will be written to.",
       "properties": {
         "id": {
           "description": "ARM resource ID of the target app. \n/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and \n/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.",
@@ -4765,6 +4817,7 @@
       "type": "object"
     },
     "StatusCodesBasedTrigger": {
+      "description": "Trigger based on status code.",
       "properties": {
         "count": {
           "description": "Request Count.",
@@ -4818,6 +4871,7 @@
       "type": "object"
     },
     "VirtualApplication": {
+      "description": "Virtual application in an app.",
       "properties": {
         "physicalPath": {
           "description": "Physical path.",
@@ -4863,6 +4917,7 @@
       "type": "object"
     },
     "VirtualDirectory": {
+      "description": "Directory for virtual application.",
       "properties": {
         "physicalPath": {
           "description": "Physical path.",
@@ -4876,6 +4931,7 @@
       "type": "object"
     },
     "VnetGatewayProperties": {
+      "description": "VnetGateway resource specific properties",
       "properties": {
         "vnetName": {
           "description": "The Virtual Network name.",
@@ -4892,6 +4948,7 @@
       "type": "object"
     },
     "VnetInfoProperties": {
+      "description": "VnetInfo resource specific properties",
       "properties": {
         "certBlob": {
           "description": "A certificate file (.cer) blob containing the public key of the private key used to authenticate a \nPoint-To-Site VPN connection."
@@ -4921,7 +4978,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/discover$",
+          "enum": [
+            "discover"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4937,7 +4996,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/backups"
+            "backups"
           ],
           "type": "string"
         }
@@ -4959,7 +5018,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/appsettings$",
+              "enum": [
+                "appsettings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -4991,7 +5052,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/authsettings$",
+              "enum": [
+                "authsettings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5019,7 +5082,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/backup$",
+              "enum": [
+                "backup"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5047,7 +5112,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/connectionstrings$",
+              "enum": [
+                "connectionstrings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5086,7 +5153,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/logs$",
+              "enum": [
+                "logs"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5114,7 +5183,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/metadata$",
+              "enum": [
+                "metadata"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5146,7 +5217,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/pushsettings$",
+              "enum": [
+                "pushsettings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5174,7 +5247,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/slotConfigNames$",
+              "enum": [
+                "slotConfigNames"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5202,7 +5277,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/web$",
+              "enum": [
+                "web"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5232,7 +5309,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/config"
+            "config"
           ],
           "type": "string"
         }
@@ -5272,7 +5349,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -5314,7 +5391,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/domainOwnershipIdentifiers"
+            "domainOwnershipIdentifiers"
           ],
           "type": "string"
         }
@@ -5340,7 +5417,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/MSDeploy$",
+          "enum": [
+            "MSDeploy"
+          ],
           "type": "string"
         },
         "properties": {
@@ -5356,7 +5435,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -5398,7 +5477,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/functions"
+            "functions"
           ],
           "type": "string"
         }
@@ -5440,7 +5519,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/hostNameBindings"
+            "hostNameBindings"
           ],
           "type": "string"
         }
@@ -5482,7 +5561,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/hybridconnection"
+            "hybridconnection"
           ],
           "type": "string"
         }
@@ -5543,7 +5622,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/premieraddons"
+            "premieraddons"
           ],
           "type": "string"
         }
@@ -5585,7 +5664,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/publicCertificates"
+            "publicCertificates"
           ],
           "type": "string"
         }
@@ -5611,7 +5690,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/discover$",
+          "enum": [
+            "discover"
+          ],
           "type": "string"
         },
         "properties": {
@@ -5627,7 +5708,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/backups"
+            "backups"
           ],
           "type": "string"
         }
@@ -5699,7 +5780,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots"
+            "slots"
           ],
           "type": "string"
         }
@@ -5721,7 +5802,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/appsettings$",
+              "enum": [
+                "appsettings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5753,7 +5836,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/authsettings$",
+              "enum": [
+                "authsettings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5781,7 +5866,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/backup$",
+              "enum": [
+                "backup"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5809,7 +5896,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/connectionstrings$",
+              "enum": [
+                "connectionstrings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5848,7 +5937,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/logs$",
+              "enum": [
+                "logs"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5876,7 +5967,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/metadata$",
+              "enum": [
+                "metadata"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5908,7 +6001,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/pushsettings$",
+              "enum": [
+                "pushsettings"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5936,7 +6031,9 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/web$",
+              "enum": [
+                "web"
+              ],
               "type": "string"
             },
             "properties": {
@@ -5966,7 +6063,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/config"
+            "config"
           ],
           "type": "string"
         }
@@ -6006,7 +6103,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -6048,7 +6145,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/domainOwnershipIdentifiers"
+            "domainOwnershipIdentifiers"
           ],
           "type": "string"
         }
@@ -6074,7 +6171,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/MSDeploy$",
+          "enum": [
+            "MSDeploy"
+          ],
           "type": "string"
         },
         "properties": {
@@ -6090,7 +6189,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -6132,7 +6231,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/functions"
+            "functions"
           ],
           "type": "string"
         }
@@ -6174,7 +6273,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/hostNameBindings"
+            "hostNameBindings"
           ],
           "type": "string"
         }
@@ -6216,7 +6315,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/hybridconnection"
+            "hybridconnection"
           ],
           "type": "string"
         }
@@ -6277,7 +6376,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/premieraddons"
+            "premieraddons"
           ],
           "type": "string"
         }
@@ -6319,7 +6418,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/publicCertificates"
+            "publicCertificates"
           ],
           "type": "string"
         }
@@ -6345,7 +6444,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/web$",
+          "enum": [
+            "web"
+          ],
           "type": "string"
         },
         "properties": {
@@ -6361,7 +6462,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/sourcecontrols"
+            "sourcecontrols"
           ],
           "type": "string"
         }
@@ -6403,7 +6504,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/virtualNetworkConnections"
+            "virtualNetworkConnections"
           ],
           "type": "string"
         }
@@ -6445,7 +6546,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/slots/virtualNetworkConnections/gateways"
+            "gateways"
           ],
           "type": "string"
         }
@@ -6471,7 +6572,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/web$",
+          "enum": [
+            "web"
+          ],
           "type": "string"
         },
         "properties": {
@@ -6487,7 +6590,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/sourcecontrols"
+            "sourcecontrols"
           ],
           "type": "string"
         }
@@ -6529,7 +6632,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/virtualNetworkConnections"
+            "virtualNetworkConnections"
           ],
           "type": "string"
         }
@@ -6571,7 +6674,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Web/sites/virtualNetworkConnections/gateways"
+            "gateways"
           ],
           "type": "string"
         }

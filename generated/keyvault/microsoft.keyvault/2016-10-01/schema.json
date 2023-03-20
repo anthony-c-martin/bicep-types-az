@@ -196,6 +196,7 @@
   },
   "definitions": {
     "AccessPolicyEntry": {
+      "description": "An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",
       "properties": {
         "applicationId": {
           "description": " Application ID of the client making request on behalf of a principal",
@@ -245,6 +246,7 @@
       "type": "object"
     },
     "Permissions": {
+      "description": "Permissions the identity has for keys, secrets, certificates and storage.",
       "properties": {
         "certificates": {
           "description": "Permissions to certificates",
@@ -394,6 +396,7 @@
       "type": "object"
     },
     "SecretAttributes": {
+      "description": "The secret management attributes.",
       "properties": {
         "enabled": {
           "description": "Determines whether the object is enabled.",
@@ -432,6 +435,7 @@
       "type": "object"
     },
     "SecretProperties": {
+      "description": "Properties of the secret",
       "properties": {
         "attributes": {
           "description": "The attributes of the secret.",
@@ -456,6 +460,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU details",
       "properties": {
         "family": {
           "description": "SKU family name",
@@ -494,6 +499,7 @@
       "type": "object"
     },
     "VaultAccessPolicyProperties": {
+      "description": "Properties of the vault access policy",
       "properties": {
         "accessPolicies": {
           "description": "An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",
@@ -523,6 +529,7 @@
       "type": "object"
     },
     "VaultProperties": {
+      "description": "Properties of the vault",
       "properties": {
         "accessPolicies": {
           "description": "An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.",
@@ -687,7 +694,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KeyVault/vaults/accessPolicies"
+            "accessPolicies"
           ],
           "type": "string"
         }
@@ -748,7 +755,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KeyVault/vaults/secrets"
+            "secrets"
           ],
           "type": "string"
         }

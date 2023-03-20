@@ -234,6 +234,7 @@
   },
   "definitions": {
     "AccountProperties": {
+      "description": "Properties of Cognitive Services account.",
       "properties": {
         "allowedFqdnList": {
           "description": "",
@@ -375,6 +376,7 @@
     },
     "ApiProperties": {
       "additionalProperties": {},
+      "description": "The api properties for special APIs.",
       "properties": {
         "aadClientId": {
           "description": "(Metrics Advisor Only) The Azure AD Client Id (Application Id).",
@@ -477,6 +479,7 @@
       "type": "object"
     },
     "CommitmentPeriod": {
+      "description": "Cognitive Services account commitment period.",
       "properties": {
         "count": {
           "description": "Commitment period commitment count.",
@@ -497,6 +500,7 @@
       "type": "object"
     },
     "CommitmentPlanProperties": {
+      "description": "Properties of Cognitive Services account commitment plan.",
       "properties": {
         "autoRenew": {
           "description": "AutoRenew commitment plan.",
@@ -555,6 +559,7 @@
       "type": "object"
     },
     "DeploymentModel": {
+      "description": "Properties of Cognitive Services account deployment model.",
       "properties": {
         "format": {
           "description": "Deployment model format.",
@@ -572,6 +577,7 @@
       "type": "object"
     },
     "DeploymentProperties": {
+      "description": "Properties of Cognitive Services account deployment.",
       "properties": {
         "model": {
           "description": "Properties of Cognitive Services account deployment model.",
@@ -603,6 +609,7 @@
       "type": "object"
     },
     "DeploymentScaleSettings": {
+      "description": "Properties of Cognitive Services account deployment model.",
       "properties": {
         "capacity": {
           "description": "Deployment capacity.",
@@ -634,6 +641,7 @@
       "type": "object"
     },
     "Encryption": {
+      "description": "Properties to configure Encryption",
       "properties": {
         "keySource": {
           "description": "Enumerates the possible value of keySource for Encryption",
@@ -665,6 +673,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -709,6 +718,7 @@
       "type": "object"
     },
     "IpRule": {
+      "description": "A rule governing the accessibility from a specific ip address or ip range.",
       "properties": {
         "value": {
           "description": "An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).",
@@ -721,6 +731,7 @@
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "Properties to configure keyVault Properties",
       "properties": {
         "identityClientId": {
           "description": "",
@@ -742,6 +753,7 @@
       "type": "object"
     },
     "NetworkRuleSet": {
+      "description": "A set of rules governing the network accessibility.",
       "properties": {
         "defaultAction": {
           "description": "The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.",
@@ -804,10 +816,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "groupIds": {
           "description": "The private link resource group ids.",
@@ -852,6 +866,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -881,6 +896,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The resource model definition representing SKU",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -930,10 +946,12 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User-assigned managed identity.",
       "properties": {},
       "type": "object"
     },
     "UserOwnedStorage": {
+      "description": "The user owned storage for Cognitive Services account.",
       "properties": {
         "identityClientId": {
           "description": "",
@@ -947,6 +965,7 @@
       "type": "object"
     },
     "VirtualNetworkRule": {
+      "description": "A rule governing the accessibility from a specific virtual network.",
       "properties": {
         "id": {
           "description": "Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.",
@@ -999,7 +1018,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CognitiveServices/accounts/commitmentPlans"
+            "commitmentPlans"
           ],
           "type": "string"
         }
@@ -1037,7 +1056,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CognitiveServices/accounts/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -1079,7 +1098,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CognitiveServices/accounts/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

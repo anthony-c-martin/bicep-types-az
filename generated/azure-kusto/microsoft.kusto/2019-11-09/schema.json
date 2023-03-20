@@ -309,6 +309,7 @@
   },
   "definitions": {
     "AttachedDatabaseConfigurationProperties": {
+      "description": "Class representing the an attached database configuration properties of kind specific.",
       "properties": {
         "clusterResourceId": {
           "description": "The resource id of the cluster where the databases you would like to attach reside.",
@@ -343,6 +344,7 @@
       "type": "object"
     },
     "AzureSku": {
+      "description": "Azure SKU definition.",
       "properties": {
         "capacity": {
           "description": "The number of instances of the cluster.",
@@ -403,6 +405,7 @@
       "type": "object"
     },
     "ClusterPrincipalProperties": {
+      "description": "A class representing cluster principal property.",
       "properties": {
         "principalId": {
           "description": "The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.",
@@ -452,6 +455,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "Class representing the Kusto cluster properties.",
       "properties": {
         "enableDiskEncryption": {
           "description": "A boolean value that indicates if the cluster's disks are encrypted.",
@@ -537,6 +541,7 @@
       "type": "object"
     },
     "DatabasePrincipalProperties": {
+      "description": "A class representing database principal property.",
       "properties": {
         "principalId": {
           "description": "The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.",
@@ -590,6 +595,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -635,6 +641,7 @@
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "Properties of the key vault.",
       "properties": {
         "keyName": {
           "description": "The name of the key vault key.",
@@ -657,6 +664,7 @@
       "type": "object"
     },
     "OptimizedAutoscale": {
+      "description": "A class that contains the optimized auto scale definition.",
       "properties": {
         "isEnabled": {
           "description": "A boolean value that indicate if the optimized autoscale feature is enabled or not.",
@@ -712,6 +720,7 @@
       "type": "object"
     },
     "TrustedExternalTenant": {
+      "description": "Represents a tenant ID that is trusted by the cluster.",
       "properties": {
         "value": {
           "description": "GUID representing an external tenant.",
@@ -721,6 +730,7 @@
       "type": "object"
     },
     "VirtualNetworkConfiguration": {
+      "description": "A class that contains virtual network definition.",
       "properties": {
         "dataManagementPublicIpId": {
           "description": "Data management's service public IP address resource id.",
@@ -772,7 +782,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/attachedDatabaseConfigurations"
+            "attachedDatabaseConfigurations"
           ],
           "type": "string"
         }
@@ -803,7 +813,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -834,7 +844,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases/dataConnections"
+            "dataConnections"
           ],
           "type": "string"
         }
@@ -872,7 +882,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases/principalAssignments"
+            "principalAssignments"
           ],
           "type": "string"
         }
@@ -910,7 +920,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/principalAssignments"
+            "principalAssignments"
           ],
           "type": "string"
         }
