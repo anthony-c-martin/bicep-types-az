@@ -350,6 +350,7 @@
   },
   "definitions": {
     "AuthorizationRuleProperties": {
+      "description": "Authorization rule properties.",
       "properties": {
         "rights": {
           "description": "The rights associated with the rule.",
@@ -384,6 +385,7 @@
       "type": "object"
     },
     "HybridConnectionProperties": {
+      "description": "Properties of the HybridConnection.",
       "properties": {
         "requiresClientAuthorization": {
           "description": "Returns true if client authorization is needed for this hybrid connection; otherwise, false.",
@@ -404,17 +406,19 @@
       "type": "object"
     },
     "RelayNamespaceProperties": {
+      "description": "Properties of the namespace.",
       "properties": {},
       "type": "object"
     },
     "Sku": {
+      "description": "SKU of the namespace.",
       "properties": {
         "name": {
           "description": "Name of this SKU.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Standard"
               ],
               "type": "string"
             },
@@ -428,7 +432,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Standard"
               ],
               "type": "string"
             },
@@ -444,6 +448,7 @@
       "type": "object"
     },
     "WcfRelayProperties": {
+      "description": "Properties of the WCF relay.",
       "properties": {
         "relayType": {
           "description": "WCF relay type.",
@@ -523,7 +528,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -569,7 +574,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/hybridConnections/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -615,7 +620,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/hybridConnections"
+            "hybridConnections"
           ],
           "type": "string"
         }
@@ -661,7 +666,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/wcfRelays/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -707,7 +712,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/wcfRelays"
+            "wcfRelays"
           ],
           "type": "string"
         }

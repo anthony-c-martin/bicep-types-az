@@ -180,6 +180,7 @@
   },
   "definitions": {
     "AdditionalFeaturesServerConfigurations": {
+      "description": "Additional SQL Server feature settings.",
       "properties": {
         "isRServicesEnabled": {
           "description": "Enable or disable R services (SQL 2016 onwards).",
@@ -196,10 +197,12 @@
       "type": "object"
     },
     "AgConfiguration": {
+      "description": "Availability group configuration.",
       "properties": {},
       "type": "object"
     },
     "AssessmentSettings": {
+      "description": "Configure assessment for databases in your SQL virtual machine.",
       "properties": {
         "enable": {
           "description": "Enable or disable assessment feature on SQL virtual machine.",
@@ -238,6 +241,7 @@
       "type": "object"
     },
     "AutoBackupSettings": {
+      "description": "Configure backups for databases in your SQL virtual machine.",
       "properties": {
         "backupScheduleType": {
           "description": "Backup schedule type.",
@@ -396,6 +400,7 @@
       "type": "object"
     },
     "AutoPatchingSettings": {
+      "description": "Set a patching window during which Windows and SQL patches will be applied.",
       "properties": {
         "dayOfWeek": {
           "description": "Day of week to apply the patch on.",
@@ -455,6 +460,7 @@
       "type": "object"
     },
     "AvailabilityGroupListenerProperties": {
+      "description": "The properties of an availability group listener.",
       "properties": {
         "availabilityGroupConfiguration": {
           "description": "Availability Group configuration.",
@@ -518,6 +524,7 @@
       "type": "object"
     },
     "KeyVaultCredentialSettings": {
+      "description": "Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.",
       "properties": {
         "azureKeyVaultUrl": {
           "description": "Azure Key Vault url.",
@@ -550,6 +557,7 @@
       "type": "object"
     },
     "LoadBalancerConfiguration": {
+      "description": "A load balancer configuration for an availability group listener.",
       "properties": {
         "loadBalancerResourceId": {
           "description": "Resource id of the load balancer.",
@@ -599,6 +607,7 @@
       "type": "object"
     },
     "PrivateIPAddress": {
+      "description": "A private IP address bound to the availability group listener.",
       "properties": {
         "ipAddress": {
           "description": "Private IP address bound to the availability group listener.",
@@ -612,6 +621,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {
         "type": {
           "description": "The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.",
@@ -632,6 +642,7 @@
       "type": "object"
     },
     "SQLInstanceSettings": {
+      "description": "Set the server/instance-level settings for SQL Server.",
       "properties": {
         "collation": {
           "description": "SQL Server Collation.",
@@ -685,6 +696,7 @@
       "type": "object"
     },
     "SQLStorageSettings": {
+      "description": "Set disk storage settings for SQL Server.",
       "properties": {
         "defaultFilePath": {
           "description": "SQL Server default file path",
@@ -862,6 +874,7 @@
       "type": "object"
     },
     "ServerConfigurationsManagementSettings": {
+      "description": "Set the connectivity, storage and workload settings.",
       "properties": {
         "additionalFeaturesServerConfigurations": {
           "description": "Additional SQL feature settings.",
@@ -922,6 +935,7 @@
       "type": "object"
     },
     "SqlConnectivityUpdateSettings": {
+      "description": "Set the access level and network port settings for SQL Server.",
       "properties": {
         "connectivityType": {
           "description": "SQL Server connectivity option.",
@@ -962,6 +976,7 @@
       "type": "object"
     },
     "SqlStorageUpdateSettings": {
+      "description": "Set disk storage settings for SQL Server.",
       "properties": {
         "diskConfigurationType": {
           "description": "Disk configuration to apply to SQL Server.",
@@ -1005,6 +1020,7 @@
       "type": "object"
     },
     "SqlVirtualMachineGroupProperties": {
+      "description": "The properties of a SQL virtual machine group.",
       "properties": {
         "sqlImageOffer": {
           "description": "SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.",
@@ -1040,6 +1056,7 @@
       "type": "object"
     },
     "SqlVirtualMachineProperties": {
+      "description": "The SQL virtual machine properties.",
       "properties": {
         "assessmentSettings": {
           "description": "Assessment Settings.",
@@ -1184,6 +1201,7 @@
       "type": "object"
     },
     "SqlWorkloadTypeUpdateSettings": {
+      "description": "Set workload type to optimize storage for SQL Server.",
       "properties": {
         "sqlWorkloadType": {
           "description": "SQL Server workload type.",
@@ -1205,6 +1223,7 @@
       "type": "object"
     },
     "StorageConfigurationSettings": {
+      "description": "Storage Configurations for SQL Data, Log and TempDb.",
       "properties": {
         "diskConfigurationType": {
           "description": "Disk configuration to apply to SQL Server.",
@@ -1286,6 +1305,7 @@
       "type": "object"
     },
     "WsfcDomainCredentials": {
+      "description": "Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.",
       "properties": {
         "clusterBootstrapAccountPassword": {
           "description": "Cluster bootstrap account password.",
@@ -1303,6 +1323,7 @@
       "type": "object"
     },
     "WsfcDomainProfile": {
+      "description": "Active Directory account details to operate Windows Server Failover Cluster.",
       "properties": {
         "clusterBootstrapAccount": {
           "description": "Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).",
@@ -1365,7 +1386,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners"
+            "availabilityGroupListeners"
           ],
           "type": "string"
         }

@@ -232,6 +232,7 @@
   },
   "definitions": {
     "RegistryProperties": {
+      "description": "The properties of a container registry.",
       "properties": {
         "adminUserEnabled": {
           "description": "The value that indicates whether the admin user is enabled.",
@@ -259,10 +260,12 @@
       "type": "object"
     },
     "ReplicationProperties": {
+      "description": "The properties of a replication.",
       "properties": {},
       "type": "object"
     },
     "Sku": {
+      "description": "The SKU of a container registry.",
       "properties": {
         "name": {
           "description": "The SKU name of the container registry. Required for registry creation.",
@@ -288,6 +291,7 @@
       "type": "object"
     },
     "StorageAccountProperties": {
+      "description": "The properties of a storage account for a container registry. Only applicable to Basic SKU.",
       "properties": {
         "id": {
           "description": "The resource ID of the storage account.",
@@ -300,6 +304,7 @@
       "type": "object"
     },
     "WebhookPropertiesCreateParameters": {
+      "description": "The parameters for creating the properties of a webhook.",
       "properties": {
         "actions": {
           "description": "The list of actions that trigger the webhook to post notifications.",
@@ -426,7 +431,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ContainerRegistry/registries/replications"
+            "replications"
           ],
           "type": "string"
         }
@@ -493,7 +498,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ContainerRegistry/registries/webhooks"
+            "webhooks"
           ],
           "type": "string"
         }

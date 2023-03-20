@@ -132,6 +132,7 @@
   },
   "definitions": {
     "Backend": {
+      "description": "Backend address of a frontDoor load balancer.",
       "properties": {
         "address": {
           "description": "Location of the backend (IP address or FQDN)",
@@ -212,6 +213,7 @@
       "type": "object"
     },
     "BackendPool": {
+      "description": "A backend pool is a collection of backends that can be routed to.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -236,6 +238,7 @@
       "type": "object"
     },
     "BackendPoolProperties": {
+      "description": "The JSON object that contains the properties required to create a Backend Pool.",
       "properties": {
         "backends": {
           "description": "The set of backends for this pool",
@@ -284,6 +287,7 @@
       "type": "object"
     },
     "BackendPoolsSettings": {
+      "description": "Settings that apply to all backend pools.",
       "properties": {
         "enforceCertificateNameCheck": {
           "description": "Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.",
@@ -315,6 +319,7 @@
       "type": "object"
     },
     "CacheConfiguration": {
+      "description": "Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.",
       "properties": {
         "cacheDuration": {
           "description": "The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year",
@@ -360,6 +365,7 @@
       "type": "object"
     },
     "FrontDoorProperties": {
+      "description": "The JSON object that contains the properties required to create an endpoint.",
       "properties": {
         "backendPools": {
           "description": "Backend pools available to routing rules.",
@@ -500,6 +506,7 @@
       "type": "object"
     },
     "FrontendEndpoint": {
+      "description": "A frontend endpoint used for routing.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -524,6 +531,7 @@
       "type": "object"
     },
     "FrontendEndpointProperties": {
+      "description": "The JSON object that contains the properties required to create a frontend endpoint.",
       "properties": {
         "hostName": {
           "description": "The host name of the frontendEndpoint. Must be a domain name.",
@@ -570,6 +578,7 @@
       "type": "object"
     },
     "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink": {
+      "description": "Defines the Web Application Firewall policy for each host (if applicable)",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -579,6 +588,7 @@
       "type": "object"
     },
     "HeaderAction": {
+      "description": "An action that can manipulate an http header.",
       "properties": {
         "headerActionType": {
           "description": "Which type of manipulation to apply to the header.",
@@ -612,6 +622,7 @@
       "type": "object"
     },
     "HealthProbeSettingsModel": {
+      "description": "Load balancing settings for a backend pool",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -636,6 +647,7 @@
       "type": "object"
     },
     "HealthProbeSettingsProperties": {
+      "description": "The JSON object that contains the properties required to create a health probe settings.",
       "properties": {
         "enabledState": {
           "description": "Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.",
@@ -701,6 +713,7 @@
       "type": "object"
     },
     "LoadBalancingSettingsModel": {
+      "description": "Load balancing settings for a backend pool",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -725,6 +738,7 @@
       "type": "object"
     },
     "LoadBalancingSettingsProperties": {
+      "description": "The JSON object that contains the properties required to create load balancing settings",
       "properties": {
         "additionalLatencyMilliseconds": {
           "description": "The additional latency in milliseconds for probes to fall into the lowest latency bucket",
@@ -763,10 +777,12 @@
       "type": "object"
     },
     "RouteConfiguration": {
+      "description": "Base class for all types of Route.",
       "properties": {},
       "type": "object"
     },
     "RoutingRule": {
+      "description": "A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -791,6 +807,7 @@
       "type": "object"
     },
     "RoutingRuleProperties": {
+      "description": "The JSON object that contains the properties required to create a routing rule.",
       "properties": {
         "acceptedProtocols": {
           "description": "Protocol schemes to match for this rule",
@@ -893,6 +910,7 @@
       "type": "object"
     },
     "RulesEngineAction": {
+      "description": "One or more actions that will execute, modifying the request and/or response.",
       "properties": {
         "requestHeaderActions": {
           "description": "A list of header actions to apply from the request from AFD to the origin.",
@@ -951,6 +969,7 @@
       "type": "object"
     },
     "RulesEngineMatchCondition": {
+      "description": "Define a match condition",
       "properties": {
         "negateCondition": {
           "description": "Describes if this is negate condition or not",
@@ -1068,6 +1087,7 @@
       "type": "object"
     },
     "RulesEngineProperties": {
+      "description": "The JSON object that contains the properties required to create a Rules Engine Configuration.",
       "properties": {
         "rules": {
           "description": "A list of rules that define a particular Rules Engine Configuration.",
@@ -1094,6 +1114,7 @@
       "type": "object"
     },
     "RulesEngineRule": {
+      "description": "Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.",
       "properties": {
         "action": {
           "description": "Actions to perform on the request and response if all of the match conditions are met.",
@@ -1166,6 +1187,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Reference to another subresource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -1210,7 +1232,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/frontDoors/rulesEngines"
+            "rulesEngines"
           ],
           "type": "string"
         }

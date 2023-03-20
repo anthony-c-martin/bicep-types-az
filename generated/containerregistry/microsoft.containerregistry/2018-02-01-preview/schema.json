@@ -132,6 +132,7 @@
   },
   "definitions": {
     "BuildArgument": {
+      "description": "Properties of a build argument.",
       "properties": {
         "isSecret": {
           "description": "Flag to indicate whether the argument represents a secret and want to be removed from build logs.",
@@ -175,10 +176,12 @@
       "type": "object"
     },
     "BuildStepProperties": {
+      "description": "Base properties for any build step.",
       "properties": {},
       "type": "object"
     },
     "BuildTaskProperties": {
+      "description": "The properties of a build task.",
       "properties": {
         "alias": {
           "description": "The alternative updatable name for a build task.",
@@ -241,6 +244,7 @@
       "type": "object"
     },
     "PlatformProperties": {
+      "description": "The platform properties against which the build has to happen.",
       "properties": {
         "cpu": {
           "description": "The CPU configuration in terms of number of cores required for the build.",
@@ -275,6 +279,7 @@
       "type": "object"
     },
     "SourceControlAuthInfo": {
+      "description": "The authorization properties for accessing the source code repository.",
       "properties": {
         "expiresIn": {
           "description": "Time in seconds that the token remains valid",
@@ -321,6 +326,7 @@
       "type": "object"
     },
     "SourceRepositoryProperties": {
+      "description": "The properties of the source code repository.",
       "properties": {
         "isCommitTriggerEnabled": {
           "description": "The value of this property indicates whether the source control commit trigger is enabled or not.",
@@ -406,7 +412,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ContainerRegistry/registries/buildTasks/steps"
+            "steps"
           ],
           "type": "string"
         }

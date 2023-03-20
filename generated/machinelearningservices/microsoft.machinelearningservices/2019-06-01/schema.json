@@ -153,6 +153,7 @@
   },
   "definitions": {
     "AKSProperties": {
+      "description": "AKS properties",
       "properties": {
         "agentCount": {
           "description": "Number of agents",
@@ -199,6 +200,7 @@
       "type": "object"
     },
     "AksNetworkingConfiguration": {
+      "description": "Advance configuration for AKS networking",
       "properties": {
         "dnsServiceIP": {
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
@@ -244,6 +246,7 @@
       "type": "object"
     },
     "AmlComputeProperties": {
+      "description": "AML Compute properties",
       "properties": {
         "remoteLoginPortPublicAccess": {
           "description": "State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.",
@@ -317,6 +320,7 @@
       "type": "object"
     },
     "Compute": {
+      "description": "Machine Learning compute object.",
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -383,13 +387,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -402,6 +407,7 @@
       "type": "object"
     },
     "ResourceId": {
+      "description": "Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.",
       "properties": {
         "id": {
           "description": "The ID of the resource",
@@ -414,6 +420,7 @@
       "type": "object"
     },
     "ScaleSettings": {
+      "description": "scale settings for AML Compute",
       "properties": {
         "maxNodeCount": {
           "description": "Max number of nodes to use",
@@ -448,6 +455,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "The ssl configuration for scoring",
       "properties": {
         "cert": {
           "description": "Cert data",
@@ -480,6 +488,7 @@
       "type": "object"
     },
     "UserAccountCredentials": {
+      "description": "Settings for user account that gets created on each on the nodes of a compute.",
       "properties": {
         "adminUserName": {
           "description": "Name of the administrator user account which can be used to SSH to nodes.",
@@ -535,6 +544,7 @@
       "type": "object"
     },
     "VirtualMachineSshCredentials": {
+      "description": "Admin credentials for virtual machine",
       "properties": {
         "password": {
           "description": "Password of admin account",
@@ -556,6 +566,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The properties of a machine learning workspace.",
       "properties": {
         "applicationInsights": {
           "description": "ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created",
@@ -644,7 +655,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }

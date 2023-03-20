@@ -670,6 +670,7 @@
   },
   "definitions": {
     "ApplicationGroupProperties": {
+      "description": "Schema for ApplicationGroup properties.",
       "properties": {
         "applicationGroupType": {
           "description": "Resource Type of ApplicationGroup.",
@@ -717,6 +718,7 @@
       "type": "object"
     },
     "ApplicationProperties": {
+      "description": "Schema for Application properties.",
       "properties": {
         "applicationType": {
           "description": "Resource Type of Application.",
@@ -806,6 +808,7 @@
       "type": "object"
     },
     "HostPoolProperties": {
+      "description": "Properties of HostPool.",
       "properties": {
         "customRdpProperty": {
           "description": "Custom rdp property of HostPool.",
@@ -1005,6 +1008,7 @@
       "type": "object"
     },
     "MigrationRequestProperties": {
+      "description": "Properties for arm migration.",
       "properties": {
         "migrationPath": {
           "description": "The path to the legacy object to migrate.",
@@ -1032,6 +1036,7 @@
       "type": "object"
     },
     "MsixPackageApplications": {
+      "description": "Schema for MSIX Package Application properties.",
       "properties": {
         "appId": {
           "description": "Package Application Id, found in appxmanifest.xml.",
@@ -1063,6 +1068,7 @@
       "type": "object"
     },
     "MsixPackageDependencies": {
+      "description": "Schema for MSIX Package Dependencies properties.",
       "properties": {
         "dependencyName": {
           "description": "Name of package dependency.",
@@ -1080,6 +1086,7 @@
       "type": "object"
     },
     "MsixPackageProperties": {
+      "description": "Schema for MSIX Package properties.",
       "properties": {
         "displayName": {
           "description": "User friendly Name to be displayed in the portal. ",
@@ -1185,10 +1192,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -1236,6 +1245,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -1265,6 +1275,7 @@
       "type": "object"
     },
     "RegistrationInfo": {
+      "description": "Represents a RegistrationInfo definition.",
       "properties": {
         "expirationTime": {
           "description": "Expiration time of registration token.",
@@ -1308,7 +1319,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -1399,6 +1410,7 @@
       "type": "object"
     },
     "ScalingHostPoolReference": {
+      "description": "Scaling plan reference to hostpool.",
       "properties": {
         "hostPoolArmPath": {
           "description": "Arm path of referenced hostpool.",
@@ -1419,6 +1431,7 @@
       "type": "object"
     },
     "ScalingPlanProperties": {
+      "description": "Scaling plan properties.",
       "properties": {
         "description": {
           "description": "Description of scaling plan.",
@@ -1498,6 +1511,7 @@
       "type": "object"
     },
     "ScalingSchedule": {
+      "description": "Scaling plan schedule.",
       "properties": {
         "daysOfWeek": {
           "description": "Set of days of the week on which this schedule is active.",
@@ -1730,6 +1744,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "Schema for Workspace properties.",
       "properties": {
         "applicationGroupReferences": {
           "description": "List of applicationGroup resource Ids.",
@@ -1806,7 +1821,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DesktopVirtualization/applicationGroups/applications"
+            "applications"
           ],
           "type": "string"
         }
@@ -1853,7 +1868,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DesktopVirtualization/hostPools/msixPackages"
+            "msixPackages"
           ],
           "type": "string"
         }
@@ -1891,7 +1906,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DesktopVirtualization/hostPools/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -1929,7 +1944,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DesktopVirtualization/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

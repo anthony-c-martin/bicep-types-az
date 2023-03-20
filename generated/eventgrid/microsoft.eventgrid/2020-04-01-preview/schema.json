@@ -606,6 +606,7 @@
   },
   "definitions": {
     "AdvancedFilter": {
+      "description": "This is the base type that represents an advanced filter. To configure an advanced filter, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class such as BoolEqualsAdvancedFilter, NumberInAdvancedFilter, StringEqualsAdvancedFilter etc. depending on the type of the key based on which you want to filter.",
       "properties": {
         "key": {
           "description": "The field/property in the event based on which you want to filter.",
@@ -615,6 +616,7 @@
       "type": "object"
     },
     "AzureFunctionEventSubscriptionDestinationProperties": {
+      "description": "The properties that represent the Azure Function destination of an event subscription.",
       "properties": {
         "maxEventsPerBatch": {
           "description": "Maximum number of events per batch.",
@@ -646,6 +648,7 @@
       "type": "object"
     },
     "ConnectionState": {
+      "description": "ConnectionState information.",
       "properties": {
         "actionsRequired": {
           "description": "Actions required (if any).",
@@ -676,10 +679,12 @@
       "type": "object"
     },
     "DeadLetterDestination": {
+      "description": "Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.",
       "properties": {},
       "type": "object"
     },
     "DeadLetterWithResourceIdentity": {
+      "description": "Information about the deadletter destination with resource identity.",
       "properties": {
         "deadLetterDestination": {
           "description": "Information about the destination where events have to be delivered for the event subscription.\r\nUses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.",
@@ -707,6 +712,7 @@
       "type": "object"
     },
     "DeliveryWithResourceIdentity": {
+      "description": "Information about the delivery for an event subscription with resource identity.",
       "properties": {
         "destination": {
           "description": "Information about the destination where events have to be delivered for the event subscription.\r\nUses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.",
@@ -734,6 +740,7 @@
       "type": "object"
     },
     "DomainProperties": {
+      "description": "Properties of the Domain.",
       "properties": {
         "inboundIpRules": {
           "description": "This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.",
@@ -823,6 +830,7 @@
       "type": "object"
     },
     "EventChannelDestination": {
+      "description": "Properties of the destination of an event channel.",
       "properties": {
         "azureSubscriptionId": {
           "description": "Azure subscription ID of the customer creating the event channel. The partner topic\r\nassociated with the event channel will be created under this Azure subscription.",
@@ -840,6 +848,7 @@
       "type": "object"
     },
     "EventChannelFilter": {
+      "description": "Filter for the Event Channel.",
       "properties": {
         "advancedFilters": {
           "description": "An array of advanced filters that are used for filtering event channels.",
@@ -866,6 +875,7 @@
       "type": "object"
     },
     "EventChannelProperties": {
+      "description": "Properties of the Event Channel.",
       "properties": {
         "destination": {
           "description": "Represents the destination of an event channel.",
@@ -920,6 +930,7 @@
       "type": "object"
     },
     "EventChannelSource": {
+      "description": "Properties of the source of an event channel.",
       "properties": {
         "source": {
           "description": "The identifier of the resource that's the source of the events.\r\nThis represents a unique resource in the partner's resource model.",
@@ -929,6 +940,7 @@
       "type": "object"
     },
     "EventHubEventSubscriptionDestinationProperties": {
+      "description": "The properties for a event hub destination.",
       "properties": {
         "resourceId": {
           "description": "The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.",
@@ -938,10 +950,12 @@
       "type": "object"
     },
     "EventSubscriptionDestination": {
+      "description": "Information about the destination for an event subscription.",
       "properties": {},
       "type": "object"
     },
     "EventSubscriptionFilter": {
+      "description": "Filter for the Event Subscription.",
       "properties": {
         "advancedFilters": {
           "description": "An array of advanced filters that are used for filtering event subscriptions.",
@@ -1001,6 +1015,7 @@
       "type": "object"
     },
     "EventSubscriptionIdentity": {
+      "description": "The identity information with the event subscription.",
       "properties": {
         "type": {
           "description": "The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.",
@@ -1025,6 +1040,7 @@
       "type": "object"
     },
     "EventSubscriptionProperties": {
+      "description": "Properties of the Event Subscription.",
       "properties": {
         "deadLetterDestination": {
           "description": "The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.\r\nUses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.",
@@ -1138,6 +1154,7 @@
       "type": "object"
     },
     "HybridConnectionEventSubscriptionDestinationProperties": {
+      "description": "The properties for a hybrid connection destination.",
       "properties": {
         "resourceId": {
           "description": "The Azure Resource ID of an hybrid connection that is the destination of an event subscription.",
@@ -1147,6 +1164,7 @@
       "type": "object"
     },
     "IdentityInfo": {
+      "description": "The identity information for the resource.",
       "properties": {
         "principalId": {
           "description": "The principal ID of resource identity.",
@@ -1222,10 +1240,12 @@
       "type": "object"
     },
     "InputSchemaMapping": {
+      "description": "By default, Event Grid expects events to be in the Event Grid event schema. Specifying an input schema mapping enables publishing to Event Grid using a custom input schema. Currently, the only supported type of InputSchemaMapping is 'JsonInputSchemaMapping'.",
       "properties": {},
       "type": "object"
     },
     "JsonField": {
+      "description": "This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.",
       "properties": {
         "sourceField": {
           "description": "Name of a field in the input event schema that's to be used as the source of a mapping.",
@@ -1235,6 +1255,7 @@
       "type": "object"
     },
     "JsonFieldWithDefault": {
+      "description": "This is used to express the source of an input schema mapping for a single target field\r\nin the Event Grid Event schema. This is currently used in the mappings for the 'subject',\r\n'eventtype' and 'dataversion' properties. This represents a field in the input event schema\r\nalong with a default value to be used, and at least one of these two properties should be provided.",
       "properties": {
         "defaultValue": {
           "description": "The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.",
@@ -1248,6 +1269,7 @@
       "type": "object"
     },
     "JsonInputSchemaMappingProperties": {
+      "description": "This can be used to map properties of a source schema (or default values, for certain supported properties) to properties of the EventGridEvent schema.",
       "properties": {
         "dataVersion": {
           "description": "The mapping information for the DataVersion property of the Event Grid Event.",
@@ -1319,6 +1341,7 @@
       "type": "object"
     },
     "PartnerNamespaceProperties": {
+      "description": "Properties of the partner namespace.",
       "properties": {
         "partnerRegistrationFullyQualifiedId": {
           "description": "The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:\r\n/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.",
@@ -1328,6 +1351,7 @@
       "type": "object"
     },
     "PartnerRegistrationProperties": {
+      "description": "Properties of the partner registration.",
       "properties": {
         "authorizedAzureSubscriptionIds": {
           "description": "List of Azure subscription Ids that are authorized to create a partner namespace\r\nassociated with this partner registration. This is an optional property. Creating\r\npartner namespaces is always permitted under the same Azure subscription as the one used\r\nfor creating the partner registration.",
@@ -1403,6 +1427,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "PrivateEndpoint information.",
       "properties": {
         "id": {
           "description": "The ARM identifier for Private Endpoint.",
@@ -1428,6 +1453,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection resource.",
       "properties": {
         "groupIds": {
           "description": "GroupIds from the private link service resource.",
@@ -1488,6 +1514,7 @@
       "type": "object"
     },
     "ResourceSku": {
+      "description": "Describes an EventGrid Resource Sku.",
       "properties": {
         "name": {
           "description": "The Sku name of the resource. The possible values are: Basic or Premium.",
@@ -1508,6 +1535,7 @@
       "type": "object"
     },
     "RetryPolicy": {
+      "description": "Information about the retry policy for an event subscription.",
       "properties": {
         "eventTimeToLiveInMinutes": {
           "description": "Time To Live (in minutes) for events.",
@@ -1535,6 +1563,7 @@
       "type": "object"
     },
     "ServiceBusQueueEventSubscriptionDestinationProperties": {
+      "description": "The properties that represent the Service Bus destination of an event subscription.",
       "properties": {
         "resourceId": {
           "description": "The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.",
@@ -1544,6 +1573,7 @@
       "type": "object"
     },
     "ServiceBusTopicEventSubscriptionDestinationProperties": {
+      "description": "The properties that represent the Service Bus Topic destination of an event subscription.",
       "properties": {
         "resourceId": {
           "description": "The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.",
@@ -1553,6 +1583,7 @@
       "type": "object"
     },
     "StorageBlobDeadLetterDestinationProperties": {
+      "description": "Properties of the storage blob based dead letter destination.",
       "properties": {
         "blobContainerName": {
           "description": "The name of the Storage blob container that is the destination of the deadletter events",
@@ -1566,6 +1597,7 @@
       "type": "object"
     },
     "StorageQueueEventSubscriptionDestinationProperties": {
+      "description": "The properties for a storage queue destination.",
       "properties": {
         "queueName": {
           "description": "The name of the Storage queue under a storage account that is the destination of an event subscription.",
@@ -1579,6 +1611,7 @@
       "type": "object"
     },
     "SystemTopicProperties": {
+      "description": "Properties of the System Topic.",
       "properties": {
         "source": {
           "description": "Source for the system topic.",
@@ -1592,6 +1625,7 @@
       "type": "object"
     },
     "TopicProperties": {
+      "description": "Properties of the Topic",
       "properties": {
         "inboundIpRules": {
           "description": "This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.",
@@ -1681,6 +1715,7 @@
       "type": "object"
     },
     "UserIdentityProperties": {
+      "description": "The information about the user identity.",
       "properties": {
         "clientId": {
           "description": "The client id of user assigned identity.",
@@ -1694,6 +1729,7 @@
       "type": "object"
     },
     "WebHookEventSubscriptionDestinationProperties": {
+      "description": "Information about the webhook destination properties for an event subscription.",
       "properties": {
         "azureActiveDirectoryApplicationIdOrUri": {
           "description": "The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.",
@@ -1758,7 +1794,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventGrid/domains/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -1796,7 +1832,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventGrid/partnerNamespaces/eventChannels"
+            "eventChannels"
           ],
           "type": "string"
         }
@@ -1834,7 +1870,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventGrid/systemTopics/eventSubscriptions"
+            "eventSubscriptions"
           ],
           "type": "string"
         }
@@ -1872,7 +1908,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventGrid/topics/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

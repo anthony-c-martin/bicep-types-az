@@ -265,6 +265,7 @@
   },
   "definitions": {
     "ApplicationMetricDescription": {
+      "description": "Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.\n",
       "properties": {
         "MaximumCapacity": {
           "description": "The maximum node capacity for Service Fabric application.\nThis is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.\nIf set to zero, capacity for this metric is unlimited on each node.\nWhen creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.\nWhen updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.\n",
@@ -307,6 +308,7 @@
       "type": "object"
     },
     "ApplicationResourceProperties": {
+      "description": "The application resource properties.",
       "properties": {
         "maximumNodes": {
           "description": "The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.",
@@ -400,10 +402,12 @@
       "type": "object"
     },
     "ApplicationTypeResourceProperties": {
+      "description": "The application type name properties",
       "properties": {},
       "type": "object"
     },
     "ApplicationTypeVersionResourceProperties": {
+      "description": "The properties of the application type version resource.",
       "properties": {
         "appPackageUrl": {
           "description": "The URL to the application package",
@@ -416,6 +420,7 @@
       "type": "object"
     },
     "ApplicationUpgradePolicy": {
+      "description": "Describes the policy for a monitored application upgrade.",
       "properties": {
         "applicationHealthPolicy": {
           "description": "Defines a health policy used to evaluate the health of an application or one of its children entities.\n",
@@ -458,6 +463,7 @@
       "type": "object"
     },
     "ArmApplicationHealthPolicy": {
+      "description": "Defines a health policy used to evaluate the health of an application or one of its children entities.\n",
       "properties": {
         "ConsiderWarningAsError": {
           "description": "Indicates whether warnings are treated with the same severity as errors.",
@@ -518,6 +524,7 @@
       "type": "object"
     },
     "ArmRollingUpgradeMonitoringPolicy": {
+      "description": "The policy used for monitoring the application upgrade",
       "properties": {
         "failureAction": {
           "description": "The activation Mode of the service package",
@@ -558,6 +565,7 @@
       "type": "object"
     },
     "ArmServiceTypeHealthPolicy": {
+      "description": "Represents the health policy used to evaluate the health of services belonging to a service type.\n",
       "properties": {
         "maxPercentUnhealthyPartitionsPerService": {
           "description": "The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.\n",
@@ -596,6 +604,7 @@
       "type": "object"
     },
     "AzureActiveDirectory": {
+      "description": "The settings to enable AAD authentication on the cluster.",
       "properties": {
         "clientApplication": {
           "description": "Azure active directory client application id.",
@@ -613,6 +622,7 @@
       "type": "object"
     },
     "CertificateDescription": {
+      "description": "Describes the certificate details.",
       "properties": {
         "thumbprint": {
           "description": "Thumbprint of the primary certificate.",
@@ -650,6 +660,7 @@
       "type": "object"
     },
     "ClientCertificateCommonName": {
+      "description": "Describes the client certificate details using common name.",
       "properties": {
         "certificateCommonName": {
           "description": "The common name of the client certificate.",
@@ -679,6 +690,7 @@
       "type": "object"
     },
     "ClientCertificateThumbprint": {
+      "description": "Describes the client certificate details using thumbprint.",
       "properties": {
         "certificateThumbprint": {
           "description": "The thumbprint of the client certificate.",
@@ -703,6 +715,7 @@
       "type": "object"
     },
     "ClusterHealthPolicy": {
+      "description": "Defines a health policy used to evaluate the health of the cluster or of a cluster node.",
       "properties": {
         "maxPercentUnhealthyApplications": {
           "description": "The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. ",
@@ -730,6 +743,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "Describes the cluster resource properties.",
       "properties": {
         "addOnFeatures": {
           "description": "The list of add-on features to enable in the cluster.",
@@ -993,6 +1007,7 @@
       "type": "object"
     },
     "ClusterUpgradeDeltaHealthPolicy": {
+      "description": "Describes the delta health policies for the cluster upgrade.",
       "properties": {
         "maxPercentDeltaUnhealthyApplications": {
           "description": "The maximum allowed percentage of applications health degradation allowed during cluster upgrades. The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation. The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.",
@@ -1036,6 +1051,7 @@
       "type": "object"
     },
     "ClusterUpgradePolicy": {
+      "description": "Describes the policy used when upgrading the cluster.",
       "properties": {
         "deltaHealthPolicy": {
           "description": "The delta health policy used when upgrading the cluster.",
@@ -1107,6 +1123,7 @@
       "type": "object"
     },
     "ClusterVersionDetails": {
+      "description": "The detail of the Service Fabric runtime version result",
       "properties": {
         "codeVersion": {
           "description": "The Service Fabric runtime version of the cluster.",
@@ -1135,6 +1152,7 @@
       "type": "object"
     },
     "DiagnosticsStorageAccountConfig": {
+      "description": "The storage account information for storing Service Fabric diagnostic logs.",
       "properties": {
         "blobEndpoint": {
           "description": "The blob endpoint of the azure storage account.",
@@ -1167,6 +1185,7 @@
       "type": "object"
     },
     "EndpointRangeDescription": {
+      "description": "Port range details",
       "properties": {
         "endPort": {
           "description": "End port of a range of ports",
@@ -1198,6 +1217,7 @@
       "type": "object"
     },
     "NodeTypeDescription": {
+      "description": "Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.",
       "properties": {
         "applicationPorts": {
           "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
@@ -1337,10 +1357,12 @@
       "type": "object"
     },
     "PartitionSchemeDescription": {
+      "description": "Describes how the service is partitioned.",
       "properties": {},
       "type": "object"
     },
     "ServiceCorrelationDescription": {
+      "description": "Creates a particular correlation between services.",
       "properties": {
         "Scheme": {
           "description": "The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.",
@@ -1371,6 +1393,7 @@
       "type": "object"
     },
     "ServiceLoadMetricDescription": {
+      "description": "Specifies a metric to load balance a service during runtime.",
       "properties": {
         "DefaultLoad": {
           "description": "Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.",
@@ -1433,10 +1456,12 @@
       "type": "object"
     },
     "ServicePlacementPolicyDescription": {
+      "description": "Describes the policy to be used for placement of a Service Fabric service.",
       "properties": {},
       "type": "object"
     },
     "ServiceResourceProperties": {
+      "description": "The service resource properties.",
       "properties": {
         "correlationScheme": {
           "description": "A list that describes the correlation of the service with other services.",
@@ -1541,6 +1566,7 @@
       "type": "object"
     },
     "SettingsParameterDescription": {
+      "description": "Describes a parameter in fabric settings of the cluster.",
       "properties": {
         "name": {
           "description": "The parameter name of fabric setting.",
@@ -1558,6 +1584,7 @@
       "type": "object"
     },
     "SettingsSectionDescription": {
+      "description": "Describes a section in the fabric settings of the cluster.",
       "properties": {
         "name": {
           "description": "The section name of the fabric settings.",
@@ -1621,7 +1648,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applicationTypes"
+            "applicationTypes"
           ],
           "type": "string"
         }
@@ -1663,7 +1690,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applicationTypes/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -1705,7 +1732,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applications"
+            "applications"
           ],
           "type": "string"
         }
@@ -1747,7 +1774,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applications/services"
+            "services"
           ],
           "type": "string"
         }

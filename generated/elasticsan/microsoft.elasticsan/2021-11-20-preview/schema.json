@@ -220,6 +220,7 @@
   },
   "definitions": {
     "ElasticSanProperties": {
+      "description": "Elastic San response properties.",
       "properties": {
         "availabilityZones": {
           "description": "Logical zone for Elastic San resource; example: [\"1\"].",
@@ -277,6 +278,7 @@
       "type": "object"
     },
     "NetworkRuleSet": {
+      "description": "A set of rules governing the network accessibility.",
       "properties": {
         "virtualNetworkRules": {
           "description": "The list of virtual network rules.",
@@ -303,6 +305,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The SKU name. Required for account creation; optional for update.",
       "properties": {
         "name": {
           "description": "The sku name.",
@@ -340,13 +343,14 @@
       "type": "object"
     },
     "SourceCreationData": {
+      "description": "Data source used when creating the volume.",
       "properties": {
         "createSource": {
           "description": "This enumerates the possible sources of a volume creation.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "None"
               ],
               "type": "string"
             },
@@ -363,13 +367,14 @@
       "type": "object"
     },
     "VirtualNetworkRule": {
+      "description": "Virtual Network rule.",
       "properties": {
         "action": {
           "description": "The action of virtual network rule.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Allow"
               ],
               "type": "string"
             },
@@ -389,6 +394,7 @@
       "type": "object"
     },
     "VolumeGroupProperties": {
+      "description": "VolumeGroup response properties.",
       "properties": {
         "encryption": {
           "description": "Type of encryption",
@@ -434,6 +440,7 @@
       "type": "object"
     },
     "VolumeProperties": {
+      "description": "Volume response properties.",
       "properties": {
         "creationData": {
           "description": "State of the operation on the resource.",
@@ -511,7 +518,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ElasticSan/elasticSans/volumegroups"
+            "volumegroups"
           ],
           "type": "string"
         }
@@ -574,7 +581,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ElasticSan/elasticSans/volumegroups/volumes"
+            "volumes"
           ],
           "type": "string"
         }

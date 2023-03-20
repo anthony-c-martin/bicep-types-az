@@ -210,6 +210,7 @@
   },
   "definitions": {
     "AkamaiAccessControl": {
+      "description": "Akamai access control",
       "properties": {
         "akamaiSignatureHeaderAuthenticationKeyList": {
           "description": "authentication key list",
@@ -236,6 +237,7 @@
       "type": "object"
     },
     "AkamaiSignatureHeaderAuthenticationKey": {
+      "description": "Akamai Signature Header authentication key.",
       "properties": {
         "base64Key": {
           "description": "authentication key",
@@ -261,6 +263,7 @@
       "type": "object"
     },
     "ArmStreamingEndpointCurrentSku": {
+      "description": "The streaming endpoint current sku.",
       "properties": {
         "capacity": {
           "description": "The streaming endpoint sku capacity.",
@@ -277,6 +280,7 @@
       "type": "object"
     },
     "CrossSiteAccessPolicies": {
+      "description": "The client access policy.",
       "properties": {
         "clientAccessPolicy": {
           "description": "The content of clientaccesspolicy.xml used by Silverlight.",
@@ -290,6 +294,7 @@
       "type": "object"
     },
     "Hls": {
+      "description": "HTTP Live Streaming (HLS) packing setting for the live output.",
       "properties": {
         "fragmentsPerTsSegment": {
           "description": "The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.",
@@ -306,6 +311,7 @@
       "type": "object"
     },
     "IPAccessControl": {
+      "description": "The IP access control.",
       "properties": {
         "allow": {
           "description": "The IP allow list.",
@@ -332,6 +338,7 @@
       "type": "object"
     },
     "IPRange": {
+      "description": "The IP address range in the CIDR scheme.",
       "properties": {
         "address": {
           "description": "The IP address.",
@@ -356,6 +363,7 @@
       "type": "object"
     },
     "LiveEventEncoding": {
+      "description": "Specifies the live event type and optional encoding settings for encoding live events.",
       "properties": {
         "encodingType": {
           "description": "Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.",
@@ -403,6 +411,7 @@
       "type": "object"
     },
     "LiveEventEndpoint": {
+      "description": "The live event endpoint.",
       "properties": {
         "protocol": {
           "description": "The endpoint protocol.",
@@ -416,6 +425,7 @@
       "type": "object"
     },
     "LiveEventInput": {
+      "description": "The live event input.",
       "properties": {
         "accessControl": {
           "description": "Access control for live event input.",
@@ -500,6 +510,7 @@
       "type": "object"
     },
     "LiveEventInputAccessControl": {
+      "description": "The IP access control for live event input.",
       "properties": {
         "ip": {
           "description": "The IP access control properties.",
@@ -516,6 +527,7 @@
       "type": "object"
     },
     "LiveEventInputTrackSelection": {
+      "description": "A track selection condition. This property is reserved for future use, any value set on this property will be ignored.",
       "properties": {
         "operation": {
           "description": "Comparing operation. This property is reserved for future use, any value set on this property will be ignored.",
@@ -533,6 +545,7 @@
       "type": "object"
     },
     "LiveEventOutputTranscriptionTrack": {
+      "description": "Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.",
       "properties": {
         "trackName": {
           "description": "The output track name. This property is reserved for future use, any value set on this property will be ignored.",
@@ -545,6 +558,7 @@
       "type": "object"
     },
     "LiveEventPreview": {
+      "description": "Live event preview settings.",
       "properties": {
         "accessControl": {
           "description": "The access control for live event preview.",
@@ -594,6 +608,7 @@
       "type": "object"
     },
     "LiveEventPreviewAccessControl": {
+      "description": "The IP access control for the live event preview endpoint.",
       "properties": {
         "ip": {
           "description": "The IP access control properties.",
@@ -610,6 +625,7 @@
       "type": "object"
     },
     "LiveEventProperties": {
+      "description": "The live event properties.",
       "properties": {
         "crossSiteAccessPolicies": {
           "description": "Live event cross site access policies.",
@@ -728,6 +744,7 @@
       "type": "object"
     },
     "LiveEventTimedMetadataEndpoint": {
+      "description": "The live event metadata insertion endpoint.",
       "properties": {
         "url": {
           "description": "The metadata endpoint URL.",
@@ -737,6 +754,7 @@
       "type": "object"
     },
     "LiveEventTranscription": {
+      "description": "Describes the transcription tracks in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.",
       "properties": {
         "inputTrackSelection": {
           "description": "Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied. This property is reserved for future use, any value set on this property will be ignored.",
@@ -778,6 +796,7 @@
       "type": "object"
     },
     "LiveOutputProperties": {
+      "description": "The JSON object that contains the properties required to create a live output.",
       "properties": {
         "archiveWindowLength": {
           "description": "ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.",
@@ -829,6 +848,7 @@
       "type": "object"
     },
     "StreamingEndpointAccessControl": {
+      "description": "Streaming endpoint access control definition.",
       "properties": {
         "akamai": {
           "description": "The access control of Akamai",
@@ -856,6 +876,7 @@
       "type": "object"
     },
     "StreamingEndpointProperties": {
+      "description": "The streaming endpoint properties.",
       "properties": {
         "accessControl": {
           "description": "The access control definition of the streaming endpoint.",
@@ -984,7 +1005,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Media/mediaservices/liveEvents/liveOutputs"
+            "liveOutputs"
           ],
           "type": "string"
         }

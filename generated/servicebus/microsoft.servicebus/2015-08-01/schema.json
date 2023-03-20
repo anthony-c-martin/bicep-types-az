@@ -420,6 +420,7 @@
   },
   "definitions": {
     "NamespaceProperties": {
+      "description": "Properties of the namespace.",
       "properties": {
         "createACSNamespace": {
           "description": "Indicates whether to create an ACS namespace.",
@@ -473,6 +474,7 @@
       "type": "object"
     },
     "QueueProperties": {
+      "description": "The Queue Properties definition.",
       "properties": {
         "autoDeleteOnIdle": {
           "description": "the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.",
@@ -644,6 +646,7 @@
       "type": "object"
     },
     "SharedAccessAuthorizationRuleProperties": {
+      "description": "SharedAccessAuthorizationRule properties.",
       "properties": {
         "rights": {
           "description": "The rights associated with the rule.",
@@ -678,6 +681,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU of the namespace.",
       "properties": {
         "capacity": {
           "description": "The specified messaging units for the tier.",
@@ -729,6 +733,7 @@
       "type": "object"
     },
     "SubscriptionProperties": {
+      "description": "Description of Subscription Resource.",
       "properties": {
         "autoDeleteOnIdle": {
           "description": "TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.",
@@ -852,6 +857,7 @@
       "type": "object"
     },
     "TopicProperties": {
+      "description": "The Topic Properties definition.",
       "properties": {
         "autoDeleteOnIdle": {
           "description": "TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.",
@@ -1046,7 +1052,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/AuthorizationRules"
+            "AuthorizationRules"
           ],
           "type": "string"
         }
@@ -1097,7 +1103,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/queues/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -1148,7 +1154,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/queues"
+            "queues"
           ],
           "type": "string"
         }
@@ -1199,7 +1205,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/topics/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -1250,7 +1256,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/topics"
+            "topics"
           ],
           "type": "string"
         }
@@ -1301,7 +1307,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceBus/namespaces/topics/subscriptions"
+            "subscriptions"
           ],
           "type": "string"
         }

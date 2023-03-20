@@ -14,18 +14,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The requested administrator name.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/ActiveDirectory$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -603,18 +593,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The source of the sensitivity label.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/current$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -1083,6 +1063,7 @@
   },
   "definitions": {
     "DatabaseBlobAuditingPolicyProperties": {
+      "description": "Properties of a database blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -1184,6 +1165,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "The database's properties.",
       "properties": {
         "catalogCollation": {
           "description": "Collation of the metadata catalog.",
@@ -1317,6 +1299,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentProperties": {
+      "description": "Properties of a database Vulnerability Assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -1345,6 +1328,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentRuleBaselineItem": {
+      "description": "Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.",
       "properties": {
         "result": {
           "description": "The rule baseline result",
@@ -1367,6 +1351,7 @@
       "type": "object"
     },
     "DatabaseVulnerabilityAssessmentRuleBaselineProperties": {
+      "description": "Properties of a database Vulnerability Assessment rule baseline.",
       "properties": {
         "baselineResults": {
           "description": "The rule baseline result",
@@ -1396,6 +1381,7 @@
       "type": "object"
     },
     "ExtendedDatabaseBlobAuditingPolicyProperties": {
+      "description": "Properties of an extended database blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -1501,6 +1487,7 @@
       "type": "object"
     },
     "ExtendedServerBlobAuditingPolicyProperties": {
+      "description": "Properties of an extended server blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -1606,6 +1593,7 @@
       "type": "object"
     },
     "JobAgentProperties": {
+      "description": "Properties of a job agent.",
       "properties": {
         "databaseId": {
           "description": "Resource ID of the database to store job metadata in.",
@@ -1618,6 +1606,7 @@
       "type": "object"
     },
     "JobCredentialProperties": {
+      "description": "Properties of a job credential.",
       "properties": {
         "password": {
           "description": "The credential password.",
@@ -1635,6 +1624,7 @@
       "type": "object"
     },
     "JobProperties": {
+      "description": "Properties of a job.",
       "properties": {
         "description": {
           "description": "User-defined description of the job.",
@@ -1655,6 +1645,7 @@
       "type": "object"
     },
     "JobSchedule": {
+      "description": "Scheduling properties of a job.",
       "properties": {
         "enabled": {
           "description": "Whether or not the schedule is enabled.",
@@ -1714,6 +1705,7 @@
       "type": "object"
     },
     "JobStepAction": {
+      "description": "The action to be executed by a job step.",
       "properties": {
         "source": {
           "description": "The source of the action to execute.",
@@ -1754,6 +1746,7 @@
       "type": "object"
     },
     "JobStepExecutionOptions": {
+      "description": "The execution options of a job step.",
       "properties": {
         "initialRetryIntervalSeconds": {
           "description": "Initial delay between retries for job step execution.",
@@ -1814,6 +1807,7 @@
       "type": "object"
     },
     "JobStepOutput": {
+      "description": "The output configuration of a job step.",
       "properties": {
         "credential": {
           "description": "The resource ID of the credential to use to connect to the output destination.",
@@ -1875,6 +1869,7 @@
       "type": "object"
     },
     "JobStepProperties": {
+      "description": "Properties of a job step.",
       "properties": {
         "action": {
           "description": "The action payload of the job step.",
@@ -1937,6 +1932,7 @@
       "type": "object"
     },
     "JobTarget": {
+      "description": "A job target, for example a specific database or a container of databases that is evaluated during job execution.",
       "properties": {
         "databaseName": {
           "description": "The target database name.",
@@ -1998,6 +1994,7 @@
       "type": "object"
     },
     "JobTargetGroupProperties": {
+      "description": "Properties of job target group.",
       "properties": {
         "members": {
           "description": "Members of the target group.",
@@ -2027,6 +2024,7 @@
       "type": "object"
     },
     "LongTermRetentionPolicyProperties": {
+      "description": "Properties of a long term retention policy",
       "properties": {
         "monthlyRetention": {
           "description": "The monthly retention policy for an LTR backup in an ISO 8601 format.",
@@ -2055,6 +2053,7 @@
       "type": "object"
     },
     "ManagedBackupShortTermRetentionPolicyProperties": {
+      "description": "Properties of a short term retention policy",
       "properties": {
         "retentionDays": {
           "description": "The backup retention period in days. This is how many days Point-in-Time Restore will be supported.",
@@ -2071,6 +2070,7 @@
       "type": "object"
     },
     "ManagedDatabaseProperties": {
+      "description": "The managed database's properties.",
       "properties": {
         "catalogCollation": {
           "description": "Collation of the metadata catalog.",
@@ -2149,6 +2149,7 @@
       "type": "object"
     },
     "ManagedInstanceAdministratorProperties": {
+      "description": "The properties of a managed instance administrator.",
       "properties": {
         "administratorType": {
           "description": "Type of the managed instance administrator.",
@@ -2201,6 +2202,7 @@
       "type": "object"
     },
     "SecurityAlertPolicyProperties": {
+      "description": "Properties of a security alert policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action",
@@ -2283,6 +2285,7 @@
       "type": "object"
     },
     "SensitivityLabelProperties": {
+      "description": "Properties of a sensitivity label.",
       "properties": {
         "informationType": {
           "description": "The information type.",
@@ -2322,6 +2325,7 @@
       "type": "object"
     },
     "ServerBlobAuditingPolicyProperties": {
+      "description": "Properties of a server blob auditing policy.",
       "properties": {
         "auditActionsAndGroups": {
           "description": "Specifies the Actions-Groups and Actions to audit.\r\n\r\nThe recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:\r\n\r\nBATCH_COMPLETED_GROUP,\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,\r\nFAILED_DATABASE_AUTHENTICATION_GROUP.\r\n\r\nThis above combination is also the set that is configured by default when enabling auditing from the Azure portal.\r\n\r\nThe supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):\r\n\r\nAPPLICATION_ROLE_CHANGE_PASSWORD_GROUP\r\nBACKUP_RESTORE_GROUP\r\nDATABASE_LOGOUT_GROUP\r\nDATABASE_OBJECT_CHANGE_GROUP\r\nDATABASE_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_OBJECT_PERMISSION_CHANGE_GROUP\r\nDATABASE_OPERATION_GROUP\r\nDATABASE_PERMISSION_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_CHANGE_GROUP\r\nDATABASE_PRINCIPAL_IMPERSONATION_GROUP\r\nDATABASE_ROLE_MEMBER_CHANGE_GROUP\r\nFAILED_DATABASE_AUTHENTICATION_GROUP\r\nSCHEMA_OBJECT_ACCESS_GROUP\r\nSCHEMA_OBJECT_CHANGE_GROUP\r\nSCHEMA_OBJECT_OWNERSHIP_CHANGE_GROUP\r\nSCHEMA_OBJECT_PERMISSION_CHANGE_GROUP\r\nSUCCESSFUL_DATABASE_AUTHENTICATION_GROUP\r\nUSER_CHANGE_PASSWORD_GROUP\r\nBATCH_STARTED_GROUP\r\nBATCH_COMPLETED_GROUP\r\nDBCC_GROUP\r\nDATABASE_OWNERSHIP_CHANGE_GROUP\r\nDATABASE_CHANGE_GROUP\r\n\r\nThese are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.\r\n\r\nFor more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).\r\n\r\nFor Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:\r\nSELECT\r\nUPDATE\r\nINSERT\r\nDELETE\r\nEXECUTE\r\nRECEIVE\r\nREFERENCES\r\n\r\nThe general form for defining an action to be audited is:\r\n{action} ON {object} BY {principal}\r\n\r\nNote that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.\r\n\r\nFor example:\r\nSELECT on dbo.myTable by public\r\nSELECT on DATABASE::myDatabase by public\r\nSELECT on SCHEMA::mySchema by public\r\n\r\nFor more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)",
@@ -2423,6 +2427,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "An ARM Resource SKU.",
       "properties": {
         "capacity": {
           "description": "Capacity of the particular SKU.",
@@ -2458,6 +2463,7 @@
       "type": "object"
     },
     "VulnerabilityAssessmentRecurringScansProperties": {
+      "description": "Properties of a Vulnerability Assessment recurring scans.",
       "properties": {
         "emailSubscriptionAdmins": {
           "description": "Specifies that the schedule scan notification will be is sent to the subscription administrators.",
@@ -2534,7 +2540,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies"
+            "backupShortTermRetentionPolicies"
           ],
           "type": "string"
         }
@@ -2582,7 +2588,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -2630,7 +2636,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/auditingSettings"
+            "auditingSettings"
           ],
           "type": "string"
         }
@@ -2678,7 +2684,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies"
+            "backupLongTermRetentionPolicies"
           ],
           "type": "string"
         }
@@ -2726,7 +2732,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/extendedAuditingSettings"
+            "extendedAuditingSettings"
           ],
           "type": "string"
         }
@@ -2774,7 +2780,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }
@@ -2812,7 +2818,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/credentials"
+            "credentials"
           ],
           "type": "string"
         }
@@ -2850,7 +2856,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/jobs"
+            "jobs"
           ],
           "type": "string"
         }
@@ -2888,7 +2894,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/jobs/steps"
+            "steps"
           ],
           "type": "string"
         }
@@ -2926,7 +2932,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/jobAgents/targetGroups"
+            "targetGroups"
           ],
           "type": "string"
         }

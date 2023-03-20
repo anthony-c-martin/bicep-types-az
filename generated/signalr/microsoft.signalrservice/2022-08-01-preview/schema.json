@@ -272,6 +272,7 @@
   },
   "definitions": {
     "CustomCertificateProperties": {
+      "description": "Custom certificate properties.",
       "properties": {
         "keyVaultBaseUri": {
           "description": "Base uri of the KeyVault that stores certificate.",
@@ -293,6 +294,7 @@
       "type": "object"
     },
     "CustomDomainProperties": {
+      "description": "Properties of a custom domain.",
       "properties": {
         "customCertificate": {
           "description": "Reference to a resource.",
@@ -317,6 +319,7 @@
       "type": "object"
     },
     "LiveTraceCategory": {
+      "description": "Live trace category configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "enabled": {
           "description": "Indicates whether or the live trace category is enabled.\r\nAvailable values: true, false.\r\nCase insensitive.",
@@ -330,6 +333,7 @@
       "type": "object"
     },
     "LiveTraceConfiguration": {
+      "description": "Live trace configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "categories": {
           "description": "Gets or sets the list of category configurations.",
@@ -360,6 +364,7 @@
       "type": "object"
     },
     "ManagedIdentity": {
+      "description": "A class represent managed identities used for request and response",
       "properties": {
         "type": {
           "description": "Represents the identity type: systemAssigned, userAssigned, None",
@@ -403,6 +408,7 @@
       "type": "object"
     },
     "ManagedIdentitySettings": {
+      "description": "Managed identity settings for upstream.",
       "properties": {
         "resource": {
           "description": "The Resource indicating the App ID URI of the target resource.\r\nIt also appears in the aud (audience) claim of the issued token.",
@@ -412,6 +418,7 @@
       "type": "object"
     },
     "NetworkACL": {
+      "description": "Network ACL",
       "properties": {
         "allow": {
           "description": "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
@@ -471,6 +478,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "Private endpoint",
       "properties": {
         "id": {
           "description": "Full qualified Id of the private endpoint",
@@ -480,6 +488,7 @@
       "type": "object"
     },
     "PrivateEndpointACL": {
+      "description": "ACL for a private endpoint",
       "properties": {
         "allow": {
           "description": "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
@@ -546,6 +555,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Private endpoint connection properties",
       "properties": {
         "privateEndpoint": {
           "description": "Private endpoint",
@@ -573,6 +583,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "Connection state of the private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -603,6 +614,7 @@
       "type": "object"
     },
     "ResourceLogCategory": {
+      "description": "Resource log category configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "enabled": {
           "description": "Indicates whether or the resource log category is enabled.\r\nAvailable values: true, false.\r\nCase insensitive.",
@@ -616,6 +628,7 @@
       "type": "object"
     },
     "ResourceLogConfiguration": {
+      "description": "Resource log configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "categories": {
           "description": "Gets or sets the list of category configurations.",
@@ -642,6 +655,7 @@
       "type": "object"
     },
     "ResourceReference": {
+      "description": "Reference to a resource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -651,6 +665,7 @@
       "type": "object"
     },
     "ResourceSku": {
+      "description": "The billing information of the resource.",
       "properties": {
         "capacity": {
           "description": "Optional, integer. The unit count of the resource. 1 by default.\r\n\r\nIf present, following values are allowed:\r\n    Free: 1;\r\n    Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;\r\n    Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;",
@@ -691,6 +706,7 @@
       "type": "object"
     },
     "ServerlessSettings": {
+      "description": "Serverless settings.",
       "properties": {
         "connectionTimeoutInSeconds": {
           "description": "Gets or sets Client Connection Timeout. Optional to be set.\r\nValue in seconds.\r\nDefault value is 30 seconds.\r\nCustomer should set the timeout to a shorter period if messages are expected to be sent in shorter intervals,\r\nand want the client to disconnect more quickly after the last message is sent.\r\nYou can set the timeout to a longer period if messages are expected to be sent in longer intervals,\r\nand they want to keep the same client connection alive during this session.\r\nThe service considers the client disconnected if it hasn't received a message (including keep-alive) in this interval.",
@@ -707,6 +723,7 @@
       "type": "object"
     },
     "ServerlessUpstreamSettings": {
+      "description": "The settings for the Upstream when the service is in server-less mode.",
       "properties": {
         "templates": {
           "description": "Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.",
@@ -733,6 +750,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperties": {
+      "description": "Describes the properties of an existing Shared Private Link Resource",
       "properties": {
         "groupId": {
           "description": "The group id from the provider of resource the shared private link resource is for",
@@ -754,6 +772,7 @@
       "type": "object"
     },
     "SignalRCorsSettings": {
+      "description": "Cross-Origin Resource Sharing (CORS) settings.",
       "properties": {
         "allowedOrigins": {
           "description": "Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use \"*\" to allow all. If omitted, allow all by default.",
@@ -773,6 +792,7 @@
       "type": "object"
     },
     "SignalRFeature": {
+      "description": "Feature of a resource, which controls the runtime behavior.",
       "properties": {
         "flag": {
           "description": "FeatureFlags is the supported features of Azure SignalR service.\r\n- ServiceMode: Flag for backend server for SignalR service. Values allowed: \"Default\": have your own backend server; \"Serverless\": your application doesn't have a backend server; \"Classic\": for backward compatibility. Support both Default and Serverless mode but not recommended; \"PredefinedOnly\": for future use.\r\n- EnableConnectivityLogs: \"true\"/\"false\", to enable/disable the connectivity log category respectively.\r\n- EnableMessagingLogs: \"true\"/\"false\", to enable/disable the connectivity log category respectively.\r\n- EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: \"true\"/\"false\", to enable/disable live trace feature.",
@@ -827,6 +847,7 @@
       "type": "object"
     },
     "SignalRNetworkACLs": {
+      "description": "Network ACLs for the resource",
       "properties": {
         "defaultAction": {
           "description": "Azure Networking ACL Action.",
@@ -879,6 +900,7 @@
       "type": "object"
     },
     "SignalRProperties": {
+      "description": "A class that describes the properties of the resource",
       "properties": {
         "cors": {
           "description": "Cross-Origin Resource Sharing (CORS) settings.",
@@ -1008,6 +1030,7 @@
       "type": "object"
     },
     "SignalRTlsSettings": {
+      "description": "TLS settings for the resource",
       "properties": {
         "clientCertEnabled": {
           "description": "Request client certificate during TLS handshake if enabled",
@@ -1024,6 +1047,7 @@
       "type": "object"
     },
     "UpstreamAuthSettings": {
+      "description": "Upstream auth settings. If not set, no auth is used for upstream messages.",
       "properties": {
         "managedIdentity": {
           "description": "Managed identity settings for upstream.",
@@ -1055,6 +1079,7 @@
       "type": "object"
     },
     "UpstreamTemplate": {
+      "description": "Upstream template item settings. It defines the Upstream URL of the incoming requests.\r\nThe template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.",
       "properties": {
         "auth": {
           "description": "Upstream auth settings. If not set, no auth is used for upstream messages.",
@@ -1090,6 +1115,7 @@
       "type": "object"
     },
     "UserAssignedIdentityProperty": {
+      "description": "Properties of user assigned identity.",
       "properties": {},
       "type": "object"
     },
@@ -1119,7 +1145,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/signalR/customCertificates"
+            "customCertificates"
           ],
           "type": "string"
         }
@@ -1157,7 +1183,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/signalR/customDomains"
+            "customDomains"
           ],
           "type": "string"
         }
@@ -1195,7 +1221,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/signalR/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -1233,7 +1259,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/signalR/sharedPrivateLinkResources"
+            "sharedPrivateLinkResources"
           ],
           "type": "string"
         }

@@ -72,6 +72,7 @@
   },
   "definitions": {
     "AccessPolicyEntry": {
+      "description": "An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",
       "properties": {
         "applicationId": {
           "description": " Application ID of the client making request on behalf of a principal",
@@ -121,6 +122,7 @@
       "type": "object"
     },
     "Permissions": {
+      "description": "Permissions the identity has for keys, secrets and certificates.",
       "properties": {
         "certificates": {
           "description": "Permissions to certificates",
@@ -236,6 +238,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU details",
       "properties": {
         "family": {
           "description": "SKU family name",
@@ -274,6 +277,7 @@
       "type": "object"
     },
     "VaultProperties": {
+      "description": "Properties of the vault",
       "properties": {
         "accessPolicies": {
           "description": "An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",

@@ -134,12 +134,13 @@
   },
   "definitions": {
     "CompanyInfo": {
+      "description": "Company information of the user to be passed to partners.",
       "properties": {
         "business": {
           "description": "Business of the company",
           "oneOf": [
             {
-              "maxLength": 50,
+              "maxLength": 64,
               "type": "string"
             },
             {
@@ -151,7 +152,7 @@
           "description": "Country of the company location.",
           "oneOf": [
             {
-              "maxLength": 50,
+              "maxLength": 64,
               "type": "string"
             },
             {
@@ -187,7 +188,7 @@
           "description": "State of the company location.",
           "oneOf": [
             {
-              "maxLength": 50,
+              "maxLength": 64,
               "type": "string"
             },
             {
@@ -199,14 +200,17 @@
       "type": "object"
     },
     "ElasticCloudDeployment": {
+      "description": "Details of the user's elastic deployment associated with the monitor resource.",
       "properties": {},
       "type": "object"
     },
     "ElasticCloudUser": {
+      "description": "Details of the user's elastic account.",
       "properties": {},
       "type": "object"
     },
     "ElasticProperties": {
+      "description": "Elastic Resource Properties.",
       "properties": {
         "elasticCloudDeployment": {
           "description": "Details of the elastic cloud deployment.",
@@ -234,6 +238,7 @@
       "type": "object"
     },
     "FilteringTag": {
+      "description": "The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.",
       "properties": {
         "action": {
           "description": "Valid actions for a filtering tag.",
@@ -262,6 +267,7 @@
       "type": "object"
     },
     "IdentityProperties": {
+      "description": "Identity properties.",
       "properties": {
         "type": {
           "description": "Managed identity type.",
@@ -281,6 +287,7 @@
       "type": "object"
     },
     "LogRules": {
+      "description": "Set of rules for sending logs for the Monitor resource.",
       "properties": {
         "filteringTags": {
           "description": "List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
@@ -340,6 +347,7 @@
       "type": "object"
     },
     "MonitorProperties": {
+      "description": "Properties specific to the monitor resource.",
       "properties": {
         "elasticProperties": {
           "description": "Elastic cloud properties.",
@@ -408,6 +416,7 @@
       "type": "object"
     },
     "MonitoringTagRulesProperties": {
+      "description": "Definition of the properties for a TagRules resource.",
       "properties": {
         "logRules": {
           "description": "Rules for sending logs.",
@@ -446,6 +455,7 @@
       "type": "object"
     },
     "ResourceSku": {
+      "description": "Microsoft.Elastic SKU.",
       "properties": {
         "name": {
           "description": "Name of the SKU.",
@@ -458,6 +468,7 @@
       "type": "object"
     },
     "UserInfo": {
+      "description": "User Information to be passed to partners.",
       "properties": {
         "companyInfo": {
           "description": "Company information of the user to be passed to partners.",
@@ -474,7 +485,7 @@
           "description": "Company name of the user",
           "oneOf": [
             {
-              "maxLength": 50,
+              "maxLength": 64,
               "type": "string"
             },
             {
@@ -547,7 +558,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Elastic/monitors/tagRules"
+            "tagRules"
           ],
           "type": "string"
         }

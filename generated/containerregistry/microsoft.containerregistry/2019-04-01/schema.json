@@ -85,6 +85,7 @@
   },
   "definitions": {
     "AgentProperties": {
+      "description": "The properties that determine the run agent configuration.",
       "properties": {
         "cpu": {
           "description": "The CPU configuration in terms of number of cores required for the run.",
@@ -101,6 +102,7 @@
       "type": "object"
     },
     "Argument": {
+      "description": "The properties of a run argument.",
       "properties": {
         "isSecret": {
           "description": "Flag to indicate whether the argument represents a secret and want to be removed from build logs.",
@@ -129,6 +131,7 @@
       "type": "object"
     },
     "AuthInfo": {
+      "description": "The authorization properties for accessing the source code repository.",
       "properties": {
         "expiresIn": {
           "description": "Time in seconds that the token remains valid",
@@ -176,6 +179,7 @@
       "type": "object"
     },
     "BaseImageTrigger": {
+      "description": "The trigger based on base image dependency.",
       "properties": {
         "baseImageTriggerType": {
           "description": "The type of the auto trigger for base image dependency updates.",
@@ -219,6 +223,7 @@
       "type": "object"
     },
     "Credentials": {
+      "description": "The parameters that describes a set of credentials that will be used when a run is invoked.",
       "properties": {
         "customRegistries": {
           "description": "Describes the credential parameters for accessing other custom registries. The key\r\nfor the dictionary item will be the registry login server (myregistry.azurecr.io) and\r\nthe value of the item will be the registry credentials for accessing the registry.",
@@ -257,6 +262,7 @@
       "type": "object"
     },
     "CustomRegistryCredentials": {
+      "description": "Describes the credentials that will be used to access a custom registry during a run.",
       "properties": {
         "identity": {
           "description": "Indicates the managed identity assigned to the custom credential. If a user-assigned identity\r\nthis value is the Client ID. If a system-assigned identity, the value will be `system`. In\r\nthe case of a system-assigned identity, the Client ID will be determined by the runner. This\r\nidentity may be used to authenticate to key vault to retrieve credentials or it may be the only \r\nsource of authentication used for accessing the registry.",
@@ -288,6 +294,7 @@
       "type": "object"
     },
     "IdentityProperties": {
+      "description": "Managed identity for the resource.",
       "properties": {
         "principalId": {
           "description": "The principal ID of resource identity.",
@@ -340,6 +347,7 @@
       "type": "object"
     },
     "PlatformProperties": {
+      "description": "The platform properties against which the run has to happen.",
       "properties": {
         "architecture": {
           "description": "The OS architecture.",
@@ -395,6 +403,7 @@
       "type": "object"
     },
     "SecretObject": {
+      "description": "Describes the properties of a secret object value.",
       "properties": {
         "type": {
           "description": "The type of the secret object which determines how the value of the secret object has to be\r\ninterpreted.",
@@ -419,6 +428,7 @@
       "type": "object"
     },
     "SetValue": {
+      "description": "The properties of a overridable value that can be passed to a task template.",
       "properties": {
         "isSecret": {
           "description": "Flag to indicate whether the value represents a secret or not.",
@@ -447,6 +457,7 @@
       "type": "object"
     },
     "SourceProperties": {
+      "description": "The properties of the source code repository.",
       "properties": {
         "branch": {
           "description": "The branch name of the source code.",
@@ -490,6 +501,7 @@
       "type": "object"
     },
     "SourceRegistryCredentials": {
+      "description": "Describes the credential parameters for accessing the source registry.",
       "properties": {
         "loginMode": {
           "description": "The authentication mode which determines the source registry login scope. The credentials for the source registry\r\nwill be generated using the given scope. These credentials will be used to login to\r\nthe source registry during the run.",
@@ -510,6 +522,7 @@
       "type": "object"
     },
     "SourceTrigger": {
+      "description": "The properties of a source based trigger.",
       "properties": {
         "name": {
           "description": "The name of the trigger.",
@@ -575,6 +588,7 @@
       "type": "object"
     },
     "TaskProperties": {
+      "description": "The properties of a task.",
       "properties": {
         "agentConfiguration": {
           "description": "The machine configuration of the run agent.",
@@ -665,6 +679,7 @@
       "type": "object"
     },
     "TaskStepProperties": {
+      "description": "Base properties for any task step.",
       "properties": {
         "contextAccessToken": {
           "description": "The token (git PAT or SAS token of storage account blob) associated with the context for a step.",
@@ -678,6 +693,7 @@
       "type": "object"
     },
     "TimerTrigger": {
+      "description": "The properties of a timer trigger.",
       "properties": {
         "name": {
           "description": "The name of the trigger.",
@@ -710,6 +726,7 @@
       "type": "object"
     },
     "TriggerProperties": {
+      "description": "The properties of a trigger.",
       "properties": {
         "baseImageTrigger": {
           "description": "The trigger based on base image dependencies.",

@@ -96,6 +96,7 @@
   },
   "definitions": {
     "AzureFileFilterDetails": {
+      "description": "Filter details to transfer Azure files",
       "properties": {
         "filePathList": {
           "description": "List of full path of the files to be transferred.",
@@ -143,6 +144,7 @@
       "type": "object"
     },
     "BlobFilterDetails": {
+      "description": "Filter details to transfer Azure Blobs",
       "properties": {
         "blobPathList": {
           "description": "List of full path of the blobs to be transferred.",
@@ -190,6 +192,7 @@
       "type": "object"
     },
     "ContactDetails": {
+      "description": "Contact Details.",
       "properties": {
         "contactName": {
           "description": "Contact name of the person.",
@@ -251,6 +254,7 @@
       "type": "object"
     },
     "DataAccountDetails": {
+      "description": "Account details of the data to be transferred",
       "properties": {
         "sharePassword": {
           "description": "Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+",
@@ -260,6 +264,7 @@
       "type": "object"
     },
     "DataExportDetails": {
+      "description": "Details of the data to be used for exporting data from azure.",
       "properties": {
         "accountDetails": {
           "description": "Account details of the data to be transferred",
@@ -306,6 +311,7 @@
       "type": "object"
     },
     "DataImportDetails": {
+      "description": "Details of the data to be used for importing data to azure.",
       "properties": {
         "accountDetails": {
           "description": "Account details of the data to be transferred",
@@ -340,6 +346,7 @@
       "type": "object"
     },
     "EncryptionPreferences": {
+      "description": "Preferences related to the Encryption.",
       "properties": {
         "doubleEncryption": {
           "description": "Defines secondary layer of software-based encryption enablement.",
@@ -360,6 +367,7 @@
       "type": "object"
     },
     "FilterFileDetails": {
+      "description": "Details of the filter files to be used for data transfer.",
       "properties": {
         "filterFilePath": {
           "description": "Path of the file that contains the details of all items to transfer.",
@@ -388,6 +396,7 @@
       "type": "object"
     },
     "IdentityProperties": {
+      "description": "Managed identity properties.",
       "properties": {
         "type": {
           "description": "Managed service identity type.",
@@ -408,6 +417,7 @@
       "type": "object"
     },
     "ImportDiskDetails": {
+      "description": "Import disk details",
       "properties": {
         "bitLockerKey": {
           "description": "BitLocker key used to encrypt the disk.",
@@ -430,6 +440,7 @@
       "type": "object"
     },
     "JobDeliveryInfo": {
+      "description": "Additional delivery info.",
       "properties": {
         "scheduledDateTime": {
           "description": "Scheduled date time.",
@@ -447,6 +458,7 @@
       "type": "object"
     },
     "JobDetails": {
+      "description": "Job details.",
       "properties": {
         "contactDetails": {
           "description": "Contact details for notification and shipping.",
@@ -552,6 +564,7 @@
       "type": "object"
     },
     "JobProperties": {
+      "description": "Job Properties",
       "properties": {
         "deliveryInfo": {
           "description": "Delivery Info of Job.",
@@ -612,6 +625,7 @@
       "type": "object"
     },
     "KeyEncryptionKey": {
+      "description": "Encryption key containing details about key to encrypt different keys.",
       "properties": {
         "identityProperties": {
           "description": "Managed identity properties used for key encryption.",
@@ -654,6 +668,7 @@
       "type": "object"
     },
     "NotificationPreference": {
+      "description": "Notification preference for a job stage.",
       "properties": {
         "sendNotification": {
           "description": "Notification is required or not.",
@@ -695,6 +710,7 @@
       "type": "object"
     },
     "PackageCarrierDetails": {
+      "description": "Package carrier details.",
       "properties": {
         "carrierAccountNumber": {
           "description": "Carrier Account Number of customer for customer disk.",
@@ -712,6 +728,7 @@
       "type": "object"
     },
     "Preferences": {
+      "description": "Preferences related to the order",
       "properties": {
         "encryptionPreferences": {
           "description": "Preferences related to the Encryption.",
@@ -753,6 +770,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "Msi identity details of the resource",
       "properties": {
         "type": {
           "description": "Identity type",
@@ -784,6 +802,7 @@
       "type": "object"
     },
     "ShippingAddress": {
+      "description": "Shipping address where customer wishes to receive the device.",
       "properties": {
         "addressType": {
           "description": "Type of address.",
@@ -845,6 +864,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The Sku.",
       "properties": {
         "displayName": {
           "description": "The display name of the sku.",
@@ -878,6 +898,7 @@
       "type": "object"
     },
     "TransferAllDetails": {
+      "description": "Details to transfer all data.",
       "properties": {
         "dataAccountType": {
           "description": "Type of the account of data",
@@ -923,6 +944,7 @@
       "type": "object"
     },
     "TransferConfiguration": {
+      "description": "Configuration for defining the transfer of data.",
       "properties": {
         "transferAllDetails": {
           "description": "Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll",
@@ -968,6 +990,7 @@
       "type": "object"
     },
     "TransferConfigurationTransferAllDetails": {
+      "description": "Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll",
       "properties": {
         "include": {
           "description": "Details to transfer all data.",
@@ -984,6 +1007,7 @@
       "type": "object"
     },
     "TransferConfigurationTransferFilterDetails": {
+      "description": "Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.",
       "properties": {
         "include": {
           "description": "Details of the filtering the transfer of data.",
@@ -1000,6 +1024,7 @@
       "type": "object"
     },
     "TransferFilterDetails": {
+      "description": "Details of the filtering the transfer of data.",
       "properties": {
         "azureFileFilterDetails": {
           "description": "Filter details to transfer Azure files.",
@@ -1066,6 +1091,7 @@
       "type": "object"
     },
     "TransportPreferences": {
+      "description": "Preferences related to the shipment logistics of the sku",
       "properties": {
         "preferredShipmentType": {
           "description": "Indicates Shipment Logistics type that the customer preferred.",
@@ -1089,10 +1115,12 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "Class defining User assigned identity details.",
       "properties": {},
       "type": "object"
     },
     "UserAssignedProperties": {
+      "description": "User assigned identity properties.",
       "properties": {
         "resourceId": {
           "description": "Arm resource id for user assigned identity to be used to fetch MSI token.",

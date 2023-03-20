@@ -200,6 +200,7 @@
   },
   "definitions": {
     "NWRuleSetIpRules": {
+      "description": "The response from the List namespace operation.",
       "properties": {
         "action": {
           "description": "The IP Filter Action",
@@ -223,6 +224,7 @@
       "type": "object"
     },
     "NetworkRuleSetProperties": {
+      "description": "NetworkRuleSet properties",
       "properties": {
         "defaultAction": {
           "description": "Default Action for Network Rule Set",
@@ -264,6 +266,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "Private endpoint object properties.",
       "properties": {
         "id": {
           "description": "Full identifier of the private endpoint resource.",
@@ -273,6 +276,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection resource.",
       "properties": {
         "privateEndpoint": {
           "description": "Properties of the private endpoint object.",
@@ -300,6 +304,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "An object that represents the approval state of the private link connection.",
       "properties": {
         "actionRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -330,10 +335,12 @@
       "type": "object"
     },
     "RelayNamespaceProperties": {
+      "description": "Properties of the namespace.",
       "properties": {},
       "type": "object"
     },
     "Sku": {
+      "description": "SKU of the namespace.",
       "properties": {
         "name": {
           "description": "Name of this SKU.",
@@ -379,7 +386,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -395,7 +404,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/networkRuleSets"
+            "networkRuleSets"
           ],
           "type": "string"
         }
@@ -460,7 +469,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

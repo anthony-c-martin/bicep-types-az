@@ -172,6 +172,7 @@
       "type": "object"
     },
     "CreatorProperties": {
+      "description": "Creator resource properties",
       "properties": {
         "storageUnits": {
           "description": "The storage units to be allocated. Integer values from 1 to 100, inclusive.",
@@ -191,6 +192,7 @@
       "type": "object"
     },
     "LinkedResource": {
+      "description": "Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.",
       "properties": {
         "id": {
           "description": "ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.",
@@ -208,6 +210,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -252,6 +255,7 @@
       "type": "object"
     },
     "MapsAccountProperties": {
+      "description": "Additional Map account properties",
       "properties": {
         "disableLocalAuth": {
           "description": "Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.",
@@ -289,6 +293,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The SKU of the Maps Account.",
       "properties": {
         "name": {
           "description": "The name of the SKU, in standard format (such as S0).",
@@ -357,7 +362,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Maps/accounts/creators"
+            "creators"
           ],
           "type": "string"
         }

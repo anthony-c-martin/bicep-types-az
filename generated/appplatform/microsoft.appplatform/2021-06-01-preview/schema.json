@@ -402,6 +402,7 @@
   },
   "definitions": {
     "AppResourceProperties": {
+      "description": "App resource properties payload",
       "properties": {
         "activeDeploymentName": {
           "description": "Name of the active deployment of the App",
@@ -470,10 +471,12 @@
       "type": "object"
     },
     "ApplicationInsightsAgentVersions": {
+      "description": "Application Insights agent versions properties payload",
       "properties": {},
       "type": "object"
     },
     "BindingResourceProperties": {
+      "description": "Binding resource properties payload",
       "properties": {
         "bindingParameters": {
           "description": "Binding parameters of the Binding resource",
@@ -500,6 +503,7 @@
       "type": "object"
     },
     "CertificateProperties": {
+      "description": "Certificate resource payload.",
       "properties": {
         "certVersion": {
           "description": "The certificate version of key vault.",
@@ -521,6 +525,7 @@
       "type": "object"
     },
     "ClusterResourceProperties": {
+      "description": "Service properties payload",
       "properties": {
         "networkProfile": {
           "description": "Network profile of the Service",
@@ -537,6 +542,7 @@
       "type": "object"
     },
     "ConfigServerGitProperty": {
+      "description": "Property of git.",
       "properties": {
         "hostKey": {
           "description": "Public sshKey of git repository.",
@@ -619,6 +625,7 @@
       "type": "object"
     },
     "ConfigServerProperties": {
+      "description": "Config server git properties payload",
       "properties": {
         "configServer": {
           "description": "Settings of config server.",
@@ -646,6 +653,7 @@
       "type": "object"
     },
     "ConfigServerSettings": {
+      "description": "The settings of config server.",
       "properties": {
         "gitProperty": {
           "description": "Property of git environment.",
@@ -662,6 +670,7 @@
       "type": "object"
     },
     "CustomContainer": {
+      "description": "Custom container payload",
       "properties": {
         "args": {
           "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided.",
@@ -714,6 +723,7 @@
       "type": "object"
     },
     "CustomDomainProperties": {
+      "description": "Custom domain of app resource payload.",
       "properties": {
         "certName": {
           "description": "The bound certificate name of domain.",
@@ -727,6 +737,7 @@
       "type": "object"
     },
     "DeploymentResourceProperties": {
+      "description": "Deployment resource properties payload",
       "properties": {
         "deploymentSettings": {
           "description": "Deployment settings of the Deployment",
@@ -754,6 +765,7 @@
       "type": "object"
     },
     "DeploymentSettings": {
+      "description": "Deployment settings payload",
       "properties": {
         "cpu": {
           "description": "Required CPU. This should be 1 for Basic tier, and in range [1, 4] for Standard tier. This is deprecated starting from API version 2021-06-01-preview. Please use the resourceRequests field to set the CPU size.",
@@ -831,6 +843,7 @@
       "type": "object"
     },
     "Error": {
+      "description": "The error code compose of code and message.",
       "properties": {
         "code": {
           "description": "The code of error.",
@@ -844,6 +857,7 @@
       "type": "object"
     },
     "GitPatternRepository": {
+      "description": "Git repository property payload",
       "properties": {
         "hostKey": {
           "description": "Public sshKey of git repository.",
@@ -924,6 +938,7 @@
       "type": "object"
     },
     "ImageRegistryCredential": {
+      "description": "Credential of the image registry",
       "properties": {
         "password": {
           "description": "The password of the image registry credential",
@@ -937,6 +952,7 @@
       "type": "object"
     },
     "ManagedIdentityProperties": {
+      "description": "Managed identity properties retrieved from ARM request headers.",
       "properties": {
         "principalId": {
           "description": "Principal Id",
@@ -967,6 +983,7 @@
       "type": "object"
     },
     "MonitoringSettingProperties": {
+      "description": "Monitoring Setting properties payload",
       "properties": {
         "appInsightsAgentVersions": {
           "description": "Indicates the versions of application insight agent",
@@ -1020,6 +1037,7 @@
       "type": "object"
     },
     "NetworkProfile": {
+      "description": "Service network profile payload",
       "properties": {
         "appNetworkResourceGroup": {
           "description": "Name of the resource group containing network resources of Azure Spring Cloud Apps",
@@ -1045,6 +1063,7 @@
       "type": "object"
     },
     "PersistentDisk": {
+      "description": "Persistent disk payload",
       "properties": {
         "mountPath": {
           "description": "Mount path of the persistent disk",
@@ -1065,6 +1084,7 @@
       "type": "object"
     },
     "ResourceRequests": {
+      "description": "Deployment resource request payload",
       "properties": {
         "cpu": {
           "description": "Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.",
@@ -1078,6 +1098,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku of Azure Spring Cloud",
       "properties": {
         "capacity": {
           "description": "Current capacity of the target resource",
@@ -1127,7 +1148,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppPlatform/Spring/apps/bindings"
+            "bindings"
           ],
           "type": "string"
         }
@@ -1180,7 +1201,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppPlatform/Spring/apps"
+            "apps"
           ],
           "type": "string"
         }
@@ -1229,7 +1250,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppPlatform/Spring/apps/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -1267,7 +1288,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppPlatform/Spring/apps/domains"
+            "domains"
           ],
           "type": "string"
         }
@@ -1305,7 +1326,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppPlatform/Spring/certificates"
+            "certificates"
           ],
           "type": "string"
         }
@@ -1327,7 +1348,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1343,7 +1366,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppPlatform/Spring/configServers"
+            "configServers"
           ],
           "type": "string"
         }
@@ -1365,7 +1388,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1381,7 +1406,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppPlatform/Spring/monitoringSettings"
+            "monitoringSettings"
           ],
           "type": "string"
         }
@@ -1394,6 +1419,7 @@
       "type": "object"
     },
     "TemporaryDisk": {
+      "description": "Temporary disk payload",
       "properties": {
         "mountPath": {
           "description": "Mount path of the temporary disk",
@@ -1414,6 +1440,7 @@
       "type": "object"
     },
     "UserSourceInfo": {
+      "description": "Source information for a deployment",
       "properties": {
         "artifactSelector": {
           "description": "Selector for the artifact to be used for the deployment for multi-module projects. This should be\r\nthe relative path to the target module/project.",

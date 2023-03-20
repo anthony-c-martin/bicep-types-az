@@ -504,6 +504,7 @@
   },
   "definitions": {
     "AddonProperties": {
+      "description": "The properties of an addon that may be updated",
       "properties": {
         "addonType": {
           "description": "The type of private cloud addon",
@@ -528,10 +529,12 @@
       "type": "object"
     },
     "Circuit": {
+      "description": "An ExpressRoute Circuit",
       "properties": {},
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "The properties of a cluster",
       "properties": {
         "clusterSize": {
           "description": "The cluster size",
@@ -548,6 +551,7 @@
       "type": "object"
     },
     "GlobalReachConnectionProperties": {
+      "description": "The properties of a global reach connection",
       "properties": {
         "authorizationKey": {
           "description": "Authorization key from the peer express route used for the global reach connection",
@@ -561,6 +565,7 @@
       "type": "object"
     },
     "IdentitySource": {
+      "description": "vCenter Single Sign On Identity Source",
       "properties": {
         "alias": {
           "description": "The domain's NetBIOS name",
@@ -617,6 +622,7 @@
       "type": "object"
     },
     "ManagementCluster": {
+      "description": "The properties of a management cluster",
       "properties": {
         "clusterSize": {
           "description": "The cluster size",
@@ -633,6 +639,7 @@
       "type": "object"
     },
     "PrivateCloudProperties": {
+      "description": "The properties of a private cloud resource",
       "properties": {
         "circuit": {
           "description": "An ExpressRoute Circuit",
@@ -711,6 +718,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The resource model definition representing SKU",
       "properties": {
         "name": {
           "description": "The name of the SKU.",
@@ -723,6 +731,7 @@
       "type": "object"
     },
     "WorkloadNetworkDhcpEntity": {
+      "description": "Base class for WorkloadNetworkDhcpServer and WorkloadNetworkDhcpRelay to inherit from",
       "properties": {
         "displayName": {
           "description": "Display name of the DHCP entity.",
@@ -743,6 +752,7 @@
       "type": "object"
     },
     "WorkloadNetworkDnsServiceProperties": {
+      "description": "NSX DNS Service Properties",
       "properties": {
         "defaultDnsZone": {
           "description": "Default DNS zone of the DNS Service.",
@@ -803,6 +813,7 @@
       "type": "object"
     },
     "WorkloadNetworkDnsZoneProperties": {
+      "description": "NSX DNS Zone Properties",
       "properties": {
         "displayName": {
           "description": "Display name of the DNS Zone.",
@@ -866,6 +877,7 @@
       "type": "object"
     },
     "WorkloadNetworkPortMirroringProperties": {
+      "description": "NSX Port Mirroring Properties",
       "properties": {
         "destination": {
           "description": "Destination VM Group.",
@@ -908,6 +920,7 @@
       "type": "object"
     },
     "WorkloadNetworkSegmentProperties": {
+      "description": "NSX Segment Properties",
       "properties": {
         "connectedGateway": {
           "description": "Gateway which to connect segment to.",
@@ -943,6 +956,7 @@
       "type": "object"
     },
     "WorkloadNetworkSegmentSubnet": {
+      "description": "Subnet configuration for segment",
       "properties": {
         "dhcpRanges": {
           "description": "DHCP Range assigned for subnet.",
@@ -966,6 +980,7 @@
       "type": "object"
     },
     "WorkloadNetworkVMGroupProperties": {
+      "description": "NSX VM Group Properties",
       "properties": {
         "displayName": {
           "description": "Display name of the VM group.",
@@ -1025,7 +1040,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AVS/privateClouds/addons"
+            "addons"
           ],
           "type": "string"
         }
@@ -1052,7 +1067,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AVS/privateClouds/authorizations"
+            "authorizations"
           ],
           "type": "string"
         }
@@ -1101,7 +1116,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AVS/privateClouds/clusters"
+            "clusters"
           ],
           "type": "string"
         }
@@ -1139,7 +1154,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AVS/privateClouds/globalReachConnections"
+            "globalReachConnections"
           ],
           "type": "string"
         }
@@ -1166,7 +1181,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AVS/privateClouds/hcxEnterpriseSites"
+            "hcxEnterpriseSites"
           ],
           "type": "string"
         }

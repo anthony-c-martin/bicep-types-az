@@ -131,6 +131,7 @@
   },
   "definitions": {
     "DataLakeStoreAccountProperties": {
+      "description": "Data Lake Store account properties information",
       "properties": {
         "defaultGroup": {
           "description": "the default owner group for all new folders and files created in the Data Lake Store account.",
@@ -207,7 +208,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -220,6 +221,7 @@
       "type": "object"
     },
     "FirewallRuleProperties": {
+      "description": "Data Lake Store firewall rule properties information",
       "properties": {
         "endIpAddress": {
           "description": "the end IP address for the firewall rule.",
@@ -283,7 +285,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataLakeStore/accounts/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }

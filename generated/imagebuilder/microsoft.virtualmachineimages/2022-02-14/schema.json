@@ -82,11 +82,8 @@
     }
   },
   "definitions": {
-    "ComponentsVrq145SchemasImagetemplateidentityPropertiesUserassignedidentitiesAdditionalproperties": {
-      "properties": {},
-      "type": "object"
-    },
     "ImageTemplateCustomizer": {
+      "description": "Describes a unit of image customization",
       "properties": {
         "name": {
           "description": "Friendly Name to provide context on what this customization step does",
@@ -96,6 +93,7 @@
       "type": "object"
     },
     "ImageTemplateDistributor": {
+      "description": "Generic distribution object",
       "properties": {
         "artifactTags": {
           "description": "Tags that will be applied to the artifact once it has been created/updated by the distributor.",
@@ -131,6 +129,7 @@
       "type": "object"
     },
     "ImageTemplateIdentity": {
+      "description": "Identity for the image template.",
       "properties": {
         "type": {
           "description": "The type of identity used for the image template. The type 'None' will remove any identities from the image template.",
@@ -148,13 +147,13 @@
           ]
         },
         "userAssignedIdentities": {
-          "description": "The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
           "oneOf": [
             {
               "additionalProperties": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/ComponentsVrq145SchemasImagetemplateidentityPropertiesUserassignedidentitiesAdditionalproperties"
+                    "$ref": "#/definitions/UserAssignedIdentity"
                   },
                   {
                     "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -173,6 +172,7 @@
       "type": "object"
     },
     "ImageTemplateInVMValidator": {
+      "description": "Describes a unit of in-VM validation of image",
       "properties": {
         "name": {
           "description": "Friendly Name to provide context on what this validation step does",
@@ -182,6 +182,7 @@
       "type": "object"
     },
     "ImageTemplateProperties": {
+      "description": "Describes the properties of an image template",
       "properties": {
         "buildTimeoutInMinutes": {
           "description": "Maximum duration to wait while building the image template (includes all customizations, validations, and distributions). Omit or specify 0 to use the default (4 hours).",
@@ -281,6 +282,7 @@
       "type": "object"
     },
     "ImageTemplatePropertiesValidate": {
+      "description": "Configuration options and list of validations to be performed on the resulting image.",
       "properties": {
         "continueDistributeOnFailure": {
           "description": "If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]",
@@ -329,10 +331,12 @@
       "type": "object"
     },
     "ImageTemplateSource": {
+      "description": "Describes a virtual machine image source for building, customizing and distributing",
       "properties": {},
       "type": "object"
     },
     "ImageTemplateVmProfile": {
+      "description": "Describes the virtual machines used to build and validate images",
       "properties": {
         "osDiskSizeGB": {
           "description": "Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.",
@@ -378,6 +382,7 @@
       "type": "object"
     },
     "PlatformImagePurchasePlan": {
+      "description": "Purchase plan configuration for platform image.",
       "properties": {
         "planName": {
           "description": "Name of the purchase plan.",
@@ -399,7 +404,13 @@
       ],
       "type": "object"
     },
+    "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
+      "properties": {},
+      "type": "object"
+    },
     "VirtualNetworkConfig": {
+      "description": "Virtual Network configuration.",
       "properties": {
         "proxyVmSize": {
           "description": "Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).",

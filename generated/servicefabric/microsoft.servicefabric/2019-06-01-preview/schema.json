@@ -336,6 +336,7 @@
   },
   "definitions": {
     "ApplicationDeltaHealthPolicy": {
+      "description": "Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.\n",
       "properties": {
         "defaultServiceTypeDeltaHealthPolicy": {
           "description": "The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.",
@@ -374,6 +375,7 @@
       "type": "object"
     },
     "ApplicationHealthPolicy": {
+      "description": "Defines a health policy used to evaluate the health of an application or one of its children entities.\n",
       "properties": {
         "defaultServiceTypeHealthPolicy": {
           "description": "The health policy used by default to evaluate the health of a service type.",
@@ -412,6 +414,7 @@
       "type": "object"
     },
     "ApplicationMetricDescription": {
+      "description": "Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.\n",
       "properties": {
         "maximumCapacity": {
           "description": "The maximum node capacity for Service Fabric application.\nThis is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.\nIf set to zero, capacity for this metric is unlimited on each node.\nWhen creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.\nWhen updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.\n",
@@ -454,6 +457,7 @@
       "type": "object"
     },
     "ApplicationResourceProperties": {
+      "description": "The application resource properties.",
       "properties": {
         "managedIdentities": {
           "description": "List of user assigned identities for the application, each mapped to a friendly name.",
@@ -568,10 +572,12 @@
       "type": "object"
     },
     "ApplicationTypeResourceProperties": {
+      "description": "The application type name properties",
       "properties": {},
       "type": "object"
     },
     "ApplicationTypeVersionResourceProperties": {
+      "description": "The properties of the application type version resource.",
       "properties": {
         "appPackageUrl": {
           "description": "The URL to the application package",
@@ -584,6 +590,7 @@
       "type": "object"
     },
     "ApplicationUpgradePolicy": {
+      "description": "Describes the policy for a monitored application upgrade.",
       "properties": {
         "applicationHealthPolicy": {
           "description": "Defines a health policy used to evaluate the health of an application or one of its children entities.\n",
@@ -643,6 +650,7 @@
       "type": "object"
     },
     "ArmApplicationHealthPolicy": {
+      "description": "Defines a health policy used to evaluate the health of an application or one of its children entities.\n",
       "properties": {
         "considerWarningAsError": {
           "description": "Indicates whether warnings are treated with the same severity as errors.",
@@ -703,6 +711,7 @@
       "type": "object"
     },
     "ArmRollingUpgradeMonitoringPolicy": {
+      "description": "The policy used for monitoring the application upgrade",
       "properties": {
         "failureAction": {
           "description": "The activation Mode of the service package",
@@ -743,6 +752,7 @@
       "type": "object"
     },
     "ArmServiceTypeHealthPolicy": {
+      "description": "Represents the health policy used to evaluate the health of services belonging to a service type.\n",
       "properties": {
         "maxPercentUnhealthyPartitionsPerService": {
           "description": "The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.\n",
@@ -781,6 +791,7 @@
       "type": "object"
     },
     "AzureActiveDirectory": {
+      "description": "The settings to enable AAD authentication on the cluster.",
       "properties": {
         "clientApplication": {
           "description": "Azure active directory client application id.",
@@ -798,6 +809,7 @@
       "type": "object"
     },
     "CertificateDescription": {
+      "description": "Describes the certificate details.",
       "properties": {
         "thumbprint": {
           "description": "Thumbprint of the primary certificate.",
@@ -835,6 +847,7 @@
       "type": "object"
     },
     "ClientCertificateCommonName": {
+      "description": "Describes the client certificate details using common name.",
       "properties": {
         "certificateCommonName": {
           "description": "The common name of the client certificate.",
@@ -864,6 +877,7 @@
       "type": "object"
     },
     "ClientCertificateThumbprint": {
+      "description": "Describes the client certificate details using thumbprint.",
       "properties": {
         "certificateThumbprint": {
           "description": "The thumbprint of the client certificate.",
@@ -888,6 +902,7 @@
       "type": "object"
     },
     "ClusterHealthPolicy": {
+      "description": "Defines a health policy used to evaluate the health of the cluster or of a cluster node.\n",
       "properties": {
         "applicationHealthPolicies": {
           "description": "Defines the application health policy map used to evaluate the health of an application or one of its children entities.",
@@ -937,6 +952,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "Describes the cluster resource properties.",
       "properties": {
         "addOnFeatures": {
           "description": "The list of add-on features to enable in the cluster.",
@@ -1190,6 +1206,7 @@
       "type": "object"
     },
     "ClusterUpgradeDeltaHealthPolicy": {
+      "description": "Describes the delta health policies for the cluster upgrade.",
       "properties": {
         "applicationDeltaHealthPolicies": {
           "description": "Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.",
@@ -1255,6 +1272,7 @@
       "type": "object"
     },
     "ClusterUpgradePolicy": {
+      "description": "Describes the policy used when upgrading the cluster.",
       "properties": {
         "deltaHealthPolicy": {
           "description": "The cluster delta health policy used when upgrading the cluster.",
@@ -1326,6 +1344,7 @@
       "type": "object"
     },
     "DiagnosticsStorageAccountConfig": {
+      "description": "The storage account information for storing Service Fabric diagnostic logs.",
       "properties": {
         "blobEndpoint": {
           "description": "The blob endpoint of the azure storage account.",
@@ -1362,6 +1381,7 @@
       "type": "object"
     },
     "EndpointRangeDescription": {
+      "description": "Port range details",
       "properties": {
         "endPort": {
           "description": "End port of a range of ports",
@@ -1393,6 +1413,7 @@
       "type": "object"
     },
     "ManagedIdentity": {
+      "description": "Describes the managed identities for an Azure resource.",
       "properties": {
         "type": {
           "description": "The type of managed identity for the resource.",
@@ -1437,6 +1458,7 @@
       "type": "object"
     },
     "NodeTypeDescription": {
+      "description": "Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.",
       "properties": {
         "applicationPorts": {
           "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
@@ -1576,10 +1598,12 @@
       "type": "object"
     },
     "PartitionSchemeDescription": {
+      "description": "Describes how the service is partitioned.",
       "properties": {},
       "type": "object"
     },
     "ServerCertificateCommonName": {
+      "description": "Describes the server certificate details using common name.",
       "properties": {
         "certificateCommonName": {
           "description": "The common name of the server certificate.",
@@ -1597,6 +1621,7 @@
       "type": "object"
     },
     "ServerCertificateCommonNames": {
+      "description": "Describes a list of server certificates referenced by common name that are used to secure the cluster.",
       "properties": {
         "commonNames": {
           "description": "The list of server certificates referenced by common name that are used to secure the cluster.",
@@ -1644,6 +1669,7 @@
       "type": "object"
     },
     "ServiceCorrelationDescription": {
+      "description": "Creates a particular correlation between services.",
       "properties": {
         "scheme": {
           "description": "The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.",
@@ -1674,6 +1700,7 @@
       "type": "object"
     },
     "ServiceLoadMetricDescription": {
+      "description": "Specifies a metric to load balance a service during runtime.",
       "properties": {
         "defaultLoad": {
           "description": "Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.",
@@ -1736,10 +1763,12 @@
       "type": "object"
     },
     "ServicePlacementPolicyDescription": {
+      "description": "Describes the policy to be used for placement of a Service Fabric service.",
       "properties": {},
       "type": "object"
     },
     "ServiceResourceProperties": {
+      "description": "The service resource properties.",
       "properties": {
         "correlationScheme": {
           "description": "A list that describes the correlation of the service with other services.",
@@ -1859,6 +1888,7 @@
       "type": "object"
     },
     "ServiceTypeDeltaHealthPolicy": {
+      "description": "Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.\n",
       "properties": {
         "maxPercentDeltaUnhealthyServices": {
           "description": "The maximum allowed percentage of services health degradation allowed during cluster upgrades.\nThe delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.\nThe check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.\n",
@@ -1875,6 +1905,7 @@
       "type": "object"
     },
     "ServiceTypeHealthPolicy": {
+      "description": "Represents the health policy used to evaluate the health of services belonging to a service type.\n",
       "properties": {
         "maxPercentUnhealthyServices": {
           "description": "The maximum percentage of services allowed to be unhealthy before your application is considered in error.\n",
@@ -1891,6 +1922,7 @@
       "type": "object"
     },
     "SettingsParameterDescription": {
+      "description": "Describes a parameter in fabric settings of the cluster.",
       "properties": {
         "name": {
           "description": "The parameter name of fabric setting.",
@@ -1908,6 +1940,7 @@
       "type": "object"
     },
     "SettingsSectionDescription": {
+      "description": "Describes a section in the fabric settings of the cluster.",
       "properties": {
         "name": {
           "description": "The section name of the fabric settings.",
@@ -1990,7 +2023,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applicationTypes"
+            "applicationTypes"
           ],
           "type": "string"
         }
@@ -2047,7 +2080,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applicationTypes/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -2115,7 +2148,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applications"
+            "applications"
           ],
           "type": "string"
         }
@@ -2172,7 +2205,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ServiceFabric/clusters/applications/services"
+            "services"
           ],
           "type": "string"
         }

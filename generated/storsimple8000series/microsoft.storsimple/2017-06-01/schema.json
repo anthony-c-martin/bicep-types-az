@@ -107,7 +107,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -159,7 +159,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -211,7 +211,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -263,7 +263,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -325,7 +325,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -377,7 +377,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -429,7 +429,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -491,7 +491,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -547,7 +547,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -599,7 +599,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -640,6 +640,7 @@
   },
   "definitions": {
     "AccessControlRecordProperties": {
+      "description": "The properties of access control record.",
       "properties": {
         "initiatorName": {
           "description": "The iSCSI initiator name (IQN).",
@@ -652,6 +653,7 @@
       "type": "object"
     },
     "AlertNotificationProperties": {
+      "description": "The properties of the alert notification settings.",
       "properties": {
         "additionalRecipientEmailList": {
           "description": "The alert notification email list.",
@@ -708,6 +710,7 @@
       "type": "object"
     },
     "AsymmetricEncryptedSecret": {
+      "description": "Represent the secrets intended for encryption with asymmetric key pair.",
       "properties": {
         "encryptionAlgorithm": {
           "description": "The algorithm used to encrypt \"Value\".",
@@ -741,6 +744,7 @@
       "type": "object"
     },
     "BackupPolicyProperties": {
+      "description": "The properties of the backup policy.",
       "properties": {
         "volumeIds": {
           "description": "The path IDs of the volumes which are part of the backup policy.",
@@ -763,6 +767,7 @@
       "type": "object"
     },
     "BackupScheduleProperties": {
+      "description": "The properties of the backup schedule.",
       "properties": {
         "backupType": {
           "description": "The type of backup which needs to be taken.",
@@ -839,6 +844,7 @@
       "type": "object"
     },
     "BandwidthRateSettingProperties": {
+      "description": "The properties of the bandwidth setting.",
       "properties": {
         "schedules": {
           "description": "The schedules.",
@@ -868,6 +874,7 @@
       "type": "object"
     },
     "BandwidthSchedule": {
+      "description": "The schedule for bandwidth setting.",
       "properties": {
         "days": {
           "description": "The days of the week when this schedule is applicable.",
@@ -942,6 +949,7 @@
       "type": "object"
     },
     "ManagerExtendedInfoProperties": {
+      "description": "The properties of the manager extended info.",
       "properties": {
         "algorithm": {
           "description": "Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted",
@@ -975,6 +983,7 @@
       "type": "object"
     },
     "ManagerIntrinsicSettings": {
+      "description": "Intrinsic settings which refers to the type of the StorSimple Manager.",
       "properties": {
         "type": {
           "description": "The type of StorSimple Manager.",
@@ -998,6 +1007,7 @@
       "type": "object"
     },
     "ManagerProperties": {
+      "description": "The properties of the StorSimple Manager.",
       "properties": {
         "cisIntrinsicSettings": {
           "description": "Represents the type of StorSimple Manager.",
@@ -1029,13 +1039,14 @@
       "type": "object"
     },
     "ManagerSku": {
+      "description": "The Sku.",
       "properties": {
         "name": {
           "description": "Refers to the sku name which should be \"Standard\"",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Standard"
               ],
               "type": "string"
             },
@@ -1051,6 +1062,7 @@
       "type": "object"
     },
     "ScheduleRecurrence": {
+      "description": "The schedule recurrence.",
       "properties": {
         "recurrenceType": {
           "description": "The recurrence type.",
@@ -1118,6 +1130,7 @@
       "type": "object"
     },
     "StorageAccountCredentialProperties": {
+      "description": "The storage account credential properties.",
       "properties": {
         "accessKey": {
           "description": "The details of the storage account password.",
@@ -1157,6 +1170,7 @@
       "type": "object"
     },
     "Time": {
+      "description": "The time.",
       "properties": {
         "hours": {
           "description": "The hour.",
@@ -1200,6 +1214,7 @@
       "type": "object"
     },
     "TimeSettingsProperties": {
+      "description": "The properties of time settings of a device.",
       "properties": {
         "primaryTimeServer": {
           "description": "The primary Network Time Protocol (NTP) server name, like 'time.windows.com'.",
@@ -1230,6 +1245,7 @@
       "type": "object"
     },
     "VolumeContainerProperties": {
+      "description": "The properties of volume container.",
       "properties": {
         "bandWidthRateInMbps": {
           "description": "The bandwidth-rate set on the volume container.",
@@ -1268,6 +1284,7 @@
       "type": "object"
     },
     "VolumeProperties": {
+      "description": "The properties of volume.",
       "properties": {
         "accessControlRecordIds": {
           "description": "The IDs of the access control records, associated with the volume.",
@@ -1364,7 +1381,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -1390,7 +1407,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/accessControlRecords"
+            "accessControlRecords"
           ],
           "type": "string"
         }
@@ -1416,7 +1433,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -1442,7 +1459,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/bandwidthSettings"
+            "bandwidthSettings"
           ],
           "type": "string"
         }
@@ -1468,7 +1485,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -1494,7 +1511,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/devices/backupPolicies/schedules"
+            "schedules"
           ],
           "type": "string"
         }
@@ -1520,7 +1537,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -1546,7 +1563,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/devices/volumeContainers/volumes"
+            "volumes"
           ],
           "type": "string"
         }
@@ -1576,7 +1593,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -1586,7 +1603,9 @@
           ]
         },
         "name": {
-          "pattern": "^.*/vaultExtendedInfo$",
+          "enum": [
+            "vaultExtendedInfo"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1602,7 +1621,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/extendedInformation"
+            "extendedInformation"
           ],
           "type": "string"
         }
@@ -1628,7 +1647,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Series8000"
               ],
               "type": "string"
             },
@@ -1654,7 +1673,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/storageAccountCredentials"
+            "storageAccountCredentials"
           ],
           "type": "string"
         }

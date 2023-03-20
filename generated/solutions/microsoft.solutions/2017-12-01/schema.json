@@ -214,6 +214,7 @@
   },
   "definitions": {
     "ApplicationArtifact": {
+      "description": "Managed application artifact.",
       "properties": {
         "name": {
           "description": "The managed application artifact name.",
@@ -242,6 +243,7 @@
       "type": "object"
     },
     "ApplicationDefinitionProperties": {
+      "description": "The managed application definition properties.",
       "properties": {
         "artifacts": {
           "description": "The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.",
@@ -331,6 +333,7 @@
       "type": "object"
     },
     "ApplicationProperties": {
+      "description": "The managed application properties.",
       "properties": {
         "applicationDefinitionId": {
           "description": "The fully qualified path of managed application definition Id.",
@@ -354,6 +357,7 @@
       "type": "object"
     },
     "ApplicationProviderAuthorization": {
+      "description": "The managed application provider authorization.",
       "properties": {
         "principalId": {
           "description": "The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.",
@@ -371,13 +375,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -390,6 +395,7 @@
       "type": "object"
     },
     "Plan": {
+      "description": "Plan for the managed application.",
       "properties": {
         "name": {
           "description": "The plan name.",
@@ -421,6 +427,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU for the resource.",
       "properties": {
         "capacity": {
           "description": "The SKU capacity.",

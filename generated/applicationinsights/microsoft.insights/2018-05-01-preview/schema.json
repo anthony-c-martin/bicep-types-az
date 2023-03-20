@@ -192,6 +192,7 @@
   },
   "definitions": {
     "ApplicationInsightsComponentProactiveDetectionConfigurationProperties": {
+      "description": "Properties that define a ProactiveDetection configuration.",
       "properties": {
         "CustomEmails": {
           "description": "Custom email addresses for this rule notifications",
@@ -244,6 +245,7 @@
       "type": "object"
     },
     "ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitions": {
+      "description": "Static definitions of the ProactiveDetection configuration rule (same values for all components).",
       "properties": {
         "Description": {
           "description": "The rule description",
@@ -309,6 +311,7 @@
       "type": "object"
     },
     "ApplicationInsightsComponentProperties": {
+      "description": "Properties that define an Application Insights component resource.",
       "properties": {
         "Application_Type": {
           "description": "Type of application being monitored.",
@@ -454,6 +457,7 @@
       "type": "object"
     },
     "HeaderField": {
+      "description": "A header to add to the WebTest.",
       "properties": {
         "key": {
           "description": "The name of the header.",
@@ -467,6 +471,7 @@
       "type": "object"
     },
     "WebTestGeolocation": {
+      "description": "Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.",
       "properties": {
         "Id": {
           "description": "Location ID for the WebTest to run from.",
@@ -476,6 +481,7 @@
       "type": "object"
     },
     "WebTestProperties": {
+      "description": "Metadata describing a web test for an Azure resource.",
       "properties": {
         "Configuration": {
           "description": "An XML configuration specification for a WebTest.",
@@ -614,6 +620,7 @@
       "type": "object"
     },
     "WebTestPropertiesConfiguration": {
+      "description": "An XML configuration specification for a WebTest.",
       "properties": {
         "WebTest": {
           "description": "The XML specification of a WebTest to run against an application.",
@@ -623,6 +630,7 @@
       "type": "object"
     },
     "WebTestPropertiesRequest": {
+      "description": "The collection of request properties",
       "properties": {
         "FollowRedirects": {
           "description": "Follow redirects for this web test.",
@@ -683,6 +691,7 @@
       "type": "object"
     },
     "WebTestPropertiesValidationRules": {
+      "description": "The collection of validation rule properties",
       "properties": {
         "ContentValidation": {
           "description": "The collection of content validation properties",
@@ -743,6 +752,7 @@
       "type": "object"
     },
     "WebTestPropertiesValidationRulesContentValidation": {
+      "description": "The collection of content validation properties",
       "properties": {
         "ContentMatch": {
           "description": "Content to look for in the return of the WebTest.  Must not be null or empty.",
@@ -803,7 +813,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/components/ProactiveDetectionConfigs"
+            "ProactiveDetectionConfigs"
           ],
           "type": "string"
         }

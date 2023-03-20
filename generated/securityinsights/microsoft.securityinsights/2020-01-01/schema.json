@@ -253,6 +253,7 @@
   },
   "definitions": {
     "ActionRequestProperties": {
+      "description": "Action property bag.",
       "properties": {
         "logicAppResourceId": {
           "description": "Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.",
@@ -270,6 +271,7 @@
       "type": "object"
     },
     "BookmarkProperties": {
+      "description": "Describes bookmark properties",
       "properties": {
         "created": {
           "description": "The time the bookmark was created",
@@ -402,6 +404,7 @@
       "type": "object"
     },
     "IncidentCommentProperties": {
+      "description": "Incident comment property bag.",
       "properties": {
         "message": {
           "description": "The comment message",
@@ -414,6 +417,7 @@
       "type": "object"
     },
     "IncidentInfo": {
+      "description": "Describes related incident information for the bookmark",
       "properties": {
         "incidentId": {
           "description": "Incident Id",
@@ -448,6 +452,7 @@
       "type": "object"
     },
     "IncidentLabel": {
+      "description": "Represents an incident label",
       "properties": {
         "labelName": {
           "description": "The name of the label",
@@ -460,6 +465,7 @@
       "type": "object"
     },
     "IncidentOwnerInfo": {
+      "description": "Information on the user an incident is assigned to",
       "properties": {
         "assignedTo": {
           "description": "The name of the user the incident is assigned to.",
@@ -489,6 +495,7 @@
       "type": "object"
     },
     "IncidentProperties": {
+      "description": "Describes incident properties",
       "properties": {
         "classification": {
           "description": "The reason the incident was closed",
@@ -634,6 +641,7 @@
       "type": "object"
     },
     "UserInfo": {
+      "description": "User information that made some action",
       "properties": {
         "objectId": {
           "description": "The object id of the user.",
@@ -683,7 +691,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SecurityInsights/alertRules/actions"
+            "actions"
           ],
           "type": "string"
         }
@@ -721,7 +729,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SecurityInsights/incidents/comments"
+            "comments"
           ],
           "type": "string"
         }

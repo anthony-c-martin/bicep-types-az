@@ -191,6 +191,7 @@
   },
   "definitions": {
     "AccountResourceProperties": {
+      "description": "Account resource properties.",
       "properties": {
         "configuration": {
           "description": "Account configuration. This can only be set at RecommendationsService Account creation.",
@@ -257,6 +258,7 @@
       "type": "object"
     },
     "CorsRule": {
+      "description": "CORS details.",
       "properties": {
         "allowedHeaders": {
           "description": "The request headers that the origin domain may specify on the CORS request.",
@@ -332,6 +334,7 @@
       "type": "object"
     },
     "EndpointAuthentication": {
+      "description": "Service endpoints authentication details.",
       "properties": {
         "aadTenantID": {
           "description": "AAD tenant ID.",
@@ -360,6 +363,7 @@
       "type": "object"
     },
     "ModelingInputData": {
+      "description": "The configuration to raw CDM data to be used as Modeling resource input.",
       "properties": {
         "connectionString": {
           "description": "Connection string to raw input data.",
@@ -369,6 +373,7 @@
       "type": "object"
     },
     "ModelingResourceProperties": {
+      "description": "Modeling resource properties.",
       "properties": {
         "features": {
           "description": "Modeling features controls the set of supported scenarios\\models being computed. This can only be set at Modeling creation.",
@@ -433,6 +438,7 @@
       "type": "object"
     },
     "ServiceEndpointResourceProperties": {
+      "description": "ServiceEndpoint resource properties.",
       "properties": {
         "preAllocatedCapacity": {
           "description": "ServiceEndpoint pre-allocated capacity controls the maximum requests-per-second allowed for that endpoint. Only applicable when Account configuration is Capacity.",
@@ -493,7 +499,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecommendationsService/accounts/modeling"
+            "modeling"
           ],
           "type": "string"
         }
@@ -550,7 +556,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecommendationsService/accounts/serviceEndpoints"
+            "serviceEndpoints"
           ],
           "type": "string"
         }

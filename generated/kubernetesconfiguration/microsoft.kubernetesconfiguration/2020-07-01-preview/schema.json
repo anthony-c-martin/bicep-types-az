@@ -105,6 +105,7 @@
   },
   "definitions": {
     "ConfigurationIdentity": {
+      "description": "Identity for the managed cluster.",
       "properties": {
         "type": {
           "description": "The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.",
@@ -125,6 +126,7 @@
       "type": "object"
     },
     "ExtensionInstanceProperties": {
+      "description": "Properties of an Extension Instance resource",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Flag to note if this instance participates in auto upgrade of minor version, or not.",
@@ -226,6 +228,7 @@
       "type": "object"
     },
     "ExtensionStatus": {
+      "description": "Status from this instance of the extension.",
       "properties": {
         "code": {
           "description": "Status code provided by the Extension",
@@ -263,6 +266,7 @@
       "type": "object"
     },
     "HelmOperatorProperties": {
+      "description": "Properties for Helm operator.",
       "properties": {
         "chartValues": {
           "description": "Values override for the operator Helm chart.",
@@ -276,6 +280,7 @@
       "type": "object"
     },
     "Scope": {
+      "description": "Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.",
       "properties": {
         "cluster": {
           "description": "Specifies that the scope of the extensionInstance is Cluster",
@@ -303,6 +308,7 @@
       "type": "object"
     },
     "ScopeCluster": {
+      "description": "Specifies that the scope of the extensionInstance is Cluster",
       "properties": {
         "releaseNamespace": {
           "description": "Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created",
@@ -312,6 +318,7 @@
       "type": "object"
     },
     "ScopeNamespace": {
+      "description": "Specifies that the scope of the extensionInstance is Namespace",
       "properties": {
         "targetNamespace": {
           "description": "Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created",
@@ -321,6 +328,7 @@
       "type": "object"
     },
     "SourceControlConfigurationProperties": {
+      "description": "Properties to create a Source Control Configuration resource",
       "properties": {
         "configurationProtectedSettings": {
           "description": "Name-value pairs of protected configuration settings for the configuration",
@@ -412,6 +420,7 @@
       "type": "object"
     },
     "SystemData": {
+      "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
       "properties": {},
       "type": "object"
     }

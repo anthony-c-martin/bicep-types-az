@@ -223,6 +223,7 @@
   },
   "definitions": {
     "AdminRequestApprovalProperties": {
+      "description": "Admin approval request resource properties",
       "properties": {
         "adminAction": {
           "description": "Gets or sets admin action",
@@ -287,6 +288,7 @@
       "type": "object"
     },
     "CollectionProperties": {
+      "description": "The collection details",
       "properties": {
         "allSubscriptions": {
           "description": "Indicating whether all subscriptions are selected (=true) or not (=false).",
@@ -336,6 +338,7 @@
       "type": "object"
     },
     "NotificationsSettingsProperties": {
+      "description": "Describes the json payload for notifications settings",
       "properties": {
         "recipients": {
           "description": "Gets or sets list of notified recipients for new requests",
@@ -465,6 +468,7 @@
       "type": "object"
     },
     "PlanDetails": {
+      "description": "Return plan with request details",
       "properties": {
         "justification": {
           "description": "Gets or sets user's justification for the plan's request",
@@ -486,6 +490,7 @@
       "type": "object"
     },
     "PrivateStoreProperties": {
+      "description": "Describes the json payload on whether or not the private store is enabled for a given tenant",
       "properties": {
         "availability": {
           "description": "Indicates private store availability",
@@ -555,6 +560,7 @@
       "type": "object"
     },
     "Recipient": {
+      "description": "Describes the json payload for a notified recipient for new requests",
       "properties": {
         "principalId": {
           "description": "Principal ID",
@@ -564,6 +570,7 @@
       "type": "object"
     },
     "RequestApprovalProperties": {
+      "description": "Approval request resource properties",
       "properties": {
         "messageCode": {
           "description": "Gets or sets the request approval message code",
@@ -634,7 +641,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Marketplace/privateStores/adminRequestApprovals"
+            "adminRequestApprovals"
           ],
           "type": "string"
         }
@@ -672,7 +679,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Marketplace/privateStores/collections"
+            "collections"
           ],
           "type": "string"
         }
@@ -710,7 +717,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Marketplace/privateStores/collections/offers"
+            "offers"
           ],
           "type": "string"
         }
@@ -748,7 +755,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Marketplace/privateStores/requestApprovals"
+            "requestApprovals"
           ],
           "type": "string"
         }

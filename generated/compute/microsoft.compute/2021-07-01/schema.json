@@ -1565,6 +1565,7 @@
   },
   "definitions": {
     "AdditionalCapabilities": {
+      "description": "Enables or disables a capability on the virtual machine or virtual machine scale set.",
       "properties": {
         "hibernationEnabled": {
           "description": "The flag that enables or disables hibernation capability on the VM.",
@@ -1592,13 +1593,14 @@
       "type": "object"
     },
     "AdditionalUnattendContent": {
+      "description": "Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.",
       "properties": {
         "componentName": {
           "description": "The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Microsoft-Windows-Shell-Setup"
               ],
               "type": "string"
             },
@@ -1616,7 +1618,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "OobeSystem"
               ],
               "type": "string"
             },
@@ -1644,6 +1646,7 @@
       "type": "object"
     },
     "ApiEntityReference": {
+      "description": "The API entity reference.",
       "properties": {
         "id": {
           "description": "The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...",
@@ -1653,6 +1656,7 @@
       "type": "object"
     },
     "ApplicationProfile": {
+      "description": "Contains the list of gallery applications that should be made available to the VM/VMSS",
       "properties": {
         "galleryApplications": {
           "description": "Specifies the gallery applications that should be made available to the VM/VMSS",
@@ -1679,6 +1683,7 @@
       "type": "object"
     },
     "AutomaticOSUpgradePolicy": {
+      "description": "The configuration parameters used for performing automatic OS upgrade.",
       "properties": {
         "disableAutomaticRollback": {
           "description": "Whether OS image rollback feature should be disabled. Default value is false.",
@@ -1706,6 +1711,7 @@
       "type": "object"
     },
     "AutomaticRepairsPolicy": {
+      "description": "Specifies the configuration parameters for automatic repairs on the virtual machine scale set.",
       "properties": {
         "enabled": {
           "description": "Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.",
@@ -1726,6 +1732,7 @@
       "type": "object"
     },
     "AvailabilitySetProperties": {
+      "description": "The instance view of a resource.",
       "properties": {
         "platformFaultDomainCount": {
           "description": "Fault Domain count.",
@@ -1785,6 +1792,7 @@
       "type": "object"
     },
     "BillingProfile": {
+      "description": "Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.",
       "properties": {
         "maxPrice": {
           "description": "Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. <br><br> The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: 0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.",
@@ -1801,6 +1809,7 @@
       "type": "object"
     },
     "BootDiagnostics": {
+      "description": "Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.",
       "properties": {
         "enabled": {
           "description": "Whether boot diagnostics should be enabled on the Virtual Machine.",
@@ -1821,10 +1830,12 @@
       "type": "object"
     },
     "CapacityReservationGroupProperties": {
+      "description": "capacity reservation group Properties.",
       "properties": {},
       "type": "object"
     },
     "CapacityReservationProfile": {
+      "description": "The parameters of a capacity reservation Profile.",
       "properties": {
         "capacityReservationGroup": {
           "description": "Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.",
@@ -1841,10 +1852,12 @@
       "type": "object"
     },
     "CapacityReservationProperties": {
+      "description": "Properties of the Capacity reservation.",
       "properties": {},
       "type": "object"
     },
     "DataDisk": {
+      "description": "Describes a data disk.",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**",
@@ -1996,6 +2009,7 @@
       "type": "object"
     },
     "DataDiskImageEncryption": {
+      "description": "Contains encryption settings for a data disk image.",
       "properties": {
         "diskEncryptionSetId": {
           "description": "A relative URI containing the resource ID of the disk encryption set.",
@@ -2019,6 +2033,7 @@
       "type": "object"
     },
     "DedicatedHostGroupProperties": {
+      "description": "Dedicated Host Group Properties.",
       "properties": {
         "platformFaultDomainCount": {
           "description": "Number of fault domains that the host group can span.",
@@ -2049,6 +2064,7 @@
       "type": "object"
     },
     "DedicatedHostProperties": {
+      "description": "Properties of the dedicated host.",
       "properties": {
         "autoReplaceOnFailure": {
           "description": "Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.",
@@ -2092,6 +2108,7 @@
       "type": "object"
     },
     "DiagnosticsProfile": {
+      "description": "Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.",
       "properties": {
         "bootDiagnostics": {
           "description": "Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br>**NOTE**: If storageUri is being specified then ensure that the storage account is in the same region and subscription as the VM. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.",
@@ -2108,6 +2125,7 @@
       "type": "object"
     },
     "DiffDiskSettings": {
+      "description": "Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.",
       "properties": {
         "option": {
           "description": "Specifies the ephemeral disk settings for operating system disk.",
@@ -2142,6 +2160,7 @@
       "type": "object"
     },
     "Disallowed": {
+      "description": "Describes the disallowed disk types.",
       "properties": {
         "diskTypes": {
           "description": "A list of disk types.",
@@ -2161,6 +2180,7 @@
       "type": "object"
     },
     "DiskEncryptionSetParameters": {
+      "description": "Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -2170,6 +2190,7 @@
       "type": "object"
     },
     "DiskEncryptionSettings": {
+      "description": "Describes a Encryption Settings for a Disk",
       "properties": {
         "diskEncryptionKey": {
           "description": "Specifies the location of the disk encryption key, which is a Key Vault Secret.",
@@ -2208,6 +2229,7 @@
       "type": "object"
     },
     "EncryptionImages": {
+      "description": "Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.",
       "properties": {
         "dataDiskImages": {
           "description": "A list of encryption specifications for data disk images.",
@@ -2245,6 +2267,7 @@
       "type": "object"
     },
     "ExtendedLocation": {
+      "description": "The complex type of the extended location.",
       "properties": {
         "name": {
           "description": "The name of the extended location.",
@@ -2268,6 +2291,7 @@
       "type": "object"
     },
     "GalleryApplicationProperties": {
+      "description": "Describes the properties of a gallery Application Definition.",
       "properties": {
         "description": {
           "description": "The description of this gallery Application Definition resource. This property is updatable.",
@@ -2319,6 +2343,7 @@
       "type": "object"
     },
     "GalleryApplicationVersionProperties": {
+      "description": "Describes the properties of a gallery image version.",
       "properties": {
         "publishingProfile": {
           "description": "The publishing profile of a gallery image version.",
@@ -2338,6 +2363,7 @@
       "type": "object"
     },
     "GalleryApplicationVersionPublishingProfile": {
+      "description": "The publishing profile of a gallery image version.",
       "properties": {
         "enableHealthCheck": {
           "description": "Optional. Whether or not this application reports health.",
@@ -2465,6 +2491,7 @@
       "type": "object"
     },
     "GalleryArtifactVersionSource": {
+      "description": "The gallery artifact version source.",
       "properties": {
         "id": {
           "description": "The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.",
@@ -2478,6 +2505,7 @@
       "type": "object"
     },
     "GalleryDataDiskImage": {
+      "description": "This is the data disk image.",
       "properties": {
         "hostCaching": {
           "description": "The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'",
@@ -2524,10 +2552,12 @@
       "type": "object"
     },
     "GalleryIdentifier": {
+      "description": "Describes the gallery unique name.",
       "properties": {},
       "type": "object"
     },
     "GalleryImageFeature": {
+      "description": "A feature for gallery image.",
       "properties": {
         "name": {
           "description": "The name of the gallery image feature.",
@@ -2541,6 +2571,7 @@
       "type": "object"
     },
     "GalleryImageIdentifier": {
+      "description": "This is the gallery image definition identifier.",
       "properties": {
         "offer": {
           "description": "The name of the gallery image definition offer.",
@@ -2563,6 +2594,7 @@
       "type": "object"
     },
     "GalleryImageProperties": {
+      "description": "Describes the properties of a gallery image definition.",
       "properties": {
         "description": {
           "description": "The description of this gallery image definition resource. This property is updatable.",
@@ -2711,6 +2743,7 @@
       "type": "object"
     },
     "GalleryImageVersionProperties": {
+      "description": "Describes the properties of a gallery image version.",
       "properties": {
         "publishingProfile": {
           "description": "The publishing profile of a gallery image Version.",
@@ -2741,6 +2774,7 @@
       "type": "object"
     },
     "GalleryImageVersionPublishingProfile": {
+      "description": "The publishing profile of a gallery image Version.",
       "properties": {
         "endOfLifeDate": {
           "description": "The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.",
@@ -2832,6 +2866,7 @@
       "type": "object"
     },
     "GalleryImageVersionStorageProfile": {
+      "description": "This is the storage profile of a Gallery Image Version.",
       "properties": {
         "dataDiskImages": {
           "description": "A list of data disk images.",
@@ -2880,6 +2915,7 @@
       "type": "object"
     },
     "GalleryOSDiskImage": {
+      "description": "This is the OS disk image.",
       "properties": {
         "hostCaching": {
           "description": "The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'",
@@ -2912,6 +2948,7 @@
       "type": "object"
     },
     "GalleryProperties": {
+      "description": "Describes the properties of a Shared Image Gallery.",
       "properties": {
         "description": {
           "description": "The description of this Shared Image Gallery resource. This property is updatable.",
@@ -2954,6 +2991,7 @@
       "type": "object"
     },
     "HardwareProfile": {
+      "description": "Specifies the hardware settings for the virtual machine.",
       "properties": {
         "vmSize": {
           "description": "Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.",
@@ -3149,6 +3187,7 @@
       "type": "object"
     },
     "ImageDataDisk": {
+      "description": "Describes a data disk.",
       "properties": {
         "blobUri": {
           "description": "The Virtual Hard Disk.",
@@ -3251,6 +3290,7 @@
       "type": "object"
     },
     "ImageOSDisk": {
+      "description": "Describes an Operating System disk.",
       "properties": {
         "blobUri": {
           "description": "The Virtual Hard Disk.",
@@ -3373,6 +3413,7 @@
       "type": "object"
     },
     "ImageProperties": {
+      "description": "Describes the properties of an Image.",
       "properties": {
         "hyperVGeneration": {
           "description": "Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.",
@@ -3415,6 +3456,7 @@
       "type": "object"
     },
     "ImagePurchasePlan": {
+      "description": "Describes the gallery image definition purchase plan. This is used by marketplace images.",
       "properties": {
         "name": {
           "description": "The plan ID.",
@@ -3432,6 +3474,7 @@
       "type": "object"
     },
     "ImageReference": {
+      "description": "Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -3461,6 +3504,7 @@
       "type": "object"
     },
     "ImageStorageProfile": {
+      "description": "Describes a storage profile.",
       "properties": {
         "dataDisks": {
           "description": "Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
@@ -3509,6 +3553,7 @@
       "type": "object"
     },
     "InstanceViewStatus": {
+      "description": "Instance view status.",
       "properties": {
         "code": {
           "description": "The status code.",
@@ -3554,6 +3599,7 @@
       "type": "object"
     },
     "KeyVaultKeyReference": {
+      "description": "Describes a reference to Key Vault Key",
       "properties": {
         "keyUrl": {
           "description": "The URL referencing a key encryption key in Key Vault.",
@@ -3578,6 +3624,7 @@
       "type": "object"
     },
     "KeyVaultSecretReference": {
+      "description": "Describes a reference to Key Vault Secret",
       "properties": {
         "secretUrl": {
           "description": "The URL referencing a secret in a Key Vault.",
@@ -3602,6 +3649,7 @@
       "type": "object"
     },
     "LinuxConfiguration": {
+      "description": "Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).",
       "properties": {
         "disablePasswordAuthentication": {
           "description": "Specifies whether password authentication should be disabled.",
@@ -3651,6 +3699,7 @@
       "type": "object"
     },
     "LinuxPatchSettings": {
+      "description": "Specifies settings related to VM Guest Patching on Linux.",
       "properties": {
         "assessmentMode": {
           "description": "Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.",
@@ -3686,6 +3735,7 @@
       "type": "object"
     },
     "ManagedDiskParameters": {
+      "description": "The parameters of a managed disk.",
       "properties": {
         "diskEncryptionSet": {
           "description": "Specifies the customer managed disk encryption set resource id for the managed disk.",
@@ -3725,6 +3775,7 @@
       "type": "object"
     },
     "NetworkInterfaceReference": {
+      "description": "Describes a network interface reference.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -3745,6 +3796,7 @@
       "type": "object"
     },
     "NetworkInterfaceReferenceProperties": {
+      "description": "Describes a network interface reference properties.",
       "properties": {
         "deleteOption": {
           "description": "Specify what happens to the network interface when the VM is deleted",
@@ -3776,6 +3828,7 @@
       "type": "object"
     },
     "NetworkProfile": {
+      "description": "Specifies the network interfaces or the networking configuration of the virtual machine.",
       "properties": {
         "networkApiVersion": {
           "description": "specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations",
@@ -3837,6 +3890,7 @@
       "type": "object"
     },
     "OSDisk": {
+      "description": "Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.",
@@ -3988,6 +4042,7 @@
       "type": "object"
     },
     "OSDiskImageEncryption": {
+      "description": "Contains encryption settings for an OS disk image.",
       "properties": {
         "diskEncryptionSetId": {
           "description": "A relative URI containing the resource ID of the disk encryption set.",
@@ -3997,6 +4052,7 @@
       "type": "object"
     },
     "OSProfile": {
+      "description": "Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.",
       "properties": {
         "adminPassword": {
           "description": "Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)",
@@ -4083,6 +4139,7 @@
       "type": "object"
     },
     "PatchSettings": {
+      "description": "Specifies settings related to VM Guest Patching on Windows.",
       "properties": {
         "assessmentMode": {
           "description": "Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. ",
@@ -4130,6 +4187,7 @@
       "type": "object"
     },
     "Plan": {
+      "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.",
       "properties": {
         "name": {
           "description": "The plan ID.",
@@ -4151,6 +4209,7 @@
       "type": "object"
     },
     "ProximityPlacementGroupProperties": {
+      "description": "Describes the properties of a Proximity Placement Group.",
       "properties": {
         "colocationStatus": {
           "description": "Describes colocation status of the Proximity Placement Group.",
@@ -4182,6 +4241,7 @@
       "type": "object"
     },
     "PublicIPAddressSku": {
+      "description": "Describes the public IP Sku",
       "properties": {
         "name": {
           "description": "Specify public IP sku name",
@@ -4217,6 +4277,7 @@
       "type": "object"
     },
     "RecommendedMachineConfiguration": {
+      "description": "The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.",
       "properties": {
         "memory": {
           "description": "Describes the resource range.",
@@ -4244,6 +4305,7 @@
       "type": "object"
     },
     "ResourceRange": {
+      "description": "Describes the resource range.",
       "properties": {
         "max": {
           "description": "The maximum number of the resource.",
@@ -4271,6 +4333,7 @@
       "type": "object"
     },
     "RestorePointCollectionProperties": {
+      "description": "The restore point collection properties.",
       "properties": {
         "source": {
           "description": "The properties of the source resource that this restore point collection is created from.",
@@ -4287,6 +4350,7 @@
       "type": "object"
     },
     "RestorePointCollectionSourceProperties": {
+      "description": "The properties of the source resource that this restore point collection is created from.",
       "properties": {
         "id": {
           "description": "Resource Id of the source resource used to create this restore point collection",
@@ -4296,6 +4360,7 @@
       "type": "object"
     },
     "RestorePointProperties": {
+      "description": "The restore point properties.",
       "properties": {
         "excludeDisks": {
           "description": "List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.",
@@ -4334,6 +4399,7 @@
       "type": "object"
     },
     "RollingUpgradePolicy": {
+      "description": "The configuration parameters used while performing a rolling upgrade.",
       "properties": {
         "enableCrossZoneUpgrade": {
           "description": "Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.",
@@ -4398,6 +4464,7 @@
       "type": "object"
     },
     "RunCommandInputParameter": {
+      "description": "Describes the properties of a run command parameter.",
       "properties": {
         "name": {
           "description": "The run command parameter name.",
@@ -4415,6 +4482,7 @@
       "type": "object"
     },
     "ScaleInPolicy": {
+      "description": "Describes a scale-in policy for a virtual machine scale set.",
       "properties": {
         "forceDeletion": {
           "description": "This property allows you to specify if virtual machines chosen for removal have to be force deleted when a virtual machine scale set is being scaled-in.(Feature in Preview)",
@@ -4473,6 +4541,7 @@
       "type": "object"
     },
     "SecurityProfile": {
+      "description": "Specifies the Security profile settings for the virtual machine or virtual machine scale set.",
       "properties": {
         "encryptionAtHost": {
           "description": "This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.",
@@ -4514,6 +4583,7 @@
       "type": "object"
     },
     "SharingProfile": {
+      "description": "Profile for gallery sharing to subscription or tenant",
       "properties": {
         "permissions": {
           "description": "This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**",
@@ -4534,6 +4604,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.",
       "properties": {
         "capacity": {
           "description": "Specifies the number of virtual machines in the scale set.",
@@ -4558,6 +4629,7 @@
       "type": "object"
     },
     "SoftDeletePolicy": {
+      "description": "Contains information about the soft deletion policy of the gallery.",
       "properties": {
         "isSoftDeleteEnabled": {
           "description": "Enables soft-deletion for resources in this gallery, allowing them to be recovered within retention time.",
@@ -4574,6 +4646,7 @@
       "type": "object"
     },
     "SpotRestorePolicy": {
+      "description": "Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.",
       "properties": {
         "enabled": {
           "description": "Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints",
@@ -4594,6 +4667,7 @@
       "type": "object"
     },
     "SshConfiguration": {
+      "description": "SSH configuration for Linux based VMs running on Azure",
       "properties": {
         "publicKeys": {
           "description": "The list of SSH public keys used to authenticate with linux based VMs.",
@@ -4620,6 +4694,7 @@
       "type": "object"
     },
     "SshPublicKey": {
+      "description": "Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.",
       "properties": {
         "keyData": {
           "description": "SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).",
@@ -4633,6 +4708,7 @@
       "type": "object"
     },
     "SshPublicKeyResourceProperties": {
+      "description": "Properties of the SSH public key.",
       "properties": {
         "publicKey": {
           "description": "SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.",
@@ -4642,6 +4718,7 @@
       "type": "object"
     },
     "StorageProfile": {
+      "description": "Specifies the storage settings for the virtual machine disks.",
       "properties": {
         "dataDisks": {
           "description": "Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
@@ -4699,6 +4776,7 @@
       "type": "object"
     },
     "TargetRegion": {
+      "description": "Describes the target region information.",
       "properties": {
         "encryption": {
           "description": "Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.",
@@ -4769,6 +4847,7 @@
       "type": "object"
     },
     "UefiSettings": {
+      "description": "Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01",
       "properties": {
         "secureBootEnabled": {
           "description": "Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01",
@@ -4796,6 +4875,7 @@
       "type": "object"
     },
     "UpgradePolicy": {
+      "description": "Describes an upgrade policy - automatic, manual, or rolling.",
       "properties": {
         "automaticOSUpgradePolicy": {
           "description": "Configuration parameters used for performing automatic OS Upgrade.",
@@ -4860,6 +4940,7 @@
       "type": "object"
     },
     "UserArtifactSource": {
+      "description": "The source image from which the Image Version is going to be created.",
       "properties": {
         "defaultConfigurationLink": {
           "description": "Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.",
@@ -4880,6 +4961,7 @@
       "type": "object"
     },
     "VMGalleryApplication": {
+      "description": "Specifies the required information to reference a compute gallery application version",
       "properties": {
         "configurationReference": {
           "description": "Optional, Specifies the uri to an azure blob that will replace the default configuration for the package if provided",
@@ -4911,6 +4993,7 @@
       "type": "object"
     },
     "VMSizeProperties": {
+      "description": "Specifies VM Size Property settings on the virtual machine.",
       "properties": {
         "vCPUsAvailable": {
           "description": "Specifies the number of vCPUs available for the VM. <br><br> When this property is not specified in the request body the default behavior is to set it to the value of vCPUs available for that VM size exposed in api response of [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list) .",
@@ -4938,6 +5021,7 @@
       "type": "object"
     },
     "VaultCertificate": {
+      "description": "Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.",
       "properties": {
         "certificateStore": {
           "description": "For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.",
@@ -4951,6 +5035,7 @@
       "type": "object"
     },
     "VaultSecretGroup": {
+      "description": "Describes a set of certificates which are all in the same Key Vault.",
       "properties": {
         "sourceVault": {
           "description": "The relative URL of the Key Vault containing all of the certificates in VaultCertificates.",
@@ -4988,6 +5073,7 @@
       "type": "object"
     },
     "VirtualHardDisk": {
+      "description": "Describes the uri of a disk.",
       "properties": {
         "uri": {
           "description": "Specifies the virtual hard disk's uri.",
@@ -4997,6 +5083,7 @@
       "type": "object"
     },
     "VirtualMachineExtensionInstanceView": {
+      "description": "The instance view of a virtual machine extension.",
       "properties": {
         "name": {
           "description": "The virtual machine extension name.",
@@ -5056,6 +5143,7 @@
       "type": "object"
     },
     "VirtualMachineExtensionProperties": {
+      "description": "Describes the properties of a Virtual Machine Extension.",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
@@ -5127,6 +5215,7 @@
       "type": "object"
     },
     "VirtualMachineIdentity": {
+      "description": "Identity for the virtual machine.",
       "properties": {
         "type": {
           "description": "The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.",
@@ -5171,6 +5260,7 @@
       "type": "object"
     },
     "VirtualMachineIpTag": {
+      "description": "Contains the IP tag associated with the public IP address.",
       "properties": {
         "ipTagType": {
           "description": "IP tag type. Example: FirstPartyUsage.",
@@ -5184,6 +5274,7 @@
       "type": "object"
     },
     "VirtualMachineNetworkInterfaceConfiguration": {
+      "description": "Describes a virtual machine network interface configurations.",
       "properties": {
         "name": {
           "description": "The network interface configuration name.",
@@ -5207,6 +5298,7 @@
       "type": "object"
     },
     "VirtualMachineNetworkInterfaceConfigurationProperties": {
+      "description": "Describes a virtual machine network profile's IP configuration.",
       "properties": {
         "deleteOption": {
           "description": "Specify what happens to the network interface when the VM is deleted",
@@ -5328,6 +5420,7 @@
       "type": "object"
     },
     "VirtualMachineNetworkInterfaceDnsSettingsConfiguration": {
+      "description": "Describes a virtual machines network configuration's DNS settings.",
       "properties": {
         "dnsServers": {
           "description": "List of DNS servers IP addresses",
@@ -5347,6 +5440,7 @@
       "type": "object"
     },
     "VirtualMachineNetworkInterfaceIPConfiguration": {
+      "description": "Describes a virtual machine network profile's IP configuration.",
       "properties": {
         "name": {
           "description": "The IP configuration name.",
@@ -5370,6 +5464,7 @@
       "type": "object"
     },
     "VirtualMachineNetworkInterfaceIPConfigurationProperties": {
+      "description": "Describes a virtual machine network interface IP configuration properties.",
       "properties": {
         "applicationGatewayBackendAddressPools": {
           "description": "Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.",
@@ -5486,6 +5581,7 @@
       "type": "object"
     },
     "VirtualMachineProperties": {
+      "description": "Describes the properties of a Virtual Machine.",
       "properties": {
         "additionalCapabilities": {
           "description": "Specifies additional capabilities enabled or disabled on the virtual machine.",
@@ -5721,6 +5817,7 @@
       "type": "object"
     },
     "VirtualMachinePublicIPAddressConfiguration": {
+      "description": "Describes a virtual machines IP Configuration's PublicIPAddress configuration",
       "properties": {
         "name": {
           "description": "The publicIP address configuration name.",
@@ -5755,6 +5852,7 @@
       "type": "object"
     },
     "VirtualMachinePublicIPAddressConfigurationProperties": {
+      "description": "Describes a virtual machines IP Configuration's PublicIPAddress configuration",
       "properties": {
         "deleteOption": {
           "description": "Specify what happens to the public IP address when the VM is deleted",
@@ -5859,6 +5957,7 @@
       "type": "object"
     },
     "VirtualMachinePublicIPAddressDnsSettingsConfiguration": {
+      "description": "Describes a virtual machines network configuration's DNS settings.",
       "properties": {
         "domainNameLabel": {
           "description": "The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.",
@@ -5871,6 +5970,7 @@
       "type": "object"
     },
     "VirtualMachineRunCommandProperties": {
+      "description": "Describes the properties of a Virtual Machine run command.",
       "properties": {
         "asyncExecution": {
           "description": "Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.",
@@ -5967,6 +6067,7 @@
       "type": "object"
     },
     "VirtualMachineRunCommandScriptSource": {
+      "description": "Describes the script sources for run command.",
       "properties": {
         "commandId": {
           "description": "Specifies a commandId of predefined built-in script.",
@@ -5984,6 +6085,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetDataDisk": {
+      "description": "Describes a virtual machine scale set data disk.",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**",
@@ -6095,6 +6197,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetExtension": {
+      "description": "Describes a Virtual Machine Scale Set Extension.",
       "properties": {
         "name": {
           "description": "The name of the extension.",
@@ -6115,6 +6218,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetExtensionProfile": {
+      "description": "Describes a virtual machine scale set extension profile.",
       "properties": {
         "extensions": {
           "description": "The virtual machine scale set child extension resources.",
@@ -6145,6 +6249,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetExtensionProperties": {
+      "description": "Describes the properties of a Virtual Machine Scale Set Extension.",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
@@ -6219,6 +6324,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetIPConfiguration": {
+      "description": "Describes a virtual machine scale set network profile's IP configuration.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -6246,6 +6352,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetIPConfigurationProperties": {
+      "description": "Describes a virtual machine scale set network profile's IP configuration properties.",
       "properties": {
         "applicationGatewayBackendAddressPools": {
           "description": "Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.",
@@ -6383,6 +6490,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetIdentity": {
+      "description": "Identity for the virtual machine scale set.",
       "properties": {
         "type": {
           "description": "The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.",
@@ -6431,6 +6539,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetIpTag": {
+      "description": "Contains the IP tag associated with the public IP address.",
       "properties": {
         "ipTagType": {
           "description": "IP tag type. Example: FirstPartyUsage.",
@@ -6444,6 +6553,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetManagedDiskParameters": {
+      "description": "Describes the parameters of a ScaleSet managed disk.",
       "properties": {
         "diskEncryptionSet": {
           "description": "Specifies the customer managed disk encryption set resource id for the managed disk.",
@@ -6479,6 +6589,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetNetworkConfiguration": {
+      "description": "Describes a virtual machine scale set network profile's network configurations.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -6506,6 +6617,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetNetworkConfigurationDnsSettings": {
+      "description": "Describes a virtual machines scale sets network configuration's DNS settings.",
       "properties": {
         "dnsServers": {
           "description": "List of DNS servers IP addresses",
@@ -6525,6 +6637,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetNetworkConfigurationProperties": {
+      "description": "Describes a virtual machine scale set network profile's IP configuration.",
       "properties": {
         "deleteOption": {
           "description": "Specify what happens to the network interface when the VM is deleted",
@@ -6635,6 +6748,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetNetworkProfile": {
+      "description": "Describes a virtual machine scale set network profile.",
       "properties": {
         "healthProbe": {
           "description": "A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.",
@@ -6686,6 +6800,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetOSDisk": {
+      "description": "Describes a virtual machine scale set operating system disk.",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**",
@@ -6814,6 +6929,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetOSProfile": {
+      "description": "Describes a virtual machine scale set OS profile.",
       "properties": {
         "adminPassword": {
           "description": "Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)",
@@ -6878,6 +6994,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetProperties": {
+      "description": "Describes the properties of a Virtual Machine Scale Set.",
       "properties": {
         "additionalCapabilities": {
           "description": "Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.",
@@ -7041,6 +7158,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetPublicIPAddressConfiguration": {
+      "description": "Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration",
       "properties": {
         "name": {
           "description": "The publicIP address configuration name.",
@@ -7075,6 +7193,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettings": {
+      "description": "Describes a virtual machines scale sets network configuration's DNS settings.",
       "properties": {
         "domainNameLabel": {
           "description": "The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created",
@@ -7087,6 +7206,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetPublicIPAddressConfigurationProperties": {
+      "description": "Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration",
       "properties": {
         "deleteOption": {
           "description": "Specify what happens to the public IP when the VM is deleted",
@@ -7176,6 +7296,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetStorageProfile": {
+      "description": "Describes a virtual machine scale set storage profile.",
       "properties": {
         "dataDisks": {
           "description": "Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
@@ -7224,6 +7345,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetVMNetworkProfileConfiguration": {
+      "description": "Describes a virtual machine scale set VM network profile.",
       "properties": {
         "networkInterfaceConfigurations": {
           "description": "The list of network configurations.",
@@ -7250,6 +7372,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetVMProfile": {
+      "description": "Describes a virtual machine scale set virtual machine profile.",
       "properties": {
         "applicationProfile": {
           "description": "Specifies the gallery applications that should be made available to the VM/VMSS",
@@ -7404,6 +7527,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetVMProperties": {
+      "description": "Describes the properties of a virtual machine scale set virtual machine.",
       "properties": {
         "additionalCapabilities": {
           "description": "Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.",
@@ -7527,6 +7651,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetVMProtectionPolicy": {
+      "description": "The protection policy of a virtual machine scale set VM.",
       "properties": {
         "protectFromScaleIn": {
           "description": "Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.",
@@ -7554,6 +7679,7 @@
       "type": "object"
     },
     "WinRMConfiguration": {
+      "description": "Describes Windows Remote Management configuration of the VM",
       "properties": {
         "listeners": {
           "description": "The list of Windows Remote Management listeners",
@@ -7580,6 +7706,7 @@
       "type": "object"
     },
     "WinRMListener": {
+      "description": "Describes Protocol and thumbprint of Windows Remote Management listener",
       "properties": {
         "certificateUrl": {
           "description": "This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  \"data\":\"<Base64-encoded-certificate>\",<br>  \"dataType\":\"pfx\",<br>  \"password\":\"<pfx-file-password>\"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).",
@@ -7604,6 +7731,7 @@
       "type": "object"
     },
     "WindowsConfiguration": {
+      "description": "Specifies Windows operating system settings on the virtual machine.",
       "properties": {
         "additionalUnattendContent": {
           "description": "Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.",
@@ -7733,7 +7861,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/capacityReservationGroups/capacityReservations"
+            "capacityReservations"
           ],
           "type": "string"
         },
@@ -7804,7 +7932,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/galleries/applications"
+            "applications"
           ],
           "type": "string"
         }
@@ -7861,7 +7989,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/galleries/applications/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -7918,7 +8046,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/galleries/images"
+            "images"
           ],
           "type": "string"
         }
@@ -7975,7 +8103,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/galleries/images/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -8043,7 +8171,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/hostGroups/hosts"
+            "hosts"
           ],
           "type": "string"
         }
@@ -8081,7 +8209,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/restorePointCollections/restorePoints"
+            "restorePoints"
           ],
           "type": "string"
         }
@@ -8119,7 +8247,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/virtualMachineScaleSets/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -8157,7 +8285,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -8214,7 +8342,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommands"
+            "runCommands"
           ],
           "type": "string"
         }
@@ -8282,7 +8410,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/virtualMachineScaleSets/virtualmachines"
+            "virtualmachines"
           ],
           "type": "string"
         }
@@ -8339,7 +8467,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/virtualMachines/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -8396,7 +8524,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/virtualMachines/runCommands"
+            "runCommands"
           ],
           "type": "string"
         }

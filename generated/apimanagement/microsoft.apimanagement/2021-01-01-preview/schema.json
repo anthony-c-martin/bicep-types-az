@@ -2040,6 +2040,7 @@
   },
   "definitions": {
     "AccessInformationCreateParameterProperties": {
+      "description": "Tenant access information update parameters of the API Management service",
       "properties": {
         "enabled": {
           "description": "Determines whether direct access is enabled.",
@@ -2068,6 +2069,7 @@
       "type": "object"
     },
     "AdditionalLocation": {
+      "description": "Description of an additional API Management resource location.",
       "properties": {
         "disableGateway": {
           "description": "Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.",
@@ -2132,6 +2134,7 @@
       "type": "object"
     },
     "ApiContactInformation": {
+      "description": "API contact information",
       "properties": {
         "email": {
           "description": "The email address of the contact person/organization. MUST be in the format of an email address",
@@ -2149,6 +2152,7 @@
       "type": "object"
     },
     "ApiCreateOrUpdateProperties": {
+      "description": "API Create or Update Properties.",
       "properties": {
         "apiRevision": {
           "description": "Describes the revision of the API. If no value is provided, default revision 1 is created",
@@ -2433,6 +2437,7 @@
       "type": "object"
     },
     "ApiCreateOrUpdatePropertiesWsdlSelector": {
+      "description": "Criteria to limit import of WSDL to a subset of the document.",
       "properties": {
         "wsdlEndpointName": {
           "description": "Name of endpoint(port) to import from WSDL",
@@ -2446,6 +2451,7 @@
       "type": "object"
     },
     "ApiLicenseInformation": {
+      "description": "API license information",
       "properties": {
         "name": {
           "description": "The license name used for the API",
@@ -2459,6 +2465,7 @@
       "type": "object"
     },
     "ApiManagementServiceIdentity": {
+      "description": "Identity properties of the Api Management service resource.",
       "properties": {
         "type": {
           "description": "The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.",
@@ -2506,6 +2513,7 @@
       "type": "object"
     },
     "ApiManagementServiceProperties": {
+      "description": "Properties of an API Management service resource description.",
       "properties": {
         "additionalLocations": {
           "description": "Additional datacenter locations of the API Management service.",
@@ -2704,6 +2712,7 @@
       "type": "object"
     },
     "ApiManagementServiceSkuProperties": {
+      "description": "API Management service resource SKU properties.",
       "properties": {
         "capacity": {
           "description": "Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.",
@@ -2743,6 +2752,7 @@
       "type": "object"
     },
     "ApiReleaseContractProperties": {
+      "description": "API Release details",
       "properties": {
         "apiId": {
           "description": "Identifier of the API the release belongs to.",
@@ -2756,6 +2766,7 @@
       "type": "object"
     },
     "ApiVersionConstraint": {
+      "description": "Control Plane Apis version constraint for the API Management service.",
       "properties": {
         "minApiVersion": {
           "description": "Limit control plane API calls to API Management service with version equal to or newer than this value.",
@@ -2765,6 +2776,7 @@
       "type": "object"
     },
     "ApiVersionSetContractDetails": {
+      "description": "An API Version Set contains the common configuration for a set of API Versions relating ",
       "properties": {
         "description": {
           "description": "Description of API Version Set.",
@@ -2806,6 +2818,7 @@
       "type": "object"
     },
     "ApiVersionSetContractProperties": {
+      "description": "Properties of an API Version Set.",
       "properties": {
         "description": {
           "description": "Description of API Version Set.",
@@ -2874,13 +2887,14 @@
       "type": "object"
     },
     "AssociationContractProperties": {
+      "description": "Association entity contract properties.",
       "properties": {
         "provisioningState": {
           "description": "Provisioning state.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "created"
               ],
               "type": "string"
             },
@@ -2893,6 +2907,7 @@
       "type": "object"
     },
     "AuthenticationSettingsContract": {
+      "description": "API Authentication Settings.",
       "properties": {
         "oAuth2": {
           "description": "OAuth2 Authentication settings",
@@ -2920,6 +2935,7 @@
       "type": "object"
     },
     "AuthorizationServerContractProperties": {
+      "description": "External OAuth authorization server settings Properties.",
       "properties": {
         "authorizationEndpoint": {
           "description": "OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.",
@@ -3121,6 +3137,7 @@
       "type": "object"
     },
     "BackendAuthorizationHeaderCredentials": {
+      "description": "Authorization header information.",
       "properties": {
         "parameter": {
           "description": "Authentication Parameter value.",
@@ -3156,6 +3173,7 @@
       "type": "object"
     },
     "BackendContractProperties": {
+      "description": "Parameters supplied to the Create Backend operation.",
       "properties": {
         "credentials": {
           "description": "Backend Credentials Contract Properties",
@@ -3276,6 +3294,7 @@
       "type": "object"
     },
     "BackendCredentialsContract": {
+      "description": "Details of the Credentials used to connect to Backend.",
       "properties": {
         "authorization": {
           "description": "Authorization header authentication",
@@ -3370,6 +3389,7 @@
       "type": "object"
     },
     "BackendProperties": {
+      "description": "Properties specific to the Backend Type.",
       "properties": {
         "serviceFabricCluster": {
           "description": "Backend Service Fabric Cluster Properties",
@@ -3386,6 +3406,7 @@
       "type": "object"
     },
     "BackendProxyContract": {
+      "description": "Details of the Backend WebProxy Server to use in the Request to Backend.",
       "properties": {
         "password": {
           "description": "Password to connect to the WebProxy Server",
@@ -3415,6 +3436,7 @@
       "type": "object"
     },
     "BackendServiceFabricClusterProperties": {
+      "description": "Properties of the Service Fabric Type Backend.",
       "properties": {
         "clientCertificateId": {
           "description": "The client certificate id for the management endpoint.",
@@ -3491,6 +3513,7 @@
       "type": "object"
     },
     "BackendTlsProperties": {
+      "description": "Properties controlling TLS Certificate Validation.",
       "properties": {
         "validateCertificateChain": {
           "description": "Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.",
@@ -3518,6 +3541,7 @@
       "type": "object"
     },
     "BodyDiagnosticSettings": {
+      "description": "Body logging settings.",
       "properties": {
         "bytes": {
           "description": "Number of request body bytes to log.",
@@ -3534,6 +3558,7 @@
       "type": "object"
     },
     "CacheContractProperties": {
+      "description": "Properties of the Cache contract.",
       "properties": {
         "connectionString": {
           "description": "Runtime connection string to cache",
@@ -3591,6 +3616,7 @@
       "type": "object"
     },
     "CertificateConfiguration": {
+      "description": "Certificate configuration which consist of non-trusted intermediates and root certificates.",
       "properties": {
         "certificate": {
           "description": "Certificate information.",
@@ -3633,6 +3659,7 @@
       "type": "object"
     },
     "CertificateCreateOrUpdateProperties": {
+      "description": "Parameters supplied to the CreateOrUpdate certificate operation.",
       "properties": {
         "data": {
           "description": "Base 64 encoded certificate using the application/x-pkcs12 representation.",
@@ -3657,6 +3684,7 @@
       "type": "object"
     },
     "CertificateInformation": {
+      "description": "SSL certificate information.",
       "properties": {
         "expiry": {
           "description": "Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.",
@@ -3758,6 +3786,7 @@
       "type": "object"
     },
     "DiagnosticContractProperties": {
+      "description": "Diagnostic Entity Properties",
       "properties": {
         "alwaysLog": {
           "description": "Specifies for what type of messages sampling settings should not apply.",
@@ -3886,6 +3915,7 @@
       "type": "object"
     },
     "EmailTemplateParametersContractProperties": {
+      "description": "Email Template Parameter contract.",
       "properties": {
         "description": {
           "description": "Template parameter description.",
@@ -3932,6 +3962,7 @@
       "type": "object"
     },
     "EmailTemplateUpdateParameterProperties": {
+      "description": "Email Template Update Contract properties.",
       "properties": {
         "body": {
           "description": "Email Template Body. This should be a valid XDocument",
@@ -3991,6 +4022,7 @@
       "type": "object"
     },
     "GatewayCertificateAuthorityContractProperties": {
+      "description": "Gateway certificate authority details.",
       "properties": {
         "isTrusted": {
           "description": "Determines whether certificate authority is trusted.",
@@ -4007,6 +4039,7 @@
       "type": "object"
     },
     "GatewayContractProperties": {
+      "description": "Properties of the Gateway contract.",
       "properties": {
         "description": {
           "description": "Gateway description",
@@ -4035,6 +4068,7 @@
       "type": "object"
     },
     "GatewayHostnameConfigurationContractProperties": {
+      "description": "Gateway hostname configuration details.",
       "properties": {
         "certificateId": {
           "description": "Identifier of Certificate entity that will be used for TLS connection establishment",
@@ -4092,6 +4126,7 @@
       "type": "object"
     },
     "GroupCreateParametersProperties": {
+      "description": "Parameters supplied to the Create Group operation.",
       "properties": {
         "description": {
           "description": "Group description.",
@@ -4137,6 +4172,7 @@
       "type": "object"
     },
     "HostnameConfiguration": {
+      "description": "Custom hostname configuration.",
       "properties": {
         "certificate": {
           "description": "Certificate information.",
@@ -4250,6 +4286,7 @@
       "type": "object"
     },
     "HttpMessageDiagnostic": {
+      "description": "Http message diagnostic settings.",
       "properties": {
         "body": {
           "description": "Body logging settings.",
@@ -4291,6 +4328,7 @@
       "type": "object"
     },
     "IdentityProviderCreateContractProperties": {
+      "description": "The external Identity Providers like Facebook, Google, Microsoft, Twitter or Azure Active Directory which can be used to enable access to the API Management service developer portal for all users.",
       "properties": {
         "allowedTenants": {
           "description": "List of Allowed Tenants when configuring Azure Active Directory login.",
@@ -4413,6 +4451,7 @@
       "type": "object"
     },
     "IssueAttachmentContractProperties": {
+      "description": "Issue Attachment contract Properties.",
       "properties": {
         "content": {
           "description": "An HTTP link or Base64-encoded binary data.",
@@ -4435,6 +4474,7 @@
       "type": "object"
     },
     "IssueCommentContractProperties": {
+      "description": "Issue Comment contract Properties.",
       "properties": {
         "createdDate": {
           "description": "Date and time when the comment was created.",
@@ -4464,6 +4504,7 @@
       "type": "object"
     },
     "IssueContractProperties": {
+      "description": "Issue contract Properties.",
       "properties": {
         "apiId": {
           "description": "A resource identifier for the API the issue was created for.",
@@ -4520,6 +4561,7 @@
       "type": "object"
     },
     "KeyVaultContractCreateProperties": {
+      "description": "Create keyVault contract details.",
       "properties": {
         "identityClientId": {
           "description": "Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.",
@@ -4533,6 +4575,7 @@
       "type": "object"
     },
     "LoggerContractProperties": {
+      "description": "The Logger entity in API Management represents an event sink that you can use to log API Management events. Currently the Logger entity supports logging API Management events to Azure Event Hubs.",
       "properties": {
         "credentials": {
           "description": "The name and SendRule connection string of the event hub for azureEventHub logger.\nInstrumentation key for applicationInsights logger.",
@@ -4599,6 +4642,7 @@
       "type": "object"
     },
     "NamedValueCreateContractProperties": {
+      "description": "NamedValue Contract properties.",
       "properties": {
         "displayName": {
           "description": "Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.",
@@ -4669,6 +4713,7 @@
       "type": "object"
     },
     "OAuth2AuthenticationSettingsContract": {
+      "description": "API OAuth2 Authentication settings details.",
       "properties": {
         "authorizationServerId": {
           "description": "OAuth authorization server identifier.",
@@ -4682,6 +4727,7 @@
       "type": "object"
     },
     "OpenIdAuthenticationSettingsContract": {
+      "description": "API OAuth2 Authentication settings details.",
       "properties": {
         "bearerTokenSendingMethods": {
           "description": "How to send token to the server.",
@@ -4716,6 +4762,7 @@
       "type": "object"
     },
     "OpenidConnectProviderContractProperties": {
+      "description": "OpenID Connect Providers Contract.",
       "properties": {
         "clientId": {
           "description": "Client ID of developer console which is the client application.",
@@ -4754,6 +4801,7 @@
       "type": "object"
     },
     "OperationContractProperties": {
+      "description": "Operation Contract Properties",
       "properties": {
         "description": {
           "description": "Description of the operation. May include HTML formatting tags.",
@@ -4863,6 +4911,7 @@
       "type": "object"
     },
     "ParameterContract": {
+      "description": "Operation parameters details.",
       "properties": {
         "defaultValue": {
           "description": "Default parameter value.",
@@ -4943,6 +4992,7 @@
       "type": "object"
     },
     "ParameterExampleContract": {
+      "description": "Parameter example.",
       "properties": {
         "description": {
           "description": "Long description for the example",
@@ -4963,6 +5013,7 @@
       "type": "object"
     },
     "PipelineDiagnosticSettings": {
+      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
       "properties": {
         "request": {
           "description": "Diagnostic settings for request.",
@@ -4990,6 +5041,7 @@
       "type": "object"
     },
     "PolicyContractProperties": {
+      "description": "Policy contract Properties.",
       "properties": {
         "format": {
           "description": "Format of the policyContent.",
@@ -5019,6 +5071,7 @@
       "type": "object"
     },
     "PortalDelegationSettingsProperties": {
+      "description": "Delegation settings contract properties.",
       "properties": {
         "subscriptions": {
           "description": "Subscriptions delegation settings.",
@@ -5082,6 +5135,7 @@
       "type": "object"
     },
     "PortalSigninSettingProperties": {
+      "description": "Sign-in settings contract properties.",
       "properties": {
         "enabled": {
           "description": "Redirect Anonymous users to the Sign-In page.",
@@ -5098,6 +5152,7 @@
       "type": "object"
     },
     "PortalSignupSettingsProperties": {
+      "description": "Sign-up settings contract properties.",
       "properties": {
         "enabled": {
           "description": "Allow users to sign up on a developer portal.",
@@ -5125,6 +5180,7 @@
       "type": "object"
     },
     "ProductContractProperties": {
+      "description": "Product profile.",
       "properties": {
         "approvalRequired": {
           "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.",
@@ -5210,6 +5266,7 @@
       "type": "object"
     },
     "RegistrationDelegationSettingsProperties": {
+      "description": "User registration delegation settings properties.",
       "properties": {
         "enabled": {
           "description": "Enable or disable delegation for user registration.",
@@ -5226,6 +5283,7 @@
       "type": "object"
     },
     "RepresentationContract": {
+      "description": "Operation request/response representation details.",
       "properties": {
         "contentType": {
           "description": "Specifies a registered or custom content type for this representation, e.g. application/xml.",
@@ -5267,6 +5325,7 @@
       "type": "object"
     },
     "RequestContract": {
+      "description": "Operation request details.",
       "properties": {
         "description": {
           "description": "Operation request description.",
@@ -5339,6 +5398,7 @@
       "type": "object"
     },
     "ResourceLocationDataContract": {
+      "description": "Resource location data properties.",
       "properties": {
         "city": {
           "description": "The city or locality where the resource is located.",
@@ -5395,6 +5455,7 @@
       "type": "object"
     },
     "ResponseContract": {
+      "description": "Operation response details.",
       "properties": {
         "description": {
           "description": "Operation response description.",
@@ -5460,6 +5521,7 @@
       "type": "object"
     },
     "SamplingSettings": {
+      "description": "Sampling settings for Diagnostic.",
       "properties": {
         "percentage": {
           "description": "Rate of sampling for fixed-rate sampling.",
@@ -5490,6 +5552,7 @@
       "type": "object"
     },
     "SchemaContractProperties": {
+      "description": "API Schema create or update contract Properties.",
       "properties": {
         "contentType": {
           "description": "Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.",
@@ -5505,6 +5568,7 @@
       "type": "object"
     },
     "SubscriptionCreateParameterProperties": {
+      "description": "Parameters supplied to the Create subscription operation.",
       "properties": {
         "allowTracing": {
           "description": "Determines whether tracing can be enabled",
@@ -5591,6 +5655,7 @@
       "type": "object"
     },
     "SubscriptionKeyParameterNamesContract": {
+      "description": "Subscription key parameter names details.",
       "properties": {
         "header": {
           "description": "Subscription key header name.",
@@ -5604,6 +5669,7 @@
       "type": "object"
     },
     "SubscriptionsDelegationSettingsProperties": {
+      "description": "Subscriptions delegation settings properties.",
       "properties": {
         "enabled": {
           "description": "Enable or disable delegation for subscriptions.",
@@ -5620,6 +5686,7 @@
       "type": "object"
     },
     "TagContractProperties": {
+      "description": "Tag contract Properties.",
       "properties": {
         "displayName": {
           "description": "Tag name.",
@@ -5641,6 +5708,7 @@
       "type": "object"
     },
     "TagDescriptionBaseProperties": {
+      "description": "Parameters supplied to the Create TagDescription operation.",
       "properties": {
         "description": {
           "description": "Description of the Tag.",
@@ -5666,6 +5734,7 @@
       "type": "object"
     },
     "TermsOfServiceProperties": {
+      "description": "Terms of service contract properties.",
       "properties": {
         "consentRequired": {
           "description": "Ask user for consent to the terms of service.",
@@ -5697,6 +5766,7 @@
       "type": "object"
     },
     "TokenBodyParameterContract": {
+      "description": "OAuth acquire token request body parameter (www-url-form-encoded).",
       "properties": {
         "name": {
           "description": "body parameter name.",
@@ -5714,6 +5784,7 @@
       "type": "object"
     },
     "UserCreateParameterProperties": {
+      "description": "Parameters supplied to the Create User operation.",
       "properties": {
         "appType": {
           "description": "Determines the type of application which send the create user request. Default is legacy portal.",
@@ -5839,6 +5910,7 @@
       "type": "object"
     },
     "UserIdentityContract": {
+      "description": "User identity details.",
       "properties": {
         "id": {
           "description": "Identifier value within provider.",
@@ -5865,6 +5937,7 @@
       "type": "object"
     },
     "VirtualNetworkConfiguration": {
+      "description": "Configuration of a virtual network to which API Management service is deployed.",
       "properties": {
         "subnetResourceId": {
           "description": "The full resource ID of a subnet in a virtual network to deploy the API Management service in.",
@@ -5882,6 +5955,7 @@
       "type": "object"
     },
     "X509CertificateName": {
+      "description": "Properties of server X509Names.",
       "properties": {
         "issuerCertificateThumbprint": {
           "description": "Thumbprint for the Issuer of the Certificate.",
@@ -5930,7 +6004,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apiVersionSets"
+            "apiVersionSets"
           ],
           "type": "string"
         }
@@ -5978,7 +6052,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis"
+            "apis"
           ],
           "type": "string"
         }
@@ -6026,7 +6100,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/diagnostics"
+            "diagnostics"
           ],
           "type": "string"
         }
@@ -6074,7 +6148,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/issues/attachments"
+            "attachments"
           ],
           "type": "string"
         }
@@ -6122,7 +6196,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/issues"
+            "issues"
           ],
           "type": "string"
         }
@@ -6170,7 +6244,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/issues/comments"
+            "comments"
           ],
           "type": "string"
         }
@@ -6217,7 +6291,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/operations"
+            "operations"
           ],
           "type": "string"
         }
@@ -6265,7 +6339,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/operations/policies"
+            "policies"
           ],
           "type": "string"
         }
@@ -6313,7 +6387,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/policies"
+            "policies"
           ],
           "type": "string"
         }
@@ -6361,7 +6435,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/releases"
+            "releases"
           ],
           "type": "string"
         }
@@ -6409,7 +6483,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/schemas"
+            "schemas"
           ],
           "type": "string"
         }
@@ -6457,7 +6531,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/apis/tagDescriptions"
+            "tagDescriptions"
           ],
           "type": "string"
         }
@@ -6505,7 +6579,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/authorizationServers"
+            "authorizationServers"
           ],
           "type": "string"
         }
@@ -6552,7 +6626,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/backends"
+            "backends"
           ],
           "type": "string"
         }
@@ -6600,7 +6674,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/caches"
+            "caches"
           ],
           "type": "string"
         }
@@ -6648,7 +6722,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/certificates"
+            "certificates"
           ],
           "type": "string"
         }
@@ -6696,7 +6770,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/diagnostics"
+            "diagnostics"
           ],
           "type": "string"
         }
@@ -6743,7 +6817,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/gateways/apis"
+            "apis"
           ],
           "type": "string"
         }
@@ -6791,7 +6865,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/gateways/certificateAuthorities"
+            "certificateAuthorities"
           ],
           "type": "string"
         }
@@ -6838,7 +6912,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/gateways"
+            "gateways"
           ],
           "type": "string"
         }
@@ -6885,7 +6959,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/gateways/hostnameConfigurations"
+            "hostnameConfigurations"
           ],
           "type": "string"
         }
@@ -6932,7 +7006,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/groups"
+            "groups"
           ],
           "type": "string"
         }
@@ -6985,7 +7059,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/identityProviders"
+            "identityProviders"
           ],
           "type": "string"
         }
@@ -7032,7 +7106,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/loggers"
+            "loggers"
           ],
           "type": "string"
         }
@@ -7079,7 +7153,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/namedValues"
+            "namedValues"
           ],
           "type": "string"
         }
@@ -7126,7 +7200,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/openidConnectProviders"
+            "openidConnectProviders"
           ],
           "type": "string"
         }
@@ -7174,7 +7248,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/policies"
+            "policies"
           ],
           "type": "string"
         }
@@ -7221,7 +7295,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/portalRevisions"
+            "portalRevisions"
           ],
           "type": "string"
         }
@@ -7239,7 +7313,9 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "pattern": "^.*/signin$",
+              "enum": [
+                "signin"
+              ],
               "type": "string"
             },
             "properties": {
@@ -7263,7 +7339,9 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "pattern": "^.*/signup$",
+              "enum": [
+                "signup"
+              ],
               "type": "string"
             },
             "properties": {
@@ -7287,7 +7365,9 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "pattern": "^.*/delegation$",
+              "enum": [
+                "delegation"
+              ],
               "type": "string"
             },
             "properties": {
@@ -7317,7 +7397,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/portalsettings"
+            "portalsettings"
           ],
           "type": "string"
         }
@@ -7362,7 +7442,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/products"
+            "products"
           ],
           "type": "string"
         }
@@ -7410,7 +7490,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/products/policies"
+            "policies"
           ],
           "type": "string"
         }
@@ -7457,7 +7537,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/subscriptions"
+            "subscriptions"
           ],
           "type": "string"
         }
@@ -7505,7 +7585,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/tags"
+            "tags"
           ],
           "type": "string"
         }
@@ -7566,7 +7646,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/templates"
+            "templates"
           ],
           "type": "string"
         }
@@ -7615,7 +7695,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/tenant"
+            "tenant"
           ],
           "type": "string"
         }
@@ -7662,7 +7742,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ApiManagement/service/users"
+            "users"
           ],
           "type": "string"
         }

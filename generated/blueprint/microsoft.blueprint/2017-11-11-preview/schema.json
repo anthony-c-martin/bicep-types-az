@@ -137,6 +137,7 @@
   },
   "definitions": {
     "AssignmentLockSettings": {
+      "description": "Defines how Blueprint-managed resources will be locked.",
       "properties": {
         "mode": {
           "description": "Lock mode.",
@@ -157,6 +158,7 @@
       "type": "object"
     },
     "AssignmentProperties": {
+      "description": "Detailed properties for Assignment.",
       "properties": {
         "blueprintId": {
           "description": "ID of the Blueprint definition resource.",
@@ -249,6 +251,7 @@
       "type": "object"
     },
     "BlueprintProperties": {
+      "description": "Schema for Blueprint properties.",
       "properties": {
         "description": {
           "description": "Multi-line explain this resource.",
@@ -343,6 +346,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed Service Identity",
       "properties": {
         "principalId": {
           "description": "Azure Active Directory principal ID associated with this Identity.",
@@ -375,6 +379,7 @@
       "type": "object"
     },
     "ParameterDefinition": {
+      "description": "Represent a parameter with constrains and metadata.",
       "properties": {
         "allowedValues": {
           "description": "Array of allowed values for this parameter.",
@@ -429,6 +434,7 @@
       "type": "object"
     },
     "ParameterDefinitionMetadata": {
+      "description": "User-friendly properties for this parameter.",
       "properties": {
         "description": {
           "description": "Description of this parameter/resourceGroup.",
@@ -470,6 +476,7 @@
       "type": "object"
     },
     "ParameterValueBase": {
+      "description": "Base class for ParameterValue.",
       "properties": {
         "description": {
           "description": "Optional property, just to establish ParameterValueBase as a BaseClass.",
@@ -479,6 +486,7 @@
       "type": "object"
     },
     "ResourceGroupDefinition": {
+      "description": "Represents an Azure resource group in a Blueprint definition.",
       "properties": {
         "dependsOn": {
           "description": "Artifacts which need to be deployed before this resource group.",
@@ -534,6 +542,7 @@
       "type": "object"
     },
     "ResourceGroupValue": {
+      "description": "Represents an Azure resource group.",
       "properties": {
         "location": {
           "description": "Location of the resource group",
@@ -570,7 +579,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Blueprint/blueprints/artifacts"
+            "artifacts"
           ],
           "type": "string"
         }

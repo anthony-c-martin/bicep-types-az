@@ -386,6 +386,7 @@
   },
   "definitions": {
     "AADProfile": {
+      "description": "AAD Profile specifies attributes for Azure Active Directory integration.",
       "properties": {
         "adminGroupObjectIDs": {
           "description": "The list of AAD group object IDs that will have admin role of the cluster.",
@@ -443,6 +444,7 @@
       "type": "object"
     },
     "AddonProfiles": {
+      "description": "Addon configurations",
       "properties": {
         "config": {
           "description": "Config - Key-value pairs for configuring an add-on.",
@@ -653,6 +655,7 @@
       "type": "object"
     },
     "AgentPoolProvisioningStatusStatus": {
+      "description": "HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool",
       "properties": {
         "errorMessage": {
           "description": "ErrorMessage - Error messages during creation of cluster",
@@ -695,6 +698,7 @@
       "type": "object"
     },
     "AgentPoolProvisioningStatusStatusProvisioningStatus": {
+      "description": "Contains Provisioning errors",
       "properties": {
         "error": {
           "description": "",
@@ -723,6 +727,7 @@
       "type": "object"
     },
     "ArcAgentProfile": {
+      "description": "Defines the Arc Agent properties for the Provisioned clusters.",
       "properties": {
         "agentAutoUpgrade": {
           "description": "Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.",
@@ -747,6 +752,7 @@
       "type": "object"
     },
     "CloudProviderProfile": {
+      "description": "CloudProviderProfile - The underlying cloud infra provider properties.",
       "properties": {
         "infraNetworkProfile": {
           "description": "InfraNetworkProfile - List of infra network profiles for the provisioned cluster",
@@ -774,6 +780,7 @@
       "type": "object"
     },
     "CloudProviderProfileInfraNetworkProfile": {
+      "description": "InfraNetworkProfile - List of infra network profiles for the provisioned cluster",
       "properties": {
         "vnetSubnetIds": {
           "description": "Array of references to azure resource corresponding to the new HybridAKSNetwork object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}",
@@ -793,6 +800,7 @@
       "type": "object"
     },
     "CloudProviderProfileInfraStorageProfile": {
+      "description": "InfraStorageProfile - List of infra storage profiles for the provisioned cluster",
       "properties": {
         "storageSpaceIds": {
           "description": "Reference to azure resource corresponding to the new HybridAKSStorage object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpaceName}",
@@ -812,6 +820,7 @@
       "type": "object"
     },
     "ControlPlaneEndpointProfileControlPlaneEndpoint": {
+      "description": "API server endpoint for the control plane",
       "properties": {
         "hostIP": {
           "description": "Host IP address for API server",
@@ -825,6 +834,7 @@
       "type": "object"
     },
     "ControlPlaneProfile": {
+      "description": "ControlPlaneProfile - The control plane properties for the provisioned cluster.",
       "properties": {
         "availabilityZones": {
           "description": "AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones",
@@ -993,6 +1003,7 @@
       "type": "object"
     },
     "HttpProxyConfig": {
+      "description": "Configurations for provisioning the cluster with HTTP proxy servers.",
       "properties": {
         "httpProxy": {
           "description": "The HTTP proxy server endpoint to use.",
@@ -1032,6 +1043,7 @@
       "type": "object"
     },
     "HybridIdentityMetadataProperties": {
+      "description": "Defines the resource properties.",
       "properties": {
         "identity": {
           "description": "The identity of the provisioned cluster.",
@@ -1056,6 +1068,7 @@
       "type": "object"
     },
     "LinuxProfileProperties": {
+      "description": "LinuxProfile - Profile for Linux VMs in the container service cluster.",
       "properties": {
         "adminUsername": {
           "description": "AdminUsername - The administrator username to use for Linux VMs.",
@@ -1076,6 +1089,7 @@
       "type": "object"
     },
     "LinuxProfilePropertiesSsh": {
+      "description": "SSH - SSH configuration for Linux-based VMs running on Azure.",
       "properties": {
         "publicKeys": {
           "description": "PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.",
@@ -1111,6 +1125,7 @@
       "type": "object"
     },
     "LoadBalancerProfile": {
+      "description": "LoadBalancerProfile - Profile of the cluster load balancer.",
       "properties": {
         "availabilityZones": {
           "description": "AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones",
@@ -1268,6 +1283,7 @@
       "type": "object"
     },
     "NamedAgentPoolProfile": {
+      "description": "Agent pool profile along with a name parameter",
       "properties": {
         "availabilityZones": {
           "description": "AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones",
@@ -1414,6 +1430,7 @@
       "type": "object"
     },
     "NetworkProfile": {
+      "description": "NetworkProfile - Profile of network configuration.",
       "properties": {
         "dnsServiceIP": {
           "description": "DNSServiceIP - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
@@ -1502,6 +1519,7 @@
       "type": "object"
     },
     "ProvisionedClusterIdentity": {
+      "description": "Identity for the Provisioned cluster.",
       "properties": {
         "type": {
           "description": "The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.",
@@ -1525,6 +1543,7 @@
       "type": "object"
     },
     "ProvisionedClustersAllProperties": {
+      "description": "All properties of the provisioned cluster",
       "properties": {
         "aadProfile": {
           "description": "AAD profile for the provisioned cluster.",
@@ -1680,6 +1699,7 @@
       "type": "object"
     },
     "ProvisionedClustersCommonPropertiesFeatures": {
+      "description": "Additional features specs like Arc Agent Onboarding.",
       "properties": {
         "arcAgentProfile": {
           "description": "Arc agentry configuration for the provisioned cluster.",
@@ -1722,6 +1742,7 @@
       "type": "object"
     },
     "StorageSpacesProperties": {
+      "description": "HybridAKSStorageSpec defines the desired state of HybridAKSStorage",
       "properties": {
         "hciStorageProfile": {
           "description": "",
@@ -1777,6 +1798,7 @@
       "type": "object"
     },
     "StorageSpacesPropertiesStatus": {
+      "description": "HybridAKSStorageStatus defines the observed state of HybridAKSStorage",
       "properties": {
         "provisioningStatus": {
           "description": "Contains Provisioning errors",
@@ -1793,6 +1815,7 @@
       "type": "object"
     },
     "StorageSpacesPropertiesStatusProvisioningStatus": {
+      "description": "Contains Provisioning errors",
       "properties": {
         "error": {
           "description": "",
@@ -1868,6 +1891,7 @@
       "type": "object"
     },
     "VirtualNetworksProperties": {
+      "description": "HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork",
       "properties": {
         "infraVnetProfile": {
           "description": "",
@@ -1964,6 +1988,7 @@
       "type": "object"
     },
     "VirtualNetworksPropertiesInfraVnetProfileHci": {
+      "description": "Infra network profile for HCI platform",
       "properties": {
         "mocGroup": {
           "description": "Resource group in MOC(Microsoft On-premises Cloud)",
@@ -1981,6 +2006,7 @@
       "type": "object"
     },
     "VirtualNetworksPropertiesInfraVnetProfileKubevirt": {
+      "description": "Infra network profile for KubeVirt platform",
       "properties": {
         "vnetName": {
           "description": "Name of the network in KubeVirt",
@@ -1990,6 +2016,7 @@
       "type": "object"
     },
     "VirtualNetworksPropertiesInfraVnetProfileVmware": {
+      "description": "Infra network profile for VMware platform",
       "properties": {
         "segmentName": {
           "description": "Name of the network segment in VSphere",
@@ -2025,6 +2052,7 @@
       "type": "object"
     },
     "WindowsProfile": {
+      "description": "WindowsProfile - Profile for Windows VMs in the container service cluster.",
       "properties": {
         "adminPassword": {
           "description": "AdminPassword - Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\"",
@@ -2128,7 +2156,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.HybridContainerService/provisionedClusters/agentPools"
+            "agentPools"
           ],
           "type": "string"
         }
@@ -2175,7 +2203,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.HybridContainerService/provisionedClusters/hybridIdentityMetadata"
+            "hybridIdentityMetadata"
           ],
           "type": "string"
         }

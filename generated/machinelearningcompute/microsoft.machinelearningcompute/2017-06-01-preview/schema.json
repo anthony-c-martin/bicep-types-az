@@ -74,6 +74,7 @@
   },
   "definitions": {
     "AcsClusterProperties": {
+      "description": "Information about the container service backing the cluster",
       "properties": {
         "agentCount": {
           "description": "The number of agent nodes in the Container Service. This can be changed to scale the cluster.",
@@ -204,6 +205,7 @@
       "type": "object"
     },
     "AppInsightsCredentials": {
+      "description": "AppInsights credentials.",
       "properties": {
         "apiKey": {
           "description": "The AppInsights API key. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.",
@@ -217,6 +219,7 @@
       "type": "object"
     },
     "AutoScaleConfiguration": {
+      "description": "AutoScale configuration properties.",
       "properties": {
         "maxReplicas": {
           "description": "The maximum number of replicas for each service.",
@@ -281,6 +284,7 @@
       "type": "object"
     },
     "ContainerRegistryProperties": {
+      "description": "Properties of Azure Container Registry.",
       "properties": {
         "resourceId": {
           "description": "ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.",
@@ -293,6 +297,7 @@
       "additionalProperties": {
         "type": "string"
       },
+      "description": "Global configuration for services in the cluster.",
       "properties": {
         "autoScale": {
           "description": "The auto-scale configuration",
@@ -335,6 +340,7 @@
       "type": "object"
     },
     "KubernetesClusterProperties": {
+      "description": "Kubernetes cluster specific properties",
       "properties": {
         "servicePrincipal": {
           "description": "The Azure Service Principal used by Kubernetes",
@@ -354,6 +360,7 @@
       "type": "object"
     },
     "OperationalizationClusterProperties": {
+      "description": "Properties of an operationalization cluster",
       "properties": {
         "appInsights": {
           "description": "AppInsights configuration",
@@ -436,6 +443,7 @@
       "type": "object"
     },
     "ServiceAuthConfiguration": {
+      "description": "Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.",
       "properties": {
         "primaryAuthKeyHash": {
           "description": "The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.",
@@ -453,6 +461,7 @@
       "type": "object"
     },
     "ServicePrincipalProperties": {
+      "description": "The Azure service principal used by Kubernetes for configuring load balancers",
       "properties": {
         "clientId": {
           "description": "The service principal client ID",
@@ -470,6 +479,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.",
       "properties": {
         "cert": {
           "description": "The SSL cert data in PEM format encoded as base64 string",
@@ -498,6 +508,7 @@
       "type": "object"
     },
     "StorageAccountProperties": {
+      "description": "Properties of Storage Account.",
       "properties": {
         "resourceId": {
           "description": "ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.",

@@ -91,6 +91,7 @@
   },
   "definitions": {
     "BudgetProperties": {
+      "description": "The properties of the budget.",
       "properties": {
         "amount": {
           "description": "The total amount of cost to track with the budget",
@@ -188,6 +189,7 @@
       "type": "object"
     },
     "BudgetTimePeriod": {
+      "description": "The start and end date for a budget.",
       "properties": {
         "endDate": {
           "description": "The end date for the budget. If not provided, we default this to 10 years from the start date.",
@@ -220,6 +222,7 @@
       "type": "object"
     },
     "KpiProperties": {
+      "description": "Each KPI must contain a 'type' and 'enabled' key.",
       "properties": {
         "enabled": {
           "description": "show the KPI in the UI?",
@@ -255,6 +258,7 @@
       "type": "object"
     },
     "Notification": {
+      "description": "The notification associated with a budget.",
       "properties": {
         "contactEmails": {
           "description": "Email addresses to send the budget notification to when the threshold is exceeded.",
@@ -346,6 +350,7 @@
       "type": "object"
     },
     "PivotProperties": {
+      "description": "Each pivot must contain a 'type' and 'name'.",
       "properties": {
         "name": {
           "description": "Data field to show in view.",
@@ -370,6 +375,7 @@
       "type": "object"
     },
     "ReportConfigAggregation": {
+      "description": "The aggregation expression to be used in the report.",
       "properties": {
         "function": {
           "description": "The name of the aggregation function to use.",
@@ -397,6 +403,7 @@
       "type": "object"
     },
     "ReportConfigComparisonExpression": {
+      "description": "The comparison expression to be used in the report.",
       "properties": {
         "name": {
           "description": "The name of the column to use in comparison.",
@@ -440,6 +447,7 @@
       "type": "object"
     },
     "ReportConfigDataset": {
+      "description": "The definition of data present in the report.",
       "properties": {
         "aggregation": {
           "description": "Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.",
@@ -546,6 +554,7 @@
       "type": "object"
     },
     "ReportConfigDatasetConfiguration": {
+      "description": "The configuration of dataset in the report.",
       "properties": {
         "columns": {
           "description": "Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.",
@@ -565,6 +574,7 @@
       "type": "object"
     },
     "ReportConfigDefinition": {
+      "description": "The definition of a report config.",
       "properties": {
         "dataset": {
           "description": "Has definition for data in this report config.",
@@ -627,6 +637,7 @@
       "type": "object"
     },
     "ReportConfigFilter": {
+      "description": "The filter expression to be used in the report.",
       "properties": {
         "and": {
           "description": "The logical \"AND\" expression. Must have at least 2 items.",
@@ -707,6 +718,7 @@
       "type": "object"
     },
     "ReportConfigGrouping": {
+      "description": "The group by expression to be used in the report.",
       "properties": {
         "name": {
           "description": "The name of the column to group. This version supports subscription lowest possible grain.",
@@ -735,6 +747,7 @@
       "type": "object"
     },
     "ReportConfigSorting": {
+      "description": "The order by expression to be used in the report.",
       "properties": {
         "direction": {
           "description": "Direction of sort.",
@@ -762,6 +775,7 @@
       "type": "object"
     },
     "ReportConfigTimePeriod": {
+      "description": "The start and end date for pulling data for the report.",
       "properties": {
         "from": {
           "description": "The start date to pull data from.",
@@ -795,6 +809,7 @@
       "type": "object"
     },
     "ViewProperties": {
+      "description": "The properties of the view.",
       "properties": {
         "accumulated": {
           "description": "Show costs accumulated over time.",

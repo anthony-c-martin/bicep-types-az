@@ -432,6 +432,7 @@
   },
   "definitions": {
     "AcceptedAudiences": {
+      "description": "Represents an accepted audience trusted by the cluster.",
       "properties": {
         "value": {
           "description": "GUID or valid URL representing an accepted audience.",
@@ -441,6 +442,7 @@
       "type": "object"
     },
     "AttachedDatabaseConfigurationProperties": {
+      "description": "Class representing the an attached database configuration properties of kind specific.",
       "properties": {
         "clusterResourceId": {
           "description": "The resource id of the cluster where the databases you would like to attach reside.",
@@ -486,6 +488,7 @@
       "type": "object"
     },
     "AzureSku": {
+      "description": "Azure SKU definition.",
       "properties": {
         "capacity": {
           "description": "The number of instances of the cluster.",
@@ -559,6 +562,7 @@
       "type": "object"
     },
     "ClusterPrincipalProperties": {
+      "description": "A class representing cluster principal property.",
       "properties": {
         "principalId": {
           "description": "The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.",
@@ -608,6 +612,7 @@
       "type": "object"
     },
     "ClusterProperties": {
+      "description": "Class representing the Kusto cluster properties.",
       "properties": {
         "acceptedAudiences": {
           "description": "The cluster's accepted audiences.",
@@ -820,6 +825,7 @@
       "type": "object"
     },
     "DatabasePrincipalProperties": {
+      "description": "A class representing database principal property.",
       "properties": {
         "principalId": {
           "description": "The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.",
@@ -873,6 +879,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.",
@@ -920,6 +927,7 @@
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "Properties of the key vault.",
       "properties": {
         "keyName": {
           "description": "The name of the key vault key.",
@@ -941,6 +949,7 @@
       "type": "object"
     },
     "ManagedPrivateEndpointProperties": {
+      "description": "A class representing the properties of a managed private endpoint object.",
       "properties": {
         "groupId": {
           "description": "The groupId in which the managed private endpoint is created.",
@@ -966,6 +975,7 @@
       "type": "object"
     },
     "OptimizedAutoscale": {
+      "description": "A class that contains the optimized auto scale definition.",
       "properties": {
         "isEnabled": {
           "description": "A boolean value that indicate if the optimized autoscale feature is enabled or not.",
@@ -1021,6 +1031,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateLinkServiceConnectionState": {
           "description": "Connection State of the Private Endpoint Connection.",
@@ -1040,6 +1051,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionStateProperty": {
+      "description": "Connection State of the Private Endpoint Connection.",
       "properties": {
         "description": {
           "description": "The private link service connection description.",
@@ -1053,6 +1065,7 @@
       "type": "object"
     },
     "ScriptProperties": {
+      "description": "A class representing database script property.",
       "properties": {
         "continueOnErrors": {
           "description": "Flag that indicates whether to continue if one of the command fails.",
@@ -1085,6 +1098,7 @@
       "type": "object"
     },
     "TableLevelSharingProperties": {
+      "description": "Tables that will be included and excluded in the follower database",
       "properties": {
         "externalTablesToExclude": {
           "description": "List of external tables exclude from the follower database",
@@ -1174,6 +1188,7 @@
       "type": "object"
     },
     "TrustedExternalTenant": {
+      "description": "Represents a tenant ID that is trusted by the cluster.",
       "properties": {
         "value": {
           "description": "GUID representing an external tenant.",
@@ -1183,6 +1198,7 @@
       "type": "object"
     },
     "VirtualNetworkConfiguration": {
+      "description": "A class that contains virtual network definition.",
       "properties": {
         "dataManagementPublicIpId": {
           "description": "Data management's service public IP address resource id.",
@@ -1234,7 +1250,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/attachedDatabaseConfigurations"
+            "attachedDatabaseConfigurations"
           ],
           "type": "string"
         }
@@ -1265,7 +1281,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -1296,7 +1312,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases/dataConnections"
+            "dataConnections"
           ],
           "type": "string"
         }
@@ -1334,7 +1350,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases/principalAssignments"
+            "principalAssignments"
           ],
           "type": "string"
         }
@@ -1372,7 +1388,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/databases/scripts"
+            "scripts"
           ],
           "type": "string"
         }
@@ -1410,7 +1426,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/managedPrivateEndpoints"
+            "managedPrivateEndpoints"
           ],
           "type": "string"
         }
@@ -1448,7 +1464,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/principalAssignments"
+            "principalAssignments"
           ],
           "type": "string"
         }
@@ -1486,7 +1502,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Kusto/clusters/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

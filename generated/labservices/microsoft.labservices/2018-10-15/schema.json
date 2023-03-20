@@ -385,6 +385,7 @@
   },
   "definitions": {
     "EnvironmentProperties": {
+      "description": "Properties of an environment",
       "properties": {
         "provisioningState": {
           "description": "The provisioning status of the resource.",
@@ -409,6 +410,7 @@
       "type": "object"
     },
     "EnvironmentSettingProperties": {
+      "description": "Properties of an environment setting",
       "properties": {
         "configurationState": {
           "description": "Describes the user's progress in configuring their environment setting",
@@ -459,6 +461,7 @@
       "type": "object"
     },
     "GalleryImageProperties": {
+      "description": "The gallery image properties",
       "properties": {
         "isEnabled": {
           "description": "Indicates whether this gallery image is enabled.",
@@ -505,6 +508,7 @@
       "type": "object"
     },
     "LabAccountProperties": {
+      "description": "Properties of a Lab Account.",
       "properties": {
         "enabledRegionSelection": {
           "description": "Represents if region selection is enabled",
@@ -529,6 +533,7 @@
       "type": "object"
     },
     "LabProperties": {
+      "description": "Properties of a Lab.",
       "properties": {
         "maxUsersInLab": {
           "description": "Maximum number of users allowed in the lab.",
@@ -572,6 +577,7 @@
       "type": "object"
     },
     "ReferenceVm": {
+      "description": "Details of a Reference Vm",
       "properties": {
         "password": {
           "description": "The password of the virtual machine. This will be set to null in GET resource API",
@@ -588,6 +594,7 @@
       "type": "object"
     },
     "ResourceSet": {
+      "description": "Represents a VM and the setting Id it was created for.",
       "properties": {
         "resourceSettingId": {
           "description": "resourceSettingId for the environment",
@@ -601,6 +608,7 @@
       "type": "object"
     },
     "ResourceSettings": {
+      "description": "Represents resource specific settings",
       "properties": {
         "galleryImageResourceId": {
           "description": "The resource id of the gallery image used for creating the virtual machine",
@@ -640,6 +648,7 @@
       "type": "object"
     },
     "UserProperties": {
+      "description": "Lab User properties",
       "properties": {
         "provisioningState": {
           "description": "The provisioning status of the resource.",
@@ -697,7 +706,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labaccounts/galleryimages"
+            "galleryimages"
           ],
           "type": "string"
         }
@@ -754,7 +763,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labaccounts/labs"
+            "labs"
           ],
           "type": "string"
         }
@@ -811,7 +820,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labaccounts/labs/environmentsettings"
+            "environmentsettings"
           ],
           "type": "string"
         }
@@ -868,7 +877,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labaccounts/labs/environmentsettings/environments"
+            "environments"
           ],
           "type": "string"
         }
@@ -925,7 +934,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.LabServices/labaccounts/labs/users"
+            "users"
           ],
           "type": "string"
         }

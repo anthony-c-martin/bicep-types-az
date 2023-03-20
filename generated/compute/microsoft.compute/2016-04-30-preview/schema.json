@@ -482,13 +482,14 @@
   },
   "definitions": {
     "AdditionalUnattendContent": {
+      "description": "Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.",
       "properties": {
         "componentName": {
           "description": "The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Microsoft-Windows-Shell-Setup"
               ],
               "type": "string"
             },
@@ -506,7 +507,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "OobeSystem"
               ],
               "type": "string"
             },
@@ -534,6 +535,7 @@
       "type": "object"
     },
     "ApiEntityReference": {
+      "description": "The API entity reference.",
       "properties": {
         "id": {
           "description": "The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...",
@@ -543,6 +545,7 @@
       "type": "object"
     },
     "AvailabilitySetProperties": {
+      "description": "The instance view of a resource.",
       "properties": {
         "managed": {
           "description": "If the availability set supports managed disks.",
@@ -602,6 +605,7 @@
       "type": "object"
     },
     "BootDiagnostics": {
+      "description": "Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.",
       "properties": {
         "enabled": {
           "description": "Whether boot diagnostics should be enabled on the Virtual Machine.",
@@ -622,6 +626,7 @@
       "type": "object"
     },
     "CreationData": {
+      "description": "Data used when creating a disk.",
       "properties": {
         "createOption": {
           "description": "This enumerates the possible sources of a disk's creation.",
@@ -672,6 +677,7 @@
       "type": "object"
     },
     "DataDisk": {
+      "description": "Describes a data disk.",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**",
@@ -772,6 +778,7 @@
       "type": "object"
     },
     "DiagnosticsProfile": {
+      "description": "Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.",
       "properties": {
         "bootDiagnostics": {
           "description": "Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.",
@@ -788,6 +795,7 @@
       "type": "object"
     },
     "DiskEncryptionSettings": {
+      "description": "Describes a Encryption Settings for a Disk",
       "properties": {
         "diskEncryptionKey": {
           "description": "Specifies the location of the disk encryption key, which is a Key Vault Secret.",
@@ -826,6 +834,7 @@
       "type": "object"
     },
     "DiskProperties": {
+      "description": "Disk resource properties.",
       "properties": {
         "accountType": {
           "description": "the storage account type of the disk.",
@@ -897,6 +906,7 @@
       "type": "object"
     },
     "EncryptionSettings": {
+      "description": "Encryption settings for disk or snapshot",
       "properties": {
         "diskEncryptionKey": {
           "description": "Key Vault Secret Url and vault id of the disk encryption key",
@@ -935,6 +945,7 @@
       "type": "object"
     },
     "HardwareProfile": {
+      "description": "Specifies the hardware settings for the virtual machine.",
       "properties": {
         "vmSize": {
           "description": "Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](virtualmachines-list-sizes-availability-set.md) <br><br> [List all available virtual machine sizes in a region](virtualmachines-list-sizes-region.md) <br><br> [List all available virtual machine sizes for resizing](virtualmachines-list-sizes-for-resizing.md)",
@@ -1016,6 +1027,7 @@
       "type": "object"
     },
     "ImageDataDisk": {
+      "description": "Describes a data disk.",
       "properties": {
         "blobUri": {
           "description": "The Virtual Hard Disk.",
@@ -1088,6 +1100,7 @@
       "type": "object"
     },
     "ImageDiskReference": {
+      "description": "The source image used for creating the disk.",
       "properties": {
         "id": {
           "description": "A relative uri containing either a Platform Image Repository or user image reference.",
@@ -1111,6 +1124,7 @@
       "type": "object"
     },
     "ImageOSDisk": {
+      "description": "Describes an Operating System disk.",
       "properties": {
         "blobUri": {
           "description": "The Virtual Hard Disk.",
@@ -1203,6 +1217,7 @@
       "type": "object"
     },
     "ImageProperties": {
+      "description": "Describes the properties of an Image.",
       "properties": {
         "sourceVirtualMachine": {
           "description": "The source virtual machine from which Image is created.",
@@ -1230,6 +1245,7 @@
       "type": "object"
     },
     "ImageReference": {
+      "description": "Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -1255,6 +1271,7 @@
       "type": "object"
     },
     "ImageStorageProfile": {
+      "description": "Describes a storage profile.",
       "properties": {
         "dataDisks": {
           "description": "Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).",
@@ -1295,6 +1312,7 @@
       "type": "object"
     },
     "InstanceViewStatus": {
+      "description": "Instance view status.",
       "properties": {
         "code": {
           "description": "The status code.",
@@ -1340,6 +1358,7 @@
       "type": "object"
     },
     "KeyVaultAndKeyReference": {
+      "description": "Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey",
       "properties": {
         "keyUrl": {
           "description": "Url pointing to a key or secret in KeyVault",
@@ -1364,6 +1383,7 @@
       "type": "object"
     },
     "KeyVaultAndSecretReference": {
+      "description": "Key Vault Secret Url and vault id of the encryption key ",
       "properties": {
         "secretUrl": {
           "description": "Url pointing to a key or secret in KeyVault",
@@ -1388,6 +1408,7 @@
       "type": "object"
     },
     "KeyVaultKeyReference": {
+      "description": "Describes a reference to Key Vault Key",
       "properties": {
         "keyUrl": {
           "description": "The URL referencing a key encryption key in Key Vault.",
@@ -1412,6 +1433,7 @@
       "type": "object"
     },
     "KeyVaultSecretReference": {
+      "description": "Describes a reference to Key Vault Secret",
       "properties": {
         "secretUrl": {
           "description": "The URL referencing a secret in a Key Vault.",
@@ -1436,6 +1458,7 @@
       "type": "object"
     },
     "LinuxConfiguration": {
+      "description": "Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).",
       "properties": {
         "disablePasswordAuthentication": {
           "description": "Specifies whether password authentication should be disabled.",
@@ -1463,6 +1486,7 @@
       "type": "object"
     },
     "ManagedDiskParameters": {
+      "description": "The parameters of a managed disk.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -1487,6 +1511,7 @@
       "type": "object"
     },
     "NetworkInterfaceReference": {
+      "description": "Describes a network interface reference.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -1507,6 +1532,7 @@
       "type": "object"
     },
     "NetworkInterfaceReferenceProperties": {
+      "description": "Describes a network interface reference properties.",
       "properties": {
         "primary": {
           "description": "Specifies the primary network interface in case the virtual machine has more than 1 network interface.",
@@ -1523,6 +1549,7 @@
       "type": "object"
     },
     "NetworkProfile": {
+      "description": "Specifies the network interfaces of the virtual machine.",
       "properties": {
         "networkInterfaces": {
           "description": "Specifies the list of resource Ids for the network interfaces associated with the virtual machine.",
@@ -1549,6 +1576,7 @@
       "type": "object"
     },
     "OSDisk": {
+      "description": "Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**",
@@ -1663,6 +1691,7 @@
       "type": "object"
     },
     "OSProfile": {
+      "description": "Specifies the operating system settings for the virtual machine.",
       "properties": {
         "adminPassword": {
           "description": "Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)",
@@ -1727,6 +1756,7 @@
       "type": "object"
     },
     "Plan": {
+      "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.",
       "properties": {
         "name": {
           "description": "The plan ID.",
@@ -1748,6 +1778,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Describes a virtual machine scale set sku.",
       "properties": {
         "capacity": {
           "description": "Specifies the number of virtual machines in the scale set.",
@@ -1772,6 +1803,7 @@
       "type": "object"
     },
     "SourceVault": {
+      "description": "The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -1781,6 +1813,7 @@
       "type": "object"
     },
     "SshConfiguration": {
+      "description": "SSH configuration for Linux based VMs running on Azure",
       "properties": {
         "publicKeys": {
           "description": "The list of SSH public keys used to authenticate with linux based VMs.",
@@ -1807,6 +1840,7 @@
       "type": "object"
     },
     "SshPublicKey": {
+      "description": "Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.",
       "properties": {
         "keyData": {
           "description": "SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).",
@@ -1820,6 +1854,7 @@
       "type": "object"
     },
     "StorageProfile": {
+      "description": "Specifies the storage settings for the virtual machine disks.",
       "properties": {
         "dataDisks": {
           "description": "Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).",
@@ -1877,6 +1912,7 @@
       "type": "object"
     },
     "UpgradePolicy": {
+      "description": "Describes an upgrade policy - automatic or manual.",
       "properties": {
         "mode": {
           "description": "Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.",
@@ -1897,6 +1933,7 @@
       "type": "object"
     },
     "VaultCertificate": {
+      "description": "Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.",
       "properties": {
         "certificateStore": {
           "description": "For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.",
@@ -1910,6 +1947,7 @@
       "type": "object"
     },
     "VaultSecretGroup": {
+      "description": "Describes a set of certificates which are all in the same Key Vault.",
       "properties": {
         "sourceVault": {
           "description": "The relative URL of the Key Vault containing all of the certificates in VaultCertificates.",
@@ -1947,6 +1985,7 @@
       "type": "object"
     },
     "VirtualHardDisk": {
+      "description": "Describes the uri of a disk.",
       "properties": {
         "uri": {
           "description": "Specifies the virtual hard disk's uri.",
@@ -1956,6 +1995,7 @@
       "type": "object"
     },
     "VirtualMachineExtensionInstanceView": {
+      "description": "The instance view of a virtual machine extension.",
       "properties": {
         "name": {
           "description": "The virtual machine extension name.",
@@ -2015,6 +2055,7 @@
       "type": "object"
     },
     "VirtualMachineExtensionProperties": {
+      "description": "Describes the properties of a Virtual Machine Extension.",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
@@ -2064,13 +2105,14 @@
       "type": "object"
     },
     "VirtualMachineIdentity": {
+      "description": "Identity for the virtual machine.",
       "properties": {
         "type": {
           "description": "The type of identity used for the virtual machine. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -2083,6 +2125,7 @@
       "type": "object"
     },
     "VirtualMachineProperties": {
+      "description": "Describes the properties of a Virtual Machine.",
       "properties": {
         "availabilitySet": {
           "description": "Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.",
@@ -2158,6 +2201,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetDataDisk": {
+      "description": "Describes a virtual machine scale set data disk.",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**",
@@ -2236,6 +2280,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetExtension": {
+      "description": "Describes a Virtual Machine Scale Set Extension.",
       "properties": {
         "name": {
           "description": "The name of the extension.",
@@ -2256,6 +2301,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetExtensionProfile": {
+      "description": "Describes a virtual machine scale set extension profile.",
       "properties": {
         "extensions": {
           "description": "The virtual machine scale set child extension resources.",
@@ -2282,6 +2328,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetExtensionProperties": {
+      "description": "Describes the properties of a Virtual Machine Scale Set Extension.",
       "properties": {
         "autoUpgradeMinorVersion": {
           "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
@@ -2316,6 +2363,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetIPConfiguration": {
+      "description": "Describes a virtual machine scale set network profile's IP configuration.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -2343,6 +2391,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetIPConfigurationProperties": {
+      "description": "Describes a virtual machine scale set network profile's IP configuration properties.",
       "properties": {
         "applicationGatewayBackendAddressPools": {
           "description": "The application gateway backend address pools.",
@@ -2425,13 +2474,14 @@
       "type": "object"
     },
     "VirtualMachineScaleSetIdentity": {
+      "description": "Identity for the virtual machine scale set.",
       "properties": {
         "type": {
           "description": "The type of identity used for the virtual machine scale set. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -2444,6 +2494,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetManagedDiskParameters": {
+      "description": "Describes the parameters of a ScaleSet managed disk.",
       "properties": {
         "storageAccountType": {
           "description": "Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.",
@@ -2464,6 +2515,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetNetworkConfiguration": {
+      "description": "Describes a virtual machine scale set network profile's network configurations.",
       "properties": {
         "id": {
           "description": "Resource Id",
@@ -2491,6 +2543,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetNetworkConfigurationProperties": {
+      "description": "Describes a virtual machine scale set network profile's IP configuration.",
       "properties": {
         "ipConfigurations": {
           "description": "The virtual machine scale set IP Configuration.",
@@ -2531,6 +2584,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetNetworkProfile": {
+      "description": "Describes a virtual machine scale set network profile.",
       "properties": {
         "networkInterfaceConfigurations": {
           "description": "The list of network configurations.",
@@ -2557,6 +2611,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetOSDisk": {
+      "description": "Describes a virtual machine scale set operating system disk.",
       "properties": {
         "caching": {
           "description": "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**",
@@ -2652,6 +2707,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetOSProfile": {
+      "description": "Describes a virtual machine scale set OS profile.",
       "properties": {
         "adminPassword": {
           "description": "Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)",
@@ -2716,6 +2772,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetProperties": {
+      "description": "Describes the properties of a Virtual Machine Scale Set.",
       "properties": {
         "overProvision": {
           "description": "Specifies whether the Virtual Machine Scale Set should be overprovisioned.",
@@ -2765,6 +2822,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetStorageProfile": {
+      "description": "Describes a virtual machine scale set storage profile.",
       "properties": {
         "dataDisks": {
           "description": "The data disks.",
@@ -2813,6 +2871,7 @@
       "type": "object"
     },
     "VirtualMachineScaleSetVMProfile": {
+      "description": "Describes a virtual machine scale set virtual machine profile.",
       "properties": {
         "extensionProfile": {
           "description": "The virtual machine scale set extension profile.",
@@ -2862,6 +2921,7 @@
       "type": "object"
     },
     "WinRMConfiguration": {
+      "description": "Describes Windows Remote Management configuration of the VM",
       "properties": {
         "listeners": {
           "description": "The list of Windows Remote Management listeners",
@@ -2888,6 +2948,7 @@
       "type": "object"
     },
     "WinRMListener": {
+      "description": "Describes Protocol and thumbprint of Windows Remote Management listener",
       "properties": {
         "certificateUrl": {
           "description": "This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  \"data\":\"<Base64-encoded-certificate>\",<br>  \"dataType\":\"pfx\",<br>  \"password\":\"<pfx-file-password>\"<br>}",
@@ -2912,6 +2973,7 @@
       "type": "object"
     },
     "WindowsConfiguration": {
+      "description": "Specifies Windows operating system settings on the virtual machine.",
       "properties": {
         "additionalUnattendContent": {
           "description": "Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.",
@@ -3019,7 +3081,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Compute/virtualMachines/extensions"
+            "extensions"
           ],
           "type": "string"
         }

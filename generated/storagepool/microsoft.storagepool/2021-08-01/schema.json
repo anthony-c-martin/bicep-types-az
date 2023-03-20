@@ -159,6 +159,7 @@
   },
   "definitions": {
     "Acl": {
+      "description": "Access Control List (ACL) for an iSCSI Target; defines LUN masking policy",
       "properties": {
         "initiatorIqn": {
           "description": "iSCSI initiator IQN (iSCSI Qualified Name); example: \"iqn.2005-03.org.iscsi:client\".",
@@ -186,6 +187,7 @@
       "type": "object"
     },
     "Disk": {
+      "description": "Azure Managed Disk to attach to the Disk Pool.",
       "properties": {
         "id": {
           "description": "Unique Azure Resource ID of the Managed Disk.",
@@ -198,6 +200,7 @@
       "type": "object"
     },
     "DiskPoolCreateProperties": {
+      "description": "Properties for Disk Pool create or update request.",
       "properties": {
         "additionalCapabilities": {
           "description": "List of additional capabilities for a Disk Pool.",
@@ -259,6 +262,7 @@
       "type": "object"
     },
     "IscsiLun": {
+      "description": "LUN to expose the Azure Managed Disk.",
       "properties": {
         "managedDiskAzureResourceId": {
           "description": "Azure Resource ID of the Managed Disk.",
@@ -276,6 +280,7 @@
       "type": "object"
     },
     "IscsiTargetCreateProperties": {
+      "description": "Properties for iSCSI Target create or update request.",
       "properties": {
         "aclMode": {
           "description": "Mode for Target connectivity.",
@@ -345,6 +350,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku for ARM resource",
       "properties": {
         "name": {
           "description": "Sku name",
@@ -404,7 +410,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StoragePool/diskPools/iscsiTargets"
+            "iscsiTargets"
           ],
           "type": "string"
         }

@@ -380,6 +380,7 @@
   },
   "definitions": {
     "ArtifactSourceProperties": {
+      "description": "The properties that define the artifact source.",
       "properties": {
         "artifactRoot": {
           "description": "The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.",
@@ -408,10 +409,12 @@
       "type": "object"
     },
     "Authentication": {
+      "description": "Defines the authentication method and properties to access the artifacts.",
       "properties": {},
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "identityIds": {
           "description": "The list of identities.",
@@ -439,6 +442,7 @@
       "type": "object"
     },
     "PrePostStep": {
+      "description": "The properties that define a step.",
       "properties": {
         "stepId": {
           "description": "The resource Id of the step to be run.",
@@ -451,6 +455,7 @@
       "type": "object"
     },
     "RolloutRequestProperties": {
+      "description": "The properties for defining a rollout.",
       "properties": {
         "artifactSourceId": {
           "description": "The reference to the artifact source resource Id where the payload is located.",
@@ -494,6 +499,7 @@
       "type": "object"
     },
     "SasProperties": {
+      "description": "The properties that define SAS authentication.",
       "properties": {
         "sasUri": {
           "description": "The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.",
@@ -506,6 +512,7 @@
       "type": "object"
     },
     "ServiceResourceProperties": {
+      "description": "The properties that define a service in a service topology.",
       "properties": {
         "targetLocation": {
           "description": "The Azure location to which the resources in the service belong to or should be deployed to.",
@@ -523,6 +530,7 @@
       "type": "object"
     },
     "ServiceTopologyResourceProperties": {
+      "description": "The properties that define the service topology.",
       "properties": {
         "artifactSourceId": {
           "description": "The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.",
@@ -532,6 +540,7 @@
       "type": "object"
     },
     "ServiceUnitArtifacts": {
+      "description": "Defines the artifacts of a service unit.",
       "properties": {
         "parametersArtifactSourceRelativePath": {
           "description": "The path to the ARM parameters file relative to the artifact source.",
@@ -553,6 +562,7 @@
       "type": "object"
     },
     "ServiceUnitResourceProperties": {
+      "description": "The properties that define the service unit.",
       "properties": {
         "artifacts": {
           "description": "The artifacts for the service unit.",
@@ -592,6 +602,7 @@
       "type": "object"
     },
     "Step": {
+      "description": "The properties that define an Azure Deployment Manager step.",
       "properties": {
         "dependsOnStepGroups": {
           "description": "The list of step group names on which this step group depends on.",
@@ -665,10 +676,12 @@
       "type": "object"
     },
     "StepProperties": {
+      "description": "The properties of a step resource.",
       "properties": {},
       "type": "object"
     },
     "WaitStepAttributes": {
+      "description": "The parameters for the wait step.",
       "properties": {
         "duration": {
           "description": "The duration in ISO 8601 format of how long the wait should be.",
@@ -725,7 +738,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DeploymentManager/serviceTopologies/services"
+            "services"
           ],
           "type": "string"
         }
@@ -782,7 +795,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits"
+            "serviceUnits"
           ],
           "type": "string"
         }

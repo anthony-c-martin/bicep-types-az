@@ -74,6 +74,7 @@
   },
   "definitions": {
     "Backend": {
+      "description": "Backend address of a frontDoor load balancer.",
       "properties": {
         "address": {
           "description": "Location of the backend (IP address or FQDN)",
@@ -146,6 +147,7 @@
       "type": "object"
     },
     "BackendPool": {
+      "description": "A backend pool is a collection of backends that can be routed to.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -170,6 +172,7 @@
       "type": "object"
     },
     "BackendPoolProperties": {
+      "description": "The JSON object that contains the properties required to create a routing rule.",
       "properties": {
         "backends": {
           "description": "The set of backends for this pool",
@@ -218,6 +221,7 @@
       "type": "object"
     },
     "BackendPoolsSettings": {
+      "description": "Settings that apply to all backend pools.",
       "properties": {
         "enforceCertificateNameCheck": {
           "description": "Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.",
@@ -238,6 +242,7 @@
       "type": "object"
     },
     "CacheConfiguration": {
+      "description": "Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.",
       "properties": {
         "dynamicCompression": {
           "description": "Whether to use dynamic compression for cached content",
@@ -273,6 +278,7 @@
       "type": "object"
     },
     "FrontDoorProperties": {
+      "description": "The JSON object that contains the properties required to create an endpoint.",
       "properties": {
         "backendPools": {
           "description": "Backend pools available to routing rules.",
@@ -413,6 +419,7 @@
       "type": "object"
     },
     "FrontendEndpoint": {
+      "description": "A frontend endpoint used for routing.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -437,6 +444,7 @@
       "type": "object"
     },
     "FrontendEndpointProperties": {
+      "description": "The JSON object that contains the properties required to create a frontend endpoint.",
       "properties": {
         "hostName": {
           "description": "The host name of the frontendEndpoint. Must be a domain name.",
@@ -483,6 +491,7 @@
       "type": "object"
     },
     "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink": {
+      "description": "Defines the Web Application Firewall policy for each host (if applicable)",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -492,6 +501,7 @@
       "type": "object"
     },
     "HealthProbeSettingsModel": {
+      "description": "Load balancing settings for a backend pool",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -516,6 +526,7 @@
       "type": "object"
     },
     "HealthProbeSettingsProperties": {
+      "description": "The JSON object that contains the properties required to create a health probe settings.",
       "properties": {
         "intervalInSeconds": {
           "description": "The number of seconds between health probes.",
@@ -551,6 +562,7 @@
       "type": "object"
     },
     "LoadBalancingSettingsModel": {
+      "description": "Load balancing settings for a backend pool",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -575,6 +587,7 @@
       "type": "object"
     },
     "LoadBalancingSettingsProperties": {
+      "description": "The JSON object that contains the properties required to create load balancing settings",
       "properties": {
         "additionalLatencyMilliseconds": {
           "description": "The additional latency in milliseconds for probes to fall into the lowest latency bucket",
@@ -613,10 +626,12 @@
       "type": "object"
     },
     "RouteConfiguration": {
+      "description": "Base class for all types of Route.",
       "properties": {},
       "type": "object"
     },
     "RoutingRule": {
+      "description": "A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -641,6 +656,7 @@
       "type": "object"
     },
     "RoutingRuleProperties": {
+      "description": "The JSON object that contains the properties required to create a routing rule.",
       "properties": {
         "acceptedProtocols": {
           "description": "Protocol schemes to match for this rule",
@@ -732,6 +748,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Reference to another subresource.",
       "properties": {
         "id": {
           "description": "Resource ID.",

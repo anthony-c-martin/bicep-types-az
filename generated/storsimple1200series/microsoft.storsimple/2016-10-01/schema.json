@@ -579,6 +579,7 @@
   },
   "definitions": {
     "AccessControlRecordProperties": {
+      "description": "Properties of access control record",
       "properties": {
         "initiatorName": {
           "description": "The Iscsi initiator name (IQN)",
@@ -591,6 +592,7 @@
       "type": "object"
     },
     "AlertSettingsProperties": {
+      "description": "Class containing the properties of AlertSettings",
       "properties": {
         "additionalRecipientEmailList": {
           "description": "List of email addresses (apart from admin/co-admin of subscription) to whom the alert emails need to be sent",
@@ -649,6 +651,7 @@
       "type": "object"
     },
     "AsymmetricEncryptedSecret": {
+      "description": "This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.",
       "properties": {
         "encryptionAlgorithm": {
           "description": "Algorithm used to encrypt \"Value\"",
@@ -682,6 +685,7 @@
       "type": "object"
     },
     "BackupScheduleGroupProperties": {
+      "description": "The Backup Schedule Group Properties",
       "properties": {
         "startTime": {
           "description": "The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.",
@@ -701,6 +705,7 @@
       "type": "object"
     },
     "ChapProperties": {
+      "description": "Chap properties",
       "properties": {
         "password": {
           "description": "The chap password.",
@@ -720,6 +725,7 @@
       "type": "object"
     },
     "FileServerProperties": {
+      "description": "The file server properties.",
       "properties": {
         "backupScheduleGroupId": {
           "description": "The backup policy id.",
@@ -746,6 +752,7 @@
       "type": "object"
     },
     "FileShareProperties": {
+      "description": "The File Share.",
       "properties": {
         "adminUser": {
           "description": "The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.",
@@ -824,6 +831,7 @@
       "type": "object"
     },
     "IscsiDiskProperties": {
+      "description": "The iSCSI disk properties.",
       "properties": {
         "accessControlRecords": {
           "description": "The access control records.",
@@ -912,6 +920,7 @@
       "type": "object"
     },
     "IscsiServerProperties": {
+      "description": "The iSCSI server properties.",
       "properties": {
         "backupScheduleGroupId": {
           "description": "The backup policy id.",
@@ -941,6 +950,7 @@
       "type": "object"
     },
     "ManagerExtendedInfoProperties": {
+      "description": "Properties of the ManagerExtendedInfo",
       "properties": {
         "algorithm": {
           "description": "Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used",
@@ -974,6 +984,7 @@
       "type": "object"
     },
     "ManagerIntrinsicSettings": {
+      "description": "Intrinsic settings which refers to the type of the StorSimple manager",
       "properties": {
         "type": {
           "description": "Refers to the type of the StorSimple Manager",
@@ -997,6 +1008,7 @@
       "type": "object"
     },
     "ManagerProperties": {
+      "description": "The properties of the Manager",
       "properties": {
         "cisIntrinsicSettings": {
           "description": "Specifies if the Manager is Garda or Helsinki",
@@ -1024,13 +1036,14 @@
       "type": "object"
     },
     "ManagerSku": {
+      "description": "The Sku.",
       "properties": {
         "name": {
           "description": "Refers to the sku name which should be \"Standard\"",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Standard"
               ],
               "type": "string"
             },
@@ -1046,6 +1059,7 @@
       "type": "object"
     },
     "RawCertificateData": {
+      "description": "Raw Certificate Data From IDM",
       "properties": {
         "authType": {
           "description": "Specify the Authentication type",
@@ -1074,6 +1088,7 @@
       "type": "object"
     },
     "StorageAccountCredentialProperties": {
+      "description": "Storage account properties",
       "properties": {
         "accessKey": {
           "description": "The details of the storage account password",
@@ -1141,6 +1156,7 @@
       "type": "object"
     },
     "StorageDomainProperties": {
+      "description": "The storage domain properties.",
       "properties": {
         "encryptionKey": {
           "description": "The encryption key used to encrypt the data. This is a user secret.",
@@ -1190,6 +1206,7 @@
       "type": "object"
     },
     "Time": {
+      "description": "The Time.",
       "properties": {
         "hour": {
           "description": "The hour.",
@@ -1246,7 +1263,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/accessControlRecords"
+            "accessControlRecords"
           ],
           "type": "string"
         }
@@ -1284,7 +1301,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/certificates"
+            "certificates"
           ],
           "type": "string"
         }
@@ -1322,7 +1339,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/devices/fileservers/shares"
+            "shares"
           ],
           "type": "string"
         }
@@ -1360,7 +1377,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/devices/iscsiservers/disks"
+            "disks"
           ],
           "type": "string"
         }
@@ -1386,7 +1403,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/vaultExtendedInfo$",
+          "enum": [
+            "vaultExtendedInfo"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1402,7 +1421,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/extendedInformation"
+            "extendedInformation"
           ],
           "type": "string"
         }
@@ -1440,7 +1459,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/storageAccountCredentials"
+            "storageAccountCredentials"
           ],
           "type": "string"
         }
@@ -1478,7 +1497,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.StorSimple/managers/storageDomains"
+            "storageDomains"
           ],
           "type": "string"
         }

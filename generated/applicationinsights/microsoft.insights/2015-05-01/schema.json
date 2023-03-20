@@ -706,6 +706,7 @@
   },
   "definitions": {
     "ApplicationInsightsComponentAnalyticsItemProperties": {
+      "description": "A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.",
       "properties": {
         "functionAlias": {
           "description": "A function alias, used when the type of the item is Function",
@@ -715,6 +716,7 @@
       "type": "object"
     },
     "ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions": {
+      "description": "Static definitions of the ProactiveDetection configuration rule (same values for all components).",
       "properties": {
         "Description": {
           "description": "The rule description",
@@ -780,6 +782,7 @@
       "type": "object"
     },
     "ApplicationInsightsComponentProperties": {
+      "description": "Properties that define an Application Insights component resource.",
       "properties": {
         "Application_Type": {
           "description": "Type of application being monitored.",
@@ -895,6 +898,7 @@
       "type": "object"
     },
     "MyWorkbookProperties": {
+      "description": "Properties that contain a private workbook.",
       "properties": {
         "category": {
           "description": "Workbook category, as defined by the user at creation time.",
@@ -939,6 +943,7 @@
       "type": "object"
     },
     "WebTestGeolocation": {
+      "description": "Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.",
       "properties": {
         "Id": {
           "description": "Location ID for the webtest to run from.",
@@ -948,6 +953,7 @@
       "type": "object"
     },
     "WebTestProperties": {
+      "description": "Metadata describing a web test for an Azure resource.",
       "properties": {
         "Configuration": {
           "description": "An XML configuration specification for a WebTest.",
@@ -1062,6 +1068,7 @@
       "type": "object"
     },
     "WebTestPropertiesConfiguration": {
+      "description": "An XML configuration specification for a WebTest.",
       "properties": {
         "WebTest": {
           "description": "The XML specification of a WebTest to run against an application.",
@@ -1071,6 +1078,7 @@
       "type": "object"
     },
     "WorkbookProperties": {
+      "description": "Properties that contain a workbook.",
       "properties": {
         "category": {
           "description": "Workbook category, as defined by the user at creation time.",
@@ -1210,7 +1218,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/components/ProactiveDetectionConfigs"
+            "ProactiveDetectionConfigs"
           ],
           "type": "string"
         }
@@ -1287,12 +1295,14 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/item$",
+          "enum": [
+            "item"
+          ],
           "type": "string"
         },
         "type": {
           "enum": [
-            "microsoft.insights/components/analyticsItems"
+            "analyticsItems"
           ],
           "type": "string"
         }
@@ -1355,7 +1365,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/components/exportconfiguration"
+            "exportconfiguration"
           ],
           "type": "string"
         }
@@ -1442,7 +1452,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/components/favorites"
+            "favorites"
           ],
           "type": "string"
         }
@@ -1519,12 +1529,14 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/item$",
+          "enum": [
+            "item"
+          ],
           "type": "string"
         },
         "type": {
           "enum": [
-            "microsoft.insights/components/myanalyticsItems"
+            "myanalyticsItems"
           ],
           "type": "string"
         }

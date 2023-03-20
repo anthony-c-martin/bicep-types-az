@@ -189,6 +189,7 @@
   },
   "definitions": {
     "ClusterProperties": {
+      "description": "Properties of RedisEnterprise clusters, as opposed to general resource properties like location, tags",
       "properties": {
         "encryption": {
           "description": "Encryption-at-rest configuration for the cluster.",
@@ -221,6 +222,7 @@
       "type": "object"
     },
     "ClusterPropertiesEncryption": {
+      "description": "Encryption-at-rest configuration for the cluster.",
       "properties": {
         "customerManagedKeyEncryption": {
           "description": "All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.",
@@ -237,6 +239,7 @@
       "type": "object"
     },
     "ClusterPropertiesEncryptionCustomerManagedKeyEncryption": {
+      "description": "All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.",
       "properties": {
         "keyEncryptionKeyIdentity": {
           "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.",
@@ -257,6 +260,7 @@
       "type": "object"
     },
     "ClusterPropertiesEncryptionCustomerManagedKeyEncryptionKeyIdentity": {
+      "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.",
       "properties": {
         "identityType": {
           "description": "Only userAssignedIdentity is supported in this API version; other types may be supported in the future",
@@ -285,6 +289,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "Properties of RedisEnterprise databases, as opposed to general resource properties like location, tags",
       "properties": {
         "clientProtocol": {
           "description": "Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.",
@@ -395,6 +400,7 @@
       "type": "object"
     },
     "DatabasePropertiesGeoReplication": {
+      "description": "Optional set of properties to configure geo replication for this database.",
       "properties": {
         "groupNickname": {
           "description": "Name for the group of linked database resources",
@@ -425,6 +431,7 @@
       "type": "object"
     },
     "LinkedDatabase": {
+      "description": "Specifies details of a linked database resource.",
       "properties": {
         "id": {
           "description": "Resource ID of a database resource to link with this database.",
@@ -434,6 +441,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
@@ -483,6 +491,7 @@
       "type": "object"
     },
     "Module": {
+      "description": "Specifies configuration of a redis module",
       "properties": {
         "args": {
           "description": "Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.",
@@ -499,6 +508,7 @@
       "type": "object"
     },
     "Persistence": {
+      "description": "Persistence-related configuration for the RedisEnterprise database",
       "properties": {
         "aofEnabled": {
           "description": "Sets whether AOF is enabled.",
@@ -557,10 +567,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -591,6 +603,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -620,6 +633,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU parameters supplied to the create RedisEnterprise operation.",
       "properties": {
         "capacity": {
           "description": "The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.",
@@ -659,6 +673,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
@@ -688,7 +703,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cache/redisEnterprise/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -726,7 +741,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cache/redisEnterprise/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

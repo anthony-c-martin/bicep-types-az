@@ -49,6 +49,7 @@
   },
   "definitions": {
     "BudgetComparisonExpression": {
+      "description": "The comparison expression to be used in the budgets.",
       "properties": {
         "name": {
           "description": "The name of the column to use in comparison.",
@@ -91,6 +92,7 @@
       "type": "object"
     },
     "BudgetFilter": {
+      "description": "May be used to filter budgets by resource group, resource, or meter.",
       "properties": {
         "and": {
           "description": "The logical \"AND\" expression. Must have at least 2 items.",
@@ -150,6 +152,7 @@
       "type": "object"
     },
     "BudgetFilterProperties": {
+      "description": "The Dimensions or Tags to filter a budget by.",
       "properties": {
         "dimensions": {
           "description": "Has comparison expression for a dimension",
@@ -177,6 +180,7 @@
       "type": "object"
     },
     "BudgetProperties": {
+      "description": "The properties of the budget.",
       "properties": {
         "amount": {
           "description": "The total amount of cost to track with the budget",
@@ -276,6 +280,7 @@
       "type": "object"
     },
     "BudgetTimePeriod": {
+      "description": "The start and end date for a budget.",
       "properties": {
         "endDate": {
           "description": "The end date for the budget. If not provided, we default this to 10 years from the start date.",
@@ -308,6 +313,7 @@
       "type": "object"
     },
     "Notification": {
+      "description": "The notification associated with a budget.",
       "properties": {
         "contactEmails": {
           "description": "Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.",

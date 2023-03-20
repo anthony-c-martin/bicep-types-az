@@ -216,6 +216,7 @@
   },
   "definitions": {
     "ContainerProperties": {
+      "description": "The properties of a container.",
       "properties": {
         "metadata": {
           "description": "A name-value pair to associate with the container as metadata.",
@@ -252,6 +253,7 @@
       "type": "object"
     },
     "CustomDomain": {
+      "description": "The custom domain assigned to this storage account. This can be set via Update.",
       "properties": {
         "name": {
           "description": "Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.",
@@ -275,6 +277,7 @@
       "type": "object"
     },
     "Encryption": {
+      "description": "The encryption settings on the storage account.",
       "properties": {
         "keySource": {
           "description": "The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault",
@@ -320,6 +323,7 @@
       "type": "object"
     },
     "EncryptionService": {
+      "description": "A service that allows server-side encryption to be used.",
       "properties": {
         "enabled": {
           "description": "A boolean indicating whether or not the service encrypts the data as it is stored.",
@@ -336,6 +340,7 @@
       "type": "object"
     },
     "EncryptionServices": {
+      "description": "A list of services that support encryption.",
       "properties": {
         "blob": {
           "description": "The encryption function of the blob storage service.",
@@ -363,13 +368,14 @@
       "type": "object"
     },
     "IPRule": {
+      "description": "IP rule with specific IP or IP range in CIDR format.",
       "properties": {
         "action": {
           "description": "The action of IP ACL rule.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Allow"
               ],
               "type": "string"
             },
@@ -389,13 +395,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -411,6 +418,7 @@
       "type": "object"
     },
     "ImmutabilityPolicyProperty": {
+      "description": "The properties of an ImmutabilityPolicy of a blob container.",
       "properties": {
         "immutabilityPeriodSinceCreationInDays": {
           "description": "The immutability period for the blobs in the container since the policy creation, in days.",
@@ -430,6 +438,7 @@
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "Properties of key vault.",
       "properties": {
         "keyname": {
           "description": "The name of KeyVault key.",
@@ -447,6 +456,7 @@
       "type": "object"
     },
     "NetworkRuleSet": {
+      "description": "Network rule set",
       "properties": {
         "bypass": {
           "description": "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, \"Logging, Metrics\"), or None to bypass none of those traffics.",
@@ -529,6 +539,7 @@
       "type": "object"
     },
     "Restriction": {
+      "description": "The restriction because of which SKU cannot be used.",
       "properties": {
         "reasonCode": {
           "description": "The reason for the restriction. As of now this can be \"QuotaId\" or \"NotAvailableForSubscription\". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The \"NotAvailableForSubscription\" is related to capacity at DC.",
@@ -549,6 +560,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The SKU of the storage account.",
       "properties": {
         "name": {
           "description": "Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.",
@@ -596,6 +608,7 @@
       "type": "object"
     },
     "StorageAccountPropertiesCreateParameters": {
+      "description": "The parameters used to create the storage account.",
       "properties": {
         "accessTier": {
           "description": "Required for storage accounts where kind = BlobStorage. The access tier used for billing.",
@@ -671,13 +684,14 @@
       "type": "object"
     },
     "VirtualNetworkRule": {
+      "description": "Virtual Network rule.",
       "properties": {
         "action": {
           "description": "The action of virtual network rule.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Allow"
               ],
               "type": "string"
             },
@@ -750,7 +764,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies"
+            "immutabilityPolicies"
           ],
           "type": "string"
         }

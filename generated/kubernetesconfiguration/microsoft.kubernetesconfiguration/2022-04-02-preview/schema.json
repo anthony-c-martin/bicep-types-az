@@ -174,6 +174,7 @@
   },
   "definitions": {
     "ExtensionProperties": {
+      "description": "Properties of an Extension resource",
       "properties": {
         "aksAssignedIdentity": {
           "description": "Identity of the Extension resource in an AKS cluster",
@@ -275,6 +276,7 @@
       "type": "object"
     },
     "ExtensionPropertiesAksAssignedIdentity": {
+      "description": "Identity of the Extension resource in an AKS cluster",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -295,6 +297,7 @@
       "type": "object"
     },
     "ExtensionStatus": {
+      "description": "Status from the extension.",
       "properties": {
         "code": {
           "description": "Status code provided by the Extension",
@@ -332,13 +335,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -351,6 +355,7 @@
       "type": "object"
     },
     "KubernetesConfigurationPrivateLinkScopeProperties": {
+      "description": "Properties that define a Azure Arc PrivateLinkScope resource.",
       "properties": {
         "clusterResourceId": {
           "description": "Managed Cluster ARM ID for the private link scope  (Required)",
@@ -378,6 +383,7 @@
       "type": "object"
     },
     "Plan": {
+      "description": "Plan for the resource.",
       "properties": {
         "name": {
           "description": "A user defined name of the 3rd Party Artifact that is being procured.",
@@ -408,10 +414,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -442,6 +450,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -471,6 +480,7 @@
       "type": "object"
     },
     "Scope": {
+      "description": "Scope of the extension. It can be either Cluster or Namespace; but not both.",
       "properties": {
         "cluster": {
           "description": "Specifies that the scope of the extension is Cluster",
@@ -498,6 +508,7 @@
       "type": "object"
     },
     "ScopeCluster": {
+      "description": "Specifies that the scope of the extension is Cluster",
       "properties": {
         "releaseNamespace": {
           "description": "Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created",
@@ -507,6 +518,7 @@
       "type": "object"
     },
     "ScopeNamespace": {
+      "description": "Specifies that the scope of the extension is Namespace",
       "properties": {
         "targetNamespace": {
           "description": "Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created",
@@ -541,7 +553,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.KubernetesConfiguration/privateLinkScopes/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

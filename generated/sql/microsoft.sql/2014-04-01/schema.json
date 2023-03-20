@@ -102,18 +102,8 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the server administrator resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/activeDirectory$",
+          "type": "string"
         },
         "properties": {
           "description": "The properties of the resource.",
@@ -544,18 +534,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the database for which the data masking rule applies.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/Default$",
+          "type": "string"
         },
         "properties": {
           "description": "The properties of the data masking policy.",
@@ -924,6 +904,7 @@
   },
   "definitions": {
     "AdvisorProperties": {
+      "description": "Properties for a Database, Server or Elastic Pool Advisor.",
       "properties": {
         "autoExecuteValue": {
           "description": "Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'",
@@ -948,6 +929,7 @@
       "type": "object"
     },
     "DataMaskingPolicyProperties": {
+      "description": "The properties of a database data masking policy.",
       "properties": {
         "dataMaskingState": {
           "description": "The state of the data masking policy.",
@@ -975,6 +957,7 @@
       "type": "object"
     },
     "DataMaskingRuleProperties": {
+      "description": "The properties of a database data masking rule.",
       "properties": {
         "aliasName": {
           "description": "The alias name. This is a legacy parameter and is no longer used.",
@@ -1056,6 +1039,7 @@
       "type": "object"
     },
     "DatabaseConnectionPolicyProperties": {
+      "description": "Properties of a database connection policy.",
       "properties": {
         "proxyDnsName": {
           "description": "The fully qualified host name of the auditing proxy.",
@@ -1089,6 +1073,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "Represents the properties of a database.",
       "properties": {
         "collation": {
           "description": "The collation of the database. If createMode is not Default, this value is ignored.",
@@ -1316,6 +1301,7 @@
       "type": "object"
     },
     "DatabaseSecurityAlertPolicyProperties": {
+      "description": "Properties for a database Threat Detection policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.",
@@ -1397,6 +1383,7 @@
       "type": "object"
     },
     "DatabaseTableAuditingPolicyProperties": {
+      "description": "Properties of a database table auditing policy.",
       "properties": {
         "auditLogsTableName": {
           "description": "The audit logs table name.",
@@ -1458,6 +1445,7 @@
       "type": "object"
     },
     "ElasticPoolProperties": {
+      "description": "Represents the properties of an elastic pool.",
       "properties": {
         "databaseDtuMax": {
           "description": "The maximum DTU any one database can consume.",
@@ -1536,6 +1524,7 @@
       "type": "object"
     },
     "FirewallRuleProperties": {
+      "description": "Represents the properties of a server firewall rule.",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.",
@@ -1553,6 +1542,7 @@
       "type": "object"
     },
     "GeoBackupPolicyProperties": {
+      "description": "The properties of the geo backup policy.",
       "properties": {
         "state": {
           "description": "The state of the geo backup policy.",
@@ -1576,6 +1566,7 @@
       "type": "object"
     },
     "ImportExtensionProperties": {
+      "description": "Represents the properties for an import operation",
       "properties": {
         "administratorLogin": {
           "description": "The name of the SQL administrator.",
@@ -1605,7 +1596,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Import"
               ],
               "type": "string"
             },
@@ -1649,13 +1640,14 @@
       "type": "object"
     },
     "ServerAdministratorProperties": {
+      "description": "The properties of an server Administrator.",
       "properties": {
         "administratorType": {
           "description": "The type of administrator.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "ActiveDirectory"
               ],
               "type": "string"
             },
@@ -1702,6 +1694,7 @@
       "type": "object"
     },
     "ServerCommunicationLinkProperties": {
+      "description": "The properties of a server communication link.",
       "properties": {
         "partnerServer": {
           "description": "The name of the partner server.",
@@ -1714,6 +1707,7 @@
       "type": "object"
     },
     "ServerConnectionPolicyProperties": {
+      "description": "The properties of a server secure connection policy.",
       "properties": {
         "connectionType": {
           "description": "The server connection type.",
@@ -1738,6 +1732,7 @@
       "type": "object"
     },
     "ServerProperties": {
+      "description": "Represents the properties of a server.",
       "properties": {
         "administratorLogin": {
           "description": "Administrator username for the server. Can only be specified when the server is being created (and is required for creation).",
@@ -1766,6 +1761,7 @@
       "type": "object"
     },
     "ServerTableAuditingPolicyProperties": {
+      "description": "Properties of a server table auditing policy.",
       "properties": {
         "auditLogsTableName": {
           "description": "The audit logs table name.",
@@ -1823,6 +1819,7 @@
       "type": "object"
     },
     "TransparentDataEncryptionProperties": {
+      "description": "Represents the properties of a database transparent data encryption.",
       "properties": {
         "status": {
           "description": "The status of the database transparent data encryption.",
@@ -1852,18 +1849,10 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the server administrator resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "activeDirectory"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "The properties of the resource.",
@@ -1878,7 +1867,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/administrators"
+            "administrators"
           ],
           "type": "string"
         }
@@ -1916,7 +1905,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/advisors"
+            "advisors"
           ],
           "type": "string"
         }
@@ -1964,7 +1953,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/auditingPolicies"
+            "auditingPolicies"
           ],
           "type": "string"
         }
@@ -2002,7 +1991,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/communicationLinks"
+            "communicationLinks"
           ],
           "type": "string"
         }
@@ -2050,7 +2039,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/connectionPolicies"
+            "connectionPolicies"
           ],
           "type": "string"
         }
@@ -2088,7 +2077,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/advisors"
+            "advisors"
           ],
           "type": "string"
         }
@@ -2136,7 +2125,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/auditingPolicies"
+            "auditingPolicies"
           ],
           "type": "string"
         }
@@ -2193,7 +2182,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -2241,7 +2230,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/connectionPolicies"
+            "connectionPolicies"
           ],
           "type": "string"
         }
@@ -2263,18 +2252,10 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the database for which the data masking rule applies.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "enum": [
+            "Default"
+          ],
+          "type": "string"
         },
         "properties": {
           "description": "The properties of the data masking policy.",
@@ -2289,7 +2270,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/dataMaskingPolicies"
+            "dataMaskingPolicies"
           ],
           "type": "string"
         }
@@ -2327,7 +2308,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/dataMaskingPolicies/rules"
+            "rules"
           ],
           "type": "string"
         }
@@ -2375,7 +2356,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/extensions"
+            "extensions"
           ],
           "type": "string"
         }
@@ -2423,7 +2404,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/geoBackupPolicies"
+            "geoBackupPolicies"
           ],
           "type": "string"
         }
@@ -2475,7 +2456,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/securityAlertPolicies"
+            "securityAlertPolicies"
           ],
           "type": "string"
         }
@@ -2523,7 +2504,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/databases/transparentDataEncryption"
+            "transparentDataEncryption"
           ],
           "type": "string"
         }
@@ -2580,7 +2561,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/elasticPools"
+            "elasticPools"
           ],
           "type": "string"
         }
@@ -2618,7 +2599,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/servers/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }

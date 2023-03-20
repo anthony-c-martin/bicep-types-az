@@ -432,6 +432,7 @@
   },
   "definitions": {
     "AuthorizationRuleProperties": {
+      "description": "Properties supplied to create or update AuthorizationRule",
       "properties": {
         "rights": {
           "description": "The rights associated with the rule.",
@@ -466,6 +467,7 @@
       "type": "object"
     },
     "ConnectionState": {
+      "description": "ConnectionState information.",
       "properties": {
         "description": {
           "description": "Description of the connection state.",
@@ -492,6 +494,7 @@
       "type": "object"
     },
     "HybridConnectionProperties": {
+      "description": "Properties of the HybridConnection.",
       "properties": {
         "requiresClientAuthorization": {
           "description": "Returns true if client authorization is needed for this hybrid connection; otherwise, false.",
@@ -512,6 +515,7 @@
       "type": "object"
     },
     "NWRuleSetIpRules": {
+      "description": "The response from the List namespace operation.",
       "properties": {
         "action": {
           "description": "The IP Filter Action",
@@ -535,6 +539,7 @@
       "type": "object"
     },
     "NetworkRuleSetProperties": {
+      "description": "NetworkRuleSet properties",
       "properties": {
         "defaultAction": {
           "description": "Default Action for Network Rule Set",
@@ -592,6 +597,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "PrivateEndpoint information.",
       "properties": {
         "id": {
           "description": "The ARM identifier for Private Endpoint.",
@@ -601,6 +607,7 @@
       "type": "object"
     },
     "PrivateEndpointConnection": {
+      "description": "Properties of the PrivateEndpointConnection.",
       "properties": {
         "properties": {
           "description": "Properties of the PrivateEndpointConnection.",
@@ -617,6 +624,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection resource.",
       "properties": {
         "privateEndpoint": {
           "description": "The Private Endpoint resource for this Connection.",
@@ -663,6 +671,7 @@
       "type": "object"
     },
     "RelayNamespaceProperties": {
+      "description": "Properties of the namespace.",
       "properties": {
         "privateEndpointConnections": {
           "description": "List of private endpoint connections.",
@@ -705,6 +714,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU of the namespace.",
       "properties": {
         "name": {
           "description": "Name of this SKU.",
@@ -741,6 +751,7 @@
       "type": "object"
     },
     "WcfRelayProperties": {
+      "description": "Properties of the WCF relay.",
       "properties": {
         "relayType": {
           "description": "WCF relay type.",
@@ -820,7 +831,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -866,7 +877,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/hybridConnections/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -912,7 +923,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/hybridConnections"
+            "hybridConnections"
           ],
           "type": "string"
         }
@@ -934,7 +945,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -950,7 +963,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/networkRuleSets"
+            "networkRuleSets"
           ],
           "type": "string"
         }
@@ -988,7 +1001,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -1034,7 +1047,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/wcfRelays/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -1080,7 +1093,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Relay/namespaces/wcfRelays"
+            "wcfRelays"
           ],
           "type": "string"
         }

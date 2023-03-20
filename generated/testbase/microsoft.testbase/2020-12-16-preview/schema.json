@@ -220,6 +220,7 @@
   },
   "definitions": {
     "Command": {
+      "description": "The command used in the test",
       "properties": {
         "action": {
           "description": "The action of the command.",
@@ -339,6 +340,7 @@
       "type": "object"
     },
     "CustomerEventProperties": {
+      "description": "A notification events subscribed to be received by customer.",
       "properties": {
         "eventName": {
           "description": "The name of the event subscribed to.",
@@ -373,6 +375,7 @@
       "type": "object"
     },
     "DistributionGroupListReceiverValue": {
+      "description": "The user object receiver value.",
       "properties": {
         "distributionGroups": {
           "description": "The list of distribution groups.",
@@ -392,6 +395,7 @@
       "type": "object"
     },
     "FavoriteProcessProperties": {
+      "description": "Properties of a favorite process identifier.",
       "properties": {
         "actualProcessName": {
           "description": "The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.",
@@ -404,6 +408,7 @@
       "type": "object"
     },
     "NotificationEventReceiver": {
+      "description": "A notification event receivers.",
       "properties": {
         "receiverType": {
           "description": "The type of the notification event receiver.",
@@ -424,6 +429,7 @@
       "type": "object"
     },
     "NotificationReceiverValue": {
+      "description": "A notification event receiver value.",
       "properties": {
         "distributionGroupListReceiverValue": {
           "description": "The user object receiver value.",
@@ -462,6 +468,7 @@
       "type": "object"
     },
     "PackageProperties": {
+      "description": "The properties of the Test Base Package.",
       "properties": {
         "applicationName": {
           "description": "Application name",
@@ -533,6 +540,7 @@
       "type": "object"
     },
     "SubscriptionReceiverValue": {
+      "description": "The subscription role receiver value.",
       "properties": {
         "role": {
           "description": "The role of the notification receiver.",
@@ -550,6 +558,7 @@
       "type": "object"
     },
     "TargetOSInfo": {
+      "description": "The information of the target OS to be tested.",
       "properties": {
         "osUpdateType": {
           "description": "Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.",
@@ -577,6 +586,7 @@
       "type": "object"
     },
     "Test": {
+      "description": "The definition of a Test.",
       "properties": {
         "commands": {
           "description": "The commands used in the test.",
@@ -633,6 +643,7 @@
       "type": "object"
     },
     "TestBaseAccountResourceProperties": {
+      "description": "The properties of a Test Base Account resource.",
       "properties": {
         "sku": {
           "description": "The SKU of the Test Base Account.",
@@ -652,6 +663,7 @@
       "type": "object"
     },
     "TestBaseAccountSKU": {
+      "description": "Describes a Test Base Account SKU.",
       "properties": {
         "locations": {
           "description": "The locations that the SKU is available.",
@@ -697,6 +709,7 @@
       "type": "object"
     },
     "UserObjectReceiverValue": {
+      "description": "The user object receiver value.",
       "properties": {
         "userObjectIds": {
           "description": "user object ids.",
@@ -741,7 +754,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TestBase/testBaseAccounts/customerEvents"
+            "customerEvents"
           ],
           "type": "string"
         }
@@ -798,7 +811,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TestBase/testBaseAccounts/packages"
+            "packages"
           ],
           "type": "string"
         }
@@ -836,7 +849,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TestBase/testBaseAccounts/packages/favoriteProcesses"
+            "favoriteProcesses"
           ],
           "type": "string"
         }

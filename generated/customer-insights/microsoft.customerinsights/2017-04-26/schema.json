@@ -698,6 +698,7 @@
   },
   "definitions": {
     "AssignmentPrincipal": {
+      "description": "The AssignmentPrincipal",
       "properties": {
         "principalId": {
           "description": "The principal id being assigned to.",
@@ -730,6 +731,7 @@
       "type": "object"
     },
     "AuthorizationPolicy": {
+      "description": "The authorization policy.",
       "properties": {
         "permissions": {
           "description": "The permissions associated with the policy.",
@@ -772,6 +774,7 @@
       "type": "object"
     },
     "Connector": {
+      "description": "Properties of connector.",
       "properties": {
         "connectorName": {
           "description": "Name of the connector.",
@@ -836,6 +839,7 @@
       "type": "object"
     },
     "ConnectorMapping": {
+      "description": "The connector mapping definition.",
       "properties": {
         "connectorType": {
           "description": "Type of connector.",
@@ -905,6 +909,7 @@
       "type": "object"
     },
     "ConnectorMappingAvailability": {
+      "description": "Connector mapping property availability.",
       "properties": {
         "frequency": {
           "description": "The frequency to update.",
@@ -942,6 +947,7 @@
       "type": "object"
     },
     "ConnectorMappingCompleteOperation": {
+      "description": "The complete operation.",
       "properties": {
         "completionOperationType": {
           "description": "The type of completion operation.",
@@ -967,6 +973,7 @@
       "type": "object"
     },
     "ConnectorMappingErrorManagement": {
+      "description": "The error management.",
       "properties": {
         "errorLimit": {
           "description": "The error limit allowed while importing data.",
@@ -1002,6 +1009,7 @@
       "type": "object"
     },
     "ConnectorMappingFormat": {
+      "description": "Connector mapping property format.",
       "properties": {
         "acceptLanguage": {
           "description": "The oData language.",
@@ -1020,7 +1028,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "TextFormat"
               ],
               "type": "string"
             },
@@ -1044,6 +1052,7 @@
       "type": "object"
     },
     "ConnectorMappingProperties": {
+      "description": "The connector mapping properties.",
       "properties": {
         "availability": {
           "description": "The availability of mapping property.",
@@ -1140,6 +1149,7 @@
       "type": "object"
     },
     "ConnectorMappingStructure": {
+      "description": "Connector mapping property structure.",
       "properties": {
         "columnName": {
           "description": "The column name of the import file.",
@@ -1172,10 +1182,12 @@
       "type": "object"
     },
     "DataSource": {
+      "description": "Data Source is a way for us to know the source of instances. A single type can have data coming in from multiple places. In activities we use this to determine precedence rules.",
       "properties": {},
       "type": "object"
     },
     "HubBillingInfoFormat": {
+      "description": "Hub billing info.",
       "properties": {
         "maxUnits": {
           "description": "The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.",
@@ -1207,6 +1219,7 @@
       "type": "object"
     },
     "HubPropertiesFormat": {
+      "description": "Properties of hub.",
       "properties": {
         "hubBillingInfo": {
           "description": "Billing settings of the hub.",
@@ -1234,6 +1247,7 @@
       "type": "object"
     },
     "InteractionTypeDefinition": {
+      "description": "The Interaction Type Definition",
       "properties": {
         "apiEntitySetName": {
           "description": "The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.",
@@ -1458,6 +1472,7 @@
       "type": "object"
     },
     "KpiAlias": {
+      "description": "The KPI alias.",
       "properties": {
         "aliasName": {
           "description": "KPI alias name.",
@@ -1475,6 +1490,7 @@
       "type": "object"
     },
     "KpiDefinition": {
+      "description": "Defines the KPI Threshold limits.",
       "properties": {
         "aliases": {
           "description": "The aliases.",
@@ -1660,6 +1676,7 @@
       "type": "object"
     },
     "KpiExtract": {
+      "description": "The KPI extract.",
       "properties": {
         "expression": {
           "description": "The expression.",
@@ -1677,6 +1694,7 @@
       "type": "object"
     },
     "KpiThresholds": {
+      "description": "Defines the KPI Threshold limits.",
       "properties": {
         "increasingKpi": {
           "description": "Whether or not the KPI is an increasing KPI.",
@@ -1720,6 +1738,7 @@
       "type": "object"
     },
     "LinkDefinition": {
+      "description": "The definition of Link.",
       "properties": {
         "description": {
           "description": "Localized descriptions for the Link.",
@@ -1872,6 +1891,7 @@
       "type": "object"
     },
     "Participant": {
+      "description": "Describes a profile type participating in an interaction.",
       "properties": {
         "description": {
           "description": "Localized descriptions.",
@@ -1945,6 +1965,7 @@
       "type": "object"
     },
     "ParticipantProfilePropertyReference": {
+      "description": "The participant profile property reference.",
       "properties": {
         "interactionPropertyName": {
           "description": "The source interaction property that maps to the target profile property.",
@@ -1962,6 +1983,7 @@
       "type": "object"
     },
     "ParticipantPropertyReference": {
+      "description": "The participant property reference.",
       "properties": {
         "sourcePropertyName": {
           "description": "The source property that maps to the target property.",
@@ -1979,6 +2001,7 @@
       "type": "object"
     },
     "Prediction": {
+      "description": "The prediction definition.",
       "properties": {
         "autoAnalyze": {
           "description": "Whether do auto analyze.",
@@ -2132,6 +2155,7 @@
       "type": "object"
     },
     "PredictionGradesItem": {
+      "description": "The definition of a prediction grade.",
       "properties": {
         "gradeName": {
           "description": "Name of the grade.",
@@ -2163,6 +2187,7 @@
       "type": "object"
     },
     "PredictionMappings": {
+      "description": "Definition of the link mapping of prediction.",
       "properties": {
         "grade": {
           "description": "The grade of the link mapping.",
@@ -2185,6 +2210,7 @@
       "type": "object"
     },
     "ProfileEnumValidValuesFormat": {
+      "description": "Valid enum values in case of an enum property.",
       "properties": {
         "localizedValueNames": {
           "description": "Localized names of the enum member.",
@@ -2216,6 +2242,7 @@
       "type": "object"
     },
     "ProfileTypeDefinition": {
+      "description": "The profile type definition.",
       "properties": {
         "apiEntitySetName": {
           "description": "The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.",
@@ -2400,6 +2427,7 @@
       "type": "object"
     },
     "PropertyDefinition": {
+      "description": "Property definition.",
       "properties": {
         "arrayValueSeparator": {
           "description": "Array value separator for properties with isArray set.",
@@ -2549,6 +2577,7 @@
       "type": "object"
     },
     "RelationshipDefinition": {
+      "description": "The definition of Relationship.",
       "properties": {
         "cardinality": {
           "description": "The Relationship Cardinality.",
@@ -2666,6 +2695,7 @@
       "type": "object"
     },
     "RelationshipLinkDefinition": {
+      "description": "The definition of relationship link.",
       "properties": {
         "description": {
           "description": "Localized descriptions for the Relationship Link.",
@@ -2778,6 +2808,7 @@
       "type": "object"
     },
     "RelationshipLinkFieldMapping": {
+      "description": "The fields mapping for Relationships.",
       "properties": {
         "interactionFieldName": {
           "description": "The field name on the Interaction Type.",
@@ -2810,6 +2841,7 @@
       "type": "object"
     },
     "RelationshipTypeFieldMapping": {
+      "description": "Map a field of profile to its corresponding StrongId in Related Profile.",
       "properties": {
         "profileFieldName": {
           "description": "Specifies the fieldName in profile.",
@@ -2827,6 +2859,7 @@
       "type": "object"
     },
     "RelationshipTypeMapping": {
+      "description": "Maps fields in Profile to their corresponding StrongIds in Related Profile.",
       "properties": {
         "fieldMappings": {
           "description": "Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.",
@@ -2856,6 +2889,7 @@
       "type": "object"
     },
     "ResourceSetDescription": {
+      "description": "The resource set description.",
       "properties": {
         "elements": {
           "description": "The elements included in the set.",
@@ -2889,6 +2923,7 @@
       "type": "object"
     },
     "RoleAssignment": {
+      "description": "The Role Assignment definition.",
       "properties": {
         "conflationPolicies": {
           "description": "Widget types set for the assignment.",
@@ -3111,6 +3146,7 @@
       "type": "object"
     },
     "StrongId": {
+      "description": "Property/Properties which represent a unique ID.",
       "properties": {
         "description": {
           "description": "Localized descriptions.",
@@ -3168,6 +3204,7 @@
       "type": "object"
     },
     "TypePropertiesMapping": {
+      "description": "Metadata for a Link's property mapping.",
       "properties": {
         "linkType": {
           "description": "Link type.",
@@ -3200,6 +3237,7 @@
       "type": "object"
     },
     "View": {
+      "description": "The view in Customer 360 web application.",
       "properties": {
         "definition": {
           "description": "View definition.",
@@ -3266,7 +3304,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/authorizationPolicies"
+            "authorizationPolicies"
           ],
           "type": "string"
         }
@@ -3314,7 +3352,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/connectors"
+            "connectors"
           ],
           "type": "string"
         }
@@ -3362,7 +3400,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/connectors/mappings"
+            "mappings"
           ],
           "type": "string"
         }
@@ -3410,7 +3448,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/interactions"
+            "interactions"
           ],
           "type": "string"
         }
@@ -3458,7 +3496,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/kpi"
+            "kpi"
           ],
           "type": "string"
         }
@@ -3506,7 +3544,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/links"
+            "links"
           ],
           "type": "string"
         }
@@ -3553,7 +3591,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/predictions"
+            "predictions"
           ],
           "type": "string"
         }
@@ -3601,7 +3639,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/profiles"
+            "profiles"
           ],
           "type": "string"
         }
@@ -3649,7 +3687,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/relationshipLinks"
+            "relationshipLinks"
           ],
           "type": "string"
         }
@@ -3697,7 +3735,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/relationships"
+            "relationships"
           ],
           "type": "string"
         }
@@ -3745,7 +3783,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/roleAssignments"
+            "roleAssignments"
           ],
           "type": "string"
         }
@@ -3792,7 +3830,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.CustomerInsights/hubs/views"
+            "views"
           ],
           "type": "string"
         }

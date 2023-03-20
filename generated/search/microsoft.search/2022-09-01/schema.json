@@ -175,6 +175,7 @@
   },
   "definitions": {
     "DataPlaneAadOrApiKeyAuthOption": {
+      "description": "Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.",
       "properties": {
         "aadAuthFailureMode": {
           "description": "Describes what response the data plane API of a Search service would send for requests that failed authentication.",
@@ -195,6 +196,7 @@
       "type": "object"
     },
     "DataPlaneAuthOptions": {
+      "description": "Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.",
       "properties": {
         "aadOrApiKey": {
           "description": "Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.",
@@ -214,6 +216,7 @@
       "type": "object"
     },
     "EncryptionWithCmk": {
+      "description": "Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.",
       "properties": {
         "enforcement": {
           "description": "Describes how a search service should enforce having one or more non customer encrypted resources.",
@@ -235,6 +238,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -258,6 +262,7 @@
       "type": "object"
     },
     "IpRule": {
+      "description": "The IP restriction rule of the Azure Cognitive Search service.",
       "properties": {
         "value": {
           "description": "Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.",
@@ -267,6 +272,7 @@
       "type": "object"
     },
     "NetworkRuleSet": {
+      "description": "Network specific rules that determine how the Azure Cognitive Search service may be reached.",
       "properties": {
         "ipRules": {
           "description": "A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.",
@@ -293,6 +299,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.",
       "properties": {
         "groupId": {
           "description": "The group id from the provider of resource the private link service connection is for.",
@@ -343,6 +350,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionPropertiesPrivateEndpoint": {
+      "description": "The private endpoint resource from Microsoft.Network provider.",
       "properties": {
         "id": {
           "description": "The resource id of the private endpoint resource from Microsoft.Network provider.",
@@ -352,6 +360,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState": {
+      "description": "Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.",
       "properties": {
         "actionsRequired": {
           "description": "A description of any extra actions that may be required.",
@@ -382,6 +391,7 @@
       "type": "object"
     },
     "SearchServiceProperties": {
+      "description": "Properties of the search service.",
       "properties": {
         "authOptions": {
           "description": "Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.",
@@ -483,6 +493,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperties": {
+      "description": "Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.",
       "properties": {
         "groupId": {
           "description": "The group id from the provider of resource the shared private link resource is for.",
@@ -539,6 +550,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.",
       "properties": {
         "name": {
           "description": "The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'",
@@ -589,7 +601,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Search/searchServices/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -627,7 +639,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Search/searchServices/sharedPrivateLinkResources"
+            "sharedPrivateLinkResources"
           ],
           "type": "string"
         }

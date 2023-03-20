@@ -161,14 +161,17 @@
   },
   "definitions": {
     "AuthInfoBase": {
+      "description": "The authentication info",
       "properties": {},
       "type": "object"
     },
     "AzureResourcePropertiesBase": {
+      "description": "The azure resource properties",
       "properties": {},
       "type": "object"
     },
     "ConfigurationInfo": {
+      "description": "The configuration information, used to generate configurations or save to applications",
       "properties": {
         "action": {
           "description": "Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.",
@@ -246,6 +249,7 @@
       "type": "object"
     },
     "DaprMetadata": {
+      "description": "The dapr component metadata.",
       "properties": {
         "name": {
           "description": "Metadata property name.",
@@ -263,6 +267,7 @@
       "type": "object"
     },
     "DaprProperties": {
+      "description": "Indicates some additional properties for dapr client type",
       "properties": {
         "componentType": {
           "description": "The dapr component type",
@@ -315,10 +320,12 @@
       "type": "object"
     },
     "DryrunParameters": {
+      "description": "The parameters of the dryrun",
       "properties": {},
       "type": "object"
     },
     "DryrunProperties": {
+      "description": "The properties of the dryrun job",
       "properties": {
         "parameters": {
           "description": "The parameters of the dryrun",
@@ -335,6 +342,7 @@
       "type": "object"
     },
     "FirewallRules": {
+      "description": "Target service's firewall rules. to allow connections from source service.",
       "properties": {
         "azureServices": {
           "description": "Allow Azure services to access the target service if true.",
@@ -384,6 +392,7 @@
       "type": "object"
     },
     "LinkerProperties": {
+      "description": "The properties of the Linker.",
       "properties": {
         "authInfo": {
           "description": "The authentication type.",
@@ -484,6 +493,7 @@
       "type": "object"
     },
     "PublicNetworkSolution": {
+      "description": "Indicates public network solution, include firewall rules",
       "properties": {
         "action": {
           "description": "Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.",
@@ -531,10 +541,12 @@
       "type": "object"
     },
     "SecretInfoBase": {
+      "description": "The secret info",
       "properties": {},
       "type": "object"
     },
     "SecretStore": {
+      "description": "An option to store secret value in secure place",
       "properties": {
         "keyVaultId": {
           "description": "The key vault id to store secret",
@@ -548,10 +560,12 @@
       "type": "object"
     },
     "TargetServiceBase": {
+      "description": "The target service properties",
       "properties": {},
       "type": "object"
     },
     "VNetSolution": {
+      "description": "The VNet solution for linker",
       "properties": {
         "deleteOrUpdateBehavior": {
           "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",

@@ -432,6 +432,7 @@
       "type": "object"
     },
     "CustomRolloutProperties": {
+      "description": "Properties of the rollout.",
       "properties": {
         "provisioningState": {
           "description": "The provisioned state of the resource.",
@@ -615,6 +616,7 @@
       "type": "object"
     },
     "DefaultRolloutProperties": {
+      "description": "Properties of the rollout.",
       "properties": {
         "provisioningState": {
           "description": "The provisioned state of the resource.",
@@ -1236,6 +1238,7 @@
       "type": "object"
     },
     "LocalizedOperationDefinitionDisplay": {
+      "description": "Display information of the operation.",
       "properties": {
         "cs": {
           "description": "Display information of the operation for cs locale.",
@@ -1442,6 +1445,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionCs": {
+      "description": "Display information of the operation for cs locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1469,6 +1473,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionDe": {
+      "description": "Display information of the operation for de locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1496,6 +1501,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionDefault": {
+      "description": "Display information of the operation.",
       "properties": {
         "description": {
           "description": "",
@@ -1523,6 +1529,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionEn": {
+      "description": "Display information of the operation for en locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1550,6 +1557,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionEs": {
+      "description": "Display information of the operation for es locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1577,6 +1585,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionFr": {
+      "description": "Display information of the operation for fr locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1604,6 +1613,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionHu": {
+      "description": "Display information of the operation for hu locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1631,6 +1641,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionIt": {
+      "description": "Display information of the operation for it locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1658,6 +1669,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionJa": {
+      "description": "Display information of the operation for ja locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1685,6 +1697,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionKo": {
+      "description": "Display information of the operation for ko locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1712,6 +1725,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionNl": {
+      "description": "Display information of the operation for nl locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1739,6 +1753,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionPl": {
+      "description": "Display information of the operation for pl locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1766,6 +1781,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionPt": {
+      "description": "Display information of the operation for pt-PT locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1793,6 +1809,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionPtBR": {
+      "description": "Display information of the operation for pt-BR locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1820,6 +1837,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionRu": {
+      "description": "Display information of the operation for ru locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1847,6 +1865,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionSv": {
+      "description": "Display information of the operation for sv locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1874,6 +1893,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionZhHans": {
+      "description": "Display information of the operation for zh-Hans locale.",
       "properties": {
         "description": {
           "description": "",
@@ -1901,6 +1921,7 @@
       "type": "object"
     },
     "LocalizedOperationDisplayDefinitionZhHant": {
+      "description": "Display information of the operation for zh-Hant locale.",
       "properties": {
         "description": {
           "description": "",
@@ -4590,7 +4611,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/customRollouts"
+            "customRollouts"
           ],
           "type": "string"
         }
@@ -4628,7 +4649,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/defaultRollouts"
+            "defaultRollouts"
           ],
           "type": "string"
         }
@@ -4666,7 +4687,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/notificationRegistrations"
+            "notificationRegistrations"
           ],
           "type": "string"
         }
@@ -4688,7 +4709,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4704,7 +4727,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/operations"
+            "operations"
           ],
           "type": "string"
         }
@@ -4742,7 +4765,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/resourcetypeRegistrations"
+            "resourcetypeRegistrations"
           ],
           "type": "string"
         }
@@ -4780,7 +4803,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.ProviderHub/providerRegistrations/resourcetypeRegistrations/skus"
+            "skus"
           ],
           "type": "string"
         }

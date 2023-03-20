@@ -128,6 +128,7 @@
   },
   "definitions": {
     "IotDpsPropertiesDescription": {
+      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -241,6 +242,7 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
+      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
           "description": "The number of units to provision",
@@ -271,6 +273,7 @@
       "type": "object"
     },
     "IotHubDefinitionDescription": {
+      "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
           "description": "weight to apply for a given iot h.",
@@ -310,6 +313,7 @@
       "type": "object"
     },
     "IpFilterRule": {
+      "description": "The IP filter rules for the IoT dps.",
       "properties": {
         "action": {
           "description": "The desired action for requests captured by this rule.",
@@ -359,6 +363,7 @@
       "type": "object"
     },
     "SharedAccessSignatureAuthorizationRuleAccessRightsDescription": {
+      "description": "Description of the shared access key.",
       "properties": {
         "keyName": {
           "description": "Name of the key.",
@@ -425,7 +430,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Devices/provisioningServices/certificates"
+            "certificates"
           ],
           "type": "string"
         }

@@ -430,6 +430,7 @@
   },
   "definitions": {
     "ApplicationServerConfiguration": {
+      "description": "Gets or sets the application server configuration.",
       "properties": {
         "instanceCount": {
           "description": "The number of app server instances.",
@@ -466,6 +467,7 @@
       "type": "object"
     },
     "ApplicationServerFullResourceNames": {
+      "description": "The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.",
       "properties": {
         "availabilitySetName": {
           "description": "The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.",
@@ -496,6 +498,7 @@
       "type": "object"
     },
     "CentralServerConfiguration": {
+      "description": "Gets or sets the central server configuration.",
       "properties": {
         "instanceCount": {
           "description": "The number of central server VMs.",
@@ -532,6 +535,7 @@
       "type": "object"
     },
     "CentralServerFullResourceNames": {
+      "description": "The full resource names object for central server layer resources.",
       "properties": {
         "availabilitySetName": {
           "description": "The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.",
@@ -573,6 +577,7 @@
       "type": "object"
     },
     "DatabaseConfiguration": {
+      "description": "Gets or sets the database configuration.",
       "properties": {
         "databaseType": {
           "description": "The database type.",
@@ -635,6 +640,7 @@
       "type": "object"
     },
     "DatabaseServerFullResourceNames": {
+      "description": "The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.",
       "properties": {
         "availabilitySetName": {
           "description": "The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.",
@@ -676,6 +682,7 @@
       "type": "object"
     },
     "DeployerVmPackages": {
+      "description": "Defines the url and storage account ID where deployer VM packages are uploaded",
       "properties": {
         "storageAccountId": {
           "description": "The deployer VM packages storage account id",
@@ -689,6 +696,7 @@
       "type": "object"
     },
     "DiskConfiguration": {
+      "description": "The Disk Configuration Details.",
       "properties": {
         "diskVolumeConfigurations": {
           "description": "The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].",
@@ -716,6 +724,7 @@
       "type": "object"
     },
     "DiskSku": {
+      "description": "The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.",
       "properties": {
         "name": {
           "description": "Defines the disk sku name.",
@@ -741,6 +750,7 @@
       "type": "object"
     },
     "DiskVolumeConfiguration": {
+      "description": "The disk configuration required for the selected volume.",
       "properties": {
         "count": {
           "description": "The total number of disks required for the concerned volume.",
@@ -779,22 +789,27 @@
       "type": "object"
     },
     "EnqueueReplicationServerProperties": {
+      "description": "Defines the SAP Enqueue Replication Server (ERS) properties.",
       "properties": {},
       "type": "object"
     },
     "EnqueueServerProperties": {
+      "description": "Defines the SAP Enqueue Server properties.",
       "properties": {},
       "type": "object"
     },
     "FileShareConfiguration": {
+      "description": "File Share configuration details, populated with information on storage configuration mounted on the VIS. The createAndMount option is selected in case of missing input.",
       "properties": {},
       "type": "object"
     },
     "GatewayServerProperties": {
+      "description": "Defines the SAP Gateway Server properties.",
       "properties": {},
       "type": "object"
     },
     "HighAvailabilityConfiguration": {
+      "description": "Gets or sets the high availability configuration.",
       "properties": {
         "highAvailabilityType": {
           "description": "The high availability type.",
@@ -818,6 +833,7 @@
       "type": "object"
     },
     "HighAvailabilitySoftwareConfiguration": {
+      "description": "Gets or sets the HA software configuration.",
       "properties": {
         "fencingClientId": {
           "description": "The fencing client id.",
@@ -835,6 +851,7 @@
       "type": "object"
     },
     "ImageReference": {
+      "description": "Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.",
       "properties": {
         "offer": {
           "description": "Specifies the offer of the platform image or marketplace image used to create the virtual machine.",
@@ -856,6 +873,7 @@
       "type": "object"
     },
     "InfrastructureConfiguration": {
+      "description": "Deploy SAP Infrastructure Details.",
       "properties": {
         "appResourceGroup": {
           "description": "The application resource group where SAP system resources will be deployed.",
@@ -868,6 +886,7 @@
       "type": "object"
     },
     "LoadBalancerResourceNames": {
+      "description": "The resource names object for load balancer and related resources.",
       "properties": {
         "backendPoolNames": {
           "description": "The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1",
@@ -919,6 +938,7 @@
       "type": "object"
     },
     "ManagedRGConfiguration": {
+      "description": "Managed resource group configuration",
       "properties": {
         "name": {
           "description": "Managed resource group name",
@@ -928,10 +948,12 @@
       "type": "object"
     },
     "MessageServerProperties": {
+      "description": "Defines the SAP Message Server properties.",
       "properties": {},
       "type": "object"
     },
     "MonitorProperties": {
+      "description": "Describes the properties of a SAP monitor.",
       "properties": {
         "appLocation": {
           "description": "The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.",
@@ -979,6 +1001,7 @@
       "type": "object"
     },
     "NetworkConfiguration": {
+      "description": "Defines the network configuration type for SAP system infrastructure that is being deployed ",
       "properties": {
         "isSecondaryIpEnabled": {
           "description": "Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed",
@@ -995,6 +1018,7 @@
       "type": "object"
     },
     "NetworkInterfaceResourceNames": {
+      "description": "The resource names object for network interface and related resources.",
       "properties": {
         "networkInterfaceName": {
           "description": "The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.",
@@ -1004,10 +1028,12 @@
       "type": "object"
     },
     "OSConfiguration": {
+      "description": "Defines the OS configuration.",
       "properties": {},
       "type": "object"
     },
     "OSProfile": {
+      "description": "Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.",
       "properties": {
         "adminPassword": {
           "description": "Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)",
@@ -1032,6 +1058,7 @@
       "type": "object"
     },
     "OsSapConfiguration": {
+      "description": "Defines the OS and SAP Configurations for Deployment",
       "properties": {
         "deployerVmPackages": {
           "description": "The url and storage account ID where deployer VM packages are uploaded",
@@ -1052,6 +1079,7 @@
       "type": "object"
     },
     "ProviderInstanceProperties": {
+      "description": "Describes the properties of a provider instance.",
       "properties": {
         "providerSettings": {
           "description": "Defines the provider specific properties.",
@@ -1068,14 +1096,17 @@
       "type": "object"
     },
     "ProviderSpecificProperties": {
+      "description": "Gets or sets the provider specific properties.",
       "properties": {},
       "type": "object"
     },
     "SAPApplicationServerProperties": {
+      "description": "Defines the SAP Application Server instance properties.",
       "properties": {},
       "type": "object"
     },
     "SAPCentralServerProperties": {
+      "description": "Defines the SAP Central Services Instance properties.",
       "properties": {
         "enqueueReplicationServerProperties": {
           "description": "Defines the SAP Enqueue Replication Server (ERS) properties.",
@@ -1125,14 +1156,17 @@
       "type": "object"
     },
     "SAPConfiguration": {
+      "description": "The SAP Configuration.",
       "properties": {},
       "type": "object"
     },
     "SAPDatabaseProperties": {
+      "description": "Defines the Database properties.",
       "properties": {},
       "type": "object"
     },
     "SAPVirtualInstanceProperties": {
+      "description": "Defines the Virtual Instance for SAP solutions resource properties.",
       "properties": {
         "configuration": {
           "description": "Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS",
@@ -1196,6 +1230,7 @@
       "type": "object"
     },
     "SapLandscapeMonitorMetricThresholds": {
+      "description": "Gets or sets the Threshold Values for Top Metrics Health.",
       "properties": {
         "green": {
           "description": "Gets or sets the threshold value for Green.",
@@ -1238,6 +1273,7 @@
       "type": "object"
     },
     "SapLandscapeMonitorProperties": {
+      "description": "Gets or sets the properties for Sap Landscape Monitor Dashboard.",
       "properties": {
         "grouping": {
           "description": "Gets or sets the SID groupings by landscape and Environment.",
@@ -1275,6 +1311,7 @@
       "type": "object"
     },
     "SapLandscapeMonitorPropertiesGrouping": {
+      "description": "Gets or sets the SID groupings by landscape and Environment.",
       "properties": {
         "landscape": {
           "description": "Gets or sets the list of landscape to SID mappings.",
@@ -1322,6 +1359,7 @@
       "type": "object"
     },
     "SapLandscapeMonitorSidMapping": {
+      "description": "Gets or sets the mapping for SID to Environment/Applications.",
       "properties": {
         "name": {
           "description": "Gets or sets the name of the grouping.",
@@ -1345,6 +1383,7 @@
       "type": "object"
     },
     "SharedStorageResourceNames": {
+      "description": "The resource names object for shared storage.",
       "properties": {
         "sharedStorageAccountName": {
           "description": "The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.",
@@ -1358,14 +1397,17 @@
       "type": "object"
     },
     "SingleServerCustomResourceNames": {
+      "description": "The resource-names input to specify custom names for underlying azure resources that are part of a single server SAP system.",
       "properties": {},
       "type": "object"
     },
     "SoftwareConfiguration": {
+      "description": "The SAP Software configuration Input.",
       "properties": {},
       "type": "object"
     },
     "SshConfiguration": {
+      "description": "SSH configuration for Linux based VMs running on Azure",
       "properties": {
         "publicKeys": {
           "description": "The list of SSH public keys used to authenticate with linux based VMs.",
@@ -1392,6 +1434,7 @@
       "type": "object"
     },
     "SshKeyPair": {
+      "description": "The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).",
       "properties": {
         "privateKey": {
           "description": "SSH private key.",
@@ -1405,6 +1448,7 @@
       "type": "object"
     },
     "SshPublicKey": {
+      "description": "Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.",
       "properties": {
         "keyData": {
           "description": "SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).",
@@ -1414,6 +1458,7 @@
       "type": "object"
     },
     "StorageConfiguration": {
+      "description": "Gets or sets the storage configuration.",
       "properties": {
         "transportFileShareConfiguration": {
           "description": "The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.",
@@ -1430,14 +1475,17 @@
       "type": "object"
     },
     "ThreeTierCustomResourceNames": {
+      "description": "The resource-names input to specify custom names for underlying azure resources that are part of a three tier SAP system.",
       "properties": {},
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
     "UserAssignedServiceIdentity": {
+      "description": "A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.",
       "properties": {
         "type": {
           "description": "Type of manage identity",
@@ -1483,6 +1531,7 @@
       "type": "object"
     },
     "VirtualMachineConfiguration": {
+      "description": "Defines the virtual machine configuration.",
       "properties": {
         "imageReference": {
           "description": "The image reference.",
@@ -1519,6 +1568,7 @@
       "type": "object"
     },
     "VirtualMachineResourceNames": {
+      "description": "The resource names object for virtual machine and related resources.",
       "properties": {
         "dataDiskNames": {
           "description": "The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported",
@@ -1618,7 +1668,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/monitors/providerInstances"
+            "providerInstances"
           ],
           "type": "string"
         }
@@ -1640,7 +1690,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1656,7 +1708,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/monitors/sapLandscapeMonitor"
+            "sapLandscapeMonitor"
           ],
           "type": "string"
         }
@@ -1713,7 +1765,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/sapVirtualInstances/applicationInstances"
+            "applicationInstances"
           ],
           "type": "string"
         }
@@ -1770,7 +1822,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/sapVirtualInstances/centralInstances"
+            "centralInstances"
           ],
           "type": "string"
         }
@@ -1827,7 +1879,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Workloads/sapVirtualInstances/databaseInstances"
+            "databaseInstances"
           ],
           "type": "string"
         }

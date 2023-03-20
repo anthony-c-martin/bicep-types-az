@@ -137,6 +137,7 @@
   },
   "definitions": {
     "AzureIaaSVMProtectedItemExtendedInfo": {
+      "description": "Additional information for the Azure VM (also known as IaaS VM)-specific backup item.",
       "properties": {
         "oldestRecoveryPoint": {
           "description": "The oldest backup copy available for this backup item.",
@@ -176,6 +177,7 @@
       "type": "object"
     },
     "AzureSqlProtectedItemExtendedInfo": {
+      "description": "Additional information for the Azure SQL specific backup item.",
       "properties": {
         "oldestRecoveryPoint": {
           "description": "The oldest backup copy available for this item in the service.",
@@ -208,6 +210,7 @@
       "type": "object"
     },
     "DailyRetentionFormat": {
+      "description": "Daily retention format.",
       "properties": {
         "daysOfTheMonth": {
           "description": "List of days of the month.",
@@ -234,6 +237,7 @@
       "type": "object"
     },
     "DailyRetentionSchedule": {
+      "description": "Daily retention schedule.",
       "properties": {
         "retentionDuration": {
           "description": "The retention duration of retention policy.",
@@ -272,6 +276,7 @@
       "type": "object"
     },
     "Day": {
+      "description": "Day of the week.",
       "properties": {
         "date": {
           "description": "",
@@ -299,6 +304,7 @@
       "type": "object"
     },
     "MabFileFolderProtectedItemExtendedInfo": {
+      "description": "Additional information for the backup item.",
       "properties": {
         "lastRefreshedAt": {
           "description": "The last day and time the agent synced with the service.",
@@ -339,6 +345,7 @@
       "type": "object"
     },
     "MonthlyRetentionSchedule": {
+      "description": "The monthly retention schedule.",
       "properties": {
         "retentionDuration": {
           "description": "Retention duration of the retention policy.",
@@ -415,6 +422,7 @@
       "type": "object"
     },
     "ProtectedItem": {
+      "description": "The base class for backup items.",
       "properties": {
         "backupManagementType": {
           "description": "The backup management type associated with the backup item.",
@@ -480,6 +488,7 @@
       "type": "object"
     },
     "ProtectionPolicy": {
+      "description": "The base class for a backup policy. Workload-specific backup policies are derived from this class.",
       "properties": {
         "protectedItemsCount": {
           "description": "The number of items associated with this policy.",
@@ -496,6 +505,7 @@
       "type": "object"
     },
     "RetentionDuration": {
+      "description": "Retention duration.",
       "properties": {
         "count": {
           "description": "Count of the duration types. Retention duration is determined by the combining the Count times and durationType. \r\n   For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.",
@@ -530,14 +540,17 @@
       "type": "object"
     },
     "RetentionPolicy": {
+      "description": "The base class for retention policy.",
       "properties": {},
       "type": "object"
     },
     "SchedulePolicy": {
+      "description": "The base class for backup schedules.",
       "properties": {},
       "type": "object"
     },
     "WeeklyRetentionFormat": {
+      "description": "Weekly retention format.",
       "properties": {
         "daysOfTheWeek": {
           "description": "List of days of the week.",
@@ -601,6 +614,7 @@
       "type": "object"
     },
     "WeeklyRetentionSchedule": {
+      "description": "Weekly retention schedule.",
       "properties": {
         "daysOfTheWeek": {
           "description": "List of the days of the week for the weekly retention policy.",
@@ -669,6 +683,7 @@
       "type": "object"
     },
     "YearlyRetentionSchedule": {
+      "description": "Yearly retention schedule.",
       "properties": {
         "monthsOfYear": {
           "description": "List of the months of year for the yearly retention policy.",

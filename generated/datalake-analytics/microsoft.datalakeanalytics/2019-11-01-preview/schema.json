@@ -235,6 +235,7 @@
   },
   "definitions": {
     "AddDataLakeStoreProperties": {
+      "description": "The Data Lake Store account properties to use when adding a new Data Lake Store account.",
       "properties": {
         "suffix": {
           "description": "The optional suffix for the Data Lake Store account.",
@@ -244,6 +245,7 @@
       "type": "object"
     },
     "AddDataLakeStoreWithAccountParameters": {
+      "description": "The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.",
       "properties": {
         "name": {
           "description": "The unique name of the Data Lake Store account to add.",
@@ -267,6 +269,7 @@
       "type": "object"
     },
     "AddStorageAccountProperties": {
+      "description": "The Azure Storage account properties to use when adding a new Azure Storage account.",
       "properties": {
         "accessKey": {
           "description": "The access key associated with this Azure Storage account that will be used to connect to it.",
@@ -283,6 +286,7 @@
       "type": "object"
     },
     "AddStorageAccountWithAccountParameters": {
+      "description": "The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.",
       "properties": {
         "name": {
           "description": "The unique name of the Azure Storage account to add.",
@@ -307,6 +311,7 @@
       "type": "object"
     },
     "CreateComputePolicyWithAccountParameters": {
+      "description": "The parameters used to create a new compute policy while creating a new Data Lake Analytics account.",
       "properties": {
         "name": {
           "description": "The unique name of the compute policy to create.",
@@ -535,6 +540,7 @@
       "type": "object"
     },
     "CreateFirewallRuleWithAccountParameters": {
+      "description": "The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.",
       "properties": {
         "name": {
           "description": "The unique name of the firewall rule to create.",
@@ -559,6 +565,7 @@
       "type": "object"
     },
     "CreateOrUpdateComputePolicyProperties": {
+      "description": "The compute policy properties to use when creating a new compute policy.",
       "properties": {
         "maxDegreeOfParallelismPerJob": {
           "description": "The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.",
@@ -618,6 +625,7 @@
       "type": "object"
     },
     "CreateOrUpdateFirewallRuleProperties": {
+      "description": "The firewall rule properties to use when creating a new firewall rule.",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.",
@@ -660,7 +668,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataLakeAnalytics/accounts/computePolicies"
+            "computePolicies"
           ],
           "type": "string"
         }
@@ -698,7 +706,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts"
+            "dataLakeStoreAccounts"
           ],
           "type": "string"
         }
@@ -736,7 +744,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataLakeAnalytics/accounts/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }
@@ -774,7 +782,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataLakeAnalytics/accounts/storageAccounts"
+            "storageAccounts"
           ],
           "type": "string"
         }

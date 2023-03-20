@@ -387,6 +387,7 @@
   },
   "definitions": {
     "ArmDisasterRecoveryProperties": {
+      "description": "Properties required to the Create Or Update Alias(Disaster Recovery configurations)",
       "properties": {
         "alternateName": {
           "description": "Alternate name specified when alias and namespace names are same.",
@@ -400,6 +401,7 @@
       "type": "object"
     },
     "AuthorizationRuleProperties": {
+      "description": "Properties supplied to create or update AuthorizationRule",
       "properties": {
         "rights": {
           "description": "The rights associated with the rule.",
@@ -434,6 +436,7 @@
       "type": "object"
     },
     "CaptureDescription": {
+      "description": "Properties to configure capture description for eventhub",
       "properties": {
         "destination": {
           "description": "Properties of Destination where capture will be stored. (Storage Account, Blob Names)",
@@ -509,6 +512,7 @@
       "type": "object"
     },
     "ConsumerGroupProperties": {
+      "description": "Single item in List or Get Consumer group operation",
       "properties": {
         "userMetadata": {
           "description": "User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.",
@@ -518,6 +522,7 @@
       "type": "object"
     },
     "Destination": {
+      "description": "Capture storage details for capture description",
       "properties": {
         "name": {
           "description": "Name for capture destination",
@@ -538,6 +543,7 @@
       "type": "object"
     },
     "DestinationProperties": {
+      "description": "Properties describing the storage account, blob container and archive name format for capture destination",
       "properties": {
         "archiveNameFormat": {
           "description": "Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order",
@@ -555,6 +561,7 @@
       "type": "object"
     },
     "EHNamespaceProperties": {
+      "description": "Namespace properties supplied for create namespace operation.",
       "properties": {
         "isAutoInflateEnabled": {
           "description": "Value that indicates whether AutoInflate is enabled for eventhub namespace.",
@@ -593,6 +600,7 @@
       "type": "object"
     },
     "EventhubProperties": {
+      "description": "Properties supplied to the Create Or Update Event Hub operation.",
       "properties": {
         "captureDescription": {
           "description": "Properties of capture description",
@@ -653,6 +661,7 @@
       "type": "object"
     },
     "NWRuleSetIpRules": {
+      "description": "Description of NetWorkRuleSet - IpRules resource.",
       "properties": {
         "action": {
           "description": "The IP Filter Action",
@@ -676,6 +685,7 @@
       "type": "object"
     },
     "NWRuleSetVirtualNetworkRules": {
+      "description": "Description of VirtualNetworkRules - NetworkRules resource.",
       "properties": {
         "ignoreMissingVnetServiceEndpoint": {
           "description": "Value that indicates whether to ignore missing VNet Service Endpoint",
@@ -703,6 +713,7 @@
       "type": "object"
     },
     "NetworkRuleSetProperties": {
+      "description": "NetworkRuleSet properties",
       "properties": {
         "defaultAction": {
           "description": "Default Action for Network Rule Set",
@@ -765,6 +776,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "SKU parameters supplied to the create namespace operation",
       "properties": {
         "capacity": {
           "description": "The Event Hubs throughput units, value should be 0 to 20 throughput units.",
@@ -814,6 +826,7 @@
       "type": "object"
     },
     "Subnet": {
+      "description": "Properties supplied for Subnet",
       "properties": {
         "id": {
           "description": "Resource ID of Virtual Network Subnet",
@@ -859,7 +872,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -906,7 +919,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/disasterRecoveryConfigs"
+            "disasterRecoveryConfigs"
           ],
           "type": "string"
         }
@@ -952,7 +965,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/eventhubs/authorizationRules"
+            "authorizationRules"
           ],
           "type": "string"
         }
@@ -999,7 +1012,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/eventhubs"
+            "eventhubs"
           ],
           "type": "string"
         }
@@ -1046,7 +1059,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/eventhubs/consumergroups"
+            "consumergroups"
           ],
           "type": "string"
         }
@@ -1068,7 +1081,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -1084,7 +1099,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.EventHub/namespaces/networkRuleSets"
+            "networkRuleSets"
           ],
           "type": "string"
         }

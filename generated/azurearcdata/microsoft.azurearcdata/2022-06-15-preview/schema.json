@@ -405,6 +405,7 @@
   },
   "definitions": {
     "ActiveDirectoryConnectorDNSDetails": {
+      "description": "DNS server details",
       "properties": {
         "domainName": {
           "description": "DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.",
@@ -453,6 +454,7 @@
       "type": "object"
     },
     "ActiveDirectoryConnectorDomainDetails": {
+      "description": "Active Directory domain details",
       "properties": {
         "domainControllers": {
           "description": "null",
@@ -499,6 +501,7 @@
       "type": "object"
     },
     "ActiveDirectoryConnectorProperties": {
+      "description": "The properties of an Active Directory connector resource",
       "properties": {
         "domainServiceAccountLoginInformation": {
           "description": "Username and password for domain service account authentication.",
@@ -540,6 +543,7 @@
       "type": "object"
     },
     "ActiveDirectoryConnectorSpec": {
+      "description": "The specifications of the AD Kubernetes resource.",
       "properties": {
         "activeDirectory": {
           "description": "null",
@@ -572,6 +576,7 @@
     },
     "ActiveDirectoryConnectorStatus": {
       "additionalProperties": {},
+      "description": "The status of the Kubernetes custom resource.",
       "properties": {
         "lastUpdateTime": {
           "description": "The time that the custom resource was last updated.",
@@ -596,6 +601,7 @@
       "type": "object"
     },
     "ActiveDirectoryDomainController": {
+      "description": "Information about a domain controller in the AD domain.",
       "properties": {
         "hostname": {
           "description": "Fully-qualified domain name of a domain controller in the AD domain.",
@@ -608,6 +614,7 @@
       "type": "object"
     },
     "ActiveDirectoryDomainControllers": {
+      "description": "Details about the Active Directory domain controllers associated with this AD connector instance",
       "properties": {
         "primaryDomainController": {
           "description": "Information about the Primary Domain Controller (PDC) in the AD domain.",
@@ -645,6 +652,7 @@
       "type": "object"
     },
     "ActiveDirectoryInformation": {
+      "description": "Active Directory information that related to the resource.",
       "properties": {
         "keytabInformation": {
           "description": "Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.",
@@ -661,6 +669,7 @@
       "type": "object"
     },
     "BasicLoginInformation": {
+      "description": "Username and password for basic login authentication.",
       "properties": {
         "password": {
           "description": "Login password.",
@@ -674,6 +683,7 @@
       "type": "object"
     },
     "DataControllerProperties": {
+      "description": "The data controller properties.",
       "properties": {
         "basicLoginInformation": {
           "description": "Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.",
@@ -798,6 +808,7 @@
       "type": "object"
     },
     "ExtendedLocation": {
+      "description": "The complex type of the extended location.",
       "properties": {
         "name": {
           "description": "The name of the extended location.",
@@ -822,6 +833,7 @@
     },
     "K8SResourceRequirements": {
       "additionalProperties": {},
+      "description": "The kubernetes resource limits and requests used to restrict or reserve resource usage.",
       "properties": {
         "limits": {
           "description": "Limits for a kubernetes resource type (e.g 'cpu', 'memory'). The 'cpu' request must be less than or equal to 'cpu' limit. Default 'cpu' is 2, minimum is 1. Default 'memory' is '4Gi', minimum is '2Gi. If sku.tier is GeneralPurpose, maximum 'cpu' is 24 and maximum 'memory' is '128Gi'.",
@@ -858,6 +870,7 @@
     },
     "K8SScheduling": {
       "additionalProperties": {},
+      "description": "The kubernetes scheduling information.",
       "properties": {
         "default": {
           "description": "The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service",
@@ -875,6 +888,7 @@
     },
     "K8SSchedulingOptions": {
       "additionalProperties": {},
+      "description": "The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service",
       "properties": {
         "resources": {
           "description": "The kubernetes resource limits and requests used to restrict or reserve resource usage.",
@@ -891,6 +905,7 @@
       "type": "object"
     },
     "KeytabInformation": {
+      "description": "Keytab used for authenticate with Active Directory.",
       "properties": {
         "keytab": {
           "description": "A base64-encoded keytab.",
@@ -900,6 +915,7 @@
       "type": "object"
     },
     "LogAnalyticsWorkspaceConfig": {
+      "description": "Log analytics workspace id and primary key",
       "properties": {
         "primaryKey": {
           "description": "Primary key of the workspace",
@@ -921,6 +937,7 @@
       "type": "object"
     },
     "OnPremiseProperty": {
+      "description": "Properties from the Kubernetes data controller",
       "properties": {
         "id": {
           "description": "A globally unique ID identifying the associated Kubernetes cluster",
@@ -950,6 +967,7 @@
       "type": "object"
     },
     "PostgresInstanceProperties": {
+      "description": "Postgres Instance properties.",
       "properties": {
         "admin": {
           "description": "The instance admin",
@@ -989,6 +1007,7 @@
       "type": "object"
     },
     "PostgresInstanceSku": {
+      "description": "The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -1029,7 +1048,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Hyperscale"
               ],
               "type": "string"
             },
@@ -1046,6 +1065,7 @@
     },
     "SqlManagedInstanceK8SRaw": {
       "additionalProperties": {},
+      "description": "The raw kubernetes information.",
       "properties": {
         "spec": {
           "description": "The kubernetes spec information.",
@@ -1063,6 +1083,7 @@
     },
     "SqlManagedInstanceK8SSpec": {
       "additionalProperties": {},
+      "description": "The kubernetes spec information.",
       "properties": {
         "replicas": {
           "description": "This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.",
@@ -1090,6 +1111,7 @@
       "type": "object"
     },
     "SqlManagedInstanceProperties": {
+      "description": "Properties of sqlManagedInstance.",
       "properties": {
         "activeDirectoryInformation": {
           "description": "Active Directory information related to this SQL Managed Instance.",
@@ -1180,6 +1202,7 @@
       "type": "object"
     },
     "SqlManagedInstanceSku": {
+      "description": "The resource model definition representing SKU for Azure Managed Instance - Azure Arc",
       "properties": {
         "capacity": {
           "description": "The SKU capacity",
@@ -1212,7 +1235,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "vCore"
               ],
               "type": "string"
             },
@@ -1247,6 +1270,7 @@
       "type": "object"
     },
     "SqlServerDatabaseResourceProperties": {
+      "description": "The properties of Arc Sql Server database resource",
       "properties": {
         "backupInformation": {
           "description": "",
@@ -1401,6 +1425,7 @@
       "type": "object"
     },
     "SqlServerDatabaseResourcePropertiesDatabaseOptions": {
+      "description": "List of features that are enabled for the database",
       "properties": {
         "isAutoCloseOn": {
           "description": "",
@@ -1494,6 +1519,7 @@
       "type": "object"
     },
     "SqlServerInstanceProperties": {
+      "description": "Properties of SqlServerInstance.",
       "properties": {
         "azureDefenderStatus": {
           "description": "Status of Azure Defender.",
@@ -1673,6 +1699,7 @@
       "type": "object"
     },
     "UploadServicePrincipal": {
+      "description": "Service principal for uploading billing, metrics and logs.",
       "properties": {
         "authority": {
           "description": "Authority for the service principal. Example: https://login.microsoftonline.com/",
@@ -1710,6 +1737,7 @@
       "type": "object"
     },
     "UploadWatermark": {
+      "description": "Properties on upload watermark.  Mostly timestamp for each upload data type",
       "properties": {
         "logs": {
           "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",
@@ -1776,7 +1804,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureArcData/dataControllers/activeDirectoryConnectors"
+            "activeDirectoryConnectors"
           ],
           "type": "string"
         }
@@ -1833,7 +1861,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AzureArcData/sqlServerInstances/databases"
+            "databases"
           ],
           "type": "string"
         }

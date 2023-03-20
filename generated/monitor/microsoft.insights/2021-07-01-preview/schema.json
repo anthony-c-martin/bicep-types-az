@@ -153,6 +153,7 @@
   },
   "definitions": {
     "AccessModeSettings": {
+      "description": "Properties that define the scope private link mode settings.",
       "properties": {
         "exclusions": {
           "description": "List of exclusions that override the default access mode settings for specific private endpoint connections.",
@@ -213,6 +214,7 @@
       "type": "object"
     },
     "AccessModeSettingsExclusion": {
+      "description": "Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.",
       "properties": {
         "ingestionAccessMode": {
           "description": "Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.",
@@ -252,6 +254,7 @@
       "type": "object"
     },
     "AzureMonitorPrivateLinkScopeProperties": {
+      "description": "Properties that define a Azure Monitor PrivateLinkScope resource.",
       "properties": {
         "accessModeSettings": {
           "description": "Access mode settings",
@@ -271,10 +274,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -305,6 +310,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -334,6 +340,7 @@
       "type": "object"
     },
     "ScopedResourceProperties": {
+      "description": "Properties of a private link scoped resource.",
       "properties": {
         "linkedResourceId": {
           "description": "The resource id of the scoped Azure monitor resource.",
@@ -368,7 +375,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/privateLinkScopes/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -406,7 +413,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Insights/privateLinkScopes/scopedResources"
+            "scopedResources"
           ],
           "type": "string"
         }

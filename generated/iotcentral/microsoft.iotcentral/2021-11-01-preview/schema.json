@@ -134,6 +134,7 @@
   },
   "definitions": {
     "AppProperties": {
+      "description": "The properties of an IoT Central application.",
       "properties": {
         "displayName": {
           "description": "The display name of the application.",
@@ -177,6 +178,7 @@
       "type": "object"
     },
     "AppSkuInfo": {
+      "description": "Information about the SKU of the IoT Central application.",
       "properties": {
         "name": {
           "description": "The name of the SKU.",
@@ -201,6 +203,7 @@
       "type": "object"
     },
     "NetworkRuleSetIpRule": {
+      "description": "An object for an IP range that will be allowed access.",
       "properties": {
         "filterName": {
           "description": "The readable name of the IP rule.",
@@ -214,6 +217,7 @@
       "type": "object"
     },
     "NetworkRuleSets": {
+      "description": "Network Rule Set Properties of this IoT Central application.",
       "properties": {
         "applyToDevices": {
           "description": "Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.",
@@ -277,10 +281,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The private endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint resource.",
@@ -311,6 +317,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -340,6 +347,7 @@
       "type": "object"
     },
     "SystemAssignedServiceIdentity": {
+      "description": "Managed service identity (either system assigned, or none)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (either system assigned, or none).",
@@ -388,7 +396,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.IoTCentral/iotApps/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

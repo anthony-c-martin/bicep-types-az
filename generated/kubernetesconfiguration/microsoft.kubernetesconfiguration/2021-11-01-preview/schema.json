@@ -132,6 +132,7 @@
   },
   "definitions": {
     "DependsOnDefinition": {
+      "description": "Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization",
       "properties": {
         "kustomizationName": {
           "description": "Name of the kustomization to claim dependency on",
@@ -141,6 +142,7 @@
       "type": "object"
     },
     "ExtensionProperties": {
+      "description": "Properties of an Extension resource",
       "properties": {
         "aksAssignedIdentity": {
           "description": "Identity of the Extension resource in an AKS cluster",
@@ -242,13 +244,14 @@
       "type": "object"
     },
     "ExtensionPropertiesAksAssignedIdentity": {
+      "description": "Identity of the Extension resource in an AKS cluster",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -261,6 +264,7 @@
       "type": "object"
     },
     "ExtensionStatus": {
+      "description": "Status from the extension.",
       "properties": {
         "code": {
           "description": "Status code provided by the Extension",
@@ -298,6 +302,7 @@
       "type": "object"
     },
     "FluxConfigurationProperties": {
+      "description": "Properties to create a Flux Configuration resource",
       "properties": {
         "configurationProtectedSettings": {
           "description": "Key-value pairs of protected configuration settings for the configuration",
@@ -395,6 +400,7 @@
       "type": "object"
     },
     "GitRepositoryDefinition": {
+      "description": "Parameters to reconcile to the GitRepository source kind type.",
       "properties": {
         "httpsCAFile": {
           "description": "Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS",
@@ -453,6 +459,7 @@
       "type": "object"
     },
     "HelmOperatorProperties": {
+      "description": "Properties for Helm operator.",
       "properties": {
         "chartValues": {
           "description": "Values override for the operator Helm chart.",
@@ -466,13 +473,14 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -485,6 +493,7 @@
       "type": "object"
     },
     "KustomizationDefinition": {
+      "description": "The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.",
       "properties": {
         "dependsOn": {
           "description": "Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.",
@@ -586,6 +595,7 @@
       "type": "object"
     },
     "RepositoryRefDefinition": {
+      "description": "The source reference for the GitRepository object.",
       "properties": {
         "branch": {
           "description": "The git repository branch name to checkout.",
@@ -607,6 +617,7 @@
       "type": "object"
     },
     "Scope": {
+      "description": "Scope of the extension. It can be either Cluster or Namespace; but not both.",
       "properties": {
         "cluster": {
           "description": "Specifies that the scope of the extension is Cluster",
@@ -634,6 +645,7 @@
       "type": "object"
     },
     "ScopeCluster": {
+      "description": "Specifies that the scope of the extension is Cluster",
       "properties": {
         "releaseNamespace": {
           "description": "Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created",
@@ -643,6 +655,7 @@
       "type": "object"
     },
     "ScopeNamespace": {
+      "description": "Specifies that the scope of the extension is Namespace",
       "properties": {
         "targetNamespace": {
           "description": "Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created",
@@ -652,6 +665,7 @@
       "type": "object"
     },
     "SourceControlConfigurationProperties": {
+      "description": "Properties to create a Source Control Configuration resource",
       "properties": {
         "configurationProtectedSettings": {
           "description": "Name-value pairs of protected configuration settings for the configuration",

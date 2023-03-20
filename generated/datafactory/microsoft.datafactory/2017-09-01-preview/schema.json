@@ -348,6 +348,7 @@
   "definitions": {
     "Activity": {
       "additionalProperties": {},
+      "description": "A pipeline activity.",
       "properties": {
         "dependsOn": {
           "description": "Activity depends on condition.",
@@ -386,6 +387,7 @@
     },
     "ActivityDependency": {
       "additionalProperties": {},
+      "description": "Activity dependency information.",
       "properties": {
         "activity": {
           "description": "Activity name.",
@@ -427,6 +429,7 @@
     },
     "ActivityPolicy": {
       "additionalProperties": {},
+      "description": "Execution policy for an activity.",
       "properties": {
         "retry": {
           "description": "Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0."
@@ -460,6 +463,7 @@
       "type": "object"
     },
     "AmazonMWSLinkedServiceTypeProperties": {
+      "description": "Amazon Marketplace Web Service linked service properties.",
       "properties": {
         "accessKeyId": {
           "description": "The access key id used to access data."
@@ -517,6 +521,7 @@
       "type": "object"
     },
     "AmazonRedshiftLinkedServiceTypeProperties": {
+      "description": "Amazon Redshift linked service properties.",
       "properties": {
         "database": {
           "description": "The database name of the Amazon Redshift source. Type: string (or Expression with resultType string)."
@@ -552,6 +557,7 @@
       "type": "object"
     },
     "AmazonS3DatasetTypeProperties": {
+      "description": "Amazon S3 dataset properties.",
       "properties": {
         "bucketName": {
           "description": "The name of the Amazon S3 bucket. Type: string (or Expression with resultType string)."
@@ -594,6 +600,7 @@
       "type": "object"
     },
     "AmazonS3LinkedServiceTypeProperties": {
+      "description": "Amazon S3 linked service properties.",
       "properties": {
         "accessKeyId": {
           "description": "The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string)."
@@ -616,6 +623,7 @@
       "type": "object"
     },
     "AzureBatchLinkedServiceTypeProperties": {
+      "description": "Azure Batch linked service properties.",
       "properties": {
         "accessKey": {
           "description": "The Azure Batch account access key.",
@@ -661,6 +669,7 @@
       "type": "object"
     },
     "AzureBlobDatasetTypeProperties": {
+      "description": "Azure Blob dataset properties.",
       "properties": {
         "compression": {
           "description": "The data compression method used for the blob storage.",
@@ -697,6 +706,7 @@
       "type": "object"
     },
     "AzureDataLakeAnalyticsLinkedServiceTypeProperties": {
+      "description": "Azure Data Lake Analytics linked service properties.",
       "properties": {
         "accountName": {
           "description": "The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string)."
@@ -738,6 +748,7 @@
       "type": "object"
     },
     "AzureDataLakeStoreDatasetTypeProperties": {
+      "description": "Azure Data Lake Store dataset properties.",
       "properties": {
         "compression": {
           "description": "The data compression method used for the item(s) in the Azure Data Lake Store.",
@@ -774,6 +785,7 @@
       "type": "object"
     },
     "AzureDataLakeStoreLinkedServiceTypeProperties": {
+      "description": "Azure Data Lake Store linked service properties.",
       "properties": {
         "accountName": {
           "description": "Data Lake Store account name. Type: string (or Expression with resultType string)."
@@ -814,6 +826,7 @@
       "type": "object"
     },
     "AzureDatabricksLinkedServiceTypeProperties": {
+      "description": "Azure Databricks linked service properties.",
       "properties": {
         "accessToken": {
           "description": "Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).",
@@ -865,6 +878,7 @@
       "type": "object"
     },
     "AzureKeyVaultLinkedServiceTypeProperties": {
+      "description": "Azure Key Vault linked service properties.",
       "properties": {
         "baseUrl": {
           "description": "The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string)."
@@ -876,6 +890,7 @@
       "type": "object"
     },
     "AzureMLBatchExecutionActivityTypeProperties": {
+      "description": "Azure ML Batch Execution activity properties.",
       "properties": {
         "globalParameters": {
           "description": "Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.",
@@ -938,6 +953,7 @@
       "type": "object"
     },
     "AzureMLLinkedServiceTypeProperties": {
+      "description": "Azure ML Web Service linked service properties.",
       "properties": {
         "apiKey": {
           "description": "The API key for accessing the Azure ML model endpoint.",
@@ -984,6 +1000,7 @@
       "type": "object"
     },
     "AzureMLUpdateResourceActivityTypeProperties": {
+      "description": "Azure ML Update Resource activity properties.",
       "properties": {
         "trainedModelFilePath": {
           "description": "The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string)."
@@ -1011,6 +1028,7 @@
       "type": "object"
     },
     "AzureMLWebServiceFile": {
+      "description": "Azure ML WebService Input/Output file",
       "properties": {
         "filePath": {
           "description": "The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string)."
@@ -1034,6 +1052,7 @@
       "type": "object"
     },
     "AzureMySqlLinkedServiceTypeProperties": {
+      "description": "Azure MySQL database linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1048,6 +1067,7 @@
       "type": "object"
     },
     "AzureMySqlTableDatasetTypeProperties": {
+      "description": "Azure MySQL database dataset properties.",
       "properties": {
         "tableName": {
           "description": "The Azure MySQL database table name. Type: string (or Expression with resultType string)."
@@ -1056,6 +1076,7 @@
       "type": "object"
     },
     "AzurePostgreSqlLinkedServiceTypeProperties": {
+      "description": "Azure PostgreSQL linked service properties.",
       "properties": {
         "connectionString": {
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1067,6 +1088,7 @@
       "type": "object"
     },
     "AzureSearchIndexDatasetTypeProperties": {
+      "description": "Properties specific to this dataset type.",
       "properties": {
         "indexName": {
           "description": "The name of the Azure Search Index. Type: string (or Expression with resultType string)."
@@ -1078,6 +1100,7 @@
       "type": "object"
     },
     "AzureSearchLinkedServiceTypeProperties": {
+      "description": "Windows Azure Search Service linked service properties.",
       "properties": {
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
@@ -1103,6 +1126,7 @@
       "type": "object"
     },
     "AzureSqlDWLinkedServiceTypeProperties": {
+      "description": "Azure SQL Data Warehouse linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1134,6 +1158,7 @@
       "type": "object"
     },
     "AzureSqlDWTableDatasetTypeProperties": {
+      "description": "Azure SQL Data Warehouse dataset properties.",
       "properties": {
         "tableName": {
           "description": "The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string)."
@@ -1145,6 +1170,7 @@
       "type": "object"
     },
     "AzureSqlDatabaseLinkedServiceTypeProperties": {
+      "description": "Azure SQL Database linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1176,6 +1202,7 @@
       "type": "object"
     },
     "AzureSqlTableDatasetTypeProperties": {
+      "description": "Azure SQL dataset properties.",
       "properties": {
         "tableName": {
           "description": "The table name of the Azure SQL database. Type: string (or Expression with resultType string)."
@@ -1187,6 +1214,7 @@
       "type": "object"
     },
     "AzureStorageLinkedServiceTypeProperties": {
+      "description": "Azure Storage linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1209,6 +1237,7 @@
       "type": "object"
     },
     "AzureTableDatasetTypeProperties": {
+      "description": "Azure Table dataset properties.",
       "properties": {
         "tableName": {
           "description": "The table name of the Azure Table storage. Type: string (or Expression with resultType string)."
@@ -1220,6 +1249,7 @@
       "type": "object"
     },
     "CassandraLinkedServiceTypeProperties": {
+      "description": "Cassandra linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "AuthenticationType to be used for connection. Type: string (or Expression with resultType string)."
@@ -1254,6 +1284,7 @@
       "type": "object"
     },
     "CassandraTableDatasetTypeProperties": {
+      "description": "Cassandra dataset properties.",
       "properties": {
         "keyspace": {
           "description": "The keyspace of the Cassandra database. Type: string (or Expression with resultType string)."
@@ -1265,6 +1296,7 @@
       "type": "object"
     },
     "ConcurLinkedServiceTypeProperties": {
+      "description": "Concur Service linked service properties.",
       "properties": {
         "clientId": {
           "description": "Application client_id supplied by Concur App Management."
@@ -1303,6 +1335,7 @@
       "type": "object"
     },
     "CopyActivityTypeProperties": {
+      "description": "Copy activity properties.",
       "properties": {
         "cloudDataMovementUnits": {
           "description": "Maximum number of cloud data movement units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0."
@@ -1372,6 +1405,7 @@
     },
     "CopySink": {
       "additionalProperties": {},
+      "description": "A copy activity sink.",
       "properties": {
         "sinkRetryCount": {
           "description": "Sink retry count. Type: integer (or Expression with resultType integer)."
@@ -1390,6 +1424,7 @@
     },
     "CopySource": {
       "additionalProperties": {},
+      "description": "A copy activity source.",
       "properties": {
         "sourceRetryCount": {
           "description": "Source retry count. Type: integer (or Expression with resultType integer)."
@@ -1401,6 +1436,7 @@
       "type": "object"
     },
     "CosmosDbLinkedServiceTypeProperties": {
+      "description": "CosmosDB linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1415,6 +1451,7 @@
       "type": "object"
     },
     "CouchbaseLinkedServiceTypeProperties": {
+      "description": "Couchbase server linked service properties.",
       "properties": {
         "connectionString": {
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1426,6 +1463,7 @@
       "type": "object"
     },
     "CustomActivityReferenceObject": {
+      "description": "Reference objects for custom activity",
       "properties": {
         "datasets": {
           "description": "Dataset references.",
@@ -1473,6 +1511,7 @@
       "type": "object"
     },
     "CustomActivityTypeProperties": {
+      "description": "Custom activity properties.",
       "properties": {
         "command": {
           "description": "Command for custom activity Type: string (or Expression with resultType string)."
@@ -1522,6 +1561,7 @@
       "type": "object"
     },
     "DataLakeAnalyticsUsqlActivityTypeProperties": {
+      "description": "DataLakeAnalyticsU-SQL activity properties.",
       "properties": {
         "compilationMode": {
           "description": "Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string)."
@@ -1570,6 +1610,7 @@
       "type": "object"
     },
     "DatabricksNotebookActivityTypeProperties": {
+      "description": "Databricks Notebook activity properties.",
       "properties": {
         "baseParameters": {
           "description": "Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.",
@@ -1595,6 +1636,7 @@
     },
     "Dataset": {
       "additionalProperties": {},
+      "description": "The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.",
       "properties": {
         "annotations": {
           "description": "List of tags that can be used for describing the Dataset.",
@@ -1656,10 +1698,12 @@
     },
     "DatasetCompression": {
       "additionalProperties": {},
+      "description": "The compression method used on a dataset.",
       "properties": {},
       "type": "object"
     },
     "DatasetReference": {
+      "description": "Dataset reference type.",
       "properties": {
         "parameters": {
           "description": "Arguments for dataset.",
@@ -1701,6 +1745,7 @@
     },
     "DatasetStorageFormat": {
       "additionalProperties": {},
+      "description": "The format definition of a storage.",
       "properties": {
         "deserializer": {
           "description": "Deserializer. Type: string (or Expression with resultType string)."
@@ -1712,6 +1757,7 @@
       "type": "object"
     },
     "Db2LinkedServiceTypeProperties": {
+      "description": "DB2 linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "AuthenticationType to be used for connection.",
@@ -1758,6 +1804,7 @@
       "type": "object"
     },
     "DocumentDbCollectionDatasetTypeProperties": {
+      "description": "DocumentDB Collection dataset properties.",
       "properties": {
         "collectionName": {
           "description": "Document Database collection name. Type: string (or Expression with resultType string)."
@@ -1769,6 +1816,7 @@
       "type": "object"
     },
     "DrillLinkedServiceTypeProperties": {
+      "description": "Drill server linked service properties.",
       "properties": {
         "connectionString": {
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -1780,6 +1828,7 @@
       "type": "object"
     },
     "DynamicsEntityDatasetTypeProperties": {
+      "description": "Dynamics entity dataset properties.",
       "properties": {
         "entityName": {
           "description": "The logical name of the entity. Type: string (or Expression with resultType string)."
@@ -1788,6 +1837,7 @@
       "type": "object"
     },
     "DynamicsLinkedServiceTypeProperties": {
+      "description": "Dynamics linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).",
@@ -1857,6 +1907,7 @@
       "type": "object"
     },
     "EloquaLinkedServiceTypeProperties": {
+      "description": "Eloqua server linked service properties.",
       "properties": {
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
@@ -1895,6 +1946,7 @@
       "type": "object"
     },
     "EntityReference": {
+      "description": "The entity reference.",
       "properties": {
         "referenceName": {
           "description": "The name of this referenced entity.",
@@ -1919,6 +1971,7 @@
       "type": "object"
     },
     "ExecutePipelineActivityTypeProperties": {
+      "description": "Execute pipeline activity properties.",
       "properties": {
         "parameters": {
           "description": "Pipeline parameters.",
@@ -1962,6 +2015,7 @@
       "type": "object"
     },
     "ExecuteSsisPackageActivityTypeProperties": {
+      "description": "Execute SSIS package activity properties.",
       "properties": {
         "connectVia": {
           "description": "The integration runtime reference.",
@@ -2156,6 +2210,7 @@
       "type": "object"
     },
     "Expression": {
+      "description": "Azure Data Factory expression definition.",
       "properties": {
         "type": {
           "description": "Expression type.",
@@ -2183,13 +2238,14 @@
       "type": "object"
     },
     "FactoryIdentity": {
+      "description": "Identity properties of the factory resource.",
       "properties": {
         "type": {
           "description": "The identity type. Currently the only supported type is 'SystemAssigned'.",
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "SystemAssigned"
               ],
               "type": "string"
             },
@@ -2205,6 +2261,7 @@
       "type": "object"
     },
     "FactoryProperties": {
+      "description": "Factory resource properties.",
       "properties": {
         "vstsConfiguration": {
           "description": "VSTS repo information of the factory.",
@@ -2221,6 +2278,7 @@
       "type": "object"
     },
     "FactoryVstsConfiguration": {
+      "description": "Factory's VSTS repo information.",
       "properties": {
         "accountName": {
           "description": "VSTS account name.",
@@ -2254,6 +2312,7 @@
       "type": "object"
     },
     "FileServerLinkedServiceTypeProperties": {
+      "description": "File system linked service properties.",
       "properties": {
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
@@ -2282,6 +2341,7 @@
       "type": "object"
     },
     "FileShareDatasetTypeProperties": {
+      "description": "On-premises file system dataset properties.",
       "properties": {
         "compression": {
           "description": "The data compression method used for the file system.",
@@ -2318,6 +2378,7 @@
       "type": "object"
     },
     "FilterActivityTypeProperties": {
+      "description": "Filter activity properties.",
       "properties": {
         "condition": {
           "description": "Condition to be used for filtering the input.",
@@ -2349,6 +2410,7 @@
       "type": "object"
     },
     "ForEachActivityTypeProperties": {
+      "description": "ForEach activity properties.",
       "properties": {
         "activities": {
           "description": "List of activities to execute .",
@@ -2412,6 +2474,7 @@
       "type": "object"
     },
     "FtpServerLinkedServiceTypeProperties": {
+      "description": "Properties specific to this linked service type.",
       "properties": {
         "authenticationType": {
           "description": "The authentication type to be used to connect to the FTP server.",
@@ -2464,6 +2527,7 @@
       "type": "object"
     },
     "GetMetadataActivityTypeProperties": {
+      "description": "GetMetadata activity properties.",
       "properties": {
         "dataset": {
           "description": "GetMetadata activity dataset reference.",
@@ -2495,6 +2559,7 @@
       "type": "object"
     },
     "GoogleBigQueryLinkedServiceTypeProperties": {
+      "description": "Google BigQuery service linked service properties.",
       "properties": {
         "additionalProjects": {
           "description": "A comma-separated list of public BigQuery projects to access."
@@ -2576,6 +2641,7 @@
       "type": "object"
     },
     "GreenplumLinkedServiceTypeProperties": {
+      "description": "Greenplum Database linked service properties.",
       "properties": {
         "connectionString": {
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -2587,6 +2653,7 @@
       "type": "object"
     },
     "HBaseLinkedServiceTypeProperties": {
+      "description": "HBase server linked service properties.",
       "properties": {
         "allowHostNameCNMismatch": {
           "description": "Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false."
@@ -2649,6 +2716,7 @@
       "type": "object"
     },
     "HDInsightHiveActivityTypeProperties": {
+      "description": "HDInsight Hive activity properties.",
       "properties": {
         "arguments": {
           "description": "User specified arguments to HDInsightActivity.",
@@ -2730,6 +2798,7 @@
       "type": "object"
     },
     "HDInsightLinkedServiceTypeProperties": {
+      "description": "HDInsight linked service properties.",
       "properties": {
         "clusterUri": {
           "description": "HDInsight cluster URI. Type: string (or Expression with resultType string)."
@@ -2780,6 +2849,7 @@
       "type": "object"
     },
     "HDInsightMapReduceActivityTypeProperties": {
+      "description": "HDInsight MapReduce activity properties.",
       "properties": {
         "arguments": {
           "description": "User specified arguments to HDInsightActivity.",
@@ -2880,6 +2950,7 @@
       "type": "object"
     },
     "HDInsightOnDemandLinkedServiceTypeProperties": {
+      "description": "HDInsight ondemand linked service properties.",
       "properties": {
         "additionalLinkedServiceNames": {
           "description": "Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.",
@@ -3042,6 +3113,7 @@
       "type": "object"
     },
     "HDInsightPigActivityTypeProperties": {
+      "description": "HDInsight Pig activity properties.",
       "properties": {
         "arguments": {
           "description": "User specified arguments to HDInsightActivity.",
@@ -3123,6 +3195,7 @@
       "type": "object"
     },
     "HDInsightSparkActivityTypeProperties": {
+      "description": "HDInsight spark activity properties.",
       "properties": {
         "arguments": {
           "description": "The user-specified arguments to HDInsightSparkActivity.",
@@ -3197,6 +3270,7 @@
       "type": "object"
     },
     "HDInsightStreamingActivityTypeProperties": {
+      "description": "HDInsight streaming activity properties.",
       "properties": {
         "arguments": {
           "description": "User specified arguments to HDInsightActivity.",
@@ -3321,6 +3395,7 @@
       "type": "object"
     },
     "HdfsLinkedServiceTypeProperties": {
+      "description": "HDFS linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string)."
@@ -3352,6 +3427,7 @@
       "type": "object"
     },
     "HiveLinkedServiceTypeProperties": {
+      "description": "Hive Server linked service properties.",
       "properties": {
         "allowHostNameCNMismatch": {
           "description": "Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false."
@@ -3460,6 +3536,7 @@
       "type": "object"
     },
     "HttpDatasetTypeProperties": {
+      "description": "Properties specific to this dataset type.",
       "properties": {
         "additionalHeaders": {
           "description": "The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1\r\n...\r\nrequest-header-name-n:request-header-value-n Type: string (or Expression with resultType string)."
@@ -3499,6 +3576,7 @@
       "type": "object"
     },
     "HttpLinkedServiceTypeProperties": {
+      "description": "Properties specific to this linked service type.",
       "properties": {
         "authenticationType": {
           "description": "The authentication type to be used to connect to the HTTP server.",
@@ -3554,6 +3632,7 @@
       "type": "object"
     },
     "HubspotLinkedServiceTypeProperties": {
+      "description": "Hubspot Service linked service properties.",
       "properties": {
         "accessToken": {
           "description": "The access token obtained when initially authenticating your OAuth integration.",
@@ -3610,6 +3689,7 @@
       "type": "object"
     },
     "IfConditionActivityTypeProperties": {
+      "description": "IfCondition activity properties.",
       "properties": {
         "expression": {
           "description": "An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.",
@@ -3671,6 +3751,7 @@
       "type": "object"
     },
     "ImpalaLinkedServiceTypeProperties": {
+      "description": "Impala server linked service properties.",
       "properties": {
         "allowHostNameCNMismatch": {
           "description": "Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false."
@@ -3735,6 +3816,7 @@
     },
     "IntegrationRuntime": {
       "additionalProperties": {},
+      "description": "Azure Data Factory nested object which serves as a compute resource for activities.",
       "properties": {
         "description": {
           "description": "Integration runtime description.",
@@ -3745,6 +3827,7 @@
     },
     "IntegrationRuntimeComputeProperties": {
       "additionalProperties": {},
+      "description": "The compute resource properties for managed integration runtime.",
       "properties": {
         "location": {
           "description": "The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities",
@@ -3791,6 +3874,7 @@
       "type": "object"
     },
     "IntegrationRuntimeCustomSetupScriptProperties": {
+      "description": "Custom setup script properties for a managed dedicated integration runtime.",
       "properties": {
         "blobContainerUri": {
           "description": "The URI of the Azure blob container that contains the custom setup script.",
@@ -3811,6 +3895,7 @@
       "type": "object"
     },
     "IntegrationRuntimeDataProxyProperties": {
+      "description": "Data proxy properties for a managed dedicated integration runtime.",
       "properties": {
         "connectVia": {
           "description": "The self-hosted integration runtime reference.",
@@ -3842,6 +3927,7 @@
       "type": "object"
     },
     "IntegrationRuntimeReference": {
+      "description": "Integration runtime reference type.",
       "properties": {
         "parameters": {
           "description": "Arguments for integration runtime.",
@@ -3883,6 +3969,7 @@
     },
     "IntegrationRuntimeSsisCatalogInfo": {
       "additionalProperties": {},
+      "description": "Catalog information for managed dedicated integration runtime.",
       "properties": {
         "catalogAdminPassword": {
           "description": "The password of the administrator user account of the catalog database.",
@@ -3921,6 +4008,7 @@
     },
     "IntegrationRuntimeSsisProperties": {
       "additionalProperties": {},
+      "description": "SSIS properties for managed integration runtime.",
       "properties": {
         "catalogInfo": {
           "description": "Catalog information for managed dedicated integration runtime.",
@@ -3990,6 +4078,7 @@
     },
     "IntegrationRuntimeVNetProperties": {
       "additionalProperties": {},
+      "description": "VNet properties for managed integration runtime.",
       "properties": {
         "subnet": {
           "description": "The name of the subnet this integration runtime will join.",
@@ -4003,6 +4092,7 @@
       "type": "object"
     },
     "JiraLinkedServiceTypeProperties": {
+      "description": "Jira Service linked service properties.",
       "properties": {
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
@@ -4044,10 +4134,12 @@
       "type": "object"
     },
     "LinkedIntegrationRuntimeProperties": {
+      "description": "The base definition of a secret type.",
       "properties": {},
       "type": "object"
     },
     "LinkedIntegrationRuntimeTypeProperties": {
+      "description": "The base definition of a secret type.",
       "properties": {
         "linkedInfo": {
           "description": "The base definition of a secret type.",
@@ -4065,6 +4157,7 @@
     },
     "LinkedService": {
       "additionalProperties": {},
+      "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.",
       "properties": {
         "annotations": {
           "description": "List of tags that can be used for describing the Dataset.",
@@ -4119,6 +4212,7 @@
       "type": "object"
     },
     "LinkedServiceReference": {
+      "description": "Linked service reference type.",
       "properties": {
         "parameters": {
           "description": "Arguments for LinkedService.",
@@ -4159,6 +4253,7 @@
       "type": "object"
     },
     "LookupActivityTypeProperties": {
+      "description": "Lookup activity properties.",
       "properties": {
         "dataset": {
           "description": "Lookup activity dataset reference.",
@@ -4193,6 +4288,7 @@
       "type": "object"
     },
     "MagentoLinkedServiceTypeProperties": {
+      "description": "Magento server linked service properties.",
       "properties": {
         "accessToken": {
           "description": "The access token from Magento.",
@@ -4227,6 +4323,7 @@
       "type": "object"
     },
     "ManagedIntegrationRuntimeTypeProperties": {
+      "description": "Managed integration runtime type properties.",
       "properties": {
         "computeProperties": {
           "description": "The compute resource for managed integration runtime.",
@@ -4254,6 +4351,7 @@
       "type": "object"
     },
     "MariaDBLinkedServiceTypeProperties": {
+      "description": "MariaDB server linked service properties.",
       "properties": {
         "connectionString": {
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -4265,6 +4363,7 @@
       "type": "object"
     },
     "MarketoLinkedServiceTypeProperties": {
+      "description": "Marketo server linked service properties.",
       "properties": {
         "clientId": {
           "description": "The client Id of your Marketo service."
@@ -4303,6 +4402,7 @@
       "type": "object"
     },
     "MongoDbCollectionDatasetTypeProperties": {
+      "description": "MongoDB database dataset properties.",
       "properties": {
         "collectionName": {
           "description": "The table name of the MongoDB database. Type: string (or Expression with resultType string)."
@@ -4314,6 +4414,7 @@
       "type": "object"
     },
     "MongoDbLinkedServiceTypeProperties": {
+      "description": "MongoDB linked service properties.",
       "properties": {
         "allowSelfSignedServerCert": {
           "description": "Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean)."
@@ -4373,6 +4474,7 @@
       "type": "object"
     },
     "MySqlLinkedServiceTypeProperties": {
+      "description": "MySQL linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string.",
@@ -4395,6 +4497,7 @@
       "type": "object"
     },
     "NetezzaLinkedServiceTypeProperties": {
+      "description": "Netezza linked service properties.",
       "properties": {
         "connectionString": {
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -4406,6 +4509,7 @@
       "type": "object"
     },
     "ODataLinkedServiceTypeProperties": {
+      "description": "OData linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "Type of authentication used to connect to the OData service.",
@@ -4449,6 +4553,7 @@
       "type": "object"
     },
     "ODataResourceDatasetTypeProperties": {
+      "description": "OData dataset properties.",
       "properties": {
         "path": {
           "description": "The OData resource path. Type: string (or Expression with resultType string)."
@@ -4457,6 +4562,7 @@
       "type": "object"
     },
     "OdbcLinkedServiceTypeProperties": {
+      "description": "ODBC linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string)."
@@ -4499,6 +4605,7 @@
       "type": "object"
     },
     "OracleLinkedServiceTypeProperties": {
+      "description": "Oracle database linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -4513,6 +4620,7 @@
       "type": "object"
     },
     "OracleTableDatasetTypeProperties": {
+      "description": "On-premises Oracle dataset properties.",
       "properties": {
         "tableName": {
           "description": "The table name of the on-premises Oracle database. Type: string (or Expression with resultType string)."
@@ -4524,6 +4632,7 @@
       "type": "object"
     },
     "ParameterSpecification": {
+      "description": "Definition of a single parameter for an entity.",
       "properties": {
         "defaultValue": {
           "description": "Default value of parameter."
@@ -4555,6 +4664,7 @@
       "type": "object"
     },
     "PaypalLinkedServiceTypeProperties": {
+      "description": "Paypal Service linked service properties.",
       "properties": {
         "clientId": {
           "description": "The client ID associated with your PayPal application."
@@ -4593,6 +4703,7 @@
       "type": "object"
     },
     "PhoenixLinkedServiceTypeProperties": {
+      "description": "Phoenix server linked service properties.",
       "properties": {
         "allowHostNameCNMismatch": {
           "description": "Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false."
@@ -4659,6 +4770,7 @@
       "type": "object"
     },
     "Pipeline": {
+      "description": "A data factory pipeline.",
       "properties": {
         "activities": {
           "description": "List of activities in pipeline.",
@@ -4734,6 +4846,7 @@
       "type": "object"
     },
     "PipelineReference": {
+      "description": "Pipeline reference type.",
       "properties": {
         "name": {
           "description": "Reference name.",
@@ -4765,6 +4878,7 @@
       "type": "object"
     },
     "PostgreSqlLinkedServiceTypeProperties": {
+      "description": "PostgreSQL linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string.",
@@ -4787,6 +4901,7 @@
       "type": "object"
     },
     "PrestoLinkedServiceTypeProperties": {
+      "description": "Presto server linked service properties.",
       "properties": {
         "allowHostNameCNMismatch": {
           "description": "Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false."
@@ -4860,6 +4975,7 @@
       "type": "object"
     },
     "QuickBooksLinkedServiceTypeProperties": {
+      "description": "QuickBooks server linked service properties.",
       "properties": {
         "accessToken": {
           "description": "The access token for OAuth 1.0 authentication.",
@@ -4922,6 +5038,7 @@
     },
     "RedirectIncompatibleRowSettings": {
       "additionalProperties": {},
+      "description": "Redirect incompatible row settings",
       "properties": {
         "linkedServiceName": {
           "description": "Name of the Azure Storage, Storage SAS, or Azure Data Lake Store linked service used for redirecting incompatible row. Must be specified if redirectIncompatibleRowSettings is specified. Type: string (or Expression with resultType string)."
@@ -4936,6 +5053,7 @@
       "type": "object"
     },
     "RelationalTableDatasetTypeProperties": {
+      "description": "Relational table dataset properties.",
       "properties": {
         "tableName": {
           "description": "The relational table name. Type: string (or Expression with resultType string)."
@@ -4944,6 +5062,7 @@
       "type": "object"
     },
     "ResponsysLinkedServiceTypeProperties": {
+      "description": "Responsys linked service properties.",
       "properties": {
         "clientId": {
           "description": "The client ID associated with the Responsys application. Type: string (or Expression with resultType string)."
@@ -4982,6 +5101,7 @@
       "type": "object"
     },
     "SalesforceLinkedServiceTypeProperties": {
+      "description": "Salesforce linked service properties.",
       "properties": {
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
@@ -5018,6 +5138,7 @@
       "type": "object"
     },
     "SalesforceMarketingCloudLinkedServiceTypeProperties": {
+      "description": "Salesforce Marketing Cloud linked service properties.",
       "properties": {
         "clientId": {
           "description": "The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string)."
@@ -5052,6 +5173,7 @@
       "type": "object"
     },
     "SalesforceObjectDatasetTypeProperties": {
+      "description": "Salesforce object dataset properties.",
       "properties": {
         "objectApiName": {
           "description": "The Salesforce object API name. Type: string (or Expression with resultType string)."
@@ -5060,6 +5182,7 @@
       "type": "object"
     },
     "SapBWLinkedServiceTypeProperties": {
+      "description": "Properties specific to this linked service type.",
       "properties": {
         "clientId": {
           "description": "Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string)."
@@ -5096,6 +5219,7 @@
       "type": "object"
     },
     "SapCloudForCustomerLinkedServiceTypeProperties": {
+      "description": "SAP Cloud for Customer linked service properties.",
       "properties": {
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string)."
@@ -5124,6 +5248,7 @@
       "type": "object"
     },
     "SapCloudForCustomerResourceDatasetTypeProperties": {
+      "description": "Sap Cloud For Customer OData resource dataset properties.",
       "properties": {
         "path": {
           "description": "The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string)."
@@ -5135,6 +5260,7 @@
       "type": "object"
     },
     "SapEccLinkedServiceTypeProperties": {
+      "description": "SAP ECC linked service properties.",
       "properties": {
         "encryptedCredential": {
           "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).",
@@ -5166,6 +5292,7 @@
       "type": "object"
     },
     "SapEccResourceDatasetTypeProperties": {
+      "description": "Sap ECC OData resource dataset properties.",
       "properties": {
         "path": {
           "description": "The path of the SAP ECC OData entity. Type: string (or Expression with resultType string)."
@@ -5177,6 +5304,7 @@
       "type": "object"
     },
     "SapHanaLinkedServiceProperties": {
+      "description": "Properties specific to this linked service type.",
       "properties": {
         "authenticationType": {
           "description": "The authentication type to be used to connect to the SAP HANA server.",
@@ -5220,10 +5348,12 @@
       "type": "object"
     },
     "SecretBase": {
+      "description": "The base definition of a secret type.",
       "properties": {},
       "type": "object"
     },
     "SecureString": {
+      "description": "Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.",
       "properties": {
         "type": {
           "description": "Type of the secret.",
@@ -5241,6 +5371,7 @@
       "type": "object"
     },
     "ServiceNowLinkedServiceTypeProperties": {
+      "description": "ServiceNow server linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "The authentication type to use.",
@@ -5308,6 +5439,7 @@
       "type": "object"
     },
     "SftpServerLinkedServiceTypeProperties": {
+      "description": "Properties specific to this linked service type.",
       "properties": {
         "authenticationType": {
           "description": "The authentication type to be used to connect to the FTP server.",
@@ -5385,6 +5517,7 @@
       "type": "object"
     },
     "ShopifyLinkedServiceTypeProperties": {
+      "description": "Shopify Service linked service properties.",
       "properties": {
         "accessToken": {
           "description": "The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.",
@@ -5419,6 +5552,7 @@
       "type": "object"
     },
     "SparkLinkedServiceTypeProperties": {
+      "description": "Spark Server linked service properties.",
       "properties": {
         "allowHostNameCNMismatch": {
           "description": "Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false."
@@ -5519,6 +5653,7 @@
       "type": "object"
     },
     "SqlServerLinkedServiceTypeProperties": {
+      "description": "SQL Server linked service properties.",
       "properties": {
         "connectionString": {
           "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -5547,6 +5682,7 @@
       "type": "object"
     },
     "SqlServerStoredProcedureActivityTypeProperties": {
+      "description": "SQL stored procedure activity properties.",
       "properties": {
         "storedProcedureName": {
           "description": "Stored procedure name. Type: string (or Expression with resultType string)."
@@ -5580,6 +5716,7 @@
       "type": "object"
     },
     "SqlServerTableDatasetTypeProperties": {
+      "description": "On-premises SQL Server dataset properties.",
       "properties": {
         "tableName": {
           "description": "The table name of the SQL Server dataset. Type: string (or Expression with resultType string)."
@@ -5591,6 +5728,7 @@
       "type": "object"
     },
     "SquareLinkedServiceTypeProperties": {
+      "description": "Square Service linked service properties.",
       "properties": {
         "clientId": {
           "description": "The client ID associated with your Square application."
@@ -5633,6 +5771,7 @@
       "type": "object"
     },
     "SsisAccessCredential": {
+      "description": "SSIS access credential.",
       "properties": {
         "domain": {
           "description": "Domain for windows authentication."
@@ -5660,6 +5799,7 @@
       "type": "object"
     },
     "SsisExecutionCredential": {
+      "description": "SSIS package execution credential.",
       "properties": {
         "domain": {
           "description": "Domain for windows authentication."
@@ -5687,6 +5827,7 @@
       "type": "object"
     },
     "SsisExecutionParameter": {
+      "description": "SSIS execution parameter.",
       "properties": {
         "value": {
           "description": "SSIS package execution parameter value. Type: string (or Expression with resultType string)."
@@ -5698,6 +5839,7 @@
       "type": "object"
     },
     "SsisLogLocation": {
+      "description": "SSIS package execution log location",
       "properties": {
         "logPath": {
           "description": "The SSIS package execution log path. Type: string (or Expression with resultType string)."
@@ -5736,6 +5878,7 @@
       "type": "object"
     },
     "SsisLogLocationTypeProperties": {
+      "description": "SSIS package execution log location properties.",
       "properties": {
         "accessCredential": {
           "description": "The package execution log access credential.",
@@ -5755,6 +5898,7 @@
       "type": "object"
     },
     "SsisPackageLocation": {
+      "description": "SSIS package location.",
       "properties": {
         "packagePath": {
           "description": "The SSIS package path. Type: string (or Expression with resultType string)."
@@ -5792,6 +5936,7 @@
       "type": "object"
     },
     "SsisPackageLocationTypeProperties": {
+      "description": "SSIS package location properties.",
       "properties": {
         "accessCredential": {
           "description": "The package access credential.",
@@ -5822,6 +5967,7 @@
       "type": "object"
     },
     "SsisPropertyOverride": {
+      "description": "SSIS property override.",
       "properties": {
         "isSensitive": {
           "description": "Whether SSIS package property override value is sensitive data. Value will be encrypted in SSISDB if it is true",
@@ -5845,6 +5991,7 @@
     },
     "StagingSettings": {
       "additionalProperties": {},
+      "description": "Staging settings.",
       "properties": {
         "enableCompression": {
           "description": "Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean)."
@@ -5870,6 +6017,7 @@
       "type": "object"
     },
     "StoredProcedureParameter": {
+      "description": "SQL stored procedure parameter.",
       "properties": {
         "type": {
           "description": "Stored procedure parameter type.",
@@ -5901,6 +6049,7 @@
       "type": "object"
     },
     "SybaseLinkedServiceTypeProperties": {
+      "description": "Sybase linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "AuthenticationType to be used for connection.",
@@ -5951,6 +6100,7 @@
       "type": "object"
     },
     "TeradataLinkedServiceTypeProperties": {
+      "description": "Teradata linked service properties.",
       "properties": {
         "authenticationType": {
           "description": "AuthenticationType to be used for connection.",
@@ -5995,6 +6145,7 @@
     },
     "Trigger": {
       "additionalProperties": {},
+      "description": "Azure data factory nested object which contains information about creating pipeline run",
       "properties": {
         "description": {
           "description": "Trigger description.",
@@ -6004,6 +6155,7 @@
       "type": "object"
     },
     "TriggerPipelineReference": {
+      "description": "Pipeline that needs to be triggered with the given parameters.",
       "properties": {
         "parameters": {
           "description": "Pipeline parameters.",
@@ -6033,6 +6185,7 @@
       "type": "object"
     },
     "UntilActivityTypeProperties": {
+      "description": "Until activity properties.",
       "properties": {
         "activities": {
           "description": "List of activities to execute.",
@@ -6077,6 +6230,7 @@
       "type": "object"
     },
     "VerticaLinkedServiceTypeProperties": {
+      "description": "Vertica linked service properties.",
       "properties": {
         "connectionString": {
           "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
@@ -6088,6 +6242,7 @@
       "type": "object"
     },
     "WaitActivityTypeProperties": {
+      "description": "Wait activity properties.",
       "properties": {
         "waitTimeInSeconds": {
           "description": "Duration in seconds.",
@@ -6107,6 +6262,7 @@
       "type": "object"
     },
     "WebActivityAuthentication": {
+      "description": "Web activity authentication properties.",
       "properties": {
         "password": {
           "description": "Password for the PFX file or basic authentication.",
@@ -6149,6 +6305,7 @@
       "type": "object"
     },
     "WebActivityTypeProperties": {
+      "description": "Web activity type properties.",
       "properties": {
         "authentication": {
           "description": "Authentication method used for calling the endpoint.",
@@ -6248,6 +6405,7 @@
       "type": "object"
     },
     "WebLinkedServiceTypeProperties": {
+      "description": "Base definition of WebLinkedServiceTypeProperties, this typeProperties is polymorphic based on authenticationType, so not flattened in SDK models.",
       "properties": {
         "url": {
           "description": "The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string)."
@@ -6259,6 +6417,7 @@
       "type": "object"
     },
     "WebTableDatasetTypeProperties": {
+      "description": "Web table dataset properties.",
       "properties": {
         "index": {
           "description": "The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0."
@@ -6273,6 +6432,7 @@
       "type": "object"
     },
     "XeroLinkedServiceTypeProperties": {
+      "description": "Xero Service linked service properties.",
       "properties": {
         "consumerKey": {
           "description": "The consumer key associated with the Xero application.",
@@ -6318,6 +6478,7 @@
       "type": "object"
     },
     "ZohoLinkedServiceTypeProperties": {
+      "description": "Zoho server linked service properties.",
       "properties": {
         "accessToken": {
           "description": "The access token for Zoho authentication.",
@@ -6387,7 +6548,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/datasets"
+            "datasets"
           ],
           "type": "string"
         }
@@ -6435,7 +6596,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/integrationRuntimes"
+            "integrationRuntimes"
           ],
           "type": "string"
         }
@@ -6483,7 +6644,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/linkedservices"
+            "linkedservices"
           ],
           "type": "string"
         }
@@ -6531,7 +6692,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/pipelines"
+            "pipelines"
           ],
           "type": "string"
         }
@@ -6579,7 +6740,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DataFactory/factories/triggers"
+            "triggers"
           ],
           "type": "string"
         }

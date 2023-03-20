@@ -1179,6 +1179,7 @@
   },
   "definitions": {
     "AKSProperties": {
+      "description": "AKS properties",
       "properties": {
         "agentCount": {
           "description": "Number of agents",
@@ -1260,6 +1261,7 @@
       "type": "object"
     },
     "AccountKeyDatastoreSecrets": {
+      "description": "Datastore account key secrets.",
       "properties": {
         "key": {
           "description": "Storage account key.",
@@ -1291,6 +1293,7 @@
       "type": "object"
     },
     "AksNetworkingConfiguration": {
+      "description": "Advance configuration for AKS networking",
       "properties": {
         "dnsServiceIP": {
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
@@ -1336,6 +1339,7 @@
       "type": "object"
     },
     "AmlComputeProperties": {
+      "description": "AML Compute properties",
       "properties": {
         "enableNodePublicIp": {
           "description": "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.",
@@ -1457,10 +1461,12 @@
       "type": "object"
     },
     "AssetReferenceBase": {
+      "description": "Base definition for asset references.",
       "properties": {},
       "type": "object"
     },
     "AssignedUser": {
+      "description": "A user that can be assigned to a compute instance.",
       "properties": {
         "objectId": {
           "description": "User’s AAD Object Id.",
@@ -1478,6 +1484,7 @@
       "type": "object"
     },
     "AutoPauseProperties": {
+      "description": "Auto pause properties",
       "properties": {
         "delayInMinutes": {
           "description": "",
@@ -1505,6 +1512,7 @@
       "type": "object"
     },
     "AutoScaleProperties": {
+      "description": "Auto scale properties",
       "properties": {
         "enabled": {
           "description": "",
@@ -1543,6 +1551,7 @@
       "type": "object"
     },
     "BatchDeployment": {
+      "description": "Batch inference settings per deployment.",
       "properties": {
         "codeConfiguration": {
           "description": "Code configuration for the endpoint deployment.",
@@ -1693,6 +1702,7 @@
       "type": "object"
     },
     "BatchEndpoint": {
+      "description": "Batch endpoint configuration.",
       "properties": {
         "authMode": {
           "description": "[Required] Inference endpoint authentication mode type",
@@ -1766,6 +1776,7 @@
       "type": "object"
     },
     "BatchOutputConfiguration": {
+      "description": "Batch inference output configuration.",
       "properties": {
         "appendRowFileName": {
           "description": "Customized output file name for append_row output action.",
@@ -1790,6 +1801,7 @@
       "type": "object"
     },
     "BatchRetrySettings": {
+      "description": "Retry settings for a batch inference operation.",
       "properties": {
         "maxRetries": {
           "description": "Maximum retry count for a mini-batch",
@@ -1810,6 +1822,7 @@
       "type": "object"
     },
     "CertificateDatastoreSecrets": {
+      "description": "Datastore certificate secrets.",
       "properties": {
         "certificate": {
           "description": "Service principal certificate.",
@@ -1841,6 +1854,7 @@
       "type": "object"
     },
     "CodeConfiguration": {
+      "description": "Configuration for a scoring code asset.",
       "properties": {
         "codeId": {
           "description": "ARM resource ID of the code asset.",
@@ -1866,6 +1880,7 @@
       "type": "object"
     },
     "CodeContainer": {
+      "description": "Container for code asset versions.",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -1905,6 +1920,7 @@
       "type": "object"
     },
     "CodeVersion": {
+      "description": "Code asset version details.",
       "properties": {
         "datastoreId": {
           "description": "ARM resource ID of the datastore where the asset is located.",
@@ -1974,6 +1990,7 @@
       "type": "object"
     },
     "Compute": {
+      "description": "Machine Learning compute object.",
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -2002,6 +2019,7 @@
       "type": "object"
     },
     "ComputeConfiguration": {
+      "description": "Configuration for compute binding.",
       "properties": {
         "instanceCount": {
           "description": "Number of instances or nodes.",
@@ -2056,6 +2074,7 @@
       "type": "object"
     },
     "ComputeInstanceProperties": {
+      "description": "Compute Instance properties",
       "properties": {
         "applicationSharingPolicy": {
           "description": "Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.",
@@ -2160,6 +2179,7 @@
       "type": "object"
     },
     "ComputeInstanceSshSettings": {
+      "description": "Specifies policy and settings for SSH access.",
       "properties": {
         "adminPublicKey": {
           "description": "Specifies the SSH rsa public key file as a string. Use \"ssh-keygen -t rsa -b 2048\" to generate your SSH key pairs.",
@@ -2184,6 +2204,7 @@
       "type": "object"
     },
     "ComputeSchedules": {
+      "description": "The list of schedules to be applied on the computes",
       "properties": {
         "computeStartStop": {
           "description": "The list of compute start stop schedules to be applied.",
@@ -2210,6 +2231,7 @@
       "type": "object"
     },
     "ComputeStartStopSchedule": {
+      "description": "Compute start stop schedule properties",
       "properties": {
         "action": {
           "description": "The compute power action.",
@@ -2282,6 +2304,7 @@
       "type": "object"
     },
     "ContainerResourceRequirements": {
+      "description": "The resource requirements for the container (cpu and memory).",
       "properties": {
         "cpu": {
           "description": "The minimum amount of CPU cores to be used by the container. More info:\nhttps://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/",
@@ -2369,6 +2392,7 @@
       "type": "object"
     },
     "Cron": {
+      "description": "The workflow trigger cron for ComputeStartStop schedule type.",
       "properties": {
         "expression": {
           "description": "The cron expression.",
@@ -2386,6 +2410,7 @@
       "type": "object"
     },
     "DataContainer": {
+      "description": "Container for data asset versions.",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -2434,6 +2459,7 @@
       "type": "object"
     },
     "DataVersion": {
+      "description": "Data asset version details.",
       "properties": {
         "datasetType": {
           "description": "The Format of dataset.",
@@ -2531,14 +2557,17 @@
       "type": "object"
     },
     "DatastoreContents": {
+      "description": "Base definition for datastore contents configuration.",
       "properties": {},
       "type": "object"
     },
     "DatastoreCredentials": {
+      "description": "Base definition for datastore credentials.",
       "properties": {},
       "type": "object"
     },
     "DatastoreProperties": {
+      "description": "Datastore definition.",
       "properties": {
         "contents": {
           "description": "[Required] Reference to the datastore storage contents.",
@@ -2614,6 +2643,7 @@
       "type": "object"
     },
     "DistributionConfiguration": {
+      "description": "Base definition for job distribution configuration.",
       "properties": {},
       "type": "object"
     },
@@ -2638,6 +2668,7 @@
       "type": "object"
     },
     "DockerSpecification": {
+      "description": "Configuration settings for Docker",
       "properties": {
         "platform": {
           "description": "The platform information of the docker image.",
@@ -2654,6 +2685,7 @@
       "type": "object"
     },
     "EarlyTerminationPolicy": {
+      "description": "Early termination policies enable canceling poor-performing runs before they complete.",
       "properties": {
         "delayEvaluation": {
           "description": "Number of intervals by which to delay the first evaluation.",
@@ -2727,6 +2759,7 @@
       "type": "object"
     },
     "EndpointAuthKeys": {
+      "description": "Keys for endpoint authentication.",
       "properties": {
         "primaryKey": {
           "description": "The primary key.",
@@ -2740,6 +2773,7 @@
       "type": "object"
     },
     "EnvironmentContainer": {
+      "description": "Container for environment specification versions.",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -2779,6 +2813,7 @@
       "type": "object"
     },
     "EnvironmentSpecificationVersion": {
+      "description": "Environment specification version details.\r\n<see href=\"https://repo2docker.readthedocs.io/en/latest/specification.html\" />",
       "properties": {
         "condaFile": {
           "description": "Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.\r\n<see href=\"https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment\" />",
@@ -2906,6 +2941,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -2950,10 +2986,12 @@
       "type": "object"
     },
     "IdentityConfiguration": {
+      "description": "Base definition for identity configuration.",
       "properties": {},
       "type": "object"
     },
     "IdentityForCmk": {
+      "description": "Identity that will be used to access key vault for encryption at rest",
       "properties": {
         "userAssignedIdentity": {
           "description": "The ArmId of the user assigned identity that will be used to access the customer managed key vault",
@@ -3035,6 +3073,7 @@
       "type": "object"
     },
     "JobBase": {
+      "description": "Base definition for a job.",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -3095,6 +3134,7 @@
       "type": "object"
     },
     "LabelCategory": {
+      "description": "Label category definition",
       "properties": {
         "allowMultiSelect": {
           "description": "Indicates whether it is allowed to select multiple classes in this category.",
@@ -3137,6 +3177,7 @@
       "type": "object"
     },
     "LabelClass": {
+      "description": "Label class definition",
       "properties": {
         "displayName": {
           "description": "Display name of the label class.",
@@ -3168,6 +3209,7 @@
       "type": "object"
     },
     "LabelingDatasetConfiguration": {
+      "description": "Labeling dataset configuration definition",
       "properties": {
         "assetName": {
           "description": "Name of the data asset to perform labeling.",
@@ -3192,6 +3234,7 @@
       "type": "object"
     },
     "LabelingJob": {
+      "description": "Labeling job definition",
       "properties": {
         "datasetConfiguration": {
           "description": "Configuration of dataset used in the job.",
@@ -3316,6 +3359,7 @@
       "type": "object"
     },
     "LabelingJobInstructions": {
+      "description": "Instructions for labeling job",
       "properties": {
         "uri": {
           "description": "The link to a page with detailed labeling instructions for labelers.",
@@ -3325,10 +3369,12 @@
       "type": "object"
     },
     "LabelingJobMediaProperties": {
+      "description": "Properties of a labeling job",
       "properties": {},
       "type": "object"
     },
     "LinkedInfo": {
+      "description": "Information about a datastore origin, if linked.",
       "properties": {
         "linkedId": {
           "description": "Linked service ID.",
@@ -3356,6 +3402,7 @@
       "type": "object"
     },
     "MLAssistConfiguration": {
+      "description": "Labeling MLAssist configuration definition",
       "properties": {
         "inferencingComputeBinding": {
           "description": "AML compute binding used in inferencing.",
@@ -3433,6 +3480,7 @@
       "type": "object"
     },
     "ModelVersion": {
+      "description": "Model asset version details.",
       "properties": {
         "datastoreId": {
           "description": "ARM resource ID of the datastore where the asset is located.",
@@ -3524,6 +3572,7 @@
       "type": "object"
     },
     "NoneDatastoreSecrets": {
+      "description": "Empty/none datastore secret.",
       "properties": {
         "secretsType": {
           "description": "[Required] Credential type used to authentication with storage.",
@@ -3551,6 +3600,7 @@
       "type": "object"
     },
     "Objective": {
+      "description": "Optimization objective.",
       "properties": {
         "goal": {
           "description": "[Required] Defines supported metric goals for hyperparameter tuning",
@@ -3696,6 +3746,7 @@
       "type": "object"
     },
     "OnlineEndpoint": {
+      "description": "Online endpoint configuration",
       "properties": {
         "authMode": {
           "description": "[Required] Inference endpoint authentication mode type",
@@ -3776,6 +3827,7 @@
       "type": "object"
     },
     "OnlineRequestSettings": {
+      "description": "Online deployment scoring requests configuration.",
       "properties": {
         "maxConcurrentRequestsPerInstance": {
           "description": "The number of requests allowed to queue at once for this deployment.",
@@ -3800,6 +3852,7 @@
       "type": "object"
     },
     "OnlineScaleSettings": {
+      "description": "Online deployment scaling configuration.",
       "properties": {
         "maxInstances": {
           "description": "Maximum number of instances for this deployment.",
@@ -3865,6 +3918,7 @@
       "type": "object"
     },
     "PersonalComputeInstanceSettings": {
+      "description": "Settings for a personal compute instance.",
       "properties": {
         "assignedUser": {
           "description": "A user explicitly assigned to a personal compute instance.",
@@ -3881,10 +3935,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -3915,6 +3971,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -3946,6 +4003,7 @@
       "type": "object"
     },
     "ProbeSettings": {
+      "description": "Deployment container liveness/readiness probe configuration.",
       "properties": {
         "failureThreshold": {
           "description": "The number of failures to allow before returning an unhealthy status.",
@@ -3985,6 +4043,7 @@
       "type": "object"
     },
     "Recurrence": {
+      "description": "The workflow trigger recurrence for ComputeStartStop schedule type.",
       "properties": {
         "frequency": {
           "description": "The recurrence frequency.",
@@ -4041,6 +4100,7 @@
       "type": "object"
     },
     "RecurrenceSchedule": {
+      "description": "The recurrence schedule",
       "properties": {
         "hours": {
           "description": "The hours.",
@@ -4118,6 +4178,7 @@
       "type": "object"
     },
     "ResourceId": {
+      "description": "Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.",
       "properties": {
         "id": {
           "description": "The ID of the resource",
@@ -4130,6 +4191,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "Service identity associated with a resource.",
       "properties": {
         "type": {
           "description": "Defines values for a ResourceIdentity's type.",
@@ -4206,6 +4268,7 @@
       "type": "object"
     },
     "SasDatastoreSecrets": {
+      "description": "Datastore SAS secrets.",
       "properties": {
         "sasToken": {
           "description": "Storage container SAS token.",
@@ -4237,6 +4300,7 @@
       "type": "object"
     },
     "ScaleSettings": {
+      "description": "scale settings for AML Compute",
       "properties": {
         "maxNodeCount": {
           "description": "Max number of nodes to use",
@@ -4271,6 +4335,7 @@
       "type": "object"
     },
     "ScriptReference": {
+      "description": "Script reference",
       "properties": {
         "scriptArguments": {
           "description": "Optional command line arguments passed to the script to run.",
@@ -4292,6 +4357,7 @@
       "type": "object"
     },
     "ScriptsToExecute": {
+      "description": "Customized setup scripts",
       "properties": {
         "creationScript": {
           "description": "Script that's run only once during provision of the compute.",
@@ -4335,6 +4401,7 @@
       "type": "object"
     },
     "ServicePrincipalDatastoreSecrets": {
+      "description": "Datastore Service Principal secrets.",
       "properties": {
         "clientSecret": {
           "description": "Service principal secret.",
@@ -4366,6 +4433,7 @@
       "type": "object"
     },
     "SetupScripts": {
+      "description": "Details of customized scripts to execute for setting up the cluster.",
       "properties": {
         "scripts": {
           "description": "Customized setup scripts",
@@ -4402,6 +4470,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperty": {
+      "description": "Properties of a shared private link resource.",
       "properties": {
         "groupId": {
           "description": "The private link resource group id.",
@@ -4437,6 +4506,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku of the resource",
       "properties": {
         "name": {
           "description": "Name of the sku",
@@ -4450,6 +4520,7 @@
       "type": "object"
     },
     "SqlAdminDatastoreSecrets": {
+      "description": "Datastore SQL Admin secrets.",
       "properties": {
         "password": {
           "description": "SQL database password.",
@@ -4481,6 +4552,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "The ssl configuration for scoring",
       "properties": {
         "cert": {
           "description": "Cert data",
@@ -4529,6 +4601,7 @@
       "type": "object"
     },
     "SynapseSparkPoolPropertiesProperties": {
+      "description": "AKS properties",
       "properties": {
         "autoPauseProperties": {
           "description": "Auto pause properties.",
@@ -4595,6 +4668,7 @@
       "type": "object"
     },
     "TrialComponent": {
+      "description": "Trial component definition.",
       "properties": {
         "codeId": {
           "description": "ARM resource ID of the code asset.",
@@ -4698,6 +4772,7 @@
       "type": "object"
     },
     "UserAccountCredentials": {
+      "description": "Settings for user account that gets created on each on the nodes of a compute.",
       "properties": {
         "adminUserName": {
           "description": "Name of the administrator user account which can be used to SSH to nodes.",
@@ -4718,10 +4793,12 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User Assigned Identity",
       "properties": {},
       "type": "object"
     },
     "UserAssignedIdentityMeta": {
+      "description": "User assigned identities associated with a resource.",
       "properties": {
         "clientId": {
           "description": "Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.",
@@ -4735,6 +4812,7 @@
       "type": "object"
     },
     "VirtualMachineImage": {
+      "description": "Virtual Machine image for Windows AML Compute",
       "properties": {
         "id": {
           "description": "Virtual Machine image path",
@@ -4793,6 +4871,7 @@
       "type": "object"
     },
     "VirtualMachineSshCredentials": {
+      "description": "Admin credentials for virtual machine",
       "properties": {
         "password": {
           "description": "Password of admin account",
@@ -4814,6 +4893,7 @@
       "type": "object"
     },
     "WorkspaceConnectionProps": {
+      "description": "Workspace Connection specific properties.",
       "properties": {
         "authType": {
           "description": "Authorization type of the workspace connection.",
@@ -4849,6 +4929,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The properties of a machine learning workspace.",
       "properties": {
         "allowPublicAccessWhenBehindVnet": {
           "description": "The flag to indicate whether to allow public access when behind VNet.",
@@ -5022,7 +5103,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/batchEndpoints"
+            "batchEndpoints"
           ],
           "type": "string"
         }
@@ -5102,7 +5183,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -5148,7 +5229,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/codes"
+            "codes"
           ],
           "type": "string"
         }
@@ -5186,7 +5267,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/codes/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5265,7 +5346,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }
@@ -5303,7 +5384,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/connections"
+            "connections"
           ],
           "type": "string"
         }
@@ -5349,7 +5430,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/data"
+            "data"
           ],
           "type": "string"
         }
@@ -5387,7 +5468,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/data/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5433,7 +5514,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/datastores"
+            "datastores"
           ],
           "type": "string"
         }
@@ -5479,7 +5560,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/environments"
+            "environments"
           ],
           "type": "string"
         }
@@ -5517,7 +5598,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/environments/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5563,7 +5644,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/jobs"
+            "jobs"
           ],
           "type": "string"
         }
@@ -5609,7 +5690,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/labelingJobs"
+            "labelingJobs"
           ],
           "type": "string"
         }
@@ -5655,7 +5736,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/models"
+            "models"
           ],
           "type": "string"
         }
@@ -5693,7 +5774,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/models/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5773,7 +5854,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints"
+            "onlineEndpoints"
           ],
           "type": "string"
         }
@@ -5853,7 +5934,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -5932,7 +6013,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

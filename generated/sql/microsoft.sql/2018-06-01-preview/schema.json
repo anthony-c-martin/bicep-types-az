@@ -289,18 +289,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The source of the sensitivity label.",
-          "oneOf": [
-            {
-              "enum": [
-                "[object Object]"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "pattern": "^.*/current$",
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -560,6 +550,7 @@
   },
   "definitions": {
     "AdministratorProperties": {
+      "description": "Properties of a active directory administrator.",
       "properties": {
         "administratorType": {
           "description": "Type of the sever administrator.",
@@ -612,6 +603,7 @@
       "type": "object"
     },
     "BaseLongTermRetentionPolicyProperties": {
+      "description": "Properties of a long term retention policy",
       "properties": {
         "monthlyRetention": {
           "description": "The monthly retention policy for an LTR backup in an ISO 8601 format.",
@@ -640,6 +632,7 @@
       "type": "object"
     },
     "InstancePoolProperties": {
+      "description": "Properties of an instance pool.",
       "properties": {
         "licenseType": {
           "description": "The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).",
@@ -680,6 +673,7 @@
       "type": "object"
     },
     "ManagedDatabaseProperties": {
+      "description": "The managed database's properties.",
       "properties": {
         "catalogCollation": {
           "description": "Collation of the metadata catalog.",
@@ -758,6 +752,7 @@
       "type": "object"
     },
     "ManagedInstanceProperties": {
+      "description": "The properties of a managed instance.",
       "properties": {
         "administratorLogin": {
           "description": "Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).",
@@ -894,6 +889,7 @@
       "type": "object"
     },
     "ManagedInstanceVulnerabilityAssessmentProperties": {
+      "description": "Properties of a managed instance vulnerability assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -925,6 +921,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "Private endpoint which the connection belongs to.",
@@ -978,6 +975,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "Azure Active Directory identity configuration for a resource.",
       "properties": {
         "type": {
           "description": "The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.",
@@ -1000,6 +998,7 @@
       "type": "object"
     },
     "SecurityAlertPolicyProperties": {
+      "description": "Properties of a security alert policy.",
       "properties": {
         "disabledAlerts": {
           "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action",
@@ -1082,6 +1081,7 @@
       "type": "object"
     },
     "SensitivityLabelProperties": {
+      "description": "Properties of a sensitivity label.",
       "properties": {
         "informationType": {
           "description": "The information type.",
@@ -1121,6 +1121,7 @@
       "type": "object"
     },
     "ServerVulnerabilityAssessmentProperties": {
+      "description": "Properties of a server Vulnerability Assessment.",
       "properties": {
         "recurringScans": {
           "description": "The recurring scans settings",
@@ -1152,6 +1153,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "An ARM Resource SKU.",
       "properties": {
         "capacity": {
           "description": "Capacity of the particular SKU.",
@@ -1187,6 +1189,7 @@
       "type": "object"
     },
     "VulnerabilityAssessmentRecurringScansProperties": {
+      "description": "Properties of a Vulnerability Assessment recurring scans.",
       "properties": {
         "emailSubscriptionAdmins": {
           "description": "Specifies that the schedule scan notification will be is sent to the subscription administrators.",
@@ -1263,7 +1266,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases/backupLongTermRetentionPolicies"
+            "backupLongTermRetentionPolicies"
           ],
           "type": "string"
         }
@@ -1320,7 +1323,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -1368,7 +1371,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Sql/managedInstances/vulnerabilityAssessments"
+            "vulnerabilityAssessments"
           ],
           "type": "string"
         }

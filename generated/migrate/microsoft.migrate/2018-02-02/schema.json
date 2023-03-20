@@ -160,6 +160,7 @@
   },
   "definitions": {
     "AssessmentProperties": {
+      "description": "Properties of an assessment.",
       "properties": {
         "azureHybridUseBenefit": {
           "description": "AHUB discount on windows virtual machines.",
@@ -448,6 +449,7 @@
       "type": "object"
     },
     "GroupProperties": {
+      "description": "Properties of group resource.",
       "properties": {
         "machines": {
           "description": "List of machine names that are part of this group.",
@@ -470,6 +472,7 @@
       "type": "object"
     },
     "ProjectProperties": {
+      "description": "Properties of a project.",
       "properties": {
         "customerWorkspaceId": {
           "description": "ARM ID of the Service Map workspace created by user.",
@@ -531,7 +534,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Migrate/projects/groups/assessments"
+            "assessments"
           ],
           "type": "string"
         }
@@ -573,7 +576,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Migrate/projects/groups"
+            "groups"
           ],
           "type": "string"
         }

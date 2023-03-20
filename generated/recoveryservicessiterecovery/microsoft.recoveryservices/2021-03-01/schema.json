@@ -571,6 +571,7 @@
   },
   "definitions": {
     "A2AProtectionIntentDiskInputDetails": {
+      "description": "Azure VM disk input details.",
       "properties": {
         "diskUri": {
           "description": "The disk Uri.",
@@ -605,6 +606,7 @@
       "type": "object"
     },
     "A2AProtectionIntentManagedDiskInputDetails": {
+      "description": "Azure VM managed disk input details.",
       "properties": {
         "diskEncryptionInfo": {
           "description": "The recovery disk encryption information (for one / single pass flows).",
@@ -662,6 +664,7 @@
       "type": "object"
     },
     "A2AVmDiskInputDetails": {
+      "description": "Azure VM disk input details.",
       "properties": {
         "diskUri": {
           "description": "The disk Uri.",
@@ -679,6 +682,7 @@
       "type": "object"
     },
     "A2AVmManagedDiskInputDetails": {
+      "description": "Azure VM managed disk input details.",
       "properties": {
         "diskEncryptionInfo": {
           "description": "The recovery disk encryption information (for one / single pass flows).",
@@ -719,6 +723,7 @@
       "type": "object"
     },
     "AddRecoveryServicesProviderInputProperties": {
+      "description": "The properties of an add provider request.",
       "properties": {
         "authenticationIdentityInput": {
           "description": "The identity provider input for DRA authentication.",
@@ -770,6 +775,7 @@
       "type": "object"
     },
     "AddVCenterRequestProperties": {
+      "description": "The properties of an add vCenter request.",
       "properties": {
         "friendlyName": {
           "description": "The friendly name of the vCenter.",
@@ -795,6 +801,7 @@
       "type": "object"
     },
     "ConfigureAlertRequestProperties": {
+      "description": "Properties of a configure alert request.",
       "properties": {
         "customEmailAddresses": {
           "description": "The custom email address for sending emails.",
@@ -822,6 +829,7 @@
       "type": "object"
     },
     "CreateNetworkMappingInputProperties": {
+      "description": "Common input details for network mapping operation.",
       "properties": {
         "fabricSpecificDetails": {
           "description": "Fabric specific input properties.",
@@ -846,6 +854,7 @@
       "type": "object"
     },
     "CreatePolicyInputProperties": {
+      "description": "Policy creation properties.",
       "properties": {
         "providerSpecificInput": {
           "description": "The ReplicationProviderSettings.",
@@ -862,6 +871,7 @@
       "type": "object"
     },
     "CreateProtectionContainerInputProperties": {
+      "description": "Create protection container input properties.",
       "properties": {
         "providerSpecificInput": {
           "description": "Provider specific inputs for container creation.",
@@ -888,6 +898,7 @@
       "type": "object"
     },
     "CreateProtectionContainerMappingInputProperties": {
+      "description": "Configure pairing input properties.",
       "properties": {
         "policyId": {
           "description": "Applicable policy.",
@@ -912,6 +923,7 @@
       "type": "object"
     },
     "CreateProtectionIntentProperties": {
+      "description": "Create protection intent input properties.",
       "properties": {
         "providerSpecificDetails": {
           "description": "The ReplicationProviderInput. For A2A provider, it will be A2ACreateProtectionIntentInput object. For other providers, it can be null.",
@@ -928,10 +940,12 @@
       "type": "object"
     },
     "CreateProtectionIntentProviderSpecificDetails": {
+      "description": "Create protection intent provider specific input.",
       "properties": {},
       "type": "object"
     },
     "CreateRecoveryPlanInputProperties": {
+      "description": "Recovery plan creation properties.",
       "properties": {
         "failoverDeploymentModel": {
           "description": "The failover deployment model.",
@@ -1008,6 +1022,7 @@
       "type": "object"
     },
     "DiskEncryptionInfo": {
+      "description": "Recovery disk encryption info (BEK and KEK).",
       "properties": {
         "diskEncryptionKeyInfo": {
           "description": "The recovery KeyVault reference for secret.",
@@ -1035,6 +1050,7 @@
       "type": "object"
     },
     "DiskEncryptionKeyInfo": {
+      "description": "Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).",
       "properties": {
         "keyVaultResourceArmId": {
           "description": "The KeyVault resource ARM Id for secret.",
@@ -1048,6 +1064,7 @@
       "type": "object"
     },
     "EnableMigrationInputProperties": {
+      "description": "Enable migration input properties.",
       "properties": {
         "policyId": {
           "description": "The policy Id.",
@@ -1072,10 +1089,12 @@
       "type": "object"
     },
     "EnableMigrationProviderSpecificInput": {
+      "description": "Enable migration provider specific input.",
       "properties": {},
       "type": "object"
     },
     "EnableProtectionInputProperties": {
+      "description": "Enable protection input properties.",
       "properties": {
         "policyId": {
           "description": "The Policy Id.",
@@ -1100,10 +1119,12 @@
       "type": "object"
     },
     "EnableProtectionProviderSpecificInput": {
+      "description": "Enable protection provider specific input.",
       "properties": {},
       "type": "object"
     },
     "FabricCreationInputProperties": {
+      "description": "Properties of site details provided during the time of site creation",
       "properties": {
         "customDetails": {
           "description": "Fabric provider specific creation input.",
@@ -1120,14 +1141,17 @@
       "type": "object"
     },
     "FabricSpecificCreateNetworkMappingInput": {
+      "description": "Input details specific to fabrics during Network Mapping.",
       "properties": {},
       "type": "object"
     },
     "FabricSpecificCreationInput": {
+      "description": "Fabric provider specific settings.",
       "properties": {},
       "type": "object"
     },
     "IdentityProviderInput": {
+      "description": "Identity provider input.",
       "properties": {
         "aadAuthority": {
           "description": "The base authority for Azure Active Directory authentication.",
@@ -1160,6 +1184,7 @@
       "type": "object"
     },
     "InMageAzureV2DiskInputDetails": {
+      "description": "Disk input details.",
       "properties": {
         "diskEncryptionSetId": {
           "description": "The DiskEncryptionSet ARM ID.",
@@ -1193,6 +1218,7 @@
       "type": "object"
     },
     "InMageDiskExclusionInput": {
+      "description": "DiskExclusionInput when doing enable protection of virtual machine in InMage provider.",
       "properties": {
         "diskSignatureOptions": {
           "description": "The guest disk signature based option for disk exclusion.",
@@ -1240,6 +1266,7 @@
       "type": "object"
     },
     "InMageDiskSignatureExclusionOptions": {
+      "description": "Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.",
       "properties": {
         "diskSignature": {
           "description": "The guest signature of disk to be excluded from replication.",
@@ -1249,6 +1276,7 @@
       "type": "object"
     },
     "InMageRcmDiskInput": {
+      "description": "InMageRcm disk input.",
       "properties": {
         "diskEncryptionSetId": {
           "description": "The disk encryption set ARM Id.",
@@ -1282,6 +1310,7 @@
       "type": "object"
     },
     "InMageRcmDisksDefaultInput": {
+      "description": "InMageRcm disk input.",
       "properties": {
         "diskEncryptionSetId": {
           "description": "The disk encryption set ARM Id.",
@@ -1311,6 +1340,7 @@
       "type": "object"
     },
     "InMageVolumeExclusionOptions": {
+      "description": "Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.",
       "properties": {
         "onlyExcludeIfSingleVolume": {
           "description": "The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.",
@@ -1324,6 +1354,7 @@
       "type": "object"
     },
     "KeyEncryptionKeyInfo": {
+      "description": "Key Encryption Key (KEK) information.",
       "properties": {
         "keyIdentifier": {
           "description": "The key URL / identifier.",
@@ -1337,18 +1368,22 @@
       "type": "object"
     },
     "PolicyProviderSpecificInput": {
+      "description": "Base class for provider specific input",
       "properties": {},
       "type": "object"
     },
     "ProtectionProfileCustomDetails": {
+      "description": "Protection Profile custom input.",
       "properties": {},
       "type": "object"
     },
     "RecoveryAvailabilitySetCustomDetails": {
+      "description": "Recovery Availability Set custom input.",
       "properties": {},
       "type": "object"
     },
     "RecoveryPlanAction": {
+      "description": "Recovery plan action details.",
       "properties": {
         "actionName": {
           "description": "The action name.",
@@ -1436,10 +1471,12 @@
       "type": "object"
     },
     "RecoveryPlanActionDetails": {
+      "description": "Recovery plan action custom details.",
       "properties": {},
       "type": "object"
     },
     "RecoveryPlanGroup": {
+      "description": "Recovery plan group details.",
       "properties": {
         "endGroupActions": {
           "description": "The end group actions.",
@@ -1527,6 +1564,7 @@
       "type": "object"
     },
     "RecoveryPlanProtectedItem": {
+      "description": "Recovery plan protected item.",
       "properties": {
         "id": {
           "description": "The ARM Id of the recovery plan protected item.",
@@ -1540,34 +1578,42 @@
       "type": "object"
     },
     "RecoveryPlanProviderSpecificInput": {
+      "description": "Recovery plan provider specific input base class.",
       "properties": {},
       "type": "object"
     },
     "RecoveryProximityPlacementGroupCustomDetails": {
+      "description": "Recovery Proximity placement group custom input.",
       "properties": {},
       "type": "object"
     },
     "RecoveryResourceGroupCustomDetails": {
+      "description": "Recovery Resource Group custom input.",
       "properties": {},
       "type": "object"
     },
     "RecoveryVirtualNetworkCustomDetails": {
+      "description": "Recovery Virtual network custom input.",
       "properties": {},
       "type": "object"
     },
     "ReplicationProviderSpecificContainerCreationInput": {
+      "description": "Provider specific input for container creation operation.",
       "properties": {},
       "type": "object"
     },
     "ReplicationProviderSpecificContainerMappingInput": {
+      "description": "Provider specific input for pairing operations.",
       "properties": {},
       "type": "object"
     },
     "StorageAccountCustomDetails": {
+      "description": "Storage account custom input.",
       "properties": {},
       "type": "object"
     },
     "StorageMappingInputProperties": {
+      "description": "Storage mapping input properties.",
       "properties": {
         "targetStorageClassificationId": {
           "description": "The ID of the storage object.",
@@ -1577,6 +1623,7 @@
       "type": "object"
     },
     "VMwareCbtDiskInput": {
+      "description": "VMwareCbt disk input.",
       "properties": {
         "diskId": {
           "description": "The disk Id.",
@@ -1620,6 +1667,7 @@
       "type": "object"
     },
     "VaultSettingCreationInputProperties": {
+      "description": "Input to create vault setting.",
       "properties": {
         "migrationSolutionId": {
           "description": "The migration solution Id.",
@@ -1657,7 +1705,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers"
+            "replicationProtectionContainers"
           ],
           "type": "string"
         }
@@ -1695,7 +1743,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"
+            "replicationMigrationItems"
           ],
           "type": "string"
         }
@@ -1733,7 +1781,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems"
+            "replicationProtectedItems"
           ],
           "type": "string"
         }
@@ -1771,7 +1819,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings"
+            "replicationProtectionContainerMappings"
           ],
           "type": "string"
         }
@@ -1809,7 +1857,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders"
+            "replicationRecoveryServicesProviders"
           ],
           "type": "string"
         }
@@ -1847,7 +1895,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters"
+            "replicationvCenters"
           ],
           "type": "string"
         }

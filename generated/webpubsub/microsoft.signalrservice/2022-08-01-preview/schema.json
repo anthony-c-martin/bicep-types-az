@@ -298,6 +298,7 @@
   },
   "definitions": {
     "CustomCertificateProperties": {
+      "description": "Custom certificate properties.",
       "properties": {
         "keyVaultBaseUri": {
           "description": "Base uri of the KeyVault that stores certificate.",
@@ -319,6 +320,7 @@
       "type": "object"
     },
     "CustomDomainProperties": {
+      "description": "Properties of a custom domain.",
       "properties": {
         "customCertificate": {
           "description": "Reference to a resource.",
@@ -343,6 +345,7 @@
       "type": "object"
     },
     "EventHandler": {
+      "description": "Properties of event handler.",
       "properties": {
         "auth": {
           "description": "Upstream auth settings. If not set, no auth is used for upstream messages.",
@@ -384,6 +387,7 @@
       "type": "object"
     },
     "EventListener": {
+      "description": "A setting defines which kinds of events should be sent to which endpoint.",
       "properties": {
         "endpoint": {
           "description": "An endpoint specifying where Web PubSub should send events to.",
@@ -415,14 +419,17 @@
       "type": "object"
     },
     "EventListenerEndpoint": {
+      "description": "An endpoint specifying where Web PubSub should send events to.",
       "properties": {},
       "type": "object"
     },
     "EventListenerFilter": {
+      "description": "A base class for event filter which determines whether an event should be sent to an event listener.",
       "properties": {},
       "type": "object"
     },
     "LiveTraceCategory": {
+      "description": "Live trace category configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "enabled": {
           "description": "Indicates whether or the live trace category is enabled.\r\nAvailable values: true, false.\r\nCase insensitive.",
@@ -436,6 +443,7 @@
       "type": "object"
     },
     "LiveTraceConfiguration": {
+      "description": "Live trace configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "categories": {
           "description": "Gets or sets the list of category configurations.",
@@ -466,6 +474,7 @@
       "type": "object"
     },
     "ManagedIdentity": {
+      "description": "A class represent managed identities used for request and response",
       "properties": {
         "type": {
           "description": "Represents the identity type: systemAssigned, userAssigned, None",
@@ -509,6 +518,7 @@
       "type": "object"
     },
     "ManagedIdentitySettings": {
+      "description": "Managed identity settings for upstream.",
       "properties": {
         "resource": {
           "description": "The Resource indicating the App ID URI of the target resource.\r\nIt also appears in the aud (audience) claim of the issued token.",
@@ -518,6 +528,7 @@
       "type": "object"
     },
     "NetworkACL": {
+      "description": "Network ACL",
       "properties": {
         "allow": {
           "description": "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
@@ -577,6 +588,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "Private endpoint",
       "properties": {
         "id": {
           "description": "Full qualified Id of the private endpoint",
@@ -586,6 +598,7 @@
       "type": "object"
     },
     "PrivateEndpointACL": {
+      "description": "ACL for a private endpoint",
       "properties": {
         "allow": {
           "description": "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
@@ -652,6 +665,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Private endpoint connection properties",
       "properties": {
         "privateEndpoint": {
           "description": "Private endpoint",
@@ -679,6 +693,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "Connection state of the private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -709,6 +724,7 @@
       "type": "object"
     },
     "ResourceLogCategory": {
+      "description": "Resource log category configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "enabled": {
           "description": "Indicates whether or the resource log category is enabled.\r\nAvailable values: true, false.\r\nCase insensitive.",
@@ -722,6 +738,7 @@
       "type": "object"
     },
     "ResourceLogConfiguration": {
+      "description": "Resource log configuration of a Microsoft.SignalRService resource.",
       "properties": {
         "categories": {
           "description": "Gets or sets the list of category configurations.",
@@ -748,6 +765,7 @@
       "type": "object"
     },
     "ResourceReference": {
+      "description": "Reference to a resource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -757,6 +775,7 @@
       "type": "object"
     },
     "ResourceSku": {
+      "description": "The billing information of the resource.",
       "properties": {
         "capacity": {
           "description": "Optional, integer. The unit count of the resource. 1 by default.\r\n\r\nIf present, following values are allowed:\r\n    Free: 1;\r\n    Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;\r\n    Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;",
@@ -797,6 +816,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperties": {
+      "description": "Describes the properties of an existing Shared Private Link Resource",
       "properties": {
         "groupId": {
           "description": "The group id from the provider of resource the shared private link resource is for",
@@ -818,6 +838,7 @@
       "type": "object"
     },
     "UpstreamAuthSettings": {
+      "description": "Upstream auth settings. If not set, no auth is used for upstream messages.",
       "properties": {
         "managedIdentity": {
           "description": "Managed identity settings for upstream.",
@@ -849,10 +870,12 @@
       "type": "object"
     },
     "UserAssignedIdentityProperty": {
+      "description": "Properties of user assigned identity.",
       "properties": {},
       "type": "object"
     },
     "WebPubSubHubProperties": {
+      "description": "Properties of a hub.",
       "properties": {
         "anonymousConnectPolicy": {
           "description": "The settings for configuring if anonymous connections are allowed for this hub: \"allow\" or \"deny\". Default to \"deny\".",
@@ -904,6 +927,7 @@
       "type": "object"
     },
     "WebPubSubNetworkACLs": {
+      "description": "Network ACLs for the resource",
       "properties": {
         "defaultAction": {
           "description": "Azure Networking ACL Action.",
@@ -956,6 +980,7 @@
       "type": "object"
     },
     "WebPubSubProperties": {
+      "description": "A class that describes the properties of the resource",
       "properties": {
         "disableAadAuth": {
           "description": "DisableLocalAuth\r\nEnable or disable aad auth\r\nWhen set as true, connection with AuthType=aad won't work.",
@@ -1031,6 +1056,7 @@
       "type": "object"
     },
     "WebPubSubTlsSettings": {
+      "description": "TLS settings for the resource",
       "properties": {
         "clientCertEnabled": {
           "description": "Request client certificate during TLS handshake if enabled",
@@ -1072,7 +1098,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/webPubSub/customCertificates"
+            "customCertificates"
           ],
           "type": "string"
         }
@@ -1110,7 +1136,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/webPubSub/customDomains"
+            "customDomains"
           ],
           "type": "string"
         }
@@ -1148,7 +1174,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/webPubSub/hubs"
+            "hubs"
           ],
           "type": "string"
         }
@@ -1186,7 +1212,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/webPubSub/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -1224,7 +1250,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.SignalRService/webPubSub/sharedPrivateLinkResources"
+            "sharedPrivateLinkResources"
           ],
           "type": "string"
         }

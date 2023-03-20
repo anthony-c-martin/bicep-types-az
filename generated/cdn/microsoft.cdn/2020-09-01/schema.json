@@ -710,6 +710,7 @@
   },
   "definitions": {
     "AFDDomainHttpsParameters": {
+      "description": "The JSON object that contains the properties to secure a domain.",
       "properties": {
         "certificateType": {
           "description": "Defines the source of the SSL certificate.",
@@ -759,6 +760,7 @@
       "type": "object"
     },
     "AFDDomainProperties": {
+      "description": "The JSON object that contains the properties of the domain to create.",
       "properties": {
         "azureDnsZone": {
           "description": "Resource reference to the Azure DNS zone",
@@ -793,6 +795,7 @@
       "type": "object"
     },
     "AFDEndpointProperties": {
+      "description": "The JSON object that contains the properties required to create an endpoint.",
       "properties": {
         "enabledState": {
           "description": "Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'",
@@ -824,6 +827,7 @@
       "type": "object"
     },
     "AFDOriginGroupProperties": {
+      "description": "The JSON object that contains the properties of the origin group.",
       "properties": {
         "healthProbeSettings": {
           "description": "Health probe settings to the origin that is used to determine the health of the origin.",
@@ -888,6 +892,7 @@
       "type": "object"
     },
     "AFDOriginProperties": {
+      "description": "The JSON object that contains the properties of the origin.",
       "properties": {
         "azureOrigin": {
           "description": "Resource reference to the Azure origin resource.",
@@ -982,6 +987,7 @@
       "type": "object"
     },
     "CacheExpirationActionParameters": {
+      "description": "Defines the parameters for the cache expiration action.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -1040,6 +1046,7 @@
       "type": "object"
     },
     "CacheKeyQueryStringActionParameters": {
+      "description": "Defines the parameters for the cache-key query string action.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -1084,6 +1091,7 @@
       "type": "object"
     },
     "CdnWebApplicationFirewallPolicyProperties": {
+      "description": "Defines CDN web application firewall policy properties.",
       "properties": {
         "customRules": {
           "description": "Describes custom rules inside the policy.",
@@ -1133,6 +1141,7 @@
       "type": "object"
     },
     "CompressionSettings": {
+      "description": "settings for compression.",
       "properties": {
         "contentTypesToCompress": {
           "description": "List of content types on which compression applies. The value should be a valid MIME type.",
@@ -1163,6 +1172,7 @@
       "type": "object"
     },
     "CookiesMatchConditionParameters": {
+      "description": "Defines the parameters for Cookies match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -1267,6 +1277,7 @@
       "type": "object"
     },
     "CustomDomainPropertiesParameters": {
+      "description": "The JSON object that contains the properties of the custom domain to create.",
       "properties": {
         "hostName": {
           "description": "The host name of the custom domain. Must be a domain name.",
@@ -1279,6 +1290,7 @@
       "type": "object"
     },
     "CustomRule": {
+      "description": "Defines the common attributes for a custom rule that can be included in a waf policy",
       "properties": {
         "action": {
           "description": "Describes what action to be applied when rule matches",
@@ -1358,6 +1370,7 @@
       "type": "object"
     },
     "CustomRuleList": {
+      "description": "Defines contents of custom rules",
       "properties": {
         "rules": {
           "description": "List of rules",
@@ -1384,6 +1397,7 @@
       "type": "object"
     },
     "DeepCreatedOrigin": {
+      "description": "The main origin of CDN content which is added when creating a CDN endpoint.",
       "properties": {
         "name": {
           "description": "Origin name which must be unique within the endpoint. ",
@@ -1407,6 +1421,7 @@
       "type": "object"
     },
     "DeepCreatedOriginGroup": {
+      "description": "The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.",
       "properties": {
         "name": {
           "description": "Origin group name which must be unique within the endpoint.",
@@ -1430,6 +1445,7 @@
       "type": "object"
     },
     "DeepCreatedOriginGroupProperties": {
+      "description": "Properties of the origin group created on the CDN endpoint.",
       "properties": {
         "healthProbeSettings": {
           "description": "Health probe settings to the origin that is used to determine the health of the origin.",
@@ -1492,6 +1508,7 @@
       "type": "object"
     },
     "DeepCreatedOriginProperties": {
+      "description": "Properties of the origin created on the CDN endpoint.",
       "properties": {
         "enabled": {
           "description": "Origin is enabled for load balancing or not. By default, origin is always enabled.",
@@ -1579,6 +1596,7 @@
       "type": "object"
     },
     "DeliveryRule": {
+      "description": "A rule that specifies a set of actions and conditions",
       "properties": {
         "actions": {
           "description": "A list of actions that are executed when all the conditions of a rule are satisfied.",
@@ -1645,14 +1663,17 @@
       "type": "object"
     },
     "DeliveryRuleActionAutoGenerated": {
+      "description": "An action for the delivery rule.",
       "properties": {},
       "type": "object"
     },
     "DeliveryRuleCondition": {
+      "description": "A condition for the delivery rule.",
       "properties": {},
       "type": "object"
     },
     "EndpointProperties": {
+      "description": "The JSON object that contains the properties required to create an endpoint.",
       "properties": {
         "contentTypesToCompress": {
           "description": "List of content types on which compression applies. The value should be a valid MIME type.",
@@ -1872,6 +1893,7 @@
       "type": "object"
     },
     "EndpointPropertiesUpdateParametersDeliveryPolicy": {
+      "description": "A policy that specifies the delivery rules to be used for an endpoint.",
       "properties": {
         "description": {
           "description": "User-friendly description of the policy.",
@@ -1905,6 +1927,7 @@
       "type": "object"
     },
     "EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink": {
+      "description": "Defines the Web Application Firewall policy for the endpoint (if applicable)",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -1914,6 +1937,7 @@
       "type": "object"
     },
     "GeoFilter": {
+      "description": "Rules defining user's geo access within a CDN endpoint.",
       "properties": {
         "action": {
           "description": "Action of the geo filter, i.e. allow or block access.",
@@ -1957,6 +1981,7 @@
       "type": "object"
     },
     "HeaderActionParameters": {
+      "description": "Defines the parameters for the request header action.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -2005,6 +2030,7 @@
       "type": "object"
     },
     "HealthProbeParameters": {
+      "description": "The JSON object that contains the properties to send health probes to origin.",
       "properties": {
         "probeIntervalInSeconds": {
           "description": "The number of seconds between health probes.Default is 240sec.",
@@ -2057,6 +2083,7 @@
       "type": "object"
     },
     "HttpErrorRangeParameters": {
+      "description": "The JSON object that represents the range for http status codes",
       "properties": {
         "begin": {
           "description": "The inclusive start of the http status code range.",
@@ -2084,6 +2111,7 @@
       "type": "object"
     },
     "HttpVersionMatchConditionParameters": {
+      "description": "Defines the parameters for HttpVersion match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -2146,6 +2174,7 @@
       "type": "object"
     },
     "IsDeviceMatchConditionParameters": {
+      "description": "Defines the parameters for IsDevice match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -2248,6 +2277,7 @@
       "type": "object"
     },
     "KeyVaultSigningKeyParameters": {
+      "description": "Describes the parameters for using a user's KeyVault for URL Signing Key.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -2295,6 +2325,7 @@
       "type": "object"
     },
     "LoadBalancingSettingsParameters": {
+      "description": "Round-Robin load balancing settings for a backend pool",
       "properties": {
         "additionalLatencyInMilliseconds": {
           "description": "The additional latency in milliseconds for probes to fall into the lowest latency bucket",
@@ -2333,6 +2364,7 @@
       "type": "object"
     },
     "ManagedRuleGroupOverride": {
+      "description": "Defines a managed rule group override setting.",
       "properties": {
         "ruleGroupName": {
           "description": "Describes the managed rule group within the rule set to override",
@@ -2366,6 +2398,7 @@
       "type": "object"
     },
     "ManagedRuleOverride": {
+      "description": "Defines a managed rule group override setting.",
       "properties": {
         "action": {
           "description": "Describes the override action to be applied when rule matches.",
@@ -2410,6 +2443,7 @@
       "type": "object"
     },
     "ManagedRuleSet": {
+      "description": "Defines a managed rule set.",
       "properties": {
         "anomalyScore": {
           "description": "Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.",
@@ -2459,6 +2493,7 @@
       "type": "object"
     },
     "ManagedRuleSetList": {
+      "description": "Defines the list of managed rule sets for the policy.",
       "properties": {
         "managedRuleSets": {
           "description": "List of rule sets.",
@@ -2485,6 +2520,7 @@
       "type": "object"
     },
     "MatchCondition": {
+      "description": "Define match conditions",
       "properties": {
         "matchValue": {
           "description": "List of possible match values.",
@@ -2607,6 +2643,7 @@
       "type": "object"
     },
     "OriginGroupOverrideActionParameters": {
+      "description": "Defines the parameters for the origin group override action.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -2641,6 +2678,7 @@
       "type": "object"
     },
     "OriginGroupProperties": {
+      "description": "The JSON object that contains the properties of the origin group.",
       "properties": {
         "healthProbeSettings": {
           "description": "Health probe settings to the origin that is used to determine the health of the origin.",
@@ -2700,6 +2738,7 @@
       "type": "object"
     },
     "OriginProperties": {
+      "description": "The JSON object that contains the properties of the origin.",
       "properties": {
         "enabled": {
           "description": "Origin is enabled for load balancing or not",
@@ -2784,6 +2823,7 @@
       "type": "object"
     },
     "PolicySettings": {
+      "description": "Defines contents of a web application firewall global configuration",
       "properties": {
         "defaultCustomBlockResponseBody": {
           "description": "If the action type is block, customer can override the response body. The body must be specified in base64 encoding.",
@@ -2853,6 +2893,7 @@
       "type": "object"
     },
     "PostArgsMatchConditionParameters": {
+      "description": "Defines the parameters for PostArgs match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -2957,10 +2998,12 @@
       "type": "object"
     },
     "ProfileProperties": {
+      "description": "The JSON object that contains the properties required to create a profile.",
       "properties": {},
       "type": "object"
     },
     "QueryStringMatchConditionParameters": {
+      "description": "Defines the parameters for QueryString match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -3061,6 +3104,7 @@
       "type": "object"
     },
     "RateLimitRule": {
+      "description": "Defines a rate limiting rule that can be included in a waf policy",
       "properties": {
         "action": {
           "description": "Describes what action to be applied when rule matches",
@@ -3164,6 +3208,7 @@
       "type": "object"
     },
     "RateLimitRuleList": {
+      "description": "Defines contents of rate limit rules",
       "properties": {
         "rules": {
           "description": "List of rules",
@@ -3190,6 +3235,7 @@
       "type": "object"
     },
     "RemoteAddressMatchConditionParameters": {
+      "description": "Defines the parameters for RemoteAddress match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -3283,6 +3329,7 @@
       "type": "object"
     },
     "RequestBodyMatchConditionParameters": {
+      "description": "Defines the parameters for RequestBody match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -3383,6 +3430,7 @@
       "type": "object"
     },
     "RequestHeaderMatchConditionParameters": {
+      "description": "Defines the parameters for RequestHeader match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -3487,6 +3535,7 @@
       "type": "object"
     },
     "RequestMethodMatchConditionParameters": {
+      "description": "Defines the parameters for RequestMethod match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -3565,6 +3614,7 @@
       "type": "object"
     },
     "RequestSchemeMatchConditionParameters": {
+      "description": "Defines the parameters for RequestScheme match conditions ",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -3638,6 +3688,7 @@
       "type": "object"
     },
     "RequestUriMatchConditionParameters": {
+      "description": "Defines the parameters for RequestUri match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -3738,6 +3789,7 @@
       "type": "object"
     },
     "ResourceReference": {
+      "description": "Reference to another resource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -3747,6 +3799,7 @@
       "type": "object"
     },
     "ResponseBasedOriginErrorDetectionParameters": {
+      "description": "The JSON object that contains the properties to determine origin health using real requests/responses.",
       "properties": {
         "httpErrorRanges": {
           "description": "The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.",
@@ -3800,6 +3853,7 @@
       "type": "object"
     },
     "RouteProperties": {
+      "description": "The JSON object that contains the properties of the Routes to create.",
       "properties": {
         "compressionSettings": {
           "description": "compression settings.",
@@ -3989,6 +4043,7 @@
       "type": "object"
     },
     "RuleProperties": {
+      "description": "The JSON object that contains the properties of the Rules to create.",
       "properties": {
         "actions": {
           "description": "A list of actions that are executed when all the conditions of a rule are satisfied.",
@@ -4062,10 +4117,12 @@
       "type": "object"
     },
     "SecretParameters": {
+      "description": "The json object containing secret parameters",
       "properties": {},
       "type": "object"
     },
     "SecretProperties": {
+      "description": "The JSON object that contains the properties of the Secret to create.",
       "properties": {
         "parameters": {
           "description": "object which contains secret parameters",
@@ -4082,10 +4139,12 @@
       "type": "object"
     },
     "SecurityPolicyParameters": {
+      "description": "The json object containing security policy parameters",
       "properties": {},
       "type": "object"
     },
     "SecurityPolicyProperties": {
+      "description": "The json object that contains properties required to create a security policy",
       "properties": {
         "parameters": {
           "description": "object which contains security policy parameters",
@@ -4102,6 +4161,7 @@
       "type": "object"
     },
     "SecurityPolicyWebApplicationFirewallAssociation": {
+      "description": "settings for security policy patterns to match",
       "properties": {
         "domains": {
           "description": "List of domains.",
@@ -4142,6 +4202,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperties": {
+      "description": "Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.",
       "properties": {
         "groupId": {
           "description": "The group id from the provider of resource the shared private link resource is for.",
@@ -4188,6 +4249,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.",
       "properties": {
         "name": {
           "description": "Name of the pricing tier.",
@@ -4220,6 +4282,7 @@
       "type": "object"
     },
     "UrlFileExtensionMatchConditionParameters": {
+      "description": "Defines the parameters for UrlFileExtension match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -4320,6 +4383,7 @@
       "type": "object"
     },
     "UrlFileNameMatchConditionParameters": {
+      "description": "Defines the parameters for UrlFilename match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -4420,6 +4484,7 @@
       "type": "object"
     },
     "UrlPathMatchConditionParameters": {
+      "description": "Defines the parameters for UrlPath match conditions",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -4521,6 +4586,7 @@
       "type": "object"
     },
     "UrlRedirectActionParameters": {
+      "description": "Defines the parameters for the url redirect action.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -4593,6 +4659,7 @@
       "type": "object"
     },
     "UrlRewriteActionParameters": {
+      "description": "Defines the parameters for the url rewrite action.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -4636,6 +4703,7 @@
       "type": "object"
     },
     "UrlSigningActionParameters": {
+      "description": "Defines the parameters for the Url Signing action.",
       "properties": {
         "@odata.type": {
           "description": "",
@@ -4693,6 +4761,7 @@
       "type": "object"
     },
     "UrlSigningKey": {
+      "description": "Url signing key",
       "properties": {
         "keyId": {
           "description": "Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.",
@@ -4717,6 +4786,7 @@
       "type": "object"
     },
     "UrlSigningParamIdentifier": {
+      "description": "Defines how to identify a parameter for a specific purpose e.g. expires",
       "properties": {
         "paramIndicator": {
           "description": "Indicates the purpose of the parameter",
@@ -4790,7 +4860,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/afdEndpoints"
+            "afdEndpoints"
           ],
           "type": "string"
         }
@@ -4828,7 +4898,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/afdEndpoints/routes"
+            "routes"
           ],
           "type": "string"
         }
@@ -4866,7 +4936,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/customDomains"
+            "customDomains"
           ],
           "type": "string"
         }
@@ -4923,7 +4993,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/endpoints"
+            "endpoints"
           ],
           "type": "string"
         }
@@ -4961,7 +5031,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/endpoints/customDomains"
+            "customDomains"
           ],
           "type": "string"
         }
@@ -4999,7 +5069,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/endpoints/originGroups"
+            "originGroups"
           ],
           "type": "string"
         }
@@ -5037,7 +5107,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/endpoints/origins"
+            "origins"
           ],
           "type": "string"
         }
@@ -5075,7 +5145,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/originGroups"
+            "originGroups"
           ],
           "type": "string"
         }
@@ -5113,7 +5183,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/originGroups/origins"
+            "origins"
           ],
           "type": "string"
         }
@@ -5151,7 +5221,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/secrets"
+            "secrets"
           ],
           "type": "string"
         }
@@ -5189,7 +5259,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Cdn/profiles/securityPolicies"
+            "securityPolicies"
           ],
           "type": "string"
         }

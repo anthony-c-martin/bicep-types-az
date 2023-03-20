@@ -213,6 +213,7 @@
   },
   "definitions": {
     "AddressDetails": {
+      "description": "Address details.",
       "properties": {
         "addressLine1": {
           "description": "Address line 1.",
@@ -278,6 +279,7 @@
       "type": "object"
     },
     "AzurePlan": {
+      "description": "Details of the Azure plan.",
       "properties": {
         "skuId": {
           "description": "The sku id.",
@@ -287,6 +289,7 @@
       "type": "object"
     },
     "BillingProfileProperties": {
+      "description": "The properties of the billing profile.",
       "properties": {
         "billTo": {
           "description": "Billing address.",
@@ -369,6 +372,7 @@
       "type": "object"
     },
     "CustomerPolicyProperties": {
+      "description": "The properties of a customer's policy.",
       "properties": {
         "viewCharges": {
           "description": "The policy that controls whether the users in customer's organization can view charges at pay-as-you-go prices.",
@@ -389,6 +393,7 @@
       "type": "object"
     },
     "InstructionProperties": {
+      "description": "A billing instruction used during invoice generation.",
       "properties": {
         "amount": {
           "description": "The amount budgeted for this billing instruction.",
@@ -446,6 +451,7 @@
       "type": "object"
     },
     "InvoiceSection": {
+      "description": "An invoice section.",
       "properties": {
         "properties": {
           "description": "The properties of an invoice section.",
@@ -462,6 +468,7 @@
       "type": "object"
     },
     "InvoiceSectionProperties": {
+      "description": "The properties of an invoice section.",
       "properties": {
         "displayName": {
           "description": "The name of the invoice section.",
@@ -501,6 +508,7 @@
       "type": "object"
     },
     "InvoiceSectionsOnExpand": {
+      "description": "The invoice sections associated to the billing profile. By default this is not populated, unless it's specified in $expand.",
       "properties": {
         "value": {
           "description": "The invoice sections associated to the billing profile.",
@@ -527,6 +535,7 @@
       "type": "object"
     },
     "PolicyProperties": {
+      "description": "The properties of a policy.",
       "properties": {
         "marketplacePurchases": {
           "description": "The policy that controls whether Azure marketplace purchases are allowed for a billing profile.",
@@ -603,7 +612,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Billing/billingAccounts/billingProfiles/instructions"
+            "instructions"
           ],
           "type": "string"
         }
@@ -641,7 +650,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+            "invoiceSections"
           ],
           "type": "string"
         }
@@ -663,7 +672,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -679,7 +690,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Billing/billingAccounts/billingProfiles/policies"
+            "policies"
           ],
           "type": "string"
         }

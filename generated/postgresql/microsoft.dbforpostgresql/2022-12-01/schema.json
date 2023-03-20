@@ -294,6 +294,7 @@
   },
   "definitions": {
     "AdministratorPropertiesForAdd": {
+      "description": "The properties of an Active Directory administrator.",
       "properties": {
         "principalName": {
           "description": "Active Directory administrator principal name.",
@@ -324,6 +325,7 @@
       "type": "object"
     },
     "AuthConfig": {
+      "description": "Authentication configuration properties of a server",
       "properties": {
         "activeDirectoryAuth": {
           "description": "If Enabled, Azure Active Directory authentication is enabled.",
@@ -363,6 +365,7 @@
       "type": "object"
     },
     "Backup": {
+      "description": "Backup properties of a server",
       "properties": {
         "backupRetentionDays": {
           "description": "Backup retention days for the server.",
@@ -394,6 +397,7 @@
       "type": "object"
     },
     "ConfigurationProperties": {
+      "description": "The properties of a configuration.",
       "properties": {
         "source": {
           "description": "Source of the configuration.",
@@ -407,6 +411,7 @@
       "type": "object"
     },
     "DataEncryption": {
+      "description": "Data encryption properties of a server",
       "properties": {
         "primaryKeyURI": {
           "description": "URI for the key for data encryption for primary server.",
@@ -417,11 +422,11 @@
           "type": "string"
         },
         "type": {
-          "description": "Data encryption type to depict if it is System assigned vs Azure Key vault.",
+          "description": "Data encryption type to depict if it is System Managed vs Azure Key vault.",
           "oneOf": [
             {
               "enum": [
-                "SystemAssigned",
+                "SystemManaged",
                 "AzureKeyVault"
               ],
               "type": "string"
@@ -435,6 +440,7 @@
       "type": "object"
     },
     "DatabaseProperties": {
+      "description": "The properties of a database.",
       "properties": {
         "charset": {
           "description": "The charset of the database.",
@@ -464,6 +470,7 @@
       "type": "object"
     },
     "FirewallRuleProperties": {
+      "description": "The properties of a server firewall rule.",
       "properties": {
         "endIpAddress": {
           "description": "The end IP address of the server firewall rule. Must be IPv4 format.",
@@ -497,6 +504,7 @@
       "type": "object"
     },
     "HighAvailability": {
+      "description": "High availability properties of a server",
       "properties": {
         "mode": {
           "description": "The HA mode for the server.",
@@ -522,6 +530,7 @@
       "type": "object"
     },
     "MaintenanceWindow": {
+      "description": "Maintenance window properties of a server.",
       "properties": {
         "customWindow": {
           "description": "indicates whether custom window is enabled or disabled",
@@ -564,6 +573,7 @@
       "type": "object"
     },
     "Network": {
+      "description": "Network properties of a server",
       "properties": {
         "delegatedSubnetResourceId": {
           "description": "delegated subnet arm resource id.",
@@ -577,6 +587,7 @@
       "type": "object"
     },
     "ServerProperties": {
+      "description": "The properties of a server.",
       "properties": {
         "administratorLogin": {
           "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).",
@@ -755,6 +766,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Sku information related properties of a server.",
       "properties": {
         "name": {
           "description": "The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.",
@@ -784,6 +796,7 @@
       "type": "object"
     },
     "Storage": {
+      "description": "Storage properties of a server",
       "properties": {
         "storageSizeGB": {
           "description": "Max storage allowed for a server.",
@@ -800,6 +813,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "Information describing the identities associated with this application.",
       "properties": {
         "type": {
           "description": "the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'",
@@ -846,6 +860,7 @@
       "type": "object"
     },
     "UserIdentity": {
+      "description": "Describes a single user-assigned identity associated with the application.",
       "properties": {
         "clientId": {
           "description": "the client identifier of the Service Principal which this identity represents.",
@@ -884,7 +899,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/flexibleServers/administrators"
+            "administrators"
           ],
           "type": "string"
         }
@@ -931,7 +946,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/flexibleServers/configurations"
+            "configurations"
           ],
           "type": "string"
         }
@@ -978,7 +993,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/flexibleServers/databases"
+            "databases"
           ],
           "type": "string"
         }
@@ -1025,7 +1040,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules"
+            "firewallRules"
           ],
           "type": "string"
         }

@@ -788,6 +788,7 @@
   },
   "definitions": {
     "Ambr": {
+      "description": "Aggregate maximum bit rate.",
       "properties": {
         "downlink": {
           "description": "Downlink bit rate.",
@@ -821,6 +822,7 @@
       "type": "object"
     },
     "AttachedDataNetworkPropertiesFormat": {
+      "description": "Data network properties.",
       "properties": {
         "dnsAddresses": {
           "description": "The DNS servers to signal to UEs to use for this attached data network.",
@@ -917,6 +919,7 @@
       "type": "object"
     },
     "AttachedDataNetworkResourceId": {
+      "description": "Reference to an attached data network resource.",
       "properties": {
         "id": {
           "description": "Attached data network resource ID.",
@@ -937,6 +940,7 @@
       "type": "object"
     },
     "AzureStackEdgeDeviceResourceId": {
+      "description": "Reference to an Azure Arc custom location resource.",
       "properties": {
         "id": {
           "description": "Azure Stack Edge device resource ID.",
@@ -957,6 +961,7 @@
       "type": "object"
     },
     "ConnectedClusterResourceId": {
+      "description": "Reference to an Azure Arc custom location resource.",
       "properties": {
         "id": {
           "description": "Azure Arc connected cluster resource ID.",
@@ -977,6 +982,7 @@
       "type": "object"
     },
     "CustomLocationResourceId": {
+      "description": "Reference to an Azure Arc custom location resource.",
       "properties": {
         "id": {
           "description": "Azure Arc custom location resource ID.",
@@ -997,6 +1003,7 @@
       "type": "object"
     },
     "DataNetworkConfiguration": {
+      "description": "Settings controlling data network use",
       "properties": {
         "5qi": {
           "description": "Default QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.",
@@ -1142,6 +1149,7 @@
       "type": "object"
     },
     "DataNetworkPropertiesFormat": {
+      "description": "Data network properties.",
       "properties": {
         "description": {
           "description": "An optional description for this data network.",
@@ -1151,6 +1159,7 @@
       "type": "object"
     },
     "DataNetworkResourceId": {
+      "description": "Reference to a data network resource.",
       "properties": {
         "id": {
           "description": "Data network resource ID.",
@@ -1171,6 +1180,7 @@
       "type": "object"
     },
     "InterfaceProperties": {
+      "description": "Interface properties",
       "properties": {
         "ipv4Address": {
           "description": "The IPv4 address.",
@@ -1216,6 +1226,7 @@
       "type": "object"
     },
     "KeyVaultCertificate": {
+      "description": "An Azure key vault certificate.",
       "properties": {
         "certificateUrl": {
           "description": "The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.",
@@ -1225,6 +1236,7 @@
       "type": "object"
     },
     "KeyVaultKey": {
+      "description": "An Azure key vault key.",
       "properties": {
         "keyUrl": {
           "description": "The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.",
@@ -1234,6 +1246,7 @@
       "type": "object"
     },
     "LocalDiagnosticsAccessConfiguration": {
+      "description": "The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.",
       "properties": {
         "httpsServerCertificate": {
           "description": "The HTTPS server TLS certificate used to secure local access to diagnostics.",
@@ -1250,6 +1263,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
@@ -1297,6 +1311,7 @@
       "type": "object"
     },
     "MobileNetworkPropertiesFormat": {
+      "description": "Mobile network properties.",
       "properties": {
         "publicLandMobileNetworkIdentifier": {
           "description": "The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.",
@@ -1316,6 +1331,7 @@
       "type": "object"
     },
     "MobileNetworkResourceId": {
+      "description": "Reference to a mobile network resource.",
       "properties": {
         "id": {
           "description": "Mobile network resource ID.",
@@ -1336,6 +1352,7 @@
       "type": "object"
     },
     "NaptConfiguration": {
+      "description": "The network address and port translation settings to use for the attached data network.",
       "properties": {
         "enabled": {
           "description": "Whether NAPT is enabled for connections to this attached data network.",
@@ -1400,6 +1417,7 @@
       "type": "object"
     },
     "PacketCoreControlPlanePropertiesFormat": {
+      "description": "Packet core control plane properties.",
       "properties": {
         "controlPlaneAccessInterface": {
           "description": "The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.",
@@ -1496,6 +1514,7 @@
       "type": "object"
     },
     "PacketCoreDataPlanePropertiesFormat": {
+      "description": "Packet core data plane properties.",
       "properties": {
         "userPlaneAccessInterface": {
           "description": "The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.",
@@ -1515,6 +1534,7 @@
       "type": "object"
     },
     "PccRuleConfiguration": {
+      "description": "Data flow policy rule configuration",
       "properties": {
         "ruleName": {
           "description": "The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.",
@@ -1596,6 +1616,7 @@
       "type": "object"
     },
     "PccRuleQosPolicy": {
+      "description": "Data flow policy rule QoS policy",
       "properties": {
         "5qi": {
           "description": "QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.",
@@ -1678,6 +1699,7 @@
       "type": "object"
     },
     "PinholeTimeouts": {
+      "description": "Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.",
       "properties": {
         "icmp": {
           "description": "Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds, as per RFC 5508 section 3.2.",
@@ -1716,6 +1738,7 @@
       "type": "object"
     },
     "PlatformConfiguration": {
+      "description": "The platform where the packet core is deployed.",
       "properties": {
         "azureStackEdgeDevice": {
           "description": "The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.",
@@ -1772,6 +1795,7 @@
       "type": "object"
     },
     "PlmnId": {
+      "description": "Public land mobile network (PLMN) ID.",
       "properties": {
         "mcc": {
           "description": "Mobile country code (MCC).",
@@ -1805,6 +1829,7 @@
       "type": "object"
     },
     "PortRange": {
+      "description": "Range of port numbers to use as translated ports on each translated address.\nIf not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.\n(Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)",
       "properties": {
         "maxPort": {
           "description": "The maximum port number",
@@ -1832,6 +1857,7 @@
       "type": "object"
     },
     "PortReuseHoldTimes": {
+      "description": "The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.",
       "properties": {
         "tcp": {
           "description": "Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.",
@@ -1859,6 +1885,7 @@
       "type": "object"
     },
     "QosPolicy": {
+      "description": "QoS policy",
       "properties": {
         "5qi": {
           "description": "QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.",
@@ -1930,6 +1957,7 @@
       "type": "object"
     },
     "ServiceDataFlowTemplate": {
+      "description": "Data flow template",
       "properties": {
         "direction": {
           "description": "The direction of this flow.",
@@ -2036,6 +2064,7 @@
       "type": "object"
     },
     "ServicePropertiesFormat": {
+      "description": "Service properties.",
       "properties": {
         "pccRules": {
           "description": "The set of data flow policy rules that make up this service.",
@@ -2088,6 +2117,7 @@
       "type": "object"
     },
     "ServiceResourceId": {
+      "description": "Reference to a service resource.",
       "properties": {
         "id": {
           "description": "Service resource ID.",
@@ -2108,6 +2138,7 @@
       "type": "object"
     },
     "SimGroupPropertiesFormat": {
+      "description": "SIM group properties.",
       "properties": {
         "encryptionKey": {
           "description": "A key to encrypt the SIM data that belongs to this SIM group.",
@@ -2135,6 +2166,7 @@
       "type": "object"
     },
     "SimPolicyPropertiesFormat": {
+      "description": "SIM policy properties.",
       "properties": {
         "defaultSlice": {
           "description": "The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.",
@@ -2210,6 +2242,7 @@
       "type": "object"
     },
     "SimPolicyResourceId": {
+      "description": "Reference to a SIM policy resource.",
       "properties": {
         "id": {
           "description": "SIM policy resource ID.",
@@ -2230,6 +2263,7 @@
       "type": "object"
     },
     "SimPropertiesFormat": {
+      "description": "SIM properties.",
       "properties": {
         "authenticationKey": {
           "description": "The Ki value for the SIM.",
@@ -2322,6 +2356,7 @@
       "type": "object"
     },
     "SimStaticIpProperties": {
+      "description": "Static IP configuration for a SIM, scoped to a particular attached data network and slice.",
       "properties": {
         "attachedDataNetwork": {
           "description": "The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.",
@@ -2360,6 +2395,7 @@
       "type": "object"
     },
     "SimStaticIpPropertiesStaticIp": {
+      "description": "The static IP configuration for the SIM to use at the defined network scope.",
       "properties": {
         "ipv4Address": {
           "description": "The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.",
@@ -2377,6 +2413,7 @@
       "type": "object"
     },
     "SitePropertiesFormat": {
+      "description": "Site properties.",
       "properties": {
         "networkFunctions": {
           "description": "An array of IDs of the network functions deployed on the site, maintained by the user.",
@@ -2403,6 +2440,7 @@
       "type": "object"
     },
     "SliceConfiguration": {
+      "description": "Per-slice settings",
       "properties": {
         "dataNetworkConfigurations": {
           "description": "The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.",
@@ -2456,6 +2494,7 @@
       "type": "object"
     },
     "SlicePropertiesFormat": {
+      "description": "Network slice properties.",
       "properties": {
         "description": {
           "description": "An optional description for this network slice.",
@@ -2479,6 +2518,7 @@
       "type": "object"
     },
     "SliceResourceId": {
+      "description": "Reference to a slice resource.",
       "properties": {
         "id": {
           "description": "Slice resource ID.",
@@ -2499,6 +2539,7 @@
       "type": "object"
     },
     "Snssai": {
+      "description": "Single-network slice selection assistance information (S-NSSAI).",
       "properties": {
         "sd": {
           "description": "Slice differentiator (SD).",
@@ -2530,6 +2571,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Reference to another sub resource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -2542,6 +2584,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
@@ -2599,7 +2642,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/mobileNetworks/dataNetworks"
+            "dataNetworks"
           ],
           "type": "string"
         }
@@ -2665,7 +2708,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/mobileNetworks/services"
+            "services"
           ],
           "type": "string"
         }
@@ -2731,7 +2774,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/mobileNetworks/simPolicies"
+            "simPolicies"
           ],
           "type": "string"
         }
@@ -2797,7 +2840,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/mobileNetworks/sites"
+            "sites"
           ],
           "type": "string"
         }
@@ -2863,7 +2906,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/mobileNetworks/slices"
+            "slices"
           ],
           "type": "string"
         }
@@ -2929,7 +2972,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks"
+            "attachedDataNetworks"
           ],
           "type": "string"
         }
@@ -2995,7 +3038,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes"
+            "packetCoreDataPlanes"
           ],
           "type": "string"
         }
@@ -3042,7 +3085,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MobileNetwork/simGroups/sims"
+            "sims"
           ],
           "type": "string"
         }

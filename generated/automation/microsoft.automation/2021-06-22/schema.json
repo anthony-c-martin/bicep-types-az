@@ -171,6 +171,7 @@
   },
   "definitions": {
     "AutomationAccountCreateOrUpdateProperties": {
+      "description": "The parameters supplied to the create or update account properties.",
       "properties": {
         "disableLocalAuth": {
           "description": "Indicates whether requests using non-AAD authentication are blocked",
@@ -224,6 +225,7 @@
       "type": "object"
     },
     "EncryptionProperties": {
+      "description": "The encryption settings for automation account",
       "properties": {
         "identity": {
           "description": "User identity used for CMK.",
@@ -266,6 +268,7 @@
       "type": "object"
     },
     "EncryptionPropertiesIdentity": {
+      "description": "User identity used for CMK.",
       "properties": {
         "userAssignedIdentity": {
           "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
@@ -274,6 +277,7 @@
       "type": "object"
     },
     "HybridRunbookWorkerCreateOrUpdateParameters": {
+      "description": "The parameters supplied to the create or update hybrid runbook worker operation.",
       "properties": {
         "vmResourceId": {
           "description": "Azure Resource Manager Id for a virtual machine.",
@@ -283,6 +287,7 @@
       "type": "object"
     },
     "Identity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The identity type.",
@@ -327,6 +332,7 @@
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "Settings concerning key vault encryption for a configuration store.",
       "properties": {
         "keyName": {
           "description": "The name of key used to encrypt data.",
@@ -344,6 +350,7 @@
       "type": "object"
     },
     "RunAsCredentialAssociationProperty": {
+      "description": "Definition of RunAs credential to use for hybrid worker.",
       "properties": {
         "name": {
           "description": "Gets or sets the name of the credential.",
@@ -353,6 +360,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The account SKU.",
       "properties": {
         "capacity": {
           "description": "Gets or sets the SKU capacity.",
@@ -416,7 +424,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups"
+            "hybridRunbookWorkerGroups"
           ],
           "type": "string"
         }
@@ -454,7 +462,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers"
+            "hybridRunbookWorkers"
           ],
           "type": "string"
         }

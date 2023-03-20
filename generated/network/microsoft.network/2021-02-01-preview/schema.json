@@ -717,6 +717,7 @@
   },
   "definitions": {
     "ConnectivityConfigurationProperties": {
+      "description": "Properties of network manager connectivity configuration",
       "properties": {
         "appliesToGroups": {
           "description": "Groups for configuration",
@@ -874,6 +875,7 @@
       "type": "object"
     },
     "GroupMembersItem": {
+      "description": "GroupMembers Item.",
       "properties": {
         "resourceId": {
           "description": "Resource Id.",
@@ -883,6 +885,7 @@
       "type": "object"
     },
     "Hub": {
+      "description": "Hub Item.",
       "properties": {
         "resourceId": {
           "description": "Resource Id.",
@@ -896,6 +899,7 @@
       "type": "object"
     },
     "NetworkGroupProperties": {
+      "description": "Properties of network group",
       "properties": {
         "conditionalMembership": {
           "description": "Network group conditional filter.",
@@ -938,6 +942,7 @@
       "type": "object"
     },
     "NetworkManagerProperties": {
+      "description": "Properties of Managed Network",
       "properties": {
         "description": {
           "description": "A description of the network manager.",
@@ -988,6 +993,7 @@
       "type": "object"
     },
     "NetworkManagerPropertiesNetworkManagerScopes": {
+      "description": "Scope of Network Manager.",
       "properties": {
         "managementGroups": {
           "description": "List of management groups.",
@@ -1021,6 +1027,7 @@
       "type": "object"
     },
     "NetworkManagerSecurityGroupItem": {
+      "description": "Network manager security group item.",
       "properties": {
         "networkGroupId": {
           "description": "Network manager group Id.",
@@ -1030,10 +1037,12 @@
       "type": "object"
     },
     "NetworkSecurityPerimeterProperties": {
+      "description": "Properties of network security perimeter.",
       "properties": {},
       "type": "object"
     },
     "NspAccessRuleProperties": {
+      "description": "Properties of NSP access rule.",
       "properties": {
         "addressPrefixes": {
           "description": "Inbound address prefixes (IPv4/IPv6)",
@@ -1195,6 +1204,7 @@
       "type": "object"
     },
     "NspLinkProperties": {
+      "description": "Properties of NSP Link resource.",
       "properties": {
         "autoApprovedRemotePerimeterResourceId": {
           "description": "Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.",
@@ -1236,6 +1246,7 @@
       "type": "object"
     },
     "NspProfileProperties": {
+      "description": "Properties of NSP profile.",
       "properties": {},
       "type": "object"
     },
@@ -1249,6 +1260,7 @@
       "type": "object"
     },
     "RuleCollectionPropertiesFormat": {
+      "description": "Defines the rule collection properties.",
       "properties": {
         "appliesToGroups": {
           "description": "Groups for configuration",
@@ -1283,6 +1295,7 @@
       "type": "object"
     },
     "SecurityConfigurationPropertiesFormat": {
+      "description": "Defines the security Configuration properties.",
       "properties": {
         "deleteExistingNSGs": {
           "description": "Flag if need to delete existing network security groups.",
@@ -1326,6 +1339,7 @@
       "type": "object"
     },
     "SubResource": {
+      "description": "Reference to another subresource.",
       "properties": {
         "id": {
           "description": "Resource ID.",
@@ -1369,7 +1383,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/connectivityConfigurations"
+            "connectivityConfigurations"
           ],
           "type": "string"
         }
@@ -1407,7 +1421,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/networkGroups"
+            "networkGroups"
           ],
           "type": "string"
         }
@@ -1445,7 +1459,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/securityAdminConfigurations"
+            "securityAdminConfigurations"
           ],
           "type": "string"
         }
@@ -1483,7 +1497,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/securityAdminConfigurations/ruleCollections"
+            "ruleCollections"
           ],
           "type": "string"
         }
@@ -1510,7 +1524,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/securityAdminConfigurations/ruleCollections/rules"
+            "rules"
           ],
           "type": "string"
         }
@@ -1548,7 +1562,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/securityUserConfigurations"
+            "securityUserConfigurations"
           ],
           "type": "string"
         }
@@ -1586,7 +1600,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/securityUserConfigurations/ruleCollections"
+            "ruleCollections"
           ],
           "type": "string"
         }
@@ -1613,7 +1627,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkManagers/securityUserConfigurations/ruleCollections/rules"
+            "rules"
           ],
           "type": "string"
         }
@@ -1651,7 +1665,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkSecurityPerimeters/links"
+            "links"
           ],
           "type": "string"
         }
@@ -1712,7 +1726,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkSecurityPerimeters/profiles/accessRules"
+            "accessRules"
           ],
           "type": "string"
         }
@@ -1773,7 +1787,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkSecurityPerimeters/profiles"
+            "profiles"
           ],
           "type": "string"
         }
@@ -1834,7 +1848,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Network/networkSecurityPerimeters/resourceAssociations"
+            "resourceAssociations"
           ],
           "type": "string"
         }

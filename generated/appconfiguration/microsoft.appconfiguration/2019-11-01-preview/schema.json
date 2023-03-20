@@ -144,6 +144,7 @@
   },
   "definitions": {
     "ConfigurationStoreProperties": {
+      "description": "The properties of a configuration store.",
       "properties": {
         "encryption": {
           "description": "The encryption settings of the configuration store.",
@@ -175,6 +176,7 @@
       "type": "object"
     },
     "EncryptionProperties": {
+      "description": "The encryption settings for a configuration store.",
       "properties": {
         "keyVaultProperties": {
           "description": "Key vault properties.",
@@ -191,6 +193,7 @@
       "type": "object"
     },
     "KeyVaultProperties": {
+      "description": "Settings concerning key vault encryption for a configuration store.",
       "properties": {
         "identityClientId": {
           "description": "The client id of the identity which will be used to access key vault.",
@@ -204,6 +207,7 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "Private endpoint which a connection belongs to.",
       "properties": {
         "id": {
           "description": "The resource Id for private endpoint",
@@ -213,6 +217,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private endpoint.",
@@ -243,6 +248,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "The state of a private link service connection.",
       "properties": {
         "description": {
           "description": "The private link service connection description.",
@@ -269,6 +275,7 @@
       "type": "object"
     },
     "ResourceIdentity": {
+      "description": "An identity that can be associated with a resource.",
       "properties": {
         "type": {
           "description": "The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.",
@@ -313,6 +320,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "Describes a configuration store SKU.",
       "properties": {
         "name": {
           "description": "The SKU name of the configuration store.",
@@ -325,6 +333,7 @@
       "type": "object"
     },
     "UserIdentity": {
+      "description": "A resource identity that is managed by the user of the service.",
       "properties": {},
       "type": "object"
     },
@@ -354,7 +363,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.AppConfiguration/configurationStores/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

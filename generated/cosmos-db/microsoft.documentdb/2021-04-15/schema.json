@@ -1615,6 +1615,7 @@
       "type": "object"
     },
     "AutoUpgradePolicyResource": {
+      "description": "Cosmos DB resource auto-upgrade policy",
       "properties": {
         "throughputPolicy": {
           "description": "Represents throughput policy which service must adhere to for auto-upgrade",
@@ -1647,6 +1648,7 @@
       "type": "object"
     },
     "AutoscaleSettingsResource": {
+      "description": "Cosmos DB provisioned throughput settings object",
       "properties": {
         "autoUpgradePolicy": {
           "description": "Cosmos DB resource auto-upgrade policy",
@@ -1677,10 +1679,12 @@
       "type": "object"
     },
     "BackupPolicy": {
+      "description": "The object representing the policy for taking backups on an account.",
       "properties": {},
       "type": "object"
     },
     "Capability": {
+      "description": "Cosmos DB capability object",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB capability. For example, \"name\": \"EnableCassandra\". Current values also include \"EnableTable\" and \"EnableGremlin\".",
@@ -1690,6 +1694,7 @@
       "type": "object"
     },
     "CassandraKeyspaceCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Cassandra keyspace.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -1720,6 +1725,7 @@
       "type": "object"
     },
     "CassandraKeyspaceResource": {
+      "description": "Cosmos DB Cassandra keyspace resource object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB Cassandra keyspace",
@@ -1732,6 +1738,7 @@
       "type": "object"
     },
     "CassandraPartitionKey": {
+      "description": "Cosmos DB Cassandra table partition key",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB Cassandra table partition key",
@@ -1741,6 +1748,7 @@
       "type": "object"
     },
     "CassandraSchema": {
+      "description": "Cosmos DB Cassandra table schema",
       "properties": {
         "clusterKeys": {
           "description": "List of cluster key.",
@@ -1809,6 +1817,7 @@
       "type": "object"
     },
     "CassandraTableCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Cassandra table.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -1839,6 +1848,7 @@
       "type": "object"
     },
     "CassandraTableResource": {
+      "description": "Cosmos DB Cassandra table resource object",
       "properties": {
         "analyticalStorageTtl": {
           "description": "Analytical TTL.",
@@ -1884,6 +1894,7 @@
       "type": "object"
     },
     "ClusterKey": {
+      "description": "Cosmos DB Cassandra table cluster key",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB Cassandra table cluster key",
@@ -1897,6 +1908,7 @@
       "type": "object"
     },
     "Column": {
+      "description": "Cosmos DB Cassandra table column",
       "properties": {
         "name": {
           "description": "Name of the Cosmos DB Cassandra table column",
@@ -1938,6 +1950,7 @@
       "type": "object"
     },
     "ConflictResolutionPolicy": {
+      "description": "The conflict resolution policy for the container.",
       "properties": {
         "conflictResolutionPath": {
           "description": "The conflict resolution path in the case of LastWriterWins mode.",
@@ -1966,6 +1979,7 @@
       "type": "object"
     },
     "ConsistencyPolicy": {
+      "description": "The consistency policy for the Cosmos DB database account.",
       "properties": {
         "defaultConsistencyLevel": {
           "description": "The default consistency level and configuration settings of the Cosmos DB account.",
@@ -2014,6 +2028,7 @@
       "type": "object"
     },
     "ContainerPartitionKey": {
+      "description": "The configuration of the partition key to be used for partitioning data into multiple partitions",
       "properties": {
         "kind": {
           "description": "Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create",
@@ -2060,6 +2075,7 @@
       "type": "object"
     },
     "CorsPolicy": {
+      "description": "The CORS policy for the Cosmos DB database account.",
       "properties": {
         "allowedHeaders": {
           "description": "The request headers that the origin domain may specify on the CORS request.",
@@ -2095,6 +2111,7 @@
       "type": "object"
     },
     "CreateUpdateOptions": {
+      "description": "CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are \"If-Match\", \"If-None-Match\", \"Session-Token\" and \"Throughput\"",
       "properties": {
         "autoscaleSettings": {
           "description": "Specifies the Autoscale settings.",
@@ -2122,6 +2139,7 @@
       "type": "object"
     },
     "DatabaseAccountCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB database accounts.",
       "properties": {
         "apiProperties": {
           "description": "API specific properties. Currently, supported only for MongoDB API.",
@@ -2217,7 +2235,7 @@
           "oneOf": [
             {
               "enum": [
-                "[object Object]"
+                "Standard"
               ],
               "type": "string"
             },
@@ -2435,6 +2453,7 @@
       "type": "object"
     },
     "GremlinDatabaseCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Gremlin database.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -2465,6 +2484,7 @@
       "type": "object"
     },
     "GremlinDatabaseResource": {
+      "description": "Cosmos DB Gremlin database resource object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB Gremlin database",
@@ -2477,6 +2497,7 @@
       "type": "object"
     },
     "GremlinGraphCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Gremlin graph.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -2507,6 +2528,7 @@
       "type": "object"
     },
     "GremlinGraphResource": {
+      "description": "Cosmos DB Gremlin graph resource object",
       "properties": {
         "conflictResolutionPolicy": {
           "description": "The conflict resolution policy for the graph.",
@@ -2574,6 +2596,7 @@
       "type": "object"
     },
     "IncludedPath": {
+      "description": "The paths that are included in indexing",
       "properties": {
         "indexes": {
           "description": "List of indexes for this path",
@@ -2604,6 +2627,7 @@
       "type": "object"
     },
     "Indexes": {
+      "description": "The indexes for the path.",
       "properties": {
         "dataType": {
           "description": "The datatype for which the indexing behavior is applied to.",
@@ -2655,6 +2679,7 @@
       "type": "object"
     },
     "IndexingPolicy": {
+      "description": "Cosmos DB indexing policy",
       "properties": {
         "automatic": {
           "description": "Indicates if the indexing policy is automatic",
@@ -2781,6 +2806,7 @@
       "type": "object"
     },
     "IpAddressOrRange": {
+      "description": "IpAddressOrRange object",
       "properties": {
         "ipAddressOrRange": {
           "description": "A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.",
@@ -2790,6 +2816,7 @@
       "type": "object"
     },
     "Location": {
+      "description": "A region in which the Azure Cosmos DB database account is deployed.",
       "properties": {
         "failoverPriority": {
           "description": "The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
@@ -2821,6 +2848,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Identity for the resource.",
       "properties": {
         "type": {
           "description": "The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.",
@@ -2865,6 +2893,7 @@
       "type": "object"
     },
     "MongoDBCollectionCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB MongoDB collection.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -2895,6 +2924,7 @@
       "type": "object"
     },
     "MongoDBCollectionResource": {
+      "description": "Cosmos DB MongoDB collection resource object",
       "properties": {
         "analyticalStorageTtl": {
           "description": "Analytical TTL.",
@@ -2954,6 +2984,7 @@
       "type": "object"
     },
     "MongoDBDatabaseCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB MongoDB database.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -2984,6 +3015,7 @@
       "type": "object"
     },
     "MongoDBDatabaseResource": {
+      "description": "Cosmos DB MongoDB database resource object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB MongoDB database",
@@ -2996,6 +3028,7 @@
       "type": "object"
     },
     "MongoIndex": {
+      "description": "Cosmos DB MongoDB collection index key",
       "properties": {
         "key": {
           "description": "Cosmos DB MongoDB collection index keys",
@@ -3023,6 +3056,7 @@
       "type": "object"
     },
     "MongoIndexKeys": {
+      "description": "Cosmos DB MongoDB collection resource object",
       "properties": {
         "keys": {
           "description": "List of keys for each MongoDB collection in the Azure Cosmos DB service",
@@ -3042,6 +3076,7 @@
       "type": "object"
     },
     "MongoIndexOptions": {
+      "description": "Cosmos DB MongoDB collection index options",
       "properties": {
         "expireAfterSeconds": {
           "description": "Expire after seconds",
@@ -3069,6 +3104,7 @@
       "type": "object"
     },
     "PeriodicModeProperties": {
+      "description": "Configuration values for periodic mode backup",
       "properties": {
         "backupIntervalInMinutes": {
           "description": "An integer representing the interval in minutes between two backups",
@@ -3096,6 +3132,7 @@
       "type": "object"
     },
     "Permission": {
+      "description": "The set of data plane operations permitted through this Role Definition.",
       "properties": {
         "dataActions": {
           "description": "An array of data actions that are allowed.",
@@ -3129,6 +3166,7 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of a private endpoint connection.",
       "properties": {
         "groupId": {
           "description": "Group id of the private endpoint.",
@@ -3164,6 +3202,7 @@
       "type": "object"
     },
     "PrivateEndpointProperty": {
+      "description": "Private endpoint which the connection belongs to.",
       "properties": {
         "id": {
           "description": "Resource id of the private endpoint.",
@@ -3173,6 +3212,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionStateProperty": {
+      "description": "Connection State of the Private Endpoint Connection.",
       "properties": {
         "description": {
           "description": "The private link service connection description.",
@@ -3222,6 +3262,7 @@
       "type": "object"
     },
     "SqlContainerCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB container.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -3252,6 +3293,7 @@
       "type": "object"
     },
     "SqlContainerResource": {
+      "description": "Cosmos DB SQL container resource object",
       "properties": {
         "analyticalStorageTtl": {
           "description": "Analytical TTL.",
@@ -3330,6 +3372,7 @@
       "type": "object"
     },
     "SqlDatabaseCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB SQL database.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -3360,6 +3403,7 @@
       "type": "object"
     },
     "SqlDatabaseResource": {
+      "description": "Cosmos DB SQL database resource object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB SQL database",
@@ -3372,6 +3416,7 @@
       "type": "object"
     },
     "SqlRoleAssignmentResource": {
+      "description": "Azure Cosmos DB SQL Role Assignment resource object.",
       "properties": {
         "principalId": {
           "description": "The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.",
@@ -3389,6 +3434,7 @@
       "type": "object"
     },
     "SqlRoleDefinitionResource": {
+      "description": "Azure Cosmos DB SQL Role Definition resource object.",
       "properties": {
         "assignableScopes": {
           "description": "A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.",
@@ -3448,6 +3494,7 @@
       "type": "object"
     },
     "SqlStoredProcedureCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB storedProcedure.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -3478,6 +3525,7 @@
       "type": "object"
     },
     "SqlStoredProcedureResource": {
+      "description": "Cosmos DB SQL storedProcedure resource object",
       "properties": {
         "body": {
           "description": "Body of the Stored Procedure",
@@ -3494,6 +3542,7 @@
       "type": "object"
     },
     "SqlTriggerCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB trigger.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -3524,6 +3573,7 @@
       "type": "object"
     },
     "SqlTriggerResource": {
+      "description": "Cosmos DB SQL trigger resource object",
       "properties": {
         "body": {
           "description": "Body of the Trigger",
@@ -3573,6 +3623,7 @@
       "type": "object"
     },
     "SqlUserDefinedFunctionCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB userDefinedFunction.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -3603,6 +3654,7 @@
       "type": "object"
     },
     "SqlUserDefinedFunctionResource": {
+      "description": "Cosmos DB SQL userDefinedFunction resource object",
       "properties": {
         "body": {
           "description": "Body of the User Defined Function",
@@ -3619,6 +3671,7 @@
       "type": "object"
     },
     "TableCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB Table.",
       "properties": {
         "options": {
           "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
@@ -3649,6 +3702,7 @@
       "type": "object"
     },
     "TableResource": {
+      "description": "Cosmos DB table resource object",
       "properties": {
         "id": {
           "description": "Name of the Cosmos DB table",
@@ -3661,6 +3715,7 @@
       "type": "object"
     },
     "ThroughputPolicyResource": {
+      "description": "Cosmos DB resource throughput policy",
       "properties": {
         "incrementPercent": {
           "description": "Represents the percentage by which throughput can increase every time throughput policy kicks in.",
@@ -3688,6 +3743,7 @@
       "type": "object"
     },
     "ThroughputSettingsResource": {
+      "description": "Cosmos DB resource throughput object. Either throughput is required or autoscaleSettings is required, but not both.",
       "properties": {
         "autoscaleSettings": {
           "description": "Cosmos DB resource for autoscale settings. Either throughput is required or autoscaleSettings is required, but not both.",
@@ -3715,6 +3771,7 @@
       "type": "object"
     },
     "ThroughputSettingsUpdateProperties": {
+      "description": "Properties to update Azure Cosmos DB resource throughput.",
       "properties": {
         "resource": {
           "description": "The standard JSON format of a resource throughput",
@@ -3734,6 +3791,7 @@
       "type": "object"
     },
     "UniqueKey": {
+      "description": "The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.",
       "properties": {
         "paths": {
           "description": "List of paths must be unique for each document in the Azure Cosmos DB service",
@@ -3753,6 +3811,7 @@
       "type": "object"
     },
     "UniqueKeyPolicy": {
+      "description": "The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.",
       "properties": {
         "uniqueKeys": {
           "description": "List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.",
@@ -3779,6 +3838,7 @@
       "type": "object"
     },
     "VirtualNetworkRule": {
+      "description": "Virtual Network ACL Rule object",
       "properties": {
         "id": {
           "description": "Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.",
@@ -3843,7 +3903,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces"
+            "cassandraKeyspaces"
           ],
           "type": "string"
         }
@@ -3900,7 +3960,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables"
+            "tables"
           ],
           "type": "string"
         }
@@ -3926,7 +3986,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -3957,7 +4019,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tables/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -3983,7 +4045,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4014,7 +4078,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -4071,7 +4135,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/gremlinDatabases"
+            "gremlinDatabases"
           ],
           "type": "string"
         }
@@ -4128,7 +4192,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/graphs"
+            "graphs"
           ],
           "type": "string"
         }
@@ -4154,7 +4218,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4185,7 +4251,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/graphs/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -4211,7 +4277,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4242,7 +4310,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -4299,7 +4367,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases"
+            "mongodbDatabases"
           ],
           "type": "string"
         }
@@ -4356,7 +4424,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections"
+            "collections"
           ],
           "type": "string"
         }
@@ -4382,7 +4450,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4413,7 +4483,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -4439,7 +4509,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4470,7 +4542,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -4507,7 +4579,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces"
+            "notebookWorkspaces"
           ],
           "type": "string"
         }
@@ -4545,7 +4617,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }
@@ -4602,7 +4674,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+            "sqlDatabases"
           ],
           "type": "string"
         }
@@ -4659,7 +4731,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+            "containers"
           ],
           "type": "string"
         }
@@ -4716,7 +4788,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/storedProcedures"
+            "storedProcedures"
           ],
           "type": "string"
         }
@@ -4742,7 +4814,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4773,7 +4847,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -4830,7 +4904,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/triggers"
+            "triggers"
           ],
           "type": "string"
         }
@@ -4887,7 +4961,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/userDefinedFunctions"
+            "userDefinedFunctions"
           ],
           "type": "string"
         }
@@ -4913,7 +4987,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -4944,7 +5020,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }
@@ -4982,7 +5058,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments"
+            "sqlRoleAssignments"
           ],
           "type": "string"
         }
@@ -5020,7 +5096,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions"
+            "sqlRoleDefinitions"
           ],
           "type": "string"
         }
@@ -5077,7 +5153,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/tables"
+            "tables"
           ],
           "type": "string"
         }
@@ -5103,7 +5179,9 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
+          "enum": [
+            "default"
+          ],
           "type": "string"
         },
         "properties": {
@@ -5134,7 +5212,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.DocumentDB/databaseAccounts/tables/throughputSettings"
+            "throughputSettings"
           ],
           "type": "string"
         }

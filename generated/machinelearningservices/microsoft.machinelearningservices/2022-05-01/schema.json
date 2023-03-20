@@ -1271,6 +1271,7 @@
   },
   "definitions": {
     "AKSSchemaProperties": {
+      "description": "AKS properties",
       "properties": {
         "agentCount": {
           "description": "Number of agents",
@@ -1352,6 +1353,7 @@
       "type": "object"
     },
     "AccountKeyDatastoreSecrets": {
+      "description": "Datastore account key secrets.",
       "properties": {
         "key": {
           "description": "Storage account key.",
@@ -1381,6 +1383,7 @@
       "type": "object"
     },
     "AksNetworkingConfiguration": {
+      "description": "Advance configuration for AKS networking",
       "properties": {
         "dnsServiceIP": {
           "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.",
@@ -1426,6 +1429,7 @@
       "type": "object"
     },
     "AmlComputeProperties": {
+      "description": "AML Compute properties",
       "properties": {
         "enableNodePublicIp": {
           "description": "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.",
@@ -1550,10 +1554,12 @@
       "type": "object"
     },
     "AssetReferenceBase": {
+      "description": "Base definition for asset references.",
       "properties": {},
       "type": "object"
     },
     "AssignedUser": {
+      "description": "A user that can be assigned to a compute instance.",
       "properties": {
         "objectId": {
           "description": "User’s AAD Object Id.",
@@ -1571,6 +1577,7 @@
       "type": "object"
     },
     "AutoPauseProperties": {
+      "description": "Auto pause properties",
       "properties": {
         "delayInMinutes": {
           "description": "",
@@ -1598,6 +1605,7 @@
       "type": "object"
     },
     "AutoScaleProperties": {
+      "description": "Auto scale properties",
       "properties": {
         "enabled": {
           "description": "",
@@ -1636,6 +1644,7 @@
       "type": "object"
     },
     "BatchDeploymentProperties": {
+      "description": "Batch inference settings per deployment.",
       "properties": {
         "codeConfiguration": {
           "description": "Code configuration for the endpoint deployment.",
@@ -1795,6 +1804,7 @@
       "type": "object"
     },
     "BatchEndpointDefaults": {
+      "description": "Batch endpoint default values",
       "properties": {
         "deploymentName": {
           "description": "Name of the deployment that will be default for the endpoint.\r\nThis deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.",
@@ -1804,6 +1814,7 @@
       "type": "object"
     },
     "BatchEndpointProperties": {
+      "description": "Batch endpoint configuration.",
       "properties": {
         "authMode": {
           "description": "[Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.",
@@ -1869,6 +1880,7 @@
       "type": "object"
     },
     "BatchRetrySettings": {
+      "description": "Retry settings for a batch inference operation.",
       "properties": {
         "maxRetries": {
           "description": "Maximum retry count for a mini-batch",
@@ -1889,6 +1901,7 @@
       "type": "object"
     },
     "BuildContext": {
+      "description": "Configuration settings for Docker build context",
       "properties": {
         "contextUri": {
           "description": "[Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.\r\n<seealso href=\"https://docs.docker.com/engine/reference/commandline/build/#extended-description\" />",
@@ -1913,6 +1926,7 @@
       "type": "object"
     },
     "CertificateDatastoreSecrets": {
+      "description": "Datastore certificate secrets.",
       "properties": {
         "certificate": {
           "description": "Service principal certificate.",
@@ -1942,6 +1956,7 @@
       "type": "object"
     },
     "CodeConfiguration": {
+      "description": "Configuration for a scoring code asset.",
       "properties": {
         "codeId": {
           "description": "ARM resource ID of the code asset.",
@@ -1967,6 +1982,7 @@
       "type": "object"
     },
     "CodeContainerProperties": {
+      "description": "Container for code asset versions.",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -2017,6 +2033,7 @@
       "type": "object"
     },
     "CodeVersionProperties": {
+      "description": "Code asset version details.",
       "properties": {
         "codeUri": {
           "description": "Uri where code is located",
@@ -2082,6 +2099,7 @@
       "type": "object"
     },
     "CommandJobLimits": {
+      "description": "Command Job limit class.",
       "properties": {
         "jobLimitsType": {
           "description": "[Required] JobLimit type.",
@@ -2109,6 +2127,7 @@
       "type": "object"
     },
     "ComponentContainerProperties": {
+      "description": "Component container definition.\r\n<see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command\" />",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -2159,6 +2178,7 @@
       "type": "object"
     },
     "ComponentVersionProperties": {
+      "description": "Definition of a component version: defines resources that span component types.",
       "properties": {
         "componentSpec": {
           "description": "Defines Component definition details.\r\n<see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command\" />"
@@ -2223,6 +2243,7 @@
       "type": "object"
     },
     "Compute": {
+      "description": "Machine Learning compute object.",
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -2251,6 +2272,7 @@
       "type": "object"
     },
     "ComputeInstanceProperties": {
+      "description": "Compute Instance properties",
       "properties": {
         "applicationSharingPolicy": {
           "description": "Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.",
@@ -2344,6 +2366,7 @@
       "type": "object"
     },
     "ComputeInstanceSshSettings": {
+      "description": "Specifies policy and settings for SSH access.",
       "properties": {
         "adminPublicKey": {
           "description": "Specifies the SSH rsa public key file as a string. Use \"ssh-keygen -t rsa -b 2048\" to generate your SSH key pairs.",
@@ -2368,6 +2391,7 @@
       "type": "object"
     },
     "ContainerResourceRequirements": {
+      "description": "Resource requirements for each container instance within an online deployment.",
       "properties": {
         "containerResourceLimits": {
           "description": "Container resource limit info:",
@@ -2428,6 +2452,7 @@
       "type": "object"
     },
     "DataContainerProperties": {
+      "description": "Container for data asset versions.",
       "properties": {
         "dataType": {
           "description": "[Required] Specifies the type of data.",
@@ -2506,6 +2531,7 @@
       "type": "object"
     },
     "DataVersionBaseProperties": {
+      "description": "Data version base definition",
       "properties": {
         "dataUri": {
           "description": "[Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220501.Assets.DataVersionBase.DataType",
@@ -2582,6 +2608,7 @@
       "type": "object"
     },
     "DatabricksProperties": {
+      "description": "Properties of Databricks",
       "properties": {
         "databricksAccessToken": {
           "description": "Databricks access token",
@@ -2595,10 +2622,12 @@
       "type": "object"
     },
     "DatastoreCredentials": {
+      "description": "Base definition for datastore credentials.",
       "properties": {},
       "type": "object"
     },
     "DatastoreProperties": {
+      "description": "Base definition for datastore contents configuration.",
       "properties": {
         "credentials": {
           "description": "[Required] Account credentials.",
@@ -2652,10 +2681,12 @@
       "type": "object"
     },
     "DistributionConfiguration": {
+      "description": "Base definition for job distribution configuration.",
       "properties": {},
       "type": "object"
     },
     "EarlyTerminationPolicy": {
+      "description": "Early termination policies enable canceling poor-performing runs before they complete",
       "properties": {
         "delayEvaluation": {
           "description": "Number of intervals by which to delay the first evaluation.",
@@ -2750,6 +2781,7 @@
       "type": "object"
     },
     "EndpointAuthKeys": {
+      "description": "Keys for endpoint authentication.",
       "properties": {
         "primaryKey": {
           "description": "The primary key.",
@@ -2763,6 +2795,7 @@
       "type": "object"
     },
     "EnvironmentContainerProperties": {
+      "description": "Container for environment specification versions.",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -2813,6 +2846,7 @@
       "type": "object"
     },
     "EnvironmentVersionProperties": {
+      "description": "Environment version details.",
       "properties": {
         "build": {
           "description": "Configuration settings for Docker build context.",
@@ -2939,6 +2973,7 @@
       "type": "object"
     },
     "HDInsightProperties": {
+      "description": "HDInsight compute properties",
       "properties": {
         "address": {
           "description": "Public IP address of the master node of the cluster.",
@@ -2970,10 +3005,12 @@
       "type": "object"
     },
     "IdentityConfiguration": {
+      "description": "Base definition for identity configuration.",
       "properties": {},
       "type": "object"
     },
     "IdentityForCmk": {
+      "description": "Identity that will be used to access key vault for encryption at rest",
       "properties": {
         "userAssignedIdentity": {
           "description": "The ArmId of the user assigned identity that will be used to access the customer managed key vault",
@@ -3021,6 +3058,7 @@
       "type": "object"
     },
     "InstanceTypeSchema": {
+      "description": "Instance type schema.",
       "properties": {
         "nodeSelector": {
           "description": "Node Selector",
@@ -3052,6 +3090,7 @@
       "type": "object"
     },
     "InstanceTypeSchemaResources": {
+      "description": "Resource requests/limits for this instance type",
       "properties": {
         "limits": {
           "description": "Resource limits for this instance type",
@@ -3087,6 +3126,7 @@
       "type": "object"
     },
     "JobBaseProperties": {
+      "description": "Base definition for a job.",
       "properties": {
         "computeId": {
           "description": "ARM resource ID of the compute resource.",
@@ -3182,6 +3222,7 @@
       "type": "object"
     },
     "JobInput": {
+      "description": "Command job definition.",
       "properties": {
         "description": {
           "description": "Description for the input.",
@@ -3191,6 +3232,7 @@
       "type": "object"
     },
     "JobOutput": {
+      "description": "Job output definition container information on where to find job output/logs.",
       "properties": {
         "description": {
           "description": "Description for the output.",
@@ -3200,6 +3242,7 @@
       "type": "object"
     },
     "JobService": {
+      "description": "Job endpoint definition",
       "properties": {
         "endpoint": {
           "description": "Url for endpoint.",
@@ -3239,6 +3282,7 @@
       "type": "object"
     },
     "KubernetesProperties": {
+      "description": "Kubernetes properties",
       "properties": {
         "defaultInstanceType": {
           "description": "Default instance type",
@@ -3294,6 +3338,7 @@
       "type": "object"
     },
     "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
       "properties": {
         "type": {
           "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
@@ -3391,6 +3436,7 @@
       "type": "object"
     },
     "ModelVersionProperties": {
+      "description": "Model asset version details.",
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -3486,6 +3532,7 @@
       "type": "object"
     },
     "Objective": {
+      "description": "Optimization objective.",
       "properties": {
         "goal": {
           "description": "[Required] Defines supported metric goals for hyperparameter tuning",
@@ -3643,6 +3690,7 @@
       "type": "object"
     },
     "OnlineEndpointProperties": {
+      "description": "Online endpoint configuration",
       "properties": {
         "authMode": {
           "description": "[Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.",
@@ -3723,6 +3771,7 @@
       "type": "object"
     },
     "OnlineRequestSettings": {
+      "description": "Online deployment scoring requests configuration.",
       "properties": {
         "maxConcurrentRequestsPerInstance": {
           "description": "The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.",
@@ -3747,10 +3796,12 @@
       "type": "object"
     },
     "OnlineScaleSettings": {
+      "description": "Online deployment scaling configuration.",
       "properties": {},
       "type": "object"
     },
     "PersonalComputeInstanceSettings": {
+      "description": "Settings for a personal compute instance.",
       "properties": {
         "assignedUser": {
           "description": "A user explicitly assigned to a personal compute instance.",
@@ -3767,10 +3818,12 @@
       "type": "object"
     },
     "PrivateEndpoint": {
+      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
+      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -3801,6 +3854,7 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
+      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -3832,6 +3886,7 @@
       "type": "object"
     },
     "ProbeSettings": {
+      "description": "Deployment container liveness/readiness probe configuration.",
       "properties": {
         "failureThreshold": {
           "description": "The number of failures to allow before returning an unhealthy status.",
@@ -3904,6 +3959,7 @@
       "type": "object"
     },
     "ResourceId": {
+      "description": "Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.",
       "properties": {
         "id": {
           "description": "The ID of the resource",
@@ -3948,10 +4004,12 @@
       "type": "object"
     },
     "SamplingAlgorithm": {
+      "description": "The Sampling Algorithm used to generate hyperparameter values, along with properties to\r\nconfigure the algorithm",
       "properties": {},
       "type": "object"
     },
     "SasDatastoreSecrets": {
+      "description": "Datastore SAS secrets.",
       "properties": {
         "sasToken": {
           "description": "Storage container SAS token.",
@@ -3981,6 +4039,7 @@
       "type": "object"
     },
     "ScaleSettings": {
+      "description": "scale settings for AML Compute",
       "properties": {
         "maxNodeCount": {
           "description": "Max number of nodes to use",
@@ -4015,6 +4074,7 @@
       "type": "object"
     },
     "ScriptReference": {
+      "description": "Script reference",
       "properties": {
         "scriptArguments": {
           "description": "Optional command line arguments passed to the script to run.",
@@ -4036,6 +4096,7 @@
       "type": "object"
     },
     "ScriptsToExecute": {
+      "description": "Customized setup scripts",
       "properties": {
         "creationScript": {
           "description": "Script that's run only once during provision of the compute.",
@@ -4079,6 +4140,7 @@
       "type": "object"
     },
     "ServicePrincipalDatastoreSecrets": {
+      "description": "Datastore Service Principal secrets.",
       "properties": {
         "clientSecret": {
           "description": "Service principal secret.",
@@ -4108,6 +4170,7 @@
       "type": "object"
     },
     "SetupScripts": {
+      "description": "Details of customized scripts to execute for setting up the cluster.",
       "properties": {
         "scripts": {
           "description": "Customized setup scripts",
@@ -4144,6 +4207,7 @@
       "type": "object"
     },
     "SharedPrivateLinkResourceProperty": {
+      "description": "Properties of a shared private link resource.",
       "properties": {
         "groupId": {
           "description": "The private link resource group id.",
@@ -4179,6 +4243,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The resource model definition representing SKU",
       "properties": {
         "capacity": {
           "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
@@ -4227,6 +4292,7 @@
       "type": "object"
     },
     "SslConfiguration": {
+      "description": "The ssl configuration for scoring",
       "properties": {
         "cert": {
           "description": "Cert data",
@@ -4275,6 +4341,7 @@
       "type": "object"
     },
     "SweepJobLimits": {
+      "description": "Sweep Job limit class.",
       "properties": {
         "jobLimitsType": {
           "description": "[Required] JobLimit type.",
@@ -4394,6 +4461,7 @@
       "type": "object"
     },
     "TrialComponent": {
+      "description": "Trial component definition.",
       "properties": {
         "codeId": {
           "description": "ARM resource ID of the code asset.",
@@ -4469,6 +4537,7 @@
       "type": "object"
     },
     "UserAccountCredentials": {
+      "description": "Settings for user account that gets created on each on the nodes of a compute.",
       "properties": {
         "adminUserName": {
           "description": "Name of the administrator user account which can be used to SSH to nodes.",
@@ -4489,10 +4558,12 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
       "properties": {},
       "type": "object"
     },
     "VirtualMachineImage": {
+      "description": "Virtual Machine image for Windows AML Compute",
       "properties": {
         "id": {
           "description": "Virtual Machine image path",
@@ -4562,6 +4633,7 @@
       "type": "object"
     },
     "VirtualMachineSshCredentials": {
+      "description": "Admin credentials for virtual machine",
       "properties": {
         "password": {
           "description": "Password of admin account",
@@ -4670,6 +4742,7 @@
       "type": "object"
     },
     "WorkspaceProperties": {
+      "description": "The properties of a machine learning workspace.",
       "properties": {
         "allowPublicAccessWhenBehindVnet": {
           "description": "The flag to indicate whether to allow public access when behind VNet.",
@@ -4880,7 +4953,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/batchEndpoints"
+            "batchEndpoints"
           ],
           "type": "string"
         }
@@ -4971,7 +5044,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -5017,7 +5090,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/codes"
+            "codes"
           ],
           "type": "string"
         }
@@ -5055,7 +5128,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/codes/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5101,7 +5174,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/components"
+            "components"
           ],
           "type": "string"
         }
@@ -5139,7 +5212,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/components/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5218,7 +5291,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/computes"
+            "computes"
           ],
           "type": "string"
         }
@@ -5256,7 +5329,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/connections"
+            "connections"
           ],
           "type": "string"
         }
@@ -5302,7 +5375,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/data"
+            "data"
           ],
           "type": "string"
         }
@@ -5340,7 +5413,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/data/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5386,7 +5459,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/datastores"
+            "datastores"
           ],
           "type": "string"
         }
@@ -5432,7 +5505,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/environments"
+            "environments"
           ],
           "type": "string"
         }
@@ -5470,7 +5543,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/environments/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5516,7 +5589,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/jobs"
+            "jobs"
           ],
           "type": "string"
         }
@@ -5562,7 +5635,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/models"
+            "models"
           ],
           "type": "string"
         }
@@ -5600,7 +5673,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/models/versions"
+            "versions"
           ],
           "type": "string"
         }
@@ -5691,7 +5764,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints"
+            "onlineEndpoints"
           ],
           "type": "string"
         }
@@ -5782,7 +5855,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments"
+            "deployments"
           ],
           "type": "string"
         }
@@ -5861,7 +5934,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+            "privateEndpointConnections"
           ],
           "type": "string"
         }

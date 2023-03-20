@@ -310,6 +310,7 @@
       "type": "object"
     },
     "EnvironmentCreationProperties": {
+      "description": "Properties used to create an environment.",
       "properties": {
         "dataRetentionTime": {
           "description": "ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.",
@@ -358,6 +359,7 @@
       "type": "object"
     },
     "PartitionKeyProperty": {
+      "description": "The structure of the property that a partition key can have. An environment can have multiple such properties.",
       "properties": {
         "name": {
           "description": "The name of the property.",
@@ -381,6 +383,7 @@
       "type": "object"
     },
     "ReferenceDataSetCreationProperties": {
+      "description": "Properties used to create a reference data set.",
       "properties": {
         "dataStringComparisonBehavior": {
           "description": "The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.",
@@ -425,6 +428,7 @@
       "type": "object"
     },
     "ReferenceDataSetKeyProperty": {
+      "description": "A key property for the reference data set. A reference data set can have multiple key properties.",
       "properties": {
         "name": {
           "description": "The name of the key property.",
@@ -451,6 +455,7 @@
       "type": "object"
     },
     "Sku": {
+      "description": "The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.",
       "properties": {
         "capacity": {
           "description": "The capacity of the sku. This value can be changed to support scale out of environments after they have been created.",
@@ -521,7 +526,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TimeSeriesInsights/environments/accessPolicies"
+            "accessPolicies"
           ],
           "type": "string"
         }
@@ -577,7 +582,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TimeSeriesInsights/environments/eventSources"
+            "eventSources"
           ],
           "type": "string"
         }
@@ -644,7 +649,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.TimeSeriesInsights/environments/referenceDataSets"
+            "referenceDataSets"
           ],
           "type": "string"
         }

@@ -275,6 +275,7 @@
   },
   "definitions": {
     "APIServerProfile": {
+      "description": "APIServerProfile represents an API server profile.",
       "properties": {
         "ip": {
           "description": "The IP of the cluster API server.",
@@ -303,6 +304,7 @@
       "type": "object"
     },
     "ClusterProfile": {
+      "description": "ClusterProfile represents a cluster profile.",
       "properties": {
         "domain": {
           "description": "The domain for the cluster.",
@@ -339,6 +341,7 @@
       "type": "object"
     },
     "ConsoleProfile": {
+      "description": "ConsoleProfile represents a console profile.",
       "properties": {
         "url": {
           "description": "The URL to access the cluster console.",
@@ -348,6 +351,7 @@
       "type": "object"
     },
     "IngressProfile": {
+      "description": "IngressProfile represents an ingress profile.",
       "properties": {
         "ip": {
           "description": "The IP of the ingress.",
@@ -376,6 +380,7 @@
       "type": "object"
     },
     "MachinePoolProperties": {
+      "description": "MachinePoolProperties represents the properties of a MachinePool",
       "properties": {
         "resources": {
           "description": "",
@@ -385,6 +390,7 @@
       "type": "object"
     },
     "MasterProfile": {
+      "description": "MasterProfile represents a master profile.",
       "properties": {
         "diskEncryptionSetId": {
           "description": "The resource ID of an associated DiskEncryptionSet, if applicable.",
@@ -417,6 +423,7 @@
       "type": "object"
     },
     "NetworkProfile": {
+      "description": "NetworkProfile represents a network profile.",
       "properties": {
         "podCidr": {
           "description": "The CIDR used for OpenShift/Kubernetes Pods.",
@@ -430,6 +437,7 @@
       "type": "object"
     },
     "OpenShiftClusterProperties": {
+      "description": "OpenShiftClusterProperties represents an OpenShift cluster's properties.",
       "properties": {
         "apiserverProfile": {
           "description": "The cluster API server profile.",
@@ -562,6 +570,7 @@
       "type": "object"
     },
     "SecretProperties": {
+      "description": "SecretProperties represents the properties of a Secret",
       "properties": {
         "secretResources": {
           "description": "The Secrets Resources.",
@@ -571,6 +580,7 @@
       "type": "object"
     },
     "ServicePrincipalProfile": {
+      "description": "ServicePrincipalProfile represents a service principal profile.",
       "properties": {
         "clientId": {
           "description": "The client ID used for the cluster.",
@@ -584,6 +594,7 @@
       "type": "object"
     },
     "SyncIdentityProviderProperties": {
+      "description": "SyncSetProperties represents the properties of a SyncSet",
       "properties": {
         "resources": {
           "description": "",
@@ -593,6 +604,7 @@
       "type": "object"
     },
     "SyncSetProperties": {
+      "description": "SyncSetProperties represents the properties of a SyncSet",
       "properties": {
         "resources": {
           "description": "Resources represents the SyncSets configuration.",
@@ -602,6 +614,7 @@
       "type": "object"
     },
     "WorkerProfile": {
+      "description": "WorkerProfile represents a worker profile.",
       "properties": {
         "count": {
           "description": "The number of worker VMs.",
@@ -695,7 +708,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RedHatOpenShift/openshiftclusters/machinePool"
+            "machinePool"
           ],
           "type": "string"
         }
@@ -743,7 +756,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RedHatOpenShift/openshiftclusters/secret"
+            "secret"
           ],
           "type": "string"
         }
@@ -791,7 +804,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RedHatOpenShift/openshiftclusters/syncIdentityProvider"
+            "syncIdentityProvider"
           ],
           "type": "string"
         }
@@ -839,7 +852,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.RedHatOpenShift/openshiftclusters/syncSet"
+            "syncSet"
           ],
           "type": "string"
         }

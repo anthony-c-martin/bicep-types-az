@@ -177,6 +177,7 @@
   },
   "definitions": {
     "AdvancedSchedule": {
+      "description": "The properties of the create Advanced Schedule.",
       "properties": {
         "monthDays": {
           "description": "Days of the month that the job should execute on. Must be between 1 and 31.",
@@ -238,6 +239,7 @@
       "type": "object"
     },
     "AdvancedScheduleMonthlyOccurrence": {
+      "description": "The properties of the create advanced schedule monthly occurrence.",
       "properties": {
         "day": {
           "description": "Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.",
@@ -274,6 +276,7 @@
       "type": "object"
     },
     "AzureQueryProperties": {
+      "description": "Azure query for the update configuration.",
       "properties": {
         "locations": {
           "description": "List of locations to scope the query to.",
@@ -318,6 +321,7 @@
       "type": "object"
     },
     "ErrorResponse": {
+      "description": "Error response of an operation failure",
       "properties": {
         "code": {
           "description": "Error code",
@@ -366,6 +370,7 @@
       "type": "object"
     },
     "LinuxProperties": {
+      "description": "Linux specific update configuration.",
       "properties": {
         "excludedPackageNameMasks": {
           "description": "packages excluded from the software update configuration.",
@@ -420,6 +425,7 @@
       "type": "object"
     },
     "NonAzureQueryProperties": {
+      "description": "Non Azure query for the update configuration.",
       "properties": {
         "functionAlias": {
           "description": "Log Analytics Saved Search name.",
@@ -433,6 +439,7 @@
       "type": "object"
     },
     "RunbookAssociationProperty": {
+      "description": "The runbook property associated with the entity.",
       "properties": {
         "name": {
           "description": "Gets or sets the name of the runbook.",
@@ -442,6 +449,7 @@
       "type": "object"
     },
     "ScheduleProperties": {
+      "description": "Definition of schedule parameters.",
       "properties": {
         "advancedSchedule": {
           "description": "Gets or sets the advanced schedule.",
@@ -589,6 +597,7 @@
       "type": "object"
     },
     "SoftwareUpdateConfigurationProperties": {
+      "description": "Software update configuration properties.",
       "properties": {
         "error": {
           "description": "Details of provisioning error",
@@ -642,6 +651,7 @@
       "type": "object"
     },
     "SoftwareUpdateConfigurationTasks": {
+      "description": "Task properties of the software update configuration.",
       "properties": {
         "postTask": {
           "description": "Post task properties.",
@@ -669,6 +679,7 @@
       "type": "object"
     },
     "SourceControlCreateOrUpdateProperties": {
+      "description": "The properties of the create source control operation.",
       "properties": {
         "autoSync": {
           "description": "The auto async of the source control. Default is false.",
@@ -815,6 +826,7 @@
       "type": "object"
     },
     "SourceControlSyncJobCreateProperties": {
+      "description": "Definition of create source control sync job properties.",
       "properties": {
         "commitId": {
           "description": "The commit id of the source control sync job. If not syncing to a commitId, enter an empty string.",
@@ -827,6 +839,7 @@
       "type": "object"
     },
     "TagSettingsProperties": {
+      "description": "Tag filter information for the VM.",
       "properties": {
         "filterOperator": {
           "description": "Filter VMs by Any or All specified tags.",
@@ -872,6 +885,7 @@
       "type": "object"
     },
     "TargetProperties": {
+      "description": "Group specific to the update configuration.",
       "properties": {
         "azureQueries": {
           "description": "List of Azure queries in the software update configuration.",
@@ -919,6 +933,7 @@
       "type": "object"
     },
     "TaskProperties": {
+      "description": "Task properties of the software update configuration.",
       "properties": {
         "parameters": {
           "description": "Gets or sets the parameters of the task.",
@@ -943,6 +958,7 @@
       "type": "object"
     },
     "UpdateConfiguration": {
+      "description": "Update specific properties of the software update configuration.",
       "properties": {
         "azureVirtualMachines": {
           "description": "List of azure resource Ids for azure virtual machines targeted by the software update configuration.",
@@ -1031,6 +1047,7 @@
       "type": "object"
     },
     "WindowsProperties": {
+      "description": "Windows specific update configuration.",
       "properties": {
         "excludedKbNumbers": {
           "description": "KB numbers excluded from the software update configuration.",
@@ -1123,7 +1140,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs"
+            "sourceControlSyncJobs"
           ],
           "type": "string"
         }
