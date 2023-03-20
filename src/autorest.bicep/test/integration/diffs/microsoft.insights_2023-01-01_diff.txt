@@ -1,0 +1,330 @@
+ {
+   resourceDefinitions: {
+     actionGroups: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+   definitions: {
+     ActionGroup: {
+       properties: {
+         armRoleReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ArmRoleReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ArmRoleReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         automationRunbookReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/AutomationRunbookReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/AutomationRunbookReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         azureAppPushReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/AzureAppPushReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/AzureAppPushReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         azureFunctionReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/AzureFunctionReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/AzureFunctionReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         emailReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/EmailReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/EmailReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         enabled: {
+           oneOf: [
+             {
++              default: true
+             }
+             ...
+           ]
+         }
+         eventHubReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/EventHubReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/EventHubReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         groupShortName: {
+-          oneOf: [
+-            {
+-              maxLength: 12
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          maxLength: 12
+         }
+         itsmReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ItsmReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ItsmReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         logicAppReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/LogicAppReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/LogicAppReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         smsReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SmsReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SmsReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         voiceReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/VoiceReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/VoiceReceiver"
+               }
+             }
+             ...
+           ]
+         }
+         webhookReceivers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/WebhookReceiver"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/WebhookReceiver"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ArmRoleReceiver: {
+       properties: {
+         useCommonAlertSchema: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     AutomationRunbookReceiver: {
+       properties: {
+         useCommonAlertSchema: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     AzureFunctionReceiver: {
+       properties: {
+         useCommonAlertSchema: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     EmailReceiver: {
+       properties: {
+         useCommonAlertSchema: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     EventHubReceiver: {
+       properties: {
+         useCommonAlertSchema: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     LogicAppReceiver: {
+       properties: {
+         useCommonAlertSchema: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     WebhookReceiver: {
+       properties: {
+         useAadAuth: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+         useCommonAlertSchema: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+   }
+ }

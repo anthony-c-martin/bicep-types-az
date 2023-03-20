@@ -1,0 +1,750 @@
+ {
+   resourceDefinitions: {
++    automationAccounts_runbooks_draft: {
++      type: "object"
++      oneOf: [
++        {
++          type: "object"
++          properties: {
++            name: {
++              oneOf: [
++                {
++                  type: "string"
++                  pattern: "^.*/content$"
++                }
++                {
++                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++                }
++              ]
++            }
++          }
++          required: [
++            "name"
++          ]
++          description: "Microsoft.Automation/automationAccounts/runbooks/draft"
++        }
++        {
++          type: "object"
++          properties: {
++            name: {
++              oneOf: [
++                {
++                  type: "string"
++                  pattern: "^.*/testJob$"
++                }
++                {
++                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++                }
++              ]
++            }
++            parameters: {
++              oneOf: [
++                {
++                  type: "object"
++                  additionalProperties: {
++                    type: "string"
++                  }
++                  properties: {
++                  }
++                }
++                {
++                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++                }
++              ]
++              description: "Gets or sets the parameters of the test job."
++            }
++            runOn: {
++              type: "string"
++              description: "Gets or sets the runOn which specifies the group name where the job is to be executed."
++            }
++          }
++          required: [
++            "name"
++          ]
++          description: "Microsoft.Automation/automationAccounts/runbooks/draft"
++        }
++      ]
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-08"
++          ]
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Automation/automationAccounts/runbooks/draft"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "type"
++      ]
++      description: "Microsoft.Automation/automationAccounts/runbooks/draft"
++    }
+     automationAccounts: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_certificates: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_configurations: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_connectionTypes: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_connections: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_credentials: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_hybridRunbookWorkerGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_hybridRunbookWorkerGroups_hybridRunbookWorkers: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_jobSchedules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_jobs: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_modules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_nodeConfigurations: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_python2Packages: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_python3Packages: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_runbooks: {
+       properties: {
++        resources: {
++          type: "array"
++          items: {
++            oneOf: [
++              {
++                $ref: "#/definitions/automationAccounts_runbooks_draft_childResource"
++              }
++            ]
++          }
++        }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_schedules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_sourceControls: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_sourceControls_sourceControlSyncJobs: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_variables: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+   definitions: {
++    automationAccounts_runbooks_draft_childResource: {
++      type: "object"
++      oneOf: [
++        {
++          type: "object"
++          properties: {
++            name: {
++              type: "string"
++              enum: [
++                "content"
++              ]
++            }
++          }
++          required: [
++            "name"
++          ]
++          description: "Microsoft.Automation/automationAccounts/runbooks/draft"
++        }
++        {
++          type: "object"
++          properties: {
++            name: {
++              type: "string"
++              enum: [
++                "testJob"
++              ]
++            }
++            parameters: {
++              oneOf: [
++                {
++                  type: "object"
++                  additionalProperties: {
++                    type: "string"
++                  }
++                  properties: {
++                  }
++                }
++                {
++                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++                }
++              ]
++              description: "Gets or sets the parameters of the test job."
++            }
++            runOn: {
++              type: "string"
++              description: "Gets or sets the runOn which specifies the group name where the job is to be executed."
++            }
++          }
++          required: [
++            "name"
++          ]
++          description: "Microsoft.Automation/automationAccounts/runbooks/draft"
++        }
++      ]
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-08"
++          ]
++        }
++        type: {
++          type: "string"
++          enum: [
++            "draft"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "type"
++      ]
++      description: "Microsoft.Automation/automationAccounts/runbooks/draft"
++    }
+     AdvancedSchedule: {
+       properties: {
+         monthDays: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    type: "integer"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                type: "integer"
+               }
+             }
+             ...
+           ]
+         }
+         monthlyOccurrences: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/AdvancedScheduleMonthlyOccurrence"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/AdvancedScheduleMonthlyOccurrence"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ConnectionTypeCreateOrUpdateProperties: {
+       properties: {
+         fieldDefinitions: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/FieldDefinition"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/FieldDefinition"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DscConfigurationCreateOrUpdateProperties: {
+       properties: {
+         parameters: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/DscConfigurationParameter"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/DscConfigurationParameter"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     EncryptionPropertiesIdentity: {
+       properties: {
+         userAssignedIdentity: {
++          type: "object"
++          properties: {
++          }
+         }
+       }
+     }
+     Identity: {
+       properties: {
+         userAssignedIdentities: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/UserAssignedIdentitiesProperties"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/UserAssignedIdentitiesProperties"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     RunbookDraft: {
+       properties: {
+         creationTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         lastModifiedTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         parameters: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/RunbookParameter"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/RunbookParameter"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ScheduleCreateOrUpdateProperties: {
+       properties: {
+         expiryTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         interval: {
++          type: "object"
++          properties: {
++          }
+         }
+         startTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+       }
+     }
+     SourceControlCreateOrUpdateProperties: {
+       properties: {
+         branch: {
+-          oneOf: [
+-            {
+-              maxLength: 255
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          maxLength: 255
+         }
+         folderPath: {
+-          oneOf: [
+-            {
+-              maxLength: 255
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          maxLength: 255
+         }
+         repoUrl: {
+-          oneOf: [
+-            {
+-              maxLength: 2000
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          maxLength: 2000
+         }
+       }
+     }
+     SourceControlSecurityTokenProperties: {
+       properties: {
+         accessToken: {
+-          oneOf: [
+-            {
+-              maxLength: 1024
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          maxLength: 1024
+         }
+         refreshToken: {
+-          oneOf: [
+-            {
+-              maxLength: 1024
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          maxLength: 1024
+         }
+       }
+     }
+     SourceControlSyncJobCreateProperties: {
+       properties: {
+         commitId: {
++          minLength: 0
+         }
+       }
+     }
+     automationAccounts_certificates_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_configurations_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_connectionTypes_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_connections_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_credentials_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_hybridRunbookWorkerGroups_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_hybridRunbookWorkerGroups_hybridRunbookWorkers_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_jobSchedules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_jobs_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_modules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_nodeConfigurations_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_python2Packages_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_python3Packages_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_runbooks_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_schedules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_sourceControls_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_sourceControls_sourceControlSyncJobs_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     automationAccounts_variables_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+ }

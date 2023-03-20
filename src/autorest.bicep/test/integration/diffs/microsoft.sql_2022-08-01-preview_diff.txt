@@ -1,0 +1,3923 @@
+ {
+   resourceDefinitions: {
++    servers_databases_maintenanceWindows: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/current$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/MaintenanceWindowsProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Maintenance windows resource properties."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Sql/servers/databases/maintenanceWindows"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/databases/maintenanceWindows"
++    }
++    servers_dnsAliases: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++          description: "The name of the server dns alias."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Sql/servers/dnsAliases"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/dnsAliases"
++    }
++    servers_jobAgents_jobs_executions: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The job execution id to create the job execution under."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Sql/servers/jobAgents/jobs/executions"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/jobAgents/jobs/executions"
++    }
++    servers_outboundFirewallRules: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Sql/servers/outboundFirewallRules"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/outboundFirewallRules"
++    }
++    servers_sqlVulnerabilityAssessments_baselines: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/DatabaseSqlVulnerabilityAssessmentRuleBaselineListInputProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Properties of a database Sql Vulnerability Assessment rule baseline."
++        }
++        resources: {
++          type: "array"
++          items: {
++            oneOf: [
++              {
++                $ref: "#/definitions/servers_sqlVulnerabilityAssessments_baselines_rules_childResource"
++              }
++            ]
++          }
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines"
++    }
++    servers_sqlVulnerabilityAssessments_baselines_rules: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++          description: "The vulnerability assessment rule ID."
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/DatabaseSqlVulnerabilityAssessmentRuleBaselineInputProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Properties of a database Sql Vulnerability Assessment rule baseline."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines/rules"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines/rules"
++    }
+     instancePools: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     locations_instanceFailoverGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     locations_serverTrustGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_administrators: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "ActiveDirectory"
+-              ]
++              pattern: "^.*/ActiveDirectory$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_advancedThreatProtectionSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_azureADOnlyAuthentications: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_advancedThreatProtectionSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_backupLongTermRetentionPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_backupShortTermRetentionPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_ledgerDigestUploads: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_schemas_tables_columns_sensitivityLabels: {
+       properties: {
+         name: {
+-          pattern: "^.*/current$"
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_securityAlertPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_transparentDataEncryption: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_vulnerabilityAssessments: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+         properties: {
+           oneOf: [
+             {
+-              $ref: "#/definitions/DatabaseVulnerabilityAssessmentPropertiesAutoGenerated"
++              $ref: "#/definitions/DatabaseVulnerabilityAssessmentPropertiesModel"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_vulnerabilityAssessments_rules_baselines: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_distributedAvailabilityGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_dnsAliases: {
+       properties: {
+         createDnsRecord: {
+           oneOf: [
+             {
++              default: true
+             }
+             ...
+           ]
+         }
+       }
+     }
+     managedInstances_dtc: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_encryptionProtector: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_keys: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_privateEndpointConnections: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_restorableDroppedDatabases_backupShortTermRetentionPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_securityAlertPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+         properties: {
+           oneOf: [
+             {
+-              $ref: "#/definitions/SecurityAlertsPolicyPropertiesAutoGenerated"
++              $ref: "#/definitions/SecurityAlertsPolicyPropertiesModel"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_serverConfigurationOptions: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "allowPolybaseExport"
+-              ]
++              pattern: "^.*/allowPolybaseExport$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_serverTrustCertificates: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_sqlAgent: {
+       properties: {
+         name: {
+-          pattern: "^.*/current$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/current$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_startStopSchedules: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_vulnerabilityAssessments: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers: {
+       properties: {
+         resources: {
+           items: {
+             oneOf: [
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
++              {
++                $ref: "#/definitions/servers_outboundFirewallRules_childResource"
++              }
++              {
++                $ref: "#/definitions/servers_dnsAliases_childResource"
++              }
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+             ]
+           }
+         }
+       }
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_administrators: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "ActiveDirectory"
+-              ]
++              pattern: "^.*/ActiveDirectory$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_advancedThreatProtectionSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_auditingSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_azureADOnlyAuthentications: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_connectionPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases: {
+       properties: {
+         resources: {
+           items: {
+             oneOf: [
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
++              {
++                $ref: "#/definitions/servers_databases_maintenanceWindows_childResource"
++              }
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+             ]
+           }
+         }
+       }
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_advancedThreatProtectionSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_auditingSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_backupLongTermRetentionPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_backupShortTermRetentionPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_dataMaskingPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_dataMaskingPolicies_rules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_extendedAuditingSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_extensions: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_geoBackupPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_ledgerDigestUploads: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_schemas_tables_columns_sensitivityLabels: {
+       properties: {
+         name: {
+-          pattern: "^.*/current$"
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_securityAlertPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_sqlVulnerabilityAssessments_baselines: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_sqlVulnerabilityAssessments_baselines_rules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_syncGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_syncGroups_syncMembers: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_transparentDataEncryption: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_vulnerabilityAssessments: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_vulnerabilityAssessments_rules_baselines: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_workloadGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_workloadGroups_workloadClassifiers: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_devOpsAuditingSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_elasticPools: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_encryptionProtector: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_extendedAuditingSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_failoverGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_firewallRules: {
+       properties: {
+-        properties: {
+-          description: "Resource properties."
+-          oneOf: [
+-            {
+-              $ref: "#/definitions/ServerFirewallRuleProperties"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
++        values: {
++          oneOf: [
++            {
++              type: "array"
++              items: {
++                $ref: "#/definitions/FirewallRule"
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
+         name: {
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/firewallRules$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+     }
+     servers_ipv6FirewallRules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_credentials: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_jobs: {
+       properties: {
+         resources: {
+           items: {
+             oneOf: [
+               ...
++              {
++                $ref: "#/definitions/servers_jobAgents_jobs_executions_childResource"
++              }
+             ]
+           }
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_jobs_steps: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_targetGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_keys: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_privateEndpointConnections: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_securityAlertPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_sqlVulnerabilityAssessments: {
+       properties: {
++        resources: {
++          type: "array"
++          items: {
++            oneOf: [
++              {
++                $ref: "#/definitions/servers_sqlVulnerabilityAssessments_baselines_childResource"
++              }
++            ]
++          }
++        }
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_syncAgents: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_virtualNetworkRules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_vulnerabilityAssessments: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+   definitions: {
+-    DatabaseVulnerabilityAssessmentPropertiesAutoGenerated: {
+-      description: "Properties of a database Vulnerability Assessment."
+-      properties: {
+-        recurringScans: {
+-          description: "The recurring scans settings"
+-          oneOf: [
+-            {
+-              $ref: "#/definitions/VulnerabilityAssessmentRecurringScansProperties"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        storageAccountAccessKey: {
+-          description: "Specifies the identifier key of the storage account for vulnerability assessment scan results. If 'StorageContainerSasKey' isn't specified, storageAccountAccessKey is required. Applies only if the storage account is not behind a Vnet or a firewall"
+-          type: "string"
+-        }
+-        storageContainerPath: {
+-          description: "A blob storage container path to hold the scan results (e.g. https://myStorage.blob.core.windows.net/VaScans/).  It is required if server level vulnerability assessment policy doesn't set"
+-          type: "string"
+-        }
+-        storageContainerSasKey: {
+-          description: "A shared access signature (SAS Key) that has write access to the blob container specified in 'storageContainerPath' parameter. If 'storageAccountAccessKey' isn't specified, StorageContainerSasKey is required. Applies only if the storage account is not behind a Vnet or a firewall"
+-          type: "string"
+-        }
+-      }
+-      type: "object"
+-    }
+-    SecurityAlertsPolicyPropertiesAutoGenerated: {
+-      description: "Properties of a security alert policy."
+-      properties: {
+-        disabledAlerts: {
+-          description: "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force"
+-          oneOf: [
+-            {
+-              items: {
+-                type: "string"
+-              }
+-              type: "array"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        emailAccountAdmins: {
+-          description: "Specifies that the alert is sent to the account administrators."
+-          oneOf: [
+-            {
+-              type: "boolean"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        emailAddresses: {
+-          description: "Specifies an array of e-mail addresses to which the alert is sent."
+-          oneOf: [
+-            {
+-              items: {
+-                type: "string"
+-              }
+-              type: "array"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        retentionDays: {
+-          description: "Specifies the number of days to keep in the Threat Detection audit logs."
+-          oneOf: [
+-            {
+-              type: "integer"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        state: {
+-          description: "Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database."
+-          oneOf: [
+-            {
+-              enum: [
+-                "Enabled"
+-                "Disabled"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        storageAccountAccessKey: {
+-          description: "Specifies the identifier key of the Threat Detection audit storage account."
+-          type: "string"
+-        }
+-        storageEndpoint: {
+-          description: "Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs."
+-          type: "string"
+-        }
+-      }
+-      required: [
+-        "state"
+-      ]
+-      type: "object"
+-    }
++    DatabaseVulnerabilityAssessmentPropertiesModel: {
++      type: "object"
++      properties: {
++        recurringScans: {
++          oneOf: [
++            {
++              $ref: "#/definitions/VulnerabilityAssessmentRecurringScansProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Properties of a Vulnerability Assessment recurring scans."
++        }
++        storageAccountAccessKey: {
++          type: "string"
++          description: "Specifies the identifier key of the storage account for vulnerability assessment scan results. If 'StorageContainerSasKey' isn't specified, storageAccountAccessKey is required. Applies only if the storage account is not behind a Vnet or a firewall"
++        }
++        storageContainerPath: {
++          type: "string"
++          description: "A blob storage container path to hold the scan results (e.g. https://myStorage.blob.core.windows.net/VaScans/).  It is required if server level vulnerability assessment policy doesn't set"
++        }
++        storageContainerSasKey: {
++          type: "string"
++          description: "A shared access signature (SAS Key) that has write access to the blob container specified in 'storageContainerPath' parameter. If 'storageAccountAccessKey' isn't specified, StorageContainerSasKey is required. Applies only if the storage account is not behind a Vnet or a firewall"
++        }
++      }
++      description: "Properties of a database Vulnerability Assessment."
++    }
++    FirewallRule: {
++      type: "object"
++      properties: {
++        name: {
++          type: "string"
++          description: "Resource name."
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/ServerFirewallRuleProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The properties of a server firewall rule."
++        }
++      }
++      description: "A server firewall rule."
++    }
++    MaintenanceWindowsProperties: {
++      type: "object"
++      properties: {
++        timeRanges: {
++          oneOf: [
++            {
++              type: "array"
++              items: {
++                $ref: "#/definitions/MaintenanceWindowTimeRange"
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
++      }
++      description: "Maintenance windows resource properties."
++    }
++    MaintenanceWindowTimeRange: {
++      type: "object"
++      properties: {
++        dayOfWeek: {
++          oneOf: [
++            {
++              type: "string"
++              enum: [
++                "Sunday"
++                "Monday"
++                "Tuesday"
++                "Wednesday"
++                "Thursday"
++                "Friday"
++                "Saturday"
++              ]
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Day of maintenance window."
++        }
++        duration: {
++          type: "string"
++          description: "Duration of maintenance window in minutes."
++        }
++        startTime: {
++          type: "string"
++          description: "Start time minutes offset from 12am."
++        }
++      }
++      description: "Maintenance window time range."
++    }
++    SecurityAlertsPolicyPropertiesModel: {
++      type: "object"
++      properties: {
++        disabledAlerts: {
++          oneOf: [
++            {
++              type: "array"
++              items: {
++                type: "string"
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force"
++        }
++        emailAccountAdmins: {
++          oneOf: [
++            {
++              type: "boolean"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Specifies that the alert is sent to the account administrators."
++        }
++        emailAddresses: {
++          oneOf: [
++            {
++              type: "array"
++              items: {
++                type: "string"
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Specifies an array of e-mail addresses to which the alert is sent."
++        }
++        retentionDays: {
++          oneOf: [
++            {
++              type: "integer"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Specifies the number of days to keep in the Threat Detection audit logs."
++        }
++        state: {
++          oneOf: [
++            {
++              type: "string"
++              enum: [
++                "Enabled"
++                "Disabled"
++              ]
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database."
++        }
++        storageAccountAccessKey: {
++          type: "string"
++          description: "Specifies the identifier key of the Threat Detection audit storage account."
++        }
++        storageEndpoint: {
++          type: "string"
++          description: "Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs."
++        }
++      }
++      required: [
++        "state"
++      ]
++      description: "Properties of a security alert policy."
++    }
++    servers_databases_maintenanceWindows_childResource: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++          enum: [
++            "current"
++          ]
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/MaintenanceWindowsProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Maintenance windows resource properties."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "maintenanceWindows"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/databases/maintenanceWindows"
++    }
++    servers_dnsAliases_childResource: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++          description: "The name of the server dns alias."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "dnsAliases"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/dnsAliases"
++    }
++    servers_jobAgents_jobs_executions_childResource: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The job execution id to create the job execution under."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "executions"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/jobAgents/jobs/executions"
++    }
++    servers_outboundFirewallRules_childResource: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++        }
++        type: {
++          type: "string"
++          enum: [
++            "outboundFirewallRules"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/outboundFirewallRules"
++    }
++    servers_sqlVulnerabilityAssessments_baselines_childResource: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++          enum: [
++            "default"
++          ]
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/DatabaseSqlVulnerabilityAssessmentRuleBaselineListInputProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Properties of a database Sql Vulnerability Assessment rule baseline."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "baselines"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines"
++    }
++    servers_sqlVulnerabilityAssessments_baselines_rules_childResource: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2022-08-01-preview"
++          ]
++        }
++        name: {
++          type: "string"
++          description: "The vulnerability assessment rule ID."
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/DatabaseSqlVulnerabilityAssessmentRuleBaselineInputProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Properties of a database Sql Vulnerability Assessment rule baseline."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "rules"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Sql/servers/sqlVulnerabilityAssessments/baselines/rules"
++    }
+     BackupShortTermRetentionPolicyProperties: {
+       properties: {
+         diffBackupIntervalInHours: {
+           oneOf: [
+             {
+-              oneOf: [
+-                {
+-                  type: "integer"
+-                }
+-                {
+-                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                }
+-              ]
++              type: "integer"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DatabaseIdentity: {
+       properties: {
+         userAssignedIdentities: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/DatabaseUserIdentity"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/DatabaseUserIdentity"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DatabaseProperties: {
+       properties: {
+         elasticPoolId: {
++          format: "arm-id"
+         }
+         keys: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/DatabaseKey"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/DatabaseKey"
+               }
+             }
+             ...
+           ]
+         }
+         longTermRetentionBackupResourceId: {
++          format: "arm-id"
+         }
+         recoverableDatabaseId: {
++          format: "arm-id"
+         }
+         recoveryServicesRecoveryPointId: {
++          format: "arm-id"
+         }
+         restorableDroppedDatabaseId: {
++          format: "arm-id"
+         }
+         restorePointInTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         sourceDatabaseDeletionDate: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         sourceDatabaseId: {
++          format: "arm-id"
+         }
+         sourceResourceId: {
++          format: "arm-id"
+         }
+       }
+     }
+     DatabaseSqlVulnerabilityAssessmentRuleBaselineInputProperties: {
+       properties: {
+         results: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    items: {
+-                      type: "string"
+-                    }
+-                    type: "array"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                type: "array"
++                items: {
++                  type: "string"
++                }
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DatabaseSqlVulnerabilityAssessmentRuleBaselineListInputProperties: {
+       properties: {
+         results: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    items: {
+-                      oneOf: [
+-                        {
+-                          items: {
+-                            type: "string"
+-                          }
+-                          type: "array"
+-                        }
+-                        {
+-                          $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                        }
+-                      ]
+-                    }
+-                    type: "array"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                type: "array"
++                items: {
++                  type: "array"
++                  items: {
++                    type: "string"
++                  }
++                }
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DatabaseVulnerabilityAssessmentRuleBaselineProperties: {
+       properties: {
+         baselineResults: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/DatabaseVulnerabilityAssessmentRuleBaselineItem"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/DatabaseVulnerabilityAssessmentRuleBaselineItem"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     FailoverGroupProperties: {
+       properties: {
+         partnerServers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/PartnerInfo"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/PartnerInfo"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     InstanceFailoverGroupProperties: {
+       properties: {
+         managedInstancePairs: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ManagedInstancePairInfo"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ManagedInstancePairInfo"
+               }
+             }
+             ...
+           ]
+         }
+         partnerRegions: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/PartnerRegionInfo"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/PartnerRegionInfo"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     JobAgentProperties: {
+       properties: {
+         databaseId: {
++          format: "arm-id"
+         }
+       }
+     }
+     JobSchedule: {
+       properties: {
+         endTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          default: "9999-12-31T03:59:59-08:00"
++          format: "date-time"
+         }
+         startTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          default: "0001-01-01T16:00:00-08:00"
++          format: "date-time"
+         }
+       }
+     }
+     JobStepExecutionOptions: {
+       properties: {
+         initialRetryIntervalSeconds: {
+           oneOf: [
+             {
++              default: "1"
+             }
+             ...
+           ]
+         }
+         maximumRetryIntervalSeconds: {
+           oneOf: [
+             {
++              default: "120"
+             }
+             ...
+           ]
+         }
+         retryAttempts: {
+           oneOf: [
+             {
++              default: "10"
+             }
+             ...
+           ]
+         }
+         retryIntervalBackoffMultiplier: {
+           oneOf: [
+             {
++              default: 2
+             }
+             ...
+           ]
+         }
+         timeoutSeconds: {
+           oneOf: [
+             {
++              default: "43200"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     JobStepOutput: {
+       properties: {
+         schemaName: {
++          default: "dbo"
+         }
+       }
+     }
+     JobTargetGroupProperties: {
+       properties: {
+         members: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/JobTarget"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/JobTarget"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ManagedDatabaseProperties: {
+       properties: {
+         crossSubscriptionRestorableDroppedDatabaseId: {
++          format: "arm-id"
+         }
+         crossSubscriptionSourceDatabaseId: {
++          format: "arm-id"
+         }
+         longTermRetentionBackupResourceId: {
++          format: "arm-id"
+         }
+         recoverableDatabaseId: {
++          format: "arm-id"
+         }
+         restorableDroppedDatabaseId: {
++          format: "arm-id"
+         }
+         restorePointInTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         sourceDatabaseId: {
++          format: "arm-id"
+         }
+       }
+     }
+     ManagedInstanceProperties: {
+       properties: {
+         dnsZonePartner: {
++          format: "arm-id"
+         }
+         primaryUserAssignedIdentityId: {
++          format: "arm-id"
+         }
+         restorePointInTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         sourceManagedInstanceId: {
++          format: "arm-id"
+         }
+         subnetId: {
++          format: "arm-id"
+         }
+       }
+     }
+     NetworkIsolationSettings: {
+       properties: {
+         sqlServerResourceId: {
++          format: "arm-id"
+         }
+         storageAccountResourceId: {
++          format: "arm-id"
+         }
+       }
+     }
+     PartnerInfo: {
+       properties: {
+         id: {
++          format: "arm-id"
+         }
+       }
+     }
+     ResourceIdentity: {
+       properties: {
+         userAssignedIdentities: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/UserIdentity"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/UserIdentity"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ServerProperties: {
+       properties: {
+         primaryUserAssignedIdentityId: {
++          format: "arm-id"
+         }
+       }
+     }
+     ServerTrustGroupProperties: {
+       properties: {
+         groupMembers: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ServerInfo"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ServerInfo"
+               }
+             }
+             ...
+           ]
+         }
+         trustScopes: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    enum: [
+-                      "GlobalTransactions"
+-                      "ServiceBroker"
+-                    ]
+-                    type: "string"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                type: "string"
++                enum: [
++                  "GlobalTransactions"
++                  "ServiceBroker"
++                ]
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     StartStopManagedInstanceScheduleProperties: {
+       properties: {
+         scheduleList: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ScheduleItem"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ScheduleItem"
+               }
+             }
+             ...
+           ]
+         }
+         timeZoneId: {
++          default: "UTC"
+         }
+       }
+     }
+     SyncAgentProperties: {
+       properties: {
+         syncDatabaseId: {
++          format: "arm-id"
+         }
+       }
+     }
+     SyncGroupProperties: {
+       properties: {
+         syncDatabaseId: {
++          format: "arm-id"
+         }
+       }
+     }
+     SyncGroupSchema: {
+       properties: {
+         tables: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SyncGroupSchemaTable"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SyncGroupSchemaTable"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     SyncGroupSchemaTable: {
+       properties: {
+         columns: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SyncGroupSchemaTableColumn"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SyncGroupSchemaTableColumn"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     SyncMemberProperties: {
+       properties: {
+         syncAgentId: {
++          format: "arm-id"
+         }
+         syncMemberAzureDatabaseResourceId: {
++          format: "arm-id"
+         }
+       }
+     }
+     VirtualNetworkRuleProperties: {
+       properties: {
+         virtualNetworkSubnetId: {
++          format: "arm-id"
+         }
+       }
+     }
+     VulnerabilityAssessmentRecurringScansProperties: {
+       properties: {
+         emailSubscriptionAdmins: {
+           oneOf: [
+             {
++              default: true
+             }
+             ...
+           ]
+         }
+       }
+     }
+     managedInstances_administrators_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "ActiveDirectory"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "ActiveDirectory"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_advancedThreatProtectionSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_azureADOnlyAuthentications_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_advancedThreatProtectionSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_backupLongTermRetentionPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_backupShortTermRetentionPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_childResource: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_ledgerDigestUploads_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_securityAlertPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_transparentDataEncryption_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_databases_vulnerabilityAssessments_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+         properties: {
+           oneOf: [
+             {
+-              $ref: "#/definitions/DatabaseVulnerabilityAssessmentPropertiesAutoGenerated"
++              $ref: "#/definitions/DatabaseVulnerabilityAssessmentPropertiesModel"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_distributedAvailabilityGroups_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_dnsAliases_childResource: {
+       properties: {
+         createDnsRecord: {
+           oneOf: [
+             {
++              default: true
+             }
+             ...
+           ]
+         }
+       }
+     }
+     managedInstances_dtc_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_encryptionProtector_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_keys_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_privateEndpointConnections_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_securityAlertPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+         properties: {
+           oneOf: [
+             {
+-              $ref: "#/definitions/SecurityAlertsPolicyPropertiesAutoGenerated"
++              $ref: "#/definitions/SecurityAlertsPolicyPropertiesModel"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_serverConfigurationOptions_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "allowPolybaseExport"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "allowPolybaseExport"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_serverTrustCertificates_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_sqlAgent_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_startStopSchedules_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     managedInstances_vulnerabilityAssessments_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_administrators_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "ActiveDirectory"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "ActiveDirectory"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_advancedThreatProtectionSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_auditingSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_azureADOnlyAuthentications_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_connectionPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_advancedThreatProtectionSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_auditingSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_backupLongTermRetentionPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_backupShortTermRetentionPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_childResource: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_dataMaskingPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_dataMaskingPolicies_rules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_extendedAuditingSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_extensions_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_geoBackupPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_ledgerDigestUploads_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_securityAlertPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_sqlVulnerabilityAssessments_baselines_rules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_syncGroups_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_syncGroups_syncMembers_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_transparentDataEncryption_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_vulnerabilityAssessments_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_workloadGroups_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_databases_workloadGroups_workloadClassifiers_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_devOpsAuditingSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_elasticPools_childResource: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_encryptionProtector_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_extendedAuditingSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_failoverGroups_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_firewallRules_childResource: {
+       properties: {
+-        properties: {
+-          description: "Resource properties."
+-          oneOf: [
+-            {
+-              $ref: "#/definitions/ServerFirewallRuleProperties"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
++        values: {
++          oneOf: [
++            {
++              type: "array"
++              items: {
++                $ref: "#/definitions/FirewallRule"
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
+         name: {
++          enum: [
++            "firewallRules"
++          ]
+         }
+       }
+     }
+     servers_ipv6FirewallRules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_childResource: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_credentials_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_jobs_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_jobs_steps_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_jobAgents_targetGroups_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_keys_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_privateEndpointConnections_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_securityAlertPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_sqlVulnerabilityAssessments_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_syncAgents_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_virtualNetworkRules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     servers_vulnerabilityAssessments_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+ }

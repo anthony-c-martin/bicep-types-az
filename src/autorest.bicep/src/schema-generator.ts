@@ -58,7 +58,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       };
     }
 
-    return parseType(nameSchema.schema) ?? { type: 'string' };
+    return parseType(nameSchema.schema, true) ?? { type: 'string' };
   }
 
   function createObject(properties: Dictionary<JSONSchema4>, additionalProperties?: JSONSchema4): JSONSchema4 {
@@ -160,10 +160,13 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     }
   }
 
-  function parseType(putSchema: Schema | undefined) {
+  function parseType(putSchema: Schema | undefined, supportsExpression: boolean) {
     const schema = parseTypeInternal(putSchema);
 
-    if (schema === undefined || isEmpty(schema) || isEqual(schema, { type: 'string' })) {
+    if (schema === undefined ||
+        isEmpty(schema) ||
+        (schema.type === 'string' && !schema.enum && !schema.pattern) ||
+        !supportsExpression) {
       return schema;
     }
 
@@ -354,7 +357,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
         continue;
       }
 
-      const propertyDefinition = parseType(putProperty?.schema);
+      const propertyDefinition = parseType(putProperty?.schema, true);
       if (propertyDefinition !== undefined) {
         const description = getPropertyDescription(putProperty);
         schema.properties![propertyName] = {
@@ -366,6 +369,14 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
 
     if (schema?.discriminator) {
       handlePolymorphicType(schema, putSchema);
+    }
+
+    // TODO this is just here for parity with autorest.azureresourceschema - we sholud consider relaxing it in future.
+    if (schema.properties && schema.properties['properties']) {
+      schema.required = Array.isArray(schema.required) ? schema.required : [];
+      if (schema.required.indexOf('properties') < 0) {
+        schema.required.push('properties');
+      }
     }
 
     return schema;
@@ -469,7 +480,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       .value();
 
     const putParentDictionary = lookupParentDictionary(putSchema);
-    const additionalProperties = putParentDictionary ? parseType(putParentDictionary?.elementType) : undefined;
+    const additionalProperties = putParentDictionary ? parseType(putParentDictionary?.elementType, true) : undefined;
 
     const definition = createObject({}, additionalProperties);
     definition.description = getTypeDescription(combinedSchema);
@@ -489,7 +500,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     const schemaForPut = ancestorsToExclude ? putSchema : combinedSchema;
 
     for (const { propertyName, putProperty } of getObjectTypeProperties(schemaForPut, ancestorsToExclude)) {
-      const propertyDefinition = parseType(putProperty?.schema);
+      const propertyDefinition = parseType(putProperty?.schema, true);
       if (propertyDefinition !== undefined) {
         const description = getPropertyDescription(putProperty);
         definition.properties![propertyName] = {
@@ -534,7 +545,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
 
     const enumValues = getValuesForEnum(combinedSchema);
     if (!enumValues.success) {
-      return parseType(combinedSchema.choiceType);
+      return parseType(combinedSchema.choiceType, true);
     }
 
     const { values, closed } = enumValues.value;
@@ -559,7 +570,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
 
   function parseDictionaryType(putSchema: DictionarySchema | undefined): JSONSchema4 {
     const combinedSchema = throwIfNull(putSchema);
-    const additionalPropertiesType = parseType(combinedSchema.elementType);
+    const additionalPropertiesType = parseType(combinedSchema.elementType, false);
 
     return {
       type: 'object',
@@ -569,7 +580,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
   }
 
   function parseArrayType(putSchema: ArraySchema | undefined): JSONSchema4 {
-    const itemType = parseType(putSchema?.elementType);
+    const itemType = parseType(putSchema?.elementType, false);
     if (itemType === undefined) {
       return {
         type: 'array'

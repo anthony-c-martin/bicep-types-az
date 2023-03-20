@@ -1,51 +1,64 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
-import os from 'os';
 import path from 'path';
-import { rm, mkdir, writeFile } from 'fs/promises';
-import { defaultLogger, extensionDir, generateSchema, isBaselineRecordEnabled } from './utils';
+import { mkdir, writeFile } from 'fs/promises';
+import { extensionDir, isBaselineRecordEnabled } from './utils';
 import { describe, it, expect, jest } from '@jest/globals';
 import { readFile } from 'fs/promises';
 import { diffString } from 'json-diff';
+import { existsSync } from 'fs';
 
 describe('schema comparisons', () => {
   // bump timeout - autorest can take a while to run
   jest.setTimeout(60000);
 
-  const specsBasePath = path.resolve(extensionDir, `../../azure-rest-api-specs/specification`);
   const schemasBasePath = path.resolve(extensionDir, `../../azure-resource-manager-schemas/schemas`);
+  const generatedBasePath = path.resolve(extensionDir, `../../generated`);
 
   const tests = [
-    { readme: 'keyvault/resource-manager/README.md', schema: '2023-02-01/Microsoft.KeyVault.json' },
-    { readme: 'compute/resource-manager/README.md', schema: '2022-11-01/Microsoft.Compute.json' },
-    { readme: 'storage/resource-manager/README.md', schema: '2022-09-01/Microsoft.Storage.json' },
+    { originalPath: '2022-05-01/Microsoft.Network.FrontDoor.json', basePath: 'frontdoor', },
+    { originalPath: '2022-11-01/Microsoft.Compute.json', basePath: 'compute', },
+    { originalPath: '2022-11-01/Microsoft.KeyVault.json', basePath: 'keyvault', },
+    { originalPath: '2022-09-01/Microsoft.Storage.json', basePath: 'storage', },
+    { originalPath: '2023-01-31/Microsoft.ManagedIdentity.json', basePath: 'msi', },
+    { originalPath: '2018-06-01/Microsoft.DataFactory.json', basePath: 'datafactory', },
+    { originalPath: '2016-06-01/Microsoft.Logic.json', basePath: 'logic', },
+    { originalPath: '2022-08-01-preview/Microsoft.Sql.json', basePath: 'sql', },
+    { originalPath: '2023-01-01/Microsoft.Insights.json', basePath: 'monitor', },
+    { originalPath: '2023-01-01-preview/Microsoft.ContainerRegistry.json', basePath: 'containerregistry', },
+    { originalPath: '2022-08-08/Microsoft.Automation.json', basePath: 'automation', },
+    { originalPath: '2022-10-01-preview/Microsoft.ServiceBus.json', basePath: 'servicebus', },
+    { originalPath: '2021-12-01-preview/Microsoft.OperationalInsights.json', basePath: 'operationalinsights', },
+    { originalPath: '2022-09-30-preview/Microsoft.RecoveryServices.json', basePath: 'recoveryservices', },
+    { originalPath: '2022-11-15/Microsoft.DocumentDB.json', basePath: 'cosmos-db', },
+    { originalPath: '2023-02-01-preview/Microsoft.MachineLearningServices.json', basePath: 'machinelearningservices', },
+    { originalPath: '2023-01-01/Microsoft.Media.json', basePath: 'mediaservices', },
+    { originalPath: '2022-10-01-preview/Microsoft.EventHub.json', basePath: 'eventhub', },
+    { originalPath: '2021-06-01/Microsoft.Synapse.json', basePath: 'synapse', },
+    { originalPath: '2022-01-31-preview/Microsoft.ManagedIdentity.json', basePath: 'msi', },
+    { originalPath: '2021-06-01/Microsoft.Cdn.json', basePath: 'cdn', }
   ];
 
   const diffDir = `${__dirname}/diffs`;
-  for (const { readme, schema } of tests) {
-    it(readme, async () => {
-      const outputDir = `${os.tmpdir()}/_bcp_${new Date().getTime()}`;
-      await rm(outputDir, { recursive: true, force: true, });
-      await mkdir(outputDir, { recursive: true });
+  for (const { originalPath, basePath } of tests) {
+    it(originalPath, async () => {
+      const originalSchemaPath = path.join(schemasBasePath, originalPath);
+      const original = JSON.parse(await readFile(originalSchemaPath, { encoding: 'utf-8' }));
 
-      const readmePath = path.join(specsBasePath, readme);
-      const schemaPath = path.join(schemasBasePath, schema);
-      await generateSchema(defaultLogger, readmePath, outputDir, true, false, false);
-
-      const apiVersion = schema.split('/')[0].toLowerCase();
-      const namespace = schema.split('/')[1].toLowerCase().replace(/\.json$/, '');
+      const namespace = original['title'].toLowerCase();
+      const apiVersion = originalPath.split('/')[0].toLowerCase();
   
-      const generated = await readFile(`${outputDir}/${namespace}/${apiVersion}/schema.json`, { encoding: 'utf-8' });
-      const reference = await readFile(schemaPath, { encoding: 'utf-8' });
+      const generatedSchemaPath = path.join(generatedBasePath, basePath, namespace, apiVersion, 'schema.json');
+      const generated = JSON.parse(await readFile(generatedSchemaPath, { encoding: 'utf-8' }));
 
-      const diff = diffString(JSON.parse(generated), JSON.parse(reference), { sort: true, color: false });
+      const diffOptions = { sort: true, color: false, excludeKeys: 'description' };
+      const diff = diffString(generated, original, diffOptions as any);
       const diffFile = `${diffDir}/${namespace}_${apiVersion}_diff.txt`;
 
-      const savedValue = await readFile(diffFile, { encoding: 'utf-8' });
+      const savedValue = existsSync(diffFile) ? await readFile(diffFile, { encoding: 'utf-8' }) : null;
       if (isBaselineRecordEnabled()) {
         await mkdir(diffDir, { recursive: true });
         await writeFile(`${diffDir}/${namespace}_${apiVersion}_diff.txt`, diff);
-        await writeFile(`${diffDir}/${namespace}_${apiVersion}_schema.json`, generated);
       }
 
       expect(diff).toBe(savedValue);

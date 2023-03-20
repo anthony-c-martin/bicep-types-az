@@ -1,0 +1,1505 @@
+ {
+   resourceDefinitions: {
+     cassandraClusters: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     cassandraClusters_dataCenters: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces_tables: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces_tables_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases_graphs: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases_graphs_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases_collections: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases_collections_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbRoleDefinitions: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbUserDefinitions: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_notebookWorkspaces: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     databaseAccounts_privateEndpointConnections: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_services: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 50
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 50
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_clientEncryptionKeys: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_storedProcedures: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_triggers: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_userDefinedFunctions: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlRoleAssignments: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlRoleDefinitions: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_tables: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_tables_throughputSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+   definitions: {
+-    Components1Jq1T4ISchemasManagedserviceidentityPropertiesUserassignedidentitiesAdditionalproperties: {
+-      properties: {
+-      }
+-      type: "object"
+-    }
++    Components1jq1t4ischemasmanagedserviceidentitypropertiesuserassignedidentitiesadditionalproperties: {
++      type: "object"
++      properties: {
++      }
++    }
++    ContinuousModeBackupPolicy: {
++      type: "object"
++      properties: {
++        type: {
++          type: "string"
++          enum: [
++            "Continuous"
++          ]
++        }
++      }
++      required: [
++        "type"
++      ]
++      description: "The object representing continuous mode backup policy."
++    }
++    DatabaseAccountKeysMetadata: {
++      type: "object"
++      properties: {
++      }
++      description: "The metadata related to each access key for the given Cosmos DB database account."
++    }
++    PeriodicModeBackupPolicy: {
++      type: "object"
++      properties: {
++        periodicModeProperties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/PeriodicModeProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Configuration values for periodic mode backup"
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Periodic"
++          ]
++        }
++      }
++      required: [
++        "type"
++      ]
++      description: "The object representing periodic mode backup policy."
++    }
+     BackupPolicy: {
++      oneOf: [
++        {
++          $ref: "#/definitions/PeriodicModeBackupPolicy"
++        }
++        {
++          $ref: "#/definitions/ContinuousModeBackupPolicy"
++        }
++      ]
+     }
+     BackupPolicyMigrationState: {
+       properties: {
+         startTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+       }
+     }
+     Capacity: {
+       properties: {
+         totalThroughputLimit: {
+           oneOf: [
+             {
++              minimum: -1
+             }
+             ...
+           ]
+         }
+       }
+     }
+     CassandraSchema: {
+       properties: {
+         clusterKeys: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ClusterKey"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ClusterKey"
+               }
+             }
+             ...
+           ]
+         }
+         columns: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Column"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Column"
+               }
+             }
+             ...
+           ]
+         }
+         partitionKeys: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/CassandraPartitionKey"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/CassandraPartitionKey"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ClientEncryptionKeyResource: {
+       properties: {
+         wrappedDataEncryptionKey: {
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+     }
+     ClientEncryptionPolicy: {
+       properties: {
+         includedPaths: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ClientEncryptionIncludedPath"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ClientEncryptionIncludedPath"
+               }
+             }
+             ...
+           ]
+         }
+         policyFormatVersion: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 2
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ClusterResourceProperties: {
+       properties: {
+         clientCertificates: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Certificate"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Certificate"
+               }
+             }
+             ...
+           ]
+         }
+         externalGossipCertificates: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Certificate"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Certificate"
+               }
+             }
+             ...
+           ]
+         }
+         externalSeedNodes: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SeedNode"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SeedNode"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ConsistencyPolicy: {
+       properties: {
+         maxIntervalInSeconds: {
+           oneOf: [
+             {
++              minimum: 5
++              maximum: 86400
+             }
+             ...
+           ]
+         }
+         maxStalenessPrefix: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 2147483647
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ContainerPartitionKey: {
+       properties: {
+         version: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 2
+             }
+             ...
+           ]
+         }
+       }
+     }
+     CorsPolicy: {
+       properties: {
+         maxAgeInSeconds: {
+           oneOf: [
+             {
++              minimum: 1
++              maximum: 2147483647
+             }
+             ...
+           ]
+         }
+       }
+     }
+     DatabaseAccountCreateUpdateProperties: {
+       properties: {
++        keysMetadata: {
++          oneOf: [
++            {
++              $ref: "#/definitions/DatabaseAccountKeysMetadata"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The metadata related to each access key for the given Cosmos DB database account."
++        }
+         capabilities: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Capability"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Capability"
+               }
+             }
+             ...
+           ]
+         }
+         cors: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/CorsPolicy"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/CorsPolicy"
+               }
+             }
+             ...
+           ]
+         }
+         ipRules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/IpAddressOrRange"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/IpAddressOrRange"
+               }
+             }
+             ...
+           ]
+         }
+         locations: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Location"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Location"
+               }
+             }
+             ...
+           ]
+         }
+         virtualNetworkRules: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/VirtualNetworkRule"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/VirtualNetworkRule"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     IncludedPath: {
+       properties: {
+         indexes: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Indexes"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Indexes"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     IndexingPolicy: {
+       properties: {
+         compositeIndexes: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    items: {
+-                      oneOf: [
+-                        {
+-                          $ref: "#/definitions/CompositePath"
+-                        }
+-                        {
+-                          $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                        }
+-                      ]
+-                    }
+-                    type: "array"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                type: "array"
++                items: {
++                  $ref: "#/definitions/CompositePath"
++                }
+               }
+             }
+             ...
+           ]
+         }
+         excludedPaths: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/ExcludedPath"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/ExcludedPath"
+               }
+             }
+             ...
+           ]
+         }
+         includedPaths: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/IncludedPath"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/IncludedPath"
+               }
+             }
+             ...
+           ]
+         }
+         spatialIndexes: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SpatialSpec"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SpatialSpec"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     Location: {
+       properties: {
++        provisioningState: {
++          type: "string"
++          description: "The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed."
++        }
+         failoverPriority: {
+           oneOf: [
+             {
++              minimum: 0
+             }
+             ...
+           ]
+         }
+       }
+     }
+     ManagedServiceIdentity: {
+       properties: {
+         userAssignedIdentities: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Components1Jq1T4ISchemasManagedserviceidentityPropertiesUserassignedidentitiesAdditionalproperties"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Components1jq1t4ischemasmanagedserviceidentitypropertiesuserassignedidentitiesadditionalproperties"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     MongoDBCollectionResource: {
+       properties: {
+         indexes: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/MongoIndex"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/MongoIndex"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     MongoRoleDefinitionResource: {
+       properties: {
+         privileges: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Privilege"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Privilege"
+               }
+             }
+             ...
+           ]
+         }
+         roles: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Role"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Role"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     MongoUserDefinitionResource: {
+       properties: {
+         roles: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Role"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Role"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     PeriodicModeProperties: {
+       properties: {
+         backupIntervalInMinutes: {
+           oneOf: [
+             {
++              minimum: 0
+             }
+             ...
+           ]
+         }
+         backupRetentionIntervalInHours: {
+           oneOf: [
+             {
++              minimum: 0
+             }
+             ...
+           ]
+         }
+       }
+     }
+     RestoreParameters: {
+       properties: {
+         databasesToRestore: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/DatabaseRestoreResource"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/DatabaseRestoreResource"
+               }
+             }
+             ...
+           ]
+         }
+         gremlinDatabasesToRestore: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/GremlinDatabaseRestoreResource"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/GremlinDatabaseRestoreResource"
+               }
+             }
+             ...
+           ]
+         }
+         restoreTimestampInUtc: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+       }
+     }
+     ServiceResourceCreateUpdateProperties: {
+       properties: {
+         instanceCount: {
+           oneOf: [
+             {
++              minimum: 0
+             }
+             ...
+           ]
+         }
+       }
+     }
+     SpatialSpec: {
+       properties: {
+         types: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    enum: [
+-                      "Point"
+-                      "LineString"
+-                      "Polygon"
+-                      "MultiPolygon"
+-                    ]
+-                    type: "string"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                type: "string"
++                enum: [
++                  "Point"
++                  "LineString"
++                  "Polygon"
++                  "MultiPolygon"
++                ]
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     SqlRoleDefinitionResource: {
+       properties: {
+         permissions: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/Permission"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/Permission"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     UniqueKeyPolicy: {
+       properties: {
+         uniqueKeys: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/UniqueKey"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/UniqueKey"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     VirtualNetworkRule: {
+       properties: {
+         id: {
++          format: "arm-id"
+         }
+       }
+     }
+     cassandraClusters_dataCenters_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces_tables_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces_tables_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_cassandraKeyspaces_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases_graphs_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases_graphs_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_gremlinDatabases_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases_collections_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases_collections_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbDatabases_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbRoleDefinitions_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_mongodbUserDefinitions_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_notebookWorkspaces_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+     }
+     databaseAccounts_privateEndpointConnections_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_services_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              maxLength: 50
+-              minLength: 3
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 3
++          maxLength: 50
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_clientEncryptionKeys_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_storedProcedures_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_triggers_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_containers_userDefinedFunctions_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlDatabases_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlRoleAssignments_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_sqlRoleDefinitions_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_tables_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     databaseAccounts_tables_throughputSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+ }

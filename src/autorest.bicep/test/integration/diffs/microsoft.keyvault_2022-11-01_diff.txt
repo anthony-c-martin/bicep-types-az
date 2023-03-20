@@ -13,24 +13,6 @@
 +          ]
 +          description: "Metadata pertaining to creation and last modification of the key vault resource."
 +        }
-         name: {
--          type: "string"
-+          oneOf: [
-+            {
-+              type: "string"
-+              pattern: "^[A-Za-z]([A-Za-z0-9]|\\-[A-Za-z0-9])+$"
-+              minLength: 3
-+              maxLength: 24
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-         }
-         properties: {
--          description: "Properties of the managed HSM"
-+          description: "Properties of the managed HSM Pool"
-         }
        }
        required: [
          ...
@@ -40,12 +22,6 @@
        ]
      }
      managedHSMs_keys: {
-       properties: {
-         properties: {
--          description: "The properties of the key to be created."
-+          description: "The properties of the key."
-         }
-       }
        required: [
          ...
          ...
@@ -67,8 +43,6 @@
 +          description: "Metadata pertaining to creation and last modification of the key vault resource."
 +        }
          properties: {
--          description: "Resource properties."
-+          description: "Properties of the private endpoint connection resource."
            oneOf: [
              {
 -              $ref: "#/definitions/MhsmPrivateEndpointConnectionProperties"
@@ -95,16 +69,6 @@
        ]
      }
      vaults_accessPolicies: {
-       properties: {
-         name: {
--          description: "Name of the operation"
-+          description: "Name of the operation."
-         }
-         properties: {
--          description: "Properties of the access policy"
-+          description: "Properties of the vault access policy"
-         }
-       }
        required: [
          ...
          ...
@@ -113,12 +77,6 @@
        ]
      }
      vaults_keys: {
-       properties: {
-         properties: {
--          description: "The properties of the key to be created."
-+          description: "The properties of the key."
-         }
-       }
        required: [
          ...
          ...
@@ -127,12 +85,6 @@
        ]
      }
      vaults_privateEndpointConnections: {
-       properties: {
-         properties: {
--          description: "Resource properties."
-+          description: "Properties of the private endpoint connection resource."
-         }
-       }
        required: [
          ...
          ...
@@ -150,27 +102,6 @@
      }
    }
    definitions: {
--    MhsmGeoReplicatedRegion: {
--      description: "A region that this managed HSM Pool has been extended to."
--      properties: {
--        isPrimary: {
--          description: "A boolean value that indicates whether the region is the primary region or a secondary region."
--          oneOf: [
--            {
--              type: "boolean"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
--        }
--        name: {
--          description: "Name of the geo replicated region."
--          type: "string"
--        }
--      }
--      type: "object"
--    }
 -    MhsmNetworkRuleSet: {
 -      description: "A set of rules governing the network accessibility of a managed hsm pool."
 -      properties: {
@@ -369,46 +300,6 @@
 -      ]
 -      type: "object"
 -    }
-+    MHSMGeoReplicatedRegion: {
-+      type: "object"
-+      properties: {
-+        isPrimary: {
-+          oneOf: [
-+            {
-+              type: "boolean"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-+          description: "A boolean value that indicates whether the region is the primary region or a secondary region."
-+        }
-+        name: {
-+          type: "string"
-+          description: "Name of the geo replicated region."
-+        }
-+        provisioningState: {
-+          oneOf: [
-+            {
-+              type: "string"
-+              enum: [
-+                "Preprovisioning"
-+                "Provisioning"
-+                "Succeeded"
-+                "Failed"
-+                "Deleting"
-+                "Cleanup"
-+              ]
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-+          description: "Provisioning state of the geo replicated region."
-+        }
-+      }
-+      description: "A region that this managed HSM Pool has been extended to."
-+    }
 +    MHSMIPRule: {
 +      type: "object"
 +      properties: {
@@ -651,14 +542,6 @@
 +      }
 +      description: "Metadata pertaining to creation and last modification of the key vault resource."
 +    }
-     AccessPolicyEntry: {
-       properties: {
-         permissions: {
--          description: "Permissions the identity has for keys, secrets and certificates."
-+          description: "Permissions the identity has for keys, secrets, certificates and storage."
-         }
-       }
-     }
      KeyAttributes: {
        properties: {
          exportable: {
@@ -673,12 +556,7 @@
      }
      KeyProperties: {
        properties: {
-         attributes: {
--          description: "The attributes of the key."
-+          description: "The object attributes managed by the Azure Key Vault service."
-         }
          keyOps: {
--          description: ""
            oneOf: [
              {
                items: {
@@ -715,12 +593,6 @@
              }
              ...
            ]
-         }
-         release_policy: {
--          description: "Key release policy in response. It will be used for both output and input. Omitted if empty"
-         }
-         rotationPolicy: {
--          description: "Key rotation policy in response. It will be used for both output and input. Omitted if empty"
          }
        }
      }
@@ -734,24 +606,9 @@
          }
        }
      }
-     LifetimeAction: {
-       properties: {
-         action: {
--          description: "The action of key rotation policy lifetimeAction."
-         }
-         trigger: {
--          description: "The trigger of key rotation policy lifetimeAction."
-         }
-       }
-     }
      ManagedHsmKeyProperties: {
        properties: {
-         attributes: {
--          description: "The attributes of the key."
-+          description: "The object attributes managed by the Azure Key Vault service."
-         }
          keyOps: {
--          description: ""
            oneOf: [
              {
                items: {
@@ -789,12 +646,6 @@
              ...
            ]
          }
-         release_policy: {
--          description: "Key release policy in response. It will be used for both output and input. Omitted if empty"
-         }
-         rotationPolicy: {
--          description: "Key rotation policy in response. It will be used for both output and input. Omitted if empty"
-         }
        }
      }
      ManagedHsmKeyReleasePolicy: {
@@ -804,16 +655,6 @@
          }
          data: {
 +          format: "base64url"
-         }
-       }
-     }
-     ManagedHsmLifetimeAction: {
-       properties: {
-         action: {
--          description: "The action of key rotation policy lifetimeAction."
-         }
-         trigger: {
--          description: "The trigger of key rotation policy lifetimeAction."
          }
        }
      }
@@ -836,30 +677,10 @@
            ]
          }
          networkAcls: {
--          description: "Rules governing the accessibility of the key vault from specific network locations."
-+          description: "A set of rules governing the network accessibility of a managed hsm pool."
            oneOf: [
              {
 -              $ref: "#/definitions/MhsmNetworkRuleSet"
 +              $ref: "#/definitions/MHSMNetworkRuleSet"
-             }
-             ...
-           ]
-         }
-         regions: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/MhsmGeoReplicatedRegion"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/MHSMGeoReplicatedRegion"
-               }
              }
              ...
            ]
@@ -876,9 +697,6 @@
      }
      ManagedHsmRotationPolicy: {
        properties: {
-         attributes: {
--          description: "The attributes of key rotation policy."
-         }
          lifetimeActions: {
            oneOf: [
              {
@@ -896,14 +714,6 @@
              }
              ...
            ]
-         }
-       }
-     }
-     ManagedHsmSku: {
-       properties: {
-         name: {
--          description: "SKU of the managed HSM Pool"
-+          description: "SKU of the managed HSM Pool."
          }
        }
      }
@@ -1163,23 +973,8 @@
          }
        }
      }
-     PrivateEndpointConnectionProperties: {
-       properties: {
-         privateEndpoint: {
--          description: "Properties of the private endpoint object."
-+          description: "Private endpoint object properties."
-         }
-         privateLinkServiceConnectionState: {
--          description: "Approval state of the private link connection."
-+          description: "An object that represents the approval state of the private link connection."
-         }
-       }
-     }
      RotationPolicy: {
        properties: {
-         attributes: {
--          description: "The attributes of key rotation policy."
-         }
          lifetimeActions: {
            oneOf: [
              {
@@ -1197,14 +992,6 @@
              }
              ...
            ]
-         }
-       }
-     }
-     SecretProperties: {
-       properties: {
-         attributes: {
--          description: "The attributes of the secret."
-+          description: "The secret management attributes."
          }
        }
      }
@@ -1266,10 +1053,6 @@
              ...
            ]
          }
-         networkAcls: {
--          description: "Rules governing the accessibility of the key vault from specific network locations."
-+          description: "A set of rules governing the network accessibility of a vault."
-         }
          publicNetworkAccess: {
 +          default: "enabled"
          }
@@ -1284,12 +1067,6 @@
        }
      }
      managedHSMs_keys_childResource: {
-       properties: {
-         properties: {
--          description: "The properties of the key to be created."
-+          description: "The properties of the key."
-         }
-       }
        required: [
          ...
          ...
@@ -1311,8 +1088,6 @@
 +          description: "Metadata pertaining to creation and last modification of the key vault resource."
 +        }
          properties: {
--          description: "Resource properties."
-+          description: "Properties of the private endpoint connection resource."
            oneOf: [
              {
 -              $ref: "#/definitions/MhsmPrivateEndpointConnectionProperties"
@@ -1330,16 +1105,6 @@
        ]
      }
      vaults_accessPolicies_childResource: {
-       properties: {
-         name: {
--          description: "Name of the operation"
-+          description: "Name of the operation."
-         }
-         properties: {
--          description: "Properties of the access policy"
-+          description: "Properties of the vault access policy"
-         }
-       }
        required: [
          ...
          ...
@@ -1348,12 +1113,6 @@
        ]
      }
      vaults_keys_childResource: {
-       properties: {
-         properties: {
--          description: "The properties of the key to be created."
-+          description: "The properties of the key."
-         }
-       }
        required: [
          ...
          ...
@@ -1362,12 +1121,6 @@
        ]
      }
      vaults_privateEndpointConnections_childResource: {
-       properties: {
-         properties: {
--          description: "Resource properties."
-+          description: "Properties of the private endpoint connection resource."
-         }
-       }
        required: [
          ...
          ...

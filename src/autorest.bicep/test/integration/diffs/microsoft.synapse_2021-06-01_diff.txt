@@ -1,0 +1,1822 @@
+ {
+   resourceDefinitions: {
++    workspaces_sqlPools_maintenancewindows: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2021-06-01"
++          ]
++        }
++        name: {
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/current$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/MaintenanceWindowsProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Maintenance windows resource properties."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Microsoft.Synapse/workspaces/sqlPools/maintenancewindows"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Synapse/workspaces/sqlPools/maintenancewindows"
++    }
+     privateLinkHubs: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_administrators: {
+       properties: {
+         name: {
+-          pattern: "^.*/activeDirectory$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/activeDirectory$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_auditingSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_azureADOnlyAuthentications: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_bigDataPools: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_dedicatedSQLminimalTlsSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_encryptionProtector: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_extendedAuditingSettings: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_firewallRules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_integrationRuntimes: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_keys: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_managedIdentitySqlControlSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_privateEndpointConnections: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_securityAlertPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlAdministrators: {
+       properties: {
+         name: {
+-          pattern: "^.*/activeDirectory$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/activeDirectory$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools: {
+       properties: {
+         resources: {
+           items: {
+             oneOf: [
+               ...
++              {
++                $ref: "#/definitions/workspaces_sqlPools_maintenancewindows_childResource"
++              }
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+               ...
+             ]
+           }
+         }
+       }
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_auditingSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_dataMaskingPolicies: {
+       properties: {
+         name: {
+-          pattern: "^.*/Default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/Default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_dataMaskingPolicies_rules: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_extendedAuditingSettings: {
+       properties: {
+         name: {
+-          pattern: "^.*/default$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/default$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_geoBackupPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "Default"
+-              ]
++              pattern: "^.*/Default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_metadataSync: {
+       properties: {
+         name: {
+-          pattern: "^.*/config$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/config$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_schemas_tables_columns_sensitivityLabels: {
+       properties: {
+         name: {
+-          pattern: "^.*/current$"
+-          type: "string"
++          oneOf: [
++            {
++              type: "string"
++              pattern: "^.*/current$"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_securityAlertPolicies: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_transparentDataEncryption: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "current"
+-              ]
++              pattern: "^.*/current$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_vulnerabilityAssessments: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_vulnerabilityAssessments_rules_baselines: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_workloadGroups: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_workloadGroups_workloadClassifiers: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_vulnerabilityAssessments: {
+       properties: {
+         name: {
+           oneOf: [
+             {
+-              enum: [
+-                "default"
+-              ]
++              pattern: "^.*/default$"
+             }
+             ...
+           ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+   definitions: {
+-    VulnerabilityAssessmentRecurringScansPropertiesAutoGenerated: {
+-      description: "Properties of a Vulnerability Assessment recurring scans."
+-      properties: {
+-        emailSubscriptionAdmins: {
+-          description: "Specifies that the schedule scan notification will be is sent to the subscription administrators."
+-          oneOf: [
+-            {
+-              type: "boolean"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        emails: {
+-          description: "Specifies an array of e-mail addresses to which the scan notification is sent."
+-          oneOf: [
+-            {
+-              items: {
+-                type: "string"
+-              }
+-              type: "array"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-        isEnabled: {
+-          description: "Recurring scans state."
+-          oneOf: [
+-            {
+-              type: "boolean"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-        }
+-      }
+-      type: "object"
+-    }
++    CmdkeySetup: {
++      type: "object"
++      properties: {
++        type: {
++          type: "string"
++          enum: [
++            "CmdkeySetup"
++          ]
++        }
++        typeProperties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/CmdkeySetupTypeProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Cmdkey command custom setup type properties."
++        }
++      }
++      required: [
++        "type"
++        "typeProperties"
++      ]
++      description: "The custom setup of running cmdkey commands."
++    }
++    ComponentSetup: {
++      type: "object"
++      properties: {
++        type: {
++          type: "string"
++          enum: [
++            "ComponentSetup"
++          ]
++        }
++        typeProperties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/LicensedComponentSetupTypeProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Installation of licensed component setup type properties."
++        }
++      }
++      required: [
++        "type"
++        "typeProperties"
++      ]
++      description: "The custom setup of installing 3rd party components."
++    }
++    EnvironmentVariableSetup: {
++      type: "object"
++      properties: {
++        type: {
++          type: "string"
++          enum: [
++            "EnvironmentVariableSetup"
++          ]
++        }
++        typeProperties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/EnvironmentVariableSetupTypeProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Environment variable custom setup type properties."
++        }
++      }
++      required: [
++        "type"
++        "typeProperties"
++      ]
++      description: "The custom setup of setting environment variable."
++    }
++    LinkedIntegrationRuntimeKeyAuthorization: {
++      type: "object"
++      properties: {
++        authorizationType: {
++          type: "string"
++          enum: [
++            "Key"
++          ]
++        }
++        key: {
++          oneOf: [
++            {
++              $ref: "#/definitions/SecureString"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls."
++        }
++      }
++      required: [
++        "authorizationType"
++        "key"
++      ]
++      description: "The key authorization type integration runtime."
++    }
++    LinkedIntegrationRuntimeRbacAuthorization: {
++      type: "object"
++      properties: {
++        authorizationType: {
++          type: "string"
++          enum: [
++            "RBAC"
++          ]
++        }
++        resourceId: {
++          type: "string"
++          description: "The resource identifier of the integration runtime to be shared."
++        }
++      }
++      required: [
++        "authorizationType"
++        "resourceId"
++      ]
++      description: "The role based access control (RBAC) authorization type integration runtime."
++    }
++    MaintenanceWindowsProperties: {
++      type: "object"
++      properties: {
++        timeRanges: {
++          oneOf: [
++            {
++              type: "array"
++              items: {
++                $ref: "#/definitions/MaintenanceWindowTimeRange"
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++        }
++      }
++      description: "Maintenance windows resource properties."
++    }
++    MaintenanceWindowTimeRange: {
++      type: "object"
++      properties: {
++        dayOfWeek: {
++          oneOf: [
++            {
++              type: "string"
++              enum: [
++                "Sunday"
++                "Monday"
++                "Tuesday"
++                "Wednesday"
++                "Thursday"
++                "Friday"
++                "Saturday"
++              ]
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Day of maintenance window."
++        }
++        duration: {
++          type: "string"
++          description: "Duration of maintenance window in minutes."
++        }
++        startTime: {
++          type: "string"
++          description: "Start time minutes offset from 12am."
++        }
++      }
++      description: "Maintenance window time range."
++    }
++    ManagedIntegrationRuntime: {
++      type: "object"
++      properties: {
++        managedVirtualNetwork: {
++          oneOf: [
++            {
++              $ref: "#/definitions/ManagedIntegrationRuntimeManagedVirtualNetworkReference"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Managed integration runtime managed virtual network reference."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "Managed"
++          ]
++        }
++        typeProperties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/ManagedIntegrationRuntimeTypeProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Managed integration runtime type properties."
++        }
++      }
++      required: [
++        "type"
++        "typeProperties"
++      ]
++      description: "Managed integration runtime, including managed elastic and managed dedicated integration runtimes."
++    }
++    SelfHostedIntegrationRuntime: {
++      type: "object"
++      properties: {
++        type: {
++          type: "string"
++          enum: [
++            "SelfHosted"
++          ]
++        }
++        typeProperties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/SelfHostedIntegrationRuntimeTypeProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "The self-hosted integration runtime properties."
++        }
++      }
++      required: [
++        "type"
++      ]
++      description: "Self-hosted integration runtime."
++    }
++    VulnerabilityAssessmentRecurringScansPropertiesModel: {
++      type: "object"
++      properties: {
++        emails: {
++          oneOf: [
++            {
++              type: "array"
++              items: {
++                type: "string"
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Specifies an array of e-mail addresses to which the scan notification is sent."
++        }
++        emailSubscriptionAdmins: {
++          oneOf: [
++            {
++              type: "boolean"
++              default: true
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Specifies that the schedule scan notification will be is sent to the subscription administrators."
++        }
++        isEnabled: {
++          oneOf: [
++            {
++              type: "boolean"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Recurring scans state."
++        }
++      }
++      description: "Properties of a Vulnerability Assessment recurring scans."
++    }
++    workspaces_sqlPools_maintenancewindows_childResource: {
++      type: "object"
++      properties: {
++        apiVersion: {
++          type: "string"
++          enum: [
++            "2021-06-01"
++          ]
++        }
++        name: {
++          type: "string"
++          enum: [
++            "current"
++          ]
++        }
++        properties: {
++          oneOf: [
++            {
++              $ref: "#/definitions/MaintenanceWindowsProperties"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Maintenance windows resource properties."
++        }
++        type: {
++          type: "string"
++          enum: [
++            "maintenancewindows"
++          ]
++        }
++      }
++      required: [
++        "apiVersion"
++        "name"
++        "properties"
++        "type"
++      ]
++      description: "Microsoft.Synapse/workspaces/sqlPools/maintenancewindows"
++    }
+     BigDataPoolResourceProperties: {
+       properties: {
+         customLibraries: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/LibraryInfo"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/LibraryInfo"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     CmdkeySetupTypeProperties: {
+       properties: {
+         targetName: {
++          type: "object"
++          properties: {
++          }
+         }
+         userName: {
++          type: "object"
++          properties: {
++          }
+         }
+       }
+     }
+     CustomSetupBase: {
++      oneOf: [
++        {
++          $ref: "#/definitions/CmdkeySetup"
++        }
++        {
++          $ref: "#/definitions/EnvironmentVariableSetup"
++        }
++        {
++          $ref: "#/definitions/ComponentSetup"
++        }
++      ]
+     }
+     IntegrationRuntime: {
+-      additionalProperties: {
+-      }
++      oneOf: [
++        {
++          $ref: "#/definitions/ManagedIntegrationRuntime"
++        }
++        {
++          $ref: "#/definitions/SelfHostedIntegrationRuntime"
++        }
++      ]
+       properties: {
++        additionalProperties: {
++          oneOf: [
++            {
++              type: "object"
++              additionalProperties: {
++                type: "object"
++                properties: {
++                }
++              }
++              properties: {
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Unmatched properties from the message are deserialized this collection"
++        }
+       }
+     }
+     IntegrationRuntimeComputeProperties: {
+-      additionalProperties: {
+-      }
+       properties: {
++        additionalProperties: {
++          oneOf: [
++            {
++              type: "object"
++              additionalProperties: {
++                type: "object"
++                properties: {
++                }
++              }
++              properties: {
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Unmatched properties from the message are deserialized this collection"
++        }
+         maxParallelExecutionsPerNode: {
+           oneOf: [
+             {
++              minimum: 1
+             }
+             ...
+           ]
+         }
+         numberOfNodes: {
+           oneOf: [
+             {
++              minimum: 1
+             }
+             ...
+           ]
+         }
+       }
+     }
+     IntegrationRuntimeDataFlowProperties: {
+-      additionalProperties: {
+-      }
+       properties: {
++        additionalProperties: {
++          oneOf: [
++            {
++              type: "object"
++              additionalProperties: {
++                type: "object"
++                properties: {
++                }
++              }
++              properties: {
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Unmatched properties from the message are deserialized this collection"
++        }
+         timeToLive: {
+           oneOf: [
+             {
++              minimum: 0
+             }
+             ...
+           ]
+         }
+       }
+     }
+     IntegrationRuntimeSsisCatalogInfo: {
+-      additionalProperties: {
+-      }
+       properties: {
++        additionalProperties: {
++          oneOf: [
++            {
++              type: "object"
++              additionalProperties: {
++                type: "object"
++                properties: {
++                }
++              }
++              properties: {
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Unmatched properties from the message are deserialized this collection"
++        }
+         catalogAdminUserName: {
+-          oneOf: [
+-            {
+-              maxLength: 128
+-              minLength: 1
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          minLength: 1
++          maxLength: 128
+         }
+       }
+     }
+     IntegrationRuntimeSsisProperties: {
+-      additionalProperties: {
+-      }
+       properties: {
++        additionalProperties: {
++          oneOf: [
++            {
++              type: "object"
++              additionalProperties: {
++                type: "object"
++                properties: {
++                }
++              }
++              properties: {
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Unmatched properties from the message are deserialized this collection"
++        }
+         expressCustomSetupProperties: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/CustomSetupBase"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/CustomSetupBase"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     IntegrationRuntimeVNetProperties: {
+-      additionalProperties: {
+-      }
+       properties: {
++        additionalProperties: {
++          oneOf: [
++            {
++              type: "object"
++              additionalProperties: {
++                type: "object"
++                properties: {
++                }
++              }
++              properties: {
++              }
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
++          description: "Unmatched properties from the message are deserialized this collection"
++        }
+       }
+     }
+     KekIdentityProperties: {
+       properties: {
+         useSystemAssignedIdentity: {
++          type: "object"
++          properties: {
++          }
+         }
+       }
+     }
+     LinkedIntegrationRuntimeType: {
++      oneOf: [
++        {
++          $ref: "#/definitions/LinkedIntegrationRuntimeKeyAuthorization"
++        }
++        {
++          $ref: "#/definitions/LinkedIntegrationRuntimeRbacAuthorization"
++        }
++      ]
+     }
+     ManagedIdentity: {
+       properties: {
+         userAssignedIdentities: {
+           oneOf: [
+             {
+               additionalProperties: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/UserAssignedManagedIdentity"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/UserAssignedManagedIdentity"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     SecretBase: {
++      oneOf: [
++        {
++          $ref: "#/definitions/SecureString"
++        }
++      ]
+     }
+     SecureString: {
+       properties: {
+         type: {
++          enum: [
++            "SecureString"
++          ]
+         }
+       }
+     }
+     ServerVulnerabilityAssessmentProperties: {
+       properties: {
+         recurringScans: {
+           oneOf: [
+             {
+-              $ref: "#/definitions/VulnerabilityAssessmentRecurringScansPropertiesAutoGenerated"
++              $ref: "#/definitions/VulnerabilityAssessmentRecurringScansPropertiesModel"
+             }
+             ...
+           ]
+         }
+       }
+     }
+     SqlPoolBlobAuditingPolicyProperties: {
+       properties: {
+         isAzureMonitorTargetEnabled: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     SqlPoolResourceProperties: {
+       properties: {
+         collation: {
++          default: ""
+         }
+         restorePointInTime: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+         sourceDatabaseDeletionDate: {
+-          oneOf: [
+-            {
+-              format: "date-time"
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          format: "date-time"
+         }
+       }
+     }
+     SqlPoolVulnerabilityAssessmentRuleBaselineProperties: {
+       properties: {
+         baselineResults: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/SqlPoolVulnerabilityAssessmentRuleBaselineItem"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/SqlPoolVulnerabilityAssessmentRuleBaselineItem"
+               }
+             }
+             ...
+           ]
+         }
+       }
+     }
+     VulnerabilityAssessmentRecurringScansProperties: {
+       properties: {
+         emailSubscriptionAdmins: {
+           oneOf: [
+             {
++              default: true
+             }
+             ...
+           ]
+         }
+       }
+     }
+     WorkspaceProperties: {
+       properties: {
+         privateEndpointConnections: {
+           oneOf: [
+             {
+               items: {
+-                oneOf: [
+-                  {
+-                    $ref: "#/definitions/PrivateEndpointConnection"
+-                  }
+-                  {
+-                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-                  }
+-                ]
++                $ref: "#/definitions/PrivateEndpointConnection"
+               }
+             }
+             ...
+           ]
+         }
+         trustedServiceBypassEnabled: {
+           oneOf: [
+             {
++              default: false
+             }
+             ...
+           ]
+         }
+       }
+     }
+     workspaces_administrators_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_auditingSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_azureADOnlyAuthentications_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_bigDataPools_childResource: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_dedicatedSQLminimalTlsSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_encryptionProtector_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_extendedAuditingSettings_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_firewallRules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_integrationRuntimes_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_keys_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_managedIdentitySqlControlSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_privateEndpointConnections_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_securityAlertPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlAdministrators_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_auditingSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_childResource: {
+       required: [
+         ...
++        "location"
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_dataMaskingPolicies_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_dataMaskingPolicies_rules_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_extendedAuditingSettings_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_geoBackupPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "Default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "Default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_metadataSync_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_securityAlertPolicies_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_transparentDataEncryption_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "current"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "current"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_vulnerabilityAssessments_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_workloadGroups_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_sqlPools_workloadGroups_workloadClassifiers_childResource: {
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+     workspaces_vulnerabilityAssessments_childResource: {
+       properties: {
+         name: {
+-          oneOf: [
+-            {
+-              enum: [
+-                "default"
+-              ]
+-              type: "string"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
++          type: "string"
++          enum: [
++            "default"
++          ]
+         }
+       }
+       required: [
+         ...
+         ...
++        "properties"
+         ...
+       ]
+     }
+   }
+ }
