@@ -1,28 +1,12 @@
  {
    resourceDefinitions: {
      storageAccounts: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 24
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 24
-         }
-       }
        required: [
          ...
 +        "kind"
 +        "location"
          ...
+-        "properties"
 +        "sku"
          ...
        ]
@@ -43,25 +27,20 @@
 +          ]
          }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_blobServices_containers: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 63
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 63
-         }
-       }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_blobServices_containers_immutabilityPolicies: {
        properties: {
@@ -79,25 +58,20 @@
 +          ]
          }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_encryptionScopes: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 63
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 63
-         }
-       }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_fileServices: {
        properties: {
@@ -115,25 +89,20 @@
 +          ]
          }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_fileServices_shares: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 63
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 63
-         }
-       }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_inventoryPolicies: {
        properties: {
@@ -160,6 +129,12 @@
            ]
          }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_localUsers: {
        properties: {
@@ -174,22 +149,13 @@
 +          ]
 +          description: "Metadata pertaining to creation and last modification of the resource."
 +        }
-         name: {
--          oneOf: [
--            {
--              maxLength: 64
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 64
-         }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_managementPolicies: {
        properties: {
@@ -205,23 +171,28 @@
            ]
          }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_objectReplicationPolicies: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              minLength: 1
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 1
-         }
-       }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
+     }
+     storageAccounts_privateEndpointConnections: {
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_queueServices: {
        properties: {
@@ -239,6 +210,20 @@
 +          ]
          }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
+     }
+     storageAccounts_queueServices_queues: {
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
      storageAccounts_tableServices: {
        properties: {
@@ -256,6 +241,20 @@
 +          ]
          }
        }
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
+     }
+     storageAccounts_tableServices_tables: {
+       required: [
+         ...
+         ...
+-        "properties"
+         ...
+       ]
      }
    }
    definitions: {
@@ -317,36 +316,6 @@
 +      }
 +      description: "Metadata pertaining to creation and last modification of the resource."
 +    }
-     AccessPolicy: {
-       properties: {
-         expiryTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         startTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
      AccountImmutabilityPolicyProperties: {
        properties: {
          immutabilityPeriodSinceCreationInDays: {
@@ -360,28 +329,6 @@
          }
        }
      }
-     BlobInventoryPolicySchema: {
-       properties: {
-         rules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/BlobInventoryPolicyRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/BlobInventoryPolicyRule"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      ChangeFeed: {
        properties: {
          retentionInDays: {
@@ -389,70 +336,6 @@
              {
 +              minimum: 1
 +              maximum: 146000
-             }
-             ...
-           ]
-         }
-       }
-     }
-     CorsRule: {
-       properties: {
-         allowedMethods: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "DELETE"
--                      "GET"
--                      "HEAD"
--                      "MERGE"
--                      "POST"
--                      "OPTIONS"
--                      "PUT"
--                      "PATCH"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "DELETE"
-+                  "GET"
-+                  "HEAD"
-+                  "MERGE"
-+                  "POST"
-+                  "OPTIONS"
-+                  "PUT"
-+                  "PATCH"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     CorsRules: {
-       properties: {
-         corsRules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/CorsRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/CorsRule"
-               }
              }
              ...
            ]
@@ -545,210 +428,6 @@
              ...
            ]
          }
-         signedIdentifiers: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SignedIdentifier"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SignedIdentifier"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     Identity: {
-       properties: {
-         userAssignedIdentities: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/UserAssignedIdentity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/UserAssignedIdentity"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     LocalUserProperties: {
-       properties: {
-         permissionScopes: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/PermissionScope"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/PermissionScope"
-               }
-             }
-             ...
-           ]
-         }
-         sshAuthorizedKeys: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SshPublicKey"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SshPublicKey"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     ManagementPolicyFilter: {
-       properties: {
-         blobIndexMatch: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TagFilter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TagFilter"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     ManagementPolicySchema: {
-       properties: {
-         rules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ManagementPolicyRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ManagementPolicyRule"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     NetworkRuleSet: {
-       properties: {
-         ipRules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/IPRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/IPRule"
-               }
-             }
-             ...
-           ]
-         }
-         resourceAccessRules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ResourceAccessRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ResourceAccessRule"
-               }
-             }
-             ...
-           ]
-         }
-         virtualNetworkRules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualNetworkRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualNetworkRule"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     ObjectReplicationPolicyProperties: {
-       properties: {
-         rules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ObjectReplicationPolicyRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ObjectReplicationPolicyRule"
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      PrivateEndpointConnectionProperties: {
@@ -803,189 +482,12 @@
 +        }
        }
      }
-     TableAccessPolicy: {
-       properties: {
-         expiryTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         startTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
-     TableProperties: {
-       properties: {
-         signedIdentifiers: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TableSignedIdentifier"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TableSignedIdentifier"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      TagFilter: {
        properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 128
--              minLength: 1
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 1
-+          maxLength: 128
-         }
          value: {
--          oneOf: [
--            {
--              maxLength: 256
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
 +          minLength: 0
-+          maxLength: 256
          }
        }
-     }
-     storageAccounts_blobServices_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_blobServices_containers_childResource: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 63
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 63
-         }
-       }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_blobServices_containers_immutabilityPolicies_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_encryptionScopes_childResource: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 63
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 63
-         }
-       }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_fileServices_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_fileServices_shares_childResource: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              maxLength: 63
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 63
-         }
-       }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
      storageAccounts_inventoryPolicies_childResource: {
        properties: {
@@ -1018,12 +520,6 @@
 +          ]
          }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
      storageAccounts_localUsers_childResource: {
        properties: {
@@ -1038,28 +534,7 @@
 +          ]
 +          description: "Metadata pertaining to creation and last modification of the resource."
 +        }
-         name: {
--          oneOf: [
--            {
--              maxLength: 64
--              minLength: 3
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 3
-+          maxLength: 64
-         }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
      storageAccounts_managementPolicies_childResource: {
        properties: {
@@ -1081,75 +556,6 @@
 +          ]
          }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_objectReplicationPolicies_childResource: {
-       properties: {
-         name: {
--          oneOf: [
--            {
--              minLength: 1
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 1
-         }
-       }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_privateEndpointConnections_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_queueServices_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_queueServices_queues_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_tableServices_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     storageAccounts_tableServices_tables_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
    }
  }

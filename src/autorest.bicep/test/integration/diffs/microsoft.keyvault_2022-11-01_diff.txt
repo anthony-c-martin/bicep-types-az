@@ -14,20 +14,6 @@
 +          description: "Metadata pertaining to creation and last modification of the key vault resource."
 +        }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     managedHSMs_keys: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
      managedHSMs_privateEndpointConnections: {
        properties: {
@@ -52,51 +38,13 @@
            ]
          }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
      vaults: {
        required: [
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     vaults_accessPolicies: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_keys: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_privateEndpointConnections: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_secrets: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -140,14 +88,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/MhsmipRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/MhsmipRule"
 -              }
 -              type: "array"
 -            }
@@ -161,14 +102,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/MhsmVirtualNetworkRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/MhsmVirtualNetworkRule"
 -              }
 -              type: "array"
 -            }
@@ -554,48 +488,6 @@
          }
        }
      }
-     KeyProperties: {
-       properties: {
-         keyOps: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "encrypt"
--                      "decrypt"
--                      "sign"
--                      "verify"
--                      "wrapKey"
--                      "unwrapKey"
--                      "import"
--                      "release"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "encrypt"
-+                  "decrypt"
-+                  "sign"
-+                  "verify"
-+                  "wrapKey"
-+                  "unwrapKey"
-+                  "import"
-+                  "release"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      KeyReleasePolicy: {
        properties: {
          contentType: {
@@ -603,48 +495,6 @@
          }
          data: {
 +          format: "base64url"
-         }
-       }
-     }
-     ManagedHsmKeyProperties: {
-       properties: {
-         keyOps: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "encrypt"
--                      "decrypt"
--                      "sign"
--                      "verify"
--                      "wrapKey"
--                      "unwrapKey"
--                      "import"
--                      "release"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "encrypt"
-+                  "decrypt"
-+                  "sign"
-+                  "verify"
-+                  "wrapKey"
-+                  "unwrapKey"
-+                  "import"
-+                  "release"
-+                ]
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -695,348 +545,8 @@
          }
        }
      }
-     ManagedHsmRotationPolicy: {
-       properties: {
-         lifetimeActions: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ManagedHsmLifetimeAction"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ManagedHsmLifetimeAction"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     NetworkRuleSet: {
-       properties: {
-         ipRules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/IPRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/IPRule"
-               }
-             }
-             ...
-           ]
-         }
-         virtualNetworkRules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualNetworkRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualNetworkRule"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     Permissions: {
-       properties: {
-         certificates: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "all"
--                      "get"
--                      "list"
--                      "delete"
--                      "create"
--                      "import"
--                      "update"
--                      "managecontacts"
--                      "getissuers"
--                      "listissuers"
--                      "setissuers"
--                      "deleteissuers"
--                      "manageissuers"
--                      "recover"
--                      "purge"
--                      "backup"
--                      "restore"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "all"
-+                  "get"
-+                  "list"
-+                  "delete"
-+                  "create"
-+                  "import"
-+                  "update"
-+                  "managecontacts"
-+                  "getissuers"
-+                  "listissuers"
-+                  "setissuers"
-+                  "deleteissuers"
-+                  "manageissuers"
-+                  "recover"
-+                  "purge"
-+                  "backup"
-+                  "restore"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-         keys: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "all"
--                      "encrypt"
--                      "decrypt"
--                      "wrapKey"
--                      "unwrapKey"
--                      "sign"
--                      "verify"
--                      "get"
--                      "list"
--                      "create"
--                      "update"
--                      "import"
--                      "delete"
--                      "backup"
--                      "restore"
--                      "recover"
--                      "purge"
--                      "release"
--                      "rotate"
--                      "getrotationpolicy"
--                      "setrotationpolicy"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "all"
-+                  "encrypt"
-+                  "decrypt"
-+                  "wrapKey"
-+                  "unwrapKey"
-+                  "sign"
-+                  "verify"
-+                  "get"
-+                  "list"
-+                  "create"
-+                  "update"
-+                  "import"
-+                  "delete"
-+                  "backup"
-+                  "restore"
-+                  "recover"
-+                  "purge"
-+                  "release"
-+                  "rotate"
-+                  "getrotationpolicy"
-+                  "setrotationpolicy"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-         secrets: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "all"
--                      "get"
--                      "list"
--                      "set"
--                      "delete"
--                      "backup"
--                      "restore"
--                      "recover"
--                      "purge"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "all"
-+                  "get"
-+                  "list"
-+                  "set"
-+                  "delete"
-+                  "backup"
-+                  "restore"
-+                  "recover"
-+                  "purge"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-         storage: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "all"
--                      "get"
--                      "list"
--                      "delete"
--                      "set"
--                      "update"
--                      "regeneratekey"
--                      "recover"
--                      "purge"
--                      "backup"
--                      "restore"
--                      "setsas"
--                      "listsas"
--                      "getsas"
--                      "deletesas"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "all"
-+                  "get"
-+                  "list"
-+                  "delete"
-+                  "set"
-+                  "update"
-+                  "regeneratekey"
-+                  "recover"
-+                  "purge"
-+                  "backup"
-+                  "restore"
-+                  "setsas"
-+                  "listsas"
-+                  "getsas"
-+                  "deletesas"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     RotationPolicy: {
-       properties: {
-         lifetimeActions: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LifetimeAction"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LifetimeAction"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VaultAccessPolicyProperties: {
-       properties: {
-         accessPolicies: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/AccessPolicyEntry"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/AccessPolicyEntry"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      VaultProperties: {
        properties: {
-         accessPolicies: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/AccessPolicyEntry"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/AccessPolicyEntry"
-               }
-             }
-             ...
-           ]
-         }
          enableRbacAuthorization: {
            oneOf: [
              {
@@ -1066,14 +576,6 @@
          }
        }
      }
-     managedHSMs_keys_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
      managedHSMs_privateEndpointConnections_childResource: {
        properties: {
 +        systemData: {
@@ -1097,44 +599,6 @@
            ]
          }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_accessPolicies_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_keys_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_privateEndpointConnections_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_secrets_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
    }
  }

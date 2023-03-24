@@ -33,6 +33,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -91,6 +92,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -101,7 +103,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -110,7 +112,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -119,7 +121,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
 +        "sku"
          ...
        ]
@@ -129,7 +131,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -138,7 +140,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
 +        "sku"
          ...
        ]
@@ -148,7 +150,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -157,7 +159,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -166,15 +168,7 @@
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     restorePointCollections_restorePoints: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -183,7 +177,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -192,7 +186,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -201,15 +195,7 @@
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     virtualMachineScaleSets_virtualMachines_extensions: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -218,7 +204,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -227,7 +213,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -236,56 +222,12 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
    }
    definitions: {
-     ApplicationProfile: {
-       properties: {
-         galleryApplications: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VMGalleryApplication"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VMGalleryApplication"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     AvailabilitySetProperties: {
-       properties: {
-         virtualMachines: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      DedicatedHostGroupProperties: {
        properties: {
          platformFaultDomainCount: {
@@ -310,107 +252,6 @@
          }
        }
      }
-     ImageStorageProfile: {
-       properties: {
-         dataDisks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ImageDataDisk"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ImageDataDisk"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     InstanceViewStatus: {
-       properties: {
-         time: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
-     NetworkProfile: {
-       properties: {
-         networkInterfaceConfigurations: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineNetworkInterfaceConfiguration"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineNetworkInterfaceConfiguration"
-               }
-             }
-             ...
-           ]
-         }
-         networkInterfaces: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/NetworkInterfaceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/NetworkInterfaceReference"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     OSProfile: {
-       properties: {
-         secrets: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VaultSecretGroup"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VaultSecretGroup"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      PriorityMixPolicy: {
        properties: {
          baseRegularPriorityCount: {
@@ -429,41 +270,6 @@
              }
              ...
            ]
-         }
-       }
-     }
-     RestorePointProperties: {
-       properties: {
-         excludeDisks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ApiEntityReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ApiEntityReference"
-               }
-             }
-             ...
-           ]
-         }
-         timeCreated: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
          }
        }
      }
@@ -498,144 +304,6 @@
          }
        }
      }
-     ScaleInPolicy: {
-       properties: {
-         rules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "Default"
--                      "OldestVM"
--                      "NewestVM"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "Default"
-+                  "OldestVM"
-+                  "NewestVM"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     SshConfiguration: {
-       properties: {
-         publicKeys: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SshPublicKey"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SshPublicKey"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     StorageProfile: {
-       properties: {
-         dataDisks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DataDisk"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DataDisk"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VaultSecretGroup: {
-       properties: {
-         vaultCertificates: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VaultCertificate"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VaultCertificate"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineExtensionInstanceView: {
-       properties: {
-         statuses: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/InstanceViewStatus"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/InstanceViewStatus"
-               }
-             }
-             ...
-           ]
-         }
-         substatuses: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/InstanceViewStatus"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/InstanceViewStatus"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      VirtualMachineExtensionProperties: {
        properties: {
          protectedSettings: {
@@ -650,172 +318,12 @@
          }
        }
      }
-     VirtualMachineIdentity: {
-       properties: {
-         userAssignedIdentities: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/UserAssignedIdentitiesValue"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/UserAssignedIdentitiesValue"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineNetworkInterfaceConfigurationProperties: {
-       properties: {
-         ipConfigurations: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineNetworkInterfaceIPConfiguration"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineNetworkInterfaceIPConfiguration"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineNetworkInterfaceIPConfigurationProperties: {
-       properties: {
-         applicationGatewayBackendAddressPools: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-         applicationSecurityGroups: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-         loadBalancerBackendAddressPools: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachinePublicIPAddressConfigurationProperties: {
-       properties: {
-         ipTags: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineIpTag"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineIpTag"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      VirtualMachineRunCommandProperties: {
        properties: {
          asyncExecution: {
            oneOf: [
              {
 +              default: false
-             }
-             ...
-           ]
-         }
-         parameters: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/RunCommandInputParameter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/RunCommandInputParameter"
-               }
-             }
-             ...
-           ]
-         }
-         protectedParameters: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/RunCommandInputParameter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/RunCommandInputParameter"
-               }
              }
              ...
            ]
@@ -943,28 +451,6 @@
          }
        }
      }
-     VirtualMachineScaleSetExtensionProfile: {
-       properties: {
-         extensions: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineScaleSetExtension"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineScaleSetExtension"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      VirtualMachineScaleSetExtensionProperties: {
        properties: {
          protectedSettings: {
@@ -979,286 +465,12 @@
          }
        }
      }
-     VirtualMachineScaleSetIPConfigurationProperties: {
-       properties: {
-         applicationGatewayBackendAddressPools: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-         applicationSecurityGroups: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-         loadBalancerBackendAddressPools: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-         loadBalancerInboundNatPools: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SubResource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SubResource"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineScaleSetIdentity: {
-       properties: {
-         userAssignedIdentities: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/UserAssignedIdentitiesValue"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/UserAssignedIdentitiesValue"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineScaleSetNetworkConfigurationProperties: {
-       properties: {
-         ipConfigurations: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineScaleSetIPConfiguration"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineScaleSetIPConfiguration"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineScaleSetNetworkProfile: {
-       properties: {
-         networkInterfaceConfigurations: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineScaleSetNetworkConfiguration"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineScaleSetNetworkConfiguration"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineScaleSetOSProfile: {
-       properties: {
-         secrets: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VaultSecretGroup"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VaultSecretGroup"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineScaleSetPublicIPAddressConfigurationProperties: {
-       properties: {
-         ipTags: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineScaleSetIpTag"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineScaleSetIpTag"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineScaleSetStorageProfile: {
-       properties: {
-         dataDisks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineScaleSetDataDisk"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineScaleSetDataDisk"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     VirtualMachineScaleSetVMNetworkProfileConfiguration: {
-       properties: {
-         networkInterfaceConfigurations: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VirtualMachineScaleSetNetworkConfiguration"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VirtualMachineScaleSetNetworkConfiguration"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     WinRMConfiguration: {
-       properties: {
-         listeners: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/WinRMListener"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/WinRMListener"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     WindowsConfiguration: {
-       properties: {
-         additionalUnattendContent: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/AdditionalUnattendContent"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/AdditionalUnattendContent"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      capacityReservationGroups_capacityReservations_childResource: {
        required: [
          ...
 +        "location"
          ...
-+        "properties"
+         ...
 +        "sku"
          ...
        ]
@@ -1268,24 +480,8 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
 +        "sku"
-         ...
-       ]
-     }
-     restorePointCollections_restorePoints_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     virtualMachineScaleSets_extensions_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -1294,15 +490,7 @@
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     virtualMachineScaleSets_virtualMachines_extensions_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -1311,7 +499,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
@@ -1435,19 +623,13 @@
 +          ]
          }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
      virtualMachines_runCommands_childResource: {
        required: [
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }

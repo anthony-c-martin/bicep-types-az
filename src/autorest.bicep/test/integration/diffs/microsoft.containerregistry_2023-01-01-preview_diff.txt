@@ -5,64 +5,8 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
 +        "sku"
-         ...
-       ]
-     }
-     registries_cacheRules: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_connectedRegistries: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_credentialSets: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_exportPipelines: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_importPipelines: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_pipelineRuns: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_privateEndpointConnections: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -71,23 +15,7 @@
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     registries_scopeMaps: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_tokens: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -96,146 +24,12 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }
    }
    definitions: {
-     CredentialSetProperties: {
-       properties: {
-         authCredentials: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/AuthCredential"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/AuthCredential"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     ExportPipelineProperties: {
-       properties: {
-         options: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "OverwriteTags"
--                      "OverwriteBlobs"
--                      "DeleteSourceBlobOnSuccess"
--                      "ContinueOnErrors"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "OverwriteTags"
-+                  "OverwriteBlobs"
-+                  "DeleteSourceBlobOnSuccess"
-+                  "ContinueOnErrors"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     IdentityProperties: {
-       properties: {
-         userAssignedIdentities: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/UserIdentityProperties"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/UserIdentityProperties"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     ImportPipelineProperties: {
-       properties: {
-         options: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "OverwriteTags"
--                      "OverwriteBlobs"
--                      "DeleteSourceBlobOnSuccess"
--                      "ContinueOnErrors"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "OverwriteTags"
-+                  "OverwriteBlobs"
-+                  "DeleteSourceBlobOnSuccess"
-+                  "ContinueOnErrors"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     NetworkRuleSet: {
-       properties: {
-         ipRules: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/IPRule"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/IPRule"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      RegistryProperties: {
        properties: {
          adminUserEnabled: {
@@ -302,207 +96,12 @@
          }
        }
      }
-     TokenCertificate: {
-       properties: {
-         expiry: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
-     TokenCredentialsProperties: {
-       properties: {
-         certificates: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TokenCertificate"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TokenCertificate"
-               }
-             }
-             ...
-           ]
-         }
-         passwords: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TokenPassword"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TokenPassword"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     TokenPassword: {
-       properties: {
-         creationTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         expiry: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
-     WebhookPropertiesCreateParameters: {
-       properties: {
-         actions: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "push"
--                      "delete"
--                      "quarantine"
--                      "chart_push"
--                      "chart_delete"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "push"
-+                  "delete"
-+                  "quarantine"
-+                  "chart_push"
-+                  "chart_delete"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     registries_cacheRules_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_connectedRegistries_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_credentialSets_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_exportPipelines_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_importPipelines_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_pipelineRuns_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_privateEndpointConnections_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
      registries_replications_childResource: {
        required: [
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     registries_scopeMaps_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     registries_tokens_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -511,7 +110,7 @@
          ...
 +        "location"
          ...
-+        "properties"
+         ...
          ...
        ]
      }

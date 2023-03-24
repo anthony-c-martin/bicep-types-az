@@ -5,102 +5,12 @@
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     workspaces_tables: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
    }
    definitions: {
-     RestoredLogs: {
-       properties: {
-         endRestoreTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         startRestoreTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
-     Schema: {
-       properties: {
-         columns: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Column"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Column"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     SearchResults: {
-       properties: {
-         endSearchTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         startSearchTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
      TableProperties: {
        properties: {
          retentionInDays: {
@@ -166,14 +76,6 @@
            ]
          }
        }
-     }
-     workspaces_tables_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
    }
  }

@@ -53,6 +53,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -111,6 +112,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -193,6 +195,7 @@
        required: [
          ...
 -        "name"
+-        "properties"
          ...
        ]
      }
@@ -224,7 +227,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -256,7 +259,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -288,7 +291,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -320,7 +323,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -352,7 +355,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -384,7 +387,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -416,7 +419,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -439,7 +442,7 @@
        required: [
          ...
 -        "name"
-+        "properties"
+         ...
          ...
        ]
      }
@@ -1220,15 +1223,8 @@
 -        }
 -        changedTime: {
 -          description: "The artifact changed time."
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
+-          format: "date-time"
+-          type: "string"
 -        }
 -        content: {
 -          description: "Anything"
@@ -1250,15 +1246,8 @@
 -        }
 -        createdTime: {
 -          description: "The artifact creation time."
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
+-          format: "date-time"
+-          type: "string"
 -        }
 -        metadata: {
 -          description: "Anything"
@@ -1277,14 +1266,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/BusinessIdentity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/BusinessIdentity"
 -              }
 -              type: "array"
 -            }
@@ -1305,27 +1287,13 @@
 -        }
 -        changedTime: {
 -          description: "The artifact changed time."
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
+-          format: "date-time"
+-          type: "string"
 -        }
 -        createdTime: {
 -          description: "The artifact creation time."
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
+-          format: "date-time"
+-          type: "string"
 -        }
 -        metadata: {
 -          description: "Anything"
@@ -2410,14 +2378,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/EdifactDelimiterOverride"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/EdifactDelimiterOverride"
 -              }
 -              type: "array"
 -            }
@@ -2431,14 +2392,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/EdifactEnvelopeOverride"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/EdifactEnvelopeOverride"
 -              }
 -              type: "array"
 -            }
@@ -2485,14 +2439,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/EdifactMessageIdentifier"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/EdifactMessageIdentifier"
 -              }
 -              type: "array"
 -            }
@@ -2517,14 +2464,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/EdifactSchemaReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/EdifactSchemaReference"
 -              }
 -              type: "array"
 -            }
@@ -2538,14 +2478,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/EdifactValidationOverride"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/EdifactValidationOverride"
 -              }
 -              type: "array"
 -            }
@@ -3260,14 +3193,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    type: "integer"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                type: "integer"
 -              }
 -              type: "array"
 -            }
@@ -3281,14 +3207,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    type: "integer"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                type: "integer"
 -              }
 -              type: "array"
 -            }
@@ -3302,14 +3221,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    type: "integer"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                type: "integer"
 -              }
 -              type: "array"
 -            }
@@ -3323,14 +3235,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/RecurrenceScheduleOccurrence"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/RecurrenceScheduleOccurrence"
 -              }
 -              type: "array"
 -            }
@@ -3344,23 +3249,16 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "Sunday"
--                      "Monday"
--                      "Tuesday"
--                      "Wednesday"
--                      "Thursday"
--                      "Friday"
--                      "Saturday"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
+-                enum: [
+-                  "Sunday"
+-                  "Monday"
+-                  "Tuesday"
+-                  "Wednesday"
+-                  "Thursday"
+-                  "Friday"
+-                  "Saturday"
 -                ]
+-                type: "string"
 -              }
 -              type: "array"
 -            }
@@ -4670,14 +4568,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/X12EnvelopeOverride"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/X12EnvelopeOverride"
 -              }
 -              type: "array"
 -            }
@@ -4724,14 +4615,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/X12MessageIdentifier"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/X12MessageIdentifier"
 -              }
 -              type: "array"
 -            }
@@ -4756,14 +4640,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/X12SchemaReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/X12SchemaReference"
 -              }
 -              type: "array"
 -            }
@@ -4788,14 +4665,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/X12ValidationOverride"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/X12ValidationOverride"
 -              }
 -              type: "array"
 -            }
@@ -4820,14 +4690,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/X12DelimiterOverrides"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/X12DelimiterOverrides"
 -              }
 -              type: "array"
 -            }
@@ -5180,6 +5043,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5238,6 +5102,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5296,6 +5161,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5354,6 +5220,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5412,6 +5279,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5470,6 +5338,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5528,6 +5397,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5586,6 +5456,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -5644,6 +5515,7 @@
 -      }
 -      required: [
 -        "name"
+-        "properties"
 -        "apiVersion"
 -        "type"
 -      ]
@@ -6136,17 +6008,6 @@
              {
 -              properties: {
 -              }
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/WorkflowParameter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/WorkflowParameter"
-               }
              }
              ...
            ]

@@ -1,75 +1,11 @@
  {
    resourceDefinitions: {
-     mediaServices_accountFilters: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_assets: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_assets_assetFilters: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_assets_tracks: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_contentKeyPolicies: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_streamingLocators: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_streamingPolicies: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
      mediaservices: {
        required: [
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     mediaservices_privateEndpointConnections: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -618,50 +554,6 @@
 +      ]
 +      description: "Represents a video track in the asset."
 +    }
-     CommonEncryptionCbcs: {
-       properties: {
-         clearTracks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TrackSelection"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TrackSelection"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     CommonEncryptionCenc: {
-       properties: {
-         clearTracks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TrackSelection"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TrackSelection"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      ContentKeyPolicyConfiguration: {
 +      oneOf: [
 +        {
@@ -693,32 +585,6 @@
      }
      ContentKeyPolicyPlayReadyLicense: {
        properties: {
-         beginDate: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         expirationDate: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
          gracePeriod: {
 +          format: "duration"
          }
@@ -734,28 +600,6 @@
        properties: {
          firstPlayExpiration: {
 +          format: "duration"
-         }
-       }
-     }
-     ContentKeyPolicyProperties: {
-       properties: {
-         options: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ContentKeyPolicyOption"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ContentKeyPolicyOption"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -785,116 +629,6 @@
 +        }
 +      ]
      }
-     EnvelopeEncryption: {
-       properties: {
-         clearTracks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TrackSelection"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TrackSelection"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     FilterTrackSelection: {
-       properties: {
-         trackSelections: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/FilterTrackPropertyCondition"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/FilterTrackPropertyCondition"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     MediaFilterProperties: {
-       properties: {
-         tracks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/FilterTrackSelection"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/FilterTrackSelection"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     MediaServiceIdentity: {
-       properties: {
-         userAssignedIdentities: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/UserAssignedManagedIdentity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/UserAssignedManagedIdentity"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     MediaServiceProperties: {
-       properties: {
-         storageAccounts: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/StorageAccount"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/StorageAccount"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      PrivateEndpointConnectionProperties: {
        properties: {
 +        provisioningState: {
@@ -916,98 +650,6 @@
 +        }
        }
      }
-     StreamingLocatorProperties: {
-       properties: {
-         contentKeys: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/StreamingLocatorContentKey"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/StreamingLocatorContentKey"
-               }
-             }
-             ...
-           ]
-         }
-         endTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         startTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-       }
-     }
-     StreamingPolicyContentKey: {
-       properties: {
-         tracks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TrackSelection"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TrackSelection"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     StreamingPolicyContentKeys: {
-       properties: {
-         keyToTrackMappings: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/StreamingPolicyContentKey"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/StreamingPolicyContentKey"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      TrackBase: {
 +      oneOf: [
 +        {
@@ -1020,92 +662,6 @@
 +          $ref: "#/definitions/TextTrack"
 +        }
 +      ]
-     }
-     TrackSelection: {
-       properties: {
-         trackSelections: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/TrackPropertyCondition"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/TrackPropertyCondition"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     mediaServices_accountFilters_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_assets_assetFilters_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_assets_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_assets_tracks_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_contentKeyPolicies_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_streamingLocators_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaServices_streamingPolicies_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     mediaservices_privateEndpointConnections_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
    }
  }

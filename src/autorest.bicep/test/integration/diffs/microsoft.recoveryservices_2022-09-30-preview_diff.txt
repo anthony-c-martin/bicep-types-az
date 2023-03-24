@@ -18,15 +18,7 @@
          ...
 +        "location"
          ...
-+        "properties"
          ...
-       ]
-     }
-     vaults_certificates: {
-       required: [
-         ...
-         ...
-+        "properties"
          ...
        ]
      }
@@ -46,12 +38,6 @@
 +          ]
          }
        }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
    }
    definitions: {
@@ -113,28 +99,6 @@
 +      }
 +      description: "Metadata pertaining to creation and last modification of the resource."
 +    }
-     IdentityData: {
-       properties: {
-         userAssignedIdentities: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/UserIdentity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/UserIdentity"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      RawCertificateData: {
        properties: {
          certificate: {
@@ -149,22 +113,6 @@
 +          ]
          }
        }
-     }
-     vaults_certificates_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     vaults_extendedInformation_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
    }
  }

@@ -1,122 +1,4 @@
  {
-   resourceDefinitions: {
-     factories: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_credentials: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_dataflows: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_datasets: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_globalParameters: {
-       properties: {
-         properties: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/GlobalParameterSpecification"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/GlobalParameterSpecification"
-               }
-             }
-             ...
-           ]
-         }
-       }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_integrationRuntimes: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_linkedservices: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_managedVirtualNetworks: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_managedVirtualNetworks_managedPrivateEndpoints: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_pipelines: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_privateEndpointConnections: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_triggers: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-   }
    definitions: {
 -    DataLakeAnalyticsUsqlActivityTypeProperties: {
 -      description: "DataLakeAnalyticsU-SQL activity properties."
@@ -216,26 +98,12 @@
 -          oneOf: [
 -            {
 -              additionalProperties: {
--                oneOf: [
--                  {
--                    additionalProperties: {
--                      oneOf: [
--                        {
--                          $ref: "#/definitions/SsisExecutionParameter"
--                        }
--                        {
--                          $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                        }
--                      ]
--                    }
--                    properties: {
--                    }
--                    type: "object"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                additionalProperties: {
+-                  $ref: "#/definitions/SsisExecutionParameter"
+-                }
+-                properties: {
+-                }
+-                type: "object"
 -              }
 -              properties: {
 -              }
@@ -262,14 +130,7 @@
 -          oneOf: [
 -            {
 -              additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SsisExecutionParameter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/SsisExecutionParameter"
 -              }
 -              properties: {
 -              }
@@ -285,26 +146,12 @@
 -          oneOf: [
 -            {
 -              additionalProperties: {
--                oneOf: [
--                  {
--                    additionalProperties: {
--                      oneOf: [
--                        {
--                          $ref: "#/definitions/SsisExecutionParameter"
--                        }
--                        {
--                          $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                        }
--                      ]
--                    }
--                    properties: {
--                    }
--                    type: "object"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                additionalProperties: {
+-                  $ref: "#/definitions/SsisExecutionParameter"
+-                }
+-                properties: {
+-                }
+-                type: "object"
 -              }
 -              properties: {
 -              }
@@ -320,14 +167,7 @@
 -          oneOf: [
 -            {
 -              additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SsisExecutionParameter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/SsisExecutionParameter"
 -              }
 -              properties: {
 -              }
@@ -343,14 +183,7 @@
 -          oneOf: [
 -            {
 -              additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SsisPropertyOverride"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/SsisPropertyOverride"
 -              }
 -              properties: {
 -              }
@@ -578,14 +411,7 @@
 -          oneOf: [
 -            {
 -              items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SsisChildPackage"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
+-                $ref: "#/definitions/SsisChildPackage"
 -              }
 -              type: "array"
 -            }
@@ -15105,42 +14931,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-         dependsOn: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ActivityDependency"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ActivityDependency"
-               }
-             }
-             ...
-           ]
-         }
-         userProperties: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/UserProperty"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/UserProperty"
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      ActivityDependency: {
@@ -15165,36 +14955,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-         dependencyConditions: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "Succeeded"
--                      "Failed"
--                      "Skipped"
--                      "Completed"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "Succeeded"
-+                  "Failed"
-+                  "Skipped"
-+                  "Completed"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      ActivityPolicy: {
@@ -16228,42 +15988,6 @@
              ...
            ]
          }
-         webServiceInputs: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/AzureMLWebServiceFile"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/AzureMLWebServiceFile"
-               }
-             }
-             ...
-           ]
-         }
-         webServiceOutputs: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/AzureMLWebServiceFile"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/AzureMLWebServiceFile"
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      AzureMLExecutePipelineActivityTypeProperties: {
@@ -16723,36 +16447,6 @@
          }
        }
      }
-     BlobEventsTriggerTypeProperties: {
-       properties: {
-         events: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "Microsoft.Storage.BlobCreated"
--                      "Microsoft.Storage.BlobDeleted"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "Microsoft.Storage.BlobCreated"
-+                  "Microsoft.Storage.BlobDeleted"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      CassandraLinkedServiceTypeProperties: {
        properties: {
          authenticationType: {
@@ -16793,28 +16487,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-       }
-     }
-     ChainingTriggerTypeProperties: {
-       properties: {
-         dependsOn: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/PipelineReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/PipelineReference"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -17525,46 +17197,6 @@
 +        }
        }
      }
-     CustomActivityReferenceObject: {
-       properties: {
-         datasets: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DatasetReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DatasetReference"
-               }
-             }
-             ...
-           ]
-         }
-         linkedServices: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LinkedServiceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LinkedServiceReference"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      CustomActivityTypeProperties: {
        properties: {
          autoUserSpecification: {
@@ -17644,28 +17276,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-       }
-     }
-     DWCopyCommandSettings: {
-       properties: {
-         defaultValues: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DWCopyCommandDefaultValue"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DWCopyCommandDefaultValue"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -17764,26 +17374,11 @@
            oneOf: [
              {
                items: {
--                oneOf: [
--                  {
--                    additionalProperties: {
--                    }
--                    properties: {
--                    }
--                    type: "object"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "object"
-+                additionalProperties: {
+                 additionalProperties: {
 +                  type: "object"
 +                  properties: {
 +                  }
-+                }
-+                properties: {
-+                }
+                 }
                }
              }
              ...
@@ -17802,26 +17397,11 @@
            oneOf: [
              {
                items: {
--                oneOf: [
--                  {
--                    additionalProperties: {
--                    }
--                    properties: {
--                    }
--                    type: "object"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "object"
-+                additionalProperties: {
+                 additionalProperties: {
 +                  type: "object"
 +                  properties: {
 +                  }
-+                }
-+                properties: {
-+                }
+                 }
                }
              }
              ...
@@ -17852,26 +17432,11 @@
            oneOf: [
              {
                items: {
--                oneOf: [
--                  {
--                    additionalProperties: {
--                    }
--                    properties: {
--                    }
--                    type: "object"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "object"
-+                additionalProperties: {
+                 additionalProperties: {
 +                  type: "object"
 +                  properties: {
 +                  }
-+                }
-+                properties: {
-+                }
+                 }
                }
              }
              ...
@@ -18215,24 +17780,6 @@
 +                type: "object"
 +                properties: {
 +                }
-               }
-             }
-             ...
-           ]
-         }
-         parameters: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ParameterSpecification"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ParameterSpecification"
                }
              }
              ...
@@ -19033,46 +18580,10 @@
 +          properties: {
 +          }
          }
-         queries: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/PowerQuerySinkMapping"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/PowerQuerySinkMapping"
-               }
-             }
-             ...
-           ]
-         }
          runConcurrently: {
 +          type: "object"
 +          properties: {
 +          }
-         }
-         sinks: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/PowerQuerySink"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/PowerQuerySink"
-               }
-             }
-             ...
-           ]
          }
          sourceStagingConcurrency: {
 +          type: "object"
@@ -19095,28 +18606,6 @@
 +                type: "object"
 +                properties: {
 +                }
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     FactoryProperties: {
-       properties: {
-         globalParameters: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/GlobalParameterSpecification"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/GlobalParameterSpecification"
                }
              }
              ...
@@ -19196,84 +18685,8 @@
          }
        }
      }
-     FlowletTypeProperties: {
-       properties: {
-         sinks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DataFlowSink"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DataFlowSink"
-               }
-             }
-             ...
-           ]
-         }
-         sources: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DataFlowSource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DataFlowSource"
-               }
-             }
-             ...
-           ]
-         }
-         transformations: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Transformation"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Transformation"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      ForEachActivityTypeProperties: {
        properties: {
-         activities: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Activity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Activity"
-               }
-             }
-             ...
-           ]
-         }
          batchCount: {
            oneOf: [
              {
@@ -19643,24 +19056,6 @@
 +          properties: {
 +          }
          }
-         storageLinkedServices: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LinkedServiceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LinkedServiceReference"
-               }
-             }
-             ...
-           ]
-         }
          variables: {
            oneOf: [
              {
@@ -19752,46 +19147,10 @@
              ...
            ]
          }
-         storageLinkedServices: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LinkedServiceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LinkedServiceReference"
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      HDInsightOnDemandLinkedServiceTypeProperties: {
        properties: {
-         additionalLinkedServiceNames: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LinkedServiceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LinkedServiceReference"
-               }
-             }
-             ...
-           ]
-         }
          clusterNamePrefix: {
 +          type: "object"
 +          properties: {
@@ -19872,24 +19231,6 @@
 +          properties: {
 +          }
          }
-         scriptActions: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ScriptAction"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ScriptAction"
-               }
-             }
-             ...
-           ]
-         }
          servicePrincipalId: {
 +          type: "object"
 +          properties: {
@@ -19965,24 +19306,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-         storageLinkedServices: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LinkedServiceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LinkedServiceReference"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -20103,24 +19426,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-         storageLinkedServices: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LinkedServiceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LinkedServiceReference"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -20328,46 +19633,6 @@
          }
        }
      }
-     IfConditionActivityTypeProperties: {
-       properties: {
-         ifFalseActivities: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Activity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Activity"
-               }
-             }
-             ...
-           ]
-         }
-         ifTrueActivities: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Activity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Activity"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      ImpalaDatasetTypeProperties: {
        properties: {
          schema: {
@@ -20563,24 +19828,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-         customProperties: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/IntegrationRuntimeDataFlowPropertiesCustomPropertiesItem"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/IntegrationRuntimeDataFlowPropertiesCustomPropertiesItem"
-               }
-             }
-             ...
-           ]
-         }
          timeToLive: {
            oneOf: [
              {
@@ -20629,21 +19876,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-         catalogAdminUserName: {
--          oneOf: [
--            {
--              maxLength: 128
--              minLength: 1
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          minLength: 1
-+          maxLength: 128
-         }
        }
      }
      IntegrationRuntimeSsisProperties: {
@@ -20668,42 +19900,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-         expressCustomSetupProperties: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/CustomSetupBase"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/CustomSetupBase"
-               }
-             }
-             ...
-           ]
-         }
-         packageStores: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/PackageStore"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/PackageStore"
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      IntegrationRuntimeVNetProperties: {
@@ -21228,24 +20424,6 @@
              ...
            ]
          }
-         parameters: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ParameterSpecification"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ParameterSpecification"
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      LinkedServiceReference: {
@@ -21448,64 +20626,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-       }
-     }
-     MappingDataFlowTypeProperties: {
-       properties: {
-         sinks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DataFlowSink"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DataFlowSink"
-               }
-             }
-             ...
-           ]
-         }
-         sources: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DataFlowSource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DataFlowSource"
-               }
-             }
-             ...
-           ]
-         }
-         transformations: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Transformation"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Transformation"
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      MariaDBLinkedServiceTypeProperties: {
@@ -22282,24 +21402,6 @@
      }
      Pipeline: {
        properties: {
-         activities: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Activity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Activity"
-               }
-             }
-             ...
-           ]
-         }
          annotations: {
            oneOf: [
              {
@@ -22320,24 +21422,6 @@
              ...
            ]
          }
-         parameters: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ParameterSpecification"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ParameterSpecification"
-               }
-             }
-             ...
-           ]
-         }
          runDimensions: {
            oneOf: [
              {
@@ -22345,24 +21429,6 @@
 +                type: "object"
 +                properties: {
 +                }
-               }
-             }
-             ...
-           ]
-         }
-         variables: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/VariableSpecification"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/VariableSpecification"
                }
              }
              ...
@@ -22480,50 +21546,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-       }
-     }
-     PowerQuerySinkMapping: {
-       properties: {
-         dataflowSinks: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/PowerQuerySink"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/PowerQuerySink"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     PowerQueryTypeProperties: {
-       properties: {
-         sources: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/PowerQuerySource"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/PowerQuerySource"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -22680,114 +21702,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-         hours: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    type: "integer"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "integer"
-               }
-             }
-             ...
-           ]
-         }
-         minutes: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    type: "integer"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "integer"
-               }
-             }
-             ...
-           ]
-         }
-         monthDays: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    type: "integer"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "integer"
-               }
-             }
-             ...
-           ]
-         }
-         monthlyOccurrences: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/RecurrenceScheduleOccurrence"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/RecurrenceScheduleOccurrence"
-               }
-             }
-             ...
-           ]
-         }
-         weekDays: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    enum: [
--                      "Sunday"
--                      "Monday"
--                      "Tuesday"
--                      "Wednesday"
--                      "Thursday"
--                      "Friday"
--                      "Saturday"
--                    ]
--                    type: "string"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                type: "string"
-+                enum: [
-+                  "Sunday"
-+                  "Monday"
-+                  "Tuesday"
-+                  "Wednesday"
-+                  "Thursday"
-+                  "Friday"
-+                  "Saturday"
-+                ]
-               }
-             }
-             ...
-           ]
-         }
        }
      }
      RecurrenceScheduleOccurrence: {
@@ -22872,32 +21786,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-         requestedEndTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         requestedStartTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
          }
          rerunConcurrency: {
            oneOf: [
@@ -23588,32 +22476,6 @@
 +          ]
 +          description: "Unmatched properties from the message are deserialized this collection"
 +        }
-         endTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
-         startTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
        }
      }
      ScriptAction: {
@@ -23641,24 +22503,6 @@
      }
      ScriptActivityScriptBlock: {
        properties: {
-         parameters: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ScriptActivityParameter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ScriptActivityParameter"
-               }
-             }
-             ...
-           ]
-         }
          text: {
 +          type: "object"
 +          properties: {
@@ -23672,24 +22516,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-         scripts: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/ScriptActivityScriptBlock"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/ScriptActivityScriptBlock"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -24429,68 +23255,6 @@
          }
        }
      }
-     SwitchActivityTypeProperties: {
-       properties: {
-         cases: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/SwitchCase"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/SwitchCase"
-               }
-             }
-             ...
-           ]
-         }
-         defaultActivities: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Activity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Activity"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
-     SwitchCase: {
-       properties: {
-         activities: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Activity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Activity"
-               }
-             }
-             ...
-           ]
-         }
-       }
-     }
      SybaseLinkedServiceTypeProperties: {
        properties: {
          database: {
@@ -24545,24 +23309,6 @@
 +          type: "object"
 +          properties: {
 +          }
-         }
-         parameters: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/NotebookParameter"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/NotebookParameter"
-               }
-             }
-             ...
-           ]
          }
        }
      }
@@ -24832,37 +23578,6 @@
 +          properties: {
 +          }
          }
-         dependsOn: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DependencyReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DependencyReference"
-               }
-             }
-             ...
-           ]
-         }
-         endTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
-         }
          maxConcurrency: {
            oneOf: [
              {
@@ -24871,19 +23586,6 @@
              }
              ...
            ]
-         }
-         startTime: {
--          oneOf: [
--            {
--              format: "date-time"
--              type: "string"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "string"
-+          format: "date-time"
          }
        }
      }
@@ -24898,24 +23600,6 @@
      }
      UntilActivityTypeProperties: {
        properties: {
-         activities: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/Activity"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/Activity"
-               }
-             }
-             ...
-           ]
-         }
          timeout: {
 +          type: "object"
 +          properties: {
@@ -25033,46 +23717,10 @@
 +          properties: {
 +          }
          }
-         datasets: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/DatasetReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/DatasetReference"
-               }
-             }
-             ...
-           ]
-         }
          headers: {
 +          type: "object"
 +          properties: {
 +          }
-         }
-         linkedServices: {
-           oneOf: [
-             {
-               items: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/LinkedServiceReference"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/LinkedServiceReference"
-               }
-             }
-             ...
-           ]
          }
          url: {
 +          type: "object"
@@ -25288,114 +23936,6 @@
 +          }
          }
        }
-     }
-     factories_credentials_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_dataflows_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_datasets_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_globalParameters_childResource: {
-       properties: {
-         properties: {
-           oneOf: [
-             {
-               additionalProperties: {
--                oneOf: [
--                  {
--                    $ref: "#/definitions/GlobalParameterSpecification"
--                  }
--                  {
--                    $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                  }
--                ]
-+                $ref: "#/definitions/GlobalParameterSpecification"
-               }
-             }
-             ...
-           ]
-         }
-       }
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_integrationRuntimes_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_linkedservices_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_managedVirtualNetworks_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_managedVirtualNetworks_managedPrivateEndpoints_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_pipelines_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_privateEndpointConnections_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
-     }
-     factories_triggers_childResource: {
-       required: [
-         ...
-         ...
-+        "properties"
-         ...
-       ]
      }
    }
  }
