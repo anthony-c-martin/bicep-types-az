@@ -95,6 +95,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -115,15 +116,8 @@
         },
         "name": {
           "description": "The name of the certificate create or update.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "type": {
           "enum": [
@@ -172,6 +166,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -191,14 +186,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ArmUserIdentity"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ArmUserIdentity"
               },
               "properties": {},
               "type": "object"
@@ -249,14 +237,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/KeyVaultKeyProperties"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/KeyVaultKeyProperties"
               },
               "type": "array"
             },
@@ -292,14 +273,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SharedAccessSignatureAuthorizationRuleAccessRightsDescription"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SharedAccessSignatureAuthorizationRuleAccessRightsDescription"
               },
               "type": "array"
             },
@@ -324,14 +298,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IotHubDefinitionDescription"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IotHubDefinitionDescription"
               },
               "type": "array"
             },
@@ -345,14 +312,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IpFilterRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IpFilterRule"
               },
               "type": "array"
             },
@@ -366,14 +326,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PrivateEndpointConnection"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PrivateEndpointConnection"
               },
               "type": "array"
             },
@@ -707,15 +660,8 @@
         },
         "name": {
           "description": "The name of the certificate create or update.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "type": {
           "enum": [
@@ -764,6 +710,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

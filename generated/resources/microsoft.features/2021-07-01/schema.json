@@ -37,6 +37,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -64,30 +65,16 @@
         },
         "description": {
           "description": "The feature description.",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "type": "string"
         },
         "metadata": {
           "description": "Key-value pairs for meta data.",
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "maxLength": 1000,
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "maxLength": 1000,
+                "type": "string"
               },
               "properties": {},
               "type": "object"

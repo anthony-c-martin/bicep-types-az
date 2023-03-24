@@ -64,6 +64,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -104,6 +105,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -142,6 +144,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -182,6 +185,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -222,6 +226,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -242,15 +247,8 @@
         },
         "expirationDateUtc": {
           "description": "Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "reason": {
           "description": "The reason for dismissing the alert",
@@ -337,14 +335,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AutomationAction"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AutomationAction"
               },
               "type": "array"
             },
@@ -373,14 +364,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AutomationScope"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AutomationScope"
               },
               "type": "array"
             },
@@ -394,14 +378,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AutomationSource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AutomationSource"
               },
               "type": "array"
             },
@@ -421,14 +398,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AutomationTriggeringRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AutomationTriggeringRule"
               },
               "type": "array"
             },
@@ -486,14 +456,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AutomationRuleSet"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AutomationRuleSet"
               },
               "type": "array"
             },
@@ -598,21 +561,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Compute",
-                      "Networking",
-                      "Data",
-                      "IdentityAndAccess",
-                      "IoT"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Compute",
+                  "Networking",
+                  "Data",
+                  "IdentityAndAccess",
+                  "IoT"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -681,24 +637,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "accountBreach",
-                      "dataExfiltration",
-                      "dataSpillage",
-                      "maliciousInsider",
-                      "elevationOfPrivilege",
-                      "threatResistance",
-                      "missingCoverage",
-                      "denialOfService"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "accountBreach",
+                  "dataExfiltration",
+                  "dataSpillage",
+                  "maliciousInsider",
+                  "elevationOfPrivilege",
+                  "threatResistance",
+                  "missingCoverage",
+                  "denialOfService"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -785,14 +734,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ScopeElement"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ScopeElement"
               },
               "type": "array"
             },

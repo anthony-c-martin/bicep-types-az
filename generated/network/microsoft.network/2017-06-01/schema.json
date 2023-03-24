@@ -64,6 +64,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -129,6 +130,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -214,6 +216,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -256,6 +259,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -298,6 +302,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -373,6 +378,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -419,6 +425,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -447,15 +454,8 @@
         },
         "name": {
           "description": "The name of the local network gateway.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the local network gateway.",
@@ -492,6 +492,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -557,6 +558,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -632,6 +634,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -678,6 +681,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -753,6 +757,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -791,6 +796,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -870,6 +876,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -941,6 +948,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1002,6 +1010,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1077,6 +1086,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1123,6 +1133,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1188,6 +1199,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1266,6 +1278,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1312,6 +1325,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1358,6 +1372,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1487,14 +1502,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayBackendAddress"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayBackendAddress"
               },
               "type": "array"
             },
@@ -1508,14 +1516,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/NetworkInterfaceIPConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/NetworkInterfaceIPConfiguration"
               },
               "type": "array"
             },
@@ -1576,14 +1577,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SubResource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SubResource"
               },
               "type": "array"
             },
@@ -1747,14 +1741,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -2321,14 +2308,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayAuthenticationCertificate"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayAuthenticationCertificate"
               },
               "type": "array"
             },
@@ -2342,14 +2322,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayBackendAddressPool"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayBackendAddressPool"
               },
               "type": "array"
             },
@@ -2363,14 +2336,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayBackendHttpSettings"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayBackendHttpSettings"
               },
               "type": "array"
             },
@@ -2384,14 +2350,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayFrontendIPConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayFrontendIPConfiguration"
               },
               "type": "array"
             },
@@ -2405,14 +2364,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayFrontendPort"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayFrontendPort"
               },
               "type": "array"
             },
@@ -2426,14 +2378,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayIPConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayIPConfiguration"
               },
               "type": "array"
             },
@@ -2447,14 +2392,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayHttpListener"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayHttpListener"
               },
               "type": "array"
             },
@@ -2468,14 +2406,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayProbe"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayProbe"
               },
               "type": "array"
             },
@@ -2493,14 +2424,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayRedirectConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayRedirectConfiguration"
               },
               "type": "array"
             },
@@ -2514,14 +2438,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayRequestRoutingRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayRequestRoutingRule"
               },
               "type": "array"
             },
@@ -2550,14 +2467,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewaySslCertificate"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewaySslCertificate"
               },
               "type": "array"
             },
@@ -2582,14 +2492,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayUrlPathMap"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayUrlPathMap"
               },
               "type": "array"
             },
@@ -2675,14 +2578,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SubResource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SubResource"
               },
               "type": "array"
             },
@@ -2713,14 +2609,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SubResource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SubResource"
               },
               "type": "array"
             },
@@ -2749,14 +2638,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SubResource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SubResource"
               },
               "type": "array"
             },
@@ -2994,44 +2876,37 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384",
-                      "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
-                      "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA",
-                      "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",
-                      "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384",
-                      "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256",
-                      "TLS_DHE_RSA_WITH_AES_256_CBC_SHA",
-                      "TLS_DHE_RSA_WITH_AES_128_CBC_SHA",
-                      "TLS_RSA_WITH_AES_256_GCM_SHA384",
-                      "TLS_RSA_WITH_AES_128_GCM_SHA256",
-                      "TLS_RSA_WITH_AES_256_CBC_SHA256",
-                      "TLS_RSA_WITH_AES_128_CBC_SHA256",
-                      "TLS_RSA_WITH_AES_256_CBC_SHA",
-                      "TLS_RSA_WITH_AES_128_CBC_SHA",
-                      "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
-                      "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
-                      "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
-                      "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
-                      "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA",
-                      "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA",
-                      "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256",
-                      "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256",
-                      "TLS_DHE_DSS_WITH_AES_256_CBC_SHA",
-                      "TLS_DHE_DSS_WITH_AES_128_CBC_SHA",
-                      "TLS_RSA_WITH_3DES_EDE_CBC_SHA",
-                      "TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA",
-                      "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-                      "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384",
+                  "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+                  "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA",
+                  "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",
+                  "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384",
+                  "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256",
+                  "TLS_DHE_RSA_WITH_AES_256_CBC_SHA",
+                  "TLS_DHE_RSA_WITH_AES_128_CBC_SHA",
+                  "TLS_RSA_WITH_AES_256_GCM_SHA384",
+                  "TLS_RSA_WITH_AES_128_GCM_SHA256",
+                  "TLS_RSA_WITH_AES_256_CBC_SHA256",
+                  "TLS_RSA_WITH_AES_128_CBC_SHA256",
+                  "TLS_RSA_WITH_AES_256_CBC_SHA",
+                  "TLS_RSA_WITH_AES_128_CBC_SHA",
+                  "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+                  "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+                  "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
+                  "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
+                  "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA",
+                  "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA",
+                  "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256",
+                  "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256",
+                  "TLS_DHE_DSS_WITH_AES_256_CBC_SHA",
+                  "TLS_DHE_DSS_WITH_AES_128_CBC_SHA",
+                  "TLS_RSA_WITH_3DES_EDE_CBC_SHA",
+                  "TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA",
+                  "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+                  "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3045,19 +2920,12 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "TLSv1_0",
-                      "TLSv1_1",
-                      "TLSv1_2"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "TLSv1_0",
+                  "TLSv1_1",
+                  "TLSv1_2"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3190,14 +3058,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayPathRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayPathRule"
               },
               "type": "array"
             },
@@ -3221,14 +3082,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayFirewallDisabledRuleGroup"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayFirewallDisabledRuleGroup"
               },
               "type": "array"
             },
@@ -3690,14 +3544,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ExpressRouteCircuitAuthorization"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ExpressRouteCircuitAuthorization"
               },
               "type": "array"
             },
@@ -3719,14 +3566,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ExpressRouteCircuitPeering"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ExpressRouteCircuitPeering"
               },
               "type": "array"
             },
@@ -4415,14 +4255,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/BackendAddressPool"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/BackendAddressPool"
               },
               "type": "array"
             },
@@ -4436,14 +4269,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FrontendIPConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FrontendIPConfiguration"
               },
               "type": "array"
             },
@@ -4457,14 +4283,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/InboundNatPool"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/InboundNatPool"
               },
               "type": "array"
             },
@@ -4478,14 +4297,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/InboundNatRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/InboundNatRule"
               },
               "type": "array"
             },
@@ -4499,14 +4311,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/LoadBalancingRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/LoadBalancingRule"
               },
               "type": "array"
             },
@@ -4520,14 +4325,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/OutboundNatRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/OutboundNatRule"
               },
               "type": "array"
             },
@@ -4541,14 +4339,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Probe"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/Probe"
               },
               "type": "array"
             },
@@ -4885,14 +4676,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationGatewayBackendAddressPool"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationGatewayBackendAddressPool"
               },
               "type": "array"
             },
@@ -4906,14 +4690,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/BackendAddressPool"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/BackendAddressPool"
               },
               "type": "array"
             },
@@ -4927,14 +4704,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/InboundNatRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/InboundNatRule"
               },
               "type": "array"
             },
@@ -5058,14 +4828,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/NetworkInterfaceIPConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/NetworkInterfaceIPConfiguration"
               },
               "type": "array"
             },
@@ -5174,14 +4937,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SecurityRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SecurityRule"
               },
               "type": "array"
             },
@@ -5203,14 +4959,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SecurityRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SecurityRule"
               },
               "type": "array"
             },
@@ -5286,14 +5035,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SubResource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SubResource"
               },
               "type": "array"
             },
@@ -5369,14 +5111,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PacketCaptureFilter"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PacketCaptureFilter"
               },
               "type": "array"
             },
@@ -5804,14 +5539,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ExpressRouteCircuitPeering"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ExpressRouteCircuitPeering"
               },
               "type": "array"
             },
@@ -5825,14 +5553,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/RouteFilterRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/RouteFilterRule"
               },
               "type": "array"
             },
@@ -6037,14 +5758,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Route"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/Route"
               },
               "type": "array"
             },
@@ -6327,14 +6041,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceNavigationLink"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceNavigationLink"
               },
               "type": "array"
             },
@@ -6359,14 +6066,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ServiceEndpointPropertiesFormat"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ServiceEndpointPropertiesFormat"
               },
               "type": "array"
             },
@@ -6465,14 +6165,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IpsecPolicy"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IpsecPolicy"
               },
               "type": "array"
             },
@@ -6701,14 +6394,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkGatewayIPConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkGatewayIPConfiguration"
               },
               "type": "array"
             },
@@ -6966,14 +6652,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Subnet"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/Subnet"
               },
               "type": "array"
             },
@@ -6987,14 +6666,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkPeering"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkPeering"
               },
               "type": "array"
             },
@@ -7033,18 +6705,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "IkeV2",
-                      "SSTP"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "IkeV2",
+                  "SSTP"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -7058,14 +6723,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VpnClientRevokedCertificate"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VpnClientRevokedCertificate"
               },
               "type": "array"
             },
@@ -7079,14 +6737,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VpnClientRootCertificate"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VpnClientRootCertificate"
               },
               "type": "array"
             },
@@ -7219,6 +6870,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7261,6 +6913,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7307,6 +6960,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7353,6 +7007,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7391,6 +7046,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7452,6 +7108,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7498,6 +7155,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7544,6 +7202,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7590,6 +7249,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

@@ -70,6 +70,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -121,29 +122,15 @@
       "properties": {
         "lastExecuted": {
           "description": "Last domain configuration diagnostics DateTime",
-          "oneOf": [
-            {
-              "format": "date-time-rfc1123",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time-rfc1123",
+          "type": "string"
         },
         "validatorResults": {
           "description": "List of Configuration Diagnostics validator results.",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ConfigDiagnosticsValidatorResult"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ConfigDiagnosticsValidatorResult"
               },
               "type": "array"
             },
@@ -163,14 +150,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ConfigDiagnosticsValidatorResultIssue"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ConfigDiagnosticsValidatorResultIssue"
               },
               "type": "array"
             },
@@ -449,14 +429,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ReplicaSet"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ReplicaSet"
               },
               "type": "array"
             },
@@ -644,14 +617,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ForestTrust"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ForestTrust"
               },
               "type": "array"
             },

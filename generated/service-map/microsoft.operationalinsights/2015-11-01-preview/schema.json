@@ -37,16 +37,9 @@
         },
         "name": {
           "description": "Machine Group resource name.",
-          "oneOf": [
-            {
-              "maxLength": 36,
-              "minLength": 36,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 36,
+          "minLength": 36,
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -68,6 +61,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -91,16 +85,9 @@
         },
         "displayName": {
           "description": "User defined name for the group",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
         },
         "groupType": {
           "description": "Type of the machine group",
@@ -125,14 +112,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MachineReferenceWithHints"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MachineReferenceWithHints"
               },
               "type": "array"
             },

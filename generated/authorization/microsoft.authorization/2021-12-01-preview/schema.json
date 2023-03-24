@@ -18,21 +18,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Approve",
-                      "Deny",
-                      "NotReviewed",
-                      "DontKnow",
-                      "NotNotified"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Approve",
+                  "Deny",
+                  "NotReviewed",
+                  "DontKnow",
+                  "NotNotified"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -50,14 +43,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewHistoryInstance"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewHistoryInstance"
               },
               "type": "array"
             },
@@ -75,14 +61,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewScope"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewScope"
               },
               "type": "array"
             },
@@ -130,14 +109,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -163,14 +135,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewInstance"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewInstance"
               },
               "type": "array"
             },
@@ -198,14 +163,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -253,14 +211,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -271,15 +222,8 @@
         },
         "endDateTime": {
           "description": "The DateTime when the review instance is scheduled to end.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "name": {
           "description": "The id of the access review instance.",
@@ -290,14 +234,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -308,15 +245,8 @@
         },
         "startDateTime": {
           "description": "The DateTime when the review instance is scheduled to be start.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "type": {
           "enum": [
@@ -497,63 +427,28 @@
         },
         "expiration": {
           "description": "Date time when history data report expires and the associated data is deleted.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "fulfilledDateTime": {
           "description": "Date time when the history data report is scheduled to be generated.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "reviewHistoryPeriodEndDateTime": {
           "description": "Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "reviewHistoryPeriodStartDateTime": {
           "description": "Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "runDateTime": {
           "description": "Date time when the history data report is scheduled to be generated.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -611,14 +506,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -629,29 +517,15 @@
         },
         "endDateTime": {
           "description": "The DateTime when the review instance is scheduled to end.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "reviewers": {
           "description": "This is the collection of reviewers.",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -662,15 +536,8 @@
         },
         "startDateTime": {
           "description": "The DateTime when the review instance is scheduled to be start.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -712,15 +579,8 @@
       "properties": {
         "endDate": {
           "description": "The DateTime when the review is scheduled to end. Required if type is endDate",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "numberOfOccurrences": {
           "description": "The number of times to repeat the access review. Required and must be positive if type is numbered.",
@@ -735,15 +595,8 @@
         },
         "startDate": {
           "description": "The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "type": {
           "description": "The recurrence range type. The possible values are: endDate, noEnd, numbered.",
@@ -981,14 +834,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -999,15 +845,8 @@
         },
         "endDateTime": {
           "description": "The DateTime when the review instance is scheduled to end.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "name": {
           "description": "The id of the access review instance.",
@@ -1018,14 +857,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessReviewReviewer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessReviewReviewer"
               },
               "type": "array"
             },
@@ -1036,15 +868,8 @@
         },
         "startDateTime": {
           "description": "The DateTime when the review instance is scheduled to be start.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "type": {
           "enum": [

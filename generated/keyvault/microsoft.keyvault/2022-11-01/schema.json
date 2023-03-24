@@ -80,6 +80,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -141,6 +142,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -213,6 +215,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -297,6 +300,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -347,6 +351,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -408,6 +413,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -450,6 +456,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -511,6 +518,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -687,24 +695,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "encrypt",
-                      "decrypt",
-                      "sign",
-                      "verify",
-                      "wrapKey",
-                      "unwrapKey",
-                      "import",
-                      "release"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "encrypt",
+                  "decrypt",
+                  "sign",
+                  "verify",
+                  "wrapKey",
+                  "unwrapKey",
+                  "import",
+                  "release"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -921,24 +922,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "encrypt",
-                      "decrypt",
-                      "sign",
-                      "verify",
-                      "wrapKey",
-                      "unwrapKey",
-                      "import",
-                      "release"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "encrypt",
+                  "decrypt",
+                  "sign",
+                  "verify",
+                  "wrapKey",
+                  "unwrapKey",
+                  "import",
+                  "release"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1173,14 +1167,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedHsmLifetimeAction"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedHsmLifetimeAction"
               },
               "type": "array"
             },
@@ -1282,14 +1269,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MhsmipRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MhsmipRule"
               },
               "type": "array"
             },
@@ -1303,14 +1283,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MhsmVirtualNetworkRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MhsmVirtualNetworkRule"
               },
               "type": "array"
             },
@@ -1479,14 +1452,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IPRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IPRule"
               },
               "type": "array"
             },
@@ -1500,14 +1466,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkRule"
               },
               "type": "array"
             },
@@ -1527,33 +1486,26 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "all",
-                      "get",
-                      "list",
-                      "delete",
-                      "create",
-                      "import",
-                      "update",
-                      "managecontacts",
-                      "getissuers",
-                      "listissuers",
-                      "setissuers",
-                      "deleteissuers",
-                      "manageissuers",
-                      "recover",
-                      "purge",
-                      "backup",
-                      "restore"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "all",
+                  "get",
+                  "list",
+                  "delete",
+                  "create",
+                  "import",
+                  "update",
+                  "managecontacts",
+                  "getissuers",
+                  "listissuers",
+                  "setissuers",
+                  "deleteissuers",
+                  "manageissuers",
+                  "recover",
+                  "purge",
+                  "backup",
+                  "restore"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1567,37 +1519,30 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "all",
-                      "encrypt",
-                      "decrypt",
-                      "wrapKey",
-                      "unwrapKey",
-                      "sign",
-                      "verify",
-                      "get",
-                      "list",
-                      "create",
-                      "update",
-                      "import",
-                      "delete",
-                      "backup",
-                      "restore",
-                      "recover",
-                      "purge",
-                      "release",
-                      "rotate",
-                      "getrotationpolicy",
-                      "setrotationpolicy"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "all",
+                  "encrypt",
+                  "decrypt",
+                  "wrapKey",
+                  "unwrapKey",
+                  "sign",
+                  "verify",
+                  "get",
+                  "list",
+                  "create",
+                  "update",
+                  "import",
+                  "delete",
+                  "backup",
+                  "restore",
+                  "recover",
+                  "purge",
+                  "release",
+                  "rotate",
+                  "getrotationpolicy",
+                  "setrotationpolicy"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1611,25 +1556,18 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "all",
-                      "get",
-                      "list",
-                      "set",
-                      "delete",
-                      "backup",
-                      "restore",
-                      "recover",
-                      "purge"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "all",
+                  "get",
+                  "list",
+                  "set",
+                  "delete",
+                  "backup",
+                  "restore",
+                  "recover",
+                  "purge"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1643,31 +1581,24 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "all",
-                      "get",
-                      "list",
-                      "delete",
-                      "set",
-                      "update",
-                      "regeneratekey",
-                      "recover",
-                      "purge",
-                      "backup",
-                      "restore",
-                      "setsas",
-                      "listsas",
-                      "getsas",
-                      "deletesas"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "all",
+                  "get",
+                  "list",
+                  "delete",
+                  "set",
+                  "update",
+                  "regeneratekey",
+                  "recover",
+                  "purge",
+                  "backup",
+                  "restore",
+                  "setsas",
+                  "listsas",
+                  "getsas",
+                  "deletesas"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1790,14 +1721,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/LifetimeAction"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/LifetimeAction"
               },
               "type": "array"
             },
@@ -1933,14 +1857,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessPolicyEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessPolicyEntry"
               },
               "type": "array"
             },
@@ -1963,14 +1880,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessPolicyEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessPolicyEntry"
               },
               "type": "array"
             },
@@ -2215,6 +2125,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2287,6 +2198,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2337,6 +2249,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2398,6 +2311,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2440,6 +2354,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2501,6 +2416,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

@@ -91,6 +91,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -129,6 +130,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -167,6 +169,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -182,24 +185,10 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/definitions/EventHandlerTemplate"
-                        },
-                        {
-                          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                        }
-                      ]
-                    },
-                    "type": "array"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/definitions/EventHandlerTemplate"
+                },
+                "type": "array"
               },
               "properties": {},
               "type": "object"
@@ -268,14 +257,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentityProperty"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentityProperty"
               },
               "properties": {},
               "type": "object"
@@ -306,20 +288,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -333,20 +308,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -376,20 +344,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -403,20 +364,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -630,16 +584,9 @@
         },
         "value": {
           "description": "Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.",
-          "oneOf": [
-            {
-              "maxLength": 128,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -671,14 +618,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PrivateEndpointACL"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PrivateEndpointACL"
               },
               "type": "array"
             },
@@ -720,14 +660,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/WebPubSubFeature"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/WebPubSubFeature"
               },
               "type": "array"
             },
@@ -815,6 +748,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -853,6 +787,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

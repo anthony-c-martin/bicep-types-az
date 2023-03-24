@@ -19,16 +19,9 @@
         },
         "name": {
           "description": "The Namespace Name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 6,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 6,
+          "type": "string"
         },
         "properties": {
           "description": "Description of Relay Namespace",
@@ -92,6 +85,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -108,16 +102,9 @@
         },
         "name": {
           "description": "The authorizationRule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Authorization Rule properties",
@@ -139,6 +126,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -155,16 +143,9 @@
         },
         "name": {
           "description": "The hybrid connection name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of HybridConnection",
@@ -196,6 +177,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -212,16 +194,9 @@
         },
         "name": {
           "description": "The authorizationRule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Authorization Rule properties",
@@ -243,6 +218,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -259,16 +235,9 @@
         },
         "name": {
           "description": "The relay name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of WcfRelay",
@@ -300,6 +269,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -316,16 +286,9 @@
         },
         "name": {
           "description": "The authorizationRule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Authorization Rule properties",
@@ -347,6 +310,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -362,19 +326,12 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Manage",
-                      "Send",
-                      "Listen"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Manage",
+                  "Send",
+                  "Listen"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -511,16 +468,9 @@
         },
         "name": {
           "description": "The authorizationRule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Authorization Rule properties",
@@ -542,6 +492,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -558,16 +509,9 @@
         },
         "name": {
           "description": "The authorizationRule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Authorization Rule properties",
@@ -589,6 +533,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -605,16 +550,9 @@
         },
         "name": {
           "description": "The hybrid connection name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of HybridConnection",
@@ -636,6 +574,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -652,16 +591,9 @@
         },
         "name": {
           "description": "The authorizationRule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Authorization Rule properties",
@@ -683,6 +615,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -699,16 +632,9 @@
         },
         "name": {
           "description": "The relay name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of WcfRelay",
@@ -730,6 +656,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

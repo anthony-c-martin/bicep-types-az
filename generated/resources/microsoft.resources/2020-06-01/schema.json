@@ -23,16 +23,9 @@
         },
         "name": {
           "description": "The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.",
-          "oneOf": [
-            {
-              "maxLength": 90,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 90,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "The resource group properties.",
@@ -69,6 +62,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -91,16 +85,9 @@
         },
         "name": {
           "description": "The name of the deployment.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "The deployment properties.",
@@ -137,6 +124,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -177,6 +165,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

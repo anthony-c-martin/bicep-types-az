@@ -52,6 +52,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -102,6 +103,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -166,27 +168,13 @@
         },
         "description": {
           "description": "Multi-line explain this resource.",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         },
         "displayName": {
           "description": "One-liner string explain this resource.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "locks": {
           "description": "Defines how Blueprint-managed resources will be locked.",
@@ -204,14 +192,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ParameterValueBase"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ParameterValueBase"
               },
               "properties": {},
               "type": "object"
@@ -226,14 +207,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceGroupValue"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceGroupValue"
               },
               "properties": {},
               "type": "object"
@@ -255,27 +229,13 @@
       "properties": {
         "description": {
           "description": "Multi-line explain this resource.",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         },
         "displayName": {
           "description": "One-liner string explain this resource.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "layout": {
           "description": "Layout view of the blueprint, for UI reference."
@@ -285,14 +245,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ParameterDefinition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ParameterDefinition"
               },
               "properties": {},
               "type": "object"
@@ -307,14 +260,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceGroupDefinition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceGroupDefinition"
               },
               "properties": {},
               "type": "object"
@@ -438,39 +384,18 @@
       "properties": {
         "description": {
           "description": "Description of this parameter/resourceGroup.",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         },
         "displayName": {
           "description": "DisplayName of this parameter/resourceGroup.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "strongType": {
           "description": "StrongType for UI to render rich experience during assignment time.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         }
       },
       "type": "object"
@@ -504,15 +429,8 @@
         },
         "location": {
           "description": "Location of this resourceGroup, leave empty if the resource group location will be specified during the Blueprint assignment.",
-          "oneOf": [
-            {
-              "maxLength": 90,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 90,
+          "type": "string"
         },
         "metadata": {
           "description": "User-friendly properties for this resource group.",
@@ -527,16 +445,9 @@
         },
         "name": {
           "description": "Name of this resourceGroup, leave empty if the resource group name will be specified during the Blueprint assignment.",
-          "oneOf": [
-            {
-              "maxLength": 90,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 90,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "type": "object"
@@ -550,16 +461,9 @@
         },
         "name": {
           "description": "Name of the resource group",
-          "oneOf": [
-            {
-              "maxLength": 90,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 90,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "type": "object"

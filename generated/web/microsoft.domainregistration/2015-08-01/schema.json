@@ -64,6 +64,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -220,34 +221,20 @@
         },
         "createdTime": {
           "description": "Domain creation timestamp",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "domainNotRenewableReasons": {
           "description": "Reasons why domain is not renewable",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "RegistrationStatusNotSupportedForRenewal",
-                      "ExpirationNotInRenewalTimeRange",
-                      "SubscriptionNotActive"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "RegistrationStatusNotSupportedForRenewal",
+                  "ExpirationNotInRenewalTimeRange",
+                  "SubscriptionNotActive"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -258,41 +245,20 @@
         },
         "expirationTime": {
           "description": "Domain expiration timestamp",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "lastRenewedTime": {
           "description": "Timestamp when the domain was renewed last time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "managedHostNames": {
           "description": "All hostnames derived from the domain and assigned to Azure resources",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/HostName"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/HostName"
               },
               "type": "array"
             },
@@ -397,15 +363,8 @@
       "properties": {
         "agreedAt": {
           "description": "Timestamp when the agreements were accepted",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "agreedBy": {
           "description": "Client IP address",

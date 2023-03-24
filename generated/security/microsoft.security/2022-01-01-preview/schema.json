@@ -37,6 +37,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -75,6 +76,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -149,15 +151,8 @@
         },
         "remediationDueDate": {
           "description": "The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "remediationEta": {
           "description": "The ETA (estimated time of arrival) for remediation (optional), see example",
@@ -433,15 +428,8 @@
       "properties": {
         "eta": {
           "description": "ETA for remediation.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "justification": {
           "description": "Justification for change of Eta.",

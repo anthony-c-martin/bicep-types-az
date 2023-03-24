@@ -71,6 +71,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -143,6 +144,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -183,6 +185,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -324,14 +327,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ExtensionDataSource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ExtensionDataSource"
               },
               "type": "array"
             },
@@ -345,14 +341,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IisLogsDataSource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IisLogsDataSource"
               },
               "type": "array"
             },
@@ -366,14 +355,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/LogFilesDataSource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/LogFilesDataSource"
               },
               "type": "array"
             },
@@ -387,14 +369,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PerfCounterDataSource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PerfCounterDataSource"
               },
               "type": "array"
             },
@@ -408,14 +383,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SyslogDataSource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SyslogDataSource"
               },
               "type": "array"
             },
@@ -429,14 +397,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/WindowsEventLogDataSource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/WindowsEventLogDataSource"
               },
               "type": "array"
             },
@@ -467,14 +428,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/LogAnalyticsDestination"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/LogAnalyticsDestination"
               },
               "type": "array"
             },
@@ -498,14 +452,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DataFlow"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DataFlow"
               },
               "type": "array"
             },
@@ -545,14 +492,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/StreamDeclaration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/StreamDeclaration"
               },
               "properties": {},
               "type": "object"
@@ -591,21 +531,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Microsoft-Event",
-                      "Microsoft-InsightsMetrics",
-                      "Microsoft-Perf",
-                      "Microsoft-Syslog",
-                      "Microsoft-WindowsEvent"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Microsoft-Event",
+                  "Microsoft-InsightsMetrics",
+                  "Microsoft-Perf",
+                  "Microsoft-Syslog",
+                  "Microsoft-WindowsEvent"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -664,21 +597,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Microsoft-Event",
-                      "Microsoft-InsightsMetrics",
-                      "Microsoft-Perf",
-                      "Microsoft-Syslog",
-                      "Microsoft-WindowsEvent"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Microsoft-Event",
+                  "Microsoft-InsightsMetrics",
+                  "Microsoft-Perf",
+                  "Microsoft-Syslog",
+                  "Microsoft-WindowsEvent"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -901,18 +827,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Microsoft-Perf",
-                      "Microsoft-InsightsMetrics"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Microsoft-Perf",
+                  "Microsoft-InsightsMetrics"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -932,14 +851,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ColumnDefinition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ColumnDefinition"
               },
               "type": "array"
             },
@@ -959,37 +871,30 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "auth",
-                      "authpriv",
-                      "cron",
-                      "daemon",
-                      "kern",
-                      "lpr",
-                      "mail",
-                      "mark",
-                      "news",
-                      "syslog",
-                      "user",
-                      "uucp",
-                      "local0",
-                      "local1",
-                      "local2",
-                      "local3",
-                      "local4",
-                      "local5",
-                      "local6",
-                      "local7",
-                      "*"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "auth",
+                  "authpriv",
+                  "cron",
+                  "daemon",
+                  "kern",
+                  "lpr",
+                  "mail",
+                  "mark",
+                  "news",
+                  "syslog",
+                  "user",
+                  "uucp",
+                  "local0",
+                  "local1",
+                  "local2",
+                  "local3",
+                  "local4",
+                  "local5",
+                  "local6",
+                  "local7",
+                  "*"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1003,25 +908,18 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Debug",
-                      "Info",
-                      "Notice",
-                      "Warning",
-                      "Error",
-                      "Critical",
-                      "Alert",
-                      "Emergency",
-                      "*"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Debug",
+                  "Info",
+                  "Notice",
+                  "Warning",
+                  "Error",
+                  "Critical",
+                  "Alert",
+                  "Emergency",
+                  "*"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1039,17 +937,10 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Microsoft-Syslog"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Microsoft-Syslog"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1073,18 +964,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Microsoft-WindowsEvent",
-                      "Microsoft-Event"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Microsoft-WindowsEvent",
+                  "Microsoft-Event"
+                ],
+                "type": "string"
               },
               "type": "array"
             },

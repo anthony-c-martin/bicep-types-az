@@ -19,16 +19,9 @@
         },
         "name": {
           "description": "The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.",
-          "oneOf": [
-            {
-              "maxLength": 100,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Lab plan resource properties",
@@ -75,6 +68,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -123,6 +117,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -143,16 +138,9 @@
         },
         "name": {
           "description": "The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.",
-          "oneOf": [
-            {
-              "maxLength": 100,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Lab resource properties",
@@ -202,6 +190,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -250,6 +239,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -298,6 +288,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -496,16 +487,9 @@
       "properties": {
         "id": {
           "description": "Image resource ID",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         },
         "offer": {
           "description": "The image offer if applicable.",
@@ -531,42 +515,21 @@
       "properties": {
         "loadBalancerId": {
           "description": "The external load balancer resource id",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         },
         "publicIpId": {
           "description": "The external public IP resource id",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         },
         "subnetId": {
           "description": "The external subnet resource id",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         }
       },
       "type": "object"
@@ -576,16 +539,9 @@
       "properties": {
         "subnetId": {
           "description": "The external subnet resource id",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         }
       },
       "type": "object"
@@ -642,29 +598,15 @@
         },
         "linkedLmsInstance": {
           "description": "Base Url of the lms instance this lab plan can link lab rosters against.",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         },
         "sharedGalleryId": {
           "description": "Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         },
         "supportInfo": {
           "description": "Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.",
@@ -711,16 +653,9 @@
         },
         "labPlanId": {
           "description": "The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         },
         "networkProfile": {
           "description": "The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.",
@@ -757,16 +692,9 @@
         },
         "title": {
           "description": "The title of the lab.",
-          "oneOf": [
-            {
-              "maxLength": 120,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 120,
+          "minLength": 1,
+          "type": "string"
         },
         "virtualMachineProfile": {
           "description": "The profile used for creating lab virtual machines.",
@@ -820,23 +748,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Sunday",
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -883,15 +804,8 @@
       "properties": {
         "notes": {
           "description": "Notes for this schedule.",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "type": "string"
         },
         "recurrencePattern": {
           "description": "The recurrence pattern of the scheduled actions.",
@@ -906,39 +820,18 @@
         },
         "startAt": {
           "description": "When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "stopAt": {
           "description": "When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "timeZoneId": {
           "description": "The IANA timezone id for the schedule.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         }
       },
       "type": "object"
@@ -1018,16 +911,9 @@
       "properties": {
         "email": {
           "description": "Support contact email address.",
-          "oneOf": [
-            {
-              "maxLength": 254,
-              "minLength": 6,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 254,
+          "minLength": 6,
+          "type": "string"
         },
         "instructions": {
           "description": "Support instructions.",
@@ -1035,29 +921,15 @@
         },
         "phone": {
           "description": "Support contact phone number.",
-          "oneOf": [
-            {
-              "maxLength": 31,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 31,
+          "minLength": 1,
+          "type": "string"
         },
         "url": {
           "description": "Support web address.",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 3,
+          "type": "string"
         }
       },
       "type": "object"
@@ -1071,16 +943,9 @@
         },
         "email": {
           "description": "Email address of the user.",
-          "oneOf": [
-            {
-              "maxLength": 254,
-              "minLength": 6,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 254,
+          "minLength": 6,
+          "type": "string"
         }
       },
       "required": [
@@ -1254,6 +1119,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1302,6 +1168,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1350,6 +1217,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

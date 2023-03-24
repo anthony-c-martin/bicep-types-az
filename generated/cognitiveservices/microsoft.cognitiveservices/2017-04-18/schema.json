@@ -102,6 +102,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -144,6 +145,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -156,27 +158,13 @@
       "properties": {
         "aadClientId": {
           "description": "(Metrics Advisor Only) The Azure AD Client Id (Application Id).",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         },
         "aadTenantId": {
           "description": "(Metrics Advisor Only) The Azure AD Tenant Id.",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         },
         "eventHubConnectionString": {
           "description": "(Personalization Only) The flag to enable statistics of Bing Search.",
@@ -229,27 +217,13 @@
         },
         "superUser": {
           "description": "(Metrics Advisor Only) The super user of Metrics Advisor.",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         },
         "websiteName": {
           "description": "(Metrics Advisor Only) The website name of Metrics Advisor.",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         }
       },
       "type": "object"
@@ -299,14 +273,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PrivateEndpointConnection"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PrivateEndpointConnection"
               },
               "type": "array"
             },
@@ -335,14 +302,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserOwnedStorage"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserOwnedStorage"
               },
               "type": "array"
             },
@@ -410,14 +370,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentity"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentity"
               },
               "properties": {},
               "type": "object"
@@ -484,14 +437,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IpRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IpRule"
               },
               "type": "array"
             },
@@ -505,14 +451,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkRule"
               },
               "type": "array"
             },
@@ -728,6 +667,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

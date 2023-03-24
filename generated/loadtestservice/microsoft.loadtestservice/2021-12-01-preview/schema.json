@@ -67,6 +67,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -79,15 +80,8 @@
       "properties": {
         "description": {
           "description": "Description of the resource.",
-          "oneOf": [
-            {
-              "maxLength": 512,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 512,
+          "type": "string"
         }
       },
       "type": "object"

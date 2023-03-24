@@ -83,6 +83,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -161,6 +162,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -199,6 +201,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -237,6 +240,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -275,6 +279,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -339,14 +344,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FilteringTag"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FilteringTag"
               },
               "type": "array"
             },
@@ -528,51 +526,23 @@
       "properties": {
         "billingCycle": {
           "description": "different billing cycles like MONTHLY/WEEKLY. this could be enum",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "effectiveDate": {
           "description": "date when plan was applied",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "planDetails": {
           "description": "plan id as published by Logz",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "usageType": {
           "description": "different usage type like PAYG/COMMITTED. this could be enum",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         }
       },
       "type": "object"
@@ -593,39 +563,18 @@
         },
         "firstName": {
           "description": "First Name of the user",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "lastName": {
           "description": "Last Name of the user",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "phoneNumber": {
           "description": "Phone number of the user used by Logz for contacting them if needed",
-          "oneOf": [
-            {
-              "maxLength": 40,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 40,
+          "type": "string"
         }
       },
       "type": "object"
@@ -693,6 +642,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -731,6 +681,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -769,6 +720,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -807,6 +759,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

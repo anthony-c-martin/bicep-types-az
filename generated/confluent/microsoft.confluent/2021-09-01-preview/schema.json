@@ -56,6 +56,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -98,6 +99,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -141,15 +143,8 @@
         },
         "retrieveDatetime": {
           "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "signature": {
           "description": "Terms signature.",
@@ -163,63 +158,28 @@
       "properties": {
         "id": {
           "description": "Offer Id",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "planId": {
           "description": "Offer Plan Id",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "planName": {
           "description": "Offer Plan Name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "publisherId": {
           "description": "Publisher Id",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "termUnit": {
           "description": "Offer Plan Term unit",
-          "oneOf": [
-            {
-              "maxLength": 25,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 25,
+          "type": "string"
         }
       },
       "required": [
@@ -280,27 +240,13 @@
         },
         "firstName": {
           "description": "First name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "lastName": {
           "description": "Last name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         }
       },
       "required": [

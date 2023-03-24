@@ -94,6 +94,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -151,6 +152,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -228,6 +230,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -316,16 +319,9 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "maxLength": 255,
+                "minLength": 1,
+                "type": "string"
               },
               "type": "array"
             },
@@ -337,6 +333,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -387,6 +384,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -429,6 +427,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -477,6 +476,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -534,6 +534,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -591,6 +592,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -643,6 +645,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -701,14 +704,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ActiveDirectory"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ActiveDirectory"
               },
               "type": "array"
             },
@@ -740,32 +736,18 @@
         },
         "adName": {
           "description": "Name of the active directory machine. This optional parameter is used only while creating kerberos volume",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
         },
         "administrators": {
           "description": "Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "maxLength": 255,
+                "minLength": 1,
+                "type": "string"
               },
               "type": "array"
             },
@@ -801,16 +783,9 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "maxLength": 255,
+                "minLength": 1,
+                "type": "string"
               },
               "type": "array"
             },
@@ -917,16 +892,9 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "maxLength": 255,
+                "minLength": 1,
+                "type": "string"
               },
               "type": "array"
             },
@@ -937,16 +905,9 @@
         },
         "serverRootCACertificate": {
           "description": "When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.",
-          "oneOf": [
-            {
-              "maxLength": 10240,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 10240,
+          "minLength": 1,
+          "type": "string"
         },
         "site": {
           "description": "The Active Directory site the service will limit Domain Controller discovery to",
@@ -1329,39 +1290,18 @@
       "properties": {
         "groupDN": {
           "description": "This specifies the group DN, which overrides the base DN for group lookups.",
-          "oneOf": [
-            {
-              "maxLength": 255,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 255,
+          "type": "string"
         },
         "groupMembershipFilter": {
           "description": "This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.",
-          "oneOf": [
-            {
-              "maxLength": 255,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 255,
+          "type": "string"
         },
         "userDN": {
           "description": "This specifies the user DN, which overrides the base DN for user lookups.",
-          "oneOf": [
-            {
-              "maxLength": 255,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 255,
+          "type": "string"
         }
       },
       "type": "object"
@@ -1391,14 +1331,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentity"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentity"
               },
               "properties": {},
               "type": "object"
@@ -1775,14 +1708,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PlacementKeyValuePairs"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PlacementKeyValuePairs"
               },
               "type": "array"
             },
@@ -1817,14 +1743,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VolumeGroupVolumeProperties"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VolumeGroupVolumeProperties"
               },
               "type": "array"
             },
@@ -2101,14 +2020,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PlacementKeyValuePairs"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PlacementKeyValuePairs"
               },
               "type": "array"
             },
@@ -2251,16 +2163,9 @@
         },
         "unixPermissions": {
           "description": "UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.",
-          "oneOf": [
-            {
-              "maxLength": 4,
-              "minLength": 4,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 4,
+          "minLength": 4,
+          "type": "string"
         },
         "usageThreshold": {
           "description": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.",
@@ -2347,14 +2252,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ExportPolicyRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ExportPolicyRule"
               },
               "type": "array"
             },
@@ -2537,6 +2435,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2604,6 +2503,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2654,6 +2554,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2723,16 +2624,9 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "maxLength": 255,
+                "minLength": 1,
+                "type": "string"
               },
               "type": "array"
             },
@@ -2744,6 +2638,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2786,6 +2681,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2834,6 +2730,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2891,6 +2788,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2948,6 +2846,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3000,6 +2899,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

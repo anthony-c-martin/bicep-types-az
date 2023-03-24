@@ -124,6 +124,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -169,33 +170,19 @@
         },
         "path": {
           "description": "Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.",
-          "oneOf": [
-            {
-              "maxLength": 400,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 400,
+          "type": "string"
         },
         "protocols": {
           "description": "Describes on which protocols the operations in this API can be invoked.",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Http",
-                      "Https"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Http",
+                  "Https"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -216,16 +203,9 @@
         },
         "serviceUrl": {
           "description": "Absolute URL of the backend service implementing this API.",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
         },
         "subscriptionKeyParameterNames": {
           "description": "Protocols over which API is made available.",
@@ -263,15 +243,8 @@
         },
         "description": {
           "description": "Description of the operation. May include HTML formatting tags.",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "type": "string"
         },
         "method": {
           "description": "A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.",
@@ -307,14 +280,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResultContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResultContract"
               },
               "type": "array"
             },
@@ -328,14 +294,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ParameterContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ParameterContract"
               },
               "type": "array"
             },
@@ -352,16 +311,9 @@
         },
         "urlTemplate": {
           "description": "Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -389,24 +341,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "HEAD",
-                      "OPTIONS",
-                      "TRACE",
-                      "GET",
-                      "POST",
-                      "PUT",
-                      "PATCH",
-                      "DELETE"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "HEAD",
+                  "OPTIONS",
+                  "TRACE",
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -420,18 +365,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "authorizationHeader",
-                      "query"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "authorizationHeader",
+                  "query"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -445,18 +383,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Basic",
-                      "Body"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Basic",
+                  "Body"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -490,20 +421,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "authorizationCode",
-                      "implicit",
-                      "resourceOwnerPassword",
-                      "clientCredentials"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "authorizationCode",
+                  "implicit",
+                  "resourceOwnerPassword",
+                  "clientCredentials"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -549,14 +473,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/TokenBodyParameterContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/TokenBodyParameterContract"
               },
               "type": "array"
             },
@@ -594,16 +511,9 @@
         },
         "host": {
           "description": "Host attribute of the backend. Host is a pure hostname without a port or suffix, for example backend.contoso.com. Must not be empty.",
-          "oneOf": [
-            {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "User identifier. Must be unique in the current API Management service instance.",
@@ -759,27 +669,13 @@
         },
         "clientId": {
           "description": "Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "clientSecret": {
           "description": "Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "Identity Provider Type identifier.",
@@ -953,16 +849,9 @@
         },
         "description": {
           "description": "Product description. May include HTML formatting tags.",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "Product identifier. Must be unique in the current API Management service instance.",
@@ -1088,16 +977,9 @@
         },
         "value": {
           "description": "Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.",
-          "oneOf": [
-            {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -1132,16 +1014,9 @@
         },
         "primaryKey": {
           "description": "Primary subscription key. If not specified during request key will be generated automatically.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
         },
         "productId": {
           "description": "Product (product id path) for which subscription is being created in form /products/{productId}",
@@ -1149,16 +1024,9 @@
         },
         "secondaryKey": {
           "description": "Secondary subscription key. If not specified during request key will be generated automatically.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
         },
         "state": {
           "description": "Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.",
@@ -1208,42 +1076,21 @@
         },
         "email": {
           "description": "Email address. Must not be empty and must be unique within the service instance.",
-          "oneOf": [
-            {
-              "maxLength": 254,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 254,
+          "minLength": 1,
+          "type": "string"
         },
         "firstName": {
           "description": "First name.",
-          "oneOf": [
-            {
-              "maxLength": 100,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
         },
         "lastName": {
           "description": "Last name.",
-          "oneOf": [
-            {
-              "maxLength": 100,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "User identifier. Must be unique in the current API Management service instance.",
@@ -1358,14 +1205,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AdditionalRegion"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AdditionalRegion"
               },
               "type": "array"
             },
@@ -1398,14 +1238,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/HostnameConfiguration"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/HostnameConfiguration"
               },
               "type": "array"
             },
@@ -1416,15 +1249,8 @@
         },
         "publisherEmail": {
           "description": "Publisher email.",
-          "oneOf": [
-            {
-              "maxLength": 100,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 100,
+          "type": "string"
         },
         "publisherName": {
           "description": "Publisher name.",
@@ -1522,15 +1348,8 @@
       "properties": {
         "expiry": {
           "description": "Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "subject": {
           "description": "Subject of the certificate.",
@@ -1685,14 +1504,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ParameterContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ParameterContract"
               },
               "type": "array"
             },
@@ -1706,14 +1518,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ParameterContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ParameterContract"
               },
               "type": "array"
             },
@@ -1727,14 +1532,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/RepresentationContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/RepresentationContract"
               },
               "type": "array"
             },
@@ -1758,14 +1556,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/RepresentationContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/RepresentationContract"
               },
               "type": "array"
             },
@@ -1877,33 +1668,19 @@
         },
         "path": {
           "description": "Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.",
-          "oneOf": [
-            {
-              "maxLength": 400,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 400,
+          "type": "string"
         },
         "protocols": {
           "description": "Describes on which protocols the operations in this API can be invoked.",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Http",
-                      "Https"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Http",
+                  "Https"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1914,16 +1691,9 @@
         },
         "serviceUrl": {
           "description": "Absolute URL of the backend service implementing this API.",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
         },
         "subscriptionKeyParameterNames": {
           "description": "Protocols over which API is made available.",
@@ -1961,15 +1731,8 @@
         },
         "description": {
           "description": "Description of the operation. May include HTML formatting tags.",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "type": "string"
         },
         "method": {
           "description": "A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.",
@@ -2005,14 +1768,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResultContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResultContract"
               },
               "type": "array"
             },
@@ -2026,14 +1782,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ParameterContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ParameterContract"
               },
               "type": "array"
             },
@@ -2050,16 +1799,9 @@
         },
         "urlTemplate": {
           "description": "Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -2087,24 +1829,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "HEAD",
-                      "OPTIONS",
-                      "TRACE",
-                      "GET",
-                      "POST",
-                      "PUT",
-                      "PATCH",
-                      "DELETE"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "HEAD",
+                  "OPTIONS",
+                  "TRACE",
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2118,18 +1853,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "authorizationHeader",
-                      "query"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "authorizationHeader",
+                  "query"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2143,18 +1871,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Basic",
-                      "Body"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Basic",
+                  "Body"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2188,20 +1909,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "authorizationCode",
-                      "implicit",
-                      "resourceOwnerPassword",
-                      "clientCredentials"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "authorizationCode",
+                  "implicit",
+                  "resourceOwnerPassword",
+                  "clientCredentials"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2247,14 +1961,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/TokenBodyParameterContract"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/TokenBodyParameterContract"
               },
               "type": "array"
             },
@@ -2292,16 +1999,9 @@
         },
         "host": {
           "description": "Host attribute of the backend. Host is a pure hostname without a port or suffix, for example backend.contoso.com. Must not be empty.",
-          "oneOf": [
-            {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "User identifier. Must be unique in the current API Management service instance.",
@@ -2457,27 +2157,13 @@
         },
         "clientId": {
           "description": "Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "clientSecret": {
           "description": "Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "Identity Provider Type identifier.",
@@ -2651,16 +2337,9 @@
         },
         "description": {
           "description": "Product description. May include HTML formatting tags.",
-          "oneOf": [
-            {
-              "maxLength": 1000,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "Product identifier. Must be unique in the current API Management service instance.",
@@ -2786,16 +2465,9 @@
         },
         "value": {
           "description": "Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.",
-          "oneOf": [
-            {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -2830,16 +2502,9 @@
         },
         "primaryKey": {
           "description": "Primary subscription key. If not specified during request key will be generated automatically.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
         },
         "productId": {
           "description": "Product (product id path) for which subscription is being created in form /products/{productId}",
@@ -2847,16 +2512,9 @@
         },
         "secondaryKey": {
           "description": "Secondary subscription key. If not specified during request key will be generated automatically.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
         },
         "state": {
           "description": "Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.",
@@ -2906,42 +2564,21 @@
         },
         "email": {
           "description": "Email address. Must not be empty and must be unique within the service instance.",
-          "oneOf": [
-            {
-              "maxLength": 254,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 254,
+          "minLength": 1,
+          "type": "string"
         },
         "firstName": {
           "description": "First name.",
-          "oneOf": [
-            {
-              "maxLength": 100,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
         },
         "lastName": {
           "description": "Last name.",
-          "oneOf": [
-            {
-              "maxLength": 100,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
         },
         "name": {
           "description": "User identifier. Must be unique in the current API Management service instance.",

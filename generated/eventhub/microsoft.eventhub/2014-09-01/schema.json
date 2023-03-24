@@ -19,16 +19,9 @@
         },
         "name": {
           "description": "The Namespace name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 6,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 6,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the Namespace supplied for create or update Namespace operation",
@@ -89,6 +82,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -109,16 +103,9 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update SharedAccessAuthorizationRule",
@@ -140,6 +127,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -160,16 +148,9 @@
         },
         "name": {
           "description": "The Event Hub name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to the Create Or Update Event Hub operation.",
@@ -204,6 +185,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -224,16 +206,9 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update SharedAccessAuthorizationRule",
@@ -255,6 +230,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -275,16 +251,9 @@
         },
         "name": {
           "description": "The consumer group name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to the Create Or Update Consumer Group operation.",
@@ -306,6 +275,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -378,15 +348,8 @@
       "properties": {
         "createdAt": {
           "description": "The time the Namespace was created.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "enabled": {
           "description": "Specifies whether this instance is enabled.",
@@ -435,15 +398,8 @@
         },
         "updatedAt": {
           "description": "The time the Namespace was updated.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -456,19 +412,12 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Manage",
-                      "Send",
-                      "Listen"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Manage",
+                  "Send",
+                  "Listen"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -549,16 +498,9 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update SharedAccessAuthorizationRule",
@@ -580,6 +522,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -600,16 +543,9 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update SharedAccessAuthorizationRule",
@@ -631,6 +567,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -651,16 +588,9 @@
         },
         "name": {
           "description": "The Event Hub name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to the Create Or Update Event Hub operation.",
@@ -682,6 +612,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -702,16 +633,9 @@
         },
         "name": {
           "description": "The consumer group name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to the Create Or Update Consumer Group operation.",
@@ -733,6 +657,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

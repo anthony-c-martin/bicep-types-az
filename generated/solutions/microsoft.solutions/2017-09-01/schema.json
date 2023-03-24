@@ -34,16 +34,9 @@
         },
         "name": {
           "description": "The name of the managed application definition.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "The managed application definition properties.",
@@ -91,6 +84,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -138,16 +132,9 @@
         },
         "name": {
           "description": "The name of the managed application.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "plan": {
           "description": "The plan information.",
@@ -206,6 +193,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -250,14 +238,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationArtifact"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationArtifact"
               },
               "type": "array"
             },
@@ -271,14 +252,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApplicationProviderAuthorization"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApplicationProviderAuthorization"
               },
               "type": "array"
             },

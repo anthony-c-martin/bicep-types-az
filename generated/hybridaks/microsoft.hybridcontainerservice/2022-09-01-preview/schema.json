@@ -101,6 +101,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -132,16 +133,9 @@
         },
         "name": {
           "description": "Parameter for the name of the agent pool in the provisioned cluster",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "",
@@ -178,6 +172,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -194,16 +189,9 @@
         },
         "name": {
           "description": "Parameter for the name of the hybrid identity metadata resource.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -225,6 +213,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -256,16 +245,9 @@
         },
         "name": {
           "description": "Parameter for the name of the storage object",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "HybridAKSStorageSpec defines the desired state of HybridAKSStorage",
@@ -302,6 +284,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -333,16 +316,9 @@
         },
         "name": {
           "description": "Parameter for the name of the virtual network",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork",
@@ -379,6 +355,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1097,14 +1074,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/LinuxProfilePropertiesSshPublicKeysItem"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/LinuxProfilePropertiesSshPublicKeysItem"
               },
               "type": "array"
             },
@@ -1562,14 +1532,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AddonProfiles"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AddonProfiles"
               },
               "properties": {},
               "type": "object"
@@ -1584,14 +1547,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/NamedAgentPoolProfile"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/NamedAgentPoolProfile"
               },
               "type": "array"
             },
@@ -1932,14 +1888,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworksPropertiesVipPoolItem"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworksPropertiesVipPoolItem"
               },
               "type": "array"
             },
@@ -1953,14 +1902,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworksPropertiesVmipPoolItem"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworksPropertiesVmipPoolItem"
               },
               "type": "array"
             },
@@ -2140,16 +2082,9 @@
         },
         "name": {
           "description": "Parameter for the name of the agent pool in the provisioned cluster",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "",
@@ -2186,6 +2121,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2202,16 +2138,9 @@
         },
         "name": {
           "description": "Parameter for the name of the hybrid identity metadata resource.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Resource properties.",
@@ -2233,6 +2162,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

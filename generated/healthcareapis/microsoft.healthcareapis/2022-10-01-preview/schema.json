@@ -50,16 +50,9 @@
         },
         "name": {
           "description": "The name of the service instance.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "The common properties of a service.",
@@ -106,6 +99,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -144,6 +138,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -168,16 +163,9 @@
         },
         "name": {
           "description": "The name of workspace resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Workspaces resource specific properties.",
@@ -236,6 +224,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -318,6 +307,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -353,16 +343,9 @@
         },
         "name": {
           "description": "The name of DICOM Service resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Dicom Service configuration.",
@@ -399,6 +382,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -449,16 +433,9 @@
         },
         "name": {
           "description": "The name of FHIR Service resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Fhir Service configuration.",
@@ -495,6 +472,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -530,16 +508,9 @@
         },
         "name": {
           "description": "The name of IoT Connector resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "IoT Connector configuration.",
@@ -586,6 +557,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -610,16 +582,9 @@
         },
         "name": {
           "description": "The name of IoT Connector FHIR destination resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "IoT FHIR Destination settings.",
@@ -641,6 +606,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -679,6 +645,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -811,15 +778,8 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "pattern": "^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$",
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "pattern": "^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$",
+                "type": "string"
               },
               "type": "array"
             },
@@ -922,14 +882,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ServiceOciArtifactEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ServiceOciArtifactEntry"
               },
               "type": "array"
             },
@@ -1024,15 +977,8 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "pattern": "^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$",
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "pattern": "^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$",
+                "type": "string"
               },
               "type": "array"
             },
@@ -1094,14 +1040,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FhirServiceAccessPolicyEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FhirServiceAccessPolicyEntry"
               },
               "type": "array"
             },
@@ -1397,19 +1336,12 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "no-version",
-                      "versioned",
-                      "versioned-update"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "no-version",
+                  "versioned",
+                  "versioned-update"
+                ],
+                "type": "string"
               },
               "properties": {},
               "type": "object"
@@ -1465,14 +1397,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ServiceOciArtifactEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ServiceOciArtifactEntry"
               },
               "type": "array"
             },
@@ -1567,15 +1492,8 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "pattern": "^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$",
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "pattern": "^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\\:\\/\\/(?:[a-zA-Z0-9-]+[.]?)+(?:\\:[0-9]{1,5})?|[*]))$",
+                "type": "string"
               },
               "type": "array"
             },
@@ -1675,14 +1593,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentity"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentity"
               },
               "properties": {},
               "type": "object"
@@ -1724,14 +1635,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ServiceAccessPolicyEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ServiceAccessPolicyEntry"
               },
               "type": "array"
             },
@@ -1811,14 +1715,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PrivateEndpointConnection"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PrivateEndpointConnection"
               },
               "type": "array"
             },
@@ -1925,6 +1822,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2007,6 +1905,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2042,16 +1941,9 @@
         },
         "name": {
           "description": "The name of DICOM Service resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Dicom Service configuration.",
@@ -2088,6 +1980,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2138,16 +2031,9 @@
         },
         "name": {
           "description": "The name of FHIR Service resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Fhir Service configuration.",
@@ -2184,6 +2070,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2219,16 +2106,9 @@
         },
         "name": {
           "description": "The name of IoT Connector resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "IoT Connector configuration.",
@@ -2265,6 +2145,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2289,16 +2170,9 @@
         },
         "name": {
           "description": "The name of IoT Connector FHIR destination resource.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "IoT FHIR Destination settings.",
@@ -2320,6 +2194,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2358,6 +2233,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

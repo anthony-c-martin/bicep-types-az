@@ -41,6 +41,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -81,6 +82,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -119,6 +121,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -159,6 +162,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -199,6 +203,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -230,14 +235,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PathRecommendation"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PathRecommendation"
               },
               "type": "array"
             },
@@ -262,14 +260,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VmRecommendation"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VmRecommendation"
               },
               "type": "array"
             },
@@ -321,14 +312,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/JitNetworkAccessRequest"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/JitNetworkAccessRequest"
               },
               "type": "array"
             },
@@ -342,14 +326,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/JitNetworkAccessPolicyVirtualMachine"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/JitNetworkAccessPolicyVirtualMachine"
               },
               "type": "array"
             },
@@ -375,14 +352,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/JitNetworkAccessPortRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/JitNetworkAccessPortRule"
               },
               "type": "array"
             },
@@ -473,29 +443,15 @@
         },
         "startTimeUtc": {
           "description": "The start time of the request in UTC",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "virtualMachines": {
           "description": "",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/JitNetworkAccessRequestVirtualMachine"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/JitNetworkAccessRequestVirtualMachine"
               },
               "type": "array"
             },
@@ -534,15 +490,8 @@
         },
         "endTimeUtc": {
           "description": "The date & time at which the request ends in UTC",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "mappedPort": {
           "description": "The port which is mapped to this port's `number` in the Azure Firewall, if applicable",
@@ -617,14 +566,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/JitNetworkAccessRequestPort"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/JitNetworkAccessRequestPort"
               },
               "type": "array"
             },
@@ -760,14 +702,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserRecommendation"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserRecommendation"
               },
               "type": "array"
             },
@@ -923,21 +858,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Compute",
-                      "Networking",
-                      "Data",
-                      "IdentityAndAccess",
-                      "IoT"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Compute",
+                  "Networking",
+                  "Data",
+                  "IdentityAndAccess",
+                  "IoT"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1017,24 +945,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "accountBreach",
-                      "dataExfiltration",
-                      "dataSpillage",
-                      "maliciousInsider",
-                      "elevationOfPrivilege",
-                      "threatResistance",
-                      "missingCoverage",
-                      "denialOfService"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "accountBreach",
+                  "dataExfiltration",
+                  "dataSpillage",
+                  "maliciousInsider",
+                  "elevationOfPrivilege",
+                  "threatResistance",
+                  "missingCoverage",
+                  "denialOfService"
+                ],
+                "type": "string"
               },
               "type": "array"
             },

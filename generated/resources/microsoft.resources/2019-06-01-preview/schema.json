@@ -76,6 +76,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -143,6 +144,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -168,27 +170,13 @@
       "properties": {
         "description": {
           "description": "Template Spec description.",
-          "oneOf": [
-            {
-              "maxLength": 4096,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 4096,
+          "type": "string"
         },
         "displayName": {
           "description": "Template Spec display name.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         }
       },
       "type": "object"
@@ -201,14 +189,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/TemplateSpecArtifact"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/TemplateSpecArtifact"
               },
               "type": "array"
             },
@@ -219,15 +200,8 @@
         },
         "description": {
           "description": "Template Spec version description.",
-          "oneOf": [
-            {
-              "maxLength": 4096,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 4096,
+          "type": "string"
         },
         "template": {
           "description": "The Azure Resource Manager template content."
@@ -297,6 +271,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

@@ -37,6 +37,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -84,15 +85,8 @@
         },
         "retrieveDatetime": {
           "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "signature": {
           "description": "Terms signature.",

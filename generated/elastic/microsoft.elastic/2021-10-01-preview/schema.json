@@ -88,6 +88,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -126,6 +127,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -138,63 +140,28 @@
       "properties": {
         "business": {
           "description": "Business of the company",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         },
         "country": {
           "description": "Country of the company location.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         },
         "domain": {
           "description": "Domain of the company",
-          "oneOf": [
-            {
-              "maxLength": 250,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 250,
+          "type": "string"
         },
         "employeesNumber": {
           "description": "Number of employees in the company",
-          "oneOf": [
-            {
-              "maxLength": 20,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 20,
+          "type": "string"
         },
         "state": {
           "description": "State of the company location.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         }
       },
       "type": "object"
@@ -294,14 +261,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FilteringTag"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FilteringTag"
               },
               "type": "array"
             },
@@ -483,15 +443,8 @@
         },
         "companyName": {
           "description": "Company name of the user",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         },
         "emailAddress": {
           "description": "Email of the user used by Elastic for contacting them if needed",
@@ -507,27 +460,13 @@
         },
         "firstName": {
           "description": "First name of the user",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "lastName": {
           "description": "Last name of the user",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         }
       },
       "type": "object"
@@ -565,6 +504,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

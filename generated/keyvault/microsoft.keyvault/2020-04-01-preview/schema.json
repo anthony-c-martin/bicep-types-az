@@ -67,6 +67,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -151,6 +152,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -201,6 +203,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -262,6 +265,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -304,6 +308,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -365,6 +370,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -510,23 +516,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "encrypt",
-                      "decrypt",
-                      "sign",
-                      "verify",
-                      "wrapKey",
-                      "unwrapKey",
-                      "import"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "encrypt",
+                  "decrypt",
+                  "sign",
+                  "verify",
+                  "wrapKey",
+                  "unwrapKey",
+                  "import"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -723,14 +722,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IPRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IPRule"
               },
               "type": "array"
             },
@@ -744,14 +736,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkRule"
               },
               "type": "array"
             },
@@ -771,32 +756,25 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "get",
-                      "list",
-                      "delete",
-                      "create",
-                      "import",
-                      "update",
-                      "managecontacts",
-                      "getissuers",
-                      "listissuers",
-                      "setissuers",
-                      "deleteissuers",
-                      "manageissuers",
-                      "recover",
-                      "purge",
-                      "backup",
-                      "restore"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "get",
+                  "list",
+                  "delete",
+                  "create",
+                  "import",
+                  "update",
+                  "managecontacts",
+                  "getissuers",
+                  "listissuers",
+                  "setissuers",
+                  "deleteissuers",
+                  "manageissuers",
+                  "recover",
+                  "purge",
+                  "backup",
+                  "restore"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -810,32 +788,25 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "encrypt",
-                      "decrypt",
-                      "wrapKey",
-                      "unwrapKey",
-                      "sign",
-                      "verify",
-                      "get",
-                      "list",
-                      "create",
-                      "update",
-                      "import",
-                      "delete",
-                      "backup",
-                      "restore",
-                      "recover",
-                      "purge"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "encrypt",
+                  "decrypt",
+                  "wrapKey",
+                  "unwrapKey",
+                  "sign",
+                  "verify",
+                  "get",
+                  "list",
+                  "create",
+                  "update",
+                  "import",
+                  "delete",
+                  "backup",
+                  "restore",
+                  "recover",
+                  "purge"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -849,24 +820,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "get",
-                      "list",
-                      "set",
-                      "delete",
-                      "backup",
-                      "restore",
-                      "recover",
-                      "purge"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "get",
+                  "list",
+                  "set",
+                  "delete",
+                  "backup",
+                  "restore",
+                  "recover",
+                  "purge"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -880,30 +844,23 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "get",
-                      "list",
-                      "delete",
-                      "set",
-                      "update",
-                      "regeneratekey",
-                      "recover",
-                      "purge",
-                      "backup",
-                      "restore",
-                      "setsas",
-                      "listsas",
-                      "getsas",
-                      "deletesas"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "get",
+                  "list",
+                  "delete",
+                  "set",
+                  "update",
+                  "regeneratekey",
+                  "recover",
+                  "purge",
+                  "backup",
+                  "restore",
+                  "setsas",
+                  "listsas",
+                  "getsas",
+                  "deletesas"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1100,14 +1057,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessPolicyEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessPolicyEntry"
               },
               "type": "array"
             },
@@ -1130,14 +1080,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AccessPolicyEntry"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AccessPolicyEntry"
               },
               "type": "array"
             },
@@ -1367,6 +1310,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1428,6 +1372,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1470,6 +1415,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1531,6 +1477,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
