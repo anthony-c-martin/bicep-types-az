@@ -64,6 +64,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -142,15 +143,8 @@
       "properties": {
         "expiryDate": {
           "description": "expiration date of service principal secret",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "parameterNameInStore": {
           "description": "name of secret resource in parameter store",
@@ -733,14 +727,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CloudOffering"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CloudOffering"
               },
               "type": "array"
             },

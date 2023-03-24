@@ -37,6 +37,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -116,6 +117,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -156,6 +158,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -248,21 +251,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Compute",
-                      "Networking",
-                      "Data",
-                      "IdentityAndAccess",
-                      "IoT"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Compute",
+                  "Networking",
+                  "Data",
+                  "IdentityAndAccess",
+                  "IoT"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -342,24 +338,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "accountBreach",
-                      "dataExfiltration",
-                      "dataSpillage",
-                      "maliciousInsider",
-                      "elevationOfPrivilege",
-                      "threatResistance",
-                      "missingCoverage",
-                      "denialOfService"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "accountBreach",
+                  "dataExfiltration",
+                  "dataSpillage",
+                  "maliciousInsider",
+                  "elevationOfPrivilege",
+                  "threatResistance",
+                  "missingCoverage",
+                  "denialOfService"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -417,21 +406,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Compute",
-                      "Networking",
-                      "Data",
-                      "IdentityAndAccess",
-                      "IoT"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Compute",
+                  "Networking",
+                  "Data",
+                  "IdentityAndAccess",
+                  "IoT"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -534,30 +516,23 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Reconnaissance",
-                      "Resource Development",
-                      "Initial Access",
-                      "Execution",
-                      "Persistence",
-                      "Privilege Escalation",
-                      "Defense Evasion",
-                      "Credential Access",
-                      "Discovery",
-                      "Lateral Movement",
-                      "Collection",
-                      "Command and Control",
-                      "Exfiltration",
-                      "Impact"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Reconnaissance",
+                  "Resource Development",
+                  "Initial Access",
+                  "Execution",
+                  "Persistence",
+                  "Privilege Escalation",
+                  "Defense Evasion",
+                  "Credential Access",
+                  "Discovery",
+                  "Lateral Movement",
+                  "Collection",
+                  "Command and Control",
+                  "Exfiltration",
+                  "Impact"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -571,120 +546,113 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Abuse Elevation Control Mechanism",
-                      "Access Token Manipulation",
-                      "Account Discovery",
-                      "Account Manipulation",
-                      "Active Scanning",
-                      "Application Layer Protocol",
-                      "Audio Capture",
-                      "Boot or Logon Autostart Execution",
-                      "Boot or Logon Initialization Scripts",
-                      "Brute Force",
-                      "Cloud Infrastructure Discovery",
-                      "Cloud Service Dashboard",
-                      "Cloud Service Discovery",
-                      "Command and Scripting Interpreter",
-                      "Compromise Client Software Binary",
-                      "Compromise Infrastructure",
-                      "Container and Resource Discovery",
-                      "Create Account",
-                      "Create or Modify System Process",
-                      "Credentials from Password Stores",
-                      "Data Destruction",
-                      "Data Encrypted for Impact",
-                      "Data from Cloud Storage Object",
-                      "Data from Configuration Repository",
-                      "Data from Information Repositories",
-                      "Data from Local System",
-                      "Data Manipulation",
-                      "Data Staged",
-                      "Defacement",
-                      "Deobfuscate/Decode Files or Information",
-                      "Disk Wipe",
-                      "Domain Trust Discovery",
-                      "Drive-by Compromise",
-                      "Dynamic Resolution",
-                      "Endpoint Denial of Service",
-                      "Event Triggered Execution",
-                      "Exfiltration Over Alternative Protocol",
-                      "Exploit Public-Facing Application",
-                      "Exploitation for Client Execution",
-                      "Exploitation for Credential Access",
-                      "Exploitation for Defense Evasion",
-                      "Exploitation for Privilege Escalation",
-                      "Exploitation of Remote Services",
-                      "External Remote Services",
-                      "Fallback Channels",
-                      "File and Directory Discovery",
-                      "Gather Victim Network Information",
-                      "Hide Artifacts",
-                      "Hijack Execution Flow",
-                      "Impair Defenses",
-                      "Implant Container Image",
-                      "Indicator Removal on Host",
-                      "Indirect Command Execution",
-                      "Ingress Tool Transfer",
-                      "Input Capture",
-                      "Inter-Process Communication",
-                      "Lateral Tool Transfer",
-                      "Man-in-the-Middle",
-                      "Masquerading",
-                      "Modify Authentication Process",
-                      "Modify Registry",
-                      "Network Denial of Service",
-                      "Network Service Scanning",
-                      "Network Sniffing",
-                      "Non-Application Layer Protocol",
-                      "Non-Standard Port",
-                      "Obtain Capabilities",
-                      "Obfuscated Files or Information",
-                      "Office Application Startup",
-                      "OS Credential Dumping",
-                      "Permission Groups Discovery",
-                      "Phishing",
-                      "Pre-OS Boot",
-                      "Process Discovery",
-                      "Process Injection",
-                      "Protocol Tunneling",
-                      "Proxy",
-                      "Query Registry",
-                      "Remote Access Software",
-                      "Remote Service Session Hijacking",
-                      "Remote Services",
-                      "Remote System Discovery",
-                      "Resource Hijacking",
-                      "Scheduled Task/Job",
-                      "Screen Capture",
-                      "Search Victim-Owned Websites",
-                      "Server Software Component",
-                      "Service Stop",
-                      "Signed Binary Proxy Execution",
-                      "Software Deployment Tools",
-                      "SQL Stored Procedures",
-                      "Steal or Forge Kerberos Tickets",
-                      "Subvert Trust Controls",
-                      "Supply Chain Compromise",
-                      "System Information Discovery",
-                      "Taint Shared Content",
-                      "Traffic Signaling",
-                      "Transfer Data to Cloud Account",
-                      "Trusted Relationship",
-                      "Unsecured Credentials",
-                      "User Execution",
-                      "Valid Accounts",
-                      "Windows Management Instrumentation",
-                      "File and Directory Permissions Modification"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Abuse Elevation Control Mechanism",
+                  "Access Token Manipulation",
+                  "Account Discovery",
+                  "Account Manipulation",
+                  "Active Scanning",
+                  "Application Layer Protocol",
+                  "Audio Capture",
+                  "Boot or Logon Autostart Execution",
+                  "Boot or Logon Initialization Scripts",
+                  "Brute Force",
+                  "Cloud Infrastructure Discovery",
+                  "Cloud Service Dashboard",
+                  "Cloud Service Discovery",
+                  "Command and Scripting Interpreter",
+                  "Compromise Client Software Binary",
+                  "Compromise Infrastructure",
+                  "Container and Resource Discovery",
+                  "Create Account",
+                  "Create or Modify System Process",
+                  "Credentials from Password Stores",
+                  "Data Destruction",
+                  "Data Encrypted for Impact",
+                  "Data from Cloud Storage Object",
+                  "Data from Configuration Repository",
+                  "Data from Information Repositories",
+                  "Data from Local System",
+                  "Data Manipulation",
+                  "Data Staged",
+                  "Defacement",
+                  "Deobfuscate/Decode Files or Information",
+                  "Disk Wipe",
+                  "Domain Trust Discovery",
+                  "Drive-by Compromise",
+                  "Dynamic Resolution",
+                  "Endpoint Denial of Service",
+                  "Event Triggered Execution",
+                  "Exfiltration Over Alternative Protocol",
+                  "Exploit Public-Facing Application",
+                  "Exploitation for Client Execution",
+                  "Exploitation for Credential Access",
+                  "Exploitation for Defense Evasion",
+                  "Exploitation for Privilege Escalation",
+                  "Exploitation of Remote Services",
+                  "External Remote Services",
+                  "Fallback Channels",
+                  "File and Directory Discovery",
+                  "Gather Victim Network Information",
+                  "Hide Artifacts",
+                  "Hijack Execution Flow",
+                  "Impair Defenses",
+                  "Implant Container Image",
+                  "Indicator Removal on Host",
+                  "Indirect Command Execution",
+                  "Ingress Tool Transfer",
+                  "Input Capture",
+                  "Inter-Process Communication",
+                  "Lateral Tool Transfer",
+                  "Man-in-the-Middle",
+                  "Masquerading",
+                  "Modify Authentication Process",
+                  "Modify Registry",
+                  "Network Denial of Service",
+                  "Network Service Scanning",
+                  "Network Sniffing",
+                  "Non-Application Layer Protocol",
+                  "Non-Standard Port",
+                  "Obtain Capabilities",
+                  "Obfuscated Files or Information",
+                  "Office Application Startup",
+                  "OS Credential Dumping",
+                  "Permission Groups Discovery",
+                  "Phishing",
+                  "Pre-OS Boot",
+                  "Process Discovery",
+                  "Process Injection",
+                  "Protocol Tunneling",
+                  "Proxy",
+                  "Query Registry",
+                  "Remote Access Software",
+                  "Remote Service Session Hijacking",
+                  "Remote Services",
+                  "Remote System Discovery",
+                  "Resource Hijacking",
+                  "Scheduled Task/Job",
+                  "Screen Capture",
+                  "Search Victim-Owned Websites",
+                  "Server Software Component",
+                  "Service Stop",
+                  "Signed Binary Proxy Execution",
+                  "Software Deployment Tools",
+                  "SQL Stored Procedures",
+                  "Steal or Forge Kerberos Tickets",
+                  "Subvert Trust Controls",
+                  "Supply Chain Compromise",
+                  "System Information Discovery",
+                  "Taint Shared Content",
+                  "Traffic Signaling",
+                  "Transfer Data to Cloud Account",
+                  "Trusted Relationship",
+                  "Unsecured Credentials",
+                  "User Execution",
+                  "Valid Accounts",
+                  "Windows Management Instrumentation",
+                  "File and Directory Permissions Modification"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -698,24 +666,17 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "accountBreach",
-                      "dataExfiltration",
-                      "dataSpillage",
-                      "maliciousInsider",
-                      "elevationOfPrivilege",
-                      "threatResistance",
-                      "missingCoverage",
-                      "denialOfService"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "accountBreach",
+                  "dataExfiltration",
+                  "dataSpillage",
+                  "maliciousInsider",
+                  "elevationOfPrivilege",
+                  "threatResistance",
+                  "missingCoverage",
+                  "denialOfService"
+                ],
+                "type": "string"
               },
               "type": "array"
             },

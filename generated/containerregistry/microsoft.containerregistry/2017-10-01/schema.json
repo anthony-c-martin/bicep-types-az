@@ -90,6 +90,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -157,6 +158,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -224,6 +226,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -281,14 +284,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IPRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IPRule"
               },
               "type": "array"
             },
@@ -302,14 +298,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkRule"
               },
               "type": "array"
             },
@@ -442,21 +431,14 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "push",
-                      "delete",
-                      "quarantine",
-                      "chart_push",
-                      "chart_delete"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "push",
+                  "delete",
+                  "quarantine",
+                  "chart_push",
+                  "chart_delete"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -572,6 +554,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -639,6 +622,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

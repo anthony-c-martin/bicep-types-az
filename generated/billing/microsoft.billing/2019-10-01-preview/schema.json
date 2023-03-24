@@ -33,14 +33,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AzurePlan"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AzurePlan"
               },
               "type": "array"
             },
@@ -131,6 +124,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -200,6 +194,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -238,6 +233,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -276,6 +272,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -314,6 +311,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -352,6 +350,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -478,39 +477,18 @@
         },
         "creationDate": {
           "description": "The date this billing instruction was created.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "endDate": {
           "description": "The date this billing instruction is no longer in effect.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "startDate": {
           "description": "The date this billing instruction goes into effect.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "required": [
@@ -605,6 +583,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -676,6 +655,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

@@ -70,6 +70,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -131,6 +132,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -171,14 +173,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AppServiceCertificate"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AppServiceCertificate"
               },
               "properties": {},
               "type": "object"
@@ -295,6 +290,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

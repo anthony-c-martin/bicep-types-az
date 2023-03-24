@@ -23,15 +23,8 @@
         },
         "name": {
           "description": "The name of the CdnWebApplicationFirewallPolicy.",
-          "oneOf": [
-            {
-              "maxLength": 128,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 128,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the web application firewall policy.",
@@ -79,6 +72,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -172,6 +166,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -239,6 +234,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -277,6 +273,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -315,6 +312,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -388,6 +386,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -426,6 +425,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -464,6 +464,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -502,6 +503,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -550,6 +552,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -588,6 +591,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -626,6 +630,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -664,6 +669,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -702,6 +708,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1324,22 +1331,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1460,22 +1460,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1558,14 +1551,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MatchCondition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MatchCondition"
               },
               "type": "array"
             },
@@ -1606,14 +1592,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CustomRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CustomRule"
               },
               "type": "array"
             },
@@ -1692,14 +1671,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceReference"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceReference"
               },
               "type": "array"
             },
@@ -1832,14 +1804,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DeliveryRuleActionAutoGenerated"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DeliveryRuleActionAutoGenerated"
               },
               "type": "array"
             },
@@ -1853,14 +1818,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DeliveryRuleCondition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DeliveryRuleCondition"
               },
               "type": "array"
             },
@@ -1945,14 +1903,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GeoFilter"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GeoFilter"
               },
               "type": "array"
             },
@@ -2017,14 +1968,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DeepCreatedOriginGroup"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DeepCreatedOriginGroup"
               },
               "type": "array"
             },
@@ -2046,14 +1990,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DeepCreatedOrigin"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DeepCreatedOrigin"
               },
               "type": "array"
             },
@@ -2088,14 +2025,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UrlSigningKey"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UrlSigningKey"
               },
               "type": "array"
             },
@@ -2133,14 +2063,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DeliveryRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DeliveryRule"
               },
               "type": "array"
             },
@@ -2367,22 +2290,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2487,22 +2403,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2540,18 +2449,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Mobile",
-                      "Desktop"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Mobile",
+                  "Desktop"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2590,22 +2492,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2734,14 +2629,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleOverride"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleOverride"
               },
               "type": "array"
             },
@@ -2820,14 +2708,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleGroupOverride"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleGroupOverride"
               },
               "type": "array"
             },
@@ -2859,14 +2740,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleSet"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleSet"
               },
               "type": "array"
             },
@@ -2962,22 +2836,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3081,14 +2948,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceReference"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceReference"
               },
               "type": "array"
             },
@@ -3337,22 +3197,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3455,22 +3308,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3540,14 +3386,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MatchCondition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MatchCondition"
               },
               "type": "array"
             },
@@ -3612,14 +3451,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/RateLimitRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/RateLimitRule"
               },
               "type": "array"
             },
@@ -3680,22 +3512,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3781,22 +3606,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3886,22 +3704,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3939,23 +3750,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "GET",
-                      "HEAD",
-                      "POST",
-                      "PUT",
-                      "DELETE",
-                      "OPTIONS",
-                      "TRACE"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "GET",
+                  "HEAD",
+                  "POST",
+                  "PUT",
+                  "DELETE",
+                  "OPTIONS",
+                  "TRACE"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3994,22 +3798,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -4047,18 +3844,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "HTTP",
-                      "HTTPS"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "HTTP",
+                  "HTTPS"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -4097,22 +3887,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -4198,22 +3981,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -4261,14 +4037,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/HttpErrorRangeParameters"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/HttpErrorRangeParameters"
               },
               "type": "array"
             },
@@ -4371,14 +4140,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ActivatedResourceReference"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ActivatedResourceReference"
               },
               "type": "array"
             },
@@ -4482,14 +4244,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceReference"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceReference"
               },
               "type": "array"
             },
@@ -4503,18 +4258,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Http",
-                      "Https"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Http",
+                  "Https"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -4534,14 +4282,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DeliveryRuleActionAutoGenerated"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DeliveryRuleActionAutoGenerated"
               },
               "type": "array"
             },
@@ -4555,14 +4296,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DeliveryRuleCondition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DeliveryRuleCondition"
               },
               "type": "array"
             },
@@ -4652,14 +4386,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ActivatedResourceReference"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ActivatedResourceReference"
               },
               "type": "array"
             },
@@ -4741,22 +4468,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -4913,22 +4633,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -4966,19 +4679,12 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "TLSv1",
-                      "TLSv1.1",
-                      "TLSv1.2"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "TLSv1",
+                  "TLSv1.1",
+                  "TLSv1.2"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -5017,22 +4723,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -5118,22 +4817,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -5219,22 +4911,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -5321,22 +5006,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -5505,14 +5183,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UrlSigningParamIdentifier"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UrlSigningParamIdentifier"
               },
               "type": "array"
             },
@@ -5648,6 +5319,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5686,6 +5358,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5724,6 +5397,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5781,6 +5455,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5819,6 +5494,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5857,6 +5533,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5895,6 +5572,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5933,6 +5611,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -5971,6 +5650,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -6009,6 +5689,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -6047,6 +5728,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

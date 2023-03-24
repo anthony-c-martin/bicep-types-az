@@ -88,6 +88,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -177,6 +178,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -340,15 +342,8 @@
       "properties": {
         "createdAt": {
           "description": "The timestamp of resource creation (UTC)",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "createdBy": {
           "description": "An identifier for the identity that created the resource",
@@ -373,15 +368,8 @@
         },
         "lastModifiedAt": {
           "description": "The timestamp of resource last modification (UTC)",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "lastModifiedBy": {
           "description": "An identifier for the identity that last modified the resource",

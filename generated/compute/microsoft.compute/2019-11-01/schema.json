@@ -67,6 +67,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -149,6 +150,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -217,6 +219,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -539,14 +542,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/EncryptionSettingsElement"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/EncryptionSettingsElement"
               },
               "type": "array"
             },

@@ -30,16 +30,9 @@
         },
         "name": {
           "description": "The name of the azure databricks accessConnector.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Azure Databricks accessConnector properties",
@@ -76,6 +69,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -96,16 +90,9 @@
         },
         "name": {
           "description": "The name of the workspace.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "The workspace properties.",
@@ -166,6 +153,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -204,6 +192,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -242,6 +231,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -941,14 +931,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/WorkspaceProviderAuthorization"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/WorkspaceProviderAuthorization"
               },
               "type": "array"
             },
@@ -1155,6 +1138,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1193,6 +1177,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

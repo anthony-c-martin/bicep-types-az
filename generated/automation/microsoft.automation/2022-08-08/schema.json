@@ -122,6 +122,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -160,6 +161,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -217,6 +219,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -255,6 +258,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -293,6 +297,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -331,6 +336,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -379,6 +385,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -417,6 +424,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -463,6 +471,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -501,6 +510,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -558,6 +568,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -611,6 +622,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -664,6 +676,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -717,6 +730,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -782,6 +796,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -820,6 +835,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -868,6 +884,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -914,6 +931,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -952,6 +970,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -967,14 +986,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -988,14 +1000,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AdvancedScheduleMonthlyOccurrence"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AdvancedScheduleMonthlyOccurrence"
               },
               "type": "array"
             },
@@ -1197,14 +1202,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FieldDefinition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FieldDefinition"
               },
               "properties": {},
               "type": "object"
@@ -1380,14 +1378,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DscConfigurationParameter"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DscConfigurationParameter"
               },
               "properties": {},
               "type": "object"
@@ -1632,14 +1623,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentitiesProperties"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentitiesProperties"
               },
               "properties": {},
               "type": "object"
@@ -1909,15 +1893,8 @@
       "properties": {
         "creationTime": {
           "description": "Gets or sets the creation time of the runbook draft.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "draftContentLink": {
           "description": "Gets or sets the draft runbook content link.",
@@ -1943,15 +1920,8 @@
         },
         "lastModifiedTime": {
           "description": "Gets or sets the last modified time of the runbook draft.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "outputTypes": {
           "description": "Gets or sets the runbook output types.",
@@ -1972,14 +1942,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/RunbookParameter"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/RunbookParameter"
               },
               "properties": {},
               "type": "object"
@@ -2058,15 +2021,8 @@
         },
         "expiryTime": {
           "description": "Gets or sets the end time of the schedule.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "frequency": {
           "description": "Gets or sets the frequency of the schedule.",
@@ -2092,15 +2048,8 @@
         },
         "startTime": {
           "description": "Gets or sets the start time of the schedule.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "timeZone": {
           "description": "Gets or sets the time zone of the schedule.",
@@ -2168,39 +2117,18 @@
         },
         "branch": {
           "description": "The repo branch of the source control. Include branch as empty string for VsoTfvc.",
-          "oneOf": [
-            {
-              "maxLength": 255,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 255,
+          "type": "string"
         },
         "description": {
           "description": "The user description of the source control.",
-          "oneOf": [
-            {
-              "maxLength": 512,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 512,
+          "type": "string"
         },
         "folderPath": {
           "description": "The folder path of the source control. Path must be relative.",
-          "oneOf": [
-            {
-              "maxLength": 255,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 255,
+          "type": "string"
         },
         "publishRunbook": {
           "description": "The auto publish of the source control. Default is true.",
@@ -2215,15 +2143,8 @@
         },
         "repoUrl": {
           "description": "The repo url of the source control.",
-          "oneOf": [
-            {
-              "maxLength": 2000,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 2000,
+          "type": "string"
         },
         "securityToken": {
           "description": "The authorization token for the repo of the source control.",
@@ -2259,27 +2180,13 @@
       "properties": {
         "accessToken": {
           "description": "The access token.",
-          "oneOf": [
-            {
-              "maxLength": 1024,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1024,
+          "type": "string"
         },
         "refreshToken": {
           "description": "The refresh token.",
-          "oneOf": [
-            {
-              "maxLength": 1024,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 1024,
+          "type": "string"
         },
         "tokenType": {
           "description": "The token type. Must be either PersonalAccessToken or Oauth.",
@@ -2374,6 +2281,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2431,6 +2339,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2469,6 +2378,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2507,6 +2417,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2545,6 +2456,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2583,6 +2495,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2621,6 +2534,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2667,6 +2581,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2705,6 +2620,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2762,6 +2678,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2815,6 +2732,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2868,6 +2786,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2921,6 +2840,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2986,6 +2906,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3024,6 +2945,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3062,6 +2984,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3108,6 +3031,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3146,6 +3070,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

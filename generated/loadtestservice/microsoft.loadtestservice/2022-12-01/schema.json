@@ -67,6 +67,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -125,15 +126,8 @@
       "properties": {
         "description": {
           "description": "Description of the resource.",
-          "oneOf": [
-            {
-              "maxLength": 512,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 512,
+          "type": "string"
         },
         "encryption": {
           "description": "CMK Encryption property.",
@@ -174,14 +168,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentity"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentity"
               },
               "properties": {},
               "type": "object"

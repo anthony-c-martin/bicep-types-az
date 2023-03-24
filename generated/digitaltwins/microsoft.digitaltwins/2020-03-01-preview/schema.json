@@ -19,16 +19,9 @@
         },
         "name": {
           "description": "The name of the DigitalTwinsInstance.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "DigitalTwins instance properties.",
@@ -86,6 +79,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -134,6 +128,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -233,6 +228,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

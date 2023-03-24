@@ -19,16 +19,9 @@
         },
         "name": {
           "description": "The name of the dashboard.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "The shared dashboard properties.",
@@ -65,6 +58,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -104,14 +98,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DashboardParts"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DashboardParts"
               },
               "properties": {},
               "type": "object"
@@ -238,14 +225,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DashboardLens"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DashboardLens"
               },
               "properties": {},
               "type": "object"

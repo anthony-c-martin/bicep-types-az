@@ -74,6 +74,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -139,6 +140,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -174,22 +176,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "PCMA",
-                      "PCMU",
-                      "G722",
-                      "G722_2",
-                      "SILK_8",
-                      "SILK_16"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "PCMA",
+                  "PCMU",
+                  "G722",
+                  "G722_2",
+                  "SILK_8",
+                  "SILK_16"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -257,18 +252,11 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "OperatorConnect",
-                      "TeamsPhoneMobile"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "OperatorConnect",
+                  "TeamsPhoneMobile"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -282,14 +270,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ServiceRegionProperties"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ServiceRegionProperties"
               },
               "type": "array"
             },
@@ -491,6 +472,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

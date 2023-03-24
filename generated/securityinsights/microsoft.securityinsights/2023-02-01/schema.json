@@ -82,6 +82,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -124,6 +125,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -166,6 +168,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -252,6 +255,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -294,6 +298,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -336,6 +341,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -386,6 +392,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -428,6 +435,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -515,6 +523,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -567,6 +576,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -609,6 +619,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -667,14 +678,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AutomationRuleAction"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AutomationRuleAction"
               },
               "type": "array"
             },
@@ -685,15 +689,8 @@
         },
         "displayName": {
           "description": "The display name of the automation rule.",
-          "oneOf": [
-            {
-              "maxLength": 500,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 500,
+          "type": "string"
         },
         "order": {
           "description": "The order of execution of the automation rule.",
@@ -950,14 +947,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AutomationRuleCondition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AutomationRuleCondition"
               },
               "type": "array"
             },
@@ -968,15 +958,8 @@
         },
         "expirationTimeUtc": {
           "description": "Determines when the automation rule should automatically expire and be disabled.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "isEnabled": {
           "description": "Determines whether the automation rule is enabled or disabled.",
@@ -1032,15 +1015,8 @@
       "properties": {
         "created": {
           "description": "The time the bookmark was created",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "createdBy": {
           "description": "Describes a user that created the bookmark",
@@ -1059,15 +1035,8 @@
         },
         "eventTime": {
           "description": "The bookmark event time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "incidentInfo": {
           "description": "Describes an incident that relates to bookmark",
@@ -1104,15 +1073,8 @@
         },
         "queryEndTime": {
           "description": "The end time for the query",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "queryResult": {
           "description": "The query result of the bookmark.",
@@ -1120,27 +1082,13 @@
         },
         "queryStartTime": {
           "description": "The start time for the query",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "updated": {
           "description": "The last time the bookmark was updated",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "updatedBy": {
           "description": "Describes a user that updated the bookmark",
@@ -1314,29 +1262,15 @@
         },
         "firstActivityTimeUtc": {
           "description": "The time of the first activity in the incident",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "labels": {
           "description": "List of labels relevant to this incident",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IncidentLabel"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IncidentLabel"
               },
               "type": "array"
             },
@@ -1347,15 +1281,8 @@
         },
         "lastActivityTimeUtc": {
           "description": "The time of the last activity in the incident",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "owner": {
           "description": "Describes a user that the incident is assigned to",
@@ -1458,14 +1385,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IncidentLabel"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IncidentLabel"
               },
               "type": "array"
             },
@@ -1585,14 +1505,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MetadataDependencies"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MetadataDependencies"
               },
               "type": "array"
             },
@@ -2066,14 +1979,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ThreatIntelligenceExternalReference"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ThreatIntelligenceExternalReference"
               },
               "type": "array"
             },
@@ -2087,14 +1993,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ThreatIntelligenceGranularMarkingModel"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ThreatIntelligenceGranularMarkingModel"
               },
               "type": "array"
             },
@@ -2122,14 +2021,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ThreatIntelligenceKillChainPhase"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ThreatIntelligenceKillChainPhase"
               },
               "type": "array"
             },
@@ -2183,14 +2075,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ThreatIntelligenceParsedPattern"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ThreatIntelligenceParsedPattern"
               },
               "type": "array"
             },
@@ -2291,14 +2176,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ThreatIntelligenceParsedPatternTypeValue"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ThreatIntelligenceParsedPatternTypeValue"
               },
               "type": "array"
             },
@@ -2347,15 +2225,8 @@
       "properties": {
         "created": {
           "description": "The time the watchlist item was created",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "createdBy": {
           "description": "Describes a user that created the watchlist item",
@@ -2391,15 +2262,8 @@
         },
         "updated": {
           "description": "The last time the watchlist item was updated",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "updatedBy": {
           "description": "Describes a user that updated the watchlist item",
@@ -2435,15 +2299,8 @@
         },
         "created": {
           "description": "The time the watchlist was created",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "createdBy": {
           "description": "Describes a user that created the watchlist",
@@ -2537,15 +2394,8 @@
         },
         "updated": {
           "description": "The last time the watchlist was updated",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "updatedBy": {
           "description": "Describes a user that updated the watchlist",
@@ -2620,6 +2470,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2662,6 +2513,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2704,6 +2556,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2746,6 +2599,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

@@ -91,6 +91,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -129,6 +130,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -167,6 +169,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -209,6 +212,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -252,15 +256,8 @@
         },
         "retrieveDatetime": {
           "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "signature": {
           "description": "Terms signature.",
@@ -382,14 +379,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FilteringTag"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FilteringTag"
               },
               "type": "array"
             },
@@ -442,14 +432,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FilteringTag"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FilteringTag"
               },
               "type": "array"
             },
@@ -561,27 +544,13 @@
         },
         "name": {
           "description": "Name of the user",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "type": "string"
         },
         "phoneNumber": {
           "description": "Phone number of the user used by Datadog for contacting them if needed",
-          "oneOf": [
-            {
-              "maxLength": 40,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 40,
+          "type": "string"
         }
       },
       "type": "object"
@@ -619,6 +588,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -657,6 +627,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

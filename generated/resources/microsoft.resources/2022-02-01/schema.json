@@ -76,6 +76,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -143,6 +144,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -172,27 +174,13 @@
       "properties": {
         "description": {
           "description": "Template Spec description.",
-          "oneOf": [
-            {
-              "maxLength": 4096,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 4096,
+          "type": "string"
         },
         "displayName": {
           "description": "Template Spec display name.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         },
         "metadata": {
           "description": "The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs."
@@ -205,29 +193,15 @@
       "properties": {
         "description": {
           "description": "Template Spec version description.",
-          "oneOf": [
-            {
-              "maxLength": 4096,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 4096,
+          "type": "string"
         },
         "linkedTemplates": {
           "description": "An array of linked template artifacts.",
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/LinkedTemplateArtifact"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/LinkedTemplateArtifact"
               },
               "type": "array"
             },
@@ -310,6 +284,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

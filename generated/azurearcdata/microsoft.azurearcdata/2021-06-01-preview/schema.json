@@ -67,6 +67,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -146,6 +147,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -225,6 +227,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -282,6 +285,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -322,15 +326,8 @@
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "logAnalyticsWorkspaceConfig": {
           "description": "Log analytics workspace id and primary key",
@@ -482,15 +479,8 @@
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -583,15 +573,8 @@
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "startTime": {
           "description": "The instance start time",
@@ -763,39 +746,18 @@
       "properties": {
         "logs": {
           "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "metrics": {
           "description": "Last uploaded date for metrics from kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "usages": {
           "description": "Last uploaded date for usages from kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"

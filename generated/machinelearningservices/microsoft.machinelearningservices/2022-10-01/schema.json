@@ -124,6 +124,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -225,6 +226,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -316,6 +318,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -372,6 +375,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -410,6 +414,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -466,6 +471,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -504,6 +510,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -583,6 +590,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -621,6 +629,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -677,6 +686,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -715,6 +725,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -761,6 +772,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -817,6 +829,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -855,6 +868,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -901,6 +915,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -957,6 +972,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -995,6 +1011,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1096,6 +1113,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1187,6 +1205,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1266,6 +1285,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1312,6 +1332,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2055,29 +2076,22 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "LogisticRegression",
-                      "SGD",
-                      "MultinomialNaiveBayes",
-                      "BernoulliNaiveBayes",
-                      "SVM",
-                      "LinearSVM",
-                      "KNN",
-                      "DecisionTree",
-                      "RandomForest",
-                      "ExtremeRandomTrees",
-                      "LightGBM",
-                      "GradientBoosting",
-                      "XGBoostClassifier"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "LogisticRegression",
+                  "SGD",
+                  "MultinomialNaiveBayes",
+                  "BernoulliNaiveBayes",
+                  "SVM",
+                  "LinearSVM",
+                  "KNN",
+                  "DecisionTree",
+                  "RandomForest",
+                  "ExtremeRandomTrees",
+                  "LightGBM",
+                  "GradientBoosting",
+                  "XGBoostClassifier"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2091,29 +2105,22 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "LogisticRegression",
-                      "SGD",
-                      "MultinomialNaiveBayes",
-                      "BernoulliNaiveBayes",
-                      "SVM",
-                      "LinearSVM",
-                      "KNN",
-                      "DecisionTree",
-                      "RandomForest",
-                      "ExtremeRandomTrees",
-                      "LightGBM",
-                      "GradientBoosting",
-                      "XGBoostClassifier"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "LogisticRegression",
+                  "SGD",
+                  "MultinomialNaiveBayes",
+                  "BernoulliNaiveBayes",
+                  "SVM",
+                  "LinearSVM",
+                  "KNN",
+                  "DecisionTree",
+                  "RandomForest",
+                  "ExtremeRandomTrees",
+                  "LightGBM",
+                  "GradientBoosting",
+                  "XGBoostClassifier"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2672,14 +2679,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ComputeStartStopSchedule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ComputeStartStopSchedule"
               },
               "type": "array"
             },
@@ -3589,35 +3589,28 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "AutoArima",
-                      "Prophet",
-                      "Naive",
-                      "SeasonalNaive",
-                      "Average",
-                      "SeasonalAverage",
-                      "ExponentialSmoothing",
-                      "Arimax",
-                      "TCNForecaster",
-                      "ElasticNet",
-                      "GradientBoosting",
-                      "DecisionTree",
-                      "KNN",
-                      "LassoLars",
-                      "SGD",
-                      "RandomForest",
-                      "ExtremeRandomTrees",
-                      "LightGBM",
-                      "XGBoostRegressor"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "AutoArima",
+                  "Prophet",
+                  "Naive",
+                  "SeasonalNaive",
+                  "Average",
+                  "SeasonalAverage",
+                  "ExponentialSmoothing",
+                  "Arimax",
+                  "TCNForecaster",
+                  "ElasticNet",
+                  "GradientBoosting",
+                  "DecisionTree",
+                  "KNN",
+                  "LassoLars",
+                  "SGD",
+                  "RandomForest",
+                  "ExtremeRandomTrees",
+                  "LightGBM",
+                  "XGBoostRegressor"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -3631,35 +3624,28 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "AutoArima",
-                      "Prophet",
-                      "Naive",
-                      "SeasonalNaive",
-                      "Average",
-                      "SeasonalAverage",
-                      "ExponentialSmoothing",
-                      "Arimax",
-                      "TCNForecaster",
-                      "ElasticNet",
-                      "GradientBoosting",
-                      "DecisionTree",
-                      "KNN",
-                      "LassoLars",
-                      "SGD",
-                      "RandomForest",
-                      "ExtremeRandomTrees",
-                      "LightGBM",
-                      "XGBoostRegressor"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "AutoArima",
+                  "Prophet",
+                  "Naive",
+                  "SeasonalNaive",
+                  "Average",
+                  "SeasonalAverage",
+                  "ExponentialSmoothing",
+                  "Arimax",
+                  "TCNForecaster",
+                  "ElasticNet",
+                  "GradientBoosting",
+                  "DecisionTree",
+                  "KNN",
+                  "LassoLars",
+                  "SGD",
+                  "RandomForest",
+                  "ExtremeRandomTrees",
+                  "LightGBM",
+                  "XGBoostRegressor"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -5206,14 +5192,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/JobService"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/JobService"
               },
               "properties": {},
               "type": "object"
@@ -5370,14 +5349,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/InstanceTypeSchema"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/InstanceTypeSchema"
               },
               "properties": {},
               "type": "object"
@@ -5559,14 +5531,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentity"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentity"
               },
               "properties": {},
               "type": "object"
@@ -5644,14 +5609,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/FlavorData"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/FlavorData"
               },
               "properties": {},
               "type": "object"
@@ -6020,14 +5978,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "properties": {},
               "type": "object"
@@ -6259,14 +6210,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -6280,14 +6224,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -6301,14 +6238,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -6322,23 +6252,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday",
-                      "Sunday"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -6362,26 +6285,19 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ElasticNet",
-                      "GradientBoosting",
-                      "DecisionTree",
-                      "KNN",
-                      "LassoLars",
-                      "SGD",
-                      "RandomForest",
-                      "ExtremeRandomTrees",
-                      "LightGBM",
-                      "XGBoostRegressor"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ElasticNet",
+                  "GradientBoosting",
+                  "DecisionTree",
+                  "KNN",
+                  "LassoLars",
+                  "SGD",
+                  "RandomForest",
+                  "ExtremeRandomTrees",
+                  "LightGBM",
+                  "XGBoostRegressor"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -6395,26 +6311,19 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ElasticNet",
-                      "GradientBoosting",
-                      "DecisionTree",
-                      "KNN",
-                      "LassoLars",
-                      "SGD",
-                      "RandomForest",
-                      "ExtremeRandomTrees",
-                      "LightGBM",
-                      "XGBoostRegressor"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ElasticNet",
+                  "GradientBoosting",
+                  "DecisionTree",
+                  "KNN",
+                  "LassoLars",
+                  "SGD",
+                  "RandomForest",
+                  "ExtremeRandomTrees",
+                  "LightGBM",
+                  "XGBoostRegressor"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -7177,26 +7086,19 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "TextTargetEncoder",
-                      "OneHotEncoder",
-                      "CatTargetEncoder",
-                      "TfIdf",
-                      "WoETargetEncoder",
-                      "LabelEncoder",
-                      "WordEmbedding",
-                      "NaiveBayes",
-                      "CountVectorizer",
-                      "HashOneHotEncoder"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "TextTargetEncoder",
+                  "OneHotEncoder",
+                  "CatTargetEncoder",
+                  "TfIdf",
+                  "WoETargetEncoder",
+                  "LabelEncoder",
+                  "WordEmbedding",
+                  "NaiveBayes",
+                  "CountVectorizer",
+                  "HashOneHotEncoder"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -7256,24 +7158,10 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/definitions/ColumnTransformer"
-                        },
-                        {
-                          "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                        }
-                      ]
-                    },
-                    "type": "array"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/definitions/ColumnTransformer"
+                },
+                "type": "array"
               },
               "properties": {},
               "type": "object"
@@ -7762,14 +7650,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SharedPrivateLinkResource"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SharedPrivateLinkResource"
               },
               "type": "array"
             },
@@ -7882,6 +7763,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -7973,6 +7855,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8019,6 +7902,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8057,6 +7941,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8103,6 +7988,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8141,6 +8027,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8220,6 +8107,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8258,6 +8146,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8304,6 +8193,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8342,6 +8232,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8388,6 +8279,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8434,6 +8326,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8472,6 +8365,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8518,6 +8412,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8564,6 +8459,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8602,6 +8498,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8693,6 +8590,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8784,6 +8682,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8863,6 +8762,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -8909,6 +8809,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

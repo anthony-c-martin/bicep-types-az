@@ -69,6 +69,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -136,6 +137,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -193,6 +195,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -260,6 +263,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -317,6 +321,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -398,14 +403,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DataDiskImageEncryption"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DataDiskImageEncryption"
               },
               "type": "array"
             },
@@ -444,14 +442,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GalleryApplicationCustomActionParameter"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GalleryApplicationCustomActionParameter"
               },
               "type": "array"
             },
@@ -527,14 +518,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GalleryApplicationCustomAction"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GalleryApplicationCustomAction"
               },
               "type": "array"
             },
@@ -549,15 +533,8 @@
         },
         "endOfLifeDate": {
           "description": "The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "eula": {
           "description": "The Eula agreement for the gallery Application Definition.",
@@ -646,14 +623,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GalleryApplicationCustomAction"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GalleryApplicationCustomAction"
               },
               "type": "array"
             },
@@ -675,15 +645,8 @@
         },
         "endOfLifeDate": {
           "description": "The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "excludeFromLatest": {
           "description": "If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.",
@@ -777,14 +740,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GalleryTargetExtendedLocation"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GalleryTargetExtendedLocation"
               },
               "type": "array"
             },
@@ -798,14 +754,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/TargetRegion"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/TargetRegion"
               },
               "type": "array"
             },
@@ -1018,15 +967,8 @@
         },
         "endOfLifeDate": {
           "description": "The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "eula": {
           "description": "The Eula agreement for the gallery image definition.",
@@ -1037,14 +979,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GalleryImageFeature"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GalleryImageFeature"
               },
               "type": "array"
             },
@@ -1194,15 +1129,8 @@
       "properties": {
         "endOfLifeDate": {
           "description": "The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "excludeFromLatest": {
           "description": "If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.",
@@ -1263,14 +1191,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GalleryTargetExtendedLocation"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GalleryTargetExtendedLocation"
               },
               "type": "array"
             },
@@ -1284,14 +1205,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/TargetRegion"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/TargetRegion"
               },
               "type": "array"
             },
@@ -1328,14 +1242,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/GalleryDataDiskImage"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/GalleryDataDiskImage"
               },
               "type": "array"
             },
@@ -1842,6 +1749,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1899,6 +1807,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1956,6 +1865,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2013,6 +1923,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

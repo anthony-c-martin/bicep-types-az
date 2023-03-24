@@ -75,6 +75,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -151,6 +152,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -216,6 +218,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -308,6 +311,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -384,6 +388,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -460,6 +465,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -536,6 +542,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -612,6 +619,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -688,6 +696,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -764,6 +773,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -840,6 +850,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -916,6 +927,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -992,6 +1004,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1068,6 +1081,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1154,6 +1168,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1230,6 +1245,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1306,6 +1322,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1318,27 +1335,13 @@
       "properties": {
         "password": {
           "description": "The password of the administrator of the device used during initialization.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "username": {
           "description": "The username of the administrator of the device used during initialization.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -1387,15 +1390,8 @@
         },
         "machineDetails": {
           "description": "The free-form additional information about the machine, e.g. an asset tag.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "machineName": {
           "description": "The user-provided name for the bare metal machine created from this specification.\nIf not provided, the machine name will be generated programmatically.",
@@ -1422,15 +1418,8 @@
         },
         "serialNumber": {
           "description": "The serial number of the machine. Hardware suppliers may use an alternate value. For example, service tag.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "type": "string"
         }
       },
       "required": [
@@ -1451,15 +1440,8 @@
         },
         "expiration": {
           "description": "The date and time after which the users in this key set will be removed from the bare metal machines.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "jumpHostsAllowed": {
           "description": "The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.",
@@ -1508,14 +1490,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/KeySetUser"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/KeySetUser"
               },
               "type": "array"
             },
@@ -1600,15 +1575,8 @@
         },
         "machineDetails": {
           "description": "The custom details provided by the customer.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "machineName": {
           "description": "The OS-level hostname assigned to this machine.",
@@ -1643,16 +1611,9 @@
         },
         "serialNumber": {
           "description": "The serial number of the bare metal machine.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -1716,15 +1677,8 @@
         },
         "expiration": {
           "description": "The date and time after which the users in this key set will be removed from the baseboard management controllers.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "privilegeLevel": {
           "description": "The access level allowed for the users in this key set.",
@@ -1746,14 +1700,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/KeySetUser"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/KeySetUser"
               },
               "type": "array"
             },
@@ -1779,14 +1726,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/EgressEndpoint"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/EgressEndpoint"
               },
               "type": "array"
             },
@@ -2018,15 +1958,8 @@
         },
         "clusterLocation": {
           "description": "The customer-provided location information to identify where the cluster resides.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "clusterServicePrincipal": {
           "description": "ServicePrincipalInformation represents the details of the service principal to be used by the cluster during Arc Appliance installation.",
@@ -2074,14 +2007,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/RackDefinition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/RackDefinition"
               },
               "type": "array"
             },
@@ -2123,14 +2049,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/BgpPeer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/BgpPeer"
               },
               "type": "array"
             },
@@ -2144,14 +2063,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CommunityAdvertisement"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CommunityAdvertisement"
               },
               "type": "array"
             },
@@ -2252,15 +2164,8 @@
         },
         "expiration": {
           "description": "The date and time after which the key will be disallowed access.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "sshPublicKey": {
           "description": "SshPublicKey represents the public key used to authenticate with the virtual machine through SSH.",
@@ -2352,14 +2257,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/EndpointDependency"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/EndpointDependency"
               },
               "type": "array"
             },
@@ -2484,15 +2382,8 @@
       "properties": {
         "password": {
           "description": "The password or token used to access an image in the target repository.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "registryUrl": {
           "description": "The URL of the authentication server used to validate the repository credentials.",
@@ -2500,15 +2391,8 @@
         },
         "username": {
           "description": "The username used to access an image in the target repository.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -2527,15 +2411,8 @@
         },
         "description": {
           "description": "The free-form description for this user.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "sshPublicKey": {
           "description": "SshPublicKey represents the public key used to authenticate with the virtual machine through SSH.",
@@ -2699,15 +2576,8 @@
         },
         "name": {
           "description": "The name for the managed resource group. If not specified, the unique name is automatically generated.",
-          "oneOf": [
-            {
-              "maxLength": 75,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 75,
+          "type": "string"
         }
       },
       "type": "object"
@@ -2760,15 +2630,8 @@
         },
         "networkAttachmentName": {
           "description": "The associated network's interface name.\nIf specified, the network attachment name has a maximum length of 15 characters and must be unique to this virtual machine.\nIf the user doesn’t specify this value, the default interface name of the network resource will be used.\nFor a CloudServicesNetwork resource, this name will be ignored.",
-          "oneOf": [
-            {
-              "maxLength": 15,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 15,
+          "type": "string"
         }
       },
       "required": [
@@ -2845,14 +2708,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/BareMetalMachineConfigurationData"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/BareMetalMachineConfigurationData"
               },
               "type": "array"
             },
@@ -2867,28 +2723,14 @@
         },
         "rackLocation": {
           "description": "The free-form description of the rack's location.",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "rackSerialNumber": {
           "description": "The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
         },
         "rackSkuId": {
           "description": "The resource ID of the sku for the rack being added.",
@@ -2899,14 +2741,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/StorageApplianceConfigurationData"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/StorageApplianceConfigurationData"
               },
               "type": "array"
             },
@@ -2940,28 +2775,14 @@
         },
         "rackLocation": {
           "description": "The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         },
         "rackSerialNumber": {
           "description": "The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
         },
         "rackSkuId": {
           "description": "The SKU for the rack.",
@@ -3009,15 +2830,8 @@
       "properties": {
         "keyData": {
           "description": "The public ssh key of the user.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -3206,14 +3020,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -3301,15 +3108,8 @@
         },
         "resourceId": {
           "description": "The resource ID of the target object that the placement hints will be checked against, e.g., the bare metal node to host the virtual machine.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "schedulingExecution": {
           "description": "The indicator of whether the hint is a hard or soft requirement during scheduling.",
@@ -3435,14 +3235,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/NetworkAttachment"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/NetworkAttachment"
               },
               "type": "array"
             },
@@ -3460,14 +3253,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualMachinePlacementHint"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualMachinePlacementHint"
               },
               "type": "array"
             },
@@ -3481,14 +3267,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SshPublicKey"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SshPublicKey"
               },
               "type": "array"
             },
@@ -3659,6 +3438,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3735,6 +3515,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3811,6 +3592,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3887,6 +3669,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

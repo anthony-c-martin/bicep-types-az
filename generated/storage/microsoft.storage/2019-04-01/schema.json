@@ -48,16 +48,9 @@
         },
         "name": {
           "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "The parameters used to create the storage account.",
@@ -121,6 +114,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -179,6 +173,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -195,16 +190,9 @@
         },
         "name": {
           "description": "The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the blob container.",
@@ -236,6 +224,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -284,6 +273,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -342,6 +332,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -358,16 +349,9 @@
         },
         "name": {
           "description": "The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the file share.",
@@ -389,6 +373,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -437,6 +422,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -648,23 +634,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "DELETE",
-                      "GET",
-                      "HEAD",
-                      "MERGE",
-                      "POST",
-                      "OPTIONS",
-                      "PUT"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "DELETE",
+                  "GET",
+                  "HEAD",
+                  "MERGE",
+                  "POST",
+                  "OPTIONS",
+                  "PUT"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -730,14 +709,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CorsRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CorsRule"
               },
               "type": "array"
             },
@@ -1283,14 +1255,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagementPolicyRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagementPolicyRule"
               },
               "type": "array"
             },
@@ -1362,14 +1327,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IPRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IPRule"
               },
               "type": "array"
             },
@@ -1383,14 +1341,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkRule"
               },
               "type": "array"
             },
@@ -1455,14 +1406,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Restriction"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/Restriction"
               },
               "type": "array"
             },
@@ -1705,6 +1649,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1721,16 +1666,9 @@
         },
         "name": {
           "description": "The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the blob container.",
@@ -1752,6 +1690,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1800,6 +1739,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1848,6 +1788,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1864,16 +1805,9 @@
         },
         "name": {
           "description": "The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the file share.",
@@ -1895,6 +1829,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1943,6 +1878,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

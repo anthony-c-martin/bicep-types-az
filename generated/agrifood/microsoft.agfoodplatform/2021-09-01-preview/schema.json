@@ -83,6 +83,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -96,14 +97,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApiProperties"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApiProperties"
               },
               "properties": {},
               "type": "object"
@@ -121,16 +115,9 @@
         },
         "extensionVersion": {
           "description": "Extension Version.",
-          "oneOf": [
-            {
-              "maxLength": 10,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 10,
+          "minLength": 3,
+          "type": "string"
         },
         "name": {
           "description": "Id of extension resource.",
@@ -183,6 +170,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -229,6 +217,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -420,75 +409,33 @@
       "properties": {
         "marketplacePublisherId": {
           "description": "SaaS application Publisher Id.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "offerId": {
           "description": "SaaS application Offer Id.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "planId": {
           "description": "SaaS application Plan Id.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "saasSubscriptionId": {
           "description": "SaaS subscriptionId of the installed SaaS application.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "saasSubscriptionName": {
           "description": "SaaS subscription name of the installed SaaS application.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "termId": {
           "description": "SaaS application Term Id.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -509,14 +456,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ApiProperties"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ApiProperties"
               },
               "properties": {},
               "type": "object"
@@ -534,16 +474,9 @@
         },
         "extensionVersion": {
           "description": "Extension Version.",
-          "oneOf": [
-            {
-              "maxLength": 10,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 10,
+          "minLength": 3,
+          "type": "string"
         },
         "name": {
           "description": "Id of extension resource.",
@@ -596,6 +529,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -642,6 +576,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

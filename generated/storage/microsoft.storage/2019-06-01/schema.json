@@ -48,16 +48,9 @@
         },
         "name": {
           "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-          "oneOf": [
-            {
-              "maxLength": 24,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 24,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "The parameters used to create the storage account.",
@@ -139,6 +132,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -197,6 +191,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -213,16 +208,9 @@
         },
         "name": {
           "description": "The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the blob container.",
@@ -254,6 +242,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -302,6 +291,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -318,16 +308,9 @@
         },
         "name": {
           "description": "The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the encryption scope.",
@@ -349,6 +332,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -407,6 +391,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -423,16 +408,9 @@
         },
         "name": {
           "description": "The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the file share.",
@@ -454,6 +432,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -502,6 +481,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -550,6 +530,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -566,15 +547,8 @@
         },
         "name": {
           "description": "The ID of object replication policy or 'default' if the policy ID is unknown.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Returns the Storage Account Object Replication Policy.",
@@ -596,6 +570,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -634,6 +609,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -692,6 +668,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -740,6 +717,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -788,6 +766,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1028,14 +1007,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/BlobInventoryPolicyRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/BlobInventoryPolicyRule"
               },
               "type": "array"
             },
@@ -1267,23 +1239,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "DELETE",
-                      "GET",
-                      "HEAD",
-                      "MERGE",
-                      "POST",
-                      "OPTIONS",
-                      "PUT"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "DELETE",
+                  "GET",
+                  "HEAD",
+                  "MERGE",
+                  "POST",
+                  "OPTIONS",
+                  "PUT"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -1349,14 +1314,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CorsRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CorsRule"
               },
               "type": "array"
             },
@@ -2055,14 +2013,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/TagFilter"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/TagFilter"
               },
               "type": "array"
             },
@@ -2184,14 +2135,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagementPolicyRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagementPolicyRule"
               },
               "type": "array"
             },
@@ -2324,14 +2268,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/IPRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/IPRule"
               },
               "type": "array"
             },
@@ -2345,14 +2282,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualNetworkRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualNetworkRule"
               },
               "type": "array"
             },
@@ -2403,14 +2333,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ObjectReplicationPolicyRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ObjectReplicationPolicyRule"
               },
               "type": "array"
             },
@@ -2843,16 +2766,9 @@
       "properties": {
         "name": {
           "description": "This is the filter tag name, it can have 1 - 128 characters",
-          "oneOf": [
-            {
-              "maxLength": 128,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
         },
         "op": {
           "description": "This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported",
@@ -2860,15 +2776,8 @@
         },
         "value": {
           "description": "This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "type": "string"
         }
       },
       "required": [
@@ -2966,6 +2875,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2982,16 +2892,9 @@
         },
         "name": {
           "description": "The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the blob container.",
@@ -3013,6 +2916,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3061,6 +2965,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3077,16 +2982,9 @@
         },
         "name": {
           "description": "The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the encryption scope.",
@@ -3108,6 +3006,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3156,6 +3055,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3172,16 +3072,9 @@
         },
         "name": {
           "description": "The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the file share.",
@@ -3203,6 +3096,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3251,6 +3145,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3299,6 +3194,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3315,15 +3211,8 @@
         },
         "name": {
           "description": "The ID of object replication policy or 'default' if the policy ID is unknown.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Returns the Storage Account Object Replication Policy.",
@@ -3345,6 +3234,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3383,6 +3273,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3431,6 +3322,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3479,6 +3371,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -3527,6 +3420,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

@@ -77,6 +77,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -115,6 +116,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -194,6 +196,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -283,6 +286,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -321,6 +325,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -388,6 +393,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -445,6 +451,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -714,14 +721,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ActiveDirectoryDomainController"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ActiveDirectoryDomainController"
               },
               "type": "array"
             },
@@ -810,15 +810,8 @@
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "logAnalyticsWorkspaceConfig": {
           "description": "Log analytics workspace id and primary key",
@@ -1018,15 +1011,8 @@
       "properties": {
         "lastUpdateTime": {
           "description": "The time that the custom resource was last updated.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "The version of the replicaSet associated with the failover group custom resource.",
@@ -1044,14 +1030,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AGReplicas"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AGReplicas"
               },
               "type": "array"
             },
@@ -1262,15 +1241,8 @@
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -1437,15 +1409,8 @@
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "licenseType": {
           "description": "The license type to apply for this managed instance.",
@@ -1569,15 +1534,8 @@
         },
         "databaseCreationDate": {
           "description": "Creation date of the database.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "databaseOptions": {
           "description": "List of features that are enabled for the database",
@@ -1668,27 +1626,13 @@
       "properties": {
         "lastFullBackup": {
           "description": "Date time of last full backup.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "lastLogBackup": {
           "description": "Date time of last log backup.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -1808,15 +1752,8 @@
         },
         "azureDefenderStatusLastUpdated": {
           "description": "Timestamp of last Azure Defender status update.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "collation": {
           "description": "SQL Server collation.",
@@ -2011,39 +1948,18 @@
       "properties": {
         "logs": {
           "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "metrics": {
           "description": "Last uploaded date for metrics from kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "usages": {
           "description": "Last uploaded date for usages from kubernetes cluster. Defaults to current date time",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2081,6 +1997,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2119,6 +2036,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -2176,6 +2094,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

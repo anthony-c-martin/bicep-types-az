@@ -112,6 +112,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -150,6 +151,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -188,6 +190,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -226,6 +229,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -264,6 +268,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -340,14 +345,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/LiveTraceCategory"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/LiveTraceCategory"
               },
               "type": "array"
             },
@@ -387,14 +385,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentityProperty"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentityProperty"
               },
               "properties": {},
               "type": "object"
@@ -425,20 +416,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -452,20 +436,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -495,20 +472,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -522,20 +492,13 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ClientConnection",
-                      "ServerConnection",
-                      "RESTAPI",
-                      "Trace"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ClientConnection",
+                  "ServerConnection",
+                  "RESTAPI",
+                  "Trace"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -635,14 +598,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceLogCategory"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceLogCategory"
               },
               "type": "array"
             },
@@ -730,14 +686,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UpstreamTemplate"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UpstreamTemplate"
               },
               "type": "array"
             },
@@ -828,16 +777,9 @@
         },
         "value": {
           "description": "Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.",
-          "oneOf": [
-            {
-              "maxLength": 128,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
         }
       },
       "required": [
@@ -869,14 +811,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/PrivateEndpointACL"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/PrivateEndpointACL"
               },
               "type": "array"
             },
@@ -940,14 +875,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SignalRFeature"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SignalRFeature"
               },
               "type": "array"
             },
@@ -1152,6 +1080,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1190,6 +1119,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1228,6 +1158,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1266,6 +1197,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

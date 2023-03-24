@@ -30,16 +30,9 @@
         },
         "name": {
           "description": "Name of the deployment script.",
-          "oneOf": [
-            {
-              "maxLength": 90,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 90,
+          "minLength": 1,
+          "type": "string"
         },
         "tags": {
           "description": "Resource tags.",
@@ -94,14 +87,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/UserAssignedIdentity"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/UserAssignedIdentity"
               },
               "properties": {},
               "type": "object"

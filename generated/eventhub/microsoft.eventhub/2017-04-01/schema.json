@@ -19,16 +19,9 @@
         },
         "name": {
           "description": "The Namespace name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 6,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 6,
+          "type": "string"
         },
         "properties": {
           "description": "Namespace properties supplied for create namespace operation.",
@@ -95,6 +88,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -111,15 +105,8 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update AuthorizationRule",
@@ -141,6 +128,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -157,16 +145,9 @@
         },
         "name": {
           "description": "The Disaster Recovery configuration name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties required to the Create Or Update Alias(Disaster Recovery configurations)",
@@ -188,6 +169,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -204,16 +186,9 @@
         },
         "name": {
           "description": "The Event Hub name",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to the Create Or Update Event Hub operation.",
@@ -248,6 +223,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -264,15 +240,8 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update AuthorizationRule",
@@ -294,6 +263,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -310,16 +280,9 @@
         },
         "name": {
           "description": "The consumer group name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Single item in List or Get Consumer group operation",
@@ -341,6 +304,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -379,6 +343,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -408,19 +373,12 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Manage",
-                      "Send",
-                      "Listen"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Manage",
+                  "Send",
+                  "Listen"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -735,14 +693,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/NWRuleSetIpRules"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/NWRuleSetIpRules"
               },
               "type": "array"
             },
@@ -756,14 +707,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/NWRuleSetVirtualNetworkRules"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/NWRuleSetVirtualNetworkRules"
               },
               "type": "array"
             },
@@ -849,15 +793,8 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update AuthorizationRule",
@@ -879,6 +816,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -895,16 +833,9 @@
         },
         "name": {
           "description": "The Disaster Recovery configuration name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties required to the Create Or Update Alias(Disaster Recovery configurations)",
@@ -926,6 +857,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -942,15 +874,8 @@
         },
         "name": {
           "description": "The authorization rule name.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to create or update AuthorizationRule",
@@ -972,6 +897,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -988,16 +914,9 @@
         },
         "name": {
           "description": "The Event Hub name",
-          "oneOf": [
-            {
-              "maxLength": 256,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Properties supplied to the Create Or Update Event Hub operation.",
@@ -1019,6 +938,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1035,16 +955,9 @@
         },
         "name": {
           "description": "The consumer group name",
-          "oneOf": [
-            {
-              "maxLength": 50,
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string"
         },
         "properties": {
           "description": "Single item in List or Get Consumer group operation",
@@ -1066,6 +979,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1106,6 +1020,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

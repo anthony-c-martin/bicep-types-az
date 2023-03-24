@@ -37,6 +37,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -75,6 +76,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -185,15 +187,8 @@
         },
         "startDateTime": {
           "description": "Start DateTime of the role assignment schedule.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -207,15 +202,8 @@
         },
         "endDateTime": {
           "description": "End DateTime of the role assignment schedule.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "type": {
           "description": "Type of the role assignment schedule expiration",
@@ -349,15 +337,8 @@
         },
         "startDateTime": {
           "description": "Start DateTime of the role eligibility schedule.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -371,15 +352,8 @@
         },
         "endDateTime": {
           "description": "End DateTime of the role eligibility schedule.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "type": {
           "description": "Type of the role eligibility schedule expiration",

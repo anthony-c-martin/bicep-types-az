@@ -66,6 +66,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -108,6 +109,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -142,28 +144,21 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "ServerDiscovery",
-                      "ServerAssessment",
-                      "ServerMigration",
-                      "Cloudamize",
-                      "Turbonomic",
-                      "Zerto",
-                      "CorentTech",
-                      "ServerAssessmentV1",
-                      "ServerMigration_Replication",
-                      "Carbonite",
-                      "DataMigrationAssistant",
-                      "DatabaseMigrationService"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "ServerDiscovery",
+                  "ServerAssessment",
+                  "ServerMigration",
+                  "Cloudamize",
+                  "Turbonomic",
+                  "Zerto",
+                  "CorentTech",
+                  "ServerAssessmentV1",
+                  "ServerMigration_Replication",
+                  "Carbonite",
+                  "DataMigrationAssistant",
+                  "DatabaseMigrationService"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -387,6 +382,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

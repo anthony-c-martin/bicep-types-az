@@ -19,16 +19,9 @@
         },
         "name": {
           "description": "The name of the resource provider.",
-          "oneOf": [
-            {
-              "maxLength": 64,
-              "minLength": 3,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 64,
+          "minLength": 3,
+          "type": "string"
         },
         "properties": {
           "description": "The manifest for the custom resource provider",
@@ -65,6 +58,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -105,6 +99,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -170,14 +165,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CustomRPActionRouteDefinition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CustomRPActionRouteDefinition"
               },
               "type": "array"
             },
@@ -191,14 +179,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CustomRPResourceTypeRouteDefinition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CustomRPResourceTypeRouteDefinition"
               },
               "type": "array"
             },
@@ -212,14 +193,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CustomRPValidations"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CustomRPValidations"
               },
               "type": "array"
             },

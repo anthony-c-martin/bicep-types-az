@@ -23,15 +23,8 @@
         },
         "name": {
           "description": "The name of the Web Application Firewall Policy.",
-          "oneOf": [
-            {
-              "maxLength": 128,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 128,
+          "type": "string"
         },
         "properties": {
           "description": "Properties of the web application firewall policy.",
@@ -79,6 +72,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -126,14 +120,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MatchCondition"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MatchCondition"
               },
               "type": "array"
             },
@@ -144,15 +131,8 @@
         },
         "name": {
           "description": "Describes the name of the rule.",
-          "oneOf": [
-            {
-              "maxLength": 128,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "maxLength": 128,
+          "type": "string"
         },
         "priority": {
           "description": "Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.",
@@ -219,14 +199,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/CustomRule"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/CustomRule"
               },
               "type": "array"
             },
@@ -297,14 +270,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleExclusion"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleExclusion"
               },
               "type": "array"
             },
@@ -322,14 +288,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleOverride"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleOverride"
               },
               "type": "array"
             },
@@ -384,14 +343,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleExclusion"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleExclusion"
               },
               "type": "array"
             },
@@ -418,14 +370,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleExclusion"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleExclusion"
               },
               "type": "array"
             },
@@ -439,14 +384,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleGroupOverride"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleGroupOverride"
               },
               "type": "array"
             },
@@ -494,14 +432,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ManagedRuleSet"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ManagedRuleSet"
               },
               "type": "array"
             },
@@ -597,22 +528,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Lowercase",
-                      "Uppercase",
-                      "Trim",
-                      "UrlDecode",
-                      "UrlEncode",
-                      "RemoveNulls"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Lowercase",
+                  "Uppercase",
+                  "Trim",
+                  "UrlDecode",
+                  "UrlEncode",
+                  "RemoveNulls"
+                ],
+                "type": "string"
               },
               "type": "array"
             },

@@ -67,6 +67,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -135,6 +136,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -203,6 +205,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -271,6 +274,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -339,6 +343,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -417,6 +422,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -459,6 +465,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -485,15 +492,8 @@
       "properties": {
         "availabilitySetName": {
           "description": "Name of the availability set.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "vmmServerId": {
           "description": "ARM Id of the vmmServer resource in which this resource resides.",
@@ -533,15 +533,8 @@
         },
         "uuid": {
           "description": "Unique ID of the cloud.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "vmmServerId": {
           "description": "ARM Id of the vmmServer resource in which this resource resides.",
@@ -742,14 +735,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/NetworkInterfaces"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/NetworkInterfaces"
               },
               "type": "array"
             },
@@ -783,14 +769,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/VirtualDisk"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/VirtualDisk"
               },
               "type": "array"
             },
@@ -832,15 +811,8 @@
         },
         "fqdn": {
           "description": "Fqdn is the hostname/ip of the vmmServer.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "port": {
           "description": "Port is the port on which the vmmServer is listening.",
@@ -966,14 +938,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/AvailabilitySetListItem"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/AvailabilitySetListItem"
               },
               "type": "array"
             },
@@ -991,14 +956,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Checkpoint"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/Checkpoint"
               },
               "type": "array"
             },
@@ -1080,15 +1038,8 @@
         },
         "vmName": {
           "description": "VMName is the name of VM on the SCVMM server.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "vmmServerId": {
           "description": "ARM Id of the vmmServer resource in which this resource resides.",
@@ -1106,15 +1057,8 @@
         },
         "uuid": {
           "description": "Unique ID of the virtual machine template.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "vmmServerId": {
           "description": "ARM Id of the vmmServer resource in which this resource resides.",
@@ -1132,15 +1076,8 @@
         },
         "uuid": {
           "description": "Unique ID of the virtual network.",
-          "oneOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "minLength": 1,
+          "type": "string"
         },
         "vmmServerId": {
           "description": "ARM Id of the vmmServer resource in which this resource resides.",
@@ -1186,6 +1123,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

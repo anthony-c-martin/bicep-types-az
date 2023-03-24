@@ -66,6 +66,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -104,6 +105,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -467,15 +469,8 @@
         },
         "startTime": {
           "description": "Gets or sets the job start time.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "state": {
           "description": "Gets or set the job state.",
@@ -512,15 +507,8 @@
         },
         "endTime": {
           "description": "Gets or sets the time at which the job will complete.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "frequency": {
           "description": "Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).",
@@ -572,14 +560,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -593,14 +574,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -614,14 +588,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -635,14 +602,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/JobRecurrenceScheduleMonthlyOccurrence"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/JobRecurrenceScheduleMonthlyOccurrence"
               },
               "type": "array"
             },
@@ -656,23 +616,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Sunday",
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -826,15 +779,8 @@
         },
         "scheduledEnqueueTimeUtc": {
           "description": "Gets or sets the scheduled enqueue time UTC.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "sessionId": {
           "description": "Gets or sets the session ID.",
@@ -1071,6 +1017,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

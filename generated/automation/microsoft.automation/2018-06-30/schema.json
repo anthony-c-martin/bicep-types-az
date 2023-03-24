@@ -52,6 +52,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -109,6 +110,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -272,15 +274,8 @@
       "properties": {
         "creationTime": {
           "description": "Gets or sets the creation time of the runbook draft.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "draftContentLink": {
           "description": "Gets or sets the draft runbook content link.",
@@ -306,15 +301,8 @@
         },
         "lastModifiedTime": {
           "description": "Gets or sets the last modified time of the runbook draft.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "outputTypes": {
           "description": "Gets or sets the runbook output types.",
@@ -335,14 +323,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/RunbookParameter"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/RunbookParameter"
               },
               "properties": {},
               "type": "object"

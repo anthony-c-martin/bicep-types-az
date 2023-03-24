@@ -60,6 +60,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -121,6 +122,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -315,15 +317,8 @@
         },
         "reviewDateTime": {
           "description": "This is the date-time when the Azure Hybrid Benefit needs to be reviewed.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "term": {
           "description": "Represent benefit term in ISO 8601 format.",

@@ -60,6 +60,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -121,6 +122,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -192,6 +194,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -253,6 +256,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -314,6 +318,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -375,6 +380,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -436,6 +442,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -448,15 +455,8 @@
       "properties": {
         "oldestRecoveryPoint": {
           "description": "The oldest backup copy available for this item in the service.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "policyState": {
           "description": "Indicates consistency of policy object and policy applied to this backup item.",
@@ -486,15 +486,8 @@
       "properties": {
         "oldestRecoveryPoint": {
           "description": "The oldest backup copy available for this backup item.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "policyInconsistent": {
           "description": "Specifies if backup policy associated with the backup item is inconsistent.",
@@ -526,15 +519,8 @@
       "properties": {
         "oldestRecoveryPoint": {
           "description": "The oldest backup copy available for this item in the service.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "policyState": {
           "description": "State of the backup policy associated with this backup item.",
@@ -559,15 +545,8 @@
       "properties": {
         "oldestRecoveryPoint": {
           "description": "The oldest backup copy available for this backup item.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "policyState": {
           "description": "Indicates consistency of policy object and policy applied to this backup item.",
@@ -610,14 +589,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DistributedNodesInfo"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DistributedNodesInfo"
               },
               "type": "array"
             },
@@ -810,15 +782,8 @@
       "properties": {
         "lastRefreshedAt": {
           "description": "Last refresh time of the DPMContainer.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
@@ -858,51 +823,23 @@
         },
         "lastRefreshedAt": {
           "description": "Last refresh time on backup item.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "oldestRecoveryPoint": {
           "description": "Oldest cloud recovery point time.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "onPremiseLatestRecoveryPoint": {
           "description": "latest disk recovery point time.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "onPremiseOldestRecoveryPoint": {
           "description": "Oldest disk recovery point time.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "onPremiseRecoveryPointCount": {
           "description": "disk recovery point count.",
@@ -971,14 +908,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Day"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/Day"
               },
               "type": "array"
             },
@@ -1009,15 +939,8 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "format": "date-time",
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "format": "date-time",
+                "type": "string"
               },
               "type": "array"
             },
@@ -1064,14 +987,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "type": "integer"
               },
               "type": "array"
             },
@@ -1196,14 +1112,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/WorkloadInquiryDetails"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/WorkloadInquiryDetails"
               },
               "type": "array"
             },
@@ -1261,14 +1170,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/ResourceHealthDetails"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/ResourceHealthDetails"
               },
               "type": "array"
             },
@@ -1389,15 +1291,8 @@
         },
         "lastRefreshedAt": {
           "description": "Time stamp when this container was refreshed.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "policyName": {
           "description": "Backup policy associated with this container.",
@@ -1411,27 +1306,13 @@
       "properties": {
         "lastRefreshedAt": {
           "description": "Last time when the agent data synced to service.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "oldestRecoveryPoint": {
           "description": "The oldest backup copy available.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "recoveryPointCount": {
           "description": "Number of backup copies associated with the backup item.",
@@ -1504,15 +1385,8 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "format": "date-time",
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "format": "date-time",
+                "type": "string"
               },
               "type": "array"
             },
@@ -1661,15 +1535,8 @@
         },
         "deferredDeleteTimeInUTC": {
           "description": "Time for deferred deletion in UTC",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "deferredDeleteTimeRemaining": {
           "description": "Time remaining before the DS marked for deferred delete is permanently deleted",
@@ -1710,15 +1577,8 @@
         },
         "lastRecoveryPoint": {
           "description": "Timestamp when the last (latest) backup copy was created for this backup item.",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "policyId": {
           "description": "ID of the backup policy with which this item is backed up.",
@@ -2011,23 +1871,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Sunday",
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2041,22 +1894,15 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "First",
-                      "Second",
-                      "Third",
-                      "Fourth",
-                      "Last",
-                      "Invalid"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "First",
+                  "Second",
+                  "Third",
+                  "Fourth",
+                  "Last",
+                  "Invalid"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2076,23 +1922,16 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Sunday",
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2117,15 +1956,8 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "format": "date-time",
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "format": "date-time",
+                "type": "string"
               },
               "type": "array"
             },
@@ -2177,29 +2009,22 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "enum": [
-                      "Invalid",
-                      "January",
-                      "February",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                      "August",
-                      "September",
-                      "October",
-                      "November",
-                      "December"
-                    ],
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "enum": [
+                  "Invalid",
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December"
+                ],
+                "type": "string"
               },
               "type": "array"
             },
@@ -2262,15 +2087,8 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "format": "date-time",
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "format": "date-time",
+                "type": "string"
               },
               "type": "array"
             },
@@ -2338,6 +2156,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

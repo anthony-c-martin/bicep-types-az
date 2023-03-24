@@ -88,6 +88,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -162,6 +163,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -204,6 +206,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -246,6 +249,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -288,6 +292,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -345,6 +350,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -385,6 +391,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -1128,14 +1135,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/SelectedCertificateInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/SelectedCertificateInput"
               },
               "type": "array"
             },
@@ -1461,14 +1461,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateMySqlAzureDbForMySqlOfflineDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateMySqlAzureDbForMySqlOfflineDatabaseInput"
               },
               "type": "array"
             },
@@ -1490,15 +1483,8 @@
         },
         "startedOn": {
           "description": "Parameter to specify when the migration started",
-          "oneOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "format": "date-time",
+          "type": "string"
         },
         "targetConnectionInfo": {
           "description": "Connection information for target Azure Database for MySQL",
@@ -1601,14 +1587,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateMySqlAzureDbForMySqlSyncDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateMySqlAzureDbForMySqlSyncDatabaseInput"
               },
               "type": "array"
             },
@@ -1737,14 +1716,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateOracleAzureDbPostgreSqlSyncDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateOracleAzureDbPostgreSqlSyncDatabaseInput"
               },
               "type": "array"
             },
@@ -1808,14 +1780,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInput"
               },
               "type": "array"
             },
@@ -1883,14 +1848,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput"
               },
               "type": "array"
             },
@@ -1970,14 +1928,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSchemaSqlServerSqlDbDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSchemaSqlServerSqlDbDatabaseInput"
               },
               "type": "array"
             },
@@ -2157,14 +2108,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSqlServerSqlDbSyncDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSqlServerSqlDbSyncDatabaseInput"
               },
               "type": "array"
             },
@@ -2226,14 +2170,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSqlServerSqlDbDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSqlServerSqlDbDatabaseInput"
               },
               "type": "array"
             },
@@ -2375,14 +2312,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
               },
               "type": "array"
             },
@@ -2494,14 +2424,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
               },
               "type": "array"
             },
@@ -2775,14 +2698,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MongoDbCollectionSettings"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MongoDbCollectionSettings"
               },
               "properties": {},
               "type": "object"
@@ -2828,14 +2744,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MongoDbDatabaseSettings"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MongoDbDatabaseSettings"
               },
               "properties": {},
               "type": "object"
@@ -2940,14 +2849,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MongoDbShardKeyField"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MongoDbShardKeyField"
               },
               "type": "array"
             },
@@ -3265,14 +3167,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/DatabaseInfo"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/DatabaseInfo"
               },
               "type": "array"
             },
@@ -3766,14 +3661,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
               },
               "type": "array"
             },
@@ -3863,14 +3751,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSqlServerSqlMIDatabaseInput"
               },
               "type": "array"
             },
@@ -3932,14 +3813,7 @@
           "oneOf": [
             {
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/MigrateSqlServerSqlDbSyncDatabaseInput"
-                  },
-                  {
-                    "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                  }
-                ]
+                "$ref": "#/definitions/MigrateSqlServerSqlDbSyncDatabaseInput"
               },
               "type": "array"
             },
@@ -4034,6 +3908,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -4076,6 +3951,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -4118,6 +3994,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -4160,6 +4037,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],
