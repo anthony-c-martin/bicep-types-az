@@ -384,6 +384,21 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "hardwareEncryption": {
+          "description": "Defines Hardware level encryption (Only for disk)",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -897,6 +912,17 @@
           "description": "Postal code.",
           "type": "string"
         },
+        "skipAddressValidation": {
+          "description": "Flag to indicate if customer has chosen to skip default address validation",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "stateOrProvince": {
           "description": "Name of the State or Province.",
           "type": "string"
@@ -911,6 +937,10 @@
         },
         "streetAddress3": {
           "description": "Street Address line 3.",
+          "type": "string"
+        },
+        "taxIdentificationNumber": {
+          "description": "Tax Identification Number",
           "type": "string"
         },
         "zipExtendedCode": {

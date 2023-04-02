@@ -1,24 +1,24 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-03-15/Microsoft.Quota.json#",
+  "id": "https://schema.management.azure.com/schemas/2023-02-01/Microsoft.Quota.json#",
   "title": "Microsoft.Quota",
   "description": "Microsoft Quota Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "unknown_resourceDefinitions": {
-    "quotaLimits": {
-      "description": "Microsoft.Quota/quotaLimits",
+    "quotas": {
+      "description": "Microsoft.Quota/quotas",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2021-03-15"
+            "2023-02-01"
           ],
           "type": "string"
         },
         "name": {
-          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- Sku or TotalLowPriorityCores for Microsoft.MachineLearningServices",
+          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- SKU or TotalLowPriorityCores for Microsoft.MachineLearningServices\r\n For Microsoft.Network PublicIPAddresses.",
           "type": "string"
         },
         "properties": {
-          "description": "Quota properties for the specified resource.",
+          "description": "Quota properties for the specified resource, based on the API called, Quotas or Usages.",
           "oneOf": [
             {
               "$ref": "#/definitions/QuotaProperties"
@@ -30,7 +30,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Quota/quotaLimits"
+            "Microsoft.Quota/quotas"
           ],
           "type": "string"
         }
@@ -45,14 +45,19 @@
     }
   },
   "definitions": {
+    "LimitJsonObject": {
+      "description": "LimitJson abstract class.",
+      "properties": {},
+      "type": "object"
+    },
     "QuotaProperties": {
       "description": "Quota properties for the specified resource.",
       "properties": {
         "limit": {
-          "description": "Quota limit.",
+          "description": "Resource quota limit properties.",
           "oneOf": [
             {
-              "type": "integer"
+              "$ref": "#/definitions/LimitJsonObject"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -74,22 +79,8 @@
           "description": "Additional properties for the specific resource provider."
         },
         "resourceType": {
-          "description": "Resource type name.",
-          "oneOf": [
-            {
-              "enum": [
-                "standard",
-                "dedicated",
-                "lowPriority",
-                "shared",
-                "serviceSpecific"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The name of the resource type. Optional field.",
+          "type": "string"
         }
       },
       "type": "object"

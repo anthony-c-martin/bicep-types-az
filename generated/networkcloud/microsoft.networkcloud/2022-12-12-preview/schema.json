@@ -1354,7 +1354,7 @@
       "description": "BareMetalMachineConfigurationData represents configuration for the bare metal machine.",
       "properties": {
         "bmcCredentials": {
-          "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
+          "description": "The credentials of the baseboard management controller on this bare metal machine.",
           "oneOf": [
             {
               "$ref": "#/definitions/AdministrativeCredentials"
@@ -1517,7 +1517,7 @@
           "type": "string"
         },
         "bmcCredentials": {
-          "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
+          "description": "The credentials of the baseboard management controller on this bare metal machine.",
           "oneOf": [
             {
               "$ref": "#/definitions/AdministrativeCredentials"
@@ -1545,28 +1545,6 @@
             {
               "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$",
               "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "hardwareInventory": {
-          "description": "HardwareInventory represents the hardware configuration of this machine as exposed to the customer, including information acquired from the model/sku information and from the ironic inspector.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/HardwareInventory"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "hardwareValidationStatus": {
-          "description": "HardwareValidationStatus represents the latest hardware validation details performed for this bare metal machine.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/HardwareValidationStatus"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1753,100 +1731,6 @@
       },
       "type": "object"
     },
-    "ClusterCapacity": {
-      "description": "ClusterCapacity represents various details regarding compute capacity.",
-      "properties": {
-        "availableApplianceStorageGB": {
-          "description": "The remaining appliance-based storage in GB available for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "availableCoreCount": {
-          "description": "The remaining number of cores that are available in this cluster for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "availableHostStorageGB": {
-          "description": "The remaining machine or host-based storage in GB available for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "availableMemoryGB": {
-          "description": "The remaining memory in GB that are available in this cluster for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "totalApplianceStorageGB": {
-          "description": "The total appliance-based storage in GB supported by this cluster for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "totalCoreCount": {
-          "description": "The total number of cores that are supported by this cluster for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "totalHostStorageGB": {
-          "description": "The total machine or host-based storage in GB supported by this cluster for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "totalMemoryGB": {
-          "description": "The total memory supported by this cluster for workload use.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
     "ClusterManagerProperties": {
       "description": "ClusterManagerProperties represents the properties of a cluster manager.",
       "properties": {
@@ -1931,7 +1815,7 @@
       "description": "ClusterProperties represents the properties of a cluster.",
       "properties": {
         "aggregatorOrSingleRackDefinition": {
-          "description": "RackDefinition represents details regarding the rack.",
+          "description": "The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.",
           "oneOf": [
             {
               "$ref": "#/definitions/RackDefinition"
@@ -1945,24 +1829,13 @@
           "description": "The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.",
           "type": "string"
         },
-        "clusterCapacity": {
-          "description": "ClusterCapacity represents various details regarding compute capacity.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ClusterCapacity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "clusterLocation": {
           "description": "The customer-provided location information to identify where the cluster resides.",
           "maxLength": 256,
           "type": "string"
         },
         "clusterServicePrincipal": {
-          "description": "ServicePrincipalInformation represents the details of the service principal to be used by the cluster during Arc Appliance installation.",
+          "description": "The service principal to be used by the cluster during Arc Appliance installation.",
           "oneOf": [
             {
               "$ref": "#/definitions/ServicePrincipalInformation"
@@ -1992,7 +1865,7 @@
           "type": "string"
         },
         "computeDeploymentThreshold": {
-          "description": "ValidationThreshold indicates allowed machine and node hardware and deployment failures.",
+          "description": "The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.",
           "oneOf": [
             {
               "$ref": "#/definitions/ValidationThreshold"
@@ -2168,7 +2041,7 @@
           "type": "string"
         },
         "sshPublicKey": {
-          "description": "SshPublicKey represents the public key used to authenticate with the virtual machine through SSH.",
+          "description": "The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.",
           "oneOf": [
             {
               "$ref": "#/definitions/SshPublicKey"
@@ -2189,7 +2062,7 @@
       "description": "DefaultCniNetworkProperties represents properties of the default CNI network.",
       "properties": {
         "cniBgpConfiguration": {
-          "description": "CniBgpConfiguration represents the Calico BGP configuration.",
+          "description": "The Calico BGP configuration.",
           "oneOf": [
             {
               "$ref": "#/definitions/CniBgpConfiguration"
@@ -2315,16 +2188,6 @@
       ],
       "type": "object"
     },
-    "HardwareInventory": {
-      "description": "HardwareInventory represents the hardware configuration of this machine as exposed to the customer, including information acquired from the model/sku information and from the ironic inspector.",
-      "properties": {},
-      "type": "object"
-    },
-    "HardwareValidationStatus": {
-      "description": "HardwareValidationStatus represents the latest hardware validation details performed for this bare metal machine.",
-      "properties": {},
-      "type": "object"
-    },
     "HybridAksClusterProperties": {
       "description": "HybridAksClusterProperties represents the properties of Hybrid AKS cluster resource.",
       "properties": {
@@ -2415,7 +2278,7 @@
           "type": "string"
         },
         "sshPublicKey": {
-          "description": "SshPublicKey represents the public key used to authenticate with the virtual machine through SSH.",
+          "description": "The SSH public key for this user.",
           "oneOf": [
             {
               "$ref": "#/definitions/SshPublicKey"
@@ -2843,7 +2706,7 @@
       "description": "StorageApplianceConfigurationData represents configuration for the storage application.",
       "properties": {
         "adminCredentials": {
-          "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
+          "description": "The credentials of the administrative interface on this storage appliance.",
           "oneOf": [
             {
               "$ref": "#/definitions/AdministrativeCredentials"
@@ -2892,7 +2755,7 @@
       "description": "StorageApplianceProperties represents the properties of the storage appliance.",
       "properties": {
         "administratorCredentials": {
-          "description": "AdministrativeCredentials represents the admin credentials for the device requiring password-based authentication.",
+          "description": "The credentials of the administrative interface on this storage appliance.",
           "oneOf": [
             {
               "$ref": "#/definitions/AdministrativeCredentials"
@@ -2939,7 +2802,7 @@
       "description": "StorageProfile represents information about a disk.",
       "properties": {
         "osDisk": {
-          "description": "OsDisk represents configuration of the boot disk.",
+          "description": "The disk to use with this virtual machine.",
           "oneOf": [
             {
               "$ref": "#/definitions/OsDisk"
@@ -3183,7 +3046,7 @@
           ]
         },
         "cloudServicesNetworkAttachment": {
-          "description": "NetworkAttachment represents the single network attachment.",
+          "description": "The cloud service network that provides platform-level services for the virtual machine.",
           "oneOf": [
             {
               "$ref": "#/definitions/NetworkAttachment"
@@ -3277,7 +3140,7 @@
           ]
         },
         "storageProfile": {
-          "description": "StorageProfile represents information about a disk.",
+          "description": "The storage profile that specifies size and other parameters about the disks related to the virtual machine.",
           "oneOf": [
             {
               "$ref": "#/definitions/StorageProfile"
@@ -3326,7 +3189,7 @@
           "type": "string"
         },
         "vmImageRepositoryCredentials": {
-          "description": "ImageRepositoryCredentials represents the credentials used to login to the image repository.",
+          "description": "The credentials used to login to the image repository that has access to the specified image.",
           "oneOf": [
             {
               "$ref": "#/definitions/ImageRepositoryCredentials"

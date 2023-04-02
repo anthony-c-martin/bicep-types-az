@@ -707,40 +707,6 @@
     }
   },
   "definitions": {
-    "AGReplicas": {
-      "description": "The information about each failover group replica.",
-      "properties": {
-        "availabilityMode": {
-          "description": "The availability mode of the replica.",
-          "type": "string"
-        },
-        "connectedState": {
-          "description": "The connected state of the replica.",
-          "type": "string"
-        },
-        "healthState": {
-          "description": "The health state of the replica.",
-          "type": "string"
-        },
-        "replicaName": {
-          "description": "The replica name.",
-          "type": "string"
-        },
-        "role": {
-          "description": "The role of the replica.",
-          "type": "string"
-        },
-        "secondaryRoleAllowConnections": {
-          "description": "The secondary role allowed connections.",
-          "type": "string"
-        },
-        "synchronizationState": {
-          "description": "The synchronization state of the availability group replicas.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "ActiveDirectoryConnectorDNSDetails": {
       "description": "DNS server details",
       "properties": {
@@ -1279,15 +1245,7 @@
           ]
         },
         "status": {
-          "description": "The status of the failover group custom resource.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/FailoverGroupStatus"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The status of the failover group custom resource."
         }
       },
       "required": [
@@ -1356,80 +1314,6 @@
       "required": [
         "role"
       ],
-      "type": "object"
-    },
-    "FailoverGroupStatus": {
-      "additionalProperties": {},
-      "description": "The status of the Kubernetes custom resource.",
-      "properties": {
-        "lastUpdateTime": {
-          "description": "The time that the custom resource was last updated.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "observedGeneration": {
-          "description": "The version of the replicaSet associated with the failover group custom resource.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "replicas": {
-          "description": "A list of failover group replicas.",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/AGReplicas"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "results": {
-          "description": "The message in case of a failure in the failover group.",
-          "type": "string"
-        },
-        "role": {
-          "description": "The role of the managed instance in the failover group.",
-          "oneOf": [
-            {
-              "enum": [
-                "primary",
-                "secondary",
-                "force-primary-allow-data-loss",
-                "force-secondary"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "state": {
-          "description": "The state of the failover group custom resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "Waiting",
-                "Succeeded",
-                "Failed"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
       "type": "object"
     },
     "K8SResourceRequirements": {
