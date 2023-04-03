@@ -134,7 +134,16 @@
           ]
         },
         "parameters": {
-          "description": "Deployment parameters. Use only one of Parameters or ParametersLink."
+          "description": "Deployment parameters. Use only one of Parameters or ParametersLink.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "parametersLink": {
           "description": "Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.",
@@ -148,7 +157,16 @@
           ]
         },
         "template": {
-          "description": "Gets or sets the template content. Use only one of Template or TemplateLink."
+          "description": "Gets or sets the template content. Use only one of Template or TemplateLink.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "templateLink": {
           "description": "Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.",

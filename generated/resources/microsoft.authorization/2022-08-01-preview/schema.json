@@ -228,7 +228,16 @@
           "type": "string"
         },
         "columnValue": {
-          "description": "Column value for the variable value; this can be an integer, double, boolean, null or a string."
+          "description": "Column value for the variable value; this can be an integer, double, boolean, null or a string.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [

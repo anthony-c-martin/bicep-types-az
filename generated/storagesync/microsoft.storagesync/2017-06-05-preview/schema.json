@@ -46,7 +46,16 @@
           "type": "array"
         },
         "tags": {
-          "description": "The tags of the resource."
+          "description": "The tags of the resource.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

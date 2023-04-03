@@ -108,6 +108,9 @@
                 "$ref": "#/definitions/service_contentTypes_childResource"
               },
               {
+                "$ref": "#/definitions/service_notifications_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_subscriptions_childResource"
               },
               {
@@ -276,6 +279,9 @@
         "resources": {
           "items": {
             "oneOf": [
+              {
+                "$ref": "#/definitions/service_apis_tags_childResource"
+              },
               {
                 "$ref": "#/definitions/service_apis_issues_childResource"
               },
@@ -555,6 +561,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/service_apis_operations_tags_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_apis_operations_policies_childResource"
               }
             ]
@@ -620,6 +629,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_apis_operations_tags": {
+      "description": "Microsoft.ApiManagement/service/apis/operations/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Tag identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/apis/operations/tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -808,6 +854,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_apis_tags": {
+      "description": "Microsoft.ApiManagement/service/apis/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Tag identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/apis/tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -1358,6 +1441,16 @@
             }
           ]
         },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_groups_users_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "type": {
           "enum": [
             "Microsoft.ApiManagement/service/groups"
@@ -1368,6 +1461,35 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_groups_users": {
+      "description": "Microsoft.ApiManagement/service/groups/users",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "User identifier. Must be unique in the current API Management service instance.",
+          "maxLength": 80,
+          "minLength": 1,
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/groups/users"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -1518,6 +1640,118 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_notifications": {
+      "description": "Microsoft.ApiManagement/service/notifications",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Notification Name Identifier.",
+          "oneOf": [
+            {
+              "enum": [
+                "RequestPublisherNotificationMessage",
+                "PurchasePublisherNotificationMessage",
+                "NewApplicationNotificationMessage",
+                "BCC",
+                "NewIssuePublisherNotificationMessage",
+                "AccountClosedPublisher",
+                "QuotaLimitApproachingPublisherNotificationMessage"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_notifications_recipientUsers_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_notifications_recipientEmails_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/notifications"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_notifications_recipientEmails": {
+      "description": "Microsoft.ApiManagement/service/notifications/recipientEmails",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Email identifier.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/notifications/recipientEmails"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_notifications_recipientUsers": {
+      "description": "Microsoft.ApiManagement/service/notifications/recipientUsers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "User identifier. Must be unique in the current API Management service instance.",
+          "maxLength": 80,
+          "minLength": 1,
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/notifications/recipientUsers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -1831,6 +2065,15 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/service_products_tags_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_products_apis_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_products_groups_childResource"
+              },
+              {
                 "$ref": "#/definitions/service_products_policies_childResource"
               }
             ]
@@ -1847,6 +2090,72 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_apis": {
+      "description": "Microsoft.ApiManagement/service/products/apis",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/products/apis"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_groups": {
+      "description": "Microsoft.ApiManagement/service/products/groups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Group identifier. Must be unique in the current API Management service instance.",
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/products/groups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -1896,6 +2205,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_tags": {
+      "description": "Microsoft.ApiManagement/service/products/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Tag identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/products/tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -3648,7 +3994,16 @@
           "type": "string"
         },
         "schema": {
-          "description": "Content type schema."
+          "description": "Content type schema.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "version": {
           "description": "Content type version.",
@@ -4027,7 +4382,16 @@
           "type": "string"
         },
         "document": {
-          "description": "Global Schema document object for json-based schema formats(e.g. json schema)."
+          "description": "Global Schema document object for json-based schema formats(e.g. json schema).",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "schemaType": {
           "description": "Schema Type. Immutable.",
@@ -5405,10 +5769,28 @@
       "description": "Api Schema Document Properties.",
       "properties": {
         "components": {
-          "description": "Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise."
+          "description": "Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "definitions": {
-          "description": "Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise."
+          "description": "Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "value": {
           "description": "Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.",
@@ -6139,6 +6521,43 @@
       ],
       "type": "object"
     },
+    "service_apis_operations_tags_childResource": {
+      "description": "Microsoft.ApiManagement/service/apis/operations/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Tag identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "service_apis_policies_childResource": {
       "description": "Microsoft.ApiManagement/service/apis/policies",
       "properties": {
@@ -6322,6 +6741,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_apis_tags_childResource": {
+      "description": "Microsoft.ApiManagement/service/apis/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Tag identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -6861,6 +7317,35 @@
       ],
       "type": "object"
     },
+    "service_groups_users_childResource": {
+      "description": "Microsoft.ApiManagement/service/groups/users",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "User identifier. Must be unique in the current API Management service instance.",
+          "maxLength": 80,
+          "minLength": 1,
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "users"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "service_identityProviders_childResource": {
       "description": "Microsoft.ApiManagement/service/identityProviders",
       "properties": {
@@ -7006,6 +7491,105 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_notifications_childResource": {
+      "description": "Microsoft.ApiManagement/service/notifications",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Notification Name Identifier.",
+          "oneOf": [
+            {
+              "enum": [
+                "RequestPublisherNotificationMessage",
+                "PurchasePublisherNotificationMessage",
+                "NewApplicationNotificationMessage",
+                "BCC",
+                "NewIssuePublisherNotificationMessage",
+                "AccountClosedPublisher",
+                "QuotaLimitApproachingPublisherNotificationMessage"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "notifications"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_notifications_recipientEmails_childResource": {
+      "description": "Microsoft.ApiManagement/service/notifications/recipientEmails",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Email identifier.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "recipientEmails"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_notifications_recipientUsers_childResource": {
+      "description": "Microsoft.ApiManagement/service/notifications/recipientUsers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "User identifier. Must be unique in the current API Management service instance.",
+          "maxLength": 80,
+          "minLength": 1,
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "recipientUsers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -7295,6 +7879,43 @@
       ],
       "type": "object"
     },
+    "service_products_apis_childResource": {
+      "description": "Microsoft.ApiManagement/service/products/apis",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "apis"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "service_products_childResource": {
       "description": "Microsoft.ApiManagement/service/products",
       "properties": {
@@ -7331,6 +7952,35 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_groups_childResource": {
+      "description": "Microsoft.ApiManagement/service/products/groups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Group identifier. Must be unique in the current API Management service instance.",
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "groups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -7380,6 +8030,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_tags_childResource": {
+      "description": "Microsoft.ApiManagement/service/products/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Tag identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

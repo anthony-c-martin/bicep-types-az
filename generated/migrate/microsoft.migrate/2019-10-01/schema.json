@@ -62,7 +62,16 @@
           "type": "array"
         },
         "tags": {
-          "description": "Tags provided by Azure Tagging service."
+          "description": "Tags provided by Azure Tagging service.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

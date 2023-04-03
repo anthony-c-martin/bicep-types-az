@@ -308,7 +308,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The policy assignment metadata."
+          "description": "The policy assignment metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "notScopes": {
           "description": "The policy's excluded scopes.",
@@ -325,7 +334,16 @@
           ]
         },
         "parameters": {
-          "description": "Required if a parameter is used in policy rule."
+          "description": "Required if a parameter is used in policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyDefinitionId": {
           "description": "The ID of the policy definition or policy set definition being assigned.",
@@ -350,7 +368,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The policy definition metadata."
+          "description": "The policy definition metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "mode": {
           "description": "The policy definition mode. Possible values are NotSpecified, Indexed, and All.",
@@ -369,10 +396,28 @@
           ]
         },
         "parameters": {
-          "description": "Required if a parameter is used in policy rule."
+          "description": "Required if a parameter is used in policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyRule": {
-          "description": "The policy rule."
+          "description": "The policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyType": {
           "description": "The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.",
@@ -397,7 +442,16 @@
       "description": "The policy definition reference.",
       "properties": {
         "parameters": {
-          "description": "Required if a parameter is used in policy rule."
+          "description": "Required if a parameter is used in policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyDefinitionId": {
           "description": "The ID of the policy definition or policy set definition.",
@@ -418,10 +472,28 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The policy set definition metadata."
+          "description": "The policy set definition metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "parameters": {
-          "description": "The policy set definition parameters that can be used in policy definition references."
+          "description": "The policy set definition parameters that can be used in policy definition references.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyDefinitions": {
           "description": "An array of policy definition references.",

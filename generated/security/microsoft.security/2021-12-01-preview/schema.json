@@ -234,7 +234,16 @@
       "description": "The Microsoft Defender for Endpoint autoprovisioning configuration",
       "properties": {
         "configuration": {
-          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning"
+          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "enabled": {
           "description": "Is Microsoft Defender for Endpoint auto provisioning enabled",
@@ -380,7 +389,16 @@
       "description": "The Microsoft Defender for Endpoint autoprovisioning configuration",
       "properties": {
         "configuration": {
-          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning"
+          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "enabled": {
           "description": "Is Microsoft Defender for Endpoint auto provisioning enabled",

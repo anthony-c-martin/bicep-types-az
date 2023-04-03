@@ -768,6 +768,16 @@
             }
           ]
         },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/storageAccounts_tableServices_tables_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "type": {
           "enum": [
             "Microsoft.Storage/storageAccounts/tableServices"
@@ -778,6 +788,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "storageAccounts_tableServices_tables": {
+      "description": "Microsoft.Storage/storageAccounts/tableServices/tables",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 3,
+              "pattern": "^[A-Za-z][A-Za-z0-9]{2,62}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Storage/storageAccounts/tableServices/tables"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -3546,6 +3593,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "storageAccounts_tableServices_tables_childResource": {
+      "description": "Microsoft.Storage/storageAccounts/tableServices/tables",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 3,
+              "pattern": "^[A-Za-z][A-Za-z0-9]{2,62}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "tables"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

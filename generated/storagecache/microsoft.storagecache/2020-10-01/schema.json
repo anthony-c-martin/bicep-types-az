@@ -73,7 +73,16 @@
           ]
         },
         "tags": {
-          "description": "ARM tags as name/value pairs."
+          "description": "ARM tags as name/value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

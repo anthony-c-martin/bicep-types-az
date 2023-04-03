@@ -33,6 +33,9 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/managementGroups_settings_childResource"
+              },
+              {
+                "$ref": "#/definitions/managementGroups_subscriptions_childResource"
               }
             ]
           },
@@ -87,6 +90,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "managementGroups_subscriptions": {
+      "description": "Microsoft.Management/managementGroups/subscriptions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Subscription ID.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Management/managementGroups/subscriptions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -199,6 +229,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "managementGroups_subscriptions_childResource": {
+      "description": "Microsoft.Management/managementGroups/subscriptions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Subscription ID.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "subscriptions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

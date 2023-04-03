@@ -1732,7 +1732,16 @@
           ]
         },
         "entityMapping": {
-          "description": "key-value pairs for a watchlist item entity mapping"
+          "description": "key-value pairs for a watchlist item entity mapping",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "isDeleted": {
           "description": "A flag that indicates if the watchlist item is deleted or not",
@@ -1746,7 +1755,16 @@
           ]
         },
         "itemsKeyValue": {
-          "description": "key-value pairs for a watchlist item"
+          "description": "key-value pairs for a watchlist item",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "tenantId": {
           "description": "The tenantId to which the watchlist item belongs to",

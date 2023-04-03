@@ -1994,7 +1994,16 @@
           "type": "string"
         },
         "schemaSetting": {
-          "description": "Settings selected for DB schema migration."
+          "description": "Settings selected for DB schema migration.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "tableMap": {
           "description": "Mapping of source to target tables",

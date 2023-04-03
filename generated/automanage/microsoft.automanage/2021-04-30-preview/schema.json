@@ -184,7 +184,10 @@
           "description": "The profileOverrides setting for the configuration profile assignment.",
           "oneOf": [
             {
-              "additionalProperties": {},
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
@@ -200,13 +203,25 @@
       "description": "Automanage configuration profile properties.",
       "properties": {
         "configuration": {
-          "description": "configuration dictionary of the configuration profile."
+          "description": "configuration dictionary of the configuration profile.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "overrides": {
           "description": "overrides of the configuration profile.",
           "oneOf": [
             {
-              "items": {},
+              "items": {
+                "properties": {},
+                "type": "object"
+              },
               "type": "array"
             },
             {

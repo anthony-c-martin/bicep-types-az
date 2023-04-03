@@ -187,7 +187,16 @@
       "description": "Automanage configuration profile properties.",
       "properties": {
         "configuration": {
-          "description": "configuration dictionary of the configuration profile."
+          "description": "configuration dictionary of the configuration profile.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"

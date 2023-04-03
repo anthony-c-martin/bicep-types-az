@@ -32,6 +32,16 @@
             }
           ]
         },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/farmBeats_extensions_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "sku": {
           "description": "The resource model definition representing SKU",
           "oneOf": [
@@ -68,6 +78,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "farmBeats_extensions": {
+      "description": "Microsoft.AgFoodPlatform/farmBeats/extensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-12-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Id of extension resource.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AgFoodPlatform/farmBeats/extensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -126,6 +163,33 @@
       },
       "required": [
         "name"
+      ],
+      "type": "object"
+    },
+    "farmBeats_extensions_childResource": {
+      "description": "Microsoft.AgFoodPlatform/farmBeats/extensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-05-12-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Id of extension resource.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "extensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
       ],
       "type": "object"
     }

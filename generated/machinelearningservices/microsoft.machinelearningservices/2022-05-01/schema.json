@@ -1489,7 +1489,16 @@
           ]
         },
         "propertyBag": {
-          "description": "A property bag containing additional properties."
+          "description": "A property bag containing additional properties.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "remoteLoginPortPublicAccess": {
           "description": "State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.",
@@ -2201,7 +2210,16 @@
       "description": "Definition of a component version: defines resources that span component types.",
       "properties": {
         "componentSpec": {
-          "description": "Defines Component definition details.\r\n<see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command\" />"
+          "description": "Defines Component definition details.\r\n<see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command\" />",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "description": {
           "description": "The asset description text.",
@@ -3931,7 +3949,10 @@
           "description": "Additional properties bag.",
           "oneOf": [
             {
-              "additionalProperties": {},
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },

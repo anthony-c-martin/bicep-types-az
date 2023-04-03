@@ -356,7 +356,16 @@
           ]
         },
         "versions": {
-          "description": "Published versions of this blueprint definition."
+          "description": "Published versions of this blueprint definition.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -513,7 +522,16 @@
           ]
         },
         "value": {
-          "description": "Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans."
+          "description": "Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"

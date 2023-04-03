@@ -555,7 +555,17 @@
       "type": "object"
     },
     "ApiProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The api properties for special APIs.",
       "properties": {
         "aadClientId": {

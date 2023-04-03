@@ -212,7 +212,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs."
+          "description": "The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "scope": {
           "description": "Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription",

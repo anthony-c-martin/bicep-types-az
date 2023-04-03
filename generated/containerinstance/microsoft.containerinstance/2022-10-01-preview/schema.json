@@ -766,10 +766,28 @@
           "type": "string"
         },
         "protectedSettings": {
-          "description": "Protected settings for the extension."
+          "description": "Protected settings for the extension.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "settings": {
-          "description": "Settings for the extension."
+          "description": "Settings for the extension.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "version": {
           "description": "Version of the extension being used.",
@@ -1324,7 +1342,16 @@
           ]
         },
         "emptyDir": {
-          "description": "The empty directory volume."
+          "description": "The empty directory volume.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "gitRepo": {
           "description": "The git repo volume.",

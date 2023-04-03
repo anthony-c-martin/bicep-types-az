@@ -33,7 +33,16 @@
           ]
         },
         "tags": {
-          "description": "Specifies the tags that will be assigned to the job."
+          "description": "Specifies the tags that will be assigned to the job.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

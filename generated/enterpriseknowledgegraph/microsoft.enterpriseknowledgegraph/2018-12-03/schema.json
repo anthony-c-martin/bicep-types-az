@@ -93,7 +93,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "Specifies the metadata  of the resource."
+          "description": "Specifies the metadata  of the resource.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "provisioningState": {
           "description": "The state of EnterpriseKnowledgeGraph provisioning",

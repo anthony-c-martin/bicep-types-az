@@ -77,7 +77,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs."
+          "description": "The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyAssignmentId": {
           "description": "The ID of the policy assignment that is being exempted.",

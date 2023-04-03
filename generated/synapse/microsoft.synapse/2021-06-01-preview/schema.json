@@ -154,6 +154,9 @@
               },
               {
                 "$ref": "#/definitions/workspaces_managedIdentitySqlControlSettings_childResource"
+              },
+              {
+                "$ref": "#/definitions/workspaces_trustedServiceByPassConfiguration_childResource"
               }
             ]
           },
@@ -1796,6 +1799,33 @@
       ],
       "type": "object"
     },
+    "workspaces_trustedServiceByPassConfiguration": {
+      "description": "Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^.*/default$",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "workspaces_vulnerabilityAssessments": {
       "description": "Microsoft.Synapse/workspaces/vulnerabilityAssessments",
       "properties": {
@@ -2292,10 +2322,28 @@
           ]
         },
         "targetName": {
-          "description": "The server name of data source access."
+          "description": "The server name of data source access.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "userName": {
-          "description": "The user name of data source access."
+          "description": "The user name of data source access.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
@@ -2915,7 +2963,17 @@
       "type": "object"
     },
     "IntegrationRuntime": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Azure Synapse nested object which serves as a compute resource for activities.",
       "properties": {
         "description": {
@@ -2926,7 +2984,17 @@
       "type": "object"
     },
     "IntegrationRuntimeComputeProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The compute resource properties for managed integration runtime.",
       "properties": {
         "dataFlowProperties": {
@@ -3006,7 +3074,17 @@
       "type": "object"
     },
     "IntegrationRuntimeDataFlowProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Data flow properties for managed integration runtime.",
       "properties": {
         "cleanup": {
@@ -3094,7 +3172,17 @@
       "type": "object"
     },
     "IntegrationRuntimeSsisCatalogInfo": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Catalog information for managed dedicated integration runtime.",
       "properties": {
         "catalogAdminPassword": {
@@ -3139,7 +3227,17 @@
       "type": "object"
     },
     "IntegrationRuntimeSsisProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "SSIS properties for managed integration runtime.",
       "properties": {
         "catalogInfo": {
@@ -3223,7 +3321,17 @@
       "type": "object"
     },
     "IntegrationRuntimeVNetProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "VNet properties for managed integration runtime.",
       "properties": {
         "publicIPs": {
@@ -6342,6 +6450,35 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "workspaces_trustedServiceByPassConfiguration_childResource": {
+      "description": "Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "enum": [
+            "default"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "trustedServiceByPassConfiguration"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

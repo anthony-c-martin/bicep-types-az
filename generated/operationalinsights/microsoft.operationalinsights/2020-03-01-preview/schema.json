@@ -304,7 +304,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "The data source properties in raw json format, each kind of data source have it's own schema."
+          "description": "The data source properties in raw json format, each kind of data source have it's own schema.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "tags": {
           "description": "Resource tags.",
@@ -1181,7 +1190,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "The data source properties in raw json format, each kind of data source have it's own schema."
+          "description": "The data source properties in raw json format, each kind of data source have it's own schema.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "tags": {
           "description": "Resource tags.",

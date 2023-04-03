@@ -115,7 +115,16 @@
           ]
         },
         "templateData": {
-          "description": "Valid JSON object containing workbook template payload."
+          "description": "Valid JSON object containing workbook template payload.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -171,7 +180,16 @@
           ]
         },
         "templateData": {
-          "description": "Valid JSON object containing workbook template payload."
+          "description": "Valid JSON object containing workbook template payload.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [

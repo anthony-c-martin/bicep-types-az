@@ -47,6 +47,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/flexibleServers_backups_childResource"
+              },
+              {
                 "$ref": "#/definitions/flexibleServers_databases_childResource"
               },
               {
@@ -144,6 +147,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "flexibleServers_backups": {
+      "description": "Microsoft.DBforMySQL/flexibleServers/backups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the backup.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMySQL/flexibleServers/backups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -429,7 +459,10 @@
           "description": "Metadata of user assigned identity.",
           "oneOf": [
             {
-              "additionalProperties": {},
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
@@ -771,6 +804,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "flexibleServers_backups_childResource": {
+      "description": "Microsoft.DBforMySQL/flexibleServers/backups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the backup.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "backups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

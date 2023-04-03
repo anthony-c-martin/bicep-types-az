@@ -479,6 +479,9 @@
                 "$ref": "#/definitions/sites_privateAccess_childResource"
               },
               {
+                "$ref": "#/definitions/sites_siteextensions_childResource"
+              },
+              {
                 "$ref": "#/definitions/sites_sourcecontrols_childResource"
               },
               {
@@ -1592,6 +1595,33 @@
       ],
       "type": "object"
     },
+    "sites_siteextensions": {
+      "description": "Microsoft.Web/sites/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/sites/siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "sites_slots": {
       "description": "Microsoft.Web/sites/slots",
       "properties": {
@@ -1658,6 +1688,9 @@
               },
               {
                 "$ref": "#/definitions/sites_slots_privateAccess_childResource"
+              },
+              {
+                "$ref": "#/definitions/sites_slots_siteextensions_childResource"
               },
               {
                 "$ref": "#/definitions/sites_slots_sourcecontrols_childResource"
@@ -2615,6 +2648,33 @@
       ],
       "type": "object"
     },
+    "sites_slots_siteextensions": {
+      "description": "Microsoft.Web/sites/slots/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/sites/slots/siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "sites_slots_sourcecontrols": {
       "description": "Microsoft.Web/sites/slots/sourcecontrols",
       "properties": {
@@ -2930,6 +2990,9 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/staticSites_config_childResource"
+              },
+              {
+                "$ref": "#/definitions/staticSites_customDomains_childResource"
               }
             ]
           },
@@ -3065,6 +3128,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "staticSites_customDomains": {
+      "description": "Microsoft.Web/staticSites/customDomains",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The custom domain to create.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/staticSites/customDomains"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -5081,7 +5171,16 @@
       "description": "FunctionEnvelope resource specific properties",
       "properties": {
         "config": {
-          "description": "Config information."
+          "description": "Config information.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "config_href": {
           "description": "Config URI.",
@@ -9942,6 +10041,33 @@
       ],
       "type": "object"
     },
+    "sites_siteextensions_childResource": {
+      "description": "Microsoft.Web/sites/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "sites_slots_childResource": {
       "description": "Microsoft.Web/sites/slots",
       "properties": {
@@ -10849,6 +10975,33 @@
       ],
       "type": "object"
     },
+    "sites_slots_siteextensions_childResource": {
+      "description": "Microsoft.Web/sites/slots/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "sites_slots_sourcecontrols_childResource": {
       "description": "Microsoft.Web/sites/slots/sourcecontrols",
       "properties": {
@@ -11155,6 +11308,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "staticSites_customDomains_childResource": {
+      "description": "Microsoft.Web/staticSites/customDomains",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-09-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The custom domain to create.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "customDomains"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

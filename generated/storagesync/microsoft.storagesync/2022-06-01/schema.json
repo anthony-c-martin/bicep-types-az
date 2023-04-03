@@ -170,7 +170,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "The parameters used to create the sync group"
+          "description": "The parameters used to create the sync group",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "resources": {
           "items": {
@@ -643,7 +652,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "The parameters used to create the sync group"
+          "description": "The parameters used to create the sync group",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

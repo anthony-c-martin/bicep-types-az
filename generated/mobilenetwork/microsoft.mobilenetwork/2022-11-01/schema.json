@@ -1469,7 +1469,16 @@
           ]
         },
         "interopSettings": {
-          "description": "Settings to allow interoperability with third party components e.g. RANs and UEs."
+          "description": "Settings to allow interoperability with third party components e.g. RANs and UEs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "localDiagnosticsAccess": {
           "description": "The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.",
@@ -1515,8 +1524,6 @@
                 "G0",
                 "G1",
                 "G2",
-                "G3",
-                "G4",
                 "G5",
                 "G10"
               ],

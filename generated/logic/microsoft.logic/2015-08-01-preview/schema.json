@@ -26,7 +26,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "The integration account properties."
+          "description": "The integration account properties.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "resources": {
           "items": {
@@ -2375,7 +2384,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The metadata."
+          "description": "The metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -2394,7 +2412,16 @@
           ]
         },
         "metadata": {
-          "description": "The metadata."
+          "description": "The metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "publicCertificate": {
           "description": "The public certificate.",
@@ -2406,7 +2433,16 @@
     "IntegrationAccountMapProperties": {
       "properties": {
         "content": {
-          "description": "The content."
+          "description": "The content.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "contentType": {
           "description": "The content type.",
@@ -2428,7 +2464,16 @@
           ]
         },
         "metadata": {
-          "description": "The metadata."
+          "description": "The metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -2447,7 +2492,16 @@
           ]
         },
         "metadata": {
-          "description": "The metadata."
+          "description": "The metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "partnerType": {
           "description": "The partner type.",
@@ -2470,14 +2524,32 @@
     "IntegrationAccountSchemaProperties": {
       "properties": {
         "content": {
-          "description": "The content."
+          "description": "The content.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "contentType": {
           "description": "The content type.",
           "type": "string"
         },
         "metadata": {
-          "description": "The metadata."
+          "description": "The metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "schemaType": {
           "description": "The schema type.",

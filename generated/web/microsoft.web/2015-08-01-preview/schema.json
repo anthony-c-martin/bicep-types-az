@@ -195,7 +195,16 @@
           ]
         },
         "metadata": {
-          "description": "Free form object for the data caller wants to store"
+          "description": "Free form object for the data caller wants to store",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "name": {
           "description": "Name of the API\r\n            the URL path of this API when exposed via APIM",
@@ -278,7 +287,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "Read only properties for this oauth setting."
+          "description": "Read only properties for this oauth setting.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "redirectUrl": {
           "description": "Url",
@@ -305,10 +323,28 @@
       "description": "OAuth Settings Parameter",
       "properties": {
         "options": {
-          "description": "Read only: Options available to this parameter"
+          "description": "Read only: Options available to this parameter",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "uiDefinition": {
-          "description": "UI definitions per culture as caller can specify the culture"
+          "description": "UI definitions per culture as caller can specify the culture",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "value": {
           "description": "Value",
@@ -557,7 +593,16 @@
       "description": "connection provider parameters",
       "properties": {
         "defaultValue": {
-          "description": "Default parameter value"
+          "description": "Default parameter value",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "oAuthSettings": {
           "description": "Settings defining OAuth flow for the back end provider",
@@ -593,7 +638,16 @@
           ]
         },
         "uiDefinition": {
-          "description": "UI definitions"
+          "description": "UI definitions",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -660,7 +714,16 @@
           ]
         },
         "metadata": {
-          "description": "Any object"
+          "description": "Any object",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "name": {
           "description": "connection name",
@@ -670,7 +733,10 @@
           "description": "Tokens/Claim",
           "oneOf": [
             {
-              "additionalProperties": {},
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
@@ -683,7 +749,10 @@
           "description": "Tokens/Claim",
           "oneOf": [
             {
-              "additionalProperties": {},
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
@@ -993,7 +1062,16 @@
           "type": "string"
         },
         "connectionPortalUrl": {
-          "description": "ConnectionPortalUrl"
+          "description": "ConnectionPortalUrl",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "description": {
           "description": "Description",

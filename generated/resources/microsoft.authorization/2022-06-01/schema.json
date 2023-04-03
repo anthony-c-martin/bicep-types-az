@@ -156,7 +156,16 @@
       "description": "The value of a parameter.",
       "properties": {
         "value": {
-          "description": "The value of the parameter."
+          "description": "The value of the parameter.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -188,7 +197,16 @@
           ]
         },
         "metadata": {
-          "description": "The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs."
+          "description": "The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "nonComplianceMessages": {
           "description": "The messages that describe why a resource is non-compliant with the policy.",

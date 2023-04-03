@@ -459,40 +459,6 @@
     }
   },
   "definitions": {
-    "AGReplicas": {
-      "description": "The information about each failover group replica.",
-      "properties": {
-        "availabilityMode": {
-          "description": "The availability mode of the replica.",
-          "type": "string"
-        },
-        "connectedState": {
-          "description": "The connected state of the replica.",
-          "type": "string"
-        },
-        "healthState": {
-          "description": "The health state of the replica.",
-          "type": "string"
-        },
-        "replicaName": {
-          "description": "The replica name.",
-          "type": "string"
-        },
-        "role": {
-          "description": "The role of the replica.",
-          "type": "string"
-        },
-        "secondaryRoleAllowConnections": {
-          "description": "The secondary role allowed connections.",
-          "type": "string"
-        },
-        "synchronizationState": {
-          "description": "The synchronization state of the availability group replicas.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "ActiveDirectoryConnectorDNSDetails": {
       "description": "DNS server details",
       "properties": {
@@ -664,7 +630,17 @@
       "type": "object"
     },
     "ActiveDirectoryConnectorStatus": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The status of the Kubernetes custom resource.",
       "properties": {
         "lastUpdateTime": {
@@ -806,7 +782,16 @@
           ]
         },
         "k8sRaw": {
-          "description": "The raw kubernetes information"
+          "description": "The raw kubernetes information",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
@@ -929,7 +914,8 @@
           "description": "The status of the failover group custom resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/FailoverGroupStatus"
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1005,82 +991,18 @@
       ],
       "type": "object"
     },
-    "FailoverGroupStatus": {
-      "additionalProperties": {},
-      "description": "The status of the Kubernetes custom resource.",
-      "properties": {
-        "lastUpdateTime": {
-          "description": "The time that the custom resource was last updated.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "observedGeneration": {
-          "description": "The version of the replicaSet associated with the failover group custom resource.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "replicas": {
-          "description": "A list of failover group replicas.",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/AGReplicas"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "results": {
-          "description": "The message in case of a failure in the failover group.",
-          "type": "string"
-        },
-        "role": {
-          "description": "The role of the managed instance in the failover group.",
-          "oneOf": [
-            {
-              "enum": [
-                "primary",
-                "secondary",
-                "force-primary-allow-data-loss",
-                "force-secondary"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "state": {
-          "description": "The state of the failover group custom resource.",
-          "oneOf": [
-            {
-              "enum": [
-                "Waiting",
-                "Succeeded",
-                "Failed"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
     "K8SResourceRequirements": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes resource limits and requests used to restrict or reserve resource usage.",
       "properties": {
         "limits": {
@@ -1117,7 +1039,17 @@
       "type": "object"
     },
     "K8SScheduling": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes scheduling information.",
       "properties": {
         "default": {
@@ -1135,7 +1067,17 @@
       "type": "object"
     },
     "K8SSchedulingOptions": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service",
       "properties": {
         "resources": {
@@ -1237,7 +1179,16 @@
           "type": "string"
         },
         "k8sRaw": {
-          "description": "The raw kubernetes information"
+          "description": "The raw kubernetes information",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
@@ -1323,7 +1274,17 @@
       "type": "object"
     },
     "SqlManagedInstanceK8SSpec": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes spec information.",
       "properties": {
         "replicas": {

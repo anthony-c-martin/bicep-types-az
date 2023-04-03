@@ -413,10 +413,28 @@
           ]
         },
         "managedApplicationParameters": {
-          "description": "The parameters for the managed application."
+          "description": "The parameters for the managed application.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "networkFunctionContainerConfigurations": {
-          "description": "The network function container configurations from the user."
+          "description": "The network function container configurations from the user.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "networkFunctionUserConfigurations": {
           "description": "The network function configurations from the user.",
@@ -513,10 +531,28 @@
           ]
         },
         "userDataParameters": {
-          "description": "The user parameters for customers. The format of user data parameters has to be matched with the provided user data template."
+          "description": "The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "userDataTemplate": {
-          "description": "The user data template for customers. This is a json schema template describing the format and data type of user data parameters."
+          "description": "The user data template for customers. This is a json schema template describing the format and data type of user data parameters.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "virtualMachineSize": {
           "description": "The size of the virtual machine.",
@@ -614,7 +650,16 @@
           "type": "string"
         },
         "userDataParameters": {
-          "description": "The user data parameters from the customer."
+          "description": "The user data parameters from the customer.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -1011,10 +1056,28 @@
           ]
         },
         "managedApplicationParameters": {
-          "description": "The parameters for the managed application to be supplied by the vendor."
+          "description": "The parameters for the managed application to be supplied by the vendor.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "managedApplicationTemplate": {
-          "description": "The template for the managed application deployment."
+          "description": "The template for the managed application deployment.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "networkFunctionTemplate": {
           "description": "The template definition of the network function.",
