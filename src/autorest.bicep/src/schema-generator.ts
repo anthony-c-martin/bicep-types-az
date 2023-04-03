@@ -7,7 +7,7 @@ import { chain, cloneDeep, Dictionary, escapeRegExp, keys, orderBy, uniq } from 
 import { getFullyQualifiedType, getNameSchema, getSerializedName, NameSchema, ProviderDefinition, ResourceDefinition, ResourceDescriptor } from "./resources";
 import { isEmpty, isEqual } from 'lodash';
 import { ScopeType } from "bicep-types";
-import { AnySchema, ArraySchema, ByteArraySchema, ChoiceSchema, ComplexSchema, ConstantSchema, DateTimeSchema, DictionarySchema, ObjectSchema, PrimitiveSchema, Property, Schema, SchemaType, SealedChoiceSchema, StringSchema, UuidSchema } from '@autorest/codemodel';
+import { AnyObjectSchema, AnySchema, ArraySchema, ByteArraySchema, ChoiceSchema, ComplexSchema, ConstantSchema, DateTimeSchema, DictionarySchema, ObjectSchema, PrimitiveSchema, Property, Schema, SchemaType, SealedChoiceSchema, StringSchema, UuidSchema } from '@autorest/codemodel';
 import { failure, success } from './utils';
 
 interface SchemaData {
@@ -217,6 +217,13 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       return parsePrimaryType(putSchema as PrimitiveSchema);
     }
 
+    if (putSchema instanceof AnyObjectSchema) {
+      return {
+        type: 'object',
+        properties: {},
+      };
+    }
+
     // The 'any' type
     if (putSchema instanceof AnySchema) {
       return {};
@@ -324,11 +331,9 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
   function processResourceBody(fullyQualifiedType: string, definition: ResourceDefinition, isChildDefinition: boolean) {
     const { descriptor, putOperation } = definition;
 
-    if (!putOperation?.requestSchema) {
+    if (!putOperation) {
       return
     }
-
-    const putSchema = putOperation.requestSchema;
 
     const r = getNameSchema(putOperation.request, putOperation.parameters);
     if (!r.success) {
@@ -351,6 +356,11 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
         'name'
       ],
     };
+
+    const putSchema = putOperation.requestSchema;
+    if (!putSchema) {
+      return schema;
+    }
 
     for (const { propertyName, putProperty } of getObjectTypeProperties(putSchema)) {
       if (schema.properties![propertyName]) {

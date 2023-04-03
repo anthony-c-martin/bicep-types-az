@@ -634,6 +634,16 @@
             }
           ]
         },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/automationAccounts_runbooks_draft_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "tags": {
           "description": "Gets or sets the tags attached to the resource.",
           "oneOf": [
@@ -663,6 +673,73 @@
         "type"
       ],
       "type": "object"
+    },
+    "automationAccounts_runbooks_draft": {
+      "oneOf": [
+        {
+          "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
+          "properties": {
+            "name": {
+              "pattern": "^.*/content$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
+          "properties": {
+            "name": {
+              "pattern": "^.*/testJob$",
+              "type": "string"
+            },
+            "parameters": {
+              "description": "Gets or sets the parameters of the test job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "runOn": {
+              "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-10-31"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Automation/automationAccounts/runbooks/draft"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "type"
+      ]
     },
     "automationAccounts_schedules": {
       "description": "Microsoft.Automation/automationAccounts/schedules",
@@ -2451,6 +2528,77 @@
         "type"
       ],
       "type": "object"
+    },
+    "automationAccounts_runbooks_draft_childResource": {
+      "oneOf": [
+        {
+          "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
+          "properties": {
+            "name": {
+              "enum": [
+                "content"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
+          "properties": {
+            "name": {
+              "enum": [
+                "testJob"
+              ],
+              "type": "string"
+            },
+            "parameters": {
+              "description": "Gets or sets the parameters of the test job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "runOn": {
+              "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-10-31"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "draft"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "type"
+      ]
     },
     "automationAccounts_schedules_childResource": {
       "description": "Microsoft.Automation/automationAccounts/schedules",
