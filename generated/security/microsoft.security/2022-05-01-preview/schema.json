@@ -365,7 +365,16 @@
       "description": "The Microsoft Defender for Endpoint autoprovisioning configuration",
       "properties": {
         "configuration": {
-          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning"
+          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "enabled": {
           "description": "Is Microsoft Defender for Endpoint auto provisioning enabled",
@@ -487,7 +496,16 @@
           "type": "string"
         },
         "exclusionTags": {
-          "description": "VM tags that indicates that VM should not be scanned"
+          "description": "VM tags that indicates that VM should not be scanned",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "scanningMode": {
           "description": "The scanning mode for the vm scan.",
@@ -566,7 +584,16 @@
       "description": "The Microsoft Defender for Endpoint autoprovisioning configuration",
       "properties": {
         "configuration": {
-          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning"
+          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "enabled": {
           "description": "Is Microsoft Defender for Endpoint auto provisioning enabled",

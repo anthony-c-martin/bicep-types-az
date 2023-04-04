@@ -88,6 +88,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/blueprints_versions_childResource"
+              },
+              {
                 "$ref": "#/definitions/blueprints_artifacts_childResource"
               }
             ]
@@ -125,6 +128,33 @@
         "type": {
           "enum": [
             "Microsoft.Blueprint/blueprints/artifacts"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "blueprints_versions": {
+      "description": "Microsoft.Blueprint/blueprints/versions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-11-11-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "version of the published blueprint.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Blueprint/blueprints/versions"
           ],
           "type": "string"
         }
@@ -238,7 +268,16 @@
           "type": "string"
         },
         "layout": {
-          "description": "Layout view of the blueprint, for UI reference."
+          "description": "Layout view of the blueprint, for UI reference.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "parameters": {
           "description": "Parameters required by this Blueprint definition.",
@@ -286,7 +325,16 @@
           ]
         },
         "versions": {
-          "description": "Published versions of this blueprint."
+          "description": "Published versions of this blueprint.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -484,6 +532,33 @@
         "type": {
           "enum": [
             "artifacts"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "blueprints_versions_childResource": {
+      "description": "Microsoft.Blueprint/blueprints/versions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-11-11-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "version of the published blueprint.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "versions"
           ],
           "type": "string"
         }

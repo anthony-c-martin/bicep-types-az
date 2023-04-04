@@ -346,7 +346,16 @@
           ]
         },
         "createUiDefinition": {
-          "description": "The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string."
+          "description": "The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "description": {
           "description": "The managed application definition description.",
@@ -384,7 +393,16 @@
           ]
         },
         "mainTemplate": {
-          "description": "The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string."
+          "description": "The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "packageFileUri": {
           "description": "The managed application definition package file Uri. Use this element",
@@ -505,7 +523,16 @@
           "type": "string"
         },
         "parameters": {
-          "description": "Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string."
+          "description": "Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "publisherPackageId": {
           "description": "The publisher package Id.",

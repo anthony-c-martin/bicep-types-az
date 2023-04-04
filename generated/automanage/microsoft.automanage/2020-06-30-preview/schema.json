@@ -251,7 +251,16 @@
           ]
         },
         "exclusions": {
-          "description": "Extensions, Paths and Processes that must be excluded from scan"
+          "description": "Extensions, Paths and Processes that must be excluded from scan",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "runScheduledScan": {
           "description": "Enables or disables a periodic scan for antimalware",

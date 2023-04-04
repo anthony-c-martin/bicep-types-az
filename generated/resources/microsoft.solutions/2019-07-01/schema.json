@@ -346,7 +346,16 @@
           ]
         },
         "createUiDefinition": {
-          "description": "The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string."
+          "description": "The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "deploymentPolicy": {
           "description": "The managed application deployment policy.",
@@ -406,7 +415,16 @@
           ]
         },
         "mainTemplate": {
-          "description": "The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string."
+          "description": "The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "managementPolicy": {
           "description": "The managed application management policy that determines publisher's access to the managed resource group.",
@@ -666,7 +684,16 @@
           "type": "string"
         },
         "parameters": {
-          "description": "Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string."
+          "description": "Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"

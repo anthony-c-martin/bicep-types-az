@@ -47,6 +47,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/domains_topics_childResource"
+              },
+              {
                 "$ref": "#/definitions/domains_eventSubscriptions_childResource"
               },
               {
@@ -159,6 +162,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "domains_topics": {
+      "description": "Microsoft.EventGrid/domains/topics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-06-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the domain topic.",
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/domains_topics_eventSubscriptions_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.EventGrid/domains/topics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -2453,6 +2493,72 @@
         "type": {
           "enum": [
             "privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "domains_topics_childResource": {
+      "description": "Microsoft.EventGrid/domains/topics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-06-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the domain topic.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "topics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "domains_topics_eventSubscriptions_childResource": {
+      "description": "Microsoft.EventGrid/domains/topics/eventSubscriptions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-06-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the event subscription.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EventSubscriptionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "eventSubscriptions"
           ],
           "type": "string"
         }

@@ -346,6 +346,22 @@
             }
           ]
         },
+        "healthStatus": {
+          "description": "The health status of the resource.",
+          "oneOf": [
+            {
+              "enum": [
+                "Undetermined",
+                "Healthy",
+                "Unhealthy"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "lockbox": {
           "description": "Settings concerning lockbox.",
           "oneOf": [

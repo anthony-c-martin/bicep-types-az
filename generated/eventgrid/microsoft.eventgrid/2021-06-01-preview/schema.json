@@ -47,6 +47,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/domains_topics_childResource"
+              },
+              {
                 "$ref": "#/definitions/domains_privateEndpointConnections_childResource"
               }
             ]
@@ -128,6 +131,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "domains_topics": {
+      "description": "Microsoft.EventGrid/domains/topics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the domain topic.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.EventGrid/domains/topics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -2041,6 +2071,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "domains_topics_childResource": {
+      "description": "Microsoft.EventGrid/domains/topics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the domain topic.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "topics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

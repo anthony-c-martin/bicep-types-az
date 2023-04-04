@@ -666,6 +666,9 @@
                 "$ref": "#/definitions/sites_privateAccess_childResource"
               },
               {
+                "$ref": "#/definitions/sites_siteextensions_childResource"
+              },
+              {
                 "$ref": "#/definitions/sites_sourcecontrols_childResource"
               },
               {
@@ -1779,6 +1782,33 @@
       ],
       "type": "object"
     },
+    "sites_siteextensions": {
+      "description": "Microsoft.Web/sites/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/sites/siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "sites_slots": {
       "description": "Microsoft.Web/sites/slots",
       "properties": {
@@ -1853,6 +1883,9 @@
               },
               {
                 "$ref": "#/definitions/sites_slots_privateAccess_childResource"
+              },
+              {
+                "$ref": "#/definitions/sites_slots_siteextensions_childResource"
               },
               {
                 "$ref": "#/definitions/sites_slots_sourcecontrols_childResource"
@@ -2891,6 +2924,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "sites_slots_siteextensions": {
+      "description": "Microsoft.Web/sites/slots/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Web/sites/slots/siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -5506,7 +5566,16 @@
       "description": "FunctionEnvelope resource specific properties",
       "properties": {
         "config": {
-          "description": "Config information."
+          "description": "Config information.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "config_href": {
           "description": "Config URI.",
@@ -10562,6 +10631,33 @@
       ],
       "type": "object"
     },
+    "sites_siteextensions_childResource": {
+      "description": "Microsoft.Web/sites/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "sites_slots_basicPublishingCredentialsPolicies_childResource": {
       "oneOf": [
         {
@@ -11557,6 +11653,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "sites_slots_siteextensions_childResource": {
+      "description": "Microsoft.Web/sites/slots/siteextensions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Site extension name.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "siteextensions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

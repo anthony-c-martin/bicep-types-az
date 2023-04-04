@@ -339,7 +339,10 @@
           "description": "The allowed values for the parameter.",
           "oneOf": [
             {
-              "items": {},
+              "items": {
+                "properties": {},
+                "type": "object"
+              },
               "type": "array"
             },
             {
@@ -348,7 +351,16 @@
           ]
         },
         "defaultValue": {
-          "description": "The default value for the parameter if no value is provided."
+          "description": "The default value for the parameter if no value is provided.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "metadata": {
           "description": "General metadata for the parameter.",
@@ -385,7 +397,17 @@
       "type": "object"
     },
     "ParameterDefinitionsValueMetadata": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "General metadata for the parameter.",
       "properties": {
         "description": {
@@ -403,7 +425,16 @@
       "description": "The value of a parameter.",
       "properties": {
         "value": {
-          "description": "The value of the parameter."
+          "description": "The value of the parameter.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -435,7 +466,16 @@
           ]
         },
         "metadata": {
-          "description": "The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs."
+          "description": "The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "notScopes": {
           "description": "The policy's excluded scopes.",
@@ -518,7 +558,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs."
+          "description": "The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "mode": {
           "description": "The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.",
@@ -540,7 +589,16 @@
           ]
         },
         "policyRule": {
-          "description": "The policy rule."
+          "description": "The policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyType": {
           "description": "The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.",
@@ -620,7 +678,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs."
+          "description": "The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "parameters": {
           "description": "The policy set definition parameters that can be used in policy definition references.",

@@ -124,6 +124,9 @@
                 "$ref": "#/definitions/profiles_secrets_childResource"
               },
               {
+                "$ref": "#/definitions/profiles_ruleSets_childResource"
+              },
+              {
                 "$ref": "#/definitions/profiles_endpoints_childResource"
               },
               {
@@ -603,6 +606,43 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "profiles_ruleSets": {
+      "description": "Microsoft.Cdn/profiles/ruleSets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the rule set under the profile which is unique globally",
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/profiles_ruleSets_rules_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Cdn/profiles/ruleSets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -3320,21 +3360,6 @@
     "ProfileProperties": {
       "description": "The JSON object that contains the properties required to create a profile.",
       "properties": {
-        "extendedProperties": {
-          "description": "Key-Value pair representing additional properties for profiles.",
-          "oneOf": [
-            {
-              "additionalProperties": {
-                "type": "string"
-              },
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "originResponseTimeoutSeconds": {
           "description": "Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.",
           "oneOf": [
@@ -5746,6 +5771,72 @@
         "type": {
           "enum": [
             "origins"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "profiles_ruleSets_childResource": {
+      "description": "Microsoft.Cdn/profiles/ruleSets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the rule set under the profile which is unique globally",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "ruleSets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "profiles_ruleSets_rules_childResource": {
+      "description": "Microsoft.Cdn/profiles/ruleSets/rules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the delivery rule which is unique within the endpoint.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The JSON object that contains the properties of the Rules to create.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "rules"
           ],
           "type": "string"
         }

@@ -1142,6 +1142,9 @@
                 "$ref": "#/definitions/servers_jobAgents_childResource"
               },
               {
+                "$ref": "#/definitions/servers_dnsAliases_childResource"
+              },
+              {
                 "$ref": "#/definitions/servers_syncAgents_childResource"
               },
               {
@@ -2125,6 +2128,33 @@
       ],
       "type": "object"
     },
+    "servers_dnsAliases": {
+      "description": "Microsoft.Sql/servers/dnsAliases",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-02-02-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server dns alias.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Sql/servers/dnsAliases"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "servers_elasticPools": {
       "description": "Microsoft.Sql/servers/elasticPools",
       "properties": {
@@ -2538,6 +2568,9 @@
             "oneOf": [
               {
                 "$ref": "#/definitions/servers_jobAgents_jobs_steps_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_jobAgents_jobs_executions_childResource"
               }
             ]
           },
@@ -2553,6 +2586,41 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_jobAgents_jobs_executions": {
+      "description": "Microsoft.Sql/servers/jobAgents/jobs/executions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-02-02-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The job execution id to create the job execution under.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Sql/servers/jobAgents/jobs/executions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -7499,6 +7567,33 @@
       ],
       "type": "object"
     },
+    "servers_dnsAliases_childResource": {
+      "description": "Microsoft.Sql/servers/dnsAliases",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-02-02-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server dns alias.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "dnsAliases"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "servers_elasticPools_childResource": {
       "description": "Microsoft.Sql/servers/elasticPools",
       "properties": {
@@ -7901,6 +7996,41 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_jobAgents_jobs_executions_childResource": {
+      "description": "Microsoft.Sql/servers/jobAgents/jobs/executions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-02-02-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The job execution id to create the job execution under.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "executions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

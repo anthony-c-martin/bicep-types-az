@@ -221,7 +221,16 @@
       "description": "Details of the CommunicationsGateway resource.",
       "properties": {
         "apiBridge": {
-          "description": "Details of API bridge functionality, if required"
+          "description": "Details of API bridge functionality, if required",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "codecs": {
           "description": "Voice codecs to support",

@@ -154,7 +154,16 @@
           ]
         },
         "parameters": {
-          "description": "Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink."
+          "description": "Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "parametersLink": {
           "description": "The parameters URI. Use only one of Parameters or ParametersLink.",
@@ -168,7 +177,16 @@
           ]
         },
         "template": {
-          "description": "The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink."
+          "description": "The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "templateLink": {
           "description": "The template URI. Use only one of Template or TemplateLink.",

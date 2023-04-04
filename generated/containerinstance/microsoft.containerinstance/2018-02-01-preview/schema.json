@@ -579,7 +579,16 @@
           ]
         },
         "emptyDir": {
-          "description": "The empty directory volume."
+          "description": "The empty directory volume.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "gitRepo": {
           "description": "The git repo volume.",

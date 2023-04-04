@@ -5038,14 +5038,32 @@
           ]
         },
         "protectedSettings": {
-          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all."
+          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "publisher": {
           "description": "The name of the extension handler publisher.",
           "type": "string"
         },
         "settings": {
-          "description": "Json formatted public settings for the extension."
+          "description": "Json formatted public settings for the extension.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "suppressFailures": {
           "description": "Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.",
@@ -6070,7 +6088,16 @@
           "type": "string"
         },
         "protectedSettings": {
-          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all."
+          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "provisionAfterExtensions": {
           "description": "Collection of extension names after which this extension needs to be provisioned.",
@@ -6091,7 +6118,16 @@
           "type": "string"
         },
         "settings": {
-          "description": "Json formatted public settings for the extension."
+          "description": "Json formatted public settings for the extension.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "suppressFailures": {
           "description": "Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.",

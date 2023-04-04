@@ -134,7 +134,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "Additional properties that can be set for the query."
+          "description": "Additional properties that can be set for the query.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "related": {
           "description": "The related metadata items for the function.",

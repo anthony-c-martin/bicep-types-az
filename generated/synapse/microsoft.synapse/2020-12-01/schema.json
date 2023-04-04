@@ -1740,10 +1740,28 @@
           ]
         },
         "targetName": {
-          "description": "The server name of data source access."
+          "description": "The server name of data source access.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "userName": {
-          "description": "The user name of data source access."
+          "description": "The user name of data source access.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
@@ -2241,7 +2259,17 @@
       "type": "object"
     },
     "IntegrationRuntime": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Azure Synapse nested object which serves as a compute resource for activities.",
       "properties": {
         "description": {
@@ -2252,7 +2280,17 @@
       "type": "object"
     },
     "IntegrationRuntimeComputeProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The compute resource properties for managed integration runtime.",
       "properties": {
         "dataFlowProperties": {
@@ -2332,7 +2370,17 @@
       "type": "object"
     },
     "IntegrationRuntimeDataFlowProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Data flow properties for managed integration runtime.",
       "properties": {
         "computeType": {
@@ -2409,7 +2457,17 @@
       "type": "object"
     },
     "IntegrationRuntimeSsisCatalogInfo": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Catalog information for managed dedicated integration runtime.",
       "properties": {
         "catalogAdminPassword": {
@@ -2454,7 +2512,17 @@
       "type": "object"
     },
     "IntegrationRuntimeSsisProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "SSIS properties for managed integration runtime.",
       "properties": {
         "catalogInfo": {
@@ -2538,7 +2606,17 @@
       "type": "object"
     },
     "IntegrationRuntimeVNetProperties": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "VNet properties for managed integration runtime.",
       "properties": {
         "publicIPs": {

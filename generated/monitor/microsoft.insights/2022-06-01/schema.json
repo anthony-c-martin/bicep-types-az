@@ -1345,7 +1345,16 @@
           "type": "string"
         },
         "extensionSettings": {
-          "description": "The extension settings. The format is specific for particular extension."
+          "description": "The extension settings. The format is specific for particular extension.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "inputDataSources": {
           "description": "The list of data sources this extension needs data from.",

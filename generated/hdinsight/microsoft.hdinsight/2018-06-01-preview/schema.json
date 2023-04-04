@@ -652,7 +652,16 @@
           ]
         },
         "configurations": {
-          "description": "The cluster configurations."
+          "description": "The cluster configurations.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "kind": {
           "description": "The type of cluster.",

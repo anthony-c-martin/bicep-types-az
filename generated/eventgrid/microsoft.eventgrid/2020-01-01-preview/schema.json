@@ -32,6 +32,16 @@
             }
           ]
         },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/domains_topics_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "tags": {
           "description": "Tags of the resource",
           "oneOf": [
@@ -57,6 +67,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "domains_topics": {
+      "description": "Microsoft.EventGrid/domains/topics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the domain topic",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.EventGrid/domains/topics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -654,6 +691,33 @@
           ]
         }
       },
+      "type": "object"
+    },
+    "domains_topics_childResource": {
+      "description": "Microsoft.EventGrid/domains/topics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the domain topic",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "topics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
       "type": "object"
     }
   }

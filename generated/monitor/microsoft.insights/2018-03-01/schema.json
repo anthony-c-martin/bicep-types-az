@@ -495,7 +495,17 @@
       "type": "object"
     },
     "MetricAlertCriteria": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The rule criteria that defines the conditions of the alert rule.",
       "properties": {},
       "type": "object"
@@ -607,7 +617,17 @@
       "type": "object"
     },
     "MetricCriteria": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Criterion to filter metrics.",
       "properties": {
         "criterionType": {
@@ -754,7 +774,17 @@
       "type": "object"
     },
     "MultiMetricCriteria": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The types of conditions for a multi resource alert.",
       "properties": {
         "dimensions": {

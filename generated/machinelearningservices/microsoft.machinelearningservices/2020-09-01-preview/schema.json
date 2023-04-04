@@ -1838,7 +1838,16 @@
           "type": "string"
         },
         "condaDependencies": {
-          "description": "A JObject containing Conda dependencies."
+          "description": "A JObject containing Conda dependencies.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "interpreterPath": {
           "description": "The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.",

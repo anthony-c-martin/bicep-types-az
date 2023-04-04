@@ -291,7 +291,17 @@
       "type": "object"
     },
     "GlobalServiceConfiguration": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "Global configuration for services in the cluster.",
       "properties": {
         "autoScale": {

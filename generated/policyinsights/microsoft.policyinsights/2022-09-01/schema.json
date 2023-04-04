@@ -107,7 +107,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "Additional metadata for this attestation"
+          "description": "Additional metadata for this attestation",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "owner": {
           "description": "The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.",

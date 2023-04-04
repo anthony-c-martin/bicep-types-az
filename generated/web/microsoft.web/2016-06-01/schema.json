@@ -340,7 +340,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "Read only properties for this oauth setting."
+          "description": "Read only properties for this oauth setting.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "redirectUrl": {
           "description": "Url",
@@ -367,10 +376,28 @@
       "description": "OAuth settings for the API",
       "properties": {
         "options": {
-          "description": "Options available to this parameter"
+          "description": "Options available to this parameter",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "uiDefinition": {
-          "description": "UI definitions per culture as caller can specify the culture"
+          "description": "UI definitions per culture as caller can specify the culture",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "value": {
           "description": "Value of the setting",
@@ -406,7 +433,16 @@
           "type": "string"
         },
         "swagger": {
-          "description": "The JSON representation of the swagger"
+          "description": "The JSON representation of the swagger",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "description": "Resource reference type",
@@ -536,7 +572,16 @@
           "type": "string"
         },
         "status": {
-          "description": "The gateway status"
+          "description": "The gateway status",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -728,7 +773,16 @@
           ]
         },
         "swagger": {
-          "description": "The JSON representation of the swagger"
+          "description": "The JSON representation of the swagger",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "wsdlDefinition": {
           "description": "The WSDL definition",

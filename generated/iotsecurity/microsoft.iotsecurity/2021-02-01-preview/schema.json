@@ -59,7 +59,16 @@
           "type": "string"
         },
         "properties": {
-          "description": "Device group properties"
+          "description": "Device group properties",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -71,6 +80,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "onPremiseSensors": {
+      "description": "Microsoft.IoTSecurity/onPremiseSensors",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the on-premise IoT sensor",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.IoTSecurity/onPremiseSensors"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

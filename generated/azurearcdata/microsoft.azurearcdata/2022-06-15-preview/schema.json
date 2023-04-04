@@ -581,7 +581,17 @@
       "type": "object"
     },
     "ActiveDirectoryConnectorStatus": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The status of the Kubernetes custom resource.",
       "properties": {
         "lastUpdateTime": {
@@ -723,7 +733,16 @@
           ]
         },
         "k8sRaw": {
-          "description": "The raw kubernetes information"
+          "description": "The raw kubernetes information",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
@@ -824,7 +843,17 @@
       "type": "object"
     },
     "K8SResourceRequirements": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes resource limits and requests used to restrict or reserve resource usage.",
       "properties": {
         "limits": {
@@ -861,7 +890,17 @@
       "type": "object"
     },
     "K8SScheduling": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes scheduling information.",
       "properties": {
         "default": {
@@ -879,7 +918,17 @@
       "type": "object"
     },
     "K8SSchedulingOptions": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service",
       "properties": {
         "resources": {
@@ -981,7 +1030,16 @@
           "type": "string"
         },
         "k8sRaw": {
-          "description": "The raw kubernetes information"
+          "description": "The raw kubernetes information",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "lastUploadedDate": {
           "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
@@ -1049,7 +1107,17 @@
       "type": "object"
     },
     "SqlManagedInstanceK8SRaw": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The raw kubernetes information.",
       "properties": {
         "spec": {
@@ -1067,7 +1135,17 @@
       "type": "object"
     },
     "SqlManagedInstanceK8SSpec": {
-      "additionalProperties": {},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "properties": {},
+            "type": "object"
+          },
+          {
+            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+          }
+        ]
+      },
       "description": "The kubernetes spec information.",
       "properties": {
         "replicas": {

@@ -436,14 +436,32 @@
           ]
         },
         "protectedSettings": {
-          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all."
+          "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "publisher": {
           "description": "The name of the extension handler publisher.",
           "type": "string"
         },
         "settings": {
-          "description": "Json formatted public settings for the extension."
+          "description": "Json formatted public settings for the extension.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\".",

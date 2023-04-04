@@ -630,9 +630,56 @@
             }
           ]
         },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_groups_users_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "type": {
           "enum": [
             "Microsoft.ApiManagement/service/groups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_groups_users": {
+      "description": "Microsoft.ApiManagement/service/groups/users",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "User identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/groups/users"
           ],
           "type": "string"
         }
@@ -867,6 +914,19 @@
             }
           ]
         },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/service_products_apis_childResource"
+              },
+              {
+                "$ref": "#/definitions/service_products_groups_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "state": {
           "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is NotPublished.",
           "oneOf": [
@@ -911,6 +971,80 @@
         "type": {
           "enum": [
             "Microsoft.ApiManagement/service/products"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_apis": {
+      "description": "Microsoft.ApiManagement/service/products/apis",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "API identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/products/apis"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_groups": {
+      "description": "Microsoft.ApiManagement/service/products/groups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Group identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ApiManagement/service/products/groups"
           ],
           "type": "string"
         }
@@ -2132,6 +2266,43 @@
       ],
       "type": "object"
     },
+    "service_groups_users_childResource": {
+      "description": "Microsoft.ApiManagement/service/groups/users",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "User identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "users"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "service_identityProviders_childResource": {
       "description": "Microsoft.ApiManagement/service/identityProviders",
       "properties": {
@@ -2315,6 +2486,43 @@
       ],
       "type": "object"
     },
+    "service_products_apis_childResource": {
+      "description": "Microsoft.ApiManagement/service/products/apis",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "API identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "apis"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "service_products_childResource": {
       "description": "Microsoft.ApiManagement/service/products",
       "properties": {
@@ -2399,6 +2607,43 @@
         "type": {
           "enum": [
             "products"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "service_products_groups_childResource": {
+      "description": "Microsoft.ApiManagement/service/products/groups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2016-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Group identifier. Must be unique in the current API Management service instance.",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[^*#&+:<>?]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "groups"
           ],
           "type": "string"
         }

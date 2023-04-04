@@ -160,7 +160,16 @@
           "type": "string"
         },
         "template": {
-          "description": "The Azure Resource Manager template."
+          "description": "The Azure Resource Manager template.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
@@ -183,7 +192,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs."
+          "description": "The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -211,13 +229,40 @@
           ]
         },
         "mainTemplate": {
-          "description": "The main Azure Resource Manager template content."
+          "description": "The main Azure Resource Manager template content.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "metadata": {
-          "description": "The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs."
+          "description": "The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "uiFormDefinition": {
-          "description": "The Azure Resource Manager template UI definition content."
+          "description": "The Azure Resource Manager template UI definition content.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"

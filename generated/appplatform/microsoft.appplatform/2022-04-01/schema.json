@@ -45,6 +45,9 @@
                 "$ref": "#/definitions/Spring_configServers_childResource"
               },
               {
+                "$ref": "#/definitions/Spring_serviceRegistries_childResource"
+              },
+              {
                 "$ref": "#/definitions/Spring_monitoringSettings_childResource"
               },
               {
@@ -614,6 +617,33 @@
         "type"
       ],
       "type": "object"
+    },
+    "Spring_serviceRegistries": {
+      "description": "Microsoft.AppPlatform/Spring/serviceRegistries",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-04-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of Service Registry.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AppPlatform/Spring/serviceRegistries"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   },
   "definitions": {
@@ -625,7 +655,10 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "additionalProperties": {},
+                "additionalProperties": {
+                  "properties": {},
+                  "type": "object"
+                },
                 "properties": {},
                 "type": "object"
               },
@@ -725,7 +758,10 @@
           "description": "Binding parameters of the Binding resource",
           "oneOf": [
             {
-              "additionalProperties": {},
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
@@ -1294,7 +1330,10 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "additionalProperties": {},
+                "additionalProperties": {
+                  "properties": {},
+                  "type": "object"
+                },
                 "properties": {},
                 "type": "object"
               },
@@ -2001,6 +2040,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "Spring_serviceRegistries_childResource": {
+      "description": "Microsoft.AppPlatform/Spring/serviceRegistries",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-04-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of Service Registry.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "serviceRegistries"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

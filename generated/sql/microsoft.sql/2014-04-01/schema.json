@@ -58,6 +58,9 @@
               },
               {
                 "$ref": "#/definitions/servers_connectionPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/servers_disasterRecoveryConfiguration_childResource"
               }
             ]
           },
@@ -817,6 +820,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_disasterRecoveryConfiguration": {
+      "description": "Microsoft.Sql/servers/disasterRecoveryConfiguration",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2014-04-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the disaster recovery configuration to be created/updated.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Sql/servers/disasterRecoveryConfiguration"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],
@@ -2530,6 +2560,33 @@
       "required": [
         "name",
         "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "servers_disasterRecoveryConfiguration_childResource": {
+      "description": "Microsoft.Sql/servers/disasterRecoveryConfiguration",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2014-04-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the disaster recovery configuration to be created/updated.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "disasterRecoveryConfiguration"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
         "apiVersion",
         "type"
       ],

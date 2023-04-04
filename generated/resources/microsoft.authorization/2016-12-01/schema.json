@@ -180,7 +180,16 @@
           "type": "string"
         },
         "parameters": {
-          "description": "Required if a parameter is used in policy rule."
+          "description": "Required if a parameter is used in policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyDefinitionId": {
           "description": "The ID of the policy definition.",
@@ -205,7 +214,16 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The policy definition metadata."
+          "description": "The policy definition metadata.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "mode": {
           "description": "The policy definition mode. Possible values are NotSpecified, Indexed, and All.",
@@ -224,10 +242,28 @@
           ]
         },
         "parameters": {
-          "description": "Required if a parameter is used in policy rule."
+          "description": "Required if a parameter is used in policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyRule": {
-          "description": "The policy rule."
+          "description": "The policy rule.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "policyType": {
           "description": "The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.",
