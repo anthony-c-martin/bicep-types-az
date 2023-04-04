@@ -46,94 +46,6 @@
 +      ]
 +      description: "Microsoft.Sql/servers/databases/maintenanceWindows"
 +    }
-+    servers_dnsAliases: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2022-08-01-preview"
-+          ]
-+        }
-+        name: {
-+          type: "string"
-+          description: "The name of the server dns alias."
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "Microsoft.Sql/servers/dnsAliases"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Sql/servers/dnsAliases"
-+    }
-+    servers_jobAgents_jobs_executions: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2022-08-01-preview"
-+          ]
-+        }
-+        name: {
-+          oneOf: [
-+            {
-+              type: "string"
-+              pattern: "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-+          description: "The job execution id to create the job execution under."
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "Microsoft.Sql/servers/jobAgents/jobs/executions"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Sql/servers/jobAgents/jobs/executions"
-+    }
-+    servers_outboundFirewallRules: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2022-08-01-preview"
-+          ]
-+        }
-+        name: {
-+          type: "string"
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "Microsoft.Sql/servers/outboundFirewallRules"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Sql/servers/outboundFirewallRules"
-+    }
 +    servers_sqlVulnerabilityAssessments_baselines: {
 +      type: "object"
 +      properties: {
@@ -566,41 +478,6 @@
        }
      }
      servers: {
-       properties: {
-         resources: {
-           items: {
-             oneOf: [
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-+              {
-+                $ref: "#/definitions/servers_outboundFirewallRules_childResource"
-+              }
-+              {
-+                $ref: "#/definitions/servers_dnsAliases_childResource"
-+              }
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-             ]
-           }
-         }
-       }
        required: [
          ...
 +        "location"
@@ -1022,20 +899,6 @@
          ...
        ]
      }
-     servers_jobAgents_jobs: {
-       properties: {
-         resources: {
-           items: {
-             oneOf: [
-               ...
-+              {
-+                $ref: "#/definitions/servers_jobAgents_jobs_executions_childResource"
-+              }
-             ]
-           }
-         }
-       }
-     }
      servers_securityAlertPolicies: {
        properties: {
          name: {
@@ -1429,94 +1292,6 @@
 +        "type"
 +      ]
 +      description: "Microsoft.Sql/servers/databases/maintenanceWindows"
-+    }
-+    servers_dnsAliases_childResource: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2022-08-01-preview"
-+          ]
-+        }
-+        name: {
-+          type: "string"
-+          description: "The name of the server dns alias."
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "dnsAliases"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Sql/servers/dnsAliases"
-+    }
-+    servers_jobAgents_jobs_executions_childResource: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2022-08-01-preview"
-+          ]
-+        }
-+        name: {
-+          oneOf: [
-+            {
-+              type: "string"
-+              pattern: "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-+          description: "The job execution id to create the job execution under."
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "executions"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Sql/servers/jobAgents/jobs/executions"
-+    }
-+    servers_outboundFirewallRules_childResource: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2022-08-01-preview"
-+          ]
-+        }
-+        name: {
-+          type: "string"
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "outboundFirewallRules"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Sql/servers/outboundFirewallRules"
 +    }
 +    servers_sqlVulnerabilityAssessments_baselines_childResource: {
 +      type: "object"

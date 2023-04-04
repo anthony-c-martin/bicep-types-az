@@ -170,17 +170,16 @@
 +          description: "The resource id."
 +        }
          properties: {
-+          oneOf: [
-+            {
-+              type: "object"
+           oneOf: [
+             {
+-              properties: {
+-              }
 +              additionalProperties: {
 +                type: "string"
 +              }
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
+             }
+             ...
+           ]
          }
          tags: {
            oneOf: [
@@ -1418,6 +1417,16 @@
 -        }
 -        metadata: {
 -          description: "The metadata."
+-          oneOf: [
+-            {
+-              properties: {
+-              }
+-              type: "object"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
 -        }
 -        uri: {
 -          description: "The content link URI."
@@ -2838,6 +2847,16 @@
 -        }
 -        metadata: {
 -          description: "The metadata."
+-          oneOf: [
+-            {
+-              properties: {
+-              }
+-              type: "object"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
 -        }
 -      }
 -      required: [
@@ -2866,6 +2885,16 @@
 -        }
 -        metadata: {
 -          description: "The metadata."
+-          oneOf: [
+-            {
+-              properties: {
+-              }
+-              type: "object"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
 -        }
 -        publicCertificate: {
 -          description: "The public certificate."
@@ -2902,6 +2931,16 @@
 -        }
 -        metadata: {
 -          description: "The metadata."
+-          oneOf: [
+-            {
+-              properties: {
+-              }
+-              type: "object"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
 -        }
 -        parametersSchema: {
 -          description: "The parameters schema of integration account map."
@@ -2946,6 +2985,16 @@
 -        }
 -        metadata: {
 -          description: "The metadata."
+-          oneOf: [
+-            {
+-              properties: {
+-              }
+-              type: "object"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
 -        }
 -        partnerType: {
 -          description: "The partner type."
@@ -3069,6 +3118,16 @@
 -        }
 -        metadata: {
 -          description: "The metadata."
+-          oneOf: [
+-            {
+-              properties: {
+-              }
+-              type: "object"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
 -        }
 -        schemaType: {
 -          description: "The schema type."
@@ -3100,6 +3159,16 @@
 -      properties: {
 -        content: {
 -          description: "The session content."
+-          oneOf: [
+-            {
+-              properties: {
+-              }
+-              type: "object"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
 -        }
 -      }
 -      type: "object"
@@ -5937,14 +6006,13 @@
      WorkflowParameter: {
        properties: {
          metadata: {
-+          oneOf: [
-+            {
-+              type: "object"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
+           oneOf: [
+             {
+-              properties: {
+-              }
+             }
+             ...
+           ]
          }
          type: {
 -          oneOf: [
@@ -5980,28 +6048,26 @@
 +          ]
          }
          value: {
-+          oneOf: [
-+            {
-+              type: "object"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
+           oneOf: [
+             {
+-              properties: {
+-              }
+             }
+             ...
+           ]
          }
        }
      }
      WorkflowProperties: {
        properties: {
          definition: {
-+          oneOf: [
-+            {
-+              type: "object"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
+           oneOf: [
+             {
+-              properties: {
+-              }
+             }
+             ...
+           ]
          }
          parameters: {
            oneOf: [

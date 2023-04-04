@@ -1,42 +1,5 @@
  {
    resourceDefinitions: {
-+    profiles_ruleSets: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2021-06-01"
-+          ]
-+        }
-+        name: {
-+          type: "string"
-+          description: "Name of the rule set under the profile which is unique globally"
-+        }
-+        resources: {
-+          type: "array"
-+          items: {
-+            oneOf: [
-+              {
-+                $ref: "#/definitions/profiles_ruleSets_rules_childResource"
-+              }
-+            ]
-+          }
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "Microsoft.Cdn/profiles/ruleSets"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Cdn/profiles/ruleSets"
-+    }
      cdnWebApplicationFirewallPolicies: {
        required: [
          ...
@@ -48,23 +11,6 @@
        ]
      }
      profiles: {
-       properties: {
-         resources: {
-           items: {
-             oneOf: [
-               ...
-               ...
-               ...
-               ...
-               ...
-               ...
-+              {
-+                $ref: "#/definitions/profiles_ruleSets_childResource"
-+              }
-             ]
-           }
-         }
-       }
        required: [
          ...
 +        "location"
@@ -895,72 +841,6 @@
 +        "parameters"
 +      ]
 +      description: "Defines the origin group override action for the delivery rule."
-+    }
-+    profiles_ruleSets_childResource: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2021-06-01"
-+          ]
-+        }
-+        name: {
-+          type: "string"
-+          description: "Name of the rule set under the profile which is unique globally"
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "ruleSets"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "type"
-+      ]
-+      description: "Microsoft.Cdn/profiles/ruleSets"
-+    }
-+    profiles_ruleSets_rules_childResource: {
-+      type: "object"
-+      properties: {
-+        apiVersion: {
-+          type: "string"
-+          enum: [
-+            "2021-06-01"
-+          ]
-+        }
-+        name: {
-+          type: "string"
-+          description: "Name of the delivery rule which is unique within the endpoint."
-+        }
-+        properties: {
-+          oneOf: [
-+            {
-+              $ref: "#/definitions/RuleProperties"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-+          description: "The JSON object that contains the properties of the Rules to create."
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "rules"
-+          ]
-+        }
-+      }
-+      required: [
-+        "apiVersion"
-+        "name"
-+        "properties"
-+        "type"
-+      ]
-+      description: "Microsoft.Cdn/profiles/ruleSets/rules"
 +    }
 +    SecurityPolicyWebApplicationFirewallParameters: {
 +      type: "object"
