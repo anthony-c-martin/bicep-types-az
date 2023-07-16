@@ -977,9 +977,21 @@
               "enum": [
                 "Invalid",
                 "Enabled",
-                "Disabled"
+                "Disabled",
+                "AlwaysON"
               ],
               "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "softDeleteRetentionPeriodInDays": {
+          "description": "Soft delete retention period in days",
+          "oneOf": [
+            {
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -1754,6 +1766,25 @@
     "PrivateEndpointConnection": {
       "description": "Private Endpoint Connection Response Properties",
       "properties": {
+        "groupIds": {
+          "description": "Group Ids for the Private Endpoint",
+          "oneOf": [
+            {
+              "items": {
+                "enum": [
+                  "AzureBackup",
+                  "AzureBackup_secondary",
+                  "AzureSiteRecovery"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "privateEndpoint": {
           "description": "Gets or sets private endpoint associated with the private endpoint connection",
           "oneOf": [
@@ -1799,7 +1830,7 @@
     "PrivateLinkServiceConnectionState": {
       "description": "Private Link Service Connection State",
       "properties": {
-        "actionRequired": {
+        "actionsRequired": {
           "description": "Gets or sets actions required",
           "type": "string"
         },
@@ -1934,7 +1965,7 @@
             }
           ]
         },
-        "softDeleteRetentionPeriod": {
+        "softDeleteRetentionPeriodInDays": {
           "description": "Soft delete retention period in days",
           "oneOf": [
             {

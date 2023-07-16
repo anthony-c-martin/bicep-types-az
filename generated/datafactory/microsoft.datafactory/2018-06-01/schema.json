@@ -57,6 +57,9 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/factories_adfcdcs_childResource"
+              },
+              {
                 "$ref": "#/definitions/factories_datasets_childResource"
               },
               {
@@ -108,6 +111,55 @@
         "type": {
           "enum": [
             "Microsoft.DataFactory/factories"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "factories_adfcdcs": {
+      "description": "Microsoft.DataFactory/factories/adfcdcs",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The change data capture name.",
+          "oneOf": [
+            {
+              "maxLength": 260,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_][^<>*#.%&:\\\\+?/]*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the change data capture.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ChangeDataCapture"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DataFactory/factories/adfcdcs"
           ],
           "type": "string"
         }
@@ -701,6 +753,37 @@
           "description": "Activity name.",
           "type": "string"
         },
+        "onInactiveMarkAs": {
+          "description": "Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.",
+          "oneOf": [
+            {
+              "enum": [
+                "Succeeded",
+                "Failed",
+                "Skipped"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "Activity state. This is an optional property and if not provided, the state will be Active by default.",
+          "oneOf": [
+            {
+              "enum": [
+                "Active",
+                "Inactive"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "userProperties": {
           "description": "Activity user properties.",
           "oneOf": [
@@ -856,16 +939,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "endpoint": {
           "description": "The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)",
@@ -986,16 +1061,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -1125,16 +1192,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The on-premises Windows authentication password.",
@@ -1211,16 +1270,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The password of the Amazon Redshift source.",
@@ -1334,16 +1385,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "forcePathStyle": {
           "description": "If true, use S3 path-style access instead of virtual hosted-style access. Default value is false. Type: boolean (or Expression with resultType boolean).",
@@ -1514,16 +1557,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "secretAccessKey": {
           "description": "The secret access key of the Amazon S3 Identity and Access Management (IAM) user.",
@@ -1588,7 +1623,7 @@
           ]
         },
         "userName": {
-          "description": "The username of the Appfigures source.",
+          "description": "The username of the Appfigures source. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -1611,7 +1646,7 @@
       "description": "AppendVariable activity properties.",
       "properties": {
         "value": {
-          "description": "Value to be appended. Could be a static value or Expression",
+          "description": "Value to be appended. Type: could be a static value matching type of the variable item or Expression with resultType matching type of the variable item",
           "oneOf": [
             {
               "properties": {},
@@ -1644,16 +1679,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         }
       },
       "required": [
@@ -1823,16 +1850,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "linkedServiceName": {
           "description": "The Azure Storage linked service reference.",
@@ -2045,16 +2064,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "sasToken": {
           "description": "The Azure key vault secret reference of sasToken in sas uri.",
@@ -2168,7 +2179,15 @@
         },
         "accountKind": {
           "description": "Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).",
-          "type": "string"
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "authenticationType": {
           "description": "The type used for authentication. Type: string.",
@@ -2236,7 +2255,7 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
           "type": "string"
         },
         "sasToken": {
@@ -2264,7 +2283,15 @@
         },
         "serviceEndpoint": {
           "description": "Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.",
-          "type": "string"
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "servicePrincipalId": {
           "description": "The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).",
@@ -2463,16 +2490,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "resourceGroupName": {
           "description": "Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).",
@@ -2643,16 +2662,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "resourceGroupName": {
           "description": "Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).",
@@ -2895,16 +2906,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "workspaceResourceId": {
           "description": "Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).",
@@ -2974,16 +2977,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "existingClusterId": {
           "description": "The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).",
@@ -3198,16 +3193,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "fileShare": {
           "description": "The azure file share name. It is required when auth with accountKey/sasToken. Type: string (or Expression with resultType string).",
@@ -3387,16 +3374,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "functionAppUrl": {
           "description": "The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net.",
@@ -3702,16 +3681,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "mlEndpoint": {
           "description": "The Batch Execution REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).",
@@ -3782,8 +3753,8 @@
     "AzureMLServiceLinkedServiceTypeProperties": {
       "description": "Azure ML Service linked service properties.",
       "properties": {
-        "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
+        "authentication": {
+          "description": "Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -3793,6 +3764,10 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "encryptedCredential": {
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "mlWorkspaceName": {
           "description": "Azure ML Service workspace name. Type: string (or Expression with resultType string).",
@@ -3968,16 +3943,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "pwd": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -4009,16 +3976,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -4083,16 +4042,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -4175,16 +4126,8 @@
       "description": "Windows Azure Search Service linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "key": {
           "description": "Admin Key for Azure Search service",
@@ -4254,16 +4197,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -4409,16 +4344,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -4522,16 +4449,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -4696,7 +4615,7 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
           "type": "string"
         },
         "sasToken": {
@@ -5007,16 +4926,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "Host name for connection. Type: string (or Expression with resultType string).",
@@ -5129,6 +5040,96 @@
       ],
       "type": "object"
     },
+    "ChangeDataCapture": {
+      "description": "A Azure Data Factory object which automatically detects data changes at the source and then sends the updated data to the destination.",
+      "properties": {
+        "allowVNetOverride": {
+          "description": "A boolean to determine if the vnet configuration needs to be overwritten.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "The description of the change data capture.",
+          "type": "string"
+        },
+        "folder": {
+          "description": "The folder that this CDC is in. If not specified, CDC will appear at the root level.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ChangeDataCaptureFolder"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policy": {
+          "description": "CDC policy",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionsInfo": {
+          "description": "List of sources connections that can be used as sources in the CDC.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperSourceConnectionsInfo"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "status": {
+          "description": "Status of the CDC as to if it is running or stopped.",
+          "type": "string"
+        },
+        "targetConnectionsInfo": {
+          "description": "List of target connections that can be used as sources in the CDC.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperTargetConnectionsInfo"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sourceConnectionsInfo",
+        "targetConnectionsInfo",
+        "policy"
+      ],
+      "type": "object"
+    },
+    "ChangeDataCaptureFolder": {
+      "description": "The folder that this CDC is in. If not specified, CDC will appear at the root level.",
+      "properties": {
+        "name": {
+          "description": "The name of the folder that this CDC is in.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "CmdkeySetupTypeProperties": {
       "description": "Cmdkey command custom setup type properties.",
       "properties": {
@@ -5221,16 +5222,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "hostName": {
           "description": "The host name of the on-premises Common Data Service for Apps server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).",
@@ -5389,16 +5382,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The password corresponding to the user name that you provided in the username field.",
@@ -5922,7 +5907,7 @@
           ]
         },
         "connectionMode": {
-          "description": "The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).",
+          "description": "The connection mode used to access CosmosDB account. Type: string.",
           "oneOf": [
             {
               "enum": [
@@ -5972,16 +5957,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "servicePrincipalCredential": {
           "description": "The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.",
@@ -5995,14 +5972,11 @@
           ]
         },
         "servicePrincipalCredentialType": {
-          "description": "The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).",
+          "description": "The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string.",
           "oneOf": [
             {
-              "enum": [
-                "ServicePrincipalKey",
-                "ServicePrincipalCert"
-              ],
-              "type": "string"
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -6151,16 +6125,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -6812,6 +6778,54 @@
       ],
       "type": "object"
     },
+    "DataMapperMapping": {
+      "description": "Source and target table mapping details.",
+      "properties": {
+        "attributeMappingInfo": {
+          "description": "This holds the user provided attribute mapping information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperAttributeMappings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceConnectionReference": {
+          "description": "The connection reference for the source connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperConnectionReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceDenormalizeInfo": {
+          "description": "This holds the source denormalization information used while joining multiple sources.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceEntityName": {
+          "description": "Name of the source table",
+          "type": "string"
+        },
+        "targetEntityName": {
+          "description": "Name of the target table",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "DatabricksNotebookActivityTypeProperties": {
       "description": "Databricks Notebook activity properties.",
       "properties": {
@@ -7273,16 +7287,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         }
       },
       "required": [
@@ -7344,16 +7350,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string.",
+          "type": "string"
         },
         "packageCollection": {
           "description": "Under where packages are created when querying database. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).",
@@ -7902,16 +7900,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "pwd": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -7943,16 +7933,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "servicePrincipalId": {
           "description": "Specify the application's client ID. Type: string (or Expression with resultType string).",
@@ -8078,16 +8060,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "hostName": {
           "description": "The host name of the on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).",
@@ -8259,16 +8233,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "hostName": {
           "description": "The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).",
@@ -8387,16 +8353,8 @@
       "description": "Eloqua server linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "endpoint": {
           "description": "The endpoint of the Eloqua server. (i.e. eloqua.example.com)",
@@ -9371,16 +9329,8 @@
       "description": "File system linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "Host name of the server. Type: string (or Expression with resultType string).",
@@ -9725,16 +9675,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "Host name of the FTP server. Type: string (or Expression with resultType string).",
@@ -9938,7 +9880,7 @@
           ]
         },
         "clientCustomerID": {
-          "description": "The Client customer ID of the AdWords account that you want to fetch report data for.",
+          "description": "The Client customer ID of the AdWords account that you want to fetch report data for. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -9996,7 +9938,7 @@
           ]
         },
         "email": {
-          "description": "The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.",
+          "description": "The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10008,19 +9950,11 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "keyFilePath": {
-          "description": "The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.",
+          "description": "The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10043,7 +9977,7 @@
           ]
         },
         "trustedCertPath": {
-          "description": "The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.",
+          "description": "The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10055,7 +9989,7 @@
           ]
         },
         "useSystemTrustStore": {
-          "description": "Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.",
+          "description": "Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).",
           "oneOf": [
             {
               "properties": {},
@@ -10115,7 +10049,7 @@
       "description": "Google BigQuery service linked service properties.",
       "properties": {
         "additionalProjects": {
-          "description": "A comma-separated list of public BigQuery projects to access.",
+          "description": "A comma-separated list of public BigQuery projects to access. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10165,7 +10099,7 @@
           ]
         },
         "email": {
-          "description": "The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.",
+          "description": "The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10177,19 +10111,11 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "keyFilePath": {
-          "description": "The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.",
+          "description": "The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10201,7 +10127,7 @@
           ]
         },
         "project": {
-          "description": "The default BigQuery project to query against.",
+          "description": "The default BigQuery project to query against. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10224,7 +10150,7 @@
           ]
         },
         "requestGoogleDriveScope": {
-          "description": "Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.",
+          "description": "Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10236,7 +10162,7 @@
           ]
         },
         "trustedCertPath": {
-          "description": "The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.",
+          "description": "The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -10248,7 +10174,7 @@
           ]
         },
         "useSystemTrustStore": {
-          "description": "Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.",
+          "description": "Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.Type: boolean (or Expression with resultType boolean).",
           "oneOf": [
             {
               "properties": {},
@@ -10282,16 +10208,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "secretAccessKey": {
           "description": "The secret access key of the Google Cloud Storage Identity and Access Management (IAM) user.",
@@ -10334,16 +10252,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         }
       },
       "required": [
@@ -10409,16 +10319,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "pwd": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -10489,16 +10391,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The IP address or host name of the HBase server. (i.e. 192.168.222.160)",
@@ -10680,11 +10574,12 @@
           "description": "User specified arguments under hivevar namespace.",
           "oneOf": [
             {
-              "items": {
+              "additionalProperties": {
                 "properties": {},
                 "type": "object"
               },
-              "type": "array"
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -10710,16 +10605,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "fileSystem": {
           "description": "Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string).",
@@ -11064,16 +10951,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "hBaseConfiguration": {
           "description": "Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.",
@@ -11724,16 +11603,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for Windows authentication.",
@@ -11875,16 +11746,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).",
@@ -12190,16 +12053,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.",
@@ -12280,16 +12135,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "refreshToken": {
           "description": "The refresh token obtained when initially authenticating your OAuth integration.",
@@ -12490,16 +12337,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The IP address or host name of the Impala server. (i.e. 192.168.222.160)",
@@ -12595,7 +12434,7 @@
           ]
         },
         "connectionString": {
-          "description": "The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.",
+          "description": "The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.",
           "oneOf": [
             {
               "properties": {},
@@ -12618,16 +12457,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for Basic authentication.",
@@ -13213,16 +13044,8 @@
       "description": "Jira Service linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The IP address or host name of the Jira service. (e.g. jira.example.com)",
@@ -13764,16 +13587,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The URL of the Magento instance. (i.e. 192.168.222.110/magento3)",
@@ -14026,6 +13841,433 @@
       ],
       "type": "object"
     },
+    "MapperAttributeMapping": {
+      "description": "Source and target column mapping details.",
+      "properties": {
+        "attributeReference": {
+          "description": "Reference of the source column used in the mapping. It is used for 'Direct' mapping type only.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperAttributeReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "attributeReferences": {
+          "description": "List of references for source columns. It is used for 'Derived' and 'Aggregate' type mappings only.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperAttributeReference"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "expression": {
+          "description": "Expression used for 'Aggregate' and 'Derived' type mapping.",
+          "type": "string"
+        },
+        "functionName": {
+          "description": "Name of the function used for 'Aggregate' and 'Derived' (except 'Advanced') type mapping.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the target column.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.",
+          "oneOf": [
+            {
+              "enum": [
+                "Direct",
+                "Derived",
+                "Aggregate"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperAttributeMappings": {
+      "description": "Attribute mapping details.",
+      "properties": {
+        "attributeMappings": {
+          "description": "List of attribute mappings.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperAttributeMapping"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperAttributeReference": {
+      "description": "Attribute reference details for the referred column.",
+      "properties": {
+        "entity": {
+          "description": "Name of the table.",
+          "type": "string"
+        },
+        "entityConnectionReference": {
+          "description": "The connection reference for the connection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperConnectionReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Name of the column.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MapperConnection": {
+      "description": "Source connection details.",
+      "properties": {
+        "commonDslConnectorProperties": {
+          "description": "List of name/value pairs for connection properties.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperDslConnectorProperties"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "isInlineDataset": {
+          "description": "A boolean indicating whether linked service is of type inline dataset. Currently only inline datasets are supported.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "linkedService": {
+          "description": "Linked service reference.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkedServiceReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "linkedServiceType": {
+          "description": "Type of the linked service e.g.: AzureBlobFS.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of connection via linked service or dataset.",
+          "oneOf": [
+            {
+              "enum": [
+                "linkedservicetype"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "MapperConnectionReference": {
+      "description": "Source or target connection reference details.",
+      "properties": {
+        "connectionName": {
+          "description": "Name of the connection",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of connection via linked service or dataset.",
+          "oneOf": [
+            {
+              "enum": [
+                "linkedservicetype"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperDslConnectorProperties": {
+      "description": "Connector properties of a CDC table in terms of name / value pairs.",
+      "properties": {
+        "name": {
+          "description": "Name of the property.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of the property.",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperPolicy": {
+      "description": "CDC Policy.",
+      "properties": {
+        "mode": {
+          "description": "Mode of running the CDC: batch vs continuous.",
+          "type": "string"
+        },
+        "recurrence": {
+          "description": "Defines the frequency and interval for running the CDC for batch mode.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperPolicyRecurrence"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperPolicyRecurrence": {
+      "description": "CDC policy recurrence details.",
+      "properties": {
+        "frequency": {
+          "description": "Frequency of period in terms of 'Hour', 'Minute' or 'Second'.",
+          "oneOf": [
+            {
+              "enum": [
+                "Hour",
+                "Minute",
+                "Second"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "interval": {
+          "description": "Actual interval value as per chosen frequency.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperSourceConnectionsInfo": {
+      "description": "A object which contains list of tables and connection details for a source connection.",
+      "properties": {
+        "connection": {
+          "description": "Source connection details.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperConnection"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sourceEntities": {
+          "description": "List of source tables for a source connection.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperTable"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperTable": {
+      "description": "CDC table details.",
+      "properties": {
+        "name": {
+          "description": "Name of the table.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Table properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperTableProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperTableProperties": {
+      "description": "Properties for a CDC table.",
+      "properties": {
+        "dslConnectorProperties": {
+          "description": "List of name/value pairs for connection properties.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperDslConnectorProperties"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "schema": {
+          "description": "List of columns for the source table.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperTableSchema"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MapperTableSchema": {
+      "description": "Schema of a CDC table in terms of column names and their corresponding data types.",
+      "properties": {
+        "dataType": {
+          "description": "Data type of the column.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the column.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MapperTargetConnectionsInfo": {
+      "description": "A object which contains list of tables and connection details for a target connection.",
+      "properties": {
+        "connection": {
+          "description": "Source connection details.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MapperConnection"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dataMapperMappings": {
+          "description": "List of table mappings.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/DataMapperMapping"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "relationships": {
+          "description": "List of relationship info among the tables.",
+          "oneOf": [
+            {
+              "items": {
+                "properties": {},
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetEntities": {
+          "description": "List of source tables for a target connection.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/MapperTable"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "MappingDataFlowTypeProperties": {
       "description": "Mapping data flow type properties.",
       "properties": {
@@ -14108,16 +14350,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "pwd": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -14160,16 +14394,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "endpoint": {
           "description": "The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)",
@@ -14272,7 +14498,7 @@
           ]
         },
         "connectionString": {
-          "description": "The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.",
+          "description": "The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.",
           "oneOf": [
             {
               "properties": {},
@@ -14295,16 +14521,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for Basic authentication.",
@@ -14391,6 +14609,18 @@
         },
         "database": {
           "description": "The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).",
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "driverVersion": {
+          "description": "The driver version that you want to choose. Allowed value are v1 and v2. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -14561,16 +14791,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for authentication.",
@@ -14685,7 +14907,7 @@
       "description": "MySQL linked service properties.",
       "properties": {
         "connectionString": {
-          "description": "The connection string.",
+          "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.",
           "oneOf": [
             {
               "properties": {},
@@ -14697,16 +14919,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -14759,16 +14973,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "pwd": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -14976,16 +15182,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password of the OData service.",
@@ -15119,7 +15317,7 @@
           ]
         },
         "connectionString": {
-          "description": "The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.",
+          "description": "The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.",
           "oneOf": [
             {
               "properties": {},
@@ -15142,16 +15340,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for Basic authentication.",
@@ -15237,16 +15427,8 @@
       "description": "Office365 linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "office365TenantId": {
           "description": "Azure tenant ID to which the Office 365 account belongs. Type: string (or Expression with resultType string).",
@@ -15320,16 +15502,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "secretAccessKey": {
           "description": "The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.",
@@ -15373,16 +15547,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -15459,16 +15625,8 @@
       "description": "Oracle Service Cloud linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The URL of the Oracle Service Cloud instance.",
@@ -15844,19 +16002,11 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
-          "description": "The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)",
+          "description": "The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)",
           "oneOf": [
             {
               "properties": {},
@@ -16008,16 +16158,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)",
@@ -16404,7 +16546,7 @@
       "description": "PostgreSQL linked service properties.",
       "properties": {
         "connectionString": {
-          "description": "The connection string.",
+          "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.",
           "oneOf": [
             {
               "properties": {},
@@ -16416,16 +16558,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -16788,16 +16922,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The IP address or host name of the Presto server. (i.e. 192.168.222.160)",
@@ -17042,16 +17168,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "endpoint": {
           "description": "The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)",
@@ -17084,16 +17202,8 @@
       "description": "Quickbase linked service type properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "url": {
           "description": "The url to connect Quickbase source. Type: string (or Expression with resultType string).",
@@ -17436,16 +17546,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "endpoint": {
           "description": "The endpoint of the Responsys server.",
@@ -17506,9 +17608,13 @@
       "description": "Properties specific to this dataset type.",
       "properties": {
         "additionalHeaders": {
-          "description": "The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).",
+          "description": "The additional HTTP headers in the request to the RESTful API.",
           "oneOf": [
             {
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
@@ -17518,9 +17624,13 @@
           ]
         },
         "paginationRules": {
-          "description": "The pagination rules to compose next page requests. Type: string (or Expression with resultType string).",
+          "description": "The pagination rules to compose next page requests.",
           "oneOf": [
             {
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
@@ -17572,7 +17682,7 @@
       "description": "Rest Service linked service properties.",
       "properties": {
         "aadResourceId": {
-          "description": "The resource you are requesting authorization to use.",
+          "description": "The resource you are requesting authorization to use. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -17672,16 +17782,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The password used in Basic authentication type.",
@@ -17719,7 +17821,7 @@
           ]
         },
         "servicePrincipalId": {
-          "description": "The application's client ID used in AadServicePrincipal authentication type.",
+          "description": "The application's client ID used in AadServicePrincipal authentication type. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -17742,7 +17844,7 @@
           ]
         },
         "tenant": {
-          "description": "The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.",
+          "description": "The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -17766,7 +17868,7 @@
           ]
         },
         "url": {
-          "description": "The base URL of the REST service.",
+          "description": "The base URL of the REST service. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -17778,7 +17880,7 @@
           ]
         },
         "userName": {
-          "description": "The user name used in Basic authentication type.",
+          "description": "The user name used in Basic authentication type. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -17841,16 +17943,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "environmentUrl": {
           "description": "The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).",
@@ -17940,16 +18034,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "useEncryptedEndpoints": {
           "description": "Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).",
@@ -18024,16 +18110,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "environmentUrl": {
           "description": "The URL of Salesforce Service Cloud instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).",
@@ -18130,16 +18208,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password to access the SAP BW server.",
@@ -18200,16 +18270,8 @@
       "description": "SAP Cloud for Customer linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The password for Basic authentication.",
@@ -18277,7 +18339,7 @@
       "description": "SAP ECC linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).",
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.",
           "type": "string"
         },
         "password": {
@@ -18293,11 +18355,27 @@
         },
         "url": {
           "description": "The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).",
-          "type": "string"
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "username": {
           "description": "The username for Basic authentication. Type: string (or Expression with resultType string).",
-          "type": "string"
+          "oneOf": [
+            {
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
@@ -18357,16 +18435,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password to access the SAP HANA server.",
@@ -18470,16 +18540,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "language": {
           "description": "Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).",
@@ -18725,16 +18787,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "language": {
           "description": "Language of the BW system where the open hub destination is located. The default value is EN. Type: string (or Expression with resultType string).",
@@ -18907,16 +18961,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "language": {
           "description": "Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).",
@@ -19359,7 +19405,7 @@
           ]
         },
         "value": {
-          "description": "The value of the parameter.",
+          "description": "The value of the parameter. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -19507,6 +19553,34 @@
       "properties": {},
       "type": "object"
     },
+    "SecureInputOutputPolicy": {
+      "description": "Execution policy for an activity that supports secure input and output.",
+      "properties": {
+        "secureInput": {
+          "description": "When set to true, Input from activity is considered as secure and will not be logged to monitoring.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "secureOutput": {
+          "description": "When set to true, Output from activity is considered as secure and will not be logged to monitoring.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "SecureString": {
       "description": "Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.",
       "properties": {
@@ -19584,16 +19658,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "endpoint": {
           "description": "The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)",
@@ -19676,8 +19742,19 @@
     "SetVariableActivityTypeProperties": {
       "description": "SetVariable activity properties.",
       "properties": {
+        "setSystemVariable": {
+          "description": "If set to true, it sets the pipeline run return value.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "value": {
-          "description": "Value to be set. Could be a static value or Expression",
+          "description": "Value to be set. Could be a static value or Expression.",
           "oneOf": [
             {
               "properties": {},
@@ -19715,16 +19792,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The SFTP server host name. Type: string (or Expression with resultType string).",
@@ -19859,16 +19928,8 @@
       "description": "SharePoint Online List linked service properties.",
       "properties": {
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "servicePrincipalId": {
           "description": "The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).",
@@ -19941,16 +20002,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The endpoint of the Shopify server. (i.e. mystore.myshopify.com)",
@@ -20051,16 +20104,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         }
       },
       "required": [
@@ -20226,16 +20271,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -20389,16 +20426,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "IP address or host name of the Spark server",
@@ -20527,7 +20556,7 @@
       "description": "Sql always encrypted properties.",
       "properties": {
         "alwaysEncryptedAkvAuthType": {
-          "description": "Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).",
+          "description": "Sql always encrypted AKV authentication type. Type: string.",
           "oneOf": [
             {
               "enum": [
@@ -20681,16 +20710,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The on-premises Windows authentication password.",
@@ -20877,19 +20898,11 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
-          "description": "The URL of the Square instance. (i.e. mystore.mysquare.com)",
+          "description": "The URL of the Square instance. (i.e. mystore.mysquare.com)",
           "oneOf": [
             {
               "properties": {},
@@ -20955,7 +20968,7 @@
       "description": "SSIS access credential.",
       "properties": {
         "domain": {
-          "description": "Domain for windows authentication.",
+          "description": "Domain for windows authentication. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -20978,7 +20991,7 @@
           ]
         },
         "userName": {
-          "description": "UseName for windows authentication.",
+          "description": "UseName for windows authentication. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -21043,7 +21056,7 @@
       "description": "SSIS package execution credential.",
       "properties": {
         "domain": {
-          "description": "Domain for windows authentication.",
+          "description": "Domain for windows authentication. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -21066,7 +21079,7 @@
           ]
         },
         "userName": {
-          "description": "UseName for windows authentication.",
+          "description": "UseName for windows authentication. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -21598,16 +21611,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for authentication.",
@@ -21696,6 +21701,22 @@
             }
           ]
         },
+        "configurationType": {
+          "description": "The type of the spark config.",
+          "oneOf": [
+            {
+              "enum": [
+                "Default",
+                "Customized",
+                "Artifact"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "driverSize": {
           "description": "Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).",
           "oneOf": [
@@ -21732,10 +21753,11 @@
           ]
         },
         "numExecutors": {
-          "description": "Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.",
+          "description": "Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).",
           "oneOf": [
             {
-              "type": "integer"
+              "properties": {},
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -21757,11 +21779,38 @@
             }
           ]
         },
+        "sparkConfig": {
+          "description": "Spark configuration property.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "sparkPool": {
           "description": "The name of the big data pool which will be used to execute the notebook.",
           "oneOf": [
             {
               "$ref": "#/definitions/BigDataPoolParametrizationReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetSparkConfiguration": {
+          "description": "The spark configuration of the spark job.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SparkConfigurationParametrizationReference"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -22091,16 +22140,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The password of the TeamDesk source.",
@@ -22175,16 +22216,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "Password for authentication.",
@@ -22555,7 +22588,7 @@
           ]
         },
         "userName": {
-          "description": "The Account SID of Twilio service.",
+          "description": "The Account SID of Twilio service. Type: string (or Expression with resultType string).",
           "oneOf": [
             {
               "properties": {},
@@ -22602,7 +22635,7 @@
           ]
         },
         "timeout": {
-          "description": "Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).",
+          "description": "Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).",
           "oneOf": [
             {
               "properties": {},
@@ -22809,16 +22842,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "pwd": {
           "description": "The Azure key vault secret reference of password in connection string.",
@@ -22838,7 +22863,7 @@
       "description": "Wait activity properties.",
       "properties": {
         "waitTimeInSeconds": {
-          "description": "Duration in seconds.",
+          "description": "Duration in seconds. Type: integer (or Expression with resultType integer).",
           "oneOf": [
             {
               "properties": {},
@@ -23226,16 +23251,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "host": {
           "description": "The endpoint of the Xero server. (i.e. api.xero.com)",
@@ -23467,16 +23484,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "password": {
           "description": "The password of the Zendesk source.",
@@ -23547,16 +23556,8 @@
           ]
         },
         "encryptedCredential": {
-          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).",
-          "oneOf": [
-            {
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
+          "type": "string"
         },
         "endpoint": {
           "description": "The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)",
@@ -23607,6 +23608,55 @@
           ]
         }
       },
+      "type": "object"
+    },
+    "factories_adfcdcs_childResource": {
+      "description": "Microsoft.DataFactory/factories/adfcdcs",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The change data capture name.",
+          "oneOf": [
+            {
+              "maxLength": 260,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_][^<>*#.%&:\\\\+?/]*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the change data capture.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ChangeDataCapture"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "adfcdcs"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
       "type": "object"
     },
     "factories_credentials_childResource": {

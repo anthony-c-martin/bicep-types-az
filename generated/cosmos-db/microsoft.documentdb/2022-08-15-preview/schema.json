@@ -4812,11 +4812,14 @@
           "description": "Indicates whether the Role Definition was built-in or user created.",
           "oneOf": [
             {
-              "enum": [
-                "BuiltInRole",
-                "CustomRole"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"

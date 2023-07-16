@@ -261,6 +261,40 @@
     }
   },
   "definitions": {
+    "AzureDataExplorerOutputDataSourceProperties": {
+      "description": "The properties that are associated with an Azure Data Explorer output.",
+      "properties": {
+        "authenticationMode": {
+          "description": "Authentication Mode.",
+          "oneOf": [
+            {
+              "enum": [
+                "Msi",
+                "UserToken",
+                "ConnectionString"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "cluster": {
+          "description": "The name of the Azure Data Explorer cluster. Required on PUT (CreateOrReplace) requests.",
+          "type": "string"
+        },
+        "database": {
+          "description": "The name of the Azure Data Explorer database. Required on PUT (CreateOrReplace) requests.",
+          "type": "string"
+        },
+        "table": {
+          "description": "The name of the Azure Table. Required on PUT (CreateOrReplace) requests.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AzureDataLakeStoreOutputDataSourceProperties": {
       "description": "The properties that are associated with an Azure Data Lake Store.",
       "properties": {
@@ -1612,6 +1646,10 @@
           "description": "The user assigned identities associated with the streaming job resource.",
           "oneOf": [
             {
+              "additionalProperties": {
+                "properties": {},
+                "type": "object"
+              },
               "properties": {},
               "type": "object"
             },
