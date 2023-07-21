@@ -656,6 +656,21 @@
     "AnalyticsConnectorDataDestination": {
       "additionalProperties": {},
       "description": "Data destination configuration for Analytics Connector.",
+      "oneOf": [
+        {
+          "description": "The Data Lake data destination for Analytics Connector.",
+          "properties": {
+            "dataLakeName": {
+              "description": "The name for the Data Lake.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "dataLakeName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "Name of data destination.",
@@ -667,12 +682,59 @@
     "AnalyticsConnectorDataSource": {
       "additionalProperties": {},
       "description": "Data source for Analytics Connector. The target resource must be in the same workspace with the Analytics Connector.",
+      "oneOf": [
+        {
+          "description": "The FHIR service data source for Analytics Connector.",
+          "properties": {
+            "kind": {
+              "description": "The kind of FHIR Service.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "STU3",
+                    "R4"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "url": {
+              "description": "The URL of FHIR service.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "kind"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "AnalyticsConnectorMapping": {
       "additionalProperties": {},
       "description": "Data mapping configuration for Analytics Connector.",
+      "oneOf": [
+        {
+          "description": "FHIR Service data mapping configuration for Analytics Connector.",
+          "properties": {
+            "extensionSchemaReference": {
+              "description": "Artifact reference for extension schema.",
+              "type": "string"
+            },
+            "filterConfigurationReference": {
+              "description": "Artifact reference for filter configurations.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

@@ -423,6 +423,17 @@
           "description": "Display name",
           "type": "string"
         },
+        "renew": {
+          "description": "Setting this to true will automatically purchase a new benefit on the expiration date time.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "term": {
           "description": "Represent benefit term in ISO 8601 format.",
           "oneOf": [

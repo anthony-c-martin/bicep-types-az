@@ -188,6 +188,40 @@
     "DashboardPartMetadata": {
       "additionalProperties": {},
       "description": "A dashboard part metadata.",
+      "oneOf": [
+        {
+          "description": "Markdown part metadata.",
+          "properties": {
+            "inputs": {
+              "description": "Input to dashboard part.",
+              "oneOf": [
+                {
+                  "items": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "settings": {
+              "description": "Markdown part settings.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MarkdownPartMetadataSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

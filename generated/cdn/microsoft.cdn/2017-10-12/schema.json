@@ -374,11 +374,75 @@
     },
     "DeliveryRuleAction": {
       "description": "An action for the delivery rule.",
+      "oneOf": [
+        {
+          "description": "Defines the cache expiration action for the delivery rule.",
+          "properties": {
+            "parameters": {
+              "description": "Defines the parameters for the action.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CacheExpirationActionParameters"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "parameters"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "DeliveryRuleCondition": {
       "description": "A condition for the delivery rule.",
+      "oneOf": [
+        {
+          "description": "Defines the URL file extension condition for the delivery rule.",
+          "properties": {
+            "parameters": {
+              "description": "Defines the parameters for the condition.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/UrlFileExtensionConditionParameters"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Defines the URL path condition for the delivery rule.",
+          "properties": {
+            "parameters": {
+              "description": "Defines the parameters for the condition.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/UrlPathConditionParameters"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "parameters"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

@@ -1993,6 +1993,30 @@
     },
     "BackupPolicy": {
       "description": "The object representing the policy for taking backups on an account.",
+      "oneOf": [
+        {
+          "description": "The object representing continuous mode backup policy.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The object representing periodic mode backup policy.",
+          "properties": {
+            "periodicModeProperties": {
+              "description": "Configuration values for periodic mode backup",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PeriodicModeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "migrationState": {
           "description": "The object representing the state of the migration between the backup policies.",
@@ -3797,11 +3821,14 @@
           "description": "Indicates whether the Role Definition was built-in or user created.",
           "oneOf": [
             {
-              "enum": [
-                "BuiltInRole",
-                "CustomRole"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"

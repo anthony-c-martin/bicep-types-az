@@ -565,6 +565,46 @@
   "definitions": {
     "ApplicationGroupPolicy": {
       "description": "Properties of the Application Group policy",
+      "oneOf": [
+        {
+          "description": "Properties of the throttling policy",
+          "properties": {
+            "metricId": {
+              "description": "Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal",
+              "oneOf": [
+                {
+                  "enum": [
+                    "IncomingBytes",
+                    "OutgoingBytes",
+                    "IncomingMessages",
+                    "OutgoingMessages"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "rateLimitThreshold": {
+              "description": "The Threshold limit above which the application group will be throttled.Rate limit is always per second.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "rateLimitThreshold",
+            "metricId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "The Name of this policy",
@@ -1399,7 +1439,7 @@
             {
               "enum": [
                 "Delete",
-                "Compaction"
+                "Compact"
               ],
               "type": "string"
             },
@@ -1409,7 +1449,7 @@
           ]
         },
         "retentionTimeInHours": {
-          "description": "Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compaction the returned value of this property is Long.MaxValue ",
+          "description": "Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue ",
           "oneOf": [
             {
               "type": "integer"
@@ -1420,7 +1460,7 @@
           ]
         },
         "tombstoneRetentionTimeInHours": {
-          "description": "Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compaction. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub",
+          "description": "Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub",
           "oneOf": [
             {
               "type": "integer"

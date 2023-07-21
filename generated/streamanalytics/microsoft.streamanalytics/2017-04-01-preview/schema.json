@@ -1207,6 +1207,76 @@
     },
     "FunctionBinding": {
       "description": "The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.",
+      "oneOf": [
+        {
+          "description": "The binding to an Azure Machine Learning Studio.",
+          "properties": {
+            "properties": {
+              "description": "The binding properties associated with an Azure Machine learning Studio.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureMachineLearningStudioFunctionBindingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The binding to an Azure Machine Learning web service.",
+          "properties": {
+            "properties": {
+              "description": "The binding properties associated with an Azure Machine learning web service.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureMachineLearningServiceFunctionBindingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The binding to a CSharp function.",
+          "properties": {
+            "properties": {
+              "description": "The binding properties associated with a CSharp function.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CSharpFunctionBindingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The binding to a JavaScript function.",
+          "properties": {
+            "properties": {
+              "description": "The binding properties associated with a JavaScript function.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/JavaScriptFunctionBindingProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1284,6 +1354,18 @@
     },
     "FunctionProperties": {
       "description": "The properties that are associated with a function.",
+      "oneOf": [
+        {
+          "description": "The properties that are associated with an aggregate function.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The properties that are associated with a scalar function.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "properties": {
           "description": "",
@@ -1340,6 +1422,42 @@
     },
     "InputProperties": {
       "description": "The properties that are associated with an input.",
+      "oneOf": [
+        {
+          "description": "The properties that are associated with an input containing reference data.",
+          "properties": {
+            "datasource": {
+              "description": "Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ReferenceInputDataSource"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The properties that are associated with an input containing stream data.",
+          "properties": {
+            "datasource": {
+              "description": "Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/StreamInputDataSource"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "compression": {
           "description": "Describes how input data is compressed",
@@ -1494,6 +1612,229 @@
     },
     "OutputDataSource": {
       "description": "Describes the data source that output will be written to.",
+      "oneOf": [
+        {
+          "description": "Defines the metadata of AzureFunctionOutputDataSource",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a Azure Function output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureFunctionOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Azure Data Lake Store output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Azure Data Lake Store output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureDataLakeStoreOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Event Hub output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Event Hub output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EventHubOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Event Hub output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Event Hub output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EventHubOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a Service Bus Queue output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a Service Bus Queue output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ServiceBusQueueOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a Service Bus Topic output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a Service Bus Topic output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ServiceBusTopicOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Azure Synapse output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Azure Synapse output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSynapseOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Azure SQL database output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Azure SQL database output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSqlDatabaseOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a blob output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a blob output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a DocumentDB output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a DocumentDB output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DocumentDbOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Azure Table output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Azure Table output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureTableOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a Power BI output data source.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a Power BI output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PowerBIOutputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a raw output. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RawOutputDatasourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1616,11 +1957,170 @@
     },
     "ReferenceInputDataSource": {
       "description": "Describes an input data source that contains reference data.",
+      "oneOf": [
+        {
+          "description": "Describes an Azure SQL database reference input data source.",
+          "properties": {
+            "properties": {
+              "description": "Describes Azure SQL database reference input data source properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSqlReferenceInputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a blob input data source that contains reference data.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a blob input containing reference data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobReferenceInputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a raw input containing reference data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RawInputDatasourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "Serialization": {
       "description": "Describes how data from an input is serialized or how data is serialized when written to an output.",
+      "oneOf": [
+        {
+          "description": "Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with the Avro serialization type. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with the CSV serialization type. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CsvSerializationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes how data from an input is serialized or how data is serialized when written to an output in custom format.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with the CustomClr serialization type. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CustomClrSerializationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes how data from an input is serialized or how data is serialized when written to an output in Delta Lake format.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with the Delta Lake serialization type. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DeltaSerializationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with the JSON serialization type. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/JsonSerializationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with the Parquet serialization type. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1774,6 +2274,93 @@
     },
     "StreamInputDataSource": {
       "description": "Describes an input data source that contains stream data.",
+      "oneOf": [
+        {
+          "description": "Describes an IoT Hub input data source that contains stream data.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an IoT Hub input containing stream data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/IoTHubStreamInputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Event Hub input data source that contains stream data.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Event Hub input containing stream data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EventHubStreamInputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an Event Hub input data source that contains stream data.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with an Event Hub input containing stream data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EventHubStreamInputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a blob input data source that contains stream data.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a blob input containing stream data. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/BlobStreamInputDataSourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.",
+          "properties": {
+            "properties": {
+              "description": "The properties that are associated with a raw input. Required on PUT (CreateOrReplace) requests.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RawInputDatasourceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

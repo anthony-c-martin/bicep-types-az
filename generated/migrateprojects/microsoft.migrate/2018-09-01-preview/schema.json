@@ -342,6 +342,108 @@
     },
     "SolutionSummary": {
       "description": "The solution summary class.",
+      "oneOf": [
+        {
+          "description": "Class representing the databases solution summary.",
+          "properties": {
+            "databaseInstancesAssessedCount": {
+              "description": "Gets or sets the count of database instances assessed.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "databasesAssessedCount": {
+              "description": "Gets or sets the count of databases assessed.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "migrationReadyCount": {
+              "description": "Gets or sets the count of databases ready for migration.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Class representing the servers solution summary.",
+          "properties": {
+            "assessedCount": {
+              "description": "Gets or sets the count of servers assessed.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "discoveredCount": {
+              "description": "Gets or sets the count of servers discovered.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "migratedCount": {
+              "description": "Gets or sets the count of servers migrated.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "replicatingCount": {
+              "description": "Gets or sets the count of servers being replicated.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "testMigratedCount": {
+              "description": "Gets or sets the count of servers test migrated.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

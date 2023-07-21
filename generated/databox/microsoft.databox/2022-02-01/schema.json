@@ -249,6 +249,39 @@
     },
     "DataAccountDetails": {
       "description": "Account details of the data to be transferred",
+      "oneOf": [
+        {
+          "description": "Details of the managed disks.",
+          "properties": {
+            "resourceGroupId": {
+              "description": "Resource Group Id of the compute disks.",
+              "type": "string"
+            },
+            "stagingStorageAccountId": {
+              "description": "Resource Id of the storage account that can be used to copy the vhd for staging.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "resourceGroupId",
+            "stagingStorageAccountId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Details for the storage account.",
+          "properties": {
+            "storageAccountId": {
+              "description": "Storage Account Resource Id.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "storageAccountId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "sharePassword": {
           "description": "Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+",
@@ -446,6 +479,99 @@
     },
     "JobDetails": {
       "description": "Job details.",
+      "oneOf": [
+        {
+          "description": "Databox Job Details",
+          "properties": {
+            "devicePassword": {
+              "description": "Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Customer disk job details.",
+          "properties": {
+            "enableManifestBackup": {
+              "description": "Flag to indicate if disk manifest should be backed-up in the Storage Account.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "importDiskDetailsCollection": {
+              "description": "Contains the map of disk serial number to the disk details for import jobs.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/ImportDiskDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "returnToCustomerPackageDetails": {
+              "description": "Return package shipping details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PackageCarrierDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "returnToCustomerPackageDetails"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "DataBox Disk Job Details.",
+          "properties": {
+            "passkey": {
+              "description": "User entered passkey for DataBox Disk job.",
+              "type": "string"
+            },
+            "preferredDisks": {
+              "description": "User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "integer"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Databox Heavy Device Job Details",
+          "properties": {
+            "devicePassword": {
+              "description": "Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "contactDetails": {
           "description": "Contact details for notification and shipping.",

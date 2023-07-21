@@ -857,6 +857,25 @@
     },
     "WebServiceProperties": {
       "description": "The set of properties specific to the Azure ML web service resource.",
+      "oneOf": [
+        {
+          "description": "Properties specific to a Graph based web service.",
+          "properties": {
+            "package": {
+              "description": "The definition of the graph package making up this web service.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GraphPackage"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "assets": {
           "description": "Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.",

@@ -1829,6 +1829,912 @@
     },
     "ProtectedItem": {
       "description": "Base class for backup items.",
+      "oneOf": [
+        {
+          "description": "Azure File Share workload-specific backup item.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information with this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureFileshareProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "friendlyName": {
+              "description": "Friendly name of the fileshare represented by this backup item.",
+              "type": "string"
+            },
+            "kpisHealths": {
+              "description": "Health details of different KPIs",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/KPIResourceHealthDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupStatus": {
+              "description": "Last backup operation status. Possible values: Healthy, Unhealthy.",
+              "type": "string"
+            },
+            "lastBackupTime": {
+              "description": "Timestamp of the last backup operation on this backup item.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionStatus": {
+              "description": "Backup status of this backup item.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "IaaS VM workload-specific backup item representing the Classic Compute VM.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information for this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureIaaSVMProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "extendedProperties": {
+              "description": "Extended Properties for Azure IaasVM Backup.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ExtendedProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "healthDetails": {
+              "description": "Health details on this backup item.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/AzureIaaSVMHealthDetails"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kpisHealths": {
+              "description": "Health details of different KPIs",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/KPIResourceHealthDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupStatus": {
+              "description": "Last backup operation status.",
+              "type": "string"
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionStatus": {
+              "description": "Backup status of this backup item.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "IaaS VM workload-specific backup item representing the Azure Resource Manager VM.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information for this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureIaaSVMProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "extendedProperties": {
+              "description": "Extended Properties for Azure IaasVM Backup.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ExtendedProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "healthDetails": {
+              "description": "Health details on this backup item.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/AzureIaaSVMHealthDetails"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kpisHealths": {
+              "description": "Health details of different KPIs",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/KPIResourceHealthDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupStatus": {
+              "description": "Last backup operation status.",
+              "type": "string"
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionStatus": {
+              "description": "Backup status of this backup item.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure VM workload-specific protected item representing SAP ASE Database.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information for this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureVmWorkloadProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kpisHealths": {
+              "description": "Health details of different KPIs",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/KPIResourceHealthDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupErrorDetail": {
+              "description": "Error details in last backup",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ErrorDetail"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupStatus": {
+              "description": "Last backup operation status. Possible values: Healthy, Unhealthy.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupTime": {
+              "description": "Timestamp of the last backup operation on this backup item.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "parentName": {
+              "description": "Parent name of the DB such as Instance or Availability Group.",
+              "type": "string"
+            },
+            "parentType": {
+              "description": "Parent type of protected item, example: for a DB, standalone server or distributed",
+              "type": "string"
+            },
+            "protectedItemDataSourceId": {
+              "description": "Data ID of the protected item.",
+              "type": "string"
+            },
+            "protectedItemHealthStatus": {
+              "description": "Health status of the backup item, evaluated based on last heartbeat received",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "NotReachable",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "Host/Cluster Name for instance or AG",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure VM workload-specific protected item representing SAP HANA DBInstance.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information for this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureVmWorkloadProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kpisHealths": {
+              "description": "Health details of different KPIs",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/KPIResourceHealthDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupErrorDetail": {
+              "description": "Error details in last backup",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ErrorDetail"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupStatus": {
+              "description": "Last backup operation status. Possible values: Healthy, Unhealthy.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupTime": {
+              "description": "Timestamp of the last backup operation on this backup item.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "parentName": {
+              "description": "Parent name of the DB such as Instance or Availability Group.",
+              "type": "string"
+            },
+            "parentType": {
+              "description": "Parent type of protected item, example: for a DB, standalone server or distributed",
+              "type": "string"
+            },
+            "protectedItemDataSourceId": {
+              "description": "Data ID of the protected item.",
+              "type": "string"
+            },
+            "protectedItemHealthStatus": {
+              "description": "Health status of the backup item, evaluated based on last heartbeat received",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "NotReachable",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "Host/Cluster Name for instance or AG",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure VM workload-specific protected item representing SAP HANA Database.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information for this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureVmWorkloadProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kpisHealths": {
+              "description": "Health details of different KPIs",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/KPIResourceHealthDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupErrorDetail": {
+              "description": "Error details in last backup",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ErrorDetail"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupStatus": {
+              "description": "Last backup operation status. Possible values: Healthy, Unhealthy.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupTime": {
+              "description": "Timestamp of the last backup operation on this backup item.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "parentName": {
+              "description": "Parent name of the DB such as Instance or Availability Group.",
+              "type": "string"
+            },
+            "parentType": {
+              "description": "Parent type of protected item, example: for a DB, standalone server or distributed",
+              "type": "string"
+            },
+            "protectedItemDataSourceId": {
+              "description": "Data ID of the protected item.",
+              "type": "string"
+            },
+            "protectedItemHealthStatus": {
+              "description": "Health status of the backup item, evaluated based on last heartbeat received",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "NotReachable",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "Host/Cluster Name for instance or AG",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure VM workload-specific protected item representing SQL Database.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information for this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureVmWorkloadProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kpisHealths": {
+              "description": "Health details of different KPIs",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/KPIResourceHealthDetails"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupErrorDetail": {
+              "description": "Error details in last backup",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ErrorDetail"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupStatus": {
+              "description": "Last backup operation status. Possible values: Healthy, Unhealthy.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastBackupTime": {
+              "description": "Timestamp of the last backup operation on this backup item.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "parentName": {
+              "description": "Parent name of the DB such as Instance or Availability Group.",
+              "type": "string"
+            },
+            "parentType": {
+              "description": "Parent type of protected item, example: for a DB, standalone server or distributed",
+              "type": "string"
+            },
+            "protectedItemDataSourceId": {
+              "description": "Data ID of the protected item.",
+              "type": "string"
+            },
+            "protectedItemHealthStatus": {
+              "description": "Health status of the backup item, evaluated based on last heartbeat received",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Healthy",
+                    "Unhealthy",
+                    "NotReachable",
+                    "IRPending"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "Host/Cluster Name for instance or AG",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Additional information on Backup engine specific backup item.",
+          "properties": {
+            "backupEngineName": {
+              "description": "Backup Management server protecting this backup item",
+              "type": "string"
+            },
+            "extendedInfo": {
+              "description": "Extended info of the backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DPMProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "friendlyName": {
+              "description": "Friendly name of the managed item",
+              "type": "string"
+            },
+            "protectionState": {
+              "description": "Protection state of the backup engine",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Base class for backup items.",
+          "properties": {
+            "fabricName": {
+              "description": "Name of this backup item's fabric.",
+              "type": "string"
+            },
+            "friendlyName": {
+              "description": "Friendly name of the container.",
+              "type": "string"
+            },
+            "policyState": {
+              "description": "Indicates consistency of policy object and policy applied to this backup item.",
+              "type": "string"
+            },
+            "protectedItemId": {
+              "description": "Data Plane Service ID of the protected item.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionState": {
+              "description": "Backup state of this backup item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceAssociations": {
+              "description": "Loosely coupled (type, value) associations (example - parent of a protected item)",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "MAB workload-specific backup item.",
+          "properties": {
+            "computerName": {
+              "description": "Name of the computer associated with this backup item.",
+              "type": "string"
+            },
+            "deferredDeleteSyncTimeInUTC": {
+              "description": "Sync time for deferred deletion in UTC",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "extendedInfo": {
+              "description": "Additional information with this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MabFileFolderProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "friendlyName": {
+              "description": "Friendly name of this backup item.",
+              "type": "string"
+            },
+            "lastBackupStatus": {
+              "description": "Status of last backup operation.",
+              "type": "string"
+            },
+            "lastBackupTime": {
+              "description": "Timestamp of the last backup operation on this backup item.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "protectionState": {
+              "description": "Protected, ProtectionStopped, IRPending or ProtectionError",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure SQL workload-specific backup item.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional information for this backup item.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSqlProtectedItemExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectedItemDataId": {
+              "description": "Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.",
+              "type": "string"
+            },
+            "protectionState": {
+              "description": "Backup state of the backed up item.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "IRPending",
+                    "Protected",
+                    "ProtectionError",
+                    "ProtectionStopped",
+                    "ProtectionPaused"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "backupSetName": {
           "description": "Name of the backup set the backup item belongs to",
@@ -1943,6 +2849,404 @@
     },
     "ProtectionContainer": {
       "description": "Base class for container with backup items. Containers with specific workloads are derived from this class.",
+      "oneOf": [
+        {
+          "description": "AzureBackupServer (DPMVenus) workload-specific protection container.",
+          "properties": {
+            "canReRegister": {
+              "description": "Specifies whether the container is re-registrable.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "containerId": {
+              "description": "ID of container.",
+              "type": "string"
+            },
+            "dpmAgentVersion": {
+              "description": "Backup engine Agent version",
+              "type": "string"
+            },
+            "dpmServers": {
+              "description": "List of BackupEngines protecting the container",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "extendedInfo": {
+              "description": "Extended Info of the container.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DPMContainerExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectedItemCount": {
+              "description": "Number of protected items in the BackupEngine",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectionStatus": {
+              "description": "Protection status of the container.",
+              "type": "string"
+            },
+            "upgradeAvailable": {
+              "description": "To check if upgrade available",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure Sql workload-specific container.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Container for SQL workloads under SQL Availability Group.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional details of a workload container.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureWorkloadContainerExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastUpdatedTime": {
+              "description": "Time stamp when this container was updated.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "operationType": {
+              "description": "Re-Do Operation",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Register",
+                    "Reregister"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceResourceId": {
+              "description": "ARM ID of the virtual machine represented by this Azure Workload Container",
+              "type": "string"
+            },
+            "workloadType": {
+              "description": "Workload type for which registration was sent.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "VM",
+                    "FileFolder",
+                    "AzureSqlDb",
+                    "SQLDB",
+                    "Exchange",
+                    "Sharepoint",
+                    "VMwareVM",
+                    "SystemState",
+                    "Client",
+                    "GenericDataSource",
+                    "SQLDataBase",
+                    "AzureFileShare",
+                    "SAPHanaDatabase",
+                    "SAPAseDatabase",
+                    "SAPHanaDBInstance"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Container for SQL workloads under Azure Virtual Machines.",
+          "properties": {
+            "extendedInfo": {
+              "description": "Additional details of a workload container.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureWorkloadContainerExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lastUpdatedTime": {
+              "description": "Time stamp when this container was updated.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "operationType": {
+              "description": "Re-Do Operation",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Register",
+                    "Reregister"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceResourceId": {
+              "description": "ARM ID of the virtual machine represented by this Azure Workload Container",
+              "type": "string"
+            },
+            "workloadType": {
+              "description": "Workload type for which registration was sent.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "VM",
+                    "FileFolder",
+                    "AzureSqlDb",
+                    "SQLDB",
+                    "Exchange",
+                    "Sharepoint",
+                    "VMwareVM",
+                    "SystemState",
+                    "Client",
+                    "GenericDataSource",
+                    "SQLDataBase",
+                    "AzureFileShare",
+                    "SAPHanaDatabase",
+                    "SAPAseDatabase",
+                    "SAPHanaDBInstance"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Base class for generic container of backup items",
+          "properties": {
+            "extendedInformation": {
+              "description": "Extended information (not returned in List container API calls)",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GenericContainerExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "fabricName": {
+              "description": "Name of the container's fabric",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "IaaS VM workload-specific backup item representing a classic virtual machine.",
+          "properties": {
+            "resourceGroup": {
+              "description": "Resource group name of Recovery Services Vault.",
+              "type": "string"
+            },
+            "virtualMachineId": {
+              "description": "Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.",
+              "type": "string"
+            },
+            "virtualMachineVersion": {
+              "description": "Specifies whether the container represents a Classic or an Azure Resource Manager VM.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.",
+          "properties": {
+            "resourceGroup": {
+              "description": "Resource group name of Recovery Services Vault.",
+              "type": "string"
+            },
+            "virtualMachineId": {
+              "description": "Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.",
+              "type": "string"
+            },
+            "virtualMachineVersion": {
+              "description": "Specifies whether the container represents a Classic or an Azure Resource Manager VM.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure Storage Account workload-specific container.",
+          "properties": {
+            "acquireStorageAccountLock": {
+              "description": "Whether storage account lock is to be acquired for this container or not.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Acquire",
+                    "NotAcquire"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectedItemCount": {
+              "description": "Number of items backed up in this container.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceGroup": {
+              "description": "Resource group name of Recovery Services Vault.",
+              "type": "string"
+            },
+            "sourceResourceId": {
+              "description": "Fully qualified ARM url.",
+              "type": "string"
+            },
+            "storageAccountVersion": {
+              "description": "Storage account version.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Container with items backed up using MAB backup engine.",
+          "properties": {
+            "agentVersion": {
+              "description": "Agent version of this container.",
+              "type": "string"
+            },
+            "canReRegister": {
+              "description": "Can the container be registered one more time.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "containerHealthState": {
+              "description": "Health state of mab container.",
+              "type": "string"
+            },
+            "containerId": {
+              "description": "ContainerID represents the container.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "extendedInfo": {
+              "description": "Additional information for this container",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MabContainerExtendedInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "mabContainerHealthDetails": {
+              "description": "Health details on this mab container.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/MABContainerHealthDetails"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protectedItemCount": {
+              "description": "Number of items backed up in this container.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "backupManagementType": {
           "description": "Type of backup management for the container.",
@@ -1987,6 +3291,50 @@
     },
     "ProtectionIntent": {
       "description": "Base class for backup ProtectionIntent.",
+      "oneOf": [
+        {
+          "description": "IaaS VM specific backup protection intent item.",
+          "properties": {
+            "friendlyName": {
+              "description": "Friendly name of the VM represented by this backup item.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure Workload SQL Auto Protection intent item.",
+          "properties": {
+            "workloadItemType": {
+              "description": "Workload item type of the item for which intent is to be set",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "SQLInstance",
+                    "SQLDataBase",
+                    "SAPHanaSystem",
+                    "SAPHanaDatabase",
+                    "SAPAseSystem",
+                    "SAPAseDatabase",
+                    "SAPHanaDBInstance"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure workload specific protection intent item.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "backupManagementType": {
           "description": "Type of backup management for the backed up item.",
@@ -2045,6 +3393,298 @@
     },
     "ProtectionPolicy": {
       "description": "Base class for backup policy. Workload-specific backup policies are derived from this class.",
+      "oneOf": [
+        {
+          "description": "IaaS VM workload-specific backup policy.",
+          "properties": {
+            "instantRPDetails": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InstantRPAdditionalDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "instantRpRetentionRangeInDays": {
+              "description": "Instant RP retention policy range in days",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policyType": {
+              "description": "",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "V1",
+                    "V2"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "retentionPolicy": {
+              "description": "Retention policy with the details on backup copy retention ranges.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RetentionPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "schedulePolicy": {
+              "description": "Backup schedule specified as part of backup policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SchedulePolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tieringPolicy": {
+              "description": "Tiering policy to automatically move RPs to another tier\r\nKey is Target Tier, defined in RecoveryPointTierType enum.\r\nTiering policy specifies the criteria to move RP to the target tier.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TieringPolicy"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "timeZone": {
+              "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\".",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure SQL workload-specific backup policy.",
+          "properties": {
+            "retentionPolicy": {
+              "description": "Retention policy details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RetentionPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "AzureStorage backup policy.",
+          "properties": {
+            "retentionPolicy": {
+              "description": "Retention policy with the details on backup copy retention ranges.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RetentionPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "schedulePolicy": {
+              "description": "Backup schedule specified as part of backup policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SchedulePolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "timeZone": {
+              "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\".",
+              "type": "string"
+            },
+            "workLoadType": {
+              "description": "Type of workload for the backup management",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "VM",
+                    "FileFolder",
+                    "AzureSqlDb",
+                    "SQLDB",
+                    "Exchange",
+                    "Sharepoint",
+                    "VMwareVM",
+                    "SystemState",
+                    "Client",
+                    "GenericDataSource",
+                    "SQLDataBase",
+                    "AzureFileShare",
+                    "SAPHanaDatabase",
+                    "SAPAseDatabase",
+                    "SAPHanaDBInstance"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure VM (Mercury) workload-specific backup policy.",
+          "properties": {
+            "makePolicyConsistent": {
+              "description": "Fix the policy inconsistency",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "settings": {
+              "description": "Common settings for the backup management",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Settings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subProtectionPolicy": {
+              "description": "List of sub-protection policies which includes schedule and retention",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/SubProtectionPolicy"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "workLoadType": {
+              "description": "Type of workload for the backup management",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "VM",
+                    "FileFolder",
+                    "AzureSqlDb",
+                    "SQLDB",
+                    "Exchange",
+                    "Sharepoint",
+                    "VMwareVM",
+                    "SystemState",
+                    "Client",
+                    "GenericDataSource",
+                    "SQLDataBase",
+                    "AzureFileShare",
+                    "SAPHanaDatabase",
+                    "SAPAseDatabase",
+                    "SAPHanaDBInstance"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure VM (Mercury) workload-specific backup policy.",
+          "properties": {
+            "fabricName": {
+              "description": "Name of this policy's fabric.",
+              "type": "string"
+            },
+            "subProtectionPolicy": {
+              "description": "List of sub-protection policies which includes schedule and retention",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/SubProtectionPolicy"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "timeZone": {
+              "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\".",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Mab container-specific backup policy.",
+          "properties": {
+            "retentionPolicy": {
+              "description": "Retention policy details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RetentionPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "schedulePolicy": {
+              "description": "Backup schedule of backup policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SchedulePolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "protectedItemsCount": {
           "description": "Number of items associated with this policy.",
@@ -2160,11 +3800,243 @@
     },
     "RetentionPolicy": {
       "description": "Base class for retention policy.",
+      "oneOf": [
+        {
+          "description": "Long term retention policy.",
+          "properties": {
+            "dailySchedule": {
+              "description": "Daily retention schedule of the protection policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DailyRetentionSchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "monthlySchedule": {
+              "description": "Monthly retention schedule of the protection policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MonthlyRetentionSchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "weeklySchedule": {
+              "description": "Weekly retention schedule of the protection policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WeeklyRetentionSchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "yearlySchedule": {
+              "description": "Yearly retention schedule of the protection policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/YearlyRetentionSchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Simple policy retention.",
+          "properties": {
+            "retentionDuration": {
+              "description": "Retention duration of the protection policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RetentionDuration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "SchedulePolicy": {
       "description": "Base class for backup schedule.",
+      "oneOf": [
+        {
+          "description": "Log policy schedule.",
+          "properties": {
+            "scheduleFrequencyInMins": {
+              "description": "Frequency of the log schedule operation of this policy in minutes.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Long term policy schedule.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Simple policy schedule.",
+          "properties": {
+            "hourlySchedule": {
+              "description": "Hourly Schedule of this Policy",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HourlySchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scheduleRunDays": {
+              "description": "List of days of week this schedule has to be run.",
+              "oneOf": [
+                {
+                  "items": {
+                    "enum": [
+                      "Sunday",
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scheduleRunFrequency": {
+              "description": "Frequency of the schedule operation of this policy.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Daily",
+                    "Weekly",
+                    "Hourly"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scheduleRunTimes": {
+              "description": "List of times of day this schedule has to be run.",
+              "oneOf": [
+                {
+                  "items": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scheduleWeeklyFrequency": {
+              "description": "At every number weeks this schedule has to be run.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The V2 policy schedule for IaaS that supports hourly backups.",
+          "properties": {
+            "dailySchedule": {
+              "description": "Daily schedule of this policy",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DailySchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "hourlySchedule": {
+              "description": "hourly schedule of this policy",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HourlySchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scheduleRunFrequency": {
+              "description": "Frequency of the schedule operation of this policy.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Invalid",
+                    "Daily",
+                    "Weekly",
+                    "Hourly"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "weeklySchedule": {
+              "description": "Weekly schedule of this policy",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WeeklySchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

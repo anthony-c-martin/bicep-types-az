@@ -633,6 +633,308 @@
     },
     "RunRequest": {
       "description": "The request parameters for scheduling a run.",
+      "oneOf": [
+        {
+          "description": "The parameters for a docker quick build.",
+          "properties": {
+            "agentConfiguration": {
+              "description": "The machine configuration of the run agent.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AgentProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "arguments": {
+              "description": "The collection of override arguments to be used when executing the run.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/Argument"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "credentials": {
+              "description": "The properties that describes a set of credentials that will be used when this run is invoked.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Credentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "dockerFilePath": {
+              "description": "The Docker file path relative to the source location.",
+              "type": "string"
+            },
+            "imageNames": {
+              "description": "The fully qualified image names including the repository and tag.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "isPushEnabled": {
+              "description": "The value of this property indicates whether the image built should be pushed to the registry or not.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "noCache": {
+              "description": "The value of this property indicates whether the image cache is enabled or not.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "platform": {
+              "description": "The platform properties against which the run has to happen.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PlatformProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceLocation": {
+              "description": "The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.\r\nIf it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.",
+              "type": "string"
+            },
+            "target": {
+              "description": "The name of the target build stage for the docker build.",
+              "type": "string"
+            },
+            "timeout": {
+              "description": "Run timeout in seconds.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "dockerFilePath",
+            "platform"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The parameters for a quick task run request.",
+          "properties": {
+            "agentConfiguration": {
+              "description": "The machine configuration of the run agent.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AgentProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "credentials": {
+              "description": "The properties that describes a set of credentials that will be used when this run is invoked.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Credentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "encodedTaskContent": {
+              "description": "Base64 encoded value of the template/definition file content.",
+              "type": "string"
+            },
+            "encodedValuesContent": {
+              "description": "Base64 encoded value of the parameters/values file content.",
+              "type": "string"
+            },
+            "platform": {
+              "description": "The platform properties against which the run has to happen.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PlatformProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceLocation": {
+              "description": "The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.\r\nIf it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.",
+              "type": "string"
+            },
+            "timeout": {
+              "description": "Run timeout in seconds.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "values": {
+              "description": "The collection of overridable values that can be passed when running a task.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/SetValue"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "encodedTaskContent",
+            "platform"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The request parameters for a scheduling run against a task file.",
+          "properties": {
+            "agentConfiguration": {
+              "description": "The machine configuration of the run agent.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AgentProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "credentials": {
+              "description": "The properties that describes a set of credentials that will be used when this run is invoked.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Credentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "platform": {
+              "description": "The platform properties against which the run has to happen.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PlatformProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceLocation": {
+              "description": "The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.\r\nIf it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.",
+              "type": "string"
+            },
+            "taskFilePath": {
+              "description": "The template/definition file path relative to the source.",
+              "type": "string"
+            },
+            "timeout": {
+              "description": "Run timeout in seconds.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "values": {
+              "description": "The collection of overridable values that can be passed when running a task.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/SetValue"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "valuesFilePath": {
+              "description": "The values/parameters file path relative to the source.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "taskFilePath",
+            "platform"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The parameters for a task run request.",
+          "properties": {
+            "overrideTaskStepProperties": {
+              "description": "Set of overridable parameters that can be passed when running a Task.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OverrideTaskStepProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "taskId": {
+              "description": "The resource ID of task against which run has to be queued.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "taskId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "agentPoolName": {
           "description": "The dedicated agent pool for the run.",
@@ -963,6 +1265,137 @@
     },
     "TaskStepProperties": {
       "description": "Base properties for any task step.",
+      "oneOf": [
+        {
+          "description": "The Docker build step.",
+          "properties": {
+            "arguments": {
+              "description": "The collection of override arguments to be used when executing this build step.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/Argument"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "dockerFilePath": {
+              "description": "The Docker file path relative to the source context.",
+              "type": "string"
+            },
+            "imageNames": {
+              "description": "The fully qualified image names including the repository and tag.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "isPushEnabled": {
+              "description": "The value of this property indicates whether the image built should be pushed to the registry or not.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "noCache": {
+              "description": "The value of this property indicates whether the image cache is enabled or not.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "target": {
+              "description": "The name of the target build stage for the docker build.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "dockerFilePath"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The properties of a encoded task step.",
+          "properties": {
+            "encodedTaskContent": {
+              "description": "Base64 encoded value of the template/definition file content.",
+              "type": "string"
+            },
+            "encodedValuesContent": {
+              "description": "Base64 encoded value of the parameters/values file content.",
+              "type": "string"
+            },
+            "values": {
+              "description": "The collection of overridable values that can be passed when running a task.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/SetValue"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "encodedTaskContent"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The properties of a task step.",
+          "properties": {
+            "taskFilePath": {
+              "description": "The task template/definition file path relative to the source context.",
+              "type": "string"
+            },
+            "values": {
+              "description": "The collection of overridable values that can be passed when running a task.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/SetValue"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "valuesFilePath": {
+              "description": "The task values/parameters file path relative to the source context.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "taskFilePath"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "contextAccessToken": {
           "description": "The token (git PAT or SAS token of storage account blob) associated with the context for a step.",

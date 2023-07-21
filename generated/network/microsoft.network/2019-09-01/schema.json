@@ -8155,6 +8155,75 @@
     },
     "FirewallPolicyRule": {
       "description": "Properties of the rule.",
+      "oneOf": [
+        {
+          "description": "Firewall Policy Filter Rule.",
+          "properties": {
+            "action": {
+              "description": "The action type of a Filter rule.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FirewallPolicyFilterRuleAction"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ruleConditions": {
+              "description": "Collection of rule conditions used by a rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/FirewallPolicyRuleCondition"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Firewall Policy NAT Rule.",
+          "properties": {
+            "action": {
+              "description": "The action type of a Nat rule.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FirewallPolicyNatRuleAction"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ruleCondition": {
+              "description": "The match conditions for incoming traffic.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FirewallPolicyRuleCondition"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "translatedAddress": {
+              "description": "The translated address for this NAT rule.",
+              "type": "string"
+            },
+            "translatedPort": {
+              "description": "The translated port for this NAT rule.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "The name of the rule.",
@@ -8176,6 +8245,152 @@
     },
     "FirewallPolicyRuleCondition": {
       "description": "Properties of a rule.",
+      "oneOf": [
+        {
+          "description": "Rule condition of type application.",
+          "properties": {
+            "destinationAddresses": {
+              "description": "List of destination IP addresses or Service Tags.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "fqdnTags": {
+              "description": "List of FQDN Tags for this rule condition.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocols": {
+              "description": "Array of Application Protocols.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/FirewallPolicyRuleConditionApplicationProtocol"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceAddresses": {
+              "description": "List of source IP addresses for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetFqdns": {
+              "description": "List of FQDNs for this rule condition.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Rule condition of type network.",
+          "properties": {
+            "destinationAddresses": {
+              "description": "List of destination IP addresses or Service Tags.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "destinationPorts": {
+              "description": "List of destination ports.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ipProtocols": {
+              "description": "Array of FirewallPolicyRuleConditionNetworkProtocols.",
+              "oneOf": [
+                {
+                  "items": {
+                    "enum": [
+                      "TCP",
+                      "UDP",
+                      "Any",
+                      "ICMP"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceAddresses": {
+              "description": "List of source IP addresses for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "Description of the rule condition.",

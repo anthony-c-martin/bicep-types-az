@@ -850,6 +850,49 @@
     },
     "WorkloadNetworkDhcpEntity": {
       "description": "Base class for WorkloadNetworkDhcpServer and WorkloadNetworkDhcpRelay to inherit from",
+      "oneOf": [
+        {
+          "description": "NSX DHCP Relay",
+          "properties": {
+            "serverAddresses": {
+              "description": "DHCP Relay Addresses. Max 3.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "NSX DHCP Server",
+          "properties": {
+            "leaseTime": {
+              "description": "DHCP Server Lease Time.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverAddress": {
+              "description": "DHCP Server Address.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "displayName": {
           "description": "Display name of the DHCP entity.",

@@ -1797,6 +1797,80 @@
     },
     "Partition": {
       "description": "Describes how the service is partitioned.",
+      "oneOf": [
+        {
+          "description": "Describes the named partition scheme of the service.",
+          "properties": {
+            "names": {
+              "description": "Array for the names of the partitions.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "names"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "SingletonPartitionScheme",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.",
+          "properties": {
+            "count": {
+              "description": "The number of partitions.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "highKey": {
+              "description": "The upper bound of the partition key range that\nshould be split between the partition ‘Count’\n",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "lowKey": {
+              "description": "The lower bound of the partition key range that\nshould be split between the partition ‘Count’\n",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "count",
+            "lowKey",
+            "highKey"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1851,6 +1925,96 @@
     },
     "ScalingMechanism": {
       "description": "Describes the mechanism for performing a scaling operation.",
+      "oneOf": [
+        {
+          "description": "Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.",
+          "properties": {
+            "maxPartitionCount": {
+              "description": "Maximum number of named partitions of the service.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "minPartitionCount": {
+              "description": "Minimum number of named partitions of the service.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scaleIncrement": {
+              "description": "The number of instances to add or remove during a scaling operation.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "minPartitionCount",
+            "maxPartitionCount",
+            "scaleIncrement"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Represents a scaling mechanism for adding or removing instances of stateless service partition.",
+          "properties": {
+            "maxInstanceCount": {
+              "description": "Maximum number of instances of the partition.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "minInstanceCount": {
+              "description": "Minimum number of instances of the partition.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scaleIncrement": {
+              "description": "The number of instances to add or remove during a scaling operation.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "minInstanceCount",
+            "maxInstanceCount",
+            "scaleIncrement"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1888,6 +2052,104 @@
     },
     "ScalingTrigger": {
       "description": "Describes the trigger for performing a scaling operation.",
+      "oneOf": [
+        {
+          "description": "Represents a scaling trigger related to an average load of a metric/resource of a partition.",
+          "properties": {
+            "lowerLoadThreshold": {
+              "description": "The lower limit of the load below which a scale in operation should be performed.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "metricName": {
+              "description": "The name of the metric for which usage should be tracked.",
+              "type": "string"
+            },
+            "scaleInterval": {
+              "description": "The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format \"hh:mm:ss\".",
+              "type": "string"
+            },
+            "upperLoadThreshold": {
+              "description": "The upper limit of the load beyond which a scale out operation should be performed.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "metricName",
+            "lowerLoadThreshold",
+            "upperLoadThreshold",
+            "scaleInterval"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Represents a scaling policy related to an average load of a metric/resource of a service.",
+          "properties": {
+            "lowerLoadThreshold": {
+              "description": "The lower limit of the load below which a scale in operation should be performed.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "metricName": {
+              "description": "The name of the metric for which usage should be tracked.",
+              "type": "string"
+            },
+            "scaleInterval": {
+              "description": "The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format \"hh:mm:ss\".",
+              "type": "string"
+            },
+            "upperLoadThreshold": {
+              "description": "The upper limit of the load beyond which a scale out operation should be performed.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "useOnlyPrimaryLoad": {
+              "description": "Flag determines whether only the load of primary replica should be considered for scaling. If set to true, then trigger will only consider the load of primary replicas of stateful service. If set to false, trigger will consider load of all replicas. This parameter cannot be set to true for stateless service.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "metricName",
+            "lowerLoadThreshold",
+            "upperLoadThreshold",
+            "scaleInterval",
+            "useOnlyPrimaryLoad"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -2012,11 +2274,169 @@
     },
     "ServicePlacementPolicy": {
       "description": "Describes the policy to be used for placement of a Service Fabric service.",
+      "oneOf": [
+        {
+          "description": "Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.",
+          "properties": {
+            "domainName": {
+              "description": "The name of the domain that should not be used for placement.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "domainName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "ServicePlacementNonPartiallyPlaceServicePolicy",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Describes the policy to be used for placement of a Service Fabric service where the service's \nPrimary replicas should optimally be placed in a particular domain.\n\nThis placement policy is usually used with fault domains in scenarios where the Service Fabric\ncluster is geographically distributed in order to indicate that a service's primary replica should\nbe located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional\nor datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica\nmay not end up located in this domain due to failures, capacity limits, or other constraints.\n",
+          "properties": {
+            "domainName": {
+              "description": "The name of the domain that should used for placement as per this policy.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "domainName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.",
+          "properties": {
+            "domainName": {
+              "description": "The name of the domain that should used for placement as per this policy.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "domainName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Describes the policy to be used for placement of a Service Fabric service where two replicas\nfrom the same partition should never be placed in the same fault or upgrade domain.\n\nWhile this is not common it can expose the service to an increased risk of concurrent failures\ndue to unplanned outages or other cases of subsequent/concurrent failures. As an example, consider\na case where replicas are deployed across different data center, with one replica per location.\nIn the event that one of the datacenters goes offline, normally the replica that was placed in that\ndatacenter will be packed into one of the remaining datacenters. If this is not desirable then this\npolicy should be set.\n",
+          "properties": {
+            "domainName": {
+              "description": "The name of the domain that should used for placement as per this policy.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "domainName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "ServiceResourceProperties": {
       "description": "The service resource properties.",
+      "oneOf": [
+        {
+          "description": "The properties of a stateful service resource.",
+          "properties": {
+            "hasPersistedState": {
+              "description": "A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "minReplicaSetSize": {
+              "description": "The minimum replica set size as a number.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "quorumLossWaitDuration": {
+              "description": "The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format \"hh:mm:ss\".",
+              "type": "string"
+            },
+            "replicaRestartWaitDuration": {
+              "description": "The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format \"hh:mm:ss\".",
+              "type": "string"
+            },
+            "servicePlacementTimeLimit": {
+              "description": "The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format \"hh:mm:ss\".",
+              "type": "string"
+            },
+            "standByReplicaKeepDuration": {
+              "description": "The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format \"hh:mm:ss\".",
+              "type": "string"
+            },
+            "targetReplicaSetSize": {
+              "description": "The target replica set size as a number.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The properties of a stateless service resource.",
+          "properties": {
+            "instanceCount": {
+              "description": "The instance count.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "minInstanceCount": {
+              "description": "MinInstanceCount is the minimum number of instances that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstanceCount computation -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "minInstancePercentage": {
+              "description": "MinInstancePercentage is the minimum percentage of InstanceCount that must be up to meet the EnsureAvailability safety check during operations like upgrade or deactivate node. The actual number that is used is max( MinInstanceCount, ceil( MinInstancePercentage/100.0 * InstanceCount) ). Note, if InstanceCount is set to -1, during MinInstancePercentage computation, -1 is first converted into the number of nodes on which the instances are allowed to be placed according to the placement constraints on the service.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "instanceCount"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "correlationScheme": {
           "description": "A list that describes the correlation of the service with other services.",

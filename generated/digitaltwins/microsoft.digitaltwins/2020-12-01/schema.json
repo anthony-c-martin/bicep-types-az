@@ -226,6 +226,74 @@
     },
     "DigitalTwinsEndpointResourceProperties": {
       "description": "Properties related to Digital Twins Endpoint",
+      "oneOf": [
+        {
+          "description": "Properties related to EventGrid.",
+          "properties": {
+            "TopicEndpoint": {
+              "description": "EventGrid Topic Endpoint",
+              "type": "string"
+            },
+            "accessKey1": {
+              "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "accessKey2": {
+              "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "TopicEndpoint",
+            "accessKey1"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Properties related to EventHub.",
+          "properties": {
+            "connectionStringPrimaryKey": {
+              "description": "PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "connectionStringSecondaryKey": {
+              "description": "SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "endpointUri": {
+              "description": "The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://",
+              "type": "string"
+            },
+            "entityPath": {
+              "description": "The EventHub name in the EventHub namespace for identity-based authentication.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties related to ServiceBus.",
+          "properties": {
+            "endpointUri": {
+              "description": "The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://",
+              "type": "string"
+            },
+            "entityPath": {
+              "description": "The ServiceBus Topic name for identity-based authentication",
+              "type": "string"
+            },
+            "primaryConnectionString": {
+              "description": "PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "secondaryConnectionString": {
+              "description": "SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "authenticationType": {
           "description": "Specifies the authentication type being used for connecting to the endpoint.",

@@ -1429,6 +1429,78 @@
     },
     "PartitionSchemeDescription": {
       "description": "Describes how the service is partitioned.",
+      "oneOf": [
+        {
+          "description": "Describes the named partition scheme of the service.",
+          "properties": {
+            "Count": {
+              "description": "The number of partitions.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "Names": {
+              "description": "Array of size specified by the ‘Count’ parameter, for the names of the partitions.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "Count",
+            "Names"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "SingletonPartitionSchemeDescription",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.",
+          "properties": {
+            "Count": {
+              "description": "The number of partitions.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "HighKey": {
+              "description": "String indicating the upper bound of the partition key range that\nshould be split between the partition ‘Count’\n",
+              "type": "string"
+            },
+            "LowKey": {
+              "description": "String indicating the lower bound of the partition key range that\nshould be split between the partition ‘Count’\n",
+              "type": "string"
+            }
+          },
+          "required": [
+            "Count",
+            "LowKey",
+            "HighKey"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1587,11 +1659,85 @@
     },
     "ServicePlacementPolicyDescription": {
       "description": "Describes the policy to be used for placement of a Service Fabric service.",
+      "oneOf": [],
       "properties": {},
       "type": "object"
     },
     "ServiceResourceProperties": {
       "description": "The service resource properties.",
+      "oneOf": [
+        {
+          "description": "The properties of a stateful service resource.",
+          "properties": {
+            "hasPersistedState": {
+              "description": "A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "minReplicaSetSize": {
+              "description": "The minimum replica set size as a number.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "quorumLossWaitDuration": {
+              "description": "The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format (hh:mm:ss.s).",
+              "format": "date-time",
+              "type": "string"
+            },
+            "replicaRestartWaitDuration": {
+              "description": "The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format (hh:mm:ss.s).",
+              "format": "date-time",
+              "type": "string"
+            },
+            "standByReplicaKeepDuration": {
+              "description": "The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format (hh:mm:ss.s).",
+              "format": "date-time",
+              "type": "string"
+            },
+            "targetReplicaSetSize": {
+              "description": "The target replica set size as a number.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The properties of a stateless service resource.",
+          "properties": {
+            "instanceCount": {
+              "description": "The instance count.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "correlationScheme": {
           "description": "A list that describes the correlation of the service with other services.",

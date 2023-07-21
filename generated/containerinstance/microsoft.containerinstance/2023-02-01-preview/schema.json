@@ -687,6 +687,17 @@
             }
           ]
         },
+        "securityContext": {
+          "description": "The container security properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContextDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "volumeMounts": {
           "description": "The volume mounts available to the container instance.",
           "oneOf": [
@@ -1294,6 +1305,105 @@
       "required": [
         "requests"
       ],
+      "type": "object"
+    },
+    "SecurityContextCapabilitiesDefinition": {
+      "description": "The capabilities to add or drop from a container.",
+      "properties": {
+        "add": {
+          "description": "The capabilities to add to the container.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "drop": {
+          "description": "The capabilities to drop from the container.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SecurityContextDefinition": {
+      "description": "The security context for the container.",
+      "properties": {
+        "allowPrivilegeEscalation": {
+          "description": "A boolean value indicating whether the init process can elevate its privileges",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "capabilities": {
+          "description": "The capabilities to add or drop from a container.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContextCapabilitiesDefinition"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "privileged": {
+          "description": "The flag to determine if the container permissions is elevated to Privileged.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "runAsGroup": {
+          "description": "Sets the User GID for the container.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "runAsUser": {
+          "description": "Sets the User UID for the container.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "seccompProfile": {
+          "description": "a base64 encoded string containing the contents of the JSON in the seccomp profile",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "UserAssignedIdentities": {

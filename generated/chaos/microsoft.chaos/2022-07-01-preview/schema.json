@@ -186,6 +186,100 @@
   "definitions": {
     "Action": {
       "description": "Model that represents the base action model.",
+      "oneOf": [
+        {
+          "description": "Model that represents a continuous action.",
+          "properties": {
+            "duration": {
+              "description": "ISO8601 formatted string that represents a duration.",
+              "oneOf": [
+                {
+                  "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "parameters": {
+              "description": "List of key value pairs.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/KeyValuePair"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "selectorId": {
+              "description": "String that represents a selector.",
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "duration",
+            "parameters",
+            "selectorId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Model that represents a delay action.",
+          "properties": {
+            "duration": {
+              "description": "ISO8601 formatted string that represents a duration.",
+              "oneOf": [
+                {
+                  "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(\\.\\d+)?S)?)?$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "duration"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Model that represents a discrete action.",
+          "properties": {
+            "parameters": {
+              "description": "List of key value pairs.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/KeyValuePair"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "selectorId": {
+              "description": "String that represents a selector.",
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "parameters",
+            "selectorId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "String that represents a Capability URN.",

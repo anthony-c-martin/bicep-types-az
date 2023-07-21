@@ -426,11 +426,57 @@
     },
     "EventListenerEndpoint": {
       "description": "An endpoint specifying where Web PubSub should send events to.",
+      "oneOf": [
+        {
+          "description": "An Event Hub endpoint. \r\nThe managed identity of Web PubSub service must be enabled, and the identity should have the \"Azure Event Hubs Data sender\" role to access Event Hub.",
+          "properties": {
+            "eventHubName": {
+              "description": "The name of the Event Hub.",
+              "type": "string"
+            },
+            "fullyQualifiedNamespace": {
+              "description": "The fully qualified namespace name of the Event Hub resource. For example, \"example.servicebus.windows.net\".",
+              "type": "string"
+            }
+          },
+          "required": [
+            "fullyQualifiedNamespace",
+            "eventHubName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "EventListenerFilter": {
       "description": "A base class for event filter which determines whether an event should be sent to an event listener.",
+      "oneOf": [
+        {
+          "description": "Filter events by their name.",
+          "properties": {
+            "systemEvents": {
+              "description": "Gets or sets a list of system events. Supported events: \"connected\" and \"disconnected\". Blocking event \"connect\" is not supported because it requires a response.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "userEventPattern": {
+              "description": "Gets or sets a matching pattern for event names.\r\nThere are 3 kinds of patterns supported:\r\n    1. \"*\", it matches any event name\r\n    2. Combine multiple events with \",\", for example \"event1,event2\", it matches events \"event1\" and \"event2\"\r\n    3. A single event name, for example, \"event1\", it matches \"event1\"",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

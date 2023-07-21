@@ -66,6 +66,36 @@
   "definitions": {
     "Action": {
       "description": "Action to be applied.",
+      "oneOf": [
+        {
+          "description": "Add action groups to alert processing rule.",
+          "properties": {
+            "actionGroupIds": {
+              "description": "List of action group Ids to add to alert processing rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "actionGroupIds"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Indicates if all action groups should be removed.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -210,6 +240,68 @@
     },
     "Recurrence": {
       "description": "Recurrence object.",
+      "oneOf": [
+        {
+          "description": "Daily recurrence object.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Monthly recurrence object.",
+          "properties": {
+            "daysOfMonth": {
+              "description": "Specifies the values for monthly recurrence pattern.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "daysOfMonth"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Weekly recurrence object.",
+          "properties": {
+            "daysOfWeek": {
+              "description": "Specifies the values for weekly recurrence pattern.",
+              "oneOf": [
+                {
+                  "items": {
+                    "enum": [
+                      "Sunday",
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "daysOfWeek"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "endTime": {
           "description": "End time for recurrence.",

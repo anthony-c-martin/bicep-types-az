@@ -66,6 +66,46 @@
   "definitions": {
     "ActionRuleProperties": {
       "description": "Action rule properties defining scope, conditions, suppression logic for action rule",
+      "oneOf": [
+        {
+          "description": "Action rule with action group configuration",
+          "properties": {
+            "actionGroupId": {
+              "description": "Action group to trigger if action rule matches",
+              "type": "string"
+            }
+          },
+          "required": [
+            "actionGroupId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Action rule with diagnostics configuration",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Action rule with suppression configuration",
+          "properties": {
+            "suppressionConfig": {
+              "description": "suppression configuration for the action rule",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SuppressionConfig"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "suppressionConfig"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "conditions": {
           "description": "conditions on which alerts will be filtered",

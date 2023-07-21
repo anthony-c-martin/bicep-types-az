@@ -261,6 +261,65 @@
     },
     "ConnectionInfo": {
       "description": "Defines the connection properties of a server",
+      "oneOf": [
+        {
+          "description": "Information for connecting to SQL database server",
+          "properties": {
+            "additionalSettings": {
+              "description": "Additional connection settings",
+              "type": "string"
+            },
+            "authentication": {
+              "description": "Authentication type to use for connection",
+              "oneOf": [
+                {
+                  "enum": [
+                    "None",
+                    "WindowsAuthentication",
+                    "SqlAuthentication",
+                    "ActiveDirectoryIntegrated",
+                    "ActiveDirectoryPassword"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "dataSource": {
+              "description": "Data source in the format Protocol:MachineName\\SQLServerInstanceName,PortNumber",
+              "type": "string"
+            },
+            "encryptConnection": {
+              "description": "Whether to encrypt the connection",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trustServerCertificate": {
+              "description": "Whether to trust the server certificate",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "dataSource"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "password": {
           "description": "Password credential.",
@@ -553,6 +612,76 @@
     },
     "ProjectTaskProperties": {
       "description": "Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.",
+      "oneOf": [
+        {
+          "description": "Properties for the task that validates connection to SQL Server and also validates source server requirements",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToSourceSqlServerTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to SQL DB and target server requirements",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToTargetSqlDbTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that collects user tables for the given list of databases",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GetUserTablesSqlTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MigrateSqlServerSqlDbTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

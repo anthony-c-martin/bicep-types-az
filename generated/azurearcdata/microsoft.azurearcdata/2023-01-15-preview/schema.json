@@ -630,17 +630,7 @@
       "type": "object"
     },
     "ActiveDirectoryConnectorStatus": {
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "properties": {},
-            "type": "object"
-          },
-          {
-            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-          }
-        ]
-      },
+      "additionalProperties": {},
       "description": "The status of the Kubernetes custom resource.",
       "properties": {
         "lastUpdateTime": {
@@ -991,18 +981,85 @@
       ],
       "type": "object"
     },
-    "K8SResourceRequirements": {
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "properties": {},
-            "type": "object"
-          },
-          {
-            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-          }
-        ]
+    "K8SActiveDirectory": {
+      "description": "The kubernetes active directory information.",
+      "properties": {
+        "accountName": {
+          "description": "Account name for AAD",
+          "type": "string"
+        },
+        "connector": {
+          "description": "",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/K8SActiveDirectoryConnector"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "encryptionTypes": {
+          "description": "An array of encryption types",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keytabSecret": {
+          "description": "Keytab secret used to authenticate with Active Directory.",
+          "type": "string"
+        }
       },
+      "type": "object"
+    },
+    "K8SActiveDirectoryConnector": {
+      "properties": {
+        "name": {
+          "description": "Name of the connector",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "Name space of the connector",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "K8SNetworkSettings": {
+      "description": "The kubernetes network settings information.",
+      "properties": {
+        "forceencryption": {
+          "description": "If 1, then SQL Server forces all connections to be encrypted. By default, this option is 0",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tlsciphers": {
+          "description": "Specifies which ciphers are allowed by SQL Server for TLS",
+          "type": "string"
+        },
+        "tlsprotocols": {
+          "description": "A comma-separated list of which TLS protocols are allowed by SQL Server",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "K8SResourceRequirements": {
+      "additionalProperties": {},
       "description": "The kubernetes resource limits and requests used to restrict or reserve resource usage.",
       "properties": {
         "limits": {
@@ -1039,17 +1096,7 @@
       "type": "object"
     },
     "K8SScheduling": {
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "properties": {},
-            "type": "object"
-          },
-          {
-            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-          }
-        ]
-      },
+      "additionalProperties": {},
       "description": "The kubernetes scheduling information.",
       "properties": {
         "default": {
@@ -1067,17 +1114,7 @@
       "type": "object"
     },
     "K8SSchedulingOptions": {
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "properties": {},
-            "type": "object"
-          },
-          {
-            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-          }
-        ]
-      },
+      "additionalProperties": {},
       "description": "The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service",
       "properties": {
         "resources": {
@@ -1090,6 +1127,75 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "type": "object"
+    },
+    "K8SSecurity": {
+      "additionalProperties": {},
+      "description": "The kubernetes security information.",
+      "properties": {
+        "activeDirectory": {
+          "description": "The kubernetes active directory information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/K8SActiveDirectory"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "adminLoginSecret": {
+          "description": "Admin login secret key",
+          "type": "string"
+        },
+        "serviceCertificateSecret": {
+          "description": "Service certificate secret used",
+          "type": "string"
+        },
+        "transparentDataEncryption": {
+          "description": "Transparent data encryption information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/K8StransparentDataEncryption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "K8SSettings": {
+      "additionalProperties": {},
+      "description": "The kubernetes settings information.",
+      "properties": {
+        "network": {
+          "description": "The kubernetes network settings information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/K8SNetworkSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "K8StransparentDataEncryption": {
+      "description": "Transparent data encryption information.",
+      "properties": {
+        "mode": {
+          "description": "Transparent data encryption mode. Can be Service Managed, Customer managed or disabled",
+          "type": "string"
+        },
+        "protectorSecret": {
+          "description": "Protector secret for customer managed Transparent data encryption mode",
+          "type": "string"
         }
       },
       "type": "object"
@@ -1274,17 +1380,7 @@
       "type": "object"
     },
     "SqlManagedInstanceK8SSpec": {
-      "additionalProperties": {
-        "oneOf": [
-          {
-            "properties": {},
-            "type": "object"
-          },
-          {
-            "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-          }
-        ]
-      },
+      "additionalProperties": {},
       "description": "The kubernetes spec information.",
       "properties": {
         "replicas": {
@@ -1303,6 +1399,28 @@
           "oneOf": [
             {
               "$ref": "#/definitions/K8SScheduling"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "security": {
+          "description": "The kubernetes security information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/K8SSecurity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "settings": {
+          "description": "The kubernetes settings information.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/K8SSettings"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"

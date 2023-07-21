@@ -66,6 +66,92 @@
   "definitions": {
     "Action": {
       "description": "Action descriptor.",
+      "oneOf": [
+        {
+          "description": "Specify action need to be taken when rule type is Alert",
+          "properties": {
+            "aznsAction": {
+              "description": "Azure action group reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzNsActionGroup"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "severity": {
+              "description": "Severity of the alert",
+              "oneOf": [
+                {
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "throttlingInMin": {
+              "description": "time (in minutes) for which Alerts should be throttled or suppressed.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trigger": {
+              "description": "The trigger condition that results in the alert rule being.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TriggerCondition"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "severity",
+            "trigger"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Specify action need to be taken when rule type is converting log to metric",
+          "properties": {
+            "criteria": {
+              "description": "Criteria of Metric",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/Criteria"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "criteria"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

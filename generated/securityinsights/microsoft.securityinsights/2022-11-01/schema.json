@@ -596,6 +596,42 @@
     },
     "AutomationRuleAction": {
       "description": "Describes an automation rule action.",
+      "oneOf": [
+        {
+          "description": "Describes an automation rule action to modify an object's properties",
+          "properties": {
+            "actionConfiguration": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/IncidentPropertiesAction"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an automation rule action to run a playbook",
+          "properties": {
+            "actionConfiguration": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PlaybookActionProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "order": {
           "description": "",
@@ -616,6 +652,59 @@
     },
     "AutomationRuleCondition": {
       "description": "Describes an automation rule condition.",
+      "oneOf": [
+        {
+          "description": "Describes an automation rule condition that evaluates a property's value",
+          "properties": {
+            "conditionProperties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AutomationRulePropertyValuesCondition"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an automation rule condition that evaluates an array property's value change",
+          "properties": {
+            "conditionProperties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AutomationRulePropertyArrayChangedValuesCondition"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes an automation rule condition that evaluates a property's value change",
+          "properties": {
+            "conditionProperties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AutomationRulePropertyValuesChangedCondition"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

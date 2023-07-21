@@ -754,6 +754,122 @@
     },
     "ContentKeyPolicyConfiguration": {
       "description": "Base class for Content Key Policy configuration. A derived class must be used to create a configuration.",
+      "oneOf": [
+        {
+          "description": "Represents a configuration for non-DRM keys.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Specifies a configuration for FairPlay licenses.",
+          "properties": {
+            "ask": {
+              "description": "The key that must be used as FairPlay Application Secret key. This needs to be base64 encoded."
+            },
+            "fairPlayPfx": {
+              "description": "The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).",
+              "type": "string"
+            },
+            "fairPlayPfxPassword": {
+              "description": "The password encrypting FairPlay certificate in PKCS 12 (pfx) format.",
+              "type": "string"
+            },
+            "offlineRentalConfiguration": {
+              "description": "Offline rental policy",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ContentKeyPolicyFairPlayOfflineRentalConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "rentalAndLeaseKeyType": {
+              "description": "The rental and lease key type.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Unknown",
+                    "Undefined",
+                    "DualExpiry",
+                    "PersistentUnlimited",
+                    "PersistentLimited"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "rentalDuration": {
+              "description": "The rental duration. Must be greater than or equal to 0.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "ask",
+            "fairPlayPfxPassword",
+            "fairPlayPfx",
+            "rentalAndLeaseKeyType",
+            "rentalDuration"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Specifies a configuration for PlayReady licenses.",
+          "properties": {
+            "licenses": {
+              "description": "The PlayReady licenses.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/ContentKeyPolicyPlayReadyLicense"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "responseCustomData": {
+              "description": "The custom response data.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "licenses"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Specifies a configuration for Widevine licenses.",
+          "properties": {
+            "widevineTemplate": {
+              "description": "The Widevine template.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "widevineTemplate"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -826,6 +942,34 @@
     },
     "ContentKeyPolicyPlayReadyContentKeyLocation": {
       "description": "Base class for content key ID location. A derived class must be used to represent the location.",
+      "oneOf": [
+        {
+          "description": "Specifies that the content key ID is in the PlayReady header.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Specifies that the content key ID is specified in the PlayReady configuration.",
+          "properties": {
+            "keyId": {
+              "description": "The content key ID.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "keyId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1161,11 +1305,144 @@
     },
     "ContentKeyPolicyRestriction": {
       "description": "Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.",
+      "oneOf": [
+        {
+          "description": "Represents an open restriction. License or key will be delivered on every request.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Represents a token restriction. Provided token must match these requirements for successful license or key delivery.",
+          "properties": {
+            "alternateVerificationKeys": {
+              "description": "A list of alternative verification keys.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/ContentKeyPolicyRestrictionTokenKey"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "audience": {
+              "description": "The audience for the token.",
+              "type": "string"
+            },
+            "issuer": {
+              "description": "The token issuer.",
+              "type": "string"
+            },
+            "openIdConnectDiscoveryDocument": {
+              "description": "The OpenID connect discovery document.",
+              "type": "string"
+            },
+            "primaryVerificationKey": {
+              "description": "The primary verification key.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ContentKeyPolicyRestrictionTokenKey"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "requiredClaims": {
+              "description": "A list of required token claims.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/ContentKeyPolicyTokenClaim"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "restrictionTokenType": {
+              "description": "The type of token.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Unknown",
+                    "Swt",
+                    "Jwt"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "issuer",
+            "audience",
+            "primaryVerificationKey",
+            "restrictionTokenType"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "ContentKeyPolicyRestrictionTokenKey": {
       "description": "Base class for Content Key Policy key for token validation. A derived class must be used to create a token key.",
+      "oneOf": [
+        {
+          "description": "Specifies a RSA key for token validation",
+          "properties": {
+            "exponent": {
+              "description": "The RSA Parameter exponent"
+            },
+            "modulus": {
+              "description": "The RSA Parameter modulus"
+            }
+          },
+          "required": [
+            "exponent",
+            "modulus"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Specifies a symmetric key for token validation.",
+          "properties": {
+            "keyValue": {
+              "description": "The key value of the key"
+            }
+          },
+          "required": [
+            "keyValue"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Specifies a certificate for token validation.",
+          "properties": {
+            "rawBody": {
+              "description": "The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)"
+            }
+          },
+          "required": [
+            "rawBody"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -2101,6 +2378,104 @@
     },
     "TrackBase": {
       "description": "Base type for concrete track types. A derived type must be used to represent the Track.",
+      "oneOf": [
+        {
+          "description": "Represents an audio track in the asset.",
+          "properties": {
+            "dashSettings": {
+              "description": "The DASH specific setting for the audio track.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DashSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "displayName": {
+              "description": "The display name of the audio track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.",
+              "type": "string"
+            },
+            "fileName": {
+              "description": "The file name to the source file. This file is located in the storage container of the asset.",
+              "type": "string"
+            },
+            "hlsSettings": {
+              "description": "The HLS specific setting for the audio track.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HlsSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "languageCode": {
+              "description": "The RFC5646 language code for the audio track.",
+              "type": "string"
+            },
+            "mpeg4TrackId": {
+              "description": "The MPEG-4 audio track ID for the audio track.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Represents a text track in an asset. A text track is usually used for sparse data related to the audio or video tracks.",
+          "properties": {
+            "displayName": {
+              "description": "The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.",
+              "type": "string"
+            },
+            "fileName": {
+              "description": "The file name to the source file. This file is located in the storage container of the asset.",
+              "type": "string"
+            },
+            "hlsSettings": {
+              "description": "The HLS specific setting for the text track.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HlsSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "playerVisibility": {
+              "description": "When PlayerVisibility is set to \"Visible\", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to \"Hidden\", the text will not be available to the client. The default value is \"Visible\".",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Hidden",
+                    "Visible"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Represents a video track in the asset.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

@@ -565,6 +565,46 @@
   "definitions": {
     "ApplicationGroupPolicy": {
       "description": "Properties of the Application Group policy",
+      "oneOf": [
+        {
+          "description": "Properties of the throttling policy",
+          "properties": {
+            "metricId": {
+              "description": "Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal",
+              "oneOf": [
+                {
+                  "enum": [
+                    "IncomingBytes",
+                    "OutgoingBytes",
+                    "IncomingMessages",
+                    "OutgoingMessages"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "rateLimitThreshold": {
+              "description": "The Threshold limit above which the application group will be throttled.Rate limit is always per second.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "rateLimitThreshold",
+            "metricId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "The Name of this policy",

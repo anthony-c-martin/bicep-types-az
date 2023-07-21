@@ -416,11 +416,49 @@
     },
     "Authentication": {
       "description": "Defines the authentication method and properties to access the artifacts.",
+      "oneOf": [
+        {
+          "description": "Defines the properties to access the artifacts using an Azure Storage SAS URI.",
+          "properties": {
+            "properties": {
+              "description": "The SAS properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SasProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "HealthCheckStepAttributes": {
       "description": "The attributes for the health check step.",
+      "oneOf": [
+        {
+          "description": "Defines the REST health check step properties.",
+          "properties": {
+            "properties": {
+              "description": "The REST health check parameters.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RestParameters"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "healthyStateDuration": {
           "description": "The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.",
@@ -583,6 +621,47 @@
     },
     "RestRequestAuthentication": {
       "description": "The authentication information required in the REST health check request to the health provider.",
+      "oneOf": [
+        {
+          "description": "ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.",
+          "properties": {
+            "in": {
+              "description": "The location of the authentication key/value pair in the request.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Query",
+                    "Header"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "name": {
+              "description": "The key name of the authentication key/value pair.",
+              "type": "string"
+            },
+            "value": {
+              "description": "The value of the authentication key/value pair.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "in",
+            "value"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -854,6 +933,48 @@
     },
     "StepProperties": {
       "description": "The properties of a step resource.",
+      "oneOf": [
+        {
+          "description": "Defines the properties of a health check step.",
+          "properties": {
+            "attributes": {
+              "description": "The health check step attributes",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HealthCheckStepAttributes"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "attributes"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Defines the properties of a Wait step.",
+          "properties": {
+            "attributes": {
+              "description": "The Wait attributes",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WaitStepAttributes"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "attributes"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

@@ -269,6 +269,58 @@
     },
     "EndpointBaseProperties": {
       "description": "The resource specific properties for the Storage Mover resource.",
+      "oneOf": [
+        {
+          "properties": {
+            "blobContainerName": {
+              "description": "The name of the Storage blob container that is the target destination.",
+              "type": "string"
+            },
+            "storageAccountResourceId": {
+              "description": "The Azure Resource ID of the storage account that is the target destination.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "storageAccountResourceId",
+            "blobContainerName"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "export": {
+              "description": "The directory being exported from the server.",
+              "type": "string"
+            },
+            "host": {
+              "description": "The host name or IP address of the server exporting the file system.",
+              "type": "string"
+            },
+            "nfsVersion": {
+              "description": "The NFS protocol version.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "NFSauto",
+                    "NFSv3",
+                    "NFSv4"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "host",
+            "export"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "A description for the Endpoint.",

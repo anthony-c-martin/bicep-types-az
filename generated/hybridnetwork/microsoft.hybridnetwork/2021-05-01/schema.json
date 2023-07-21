@@ -352,6 +352,28 @@
     },
     "DevicePropertiesFormat": {
       "description": "Device properties.",
+      "oneOf": [
+        {
+          "description": "The reference to the Azure stack edge device.",
+          "properties": {
+            "azureStackEdge": {
+              "description": "The reference to the Azure stack edge device.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SubResource"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "azureStackEdge"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

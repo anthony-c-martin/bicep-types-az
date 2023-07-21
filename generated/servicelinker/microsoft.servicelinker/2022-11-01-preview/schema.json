@@ -166,11 +166,317 @@
   "definitions": {
     "AuthInfoBase": {
       "description": "The authentication info",
+      "oneOf": [
+        {
+          "description": "The access key directly from target resource properties, which target service is Azure Resource, such as Microsoft.Storage",
+          "properties": {
+            "permissions": {
+              "description": "Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.",
+              "oneOf": [
+                {
+                  "items": {
+                    "enum": [
+                      "Read",
+                      "Write",
+                      "Listen",
+                      "Send",
+                      "Manage"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The authentication info when authType is secret",
+          "properties": {
+            "name": {
+              "description": "Username or account name for secret auth.",
+              "type": "string"
+            },
+            "secretInfo": {
+              "description": "Password or key vault secret for secret auth.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SecretInfoBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The authentication info when authType is servicePrincipal certificate",
+          "properties": {
+            "certificate": {
+              "description": "ServicePrincipal certificate for servicePrincipal auth.",
+              "type": "string"
+            },
+            "clientId": {
+              "description": "Application clientId for servicePrincipal auth.",
+              "type": "string"
+            },
+            "deleteOrUpdateBehavior": {
+              "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Default",
+                    "ForcedCleanup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "principalId": {
+              "description": "Principal Id for servicePrincipal auth.",
+              "type": "string"
+            },
+            "roles": {
+              "description": "Optional, this value specifies the Azure roles to be assigned. Automatically ",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "clientId",
+            "principalId",
+            "certificate"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The authentication info when authType is servicePrincipal secret",
+          "properties": {
+            "clientId": {
+              "description": "ServicePrincipal application clientId for servicePrincipal auth.",
+              "type": "string"
+            },
+            "deleteOrUpdateBehavior": {
+              "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Default",
+                    "ForcedCleanup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "principalId": {
+              "description": "Principal Id for servicePrincipal auth.",
+              "type": "string"
+            },
+            "roles": {
+              "description": "Optional, this value specifies the Azure roles to be assigned. Automatically ",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "secret": {
+              "description": "Secret for servicePrincipal auth.",
+              "type": "string"
+            },
+            "userName": {
+              "description": "Username created in the database which is mapped to a user in AAD.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "clientId",
+            "principalId",
+            "secret"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The authentication info when authType is systemAssignedIdentity",
+          "properties": {
+            "deleteOrUpdateBehavior": {
+              "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Default",
+                    "ForcedCleanup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "roles": {
+              "description": "Optional, this value specifies the Azure role to be assigned",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "userName": {
+              "description": "Username created in the database which is mapped to a user in AAD.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The authentication info when authType is user account",
+          "properties": {
+            "deleteOrUpdateBehavior": {
+              "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Default",
+                    "ForcedCleanup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "principalId": {
+              "description": "Principal Id for user account.",
+              "type": "string"
+            },
+            "roles": {
+              "description": "Optional, this value specifies the Azure roles to be assigned. Automatically ",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "userName": {
+              "description": "Username created in the database which is mapped to a user in AAD.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The authentication info when authType is userAssignedIdentity",
+          "properties": {
+            "clientId": {
+              "description": "Client Id for userAssignedIdentity.",
+              "type": "string"
+            },
+            "deleteOrUpdateBehavior": {
+              "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Default",
+                    "ForcedCleanup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "roles": {
+              "description": "Optional, this value specifies the Azure role to be assigned",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subscriptionId": {
+              "description": "Subscription id for userAssignedIdentity.",
+              "type": "string"
+            },
+            "userName": {
+              "description": "Username created in the database which is mapped to a user in AAD.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "AzureResourcePropertiesBase": {
       "description": "The azure resource properties",
+      "oneOf": [
+        {
+          "description": "The resource properties when type is Azure Key Vault",
+          "properties": {
+            "connectAsKubernetesCsiDriver": {
+              "description": "True if connect via Kubernetes CSI Driver.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -318,6 +624,109 @@
     },
     "DryrunParameters": {
       "description": "The parameters of the dryrun",
+      "oneOf": [
+        {
+          "description": "The dryrun parameters for creation or update a linker",
+          "properties": {
+            "authInfo": {
+              "description": "The authentication type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AuthInfoBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "clientType": {
+              "description": "The application client type",
+              "oneOf": [
+                {
+                  "enum": [
+                    "none",
+                    "dotnet",
+                    "java",
+                    "python",
+                    "go",
+                    "php",
+                    "ruby",
+                    "django",
+                    "nodejs",
+                    "springBoot",
+                    "kafka-springBoot",
+                    "dapr"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "configurationInfo": {
+              "description": "The connection information consumed by applications, including secrets, connection strings.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConfigurationInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "publicNetworkSolution": {
+              "description": "The network solution.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PublicNetworkSolution"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "scope": {
+              "description": "connection scope in source service.",
+              "type": "string"
+            },
+            "secretStore": {
+              "description": "An option to store secret value in secure place",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SecretStore"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetService": {
+              "description": "The target service properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetServiceBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "vNetSolution": {
+              "description": "The VNet solution.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VNetSolution"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -539,6 +948,42 @@
     },
     "SecretInfoBase": {
       "description": "The secret info",
+      "oneOf": [
+        {
+          "description": "The secret info when type is keyVaultSecretReference. It's for scenario that user provides a secret stored in user's keyvault and source is Azure Kubernetes. The key Vault's resource id is linked to secretStore.keyVaultId.",
+          "properties": {
+            "name": {
+              "description": "Name of the Key Vault secret.",
+              "type": "string"
+            },
+            "version": {
+              "description": "Version of the Key Vault secret.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The secret info when type is keyVaultSecretUri. It's for scenario that user provides a secret stored in user's keyvault and source is Web App, Spring Cloud or Container App.",
+          "properties": {
+            "value": {
+              "description": "URI to the keyvault secret",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The secret info when type is rawValue. It's for scenarios that user input the secret.",
+          "properties": {
+            "value": {
+              "description": "The actual value of the secret.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -558,6 +1003,59 @@
     },
     "TargetServiceBase": {
       "description": "The target service properties",
+      "oneOf": [
+        {
+          "description": "The azure resource info when target service type is AzureResource",
+          "properties": {
+            "id": {
+              "description": "The Id of azure resource.",
+              "type": "string"
+            },
+            "resourceProperties": {
+              "description": "The azure resource connection related properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureResourcePropertiesBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The service properties when target service type is ConfluentBootstrapServer",
+          "properties": {
+            "endpoint": {
+              "description": "The endpoint of service.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The service properties when target service type is ConfluentSchemaRegistry",
+          "properties": {
+            "endpoint": {
+              "description": "The endpoint of service.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The service properties when target service type is SelfHostedServer",
+          "properties": {
+            "endpoint": {
+              "description": "The endpoint of service.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
