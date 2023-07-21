@@ -46,16 +46,16 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
   function getResourceNameSchema(descriptor: ResourceDescriptor, nameSchema: NameSchema, isChildDefinition: boolean): JSONSchema4 {
     if (nameSchema.type === 'constant') {
       if (descriptor.typeSegments.length < 2 || isChildDefinition) {
-        return {
+        return addExpressionOneOf({
           type: 'string',
           enum: [nameSchema.value],
-        };
+        });
       }
 
-      return {
+      return addExpressionOneOf({
         type: 'string',
         pattern: `^.*/${escapeRegExp(nameSchema.value)}$`,
-      };
+      });
     }
 
     return parseType(nameSchema.schema, true) ?? { type: 'string' };
@@ -170,6 +170,10 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       return schema;
     }
 
+    return addExpressionOneOf(schema);
+  }
+
+  function addExpressionOneOf(schema: JSONSchema4) {
     return {
       oneOf: [
         schema,
@@ -291,11 +295,9 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       };
     }
 
-
-
     if (combinedSchema instanceof NumberSchema) {
       return {
-        type: 'number',
+        type: combinedSchema.type,
         minimum: combinedSchema.minimum,
         maximum: combinedSchema.maximum,
       }

@@ -52,7 +52,7 @@ describe('schema comparisons', () => {
       const generated = JSON.parse(await readFile(generatedSchemaPath, { encoding: 'utf-8' }));
 
       const diffOptions = { sort: true, color: false, excludeKeys: 'description' };
-      const diff = diffString(generated, original, diffOptions as any);
+      const diff = diffString(original, generated, diffOptions as any);
       const diffFile = `${diffDir}/${namespace}_${apiVersion}_diff.txt`;
 
       const savedValue = existsSync(diffFile) ? await readFile(diffFile, { encoding: 'utf-8' }) : null;
