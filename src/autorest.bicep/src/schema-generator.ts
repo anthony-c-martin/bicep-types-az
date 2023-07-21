@@ -7,7 +7,7 @@ import { chain, cloneDeep, Dictionary, escapeRegExp, keys, orderBy, uniq } from 
 import { getFullyQualifiedType, getNameSchema, getSerializedName, NameSchema, ProviderDefinition, ResourceDefinition, ResourceDescriptor } from "./resources";
 import { isEmpty, isEqual } from 'lodash';
 import { ScopeType } from "bicep-types";
-import { AnyObjectSchema, AnySchema, ArraySchema, ByteArraySchema, ChoiceSchema, ComplexSchema, ConstantSchema, DateTimeSchema, DictionarySchema, ObjectSchema, PrimitiveSchema, Property, Schema, SchemaType, SealedChoiceSchema, StringSchema, UuidSchema } from '@autorest/codemodel';
+import { AnyObjectSchema, AnySchema, ArraySchema, ByteArraySchema, ChoiceSchema, ComplexSchema, ConstantSchema, DateTimeSchema, DictionarySchema, NumberSchema, ObjectSchema, PrimitiveSchema, Property, Schema, SchemaType, SealedChoiceSchema, StringSchema, UuidSchema } from '@autorest/codemodel';
 import { failure, success } from './utils';
 
 interface SchemaData {
@@ -268,40 +268,41 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
   function parsePrimaryType(putSchema: PrimitiveSchema | undefined): JSONSchema4 {
     const combinedSchema = throwIfNull(putSchema);
 
-    if (putSchema instanceof DateTimeSchema) {
+    if (combinedSchema instanceof DateTimeSchema) {
       return {
         type: 'string',
-        format: putSchema.format,
+        format: combinedSchema.format,
       };
     }
 
-    if (putSchema instanceof UuidSchema) {
+    if (combinedSchema instanceof UuidSchema) {
       return {
         type: 'string',
         pattern: '^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$'
       };
     }
 
-    if (putSchema instanceof StringSchema) {
-      const result: JSONSchema4 = {
+    if (combinedSchema instanceof StringSchema) {
+      return {
         type: 'string',
+        pattern: combinedSchema.pattern,
+        minLength: combinedSchema.minLength,
+        maxLength: combinedSchema.maxLength,
       };
+    }
 
-      if (putSchema.pattern) {
-        result.pattern = putSchema.pattern;
+
+
+    if (combinedSchema instanceof NumberSchema) {
+      return {
+        type: 'number',
+        minimum: combinedSchema.minimum,
+        maximum: combinedSchema.maximum,
       }
-      if (putSchema.minLength) {
-        result.minLength = putSchema.minLength;
-      }
-      if (putSchema.maxLength) {
-        result.maxLength = putSchema.maxLength;
-      }
-      
-      return result;
     }
 
     return {
-      type: toBuiltInTypeKind(combinedSchema),      
+      type: toBuiltInTypeKind(combinedSchema),
     };
   }
 
