@@ -89,6 +89,21 @@
     },
     "MediaGraphSink": {
       "description": "Media Sink",
+      "oneOf": [
+        {
+          "description": "Asset sink",
+          "properties": {
+            "assetName": {
+              "description": "Asset name",
+              "type": "string"
+            }
+          },
+          "required": [
+            "assetName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "inputs": {
           "description": "Sink inputs",
@@ -117,6 +132,32 @@
     },
     "MediaGraphSource": {
       "description": "Media source",
+      "oneOf": [
+        {
+          "description": "RTSP source",
+          "properties": {
+            "credentials": {
+              "description": "RTSP Credentials",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MediaGraphUserCredentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "rtspUrl": {
+              "description": "RTSP URL",
+              "type": "string"
+            }
+          },
+          "required": [
+            "rtspUrl"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "Source name",

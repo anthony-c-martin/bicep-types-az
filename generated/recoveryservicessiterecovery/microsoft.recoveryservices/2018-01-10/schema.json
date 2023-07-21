@@ -846,6 +846,100 @@
     },
     "EnableMigrationProviderSpecificInput": {
       "description": "Enable migration provider specific input.",
+      "oneOf": [
+        {
+          "description": "VMwareCbt specific enable migration input.",
+          "properties": {
+            "dataMoverRunAsAccountId": {
+              "description": "The data mover RunAs account Id.",
+              "type": "string"
+            },
+            "disksToInclude": {
+              "description": "The disks to include list.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/VMwareCbtDiskInput"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "licenseType": {
+              "description": "License type.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "NotSpecified",
+                    "NoLicenseType",
+                    "WindowsServer"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "performAutoResync": {
+              "description": "A value indicating whether auto resync is to be done.",
+              "type": "string"
+            },
+            "snapshotRunAsAccountId": {
+              "description": "The snapshot RunAs account Id.",
+              "type": "string"
+            },
+            "targetAvailabilitySetId": {
+              "description": "The target availability set ARM Id.",
+              "type": "string"
+            },
+            "targetAvailabilityZone": {
+              "description": "The target availability zone.",
+              "type": "string"
+            },
+            "targetBootDiagnosticsStorageAccountId": {
+              "description": "The target boot diagnostics storage account ARM Id.",
+              "type": "string"
+            },
+            "targetNetworkId": {
+              "description": "The target network ARM Id.",
+              "type": "string"
+            },
+            "targetResourceGroupId": {
+              "description": "The target resource group ARM Id.",
+              "type": "string"
+            },
+            "targetSubnetName": {
+              "description": "The target subnet name.",
+              "type": "string"
+            },
+            "targetVmName": {
+              "description": "The target VM name.",
+              "type": "string"
+            },
+            "targetVmSize": {
+              "description": "The target VM size.",
+              "type": "string"
+            },
+            "vmwareMachineId": {
+              "description": "The ARM Id of the VM discovered in VMware.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "vmwareMachineId",
+            "disksToInclude",
+            "dataMoverRunAsAccountId",
+            "snapshotRunAsAccountId",
+            "targetResourceGroupId",
+            "targetNetworkId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -876,6 +970,307 @@
     },
     "EnableProtectionProviderSpecificInput": {
       "description": "Enable protection provider specific input.",
+      "oneOf": [
+        {
+          "description": "A2A enable protection input.",
+          "properties": {
+            "diskEncryptionInfo": {
+              "description": "The recovery disk encryption information.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DiskEncryptionInfo"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "fabricObjectId": {
+              "description": "The fabric specific object Id of the virtual machine.",
+              "type": "string"
+            },
+            "multiVmGroupName": {
+              "description": "The multi vm group name.",
+              "type": "string"
+            },
+            "recoveryAvailabilitySetId": {
+              "description": "The recovery availability set Id.",
+              "type": "string"
+            },
+            "recoveryBootDiagStorageAccountId": {
+              "description": "The boot diagnostic storage account.",
+              "type": "string"
+            },
+            "recoveryCloudServiceId": {
+              "description": "The recovery cloud service Id. Valid for V1 scenarios.",
+              "type": "string"
+            },
+            "recoveryContainerId": {
+              "description": "The recovery container Id.",
+              "type": "string"
+            },
+            "recoveryResourceGroupId": {
+              "description": "The recovery resource group Id. Valid for V2 scenarios.",
+              "type": "string"
+            },
+            "vmDisks": {
+              "description": "The list of vm disk details.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/A2AVmDiskInputDetails"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "vmManagedDisks": {
+              "description": "The list of vm managed disk details.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/A2AVmManagedDiskInputDetails"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure specific enable protection input.",
+          "properties": {
+            "disksToInclude": {
+              "description": "The list of VHD IDs of disks to be protected.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "enableRdpOnTargetOption": {
+              "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.",
+              "type": "string"
+            },
+            "hvHostVmId": {
+              "description": "The Hyper-V host Vm Id.",
+              "type": "string"
+            },
+            "logStorageAccountId": {
+              "description": "The storage account to be used for logging during replication.",
+              "type": "string"
+            },
+            "osType": {
+              "description": "The OS type associated with vm.",
+              "type": "string"
+            },
+            "targetAzureNetworkId": {
+              "description": "The selected target Azure network Id.",
+              "type": "string"
+            },
+            "targetAzureSubnetId": {
+              "description": "The selected target Azure subnet Id.",
+              "type": "string"
+            },
+            "targetAzureV1ResourceGroupId": {
+              "description": "The Id of the target resource group (for classic deployment) in which the failover VM is to be created.",
+              "type": "string"
+            },
+            "targetAzureV2ResourceGroupId": {
+              "description": "The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.",
+              "type": "string"
+            },
+            "targetAzureVmName": {
+              "description": "The target azure Vm Name.",
+              "type": "string"
+            },
+            "targetStorageAccountId": {
+              "description": "The storage account name.",
+              "type": "string"
+            },
+            "useManagedDisks": {
+              "description": "A value indicating whether managed disks should be used during failover.",
+              "type": "string"
+            },
+            "vhdId": {
+              "description": "The OS disk VHD id associated with vm.",
+              "type": "string"
+            },
+            "vmName": {
+              "description": "The Vm Name.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "VMware Azure specific enable protection input.",
+          "properties": {
+            "datastoreName": {
+              "description": "The target data store name.",
+              "type": "string"
+            },
+            "diskExclusionInput": {
+              "description": "The enable disk exclusion input.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InMageDiskExclusionInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "disksToInclude": {
+              "description": "The disks to include list.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "masterTargetId": {
+              "description": "The Master Target Id.",
+              "type": "string"
+            },
+            "multiVmGroupId": {
+              "description": "The multi vm group Id.",
+              "type": "string"
+            },
+            "multiVmGroupName": {
+              "description": "The multi vm group name.",
+              "type": "string"
+            },
+            "processServerId": {
+              "description": "The Process Server Id.",
+              "type": "string"
+            },
+            "retentionDrive": {
+              "description": "The retention drive to use on the MT.",
+              "type": "string"
+            },
+            "runAsAccountId": {
+              "description": "The CS account Id.",
+              "type": "string"
+            },
+            "vmFriendlyName": {
+              "description": "The Vm Name.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "masterTargetId",
+            "processServerId",
+            "retentionDrive",
+            "multiVmGroupId",
+            "multiVmGroupName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "VMware Azure specific enable protection input.",
+          "properties": {
+            "disksToInclude": {
+              "description": "The disks to include list.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "enableRdpOnTargetOption": {
+              "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.",
+              "type": "string"
+            },
+            "logStorageAccountId": {
+              "description": "The storage account to be used for logging during replication.",
+              "type": "string"
+            },
+            "masterTargetId": {
+              "description": "The Master target Id.",
+              "type": "string"
+            },
+            "multiVmGroupId": {
+              "description": "The multi vm group Id.",
+              "type": "string"
+            },
+            "multiVmGroupName": {
+              "description": "The multi vm group name.",
+              "type": "string"
+            },
+            "processServerId": {
+              "description": "The Process Server Id.",
+              "type": "string"
+            },
+            "runAsAccountId": {
+              "description": "The CS account Id.",
+              "type": "string"
+            },
+            "storageAccountId": {
+              "description": "The storage account name.",
+              "type": "string"
+            },
+            "targetAzureNetworkId": {
+              "description": "The selected target Azure network Id.",
+              "type": "string"
+            },
+            "targetAzureSubnetId": {
+              "description": "The selected target Azure subnet Id.",
+              "type": "string"
+            },
+            "targetAzureV1ResourceGroupId": {
+              "description": "The Id of the target resource group (for classic deployment) in which the failover VM is to be created.",
+              "type": "string"
+            },
+            "targetAzureV2ResourceGroupId": {
+              "description": "The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.",
+              "type": "string"
+            },
+            "targetAzureVmName": {
+              "description": "The target azure Vm Name.",
+              "type": "string"
+            },
+            "useManagedDisks": {
+              "description": "A value indicating whether managed disks should be used during failover.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "storageAccountId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "San enable protection provider specific input.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -898,11 +1293,66 @@
     },
     "FabricSpecificCreateNetworkMappingInput": {
       "description": "Input details specific to fabrics during Network Mapping.",
+      "oneOf": [
+        {
+          "description": "Create network mappings input properties/behavior specific to Azure to Azure Network mapping.",
+          "properties": {
+            "primaryNetworkId": {
+              "description": "The primary azure vnet Id.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Create network mappings input properties/behavior specific to vmm to vmm Network mapping.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "FabricSpecificCreationInput": {
       "description": "Fabric provider specific settings.",
+      "oneOf": [
+        {
+          "description": "Fabric provider specific settings.",
+          "properties": {
+            "location": {
+              "description": "The Location.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "VMwareV2 fabric provider specific settings.",
+          "properties": {
+            "migrationSolutionId": {
+              "description": "The ARM Id of the migration solution.",
+              "type": "string"
+            },
+            "physicalSiteId": {
+              "description": "The ARM Id of the physical site.",
+              "type": "string"
+            },
+            "vmwareSiteId": {
+              "description": "The ARM Id of the VMware site.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "migrationSolutionId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1013,6 +1463,445 @@
     },
     "PolicyProviderSpecificInput": {
       "description": "Base class for provider specific input",
+      "oneOf": [
+        {
+          "description": "A2A Policy creation input.",
+          "properties": {
+            "appConsistentFrequencyInMinutes": {
+              "description": "The app consistent snapshot frequency (in minutes).",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "crashConsistentFrequencyInMinutes": {
+              "description": "The crash consistent snapshot frequency (in minutes).",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "multiVmSyncStatus": {
+              "description": "A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Enable",
+                    "Disable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryPointHistory": {
+              "description": "The duration in minutes until which the recovery points need to be stored.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "multiVmSyncStatus"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Hyper-V Replica specific policy Input.",
+          "properties": {
+            "allowedAuthenticationType": {
+              "description": "A value indicating the authentication type.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "applicationConsistentSnapshotFrequencyInHours": {
+              "description": "A value indicating the application consistent frequency.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "compression": {
+              "description": "A value indicating whether compression has to be enabled.",
+              "type": "string"
+            },
+            "initialReplicationMethod": {
+              "description": "A value indicating whether IR is online.",
+              "type": "string"
+            },
+            "offlineReplicationExportPath": {
+              "description": "A value indicating the offline IR export path.",
+              "type": "string"
+            },
+            "offlineReplicationImportPath": {
+              "description": "A value indicating the offline IR import path.",
+              "type": "string"
+            },
+            "onlineReplicationStartTime": {
+              "description": "A value indicating the online IR start time.",
+              "type": "string"
+            },
+            "recoveryPoints": {
+              "description": "A value indicating the number of recovery points.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "replicaDeletion": {
+              "description": "A value indicating whether the VM has to be auto deleted.",
+              "type": "string"
+            },
+            "replicationPort": {
+              "description": "A value indicating the recovery HTTPS port.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "HyperV Replica Blue policy input.",
+          "properties": {
+            "allowedAuthenticationType": {
+              "description": "A value indicating the authentication type.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "applicationConsistentSnapshotFrequencyInHours": {
+              "description": "A value indicating the application consistent frequency.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "compression": {
+              "description": "A value indicating whether compression has to be enabled.",
+              "type": "string"
+            },
+            "initialReplicationMethod": {
+              "description": "A value indicating whether IR is online.",
+              "type": "string"
+            },
+            "offlineReplicationExportPath": {
+              "description": "A value indicating the offline IR export path.",
+              "type": "string"
+            },
+            "offlineReplicationImportPath": {
+              "description": "A value indicating the offline IR import path.",
+              "type": "string"
+            },
+            "onlineReplicationStartTime": {
+              "description": "A value indicating the online IR start time.",
+              "type": "string"
+            },
+            "recoveryPoints": {
+              "description": "A value indicating the number of recovery points.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "replicaDeletion": {
+              "description": "A value indicating whether the VM has to be auto deleted.",
+              "type": "string"
+            },
+            "replicationFrequencyInSeconds": {
+              "description": "A value indicating the replication interval.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "replicationPort": {
+              "description": "A value indicating the recovery HTTPS port.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Hyper-V Replica Azure specific input for creating a protection profile.",
+          "properties": {
+            "applicationConsistentSnapshotFrequencyInHours": {
+              "description": "The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "onlineReplicationStartTime": {
+              "description": "The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.",
+              "type": "string"
+            },
+            "recoveryPointHistoryDuration": {
+              "description": "The duration (in hours) to which point the recovery history needs to be maintained.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "replicationInterval": {
+              "description": "The replication interval.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "storageAccounts": {
+              "description": "The list of storage accounts to which the VMs in the primary cloud can replicate to.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "VMWare Azure specific protection profile Input.",
+          "properties": {
+            "appConsistentFrequencyInMinutes": {
+              "description": "The app consistent snapshot frequency (in minutes).",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "multiVmSyncStatus": {
+              "description": "A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Enable",
+                    "Disable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryPointHistory": {
+              "description": "The duration in minutes until which the recovery points need to be stored.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryPointThresholdInMinutes": {
+              "description": "The recovery point threshold in minutes.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "multiVmSyncStatus"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "VMWare Azure specific policy Input.",
+          "properties": {
+            "appConsistentFrequencyInMinutes": {
+              "description": "The app consistent snapshot frequency (in minutes).",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "crashConsistentFrequencyInMinutes": {
+              "description": "The crash consistent snapshot frequency (in minutes).",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "multiVmSyncStatus": {
+              "description": "A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Enable",
+                    "Disable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryPointHistory": {
+              "description": "The duration in minutes until which the recovery points need to be stored.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryPointThresholdInMinutes": {
+              "description": "The recovery point threshold in minutes.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "multiVmSyncStatus"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "VMware Cbt policy creation input.",
+          "properties": {
+            "appConsistentFrequencyInMinutes": {
+              "description": "The app consistent snapshot frequency (in minutes).",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "crashConsistentFrequencyInMinutes": {
+              "description": "The crash consistent snapshot frequency (in minutes).",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryPointHistoryInMinutes": {
+              "description": "The duration in minutes until which the recovery points need to be stored.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1092,6 +1981,83 @@
     },
     "RecoveryPlanActionDetails": {
       "description": "Recovery plan action custom details.",
+      "oneOf": [
+        {
+          "description": "Recovery plan Automation runbook action details.",
+          "properties": {
+            "fabricLocation": {
+              "description": "The fabric location.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Primary",
+                    "Recovery"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "runbookId": {
+              "description": "The runbook ARM Id.",
+              "type": "string"
+            },
+            "timeout": {
+              "description": "The runbook timeout.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "fabricLocation"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Recovery plan manual action details.",
+          "properties": {
+            "description": {
+              "description": "The manual action description.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Recovery plan script action details.",
+          "properties": {
+            "fabricLocation": {
+              "description": "The fabric location.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Primary",
+                    "Recovery"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "path": {
+              "description": "The script path.",
+              "type": "string"
+            },
+            "timeout": {
+              "description": "The script timeout.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "fabricLocation"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1178,11 +2144,88 @@
     },
     "ReplicationProviderSpecificContainerCreationInput": {
       "description": "Provider specific input for container creation operation.",
+      "oneOf": [
+        {
+          "description": "A2A cloud creation input.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "VMwareCbt container creation input.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "ReplicationProviderSpecificContainerMappingInput": {
       "description": "Provider specific input for pairing operations.",
+      "oneOf": [
+        {
+          "description": "A2A container mapping input.",
+          "properties": {
+            "agentAutoUpdateStatus": {
+              "description": "A value indicating whether the auto update is enabled.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Disabled",
+                    "Enabled"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "automationAccountArmId": {
+              "description": "The automation account arm id.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "VMwareCbt container mapping input.",
+          "properties": {
+            "keyVaultId": {
+              "description": "The target key vault ARM Id.",
+              "type": "string"
+            },
+            "keyVaultUri": {
+              "description": "The target key vault URL.",
+              "type": "string"
+            },
+            "serviceBusConnectionStringSecretName": {
+              "description": "The secret name of the service bus connection string.",
+              "type": "string"
+            },
+            "storageAccountId": {
+              "description": "The storage account ARM Id.",
+              "type": "string"
+            },
+            "storageAccountSasSecretName": {
+              "description": "The secret name of the storage account.",
+              "type": "string"
+            },
+            "targetLocation": {
+              "description": "The target location.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "keyVaultId",
+            "keyVaultUri",
+            "storageAccountId",
+            "storageAccountSasSecretName",
+            "serviceBusConnectionStringSecretName",
+            "targetLocation"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

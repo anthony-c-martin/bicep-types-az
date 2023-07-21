@@ -406,6 +406,23 @@
     },
     "StorageTargetProperties": {
       "description": "Properties of the Storage Target.",
+      "oneOf": [
+        {
+          "description": "Storage container for use as a CLFS Storage Target.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "An NFSv3 mount point for use as a Storage Target.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Storage container for use as an Unknown Storage Target.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "clfs": {
           "description": "Properties when targetType is clfs.",

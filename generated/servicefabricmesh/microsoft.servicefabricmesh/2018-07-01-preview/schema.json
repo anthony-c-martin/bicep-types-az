@@ -484,6 +484,33 @@
     },
     "DiagnosticsSinkProperties": {
       "description": "Properties of a DiagnosticsSink.",
+      "oneOf": [
+        {
+          "description": "Diagnostics settings for Geneva.",
+          "properties": {
+            "accountName": {
+              "description": "Azure Internal monitoring pipeline account.",
+              "type": "string"
+            },
+            "autoKeyConfigUrl": {
+              "description": "Azure Internal monitoring pipeline autokey associated with the certificate.",
+              "type": "string"
+            },
+            "fluentdConfigUrl": {
+              "description": "Azure Internal monitoring agent fluentd configuration."
+            },
+            "maConfigUrl": {
+              "description": "Azure Internal monitoring agent configuration.",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Azure Internal monitoring pipeline account namespace.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "A description of the sink.",

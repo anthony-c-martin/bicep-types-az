@@ -47,16 +47,96 @@
   "definitions": {
     "MediaGraphCertificateSource": {
       "description": "Base class for certificate sources.",
+      "oneOf": [
+        {
+          "description": "A list of PEM formatted certificates.",
+          "properties": {
+            "certificates": {
+              "description": "PEM formatted public certificates, one per entry.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "certificates"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "MediaGraphCredentials": {
       "description": "Credentials to present during authentication.",
+      "oneOf": [
+        {
+          "description": "Username/password credential pair.",
+          "properties": {
+            "password": {
+              "description": "Password for a username/password pair.",
+              "type": "string"
+            },
+            "username": {
+              "description": "Username for a username/password pair.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "username",
+            "password"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "MediaGraphEndpoint": {
       "description": "Base class for endpoints.",
+      "oneOf": [
+        {
+          "description": "An endpoint to connect to with no encryption in transit.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "An endpoint which must be connected over TLS/SSL.",
+          "properties": {
+            "trustedCertificates": {
+              "description": "What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MediaGraphCertificateSource"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationOptions": {
+              "description": "Validation options to use when authenticating a TLS connection. By default, strict validation is used.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MediaGraphTlsValidationOptions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "credentials": {
           "description": "Polymorphic credentials to present to the endpoint.",
@@ -123,6 +203,21 @@
     },
     "MediaGraphSink": {
       "description": "Media Sink.",
+      "oneOf": [
+        {
+          "description": "Asset sink.",
+          "properties": {
+            "assetName": {
+              "description": "Asset name.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "assetName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "inputs": {
           "description": "Sink inputs.",
@@ -151,6 +246,44 @@
     },
     "MediaGraphSource": {
       "description": "Media source.",
+      "oneOf": [
+        {
+          "description": "RTSP source.",
+          "properties": {
+            "endpoint": {
+              "description": "RTSP endpoint of the stream being connected to.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MediaGraphEndpoint"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "transport": {
+              "description": "Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Http",
+                    "Tcp"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "transport",
+            "endpoint"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "Source name.",

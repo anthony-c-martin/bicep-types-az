@@ -30,7 +30,15 @@
         },
         "name": {
           "description": "The name of the server.",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^[a-z0-9][-a-z0-9]*(?<!-)$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties of the server.",
@@ -54,6 +62,9 @@
               },
               {
                 "$ref": "#/definitions/flexibleServers_firewallRules_childResource"
+              },
+              {
+                "$ref": "#/definitions/flexibleServers_configurations_childResource"
               },
               {
                 "$ref": "#/definitions/flexibleServers_administrators_childResource"
@@ -174,6 +185,45 @@
       },
       "required": [
         "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "flexibleServers_configurations": {
+      "description": "Microsoft.DBforMySQL/flexibleServers/configurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server configuration.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.DBforMySQL/flexibleServers/configurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
         "apiVersion",
         "type"
       ],
@@ -323,6 +373,35 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationProperties": {
+      "description": "The properties of a configuration.",
+      "properties": {
+        "currentValue": {
+          "description": "Current value of the configuration.",
+          "type": "string"
+        },
+        "source": {
+          "description": "Source of the configuration.",
+          "oneOf": [
+            {
+              "enum": [
+                "system-default",
+                "user-override"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "value": {
+          "description": "Value of the configuration.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -746,6 +825,21 @@
             }
           ]
         },
+        "logOnDisk": {
+          "description": "Enable Log On Disk or not.",
+          "oneOf": [
+            {
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "storageSizeGB": {
           "description": "Max storage size allowed for a server.",
           "oneOf": [
@@ -831,6 +925,45 @@
       },
       "required": [
         "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "flexibleServers_configurations_childResource": {
+      "description": "Microsoft.DBforMySQL/flexibleServers/configurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the server configuration.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of a configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "configurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
         "apiVersion",
         "type"
       ],

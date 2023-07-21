@@ -575,6 +575,71 @@
     },
     "ServerPropertiesForCreate": {
       "description": "The properties used to create a new server.",
+      "oneOf": [
+        {
+          "description": "The properties used to create a new server.",
+          "properties": {
+            "administratorLogin": {
+              "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).",
+              "type": "string"
+            },
+            "administratorLoginPassword": {
+              "description": "The password of the administrator login.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "administratorLogin",
+            "administratorLoginPassword"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The properties used to create a new server by restoring to a different region from a geo replicated backup.",
+          "properties": {
+            "sourceServerId": {
+              "description": "The source server id to restore from.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "sourceServerId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The properties used to create a new server by restoring from a backup.",
+          "properties": {
+            "restorePointInTime": {
+              "description": "Restore point creation time (ISO8601 format), specifying the time to restore from.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "sourceServerId": {
+              "description": "The source server id to restore from.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "sourceServerId",
+            "restorePointInTime"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The properties to create a new replica.",
+          "properties": {
+            "sourceServerId": {
+              "description": "The master server id to create replica from.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "sourceServerId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "infrastructureEncryption": {
           "description": "Status showing whether the server enabled infrastructure encryption.",

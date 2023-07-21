@@ -1481,6 +1481,57 @@
     },
     "AssetReferenceBase": {
       "description": "Base definition for asset references.",
+      "oneOf": [
+        {
+          "description": "Reference to an asset via its path in a datastore.",
+          "properties": {
+            "datastoreId": {
+              "description": "ARM resource ID of the datastore where the asset is located.",
+              "type": "string"
+            },
+            "path": {
+              "description": "The path of the file/directory in the datastore.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Reference to an asset via its ARM resource ID.",
+          "properties": {
+            "assetId": {
+              "description": "[Required] ARM resource ID of the asset.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "assetId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Reference to an asset via its path in a job output.",
+          "properties": {
+            "jobId": {
+              "description": "ARM resource ID of the job.",
+              "type": "string"
+            },
+            "path": {
+              "description": "The path of the file/directory in the job output.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -2003,6 +2054,149 @@
     },
     "Compute": {
       "description": "Machine Learning compute object.",
+      "oneOf": [
+        {
+          "description": "A Machine Learning compute based on AKS.",
+          "properties": {
+            "properties": {
+              "description": "AKS properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AKSProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "An Azure Machine Learning compute.",
+          "properties": {
+            "properties": {
+              "description": "AML Compute properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AmlComputeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "An Azure Machine Learning compute instance.",
+          "properties": {
+            "properties": {
+              "description": "Compute Instance properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ComputeInstanceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A DataFactory compute.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "A DataLakeAnalytics compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DataLakeAnalyticsProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A DataFactory compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatabricksProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A HDInsight compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A SynapseSpark compute.",
+          "properties": {
+            "properties": {
+              "description": "AKS properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SynapseSparkPoolPropertiesProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A Machine Learning compute based on Azure Virtual Machines.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VirtualMachineProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",
@@ -2563,11 +2757,653 @@
     },
     "DatastoreContents": {
       "description": "Base definition for datastore contents configuration.",
+      "oneOf": [
+        {
+          "description": "Azure Blob datastore configuration.",
+          "properties": {
+            "accountName": {
+              "description": "[Required] Storage account name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "containerName": {
+              "description": "[Required] Storage account container name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "credentials": {
+              "description": "[Required] Account credentials.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatastoreCredentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "endpoint": {
+              "description": "[Required] Azure cloud endpoint for the storage account.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocol": {
+              "description": "[Required] Protocol used to communicate with the storage account.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "accountName",
+            "containerName",
+            "credentials",
+            "endpoint",
+            "protocol"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Lake Gen1 datastore configuration.",
+          "properties": {
+            "credentials": {
+              "description": "[Required] Account credentials.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatastoreCredentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "storeName": {
+              "description": "[Required] Azure Data Lake store name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "credentials",
+            "storeName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Lake Gen2 datastore configuration.",
+          "properties": {
+            "accountName": {
+              "description": "[Required] Storage account name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "containerName": {
+              "description": "[Required] Storage account container name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "credentials": {
+              "description": "[Required] Account credentials.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatastoreCredentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "endpoint": {
+              "description": "[Required] Azure cloud endpoint for the storage account.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocol": {
+              "description": "[Required] Protocol used to communicate with the storage account.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "accountName",
+            "containerName",
+            "credentials",
+            "endpoint",
+            "protocol"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure File datastore configuration.",
+          "properties": {
+            "accountName": {
+              "description": "[Required] Storage account name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "containerName": {
+              "description": "[Required] Storage account container name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "credentials": {
+              "description": "[Required] Account credentials.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatastoreCredentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "endpoint": {
+              "description": "[Required] Azure cloud endpoint for the storage account.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocol": {
+              "description": "[Required] Protocol used to communicate with the storage account.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "accountName",
+            "containerName",
+            "credentials",
+            "endpoint",
+            "protocol"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Postgre SQL datastore configuration.",
+          "properties": {
+            "credentials": {
+              "description": "[Required] Account credentials.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatastoreCredentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "databaseName": {
+              "description": "[Required] Azure SQL database name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "enableSSL": {
+              "description": "Whether the Azure PostgreSQL server requires SSL.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "endpoint": {
+              "description": "[Required] Azure cloud endpoint for the database.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "portNumber": {
+              "description": "[Required] Azure SQL server port.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "[Required] Azure SQL server name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "credentials",
+            "databaseName",
+            "endpoint",
+            "portNumber",
+            "serverName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure SQL Database datastore configuration.",
+          "properties": {
+            "credentials": {
+              "description": "[Required] Account credentials.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatastoreCredentials"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "databaseName": {
+              "description": "[Required] Azure SQL database name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "endpoint": {
+              "description": "[Required] Azure cloud endpoint for the database.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "portNumber": {
+              "description": "[Required] Azure SQL server port.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "[Required] Azure SQL server name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "credentials",
+            "databaseName",
+            "endpoint",
+            "portNumber",
+            "serverName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "GlusterFs datastore configuration.",
+          "properties": {
+            "serverAddress": {
+              "description": "[Required] GlusterFS server address (can be the IP address or server name).",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "volumeName": {
+              "description": "[Required] GlusterFS volume name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "serverAddress",
+            "volumeName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "DatastoreCredentials": {
       "description": "Base definition for datastore credentials.",
+      "oneOf": [
+        {
+          "description": "Account key datastore credentials configuration.",
+          "properties": {
+            "secrets": {
+              "description": "Storage account secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AccountKeyDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Certificate datastore credentials configuration.",
+          "properties": {
+            "authorityUrl": {
+              "description": "Authority URL used for authentication.",
+              "type": "string"
+            },
+            "clientId": {
+              "description": "[Required] Service principal client ID.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceUri": {
+              "description": "Resource the service principal has access to.",
+              "type": "string"
+            },
+            "secrets": {
+              "description": "Service principal secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CertificateDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tenantId": {
+              "description": "[Required] ID of the tenant to which the service principal belongs.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "thumbprint": {
+              "description": "[Required] Thumbprint of the certificate used for authentication.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "clientId",
+            "tenantId",
+            "thumbprint"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Empty/none datastore credentials.",
+          "properties": {
+            "secrets": {
+              "description": "Empty/none datastore secret.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NoneDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "SAS datastore credentials configuration.",
+          "properties": {
+            "secrets": {
+              "description": "Storage container secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SasDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Service Principal datastore credentials configuration.",
+          "properties": {
+            "authorityUrl": {
+              "description": "Authority URL used for authentication.",
+              "type": "string"
+            },
+            "clientId": {
+              "description": "[Required] Service principal client ID.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceUri": {
+              "description": "Resource the service principal has access to.",
+              "type": "string"
+            },
+            "secrets": {
+              "description": "Service principal secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ServicePrincipalDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tenantId": {
+              "description": "[Required] ID of the tenant to which the service principal belongs.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "clientId",
+            "tenantId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "SQL Admin datastore credentials configuration.",
+          "properties": {
+            "secrets": {
+              "description": "SQL database secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlAdminDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "userId": {
+              "description": "[Required] SQL database user name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "userId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -2649,6 +3485,70 @@
     },
     "DistributionConfiguration": {
       "description": "Base definition for job distribution configuration.",
+      "oneOf": [
+        {
+          "description": "MPI distribution configuration.",
+          "properties": {
+            "processCountPerInstance": {
+              "description": "Number of processes per MPI node.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "PyTorch distribution configuration.",
+          "properties": {
+            "processCount": {
+              "description": "Total process count for the distributed job.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "TensorFlow distribution configuration.",
+          "properties": {
+            "parameterServerCount": {
+              "description": "Number of parameter server tasks.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "workerCount": {
+              "description": "Number of workers. Overwrites the node count in compute binding.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -2674,6 +3574,54 @@
     },
     "DockerSpecification": {
       "description": "Configuration settings for Docker",
+      "oneOf": [
+        {
+          "description": "Class to represent configuration settings for Docker Build",
+          "properties": {
+            "context": {
+              "description": "Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.\r\nThe path is relative to the asset path which must contain a single Blob URI value.\r\n<seealso href=\"https://docs.docker.com/engine/context/working-with-contexts/\" />",
+              "type": "string"
+            },
+            "dockerfile": {
+              "description": "[Required] Docker command line instructions to assemble an image.\r\n<seealso href=\"https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments\" />",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "dockerfile"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Class to represent configuration settings for Docker Build",
+          "properties": {
+            "dockerImageUri": {
+              "description": "[Required] Image name of a custom base image.\r\n<seealso href=\"https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image\" />",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "dockerImageUri"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "platform": {
           "description": "The platform information of the docker image.",
@@ -2691,6 +3639,58 @@
     },
     "EarlyTerminationPolicy": {
       "description": "Early termination policies enable canceling poor-performing runs before they complete.",
+      "oneOf": [
+        {
+          "description": "Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.",
+          "properties": {
+            "slackAmount": {
+              "description": "Absolute distance allowed from the best performing run.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "slackFactor": {
+              "description": "Ratio of the allowed distance from the best performing run.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines an early termination policy based on running averages of the primary metric of all runs.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.",
+          "properties": {
+            "truncationPercentage": {
+              "description": "The percentage of runs to cancel at each evaluation interval.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "delayEvaluation": {
           "description": "Number of intervals by which to delay the first evaluation.",
@@ -2985,6 +3985,47 @@
     },
     "IdentityConfiguration": {
       "description": "Base definition for identity configuration.",
+      "oneOf": [
+        {
+          "description": "AML Token identity configuration.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Managed identity configuration.",
+          "properties": {
+            "clientId": {
+              "description": "Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "objectId": {
+              "description": "Specifies a user-assigned identity by object ID. For system-assigned, do not set this field.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceId": {
+              "description": "Specifies a user-assigned identity by ARM resource ID. For system-assigned, do not set this field.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -3072,6 +4113,276 @@
     },
     "JobBase": {
       "description": "Base definition for a job.",
+      "oneOf": [
+        {
+          "description": "Command job definition.",
+          "properties": {
+            "codeId": {
+              "description": "ARM resource ID of the code asset.",
+              "type": "string"
+            },
+            "command": {
+              "description": "[Required] The command to execute on startup of the job. eg. \"python train.py\"",
+              "oneOf": [
+                {
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "compute": {
+              "description": "[Required] Compute binding for the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ComputeConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "distribution": {
+              "description": "Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DistributionConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "environmentId": {
+              "description": "The ARM resource ID of the Environment specification for the job.",
+              "type": "string"
+            },
+            "environmentVariables": {
+              "description": "Environment variables included in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "experimentName": {
+              "description": "The name of the experiment the job belongs to. If not set, the job is placed in the \"Default\" experiment.",
+              "type": "string"
+            },
+            "identity": {
+              "description": "Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.\r\nDefaults to AmlToken if null.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/IdentityConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "inputDataBindings": {
+              "description": "Mapping of input data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/InputDataBinding"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "outputDataBindings": {
+              "description": "Mapping of output data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/OutputDataBinding"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "priority": {
+              "description": "Job priority for scheduling policy. Only applies to AMLCompute.\r\nPrivate preview feature and only available to users on the allow list.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "timeout": {
+              "description": "The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "command",
+            "compute"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Sweep job definition.",
+          "properties": {
+            "algorithm": {
+              "description": "[Required] Type of the hyperparameter sampling algorithms",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Grid",
+                    "Random",
+                    "Bayesian"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "compute": {
+              "description": "[Required] Compute binding for the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ComputeConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "earlyTermination": {
+              "description": "Early termination policies enable canceling poor-performing runs before they complete.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EarlyTerminationPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "experimentName": {
+              "description": "The name of the experiment the job belongs to. If not set, the job is placed in the \"Default\" experiment.",
+              "type": "string"
+            },
+            "identity": {
+              "description": "Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.\r\nDefaults to AmlToken if null.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/IdentityConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "maxConcurrentTrials": {
+              "description": "An upper bound on the number of trials performed in parallel.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "maxTotalTrials": {
+              "description": "An upper bound on the number of trials to perform.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "objective": {
+              "description": "[Required] Optimization objective.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Objective"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "priority": {
+              "description": "Job priority for scheduling policy. Only applies to AMLCompute.\r\nPrivate preview feature and only available to users on the allow list.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "searchSpace": {
+              "description": "[Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "timeout": {
+              "description": "The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.",
+              "type": "string"
+            },
+            "trial": {
+              "description": "Trial component definition.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TrialComponent"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "algorithm",
+            "compute",
+            "objective",
+            "searchSpace"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "The asset description text.",
@@ -3347,6 +4658,50 @@
     },
     "LabelingJobMediaProperties": {
       "description": "Properties of a labeling job",
+      "oneOf": [
+        {
+          "description": "Properties of a labeling job for image data",
+          "properties": {
+            "annotationType": {
+              "description": "Annotation type of image labeling job.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Classification",
+                    "BoundingBox",
+                    "InstanceSegmentation"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties of a labeling job for text data",
+          "properties": {
+            "annotationType": {
+              "description": "Annotation type of text labeling job.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Classification"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -3607,6 +4962,44 @@
       "type": "object"
     },
     "OnlineDeployment": {
+      "oneOf": [
+        {
+          "properties": {
+            "containerResourceRequirements": {
+              "description": "Resource requirements for each container instance within an online deployment.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ContainerResourceRequirements"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "instanceType": {
+              "description": "Compute instance type.",
+              "type": "string"
+            },
+            "readinessProbe": {
+              "description": "Deployment container liveness/readiness probe configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ProbeSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "appInsightsEnabled": {
           "description": "If true, enables Application Insights logging.",
@@ -3816,6 +5209,44 @@
     },
     "OnlineScaleSettings": {
       "description": "Online deployment scaling configuration.",
+      "oneOf": [
+        {
+          "properties": {
+            "pollingInterval": {
+              "description": "The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.",
+              "type": "string"
+            },
+            "targetUtilizationPercentage": {
+              "description": "Target CPU usage for the autoscaler.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "instanceCount": {
+              "description": "Fixed number of instances for this deployment.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "maxInstances": {
           "description": "Maximum number of instances for this deployment.",

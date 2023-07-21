@@ -491,6 +491,178 @@
     },
     "Channel": {
       "description": "Channel definition",
+      "oneOf": [
+        {
+          "description": "Direct Line channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Direct Line channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DirectLineChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Email channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to email channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EmailChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Facebook channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to bot facebook channel",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FacebookChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Kik channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Kik channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KikChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Microsoft Teams channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Microsoft Teams channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MsTeamsChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Skype channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Skype channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SkypeChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Slack channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Slack channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SlackChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Sms channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Sms channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SmsChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Telegram channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Telegram channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TelegramChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Web Chat channel definition",
+          "properties": {
+            "properties": {
+              "description": "The set of properties specific to Web Chat channel resource",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WebChatChannelProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

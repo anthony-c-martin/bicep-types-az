@@ -208,6 +208,60 @@
     },
     "PipelineProperties": {
       "description": "Custom properties of a Pipeline.",
+      "oneOf": [
+        {
+          "description": "Custom properties of a Azure Pipeline.",
+          "properties": {
+            "organization": {
+              "description": "Reference to the Azure DevOps Organization containing the Pipeline. Required for 'azurePipeline' pipeline type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OrganizationReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "project": {
+              "description": "Reference to the Azure DevOps Project containing the Pipeline. Required for 'azurePipeline' pipeline type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ProjectReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "organization",
+            "project"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Custom properties of an Github Pipeline.",
+          "properties": {
+            "repository": {
+              "description": "Contains the specifications of the repository to be created for generating the workflow. Required for 'githubWorkflow' pipeline type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CodeRepository"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "repository"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "bootstrapConfiguration": {
           "description": "Configuration used to bootstrap the Pipeline.",

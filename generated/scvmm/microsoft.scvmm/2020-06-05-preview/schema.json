@@ -657,6 +657,54 @@
     },
     "InventoryItemProperties": {
       "description": "Defines the resource properties.",
+      "oneOf": [
+        {
+          "description": "The Cloud inventory item.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The Virtual machine inventory item.",
+          "properties": {
+            "cloud": {
+              "description": "Cloud inventory resource details where the VM is present.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InventoryItemDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ipAddresses": {
+              "description": "Gets or sets the nic ip addresses.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The Virtual machine template inventory item.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The Virtual network inventory item.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

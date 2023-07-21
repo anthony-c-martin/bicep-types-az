@@ -416,6 +416,25 @@
     },
     "Authentication": {
       "description": "Defines the authentication method and properties to access the artifacts.",
+      "oneOf": [
+        {
+          "description": "Defines the properties to access the artifacts using an Azure Storage SAS URI.",
+          "properties": {
+            "properties": {
+              "description": "The SAS properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SasProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -662,6 +681,25 @@
     },
     "StepProperties": {
       "description": "The properties of a step resource.",
+      "oneOf": [
+        {
+          "description": "Defines the properties of a Wait step.",
+          "properties": {
+            "attributes": {
+              "description": "The Wait attributes",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WaitStepAttributes"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

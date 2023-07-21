@@ -1011,6 +1011,45 @@
     },
     "FileShareConfiguration": {
       "description": "File Share configuration details, populated with information on storage configuration mounted on the VIS. The createAndMount option is selected in case of missing input.",
+      "oneOf": [
+        {
+          "description": "Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow.",
+          "properties": {
+            "resourceGroup": {
+              "description": "The name of file share resource group. The app rg is used in case of missing input.",
+              "type": "string"
+            },
+            "storageAccountName": {
+              "description": "The name of file share storage account name . A custom name is used in case of missing input.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.",
+          "properties": {
+            "id": {
+              "description": "The fileshare resource ID",
+              "type": "string"
+            },
+            "privateEndpointId": {
+              "description": "The private endpoint resource ID",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "privateEndpointId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1142,6 +1181,147 @@
     },
     "InfrastructureConfiguration": {
       "description": "Deploy SAP Infrastructure Details.",
+      "oneOf": [
+        {
+          "description": "Gets or sets the single server configuration.",
+          "properties": {
+            "databaseType": {
+              "description": "The database type.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "HANA",
+                    "DB2"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "dbDiskConfiguration": {
+              "description": "Gets or sets the disk configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DiskConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "networkConfiguration": {
+              "description": "Network configuration for the server",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NetworkConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subnetId": {
+              "description": "The subnet id.",
+              "type": "string"
+            },
+            "virtualMachineConfiguration": {
+              "description": "Gets or sets the virtual machine configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VirtualMachineConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "subnetId",
+            "virtualMachineConfiguration"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the three tier SAP configuration.",
+          "properties": {
+            "applicationServer": {
+              "description": "The application server configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ApplicationServerConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "centralServer": {
+              "description": "The central server configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CentralServerConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "databaseServer": {
+              "description": "The database configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatabaseConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "highAvailabilityConfig": {
+              "description": "The high availability configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HighAvailabilityConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "networkConfiguration": {
+              "description": "Network configuration common to all servers",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NetworkConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "storageConfiguration": {
+              "description": "The storage configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/StorageConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "centralServer",
+            "applicationServer",
+            "databaseServer"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "appResourceGroup": {
           "description": "The application resource group where SAP system resources will be deployed.",
@@ -1348,6 +1528,52 @@
     },
     "OSConfiguration": {
       "description": "Defines the OS configuration.",
+      "oneOf": [
+        {
+          "description": "Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).",
+          "properties": {
+            "disablePasswordAuthentication": {
+              "description": "Specifies whether password authentication should be disabled.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ssh": {
+              "description": "Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SshConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sshKeyPair": {
+              "description": "The SSH Key-pair used to authenticate with the VM's.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SshKeyPair"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Specifies Windows operating system settings on the virtual machine.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1692,6 +1918,322 @@
     },
     "ProviderSpecificProperties": {
       "description": "Gets or sets the provider specific properties.",
+      "oneOf": [
+        {
+          "description": "Gets or sets the DB2 provider properties.",
+          "properties": {
+            "dbName": {
+              "description": "Gets or sets the db2 database name.",
+              "type": "string"
+            },
+            "dbPassword": {
+              "description": "Gets or sets the db2 database password.",
+              "type": "string"
+            },
+            "dbPasswordUri": {
+              "description": "Gets or sets the key vault URI to secret with the database password.",
+              "type": "string"
+            },
+            "dbPort": {
+              "description": "Gets or sets the db2 database sql port.",
+              "type": "string"
+            },
+            "dbUsername": {
+              "description": "Gets or sets the db2 database user name.",
+              "type": "string"
+            },
+            "hostname": {
+              "description": "Gets or sets the target virtual machine name.",
+              "type": "string"
+            },
+            "sapSid": {
+              "description": "Gets or sets the SAP System Identifier",
+              "type": "string"
+            },
+            "sslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the DB2 Database.",
+              "type": "string"
+            },
+            "sslPreference": {
+              "description": "Gets or sets certificate preference if secure communication is enabled.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Disabled",
+                    "RootCertificate",
+                    "ServerCertificate"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the SQL server provider properties.",
+          "properties": {
+            "dbPassword": {
+              "description": "Gets or sets the database password.",
+              "type": "string"
+            },
+            "dbPasswordUri": {
+              "description": "Gets or sets the key vault URI to secret with the database password.",
+              "type": "string"
+            },
+            "dbPort": {
+              "description": "Gets or sets the database sql port.",
+              "type": "string"
+            },
+            "dbUsername": {
+              "description": "Gets or sets the database user name.",
+              "type": "string"
+            },
+            "hostname": {
+              "description": "Gets or sets the SQL server host name.",
+              "type": "string"
+            },
+            "sapSid": {
+              "description": "Gets or sets the SAP System Identifier",
+              "type": "string"
+            },
+            "sslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the SQL Database.",
+              "type": "string"
+            },
+            "sslPreference": {
+              "description": "Gets or sets certificate preference if secure communication is enabled.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Disabled",
+                    "RootCertificate",
+                    "ServerCertificate"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the PrometheusHaCluster provider properties.",
+          "properties": {
+            "clusterName": {
+              "description": "Gets or sets the clusterName.",
+              "type": "string"
+            },
+            "hostname": {
+              "description": "Gets or sets the target machine name.",
+              "type": "string"
+            },
+            "prometheusUrl": {
+              "description": "URL of the Node Exporter endpoint.",
+              "type": "string"
+            },
+            "sid": {
+              "description": "Gets or sets the cluster sid.",
+              "type": "string"
+            },
+            "sslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the HA cluster exporter.",
+              "type": "string"
+            },
+            "sslPreference": {
+              "description": "Gets or sets certificate preference if secure communication is enabled.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Disabled",
+                    "RootCertificate",
+                    "ServerCertificate"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the PrometheusOS provider properties.",
+          "properties": {
+            "prometheusUrl": {
+              "description": "URL of the Node Exporter endpoint",
+              "type": "string"
+            },
+            "sslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the prometheus node exporter.",
+              "type": "string"
+            },
+            "sslPreference": {
+              "description": "Gets or sets certificate preference if secure communication is enabled.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Disabled",
+                    "RootCertificate",
+                    "ServerCertificate"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the provider properties.",
+          "properties": {
+            "dbName": {
+              "description": "Gets or sets the hana database name.",
+              "type": "string"
+            },
+            "dbPassword": {
+              "description": "Gets or sets the database password.",
+              "type": "string"
+            },
+            "dbPasswordUri": {
+              "description": "Gets or sets the key vault URI to secret with the database password.",
+              "type": "string"
+            },
+            "dbSslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the DB.",
+              "type": "string"
+            },
+            "dbUsername": {
+              "description": "Gets or sets the database user name.",
+              "type": "string"
+            },
+            "hostname": {
+              "description": "Gets or sets the target virtual machine size.",
+              "type": "string"
+            },
+            "instanceNumber": {
+              "description": "Gets or sets the database instance number.",
+              "type": "string"
+            },
+            "sqlPort": {
+              "description": "Gets or sets the database sql port.",
+              "type": "string"
+            },
+            "sslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the DB.",
+              "type": "string"
+            },
+            "sslHostNameInCertificate": {
+              "description": "Gets or sets the hostname(s) in the SSL certificate.",
+              "type": "string"
+            },
+            "sslPreference": {
+              "description": "Gets or sets certificate preference if secure communication is enabled.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Disabled",
+                    "RootCertificate",
+                    "ServerCertificate"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the provider properties.",
+          "properties": {
+            "sapClientId": {
+              "description": "Gets or sets the SAP Client ID.",
+              "type": "string"
+            },
+            "sapHostFileEntries": {
+              "description": "Gets or sets the list of HostFile Entries",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sapHostname": {
+              "description": "Gets or sets the target virtual machine IP Address/FQDN.",
+              "type": "string"
+            },
+            "sapInstanceNr": {
+              "description": "Gets or sets the instance number of SAP NetWeaver.",
+              "type": "string"
+            },
+            "sapPassword": {
+              "description": "Sets the SAP password.",
+              "type": "string"
+            },
+            "sapPasswordUri": {
+              "description": "Gets or sets the key vault URI to secret with the SAP password.",
+              "type": "string"
+            },
+            "sapPortNumber": {
+              "description": "Gets or sets the SAP HTTP port number.",
+              "type": "string"
+            },
+            "sapSid": {
+              "description": "Gets or sets the SAP System Identifier",
+              "type": "string"
+            },
+            "sapSslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the SAP system.",
+              "type": "string"
+            },
+            "sapUsername": {
+              "description": "Gets or sets the SAP user name.",
+              "type": "string"
+            },
+            "sslCertificateUri": {
+              "description": "Gets or sets the blob URI to SSL certificate for the SAP system.",
+              "type": "string"
+            },
+            "sslPreference": {
+              "description": "Gets or sets certificate preference if secure communication is enabled.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Disabled",
+                    "RootCertificate",
+                    "ServerCertificate"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1752,6 +2294,93 @@
     },
     "SAPConfiguration": {
       "description": "The SAP Configuration.",
+      "oneOf": [
+        {
+          "description": "Deployment Configuration.",
+          "properties": {
+            "appLocation": {
+              "description": "The geo-location where the SAP system is to be created.",
+              "type": "string"
+            },
+            "infrastructureConfiguration": {
+              "description": "The infrastructure configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InfrastructureConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "softwareConfiguration": {
+              "description": "The software configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SoftwareConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Deployment along with OS Configuration.",
+          "properties": {
+            "appLocation": {
+              "description": "The geo-location where the SAP system is to be created.",
+              "type": "string"
+            },
+            "infrastructureConfiguration": {
+              "description": "The infrastructure configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InfrastructureConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "osSapConfiguration": {
+              "description": "The OS and SAP configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OsSapConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "softwareConfiguration": {
+              "description": "The software configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SoftwareConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Discovery Details.",
+          "properties": {
+            "centralServerVmId": {
+              "description": "The virtual machine ID of the Central Server.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1955,6 +2584,96 @@
     },
     "SoftwareConfiguration": {
       "description": "The SAP Software configuration Input.",
+      "oneOf": [
+        {
+          "description": "The SAP Software configuration Input when the software is installed externally outside the service.",
+          "properties": {
+            "centralServerVmId": {
+              "description": "The resource ID of the virtual machine containing the central server instance.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The SAP Software configuration Input when the software is to be installed by service without OS Configurations",
+          "properties": {
+            "bomUrl": {
+              "description": "The URL to the SAP Build of Materials(BOM) file.",
+              "type": "string"
+            },
+            "highAvailabilitySoftwareConfiguration": {
+              "description": "Gets or sets the HA software configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HighAvailabilitySoftwareConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sapBitsStorageAccountId": {
+              "description": "The SAP bits storage account id.",
+              "type": "string"
+            },
+            "softwareVersion": {
+              "description": "The software version to install.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "bomUrl",
+            "sapBitsStorageAccountId",
+            "softwareVersion"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The SAP Software configuration Input when the software is to be installed by service.",
+          "properties": {
+            "bomUrl": {
+              "description": "The URL to the SAP Build of Materials(BOM) file.",
+              "type": "string"
+            },
+            "highAvailabilitySoftwareConfiguration": {
+              "description": "Gets or sets the HA software configuration.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HighAvailabilitySoftwareConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sapBitsStorageAccountId": {
+              "description": "The SAP bits storage account id.",
+              "type": "string"
+            },
+            "sapFqdn": {
+              "description": "The FQDN to set for the SAP system during install.",
+              "type": "string"
+            },
+            "softwareVersion": {
+              "description": "The software version to install.",
+              "type": "string"
+            },
+            "sshPrivateKey": {
+              "description": "The SSH private key.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "bomUrl",
+            "softwareVersion",
+            "sapBitsStorageAccountId",
+            "sapFqdn",
+            "sshPrivateKey"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

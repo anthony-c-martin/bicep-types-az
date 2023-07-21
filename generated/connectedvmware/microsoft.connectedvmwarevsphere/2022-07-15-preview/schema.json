@@ -1065,6 +1065,228 @@
     },
     "InventoryItemProperties": {
       "description": "Describes the properties of an Inventory Item.",
+      "oneOf": [
+        {
+          "description": "The cluster inventory item.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The datastore inventory item.",
+          "properties": {
+            "capacityGB": {
+              "description": "Gets or sets Maximum capacity of this datastore, in GBs.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "freeSpaceGB": {
+              "description": "Gets or sets Available space of this datastore, in GBs.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The host inventory item.",
+          "properties": {
+            "parent": {
+              "description": "Parent host inventory resource details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InventoryItemDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The resource pool inventory item.",
+          "properties": {
+            "parent": {
+              "description": "Parent resourcePool inventory resource details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InventoryItemDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The VM inventory item.",
+          "properties": {
+            "cluster": {
+              "description": "Cluster inventory resource details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InventoryItemDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "folderPath": {
+              "description": "Gets or sets the folder path of the vm.",
+              "type": "string"
+            },
+            "host": {
+              "description": "Host inventory resource details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InventoryItemDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "instanceUuid": {
+              "description": "Gets or sets the instance uuid of the vm.",
+              "type": "string"
+            },
+            "ipAddresses": {
+              "description": "Gets or sets the nic ip addresses.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "osName": {
+              "description": "Gets or sets os name.",
+              "type": "string"
+            },
+            "osType": {
+              "description": "Gets or sets the type of the os.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Windows",
+                    "Linux",
+                    "Other"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourcePool": {
+              "description": "ResourcePool inventory resource details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/InventoryItemDetails"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "smbiosUuid": {
+              "description": "Gets or sets the SMBIOS UUID of the vm.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The VM Template inventory item.",
+          "properties": {
+            "folderPath": {
+              "description": "Gets or sets the folder path of the template.",
+              "type": "string"
+            },
+            "memorySizeMB": {
+              "description": "Gets or sets memory size in MBs for the template.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "numCPUs": {
+              "description": "Gets or sets the number of vCPUs for the template.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "numCoresPerSocket": {
+              "description": "Gets or sets the number of cores per socket for the template.\r\nDefaults to 1 if unspecified.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "osName": {
+              "description": "Gets or sets os name.",
+              "type": "string"
+            },
+            "osType": {
+              "description": "Gets or sets the type of the os.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Windows",
+                    "Linux",
+                    "Other"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The Virtual network inventory item.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "managedResourceId": {
           "description": "Gets or sets the tracked resource id corresponding to the inventory resource.",

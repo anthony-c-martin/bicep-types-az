@@ -114,6 +114,68 @@
   },
   "definitions": {
     "HttpAuthentication": {
+      "oneOf": [
+        {
+          "properties": {
+            "audience": {
+              "description": "Gets or sets the audience.",
+              "type": "string"
+            },
+            "clientId": {
+              "description": "Gets or sets the client identifier.",
+              "type": "string"
+            },
+            "secret": {
+              "description": "Gets or sets the secret, return value will always be empty.",
+              "type": "string"
+            },
+            "tenant": {
+              "description": "Gets or sets the tenant.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "password": {
+              "description": "Gets or sets the password, return value will always be empty.",
+              "type": "string"
+            },
+            "username": {
+              "description": "Gets or sets the username.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "certificateExpirationDate": {
+              "description": "Gets or sets the certificate expiration date.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "certificateSubjectName": {
+              "description": "Gets or sets the certificate subject name.",
+              "type": "string"
+            },
+            "certificateThumbprint": {
+              "description": "Gets or sets the certificate thumbprint.",
+              "type": "string"
+            },
+            "password": {
+              "description": "Gets or sets the certificate password, return value will always be empty.",
+              "type": "string"
+            },
+            "pfx": {
+              "description": "Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

@@ -726,6 +726,132 @@
     },
     "Compute": {
       "description": "Machine Learning compute object.",
+      "oneOf": [
+        {
+          "description": "A Machine Learning compute based on AKS.",
+          "properties": {
+            "properties": {
+              "description": "AKS properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AKSProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "An Azure Machine Learning compute.",
+          "properties": {
+            "properties": {
+              "description": "AML Compute properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AmlComputeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "An Azure Machine Learning compute instance.",
+          "properties": {
+            "properties": {
+              "description": "Compute Instance properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ComputeInstanceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A DataFactory compute.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "A DataLakeAnalytics compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DataLakeAnalyticsProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A DataFactory compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatabricksProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A HDInsight compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A Machine Learning compute based on Azure Virtual Machines.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VirtualMachineProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "computeLocation": {
           "description": "Location for the underlying compute",

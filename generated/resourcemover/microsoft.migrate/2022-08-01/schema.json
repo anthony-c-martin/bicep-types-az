@@ -469,6 +469,456 @@
     },
     "ResourceSettings": {
       "description": "Gets or sets the resource settings.",
+      "oneOf": [
+        {
+          "description": "Gets or sets the availability set resource settings.",
+          "properties": {
+            "faultDomain": {
+              "description": "Gets or sets the target fault domain.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "updateDomain": {
+              "description": "Gets or sets the target update domain.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the disk encryption set resource settings.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Gets or sets the virtual machine resource settings.",
+          "properties": {
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetAvailabilitySetId": {
+              "description": "Gets or sets the target availability set id for virtual machines not in an availability set at source.",
+              "type": "string"
+            },
+            "targetAvailabilityZone": {
+              "description": "Gets or sets the target availability zone.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "1",
+                    "2",
+                    "3",
+                    "NA"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetVmSize": {
+              "description": "Gets or sets the target virtual machine size.",
+              "type": "string"
+            },
+            "userManagedIdentities": {
+              "description": "Gets or sets user-managed identities",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the key vault resource settings.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Defines the load balancer resource settings.",
+          "properties": {
+            "backendAddressPools": {
+              "description": "Gets or sets the backend address pools of the load balancer.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/LBBackendAddressPoolResourceSettings"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "frontendIPConfigurations": {
+              "description": "Gets or sets the frontend IP configurations of the load balancer.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/LBFrontendIPConfigurationResourceSettings"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sku": {
+              "description": "Gets or sets load balancer sku (Basic/Standard).",
+              "type": "string"
+            },
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "zones": {
+              "description": "Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given\r\n precedence only if frontend IP configurations settings are not present.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the network interface resource settings.",
+          "properties": {
+            "enableAcceleratedNetworking": {
+              "description": "Gets or sets a value indicating whether accelerated networking is enabled.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ipConfigurations": {
+              "description": "Gets or sets the IP configurations of the NIC.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/NicIpConfigurationResourceSettings"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the NSG resource settings.",
+          "properties": {
+            "securityRules": {
+              "description": "Gets or sets Security rules of network security group.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/NsgSecurityRule"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the public IP address resource settings.",
+          "properties": {
+            "domainNameLabel": {
+              "description": "Gets or sets the domain name label.",
+              "type": "string"
+            },
+            "fqdn": {
+              "description": "Gets or sets the fully qualified domain name.",
+              "type": "string"
+            },
+            "publicIpAllocationMethod": {
+              "description": "Gets or sets public IP allocation method.",
+              "type": "string"
+            },
+            "sku": {
+              "description": "Gets or sets public IP sku.",
+              "type": "string"
+            },
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "zones": {
+              "description": "Gets or sets public IP zones.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the virtual network resource settings.",
+          "properties": {
+            "addressSpace": {
+              "description": "Gets or sets the address prefixes for the virtual network.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "dnsServers": {
+              "description": "Gets or sets DHCPOptions that contains an array of DNS servers available to VMs\r\ndeployed in the virtual network.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "enableDdosProtection": {
+              "description": "Gets or sets a value indicating whether gets or sets whether the\r\nDDOS protection should be switched on.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subnets": {
+              "description": "Gets or sets List of subnets in a VirtualNetwork.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/SubnetResourceSettings"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the SQL Server resource settings.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Defines the Sql Database resource settings.",
+          "properties": {
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "zoneRedundant": {
+              "description": "Defines the zone redundant resource setting.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Enable",
+                    "Disable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the Sql ElasticPool resource settings.",
+          "properties": {
+            "tags": {
+              "description": "Gets or sets the Resource tags.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "zoneRedundant": {
+              "description": "Defines the zone redundant resource setting.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Enable",
+                    "Disable"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines the resource group resource settings.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "targetResourceGroupName": {
           "description": "Gets or sets the target resource group name.",

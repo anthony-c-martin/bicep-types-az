@@ -578,14 +578,14 @@
       "type": "object"
     },
     "Network": {
-      "description": "Network properties of a server",
+      "description": "Network properties of a server.",
       "properties": {
         "delegatedSubnetResourceId": {
-          "description": "delegated subnet arm resource id.",
+          "description": "Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.",
           "type": "string"
         },
         "privateDnsZoneArmResourceId": {
-          "description": "private dns zone arm resource id.",
+          "description": "Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.",
           "type": "string"
         }
       },
@@ -681,7 +681,7 @@
           ]
         },
         "network": {
-          "description": "Network properties of a server.",
+          "description": "Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.",
           "oneOf": [
             {
               "$ref": "#/definitions/Network"
@@ -695,17 +695,6 @@
           "description": "Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.",
           "format": "date-time",
           "type": "string"
-        },
-        "replicaCapacity": {
-          "description": "Replicas allowed for a server.",
-          "oneOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         },
         "replicationRole": {
           "description": "Replication role of the server",
@@ -725,7 +714,7 @@
           ]
         },
         "sourceServerResourceId": {
-          "description": "The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'.",
+          "description": "The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server",
           "type": "string"
         },
         "storage": {
@@ -810,12 +799,11 @@
       "description": "Information describing the identities associated with this application.",
       "properties": {
         "type": {
-          "description": "the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'",
+          "description": "the types of identities associated with this resource; currently restricted to 'None and UserAssigned'",
           "oneOf": [
             {
               "enum": [
                 "None",
-                "SystemAssigned",
                 "UserAssigned"
               ],
               "type": "string"

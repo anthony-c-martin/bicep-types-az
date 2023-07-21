@@ -287,6 +287,70 @@
     },
     "AuthenticationBase": {
       "description": "Base class for access policies authentication methods.",
+      "oneOf": [
+        {
+          "description": "Properties for access validation based on JSON Web Tokens (JWT).",
+          "properties": {
+            "audiences": {
+              "description": "List of expected token audiences. Token audience is valid if it matches at least one of the given values.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "claims": {
+              "description": "List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/TokenClaim"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "issuers": {
+              "description": "List of expected token issuers. Token issuer is valid if it matches at least one of the given values.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "keys": {
+              "description": "List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/TokenKey"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -362,6 +426,78 @@
     },
     "TokenKey": {
       "description": "Key properties for JWT token validation.",
+      "oneOf": [
+        {
+          "description": "Required validation properties for tokens generated with Elliptical Curve algorithm.",
+          "properties": {
+            "alg": {
+              "description": "Elliptical curve algorithm to be used: ES256, ES384 or ES512.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ES256",
+                    "ES384",
+                    "ES512"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "x": {
+              "description": "X coordinate.",
+              "type": "string"
+            },
+            "y": {
+              "description": "Y coordinate.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "x",
+            "y"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Required validation properties for tokens generated with RSA algorithm.",
+          "properties": {
+            "alg": {
+              "description": "RSA algorithm to be used: RS256, RS384 or RS512.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "RS256",
+                    "RS384",
+                    "RS512"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "e": {
+              "description": "RSA public key exponent.",
+              "type": "string"
+            },
+            "n": {
+              "description": "RSA public key modulus.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "n",
+            "e"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "kid": {
           "description": "JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.",

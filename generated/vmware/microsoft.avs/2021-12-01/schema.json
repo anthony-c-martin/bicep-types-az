@@ -740,6 +740,51 @@
   "definitions": {
     "AddonProperties": {
       "description": "The properties of an addon",
+      "oneOf": [
+        {
+          "description": "The properties of an HCX addon",
+          "properties": {
+            "offer": {
+              "description": "The HCX offer, example VMware MaaS Cloud Provider (Enterprise)",
+              "type": "string"
+            }
+          },
+          "required": [
+            "offer"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The properties of a Site Recovery Manager (SRM) addon",
+          "properties": {
+            "licenseKey": {
+              "description": "The Site Recovery Manager (SRM) license",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The properties of a vSphere Replication (VR) addon",
+          "properties": {
+            "vrsCount": {
+              "description": "The vSphere Replication Server (VRS) count",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "vrsCount"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1064,6 +1109,101 @@
     },
     "PlacementPolicyProperties": {
       "description": "Abstract placement policy properties",
+      "oneOf": [
+        {
+          "description": "VM-Host placement policy properties",
+          "properties": {
+            "affinityType": {
+              "description": "placement policy affinity type",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Affinity",
+                    "AntiAffinity"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "hostMembers": {
+              "description": "Host members list",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "vmMembers": {
+              "description": "Virtual machine members list",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "vmMembers",
+            "hostMembers",
+            "affinityType"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "VM-VM placement policy properties",
+          "properties": {
+            "affinityType": {
+              "description": "placement policy affinity type",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Affinity",
+                    "AntiAffinity"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "vmMembers": {
+              "description": "Virtual machine members list",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "vmMembers",
+            "affinityType"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "displayName": {
           "description": "Display name of the placement policy",
@@ -1215,6 +1355,42 @@
     },
     "ScriptExecutionParameter": {
       "description": "The arguments passed in to the execution",
+      "oneOf": [
+        {
+          "description": "a powershell credential object",
+          "properties": {
+            "password": {
+              "description": "password for login",
+              "type": "string"
+            },
+            "username": {
+              "description": "username for login",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "a plain text value execution parameter",
+          "properties": {
+            "secureValue": {
+              "description": "A secure value for the passed parameter, not to be stored in logs",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "a plain text value execution parameter",
+          "properties": {
+            "value": {
+              "description": "The value for the passed parameter",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "The parameter name",
@@ -1324,6 +1500,49 @@
     },
     "WorkloadNetworkDhcpEntity": {
       "description": "Base class for WorkloadNetworkDhcpServer and WorkloadNetworkDhcpRelay to inherit from",
+      "oneOf": [
+        {
+          "description": "NSX DHCP Relay",
+          "properties": {
+            "serverAddresses": {
+              "description": "DHCP Relay Addresses. Max 3.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "NSX DHCP Server",
+          "properties": {
+            "leaseTime": {
+              "description": "DHCP Server Lease Time.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverAddress": {
+              "description": "DHCP Server Address.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "displayName": {
           "description": "Display name of the DHCP entity.",

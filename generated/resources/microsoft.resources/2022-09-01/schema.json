@@ -199,6 +199,26 @@
       },
       "type": "object"
     },
+    "DeploymentParameter": {
+      "description": "Deployment parameter for the template.",
+      "properties": {
+        "reference": {
+          "description": "Azure Key Vault parameter reference.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultParameterReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "value": {
+          "description": "Input value to the parameter ."
+        }
+      },
+      "type": "object"
+    },
     "DeploymentProperties": {
       "description": "Deployment properties.",
       "properties": {
@@ -254,6 +274,9 @@
           "description": "Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.",
           "oneOf": [
             {
+              "additionalProperties": {
+                "$ref": "#/definitions/DeploymentParameter"
+              },
               "properties": {},
               "type": "object"
             },
@@ -322,6 +345,48 @@
           ]
         }
       },
+      "type": "object"
+    },
+    "KeyVaultParameterReference": {
+      "description": "Azure Key Vault parameter reference.",
+      "properties": {
+        "keyVault": {
+          "description": "Azure Key Vault reference.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultReference"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "secretName": {
+          "description": "Azure Key Vault secret name.",
+          "type": "string"
+        },
+        "secretVersion": {
+          "description": "Azure Key Vault secret version.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyVault",
+        "secretName"
+      ],
+      "type": "object"
+    },
+    "KeyVaultReference": {
+      "description": "Azure Key Vault reference.",
+      "properties": {
+        "id": {
+          "description": "Azure Key Vault resource id.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
       "type": "object"
     },
     "OnErrorDeployment": {

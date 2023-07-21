@@ -1686,6 +1686,57 @@
     },
     "AssetReferenceBase": {
       "description": "Base definition for asset references.",
+      "oneOf": [
+        {
+          "description": "Reference to an asset via its path in a datastore.",
+          "properties": {
+            "datastoreId": {
+              "description": "ARM resource ID of the datastore where the asset is located.",
+              "type": "string"
+            },
+            "path": {
+              "description": "The path of the file/directory in the datastore.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Reference to an asset via its ARM resource ID.",
+          "properties": {
+            "assetId": {
+              "description": "[Required] ARM resource ID of the asset.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "assetId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Reference to an asset via its path in a job output.",
+          "properties": {
+            "jobId": {
+              "description": "ARM resource ID of the job.",
+              "type": "string"
+            },
+            "path": {
+              "description": "The path of the file/directory in the job output.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1709,6 +1760,923 @@
     },
     "AutoMLVertical": {
       "description": "AutoML vertical class.\r\nBase class for AutoML verticals - TableVertical/ImageVertical/NLPVertical",
+      "oneOf": [
+        {
+          "description": "Classification task in AutoML Table vertical.",
+          "properties": {
+            "cvSplitColumnNames": {
+              "description": "Columns to use for CVSplit data.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "featurizationSettings": {
+              "description": "Featurization inputs needed for AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TableVerticalFeaturizationSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limitSettings": {
+              "description": "Execution constraints for AutoMLJob.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TableVerticalLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "nCrossValidations": {
+              "description": "Number of cross validation folds to be applied on training dataset\r\nwhen validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NCrossValidations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "positiveLabel": {
+              "description": "Positive label for binary metrics calculation.",
+              "type": "string"
+            },
+            "primaryMetric": {
+              "description": "Primary metric for the task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AUCWeighted",
+                    "Accuracy",
+                    "NormMacroRecall",
+                    "AveragePrecisionScoreWeighted",
+                    "PrecisionScoreWeighted"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "testData": {
+              "description": "Test data input.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "testDataSize": {
+              "description": "The fraction of test dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trainingSettings": {
+              "description": "Inputs for training phase for an AutoML Job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ClassificationTrainingSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationDataSize": {
+              "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "weightColumnName": {
+              "description": "The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Forecasting task in AutoML Table vertical.",
+          "properties": {
+            "cvSplitColumnNames": {
+              "description": "Columns to use for CVSplit data.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "featurizationSettings": {
+              "description": "Featurization inputs needed for AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TableVerticalFeaturizationSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "forecastingSettings": {
+              "description": "Forecasting task specific inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ForecastingSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limitSettings": {
+              "description": "Execution constraints for AutoMLJob.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TableVerticalLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "nCrossValidations": {
+              "description": "Number of cross validation folds to be applied on training dataset\r\nwhen validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NCrossValidations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "primaryMetric": {
+              "description": "Primary metric for forecasting task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SpearmanCorrelation",
+                    "NormalizedRootMeanSquaredError",
+                    "R2Score",
+                    "NormalizedMeanAbsoluteError"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "testData": {
+              "description": "Test data input.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "testDataSize": {
+              "description": "The fraction of test dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trainingSettings": {
+              "description": "Inputs for training phase for an AutoML Job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ForecastingTrainingSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationDataSize": {
+              "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "weightColumnName": {
+              "description": "The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Image Classification. Multi-class image classification is used when an image is classified with only a single label\r\nfrom a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'.",
+          "properties": {
+            "limitSettings": {
+              "description": "[Required] Limit settings for the AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "modelSettings": {
+              "description": "Settings used for training the model.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageModelSettingsClassification"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "primaryMetric": {
+              "description": "Primary metric to optimize for this task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AUCWeighted",
+                    "Accuracy",
+                    "NormMacroRecall",
+                    "AveragePrecisionScoreWeighted",
+                    "PrecisionScoreWeighted"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "searchSpace": {
+              "description": "Search space for sampling different combinations of models and their hyperparameters.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/ImageModelDistributionSettingsClassification"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sweepSettings": {
+              "description": "Model sweeping and hyperparameter sweeping related settings.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageSweepSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationDataSize": {
+              "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "limitSettings"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Image Classification Multilabel. Multi-label image classification is used when an image could have one or more labels\r\nfrom a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'.",
+          "properties": {
+            "limitSettings": {
+              "description": "[Required] Limit settings for the AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "modelSettings": {
+              "description": "Settings used for training the model.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageModelSettingsClassification"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "primaryMetric": {
+              "description": "Primary metric to optimize for this task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AUCWeighted",
+                    "Accuracy",
+                    "NormMacroRecall",
+                    "AveragePrecisionScoreWeighted",
+                    "PrecisionScoreWeighted",
+                    "IOU"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "searchSpace": {
+              "description": "Search space for sampling different combinations of models and their hyperparameters.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/ImageModelDistributionSettingsClassification"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sweepSettings": {
+              "description": "Model sweeping and hyperparameter sweeping related settings.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageSweepSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationDataSize": {
+              "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "limitSettings"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Image Instance Segmentation. Instance segmentation is used to identify objects in an image at the pixel level,\r\ndrawing a polygon around each object in the image.",
+          "properties": {
+            "limitSettings": {
+              "description": "[Required] Limit settings for the AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "modelSettings": {
+              "description": "Settings used for training the model.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageModelSettingsObjectDetection"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "primaryMetric": {
+              "description": "Primary metric to optimize for this task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "MeanAveragePrecision"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "searchSpace": {
+              "description": "Search space for sampling different combinations of models and their hyperparameters.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/ImageModelDistributionSettingsObjectDetection"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sweepSettings": {
+              "description": "Model sweeping and hyperparameter sweeping related settings.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageSweepSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationDataSize": {
+              "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "limitSettings"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Image Object Detection. Object detection is used to identify objects in an image and locate each object with a\r\nbounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.",
+          "properties": {
+            "limitSettings": {
+              "description": "[Required] Limit settings for the AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "modelSettings": {
+              "description": "Settings used for training the model.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageModelSettingsObjectDetection"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "primaryMetric": {
+              "description": "Primary metric to optimize for this task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "MeanAveragePrecision"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "searchSpace": {
+              "description": "Search space for sampling different combinations of models and their hyperparameters.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/ImageModelDistributionSettingsObjectDetection"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sweepSettings": {
+              "description": "Model sweeping and hyperparameter sweeping related settings.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImageSweepSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationDataSize": {
+              "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "limitSettings"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Regression task in AutoML Table vertical.",
+          "properties": {
+            "cvSplitColumnNames": {
+              "description": "Columns to use for CVSplit data.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "featurizationSettings": {
+              "description": "Featurization inputs needed for AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TableVerticalFeaturizationSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limitSettings": {
+              "description": "Execution constraints for AutoMLJob.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TableVerticalLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "nCrossValidations": {
+              "description": "Number of cross validation folds to be applied on training dataset\r\nwhen validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NCrossValidations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "primaryMetric": {
+              "description": "Primary metric for regression task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SpearmanCorrelation",
+                    "NormalizedRootMeanSquaredError",
+                    "R2Score",
+                    "NormalizedMeanAbsoluteError"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "testData": {
+              "description": "Test data input.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "testDataSize": {
+              "description": "The fraction of test dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trainingSettings": {
+              "description": "Inputs for training phase for an AutoML Job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RegressionTrainingSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationDataSize": {
+              "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "weightColumnName": {
+              "description": "The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Text Classification task in AutoML NLP vertical.\r\nNLP - Natural Language Processing.",
+          "properties": {
+            "featurizationSettings": {
+              "description": "Featurization inputs needed for AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NlpVerticalFeaturizationSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limitSettings": {
+              "description": "Execution constraints for AutoMLJob.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NlpVerticalLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "primaryMetric": {
+              "description": "Primary metric for Text-Classification task.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "AUCWeighted",
+                    "Accuracy",
+                    "NormMacroRecall",
+                    "AveragePrecisionScoreWeighted",
+                    "PrecisionScoreWeighted"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Text Classification Multilabel task in AutoML NLP vertical.\r\nNLP - Natural Language Processing.",
+          "properties": {
+            "featurizationSettings": {
+              "description": "Featurization inputs needed for AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NlpVerticalFeaturizationSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limitSettings": {
+              "description": "Execution constraints for AutoMLJob.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NlpVerticalLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Text-NER task in AutoML NLP vertical.\r\nNER - Named Entity Recognition.\r\nNLP - Natural Language Processing.",
+          "properties": {
+            "featurizationSettings": {
+              "description": "Featurization inputs needed for AutoML job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NlpVerticalFeaturizationSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limitSettings": {
+              "description": "Execution constraints for AutoMLJob.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NlpVerticalLimitSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationData": {
+              "description": "Validation data inputs.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLTableJobInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "logVerbosity": {
           "description": "Log verbosity for the job.",
@@ -2619,6 +3587,166 @@
     },
     "Compute": {
       "description": "Machine Learning compute object.",
+      "oneOf": [
+        {
+          "description": "A Machine Learning compute based on AKS.",
+          "properties": {
+            "properties": {
+              "description": "AKS properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AKSSchemaProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "An Azure Machine Learning compute.",
+          "properties": {
+            "properties": {
+              "description": "Properties of AmlCompute",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AmlComputeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "An Azure Machine Learning compute instance.",
+          "properties": {
+            "properties": {
+              "description": "Properties of ComputeInstance",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ComputeInstanceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A DataFactory compute.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "A DataLakeAnalytics compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DataLakeAnalyticsSchemaProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A DataFactory compute.",
+          "properties": {
+            "properties": {
+              "description": "Properties of Databricks",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatabricksProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A HDInsight compute.",
+          "properties": {
+            "properties": {
+              "description": "HDInsight compute properties",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A Machine Learning compute based on Kubernetes Compute.",
+          "properties": {
+            "properties": {
+              "description": "Properties of Kubernetes",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KubernetesProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A SynapseSpark compute.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SynapseSparkProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "A Machine Learning compute based on Azure Virtual Machines.",
+          "properties": {
+            "properties": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VirtualMachineSchemaProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "The description of the Machine Learning compute.",
@@ -2997,6 +4125,38 @@
     },
     "DataVersionBaseProperties": {
       "description": "Data version base definition",
+      "oneOf": [
+        {
+          "description": "MLTable data definition",
+          "properties": {
+            "referencedUris": {
+              "description": "Uris referenced in the MLTable definition (required for lineage)",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "uri-file data version entity",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "uri-folder data version entity",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "dataUri": {
           "description": "[Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220601Preview.Assets.DataVersionBase.DataType",
@@ -3088,11 +4248,548 @@
     },
     "DatastoreCredentials": {
       "description": "Base definition for datastore credentials.",
+      "oneOf": [
+        {
+          "description": "Account key datastore credentials configuration.",
+          "properties": {
+            "secrets": {
+              "description": "[Required] Storage account secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AccountKeyDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "secrets"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Certificate datastore credentials configuration.",
+          "properties": {
+            "authorityUrl": {
+              "description": "Authority URL used for authentication.",
+              "type": "string"
+            },
+            "clientId": {
+              "description": "[Required] Service principal client ID.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceUrl": {
+              "description": "Resource the service principal has access to.",
+              "type": "string"
+            },
+            "secrets": {
+              "description": "[Required] Service principal secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CertificateDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tenantId": {
+              "description": "[Required] ID of the tenant to which the service principal belongs.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "thumbprint": {
+              "description": "[Required] Thumbprint of the certificate used for authentication.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "clientId",
+            "secrets",
+            "tenantId",
+            "thumbprint"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kerberosKdcAddress": {
+              "description": "[Required] IP Address or DNS HostName.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kerberosPrincipal": {
+              "description": "[Required] Kerberos Username",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kerberosRealm": {
+              "description": "[Required] Domain over which a Kerberos authentication server has the authority to authenticate a user, host or service.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "secrets": {
+              "description": "[Required] Keytab secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KerberosKeytabSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "secrets",
+            "kerberosKdcAddress",
+            "kerberosPrincipal",
+            "kerberosRealm"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "kerberosKdcAddress": {
+              "description": "[Required] IP Address or DNS HostName.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kerberosPrincipal": {
+              "description": "[Required] Kerberos Username",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "kerberosRealm": {
+              "description": "[Required] Domain over which a Kerberos authentication server has the authority to authenticate a user, host or service.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "secrets": {
+              "description": "[Required] Kerberos password secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/KerberosPasswordSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "secrets",
+            "kerberosKdcAddress",
+            "kerberosPrincipal",
+            "kerberosRealm"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Empty/none datastore credentials.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "SAS datastore credentials configuration.",
+          "properties": {
+            "secrets": {
+              "description": "[Required] Storage container secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SasDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "secrets"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Service Principal datastore credentials configuration.",
+          "properties": {
+            "authorityUrl": {
+              "description": "Authority URL used for authentication.",
+              "type": "string"
+            },
+            "clientId": {
+              "description": "[Required] Service principal client ID.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceUrl": {
+              "description": "Resource the service principal has access to.",
+              "type": "string"
+            },
+            "secrets": {
+              "description": "[Required] Service principal secrets.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ServicePrincipalDatastoreSecrets"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "tenantId": {
+              "description": "[Required] ID of the tenant to which the service principal belongs.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "clientId",
+            "secrets",
+            "tenantId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "DatastoreProperties": {
       "description": "Base definition for datastore contents configuration.",
+      "oneOf": [
+        {
+          "description": "Azure Blob datastore configuration.",
+          "properties": {
+            "accountName": {
+              "description": "Storage account name.",
+              "type": "string"
+            },
+            "containerName": {
+              "description": "Storage account container name.",
+              "type": "string"
+            },
+            "endpoint": {
+              "description": "Azure cloud endpoint for the storage account.",
+              "type": "string"
+            },
+            "protocol": {
+              "description": "Protocol used to communicate with the storage account.",
+              "type": "string"
+            },
+            "resourceGroup": {
+              "description": "Azure Resource Group name",
+              "type": "string"
+            },
+            "serviceDataAccessAuthIdentity": {
+              "description": "Indicates which identity to use to authenticate service data access to customer's storage.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "None",
+                    "WorkspaceSystemAssignedIdentity",
+                    "WorkspaceUserAssignedIdentity"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subscriptionId": {
+              "description": "Azure Subscription Id",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Lake Gen1 datastore configuration.",
+          "properties": {
+            "resourceGroup": {
+              "description": "Azure Resource Group name",
+              "type": "string"
+            },
+            "serviceDataAccessAuthIdentity": {
+              "description": "Indicates which identity to use to authenticate service data access to customer's storage.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "None",
+                    "WorkspaceSystemAssignedIdentity",
+                    "WorkspaceUserAssignedIdentity"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "storeName": {
+              "description": "[Required] Azure Data Lake store name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subscriptionId": {
+              "description": "Azure Subscription Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "storeName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Lake Gen2 datastore configuration.",
+          "properties": {
+            "accountName": {
+              "description": "[Required] Storage account name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "endpoint": {
+              "description": "Azure cloud endpoint for the storage account.",
+              "type": "string"
+            },
+            "filesystem": {
+              "description": "[Required] The name of the Data Lake Gen2 filesystem.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocol": {
+              "description": "Protocol used to communicate with the storage account.",
+              "type": "string"
+            },
+            "resourceGroup": {
+              "description": "Azure Resource Group name",
+              "type": "string"
+            },
+            "serviceDataAccessAuthIdentity": {
+              "description": "Indicates which identity to use to authenticate service data access to customer's storage.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "None",
+                    "WorkspaceSystemAssignedIdentity",
+                    "WorkspaceUserAssignedIdentity"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subscriptionId": {
+              "description": "Azure Subscription Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "accountName",
+            "filesystem"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure File datastore configuration.",
+          "properties": {
+            "accountName": {
+              "description": "[Required] Storage account name.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "endpoint": {
+              "description": "Azure cloud endpoint for the storage account.",
+              "type": "string"
+            },
+            "fileShareName": {
+              "description": "[Required] The name of the Azure file share that the datastore points to.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocol": {
+              "description": "Protocol used to communicate with the storage account.",
+              "type": "string"
+            },
+            "resourceGroup": {
+              "description": "Azure Resource Group name",
+              "type": "string"
+            },
+            "serviceDataAccessAuthIdentity": {
+              "description": "Indicates which identity to use to authenticate service data access to customer's storage.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "None",
+                    "WorkspaceSystemAssignedIdentity",
+                    "WorkspaceUserAssignedIdentity"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subscriptionId": {
+              "description": "Azure Subscription Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "accountName",
+            "fileShareName"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "hdfsServerCertificate": {
+              "description": "The TLS cert of the HDFS server. Needs to be a base64 encoded string. Required if \"Https\" protocol is selected.",
+              "type": "string"
+            },
+            "nameNodeAddress": {
+              "description": "[Required] IP Address or DNS HostName.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocol": {
+              "description": "Protocol used to communicate with the storage account (Https/Http).",
+              "type": "string"
+            }
+          },
+          "required": [
+            "nameNodeAddress"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "credentials": {
           "description": "[Required] Account credentials.",
@@ -3183,6 +4880,70 @@
     },
     "DistributionConfiguration": {
       "description": "Base definition for job distribution configuration.",
+      "oneOf": [
+        {
+          "description": "MPI distribution configuration.",
+          "properties": {
+            "processCountPerInstance": {
+              "description": "Number of processes per MPI node.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "PyTorch distribution configuration.",
+          "properties": {
+            "processCountPerInstance": {
+              "description": "Number of processes per node.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "TensorFlow distribution configuration.",
+          "properties": {
+            "parameterServerCount": {
+              "description": "Number of parameter server tasks.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "workerCount": {
+              "description": "Number of workers. If not specified, will default to the instance count.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -3205,6 +4966,58 @@
     },
     "EarlyTerminationPolicy": {
       "description": "Early termination policies enable canceling poor-performing runs before they complete",
+      "oneOf": [
+        {
+          "description": "Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation",
+          "properties": {
+            "slackAmount": {
+              "description": "Absolute distance allowed from the best performing run.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "slackFactor": {
+              "description": "Ratio of the allowed distance from the best performing run.",
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines an early termination policy based on running averages of the primary metric of all runs",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.",
+          "properties": {
+            "truncationPercentage": {
+              "description": "The percentage of runs to cancel at each evaluation interval.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "delayEvaluation": {
           "description": "Number of intervals by which to delay the first evaluation.",
@@ -3567,6 +5380,33 @@
     },
     "ForecastHorizon": {
       "description": "The desired maximum forecast horizon in units of time-series frequency.",
+      "oneOf": [
+        {
+          "description": "Forecast horizon determined automatically by system.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The desired maximum forecast horizon in units of time-series frequency.",
+          "properties": {
+            "value": {
+              "description": "[Required] Forecast horizon value.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -3903,6 +5743,52 @@
     },
     "IdentityConfiguration": {
       "description": "Base definition for identity configuration.",
+      "oneOf": [
+        {
+          "description": "AML Token identity configuration.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Managed identity configuration.",
+          "properties": {
+            "clientId": {
+              "description": "Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "objectId": {
+              "description": "Specifies a user-assigned identity by object ID. For system-assigned, do not set this field.",
+              "oneOf": [
+                {
+                  "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceId": {
+              "description": "Specifies a user-assigned identity by ARM resource ID. For system-assigned, do not set this field.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "User identity configuration.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -5336,6 +7222,585 @@
     },
     "JobBaseProperties": {
       "description": "Base definition for a job.",
+      "oneOf": [
+        {
+          "description": "AutoMLJob class.\r\nUse this class for executing AutoML tasks like Classification/Regression etc.\r\nSee TaskType enum for all the tasks supported.",
+          "properties": {
+            "environmentId": {
+              "description": "The ARM resource ID of the Environment specification for the job.\r\nThis is optional value to provide, if not provided, AutoML will default this to Production AutoML curated environment version when running the job.",
+              "type": "string"
+            },
+            "environmentVariables": {
+              "description": "Environment variables included in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "outputs": {
+              "description": "Mapping of output data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobOutput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resources": {
+              "description": "Compute Resource configuration for the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/JobResourceConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "taskDetails": {
+              "description": "[Required] This represents scenario which can be one of Tables/NLP/Image",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AutoMLVertical"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "taskDetails"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Command job definition.",
+          "properties": {
+            "codeId": {
+              "description": "ARM resource ID of the code asset.",
+              "type": "string"
+            },
+            "command": {
+              "description": "[Required] The command to execute on startup of the job. eg. \"python train.py\"",
+              "oneOf": [
+                {
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "distribution": {
+              "description": "Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DistributionConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "environmentId": {
+              "description": "[Required] The ARM resource ID of the Environment specification for the job.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "environmentVariables": {
+              "description": "Environment variables included in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "inputs": {
+              "description": "Mapping of input data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobInput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limits": {
+              "description": "Command Job limit.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CommandJobLimits"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "outputs": {
+              "description": "Mapping of output data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobOutput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resources": {
+              "description": "Compute Resource configuration for the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/JobResourceConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "command",
+            "environmentId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Labeling job definition",
+          "properties": {
+            "dataConfiguration": {
+              "description": "Configuration of data used in the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LabelingDataConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "jobInstructions": {
+              "description": "Labeling instructions of the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LabelingJobInstructions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "labelCategories": {
+              "description": "Label categories of the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/LabelCategory"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "labelingJobMediaProperties": {
+              "description": "Media type specific properties in the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LabelingJobMediaProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "mlAssistConfiguration": {
+              "description": "Configuration of MLAssist feature in the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MLAssistConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Pipeline Job definition: defines generic to MFE attributes.",
+          "properties": {
+            "inputs": {
+              "description": "Inputs for the pipeline job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobInput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "jobs": {
+              "description": "Jobs construct the Pipeline Job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "outputs": {
+              "description": "Outputs for the pipeline job",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobOutput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "settings": {
+              "description": "Pipeline settings, for things like ContinueRunOnStepFailure etc.",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceJobId": {
+              "description": "ARM resource ID of source job.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Spark job definition.",
+          "properties": {
+            "archives": {
+              "description": "Archive files used in the job.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "args": {
+              "description": "Arguments for the job.",
+              "type": "string"
+            },
+            "codeId": {
+              "description": "[Required] ARM resource ID of the code asset.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "conf": {
+              "description": "Spark configured properties.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "entry": {
+              "description": "[Required] The entry to execute on startup of the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SparkJobEntry"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "environmentId": {
+              "description": "The ARM resource ID of the Environment specification for the job.",
+              "type": "string"
+            },
+            "files": {
+              "description": "Files used in the job.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "inputs": {
+              "description": "Mapping of input data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobInput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "jars": {
+              "description": "Jar files used in the job.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "outputs": {
+              "description": "Mapping of output data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobOutput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "pyFiles": {
+              "description": "Python files used in the job.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resources": {
+              "description": "Compute Resource configuration for the job.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SparkResourceConfiguration"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "codeId",
+            "entry"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Sweep job definition.",
+          "properties": {
+            "earlyTermination": {
+              "description": "Early termination policies enable canceling poor-performing runs before they complete",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EarlyTerminationPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "inputs": {
+              "description": "Mapping of input data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobInput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "limits": {
+              "description": "Sweep Job limit.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SweepJobLimits"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "objective": {
+              "description": "[Required] Optimization objective.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Objective"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "outputs": {
+              "description": "Mapping of output data bindings used in the job.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/JobOutput"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "samplingAlgorithm": {
+              "description": "[Required] The hyperparameter sampling algorithm",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SamplingAlgorithm"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "searchSpace": {
+              "description": "[Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trial": {
+              "description": "[Required] Trial component definition.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TrialComponent"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "objective",
+            "samplingAlgorithm",
+            "searchSpace",
+            "trial"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "componentId": {
           "description": "ARM resource ID of the component resource.",
@@ -5429,6 +7894,263 @@
     },
     "JobInput": {
       "description": "Command job definition.",
+      "oneOf": [
+        {
+          "properties": {
+            "mode": {
+              "description": "Input Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadOnlyMount",
+                    "ReadWriteMount",
+                    "Download",
+                    "Direct",
+                    "EvalMount",
+                    "EvalDownload"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "[Required] Input Asset URI.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "uri"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Literal input type.",
+          "properties": {
+            "value": {
+              "description": "[Required] Literal value for the input.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Input Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadOnlyMount",
+                    "ReadWriteMount",
+                    "Download",
+                    "Direct",
+                    "EvalMount",
+                    "EvalDownload"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "[Required] Input Asset URI.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "uri"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Input Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadOnlyMount",
+                    "ReadWriteMount",
+                    "Download",
+                    "Direct",
+                    "EvalMount",
+                    "EvalDownload"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "[Required] Input Asset URI.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "uri"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Input Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadOnlyMount",
+                    "ReadWriteMount",
+                    "Download",
+                    "Direct",
+                    "EvalMount",
+                    "EvalDownload"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "[Required] Input Asset URI.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "uri"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Input Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadOnlyMount",
+                    "ReadWriteMount",
+                    "Download",
+                    "Direct",
+                    "EvalMount",
+                    "EvalDownload"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "[Required] Input Asset URI.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "uri"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Input Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadOnlyMount",
+                    "ReadWriteMount",
+                    "Download",
+                    "Direct",
+                    "EvalMount",
+                    "EvalDownload"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "[Required] Input Asset URI.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "uri"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "Description for the input.",
@@ -5439,6 +8161,158 @@
     },
     "JobOutput": {
       "description": "Job output definition container information on where to find job output/logs.",
+      "oneOf": [
+        {
+          "properties": {
+            "mode": {
+              "description": "Output Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadWriteMount",
+                    "Upload",
+                    "Direct"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "Output Asset URI.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Output Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadWriteMount",
+                    "Upload",
+                    "Direct"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "Output Asset URI.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Output Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadWriteMount",
+                    "Upload",
+                    "Direct"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "Output Asset URI.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Output Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadWriteMount",
+                    "Upload",
+                    "Direct"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "Output Asset URI.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Output Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadWriteMount",
+                    "Upload",
+                    "Direct"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "Output Asset URI.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "mode": {
+              "description": "Output Asset Delivery Mode.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ReadWriteMount",
+                    "Upload",
+                    "Direct"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "uri": {
+              "description": "Output Asset URI.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "Description for the output.",
@@ -5744,6 +8618,51 @@
     },
     "LabelingJobMediaProperties": {
       "description": "Properties of a labeling job",
+      "oneOf": [
+        {
+          "description": "Properties of a labeling job for image data",
+          "properties": {
+            "annotationType": {
+              "description": "Annotation type of image labeling job.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Classification",
+                    "BoundingBox",
+                    "InstanceSegmentation"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties of a labeling job for text data",
+          "properties": {
+            "annotationType": {
+              "description": "Annotation type of text labeling job.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Classification",
+                    "NamedEntityRecognition"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -5923,6 +8842,47 @@
     },
     "MLAssistConfiguration": {
       "description": "Labeling MLAssist configuration definition",
+      "oneOf": [
+        {
+          "description": "Labeling MLAssist configuration definition when MLAssist is disabled",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Labeling MLAssist configuration definition when MLAssist is enabled",
+          "properties": {
+            "inferencingComputeBinding": {
+              "description": "[Required] AML compute binding used in inferencing.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trainingComputeBinding": {
+              "description": "[Required] AML compute binding used in training.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "inferencingComputeBinding",
+            "trainingComputeBinding"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -6236,6 +9196,33 @@
     },
     "NCrossValidations": {
       "description": "N-Cross validations value.",
+      "oneOf": [
+        {
+          "description": "N-Cross validations determined automatically.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "N-Cross validations are specified by user.",
+          "properties": {
+            "value": {
+              "description": "[Required] N-Cross validations value.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -6318,6 +9305,30 @@
       "type": "object"
     },
     "OnlineDeploymentProperties": {
+      "oneOf": [
+        {
+          "description": "Properties specific to a KubernetesOnlineDeployment.",
+          "properties": {
+            "containerResourceRequirements": {
+              "description": "The resource requirements for the container (cpu and memory).",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ContainerResourceRequirements"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties specific to a ManagedOnlineDeployment.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "appInsightsEnabled": {
           "description": "If true, enables Application Insights logging.",
@@ -6584,6 +9595,54 @@
     },
     "OnlineScaleSettings": {
       "description": "Online deployment scaling configuration.",
+      "oneOf": [
+        {
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "properties": {
+            "maxInstances": {
+              "description": "The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "minInstances": {
+              "description": "The minimum number of instances to always be present.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "pollingInterval": {
+              "description": "The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.",
+              "type": "string"
+            },
+            "targetUtilizationPercentage": {
+              "description": "Target CPU usage for the autoscaler.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -6947,6 +10006,50 @@
     },
     "SamplingAlgorithm": {
       "description": "The Sampling Algorithm used to generate hyperparameter values, along with properties to\r\nconfigure the algorithm",
+      "oneOf": [
+        {
+          "description": "Defines a Sampling Algorithm that generates values based on previous values",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Defines a Sampling Algorithm that exhaustively generates every value combination in the space",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Defines a Sampling Algorithm that generates values randomly",
+          "properties": {
+            "rule": {
+              "description": "The specific type of random algorithm",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Random",
+                    "Sobol"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "seed": {
+              "description": "An optional integer to use as the seed for random number generation",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -7018,6 +10121,47 @@
       "type": "object"
     },
     "ScheduleActionBase": {
+      "oneOf": [
+        {
+          "properties": {
+            "jobDefinition": {
+              "description": "[Required] Defines Schedule action definition details.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/JobBaseProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "jobDefinition"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "endpointInvocationDefinition": {
+              "description": "[Required] Defines Schedule action definition details.\r\n<see href=\"TBD\" />",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "endpointInvocationDefinition"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -7154,6 +10298,31 @@
     },
     "Seasonality": {
       "description": "Forecasting seasonality.",
+      "oneOf": [
+        {
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "properties": {
+            "value": {
+              "description": "[Required] Seasonality value.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -7329,6 +10498,50 @@
     },
     "SparkJobEntry": {
       "description": "Spark job entry point definition.",
+      "oneOf": [
+        {
+          "properties": {
+            "file": {
+              "description": "[Required] Relative python file path for job entry point.",
+              "oneOf": [
+                {
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "file"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "className": {
+              "description": "[Required] Scala class name used as entry point.",
+              "oneOf": [
+                {
+                  "minLength": 1,
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "className"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -7731,11 +10944,65 @@
     },
     "TargetLags": {
       "description": "The number of past periods to lag from the target column.",
+      "oneOf": [
+        {
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "properties": {
+            "values": {
+              "description": "[Required] Set target lags values.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "values"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "TargetRollingWindowSize": {
       "description": "Forecasting target rolling window size.",
+      "oneOf": [
+        {
+          "description": "Target lags rolling window determined automatically.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "properties": {
+            "value": {
+              "description": "[Required] TargetRollingWindowSize value.",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -7832,6 +11099,78 @@
       "type": "object"
     },
     "TriggerBase": {
+      "oneOf": [
+        {
+          "properties": {
+            "expression": {
+              "description": "[Required] Specifies cron expression of schedule.\r\nThe expression should follow NCronTab format.",
+              "oneOf": [
+                {
+                  "pattern": "[a-zA-Z0-9_]",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "expression"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "frequency": {
+              "description": "[Required] The frequency to trigger schedule.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Minute",
+                    "Hour",
+                    "Day",
+                    "Week",
+                    "Month"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "interval": {
+              "description": "[Required] Specifies schedule interval in conjunction with frequency",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "schedule": {
+              "description": "[Required] The recurrence schedule.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RecurrenceSchedule"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "frequency",
+            "interval",
+            "schedule"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "endTime": {
           "description": "Specifies end time of schedule in ISO 8601, but without a UTC offset. Refer https://en.wikipedia.org/wiki/ISO_8601.\r\nRecommented format would be \"2022-06-01T00:00:01\"\r\nIf not present, the schedule will run indefinitely",
@@ -8083,6 +11422,76 @@
       "type": "object"
     },
     "WorkspaceConnectionPropertiesV2": {
+      "oneOf": [
+        {
+          "properties": {
+            "credentials": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WorkspaceConnectionManagedIdentity"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "properties": {
+            "credentials": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WorkspaceConnectionPersonalAccessToken"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "credentials": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WorkspaceConnectionSharedAccessSignature"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "properties": {
+            "credentials": {
+              "description": "",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WorkspaceConnectionUsernamePassword"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "category": {
           "description": "Category of the connection",

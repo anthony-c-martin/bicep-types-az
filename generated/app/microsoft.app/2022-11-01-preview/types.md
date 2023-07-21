@@ -275,8 +275,8 @@
 
 ## AppLogsConfiguration
 ### Properties
-* **destination**: string: Logs destination
-* **logAnalyticsConfiguration**: [LogAnalyticsConfiguration](#loganalyticsconfiguration): Log Analytics configuration
+* **destination**: string: Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
+* **logAnalyticsConfiguration**: [LogAnalyticsConfiguration](#loganalyticsconfiguration): Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
 
 ## AppRegistration
 ### Properties
@@ -797,7 +797,7 @@ configuration settings of the custom Open ID Connect provider.
 * **replicaTimeout**: int (Required): Maximum number of seconds a replica is allowed to run.
 * **scheduleTriggerConfig**: [JobConfigurationScheduleTriggerConfig](#jobconfigurationscheduletriggerconfig): Cron formatted repeating trigger schedule ("* * * * *") for cronjobs. Properties completions and parallelism would be set to 1 by default
 * **secrets**: [Secret](#secret)[]: Collection of secrets used by a Container Apps Job
-* **triggerType**: 'Event' | 'Manual' | 'Scheduled' | string (Required): Trigger type of the job
+* **triggerType**: 'Event' | 'Manual' | 'Schedule' | string (Required): Trigger type of the job
 
 ## JobConfigurationManualTriggerConfig
 ### Properties

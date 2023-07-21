@@ -47,6 +47,43 @@
   "definitions": {
     "LimitJsonObject": {
       "description": "LimitJson abstract class.",
+      "oneOf": [
+        {
+          "description": "The resource quota limit value.",
+          "properties": {
+            "limitType": {
+              "description": "The quota or usages limit types.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Independent",
+                    "Shared"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "value": {
+              "description": "The quota/limit value",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

@@ -135,6 +135,64 @@
   "definitions": {
     "DigitalTwinsEndpointResourceProperties": {
       "description": "Properties related to Digital Twins Endpoint",
+      "oneOf": [
+        {
+          "description": "Properties related to EventGrid.",
+          "properties": {
+            "TopicEndpoint": {
+              "description": "EventGrid Topic Endpoint",
+              "type": "string"
+            },
+            "accessKey1": {
+              "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "accessKey2": {
+              "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "TopicEndpoint",
+            "accessKey1"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Properties related to EventHub.",
+          "properties": {
+            "connectionStringPrimaryKey": {
+              "description": "PrimaryConnectionString of the endpoint. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "connectionStringSecondaryKey": {
+              "description": "SecondaryConnectionString of the endpoint. Will be obfuscated during read.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "connectionStringPrimaryKey"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Properties related to ServiceBus.",
+          "properties": {
+            "primaryConnectionString": {
+              "description": "PrimaryConnectionString of the endpoint. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "secondaryConnectionString": {
+              "description": "SecondaryConnectionString of the endpoint. Will be obfuscated during read.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "primaryConnectionString"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "deadLetterSecret": {
           "description": "Dead letter storage secret. Will be obfuscated during read.",

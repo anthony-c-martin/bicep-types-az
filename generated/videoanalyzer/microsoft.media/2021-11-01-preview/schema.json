@@ -481,6 +481,13 @@
     },
     "AudioEncoderBase": {
       "description": "Base type for all audio encoder presets, which define the recipe or instructions on how audio should be processed.",
+      "oneOf": [
+        {
+          "description": "A custom preset for encoding audio with the AAC codec.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "bitrateKbps": {
           "description": "Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.",
@@ -491,16 +498,125 @@
     },
     "AuthenticationBase": {
       "description": "Base class for access policies authentication methods.",
+      "oneOf": [
+        {
+          "description": "Properties for access validation based on JSON Web Tokens (JWT).",
+          "properties": {
+            "audiences": {
+              "description": "List of expected token audiences. Token audience is valid if it matches at least one of the given values.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "claims": {
+              "description": "List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/TokenClaim"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "issuers": {
+              "description": "List of expected token issuers. Token issuer is valid if it matches at least one of the given values.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "keys": {
+              "description": "List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/TokenKey"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "CertificateSource": {
       "description": "Base class for certificate sources.",
+      "oneOf": [
+        {
+          "description": "A list of PEM formatted certificates.",
+          "properties": {
+            "certificates": {
+              "description": "PEM formatted public certificates. One certificate per entry.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "certificates"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "CredentialsBase": {
       "description": "Base class for credential objects.",
+      "oneOf": [
+        {
+          "description": "Username and password credentials.",
+          "properties": {
+            "password": {
+              "description": "Password to be presented as part of the credentials. It is recommended that this value is parameterized as a secret string in order to prevent this value to be returned as part of the resource on API requests.",
+              "type": "string"
+            },
+            "username": {
+              "description": "Username to be presented as part of the credentials.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "username",
+            "password"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -511,11 +627,102 @@
     },
     "EncoderPresetBase": {
       "description": "Base type for all encoder presets, which define the recipe or instructions on how the input content should be processed.",
+      "oneOf": [
+        {
+          "description": "Describes a custom preset for encoding the input content using the encoder processor.",
+          "properties": {
+            "audioEncoder": {
+              "description": "Describes a custom preset for encoding audio.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AudioEncoderBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "videoEncoder": {
+              "description": "Describes a custom preset for encoding video.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VideoEncoderBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Describes a built-in preset for encoding the input content using the encoder processor.",
+          "properties": {
+            "name": {
+              "description": "Name of the built-in encoding preset.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SingleLayer_540p_H264_AAC",
+                    "SingleLayer_720p_H264_AAC",
+                    "SingleLayer_1080p_H264_AAC",
+                    "SingleLayer_2160p_H264_AAC"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
     "EndpointBase": {
       "description": "Base class for endpoints.",
+      "oneOf": [
+        {
+          "description": "TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).",
+          "properties": {
+            "trustedCertificates": {
+              "description": "List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CertificateSource"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "validationOptions": {
+              "description": "Validation options to use when authenticating a TLS connection. By default, strict validation is used.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TlsValidationOptions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Unsecured endpoint describes an endpoint that the pipeline can connect to over clear transport (no encryption in transit).",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "credentials": {
           "description": "Credentials to be presented to the endpoint.",
@@ -930,6 +1137,28 @@
     },
     "ProcessorNodeBase": {
       "description": "Base class for topology processor nodes.",
+      "oneOf": [
+        {
+          "description": "Encoder processor allows for encoding of the input content. For example, it can used to change the resolution from 4K to 1280x720.",
+          "properties": {
+            "preset": {
+              "description": "The encoder preset, which defines the recipe or instructions on how the input content should be processed.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EncoderPresetBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "preset"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "inputs": {
           "description": "An array of upstream node references within the topology to be used as inputs for this node.",
@@ -971,6 +1200,43 @@
     },
     "SinkNodeBase": {
       "description": "Base class for topology sink nodes.",
+      "oneOf": [
+        {
+          "description": "Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'",
+          "properties": {
+            "videoCreationProperties": {
+              "description": "Optional video properties to be used in case a new video resource needs to be created on the service.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VideoCreationProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "videoName": {
+              "description": "Name of a new or existing video resource used to capture and publish content. Note: if downstream of RTSP source, and if disableArchive is set to true, then no content is archived.",
+              "type": "string"
+            },
+            "videoPublishingOptions": {
+              "description": "Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where \"kind\" is set to \"live\".",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VideoPublishingOptions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "videoName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "inputs": {
           "description": "An array of upstream node references within the topology to be used as inputs for this node.",
@@ -1023,6 +1289,68 @@
     },
     "SourceNodeBase": {
       "description": "Base class for topology source nodes.",
+      "oneOf": [
+        {
+          "description": "RTSP source allows for media from an RTSP camera or generic RTSP server to be ingested into a pipeline.",
+          "properties": {
+            "endpoint": {
+              "description": "RTSP endpoint information for Video Analyzer to connect to. This contains the required information for Video Analyzer to connect to RTSP cameras and/or generic RTSP servers.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EndpointBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "transport": {
+              "description": "Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Http",
+                    "Tcp"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "endpoint"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Video source allows for content from a Video Analyzer video resource to be ingested into a pipeline. Currently supported only with batch pipelines.",
+          "properties": {
+            "timeSequences": {
+              "description": "Describes a sequence of datetime ranges. The video source only picks up recorded media within these ranges.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TimeSequenceBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "videoName": {
+              "description": "Name of the Video Analyzer video resource to be used as the source.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "videoName",
+            "timeSequences"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "Node name. Must be unique within the topology.",
@@ -1060,6 +1388,21 @@
     },
     "TimeSequenceBase": {
       "description": "A sequence of datetime ranges as a string.",
+      "oneOf": [
+        {
+          "description": "A sequence of absolute datetime ranges as a string. The datetime values should follow IS08601, and the sum of the ranges should add up to 24 hours or less. Currently, there can be only one range specified in the sequence.",
+          "properties": {
+            "ranges": {
+              "description": "The sequence of datetime ranges. Example: '[[\"2021-10-05T03:30:00Z\", \"2021-10-05T03:40:00Z\"]]'.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "ranges"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1097,6 +1440,78 @@
     },
     "TokenKey": {
       "description": "Key properties for JWT token validation.",
+      "oneOf": [
+        {
+          "description": "Required validation properties for tokens generated with Elliptical Curve algorithm.",
+          "properties": {
+            "alg": {
+              "description": "Elliptical curve algorithm to be used: ES256, ES384 or ES512.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "ES256",
+                    "ES384",
+                    "ES512"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "x": {
+              "description": "X coordinate.",
+              "type": "string"
+            },
+            "y": {
+              "description": "Y coordinate.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "x",
+            "y"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Required validation properties for tokens generated with RSA algorithm.",
+          "properties": {
+            "alg": {
+              "description": "RSA algorithm to be used: RS256, RS384 or RS512.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "RS256",
+                    "RS384",
+                    "RS512"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "e": {
+              "description": "RSA public key exponent.",
+              "type": "string"
+            },
+            "n": {
+              "description": "RSA public key modulus.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "n",
+            "e"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "kid": {
           "description": "JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.",
@@ -1110,6 +1525,26 @@
     },
     "TunnelBase": {
       "description": "Base class for tunnel objects.",
+      "oneOf": [
+        {
+          "description": "A remote tunnel securely established using IoT Hub device information.",
+          "properties": {
+            "deviceId": {
+              "description": "The IoT device id to use when establishing the remote tunnel. This string is case-sensitive.",
+              "type": "string"
+            },
+            "iotHubName": {
+              "description": "Name of the IoT Hub.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "iotHubName",
+            "deviceId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1254,6 +1689,13 @@
     },
     "VideoEncoderBase": {
       "description": "Base type for all video encoding presets, which define the recipe or instructions on how the input video should be processed.",
+      "oneOf": [
+        {
+          "description": "A custom preset for encoding video with the H.264 (AVC) codec.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "bitrateKbps": {
           "description": "The maximum bitrate, in kilobits per second or Kbps, at which video should be encoded. If omitted, encoder sets it automatically to try and match the quality of the input video.",

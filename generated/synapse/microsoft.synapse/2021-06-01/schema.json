@@ -1882,6 +1882,68 @@
     },
     "CustomSetupBase": {
       "description": "The base definition of the custom setup.",
+      "oneOf": [
+        {
+          "description": "The custom setup of running cmdkey commands.",
+          "properties": {
+            "typeProperties": {
+              "description": "Cmdkey command custom setup type properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CmdkeySetupTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The custom setup of installing 3rd party components.",
+          "properties": {
+            "typeProperties": {
+              "description": "Install 3rd party component type properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LicensedComponentSetupTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The custom setup of setting environment variable.",
+          "properties": {
+            "typeProperties": {
+              "description": "Add environment variable type properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EnvironmentVariableSetupTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -2449,6 +2511,56 @@
         ]
       },
       "description": "Azure Synapse nested object which serves as a compute resource for activities.",
+      "oneOf": [
+        {
+          "description": "Managed integration runtime, including managed elastic and managed dedicated integration runtimes.",
+          "properties": {
+            "managedVirtualNetwork": {
+              "description": "Managed integration runtime managed virtual network.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ManagedIntegrationRuntimeManagedVirtualNetworkReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Managed integration runtime properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ManagedIntegrationRuntimeTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Self-hosted integration runtime.",
+          "properties": {
+            "typeProperties": {
+              "description": "When this property is not null, means this is a linked integration runtime. The property is used to access original integration runtime.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SelfHostedIntegrationRuntimeTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "Integration runtime description.",
@@ -2946,6 +3058,41 @@
     },
     "LinkedIntegrationRuntimeType": {
       "description": "The base definition of a linked integration runtime.",
+      "oneOf": [
+        {
+          "description": "The key authorization type integration runtime.",
+          "properties": {
+            "key": {
+              "description": "The key used for authorization.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SecureString"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "key"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The role based access control (RBAC) authorization type integration runtime.",
+          "properties": {
+            "resourceId": {
+              "description": "The resource identifier of the integration runtime to be shared.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "resourceId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -3237,6 +3384,21 @@
     },
     "SecretBase": {
       "description": "The base definition of a secret type.",
+      "oneOf": [
+        {
+          "description": "Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.",
+          "properties": {
+            "value": {
+              "description": "Value of secure string.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -3601,7 +3763,7 @@
           "description": "The recurring scans settings",
           "oneOf": [
             {
-              "$ref": "#/definitions/VulnerabilityAssessmentRecurringScansPropertiesAutoGenerated"
+              "$ref": "#/definitions/VulnerabilityAssessmentRecurringScansProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3958,48 +4120,6 @@
       "type": "object"
     },
     "VulnerabilityAssessmentRecurringScansProperties": {
-      "description": "Properties of a Vulnerability Assessment recurring scans.",
-      "properties": {
-        "emailSubscriptionAdmins": {
-          "description": "Specifies that the schedule scan notification will be is sent to the subscription administrators.",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "emails": {
-          "description": "Specifies an array of e-mail addresses to which the scan notification is sent.",
-          "oneOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "isEnabled": {
-          "description": "Recurring scans state.",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
-    "VulnerabilityAssessmentRecurringScansPropertiesAutoGenerated": {
       "description": "Properties of a Vulnerability Assessment recurring scans.",
       "properties": {
         "emailSubscriptionAdmins": {

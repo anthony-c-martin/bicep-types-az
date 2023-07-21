@@ -365,6 +365,828 @@
         ]
       },
       "description": "A pipeline activity.",
+      "oneOf": [
+        {
+          "description": "Azure ML Batch Execution activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Azure ML Batch Execution activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureMLBatchExecutionActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure ML Update Resource management activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Azure ML Update Resource management activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureMLUpdateResourceActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Execute pipeline activity.",
+          "properties": {
+            "typeProperties": {
+              "description": "Execute pipeline activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ExecutePipelineActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Filter and return results from input array based on the conditions.",
+          "properties": {
+            "typeProperties": {
+              "description": "Filter activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FilterActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "This activity is used for iterating over a collection and execute given activities.",
+          "properties": {
+            "typeProperties": {
+              "description": "ForEach activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ForEachActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.",
+          "properties": {
+            "typeProperties": {
+              "description": "IfCondition activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/IfConditionActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.",
+          "properties": {
+            "typeProperties": {
+              "description": "Until activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/UntilActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "This activity suspends pipeline execution for the specified interval.",
+          "properties": {
+            "typeProperties": {
+              "description": "Wait activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WaitActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Copy activity.",
+          "properties": {
+            "inputs": {
+              "description": "List of inputs for the activity.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/DatasetReference"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "outputs": {
+              "description": "List of outputs for the activity.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/DatasetReference"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Copy activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CopyActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Custom activity type.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Custom activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CustomActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Data Lake Analytics U-SQL activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Data Lake Analytics U-SQL activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DataLakeAnalyticsUsqlActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "DatabricksNotebook activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Databricks Notebook activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DatabricksNotebookActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Execute SSIS package activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Execute SSIS package activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ExecuteSsisPackageActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Activity to get metadata of dataset",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "GetMetadata activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GetMetadataActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HDInsight Hive activity type.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "HDInsight Hive activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightHiveActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HDInsight MapReduce activity type.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "HDInsight MapReduce activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightMapReduceActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HDInsight Pig activity type.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "HDInsight Pig activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightPigActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HDInsight Spark activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "HDInsight spark activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightSparkActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HDInsight streaming activity type.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "HDInsight streaming activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightStreamingActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Lookup activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Lookup activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LookupActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "SQL stored procedure activity type.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "SQL stored procedure activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlServerStoredProcedureActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Web activity.",
+          "properties": {
+            "linkedServiceName": {
+              "description": "Linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "policy": {
+              "description": "Activity policy.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ActivityPolicy"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "typeProperties": {
+              "description": "Web activity properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WebActivityTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "dependsOn": {
           "description": "Activity depends on condition.",
@@ -2312,6 +3134,7 @@
         ]
       },
       "description": "A copy activity sink.",
+      "oneOf": [],
       "properties": {
         "sinkRetryCount": {
           "description": "Sink retry count. Type: integer (or Expression with resultType integer).",
@@ -2377,6 +3200,7 @@
         ]
       },
       "description": "A copy activity source.",
+      "oneOf": [],
       "properties": {
         "sourceRetryCount": {
           "description": "Source retry count. Type: integer (or Expression with resultType integer).",
@@ -2720,6 +3544,598 @@
         ]
       },
       "description": "The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.",
+      "oneOf": [
+        {
+          "description": "Amazon Marketplace Web Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "A single Amazon Simple Storage Service (S3) object or a set of S3 objects.",
+          "properties": {
+            "typeProperties": {
+              "description": "Amazon S3 dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AmazonS3DatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The Azure Blob storage.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Blob dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureBlobDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Lake Store dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Data Lake Store dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureDataLakeStoreDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The Azure MySQL database dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure MySQL database dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureMySqlTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure PostgreSQL dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The Azure Search Index.",
+          "properties": {
+            "typeProperties": {
+              "description": "Properties specific to this dataset type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSearchIndexDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The Azure SQL Data Warehouse dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure SQL Data Warehouse dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSqlDWTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The Azure SQL Server database dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure SQL dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSqlTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The Azure Table storage dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Table dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The Cassandra database dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Cassandra dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CassandraTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Concur Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Couchbase server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Microsoft Azure Document Database Collection dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "DocumentDB Collection dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DocumentDbCollectionDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Drill server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The Dynamics entity dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Dynamics entity dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DynamicsEntityDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Eloqua server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "An on-premises file system dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "On-premises file system dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FileShareDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Google BigQuery service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Greenplum Database dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "HBase server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Hive Server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "A file in an HTTP web server.",
+          "properties": {
+            "typeProperties": {
+              "description": "Properties specific to this dataset type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HttpDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Hubspot Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Impala server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Jira Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Magento server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "MariaDB server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Marketo server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The MongoDB database dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "MongoDB database dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MongoDbCollectionDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Netezza dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The Open Data Protocol (OData) resource dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "OData dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ODataResourceDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The on-premises Oracle database dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "On-premises Oracle dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OracleTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Paypal Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Phoenix server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Presto server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "QuickBooks server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The relational table dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Relational table dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/RelationalTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Responsys dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Salesforce Marketing Cloud dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The Salesforce object dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "Salesforce object dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SalesforceObjectDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The path of the SAP Cloud for Customer OData entity.",
+          "properties": {
+            "typeProperties": {
+              "description": "SAP Cloud For Customer OData resource dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SapCloudForCustomerResourceDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The path of the SAP ECC OData entity.",
+          "properties": {
+            "typeProperties": {
+              "description": "SAP ECC OData resource dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SapEccResourceDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "ServiceNow server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Shopify Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Spark Server dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The on-premises SQL Server dataset.",
+          "properties": {
+            "typeProperties": {
+              "description": "On-premises SQL Server dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlServerTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Square Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Vertica dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The dataset points to a HTML table in the web page.",
+          "properties": {
+            "typeProperties": {
+              "description": "Web table dataset properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WebTableDatasetTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Xero Service dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Zoho server dataset.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
       "properties": {
         "annotations": {
           "description": "List of tags that can be used for describing the Dataset.",
@@ -2797,6 +4213,76 @@
         ]
       },
       "description": "The compression method used on a dataset.",
+      "oneOf": [
+        {
+          "description": "The BZip2 compression method used on a dataset.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "The Deflate compression method used on a dataset.",
+          "properties": {
+            "level": {
+              "description": "The Deflate compression level.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Optimal",
+                    "Fastest"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The GZip compression method used on a dataset.",
+          "properties": {
+            "level": {
+              "description": "The GZip compression level.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Optimal",
+                    "Fastest"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "The ZipDeflate compression method used on a dataset.",
+          "properties": {
+            "level": {
+              "description": "The ZipDeflate compression level.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Optimal",
+                    "Fastest"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -2857,6 +4343,7 @@
         ]
       },
       "description": "The format definition of a storage.",
+      "oneOf": [],
       "properties": {
         "deserializer": {
           "description": "Deserializer. Type: string (or Expression with resultType string).",
@@ -6102,6 +7589,48 @@
         ]
       },
       "description": "Azure Data Factory nested object which serves as a compute resource for activities.",
+      "oneOf": [
+        {
+          "description": "Managed integration runtime, including managed elastic and managed dedicated integration runtimes.",
+          "properties": {
+            "typeProperties": {
+              "description": "Managed integration runtime properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ManagedIntegrationRuntimeTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Self-hosted integration runtime.",
+          "properties": {
+            "typeProperties": {
+              "description": "When this property is not null, means this is a linked integration runtime. The property is used to access original integration runtime.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedIntegrationRuntimeTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "Integration runtime description.",
@@ -6519,6 +8048,41 @@
     },
     "LinkedIntegrationRuntimeProperties": {
       "description": "The base definition of a secret type.",
+      "oneOf": [
+        {
+          "description": "The base definition of a secret type.",
+          "properties": {
+            "key": {
+              "description": "Type of the secret.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SecureString"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "key"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The base definition of a secret type.",
+          "properties": {
+            "resourceId": {
+              "description": "The resource ID of the integration runtime to be shared.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "resourceId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -6552,6 +8116,1409 @@
         ]
       },
       "description": "The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.",
+      "oneOf": [
+        {
+          "description": "Amazon Marketplace Web Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Amazon Marketplace Web Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AmazonMWSLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for Amazon Redshift.",
+          "properties": {
+            "typeProperties": {
+              "description": "Amazon Redshift linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AmazonRedshiftLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for Amazon S3.",
+          "properties": {
+            "typeProperties": {
+              "description": "Amazon S3 linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AmazonS3LinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Batch linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Batch linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureBatchLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Lake Analytics linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Data Lake Analytics linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureDataLakeAnalyticsLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Lake Store linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Data Lake Store linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureDataLakeStoreLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Databricks linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Databricks linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureDatabricksLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Key Vault linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Key Vault linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureKeyVaultLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure ML Web Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure ML Web Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureMLLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure MySQL database linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure MySQL database linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureMySqlLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure PostgreSQL linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure PostgreSQL linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzurePostgreSqlLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for Windows Azure Search Service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Windows Azure Search Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSearchLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure SQL Data Warehouse linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure SQL Data Warehouse linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSqlDWLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Microsoft Azure SQL Database linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure SQL Database linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureSqlDatabaseLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "The storage account linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Azure Storage linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AzureStorageLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for Cassandra data source.",
+          "properties": {
+            "typeProperties": {
+              "description": "Cassandra linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CassandraLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Concur Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Concur Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConcurLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Microsoft Azure Cosmos Database (CosmosDB) linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "CosmosDB linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CosmosDbLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Couchbase server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Couchbase server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CouchbaseLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Custom linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Custom linked service properties.",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for DB2 data source.",
+          "properties": {
+            "typeProperties": {
+              "description": "DB2 linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/Db2LinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Drill server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Drill server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DrillLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Dynamics linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Dynamics linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/DynamicsLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Eloqua server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Eloqua server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/EloquaLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "File system linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "File system linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FileServerLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "A FTP server Linked Service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Properties specific to this linked service type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FtpServerLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Google BigQuery service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Google BigQuery service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GoogleBigQueryLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Greenplum Database linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Greenplum Database linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GreenplumLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HBase server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "HBase server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HBaseLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HDInsight linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "HDInsight linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "HDInsight ondemand linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "HDInsight ondemand linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HDInsightOnDemandLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Hadoop Distributed File System (HDFS) linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "HDFS linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HdfsLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Hive Server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Hive Server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HiveLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for an HTTP source.",
+          "properties": {
+            "typeProperties": {
+              "description": "Properties specific to this linked service type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HttpLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Hubspot Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Hubspot Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/HubspotLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Impala server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Impala server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ImpalaLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Jira Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Jira Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/JiraLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Magento server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Magento server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MagentoLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "MariaDB server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "MariaDB server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MariaDBLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Marketo server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Marketo server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MarketoLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for MongoDb data source.",
+          "properties": {
+            "typeProperties": {
+              "description": "MongoDB linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MongoDbLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for MySQL data source.",
+          "properties": {
+            "typeProperties": {
+              "description": "MySQL linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MySqlLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Netezza linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Netezza linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/NetezzaLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Open Data Protocol (OData) linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "OData linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ODataLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Open Database Connectivity (ODBC) linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "ODBC linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OdbcLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Oracle database.",
+          "properties": {
+            "typeProperties": {
+              "description": "Oracle database linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OracleLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Paypal Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Paypal Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PaypalLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Phoenix server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Phoenix server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PhoenixLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for PostgreSQL data source.",
+          "properties": {
+            "typeProperties": {
+              "description": "PostgreSQL linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PostgreSqlLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Presto server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Presto server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/PrestoLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "QuickBooks server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "QuickBooks server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/QuickBooksLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Responsys linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Responsys linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ResponsysLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for Salesforce.",
+          "properties": {
+            "typeProperties": {
+              "description": "Salesforce linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SalesforceLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Salesforce Marketing Cloud linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Salesforce Marketing Cloud linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SalesforceMarketingCloudLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "SAP Business Warehouse Linked Service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Properties specific to this linked service type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SapBWLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for SAP Cloud for Customer.",
+          "properties": {
+            "typeProperties": {
+              "description": "SAP Cloud for Customer linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SapCloudForCustomerLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for SAP ERP Central Component(SAP ECC).",
+          "properties": {
+            "typeProperties": {
+              "description": "SAP ECC linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SapEccLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "SAP HANA Linked Service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Properties specific to this linked service type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SapHanaLinkedServiceProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "ServiceNow server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "ServiceNow server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ServiceNowLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "A linked service for an SSH File Transfer Protocol (SFTP) server. ",
+          "properties": {
+            "typeProperties": {
+              "description": "Properties specific to this linked service type.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SftpServerLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Shopify Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Shopify Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ShopifyLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Spark Server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Spark Server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SparkLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "SQL Server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "SQL Server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SqlServerLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Square Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Square Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SquareLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for Sybase data source.",
+          "properties": {
+            "typeProperties": {
+              "description": "Sybase linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SybaseLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Linked service for Teradata data source.",
+          "properties": {
+            "typeProperties": {
+              "description": "Teradata linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TeradataLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Vertica linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Vertica linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/VerticaLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Web linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Web linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/WebLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Xero Service linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Xero Service linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/XeroLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Zoho server linked service.",
+          "properties": {
+            "typeProperties": {
+              "description": "Zoho server linked service properties.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ZohoLinkedServiceTypeProperties"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "typeProperties"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "annotations": {
           "description": "List of tags that can be used for describing the Dataset.",
@@ -8668,6 +11635,66 @@
     },
     "SecretBase": {
       "description": "The base definition of a secret type.",
+      "oneOf": [
+        {
+          "description": "Azure Key Vault secret reference.",
+          "properties": {
+            "secretName": {
+              "description": "The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "secretVersion": {
+              "description": "The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "store": {
+              "description": "The Azure Key Vault linked service reference.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/LinkedServiceReference"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "store",
+            "secretName"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.",
+          "properties": {
+            "value": {
+              "description": "Value of secure string.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -10036,6 +13063,28 @@
         ]
       },
       "description": "Azure data factory nested object which contains information about creating pipeline run",
+      "oneOf": [
+        {
+          "description": "Base class for all triggers that support one to many model for trigger to pipeline.",
+          "properties": {
+            "pipelines": {
+              "description": "Pipelines that need to be started.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/TriggerPipelineReference"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "Trigger description.",
@@ -10332,6 +13381,78 @@
     },
     "WebLinkedServiceTypeProperties": {
       "description": "Base definition of WebLinkedServiceTypeProperties, this typeProperties is polymorphic based on authenticationType, so not flattened in SDK models.",
+      "oneOf": [
+        {
+          "description": "A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.",
+          "properties": {
+            "password": {
+              "description": "The password for Basic authentication.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SecretBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "username": {
+              "description": "User name for Basic authentication. Type: string (or Expression with resultType string).",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "username",
+            "password"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.",
+          "properties": {
+            "password": {
+              "description": "Password for the PFX file.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SecretBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "pfx": {
+              "description": "Base64-encoded contents of a PFX file.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SecretBase"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "pfx",
+            "password"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "url": {
           "description": "The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).",

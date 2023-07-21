@@ -1359,6 +1359,51 @@
     },
     "CertificateProperties": {
       "description": "Certificate resource payload.",
+      "oneOf": [
+        {
+          "description": "Properties of certificate imported from key vault.",
+          "properties": {
+            "content": {
+              "description": "The content of uploaded certificate.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties of certificate imported from key vault.",
+          "properties": {
+            "certVersion": {
+              "description": "The certificate version of key vault.",
+              "type": "string"
+            },
+            "excludePrivateKey": {
+              "description": "Optional. If set to true, it will not import private key from key vault.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "keyVaultCertName": {
+              "description": "The certificate name of key vault.",
+              "type": "string"
+            },
+            "vaultUri": {
+              "description": "The vault uri of user key vault.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "vaultUri",
+            "keyVaultCertName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -1738,6 +1783,21 @@
     },
     "CustomPersistentDiskProperties": {
       "description": "Custom persistent disk resource payload.",
+      "oneOf": [
+        {
+          "description": "The properties of the Azure File volume. Azure File shares are mounted as volumes.",
+          "properties": {
+            "shareName": {
+              "description": "The share name of the Azure File share.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "shareName"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "mountOptions": {
           "description": "These are the mount options for a persistent disk.",
@@ -3254,6 +3314,26 @@
     },
     "StorageProperties": {
       "description": "Storage resource payload.",
+      "oneOf": [
+        {
+          "description": "storage resource of type Azure Storage Account.",
+          "properties": {
+            "accountKey": {
+              "description": "The account key of the Azure Storage Account.",
+              "type": "string"
+            },
+            "accountName": {
+              "description": "The account name of the Azure Storage Account.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "accountName",
+            "accountKey"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },
@@ -3285,6 +3365,89 @@
     },
     "UserSourceInfo": {
       "description": "Source information for a deployment",
+      "oneOf": [
+        {
+          "description": "Reference to a build result",
+          "properties": {
+            "buildResultId": {
+              "description": "Resource id of an existing succeeded build result under the same Spring instance.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Custom container user source info",
+          "properties": {
+            "customContainer": {
+              "description": "Custom container payload",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CustomContainer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Uploaded Jar binary for a deployment",
+          "properties": {
+            "jvmOptions": {
+              "description": "JVM parameter",
+              "type": "string"
+            },
+            "relativePath": {
+              "description": "Relative path of the storage which stores the source",
+              "type": "string"
+            },
+            "runtimeVersion": {
+              "description": "Runtime version of the Jar file",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Uploaded Jar binary for a deployment",
+          "properties": {
+            "netCoreMainEntryPath": {
+              "description": "The path to the .NET executable relative to zip root",
+              "type": "string"
+            },
+            "relativePath": {
+              "description": "Relative path of the storage which stores the source",
+              "type": "string"
+            },
+            "runtimeVersion": {
+              "description": "Runtime version of the .Net file",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Uploaded Java source code binary for a deployment",
+          "properties": {
+            "artifactSelector": {
+              "description": "Selector for the artifact to be used for the deployment for multi-module projects. This should be\r\nthe relative path to the target module/project.",
+              "type": "string"
+            },
+            "relativePath": {
+              "description": "Relative path of the storage which stores the source",
+              "type": "string"
+            },
+            "runtimeVersion": {
+              "description": "Runtime version of the source file",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "version": {
           "description": "Version of the source",

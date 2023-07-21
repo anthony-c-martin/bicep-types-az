@@ -541,6 +541,146 @@
     },
     "ConnectionInfo": {
       "description": "Defines the connection properties of a server",
+      "oneOf": [
+        {
+          "description": "Properties required to create a connection to Azure SQL database Managed instance",
+          "properties": {
+            "managedInstanceResourceId": {
+              "description": "Resource id for Azure SQL database Managed instance",
+              "type": "string"
+            }
+          },
+          "required": [
+            "managedInstanceResourceId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Information for connecting to MySQL server",
+          "properties": {
+            "port": {
+              "description": "Port for Server",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "Name of the server",
+              "type": "string"
+            }
+          },
+          "required": [
+            "serverName",
+            "port"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Information for connecting to PostgreSQL server",
+          "properties": {
+            "databaseName": {
+              "description": "Name of the database",
+              "type": "string"
+            },
+            "port": {
+              "description": "Port for Server",
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "serverName": {
+              "description": "Name of the server",
+              "type": "string"
+            }
+          },
+          "required": [
+            "serverName",
+            "port"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Information for connecting to SQL database server",
+          "properties": {
+            "additionalSettings": {
+              "description": "Additional connection settings",
+              "type": "string"
+            },
+            "authentication": {
+              "description": "Authentication type to use for connection",
+              "oneOf": [
+                {
+                  "enum": [
+                    "None",
+                    "WindowsAuthentication",
+                    "SqlAuthentication",
+                    "ActiveDirectoryIntegrated",
+                    "ActiveDirectoryPassword"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "dataSource": {
+              "description": "Data source in the format Protocol:MachineName\\SQLServerInstanceName,PortNumber",
+              "type": "string"
+            },
+            "encryptConnection": {
+              "description": "Whether to encrypt the connection",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "platform": {
+              "description": "Server platform type for connection",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SqlOnPrem"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "trustServerCertificate": {
+              "description": "Whether to trust the server certificate",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "dataSource"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "password": {
           "description": "Password credential.",
@@ -1652,6 +1792,382 @@
     },
     "ProjectTaskProperties": {
       "description": "Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.",
+      "oneOf": [
+        {
+          "description": "Properties for the task that validates MySQL database connection",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToSourceMySqlTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToSourcePostgreSqlSyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to SQL Server and also validates source server requirements",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToSourceSqlServerTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to SQL Server and source server requirements for online migration",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToSourceSqlServerTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to Azure Database for MySQL and target server requirements",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToTargetAzureDbForMySqlTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToTargetAzureDbForPostgreSqlSyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to Azure SQL Database Managed Instance",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToTargetSqlMITaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to Azure SQL Database Managed Instance",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToTargetSqlMISyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to SQL DB and target server requirements",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToTargetSqlDbTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that validates connection to SQL DB and target server requirements for online migration",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ConnectToTargetSqlDbSyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that gets TDE certificates in Base64 encoded format.",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GetTdeCertificatesSqlTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that collects user tables for the given list of databases",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GetUserTablesSqlSyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that collects user tables for the given list of databases",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/GetUserTablesSqlTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MigrateMySqlAzureDbForMySqlSyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MigrateSqlServerSqlDbSyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MigrateSqlServerSqlMITaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MigrateSqlServerSqlMISyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/MigrateSqlServerSqlDbTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ValidateMigrationInputSqlServerSqlMITaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ValidateMigrationInputSqlServerSqlMISyncTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties for task that validates migration input for SQL to Azure SQL DB sync migrations",
+          "properties": {
+            "input": {
+              "description": "Task input",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ValidateSyncMigrationInputSqlServerTaskInput"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

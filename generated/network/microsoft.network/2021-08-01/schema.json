@@ -12057,6 +12057,341 @@
     },
     "FirewallPolicyRule": {
       "description": "Properties of a rule.",
+      "oneOf": [
+        {
+          "description": "Rule of type application.",
+          "properties": {
+            "destinationAddresses": {
+              "description": "List of destination IP addresses or Service Tags.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "fqdnTags": {
+              "description": "List of FQDN Tags for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "protocols": {
+              "description": "Array of Application Protocols.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/FirewallPolicyRuleApplicationProtocol"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceAddresses": {
+              "description": "List of source IP addresses for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceIpGroups": {
+              "description": "List of source IpGroups for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetFqdns": {
+              "description": "List of FQDNs for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetUrls": {
+              "description": "List of Urls for this rule condition.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "terminateTLS": {
+              "description": "Terminate TLS connections for this rule.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "webCategories": {
+              "description": "List of destination azure web categories.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Rule of type nat.",
+          "properties": {
+            "destinationAddresses": {
+              "description": "List of destination IP addresses or Service Tags.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "destinationPorts": {
+              "description": "List of destination ports.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ipProtocols": {
+              "description": "Array of FirewallPolicyRuleNetworkProtocols.",
+              "oneOf": [
+                {
+                  "items": {
+                    "enum": [
+                      "TCP",
+                      "UDP",
+                      "Any",
+                      "ICMP"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceAddresses": {
+              "description": "List of source IP addresses for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceIpGroups": {
+              "description": "List of source IpGroups for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "translatedAddress": {
+              "description": "The translated address for this NAT rule.",
+              "type": "string"
+            },
+            "translatedFqdn": {
+              "description": "The translated FQDN for this NAT rule.",
+              "type": "string"
+            },
+            "translatedPort": {
+              "description": "The translated port for this NAT rule.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Rule of type network.",
+          "properties": {
+            "destinationAddresses": {
+              "description": "List of destination IP addresses or Service Tags.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "destinationFqdns": {
+              "description": "List of destination FQDNs.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "destinationIpGroups": {
+              "description": "List of destination IpGroups for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "destinationPorts": {
+              "description": "List of destination ports.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "ipProtocols": {
+              "description": "Array of FirewallPolicyRuleNetworkProtocols.",
+              "oneOf": [
+                {
+                  "items": {
+                    "enum": [
+                      "TCP",
+                      "UDP",
+                      "Any",
+                      "ICMP"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceAddresses": {
+              "description": "List of source IP addresses for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "sourceIpGroups": {
+              "description": "List of source IpGroups for this rule.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "description": {
           "description": "Description of the rule.",
@@ -12103,6 +12438,70 @@
     },
     "FirewallPolicyRuleCollection": {
       "description": "Properties of the rule collection.",
+      "oneOf": [
+        {
+          "description": "Firewall Policy Filter Rule Collection.",
+          "properties": {
+            "action": {
+              "description": "The action type of a Filter rule collection.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FirewallPolicyFilterRuleCollectionAction"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "rules": {
+              "description": "List of rules included in a rule collection.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/FirewallPolicyRule"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Firewall Policy NAT Rule Collection.",
+          "properties": {
+            "action": {
+              "description": "The action type of a Nat rule collection.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/FirewallPolicyNatRuleCollectionAction"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "rules": {
+              "description": "List of rules included in a rule collection.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/FirewallPolicyRule"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "The name of the rule collection.",

@@ -317,6 +317,74 @@
     },
     "DigitalTwinsEndpointResourceProperties": {
       "description": "Properties related to Digital Twins Endpoint",
+      "oneOf": [
+        {
+          "description": "Properties related to EventGrid.",
+          "properties": {
+            "TopicEndpoint": {
+              "description": "EventGrid Topic Endpoint.",
+              "type": "string"
+            },
+            "accessKey1": {
+              "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "accessKey2": {
+              "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "TopicEndpoint",
+            "accessKey1"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Properties related to EventHub.",
+          "properties": {
+            "connectionStringPrimaryKey": {
+              "description": "PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "connectionStringSecondaryKey": {
+              "description": "SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "endpointUri": {
+              "description": "The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.",
+              "type": "string"
+            },
+            "entityPath": {
+              "description": "The EventHub name in the EventHub namespace for identity-based authentication.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Properties related to ServiceBus.",
+          "properties": {
+            "endpointUri": {
+              "description": "The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.",
+              "type": "string"
+            },
+            "entityPath": {
+              "description": "The ServiceBus Topic name for identity-based authentication.",
+              "type": "string"
+            },
+            "primaryConnectionString": {
+              "description": "PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            },
+            "secondaryConnectionString": {
+              "description": "SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "authenticationType": {
           "description": "Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.",
@@ -480,6 +548,54 @@
     },
     "TimeSeriesDatabaseConnectionProperties": {
       "description": "Properties of a time series database connection resource.",
+      "oneOf": [
+        {
+          "description": "Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.",
+          "properties": {
+            "adxDatabaseName": {
+              "description": "The name of the Azure Data Explorer database.",
+              "type": "string"
+            },
+            "adxEndpointUri": {
+              "description": "The URI of the Azure Data Explorer endpoint.",
+              "type": "string"
+            },
+            "adxResourceId": {
+              "description": "The resource ID of the Azure Data Explorer cluster.",
+              "type": "string"
+            },
+            "adxTableName": {
+              "description": "The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.",
+              "type": "string"
+            },
+            "eventHubConsumerGroup": {
+              "description": "The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.",
+              "type": "string"
+            },
+            "eventHubEndpointUri": {
+              "description": "The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://",
+              "type": "string"
+            },
+            "eventHubEntityPath": {
+              "description": "The EventHub name in the EventHub namespace for identity-based authentication.",
+              "type": "string"
+            },
+            "eventHubNamespaceResourceId": {
+              "description": "The resource ID of the EventHub namespace.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "adxResourceId",
+            "adxEndpointUri",
+            "adxDatabaseName",
+            "eventHubEndpointUri",
+            "eventHubEntityPath",
+            "eventHubNamespaceResourceId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "identity": {
           "description": "Managed identity properties for the time series database connection resource.",

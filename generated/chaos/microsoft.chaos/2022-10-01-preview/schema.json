@@ -186,6 +186,84 @@
   "definitions": {
     "Action": {
       "description": "Model that represents the base action model.",
+      "oneOf": [
+        {
+          "description": "Model that represents a continuous action.",
+          "properties": {
+            "duration": {
+              "description": "ISO8601 formatted string that represents a duration.",
+              "type": "string"
+            },
+            "parameters": {
+              "description": "List of key value pairs.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/KeyValuePair"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "selectorId": {
+              "description": "String that represents a selector.",
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "duration",
+            "parameters",
+            "selectorId"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Model that represents a delay action.",
+          "properties": {
+            "duration": {
+              "description": "ISO8601 formatted string that represents a duration.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "duration"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Model that represents a discrete action.",
+          "properties": {
+            "parameters": {
+              "description": "List of key value pairs.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/KeyValuePair"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "selectorId": {
+              "description": "String that represents a selector.",
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "parameters",
+            "selectorId"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "name": {
           "description": "String that represents a Capability URN.",
@@ -278,6 +356,25 @@
     },
     "Filter": {
       "description": "Model that represents available filter types that can be applied to a targets list.",
+      "oneOf": [
+        {
+          "description": "Model that represents a simple target filter.",
+          "properties": {
+            "parameters": {
+              "description": "Model that represents the Simple filter parameters.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SimpleFilterParameters"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {},
       "type": "object"
     },

@@ -154,6 +154,29 @@
   "definitions": {
     "TemplateSpecArtifact": {
       "description": "Represents a Template Spec artifact.",
+      "oneOf": [
+        {
+          "description": "Represents a Template Spec artifact containing an embedded Azure Resource Manager template.",
+          "properties": {
+            "template": {
+              "description": "The Azure Resource Manager template.",
+              "oneOf": [
+                {
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "template"
+          ],
+          "type": "object"
+        }
+      ],
       "properties": {
         "path": {
           "description": "A filesystem safe relative path of the artifact.",

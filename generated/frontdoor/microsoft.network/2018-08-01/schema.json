@@ -796,6 +796,28 @@
     },
     "ManagedRuleSet": {
       "description": "Base class for all types of ManagedRuleSet.",
+      "oneOf": [
+        {
+          "description": "Describes azure managed provider.",
+          "properties": {
+            "ruleGroupOverrides": {
+              "description": "List of azure managed provider override configuration (optional)",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/AzureManagedOverrideRuleGroup"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ],
       "properties": {
         "priority": {
           "description": "Describes priority of the rule",
