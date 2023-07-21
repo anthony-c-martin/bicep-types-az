@@ -1687,6 +1687,8 @@
           "description": "Specifies the number of days after which data that is not accessed by clients will be tiered.",
           "oneOf": [
             {
+              "maximum": 63,
+              "minimum": 7,
               "type": "integer"
             },
             {
@@ -1971,6 +1973,8 @@
           "description": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.",
           "oneOf": [
             {
+              "maximum": 549755813888000,
+              "minimum": 107374182400,
               "type": "integer"
             },
             {

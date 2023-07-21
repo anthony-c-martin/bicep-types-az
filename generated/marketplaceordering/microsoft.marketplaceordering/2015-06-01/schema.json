@@ -14,8 +14,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/current$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/current$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Represents the properties of the resource.",

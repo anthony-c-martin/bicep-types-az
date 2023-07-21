@@ -202,8 +202,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/activeDirectory$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/activeDirectory$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Workspace active directory administrator properties",
@@ -942,8 +949,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Sql Control Settings for workspace managed identity",
@@ -1069,8 +1083,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/activeDirectory$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/activeDirectory$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Workspace active directory administrator properties",
@@ -1260,8 +1281,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/Default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/Default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the data masking policy.",
@@ -1446,8 +1474,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/config$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/config$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Metadata Sync Config properties",
@@ -1485,8 +1520,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/current$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/current$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Resource properties.",
@@ -1809,8 +1851,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -3128,6 +3177,7 @@
           "description": "Maximum parallel executions count per node for managed integration runtime.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3143,6 +3193,7 @@
           "description": "The required number of nodes for managed integration runtime.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3241,6 +3292,7 @@
           "description": "Time to live (in minutes) setting of the cluster which will execute data flow job.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -5182,10 +5234,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "activeDirectory"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "activeDirectory"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Workspace active directory administrator properties",
@@ -5895,10 +5954,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Sql Control Settings for workspace managed identity",
@@ -6024,10 +6090,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "activeDirectory"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "activeDirectory"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Workspace active directory administrator properties",
@@ -6183,10 +6256,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "Default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "Default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the data masking policy.",
@@ -6361,10 +6441,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "config"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "config"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Metadata Sync Config properties",
@@ -6627,10 +6714,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

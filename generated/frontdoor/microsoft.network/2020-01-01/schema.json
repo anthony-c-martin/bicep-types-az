@@ -163,6 +163,8 @@
           "description": "The HTTP TCP port number. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -174,6 +176,8 @@
           "description": "The HTTPS TCP port number. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -185,6 +189,8 @@
           "description": "Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.",
           "oneOf": [
             {
+              "maximum": 5,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -204,6 +210,8 @@
           "description": "Weight of this endpoint for load balancing purposes.",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -303,6 +311,7 @@
           "description": "Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.",
           "oneOf": [
             {
+              "minimum": 16,
               "type": "integer"
             },
             {

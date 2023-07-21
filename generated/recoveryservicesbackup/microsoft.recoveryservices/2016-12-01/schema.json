@@ -84,8 +84,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/vaultstorageconfig$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/vaultstorageconfig$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "BackupResourceConfigResource properties",

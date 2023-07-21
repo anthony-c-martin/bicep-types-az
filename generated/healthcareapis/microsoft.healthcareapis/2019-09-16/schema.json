@@ -196,6 +196,8 @@
           "description": "The max age to be allowed via CORS.",
           "oneOf": [
             {
+              "maximum": 99999,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -242,6 +244,7 @@
           "description": "The provisioned throughput for the backing database.",
           "oneOf": [
             {
+              "minimum": 400,
               "type": "integer"
             },
             {

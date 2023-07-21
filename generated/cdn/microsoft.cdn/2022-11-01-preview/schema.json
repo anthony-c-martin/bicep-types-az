@@ -961,6 +961,8 @@
           "description": "Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.",
           "oneOf": [
             {
+              "maximum": 50,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1019,6 +1021,8 @@
           "description": "The value of the HTTP port. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1030,6 +1034,8 @@
           "description": "The value of the HTTPS port. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1045,6 +1051,8 @@
           "description": "Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5",
           "oneOf": [
             {
+              "maximum": 5,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1067,6 +1075,8 @@
           "description": "Weight of the origin in given origin group for load balancing. Must be between 1 and 1000",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1649,6 +1659,8 @@
           "description": "Defines in what order this rule be evaluated in the overall list of custom rules",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1776,6 +1788,8 @@
           "description": "Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.",
           "oneOf": [
             {
+              "maximum": 50,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1811,6 +1825,8 @@
           "description": "The value of the HTTP port. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1822,6 +1838,8 @@
           "description": "The value of the HTTPS port. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1837,6 +1855,8 @@
           "description": "Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.",
           "oneOf": [
             {
+              "maximum": 5,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1864,6 +1884,8 @@
           "description": "Weight of the origin in given origin group for load balancing. Must be between 1 and 1000",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2833,6 +2855,8 @@
           "description": "The number of seconds between health probes.Default is 240sec.",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2980,6 +3004,8 @@
           "description": "The inclusive start of the http status code range.",
           "oneOf": [
             {
+              "maximum": 999,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -2991,6 +3017,8 @@
           "description": "The inclusive end of the http status code range.",
           "oneOf": [
             {
+              "maximum": 999,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -3341,6 +3369,8 @@
           "description": "Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.",
           "oneOf": [
             {
+              "maximum": 20,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -3658,6 +3688,8 @@
           "description": "Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.",
           "oneOf": [
             {
+              "maximum": 50,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -3690,6 +3722,8 @@
           "description": "The value of the HTTP port. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3701,6 +3735,8 @@
           "description": "The value of the HTTPS port. Must be between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3716,6 +3752,8 @@
           "description": "Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5",
           "oneOf": [
             {
+              "maximum": 5,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3743,6 +3781,8 @@
           "description": "Weight of the origin in given origin group for load balancing. Must be between 1 and 1000",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3928,6 +3968,7 @@
           "description": "Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.",
           "oneOf": [
             {
+              "minimum": 16,
               "type": "integer"
             },
             {
@@ -4089,6 +4130,8 @@
           "description": "Defines in what order this rule be evaluated in the overall list of custom rules",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -4100,6 +4143,8 @@
           "description": "Defines rate limit duration. Default is 1 minute.",
           "oneOf": [
             {
+              "maximum": 60,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -4111,6 +4156,7 @@
           "description": "Defines rate limit threshold.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -4752,6 +4798,8 @@
           "description": "The percentage of failed requests in the sample where failover should trigger.",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {

@@ -108,8 +108,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/activeDirectory$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/activeDirectory$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties of the server AAD administrator.",
@@ -682,6 +689,7 @@
           "description": "The scale up/out capacity, representing server's compute units.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -815,10 +823,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "activeDirectory"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "activeDirectory"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties of the server AAD administrator.",

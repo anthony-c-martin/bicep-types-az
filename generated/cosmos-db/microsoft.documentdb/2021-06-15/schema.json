@@ -286,8 +286,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -344,8 +351,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -541,8 +555,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -599,8 +620,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -796,8 +824,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -854,8 +889,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -1194,8 +1236,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -1368,8 +1417,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -1572,8 +1628,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -2107,6 +2170,8 @@
           "description": "When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.",
           "oneOf": [
             {
+              "maximum": 86400,
+              "minimum": 5,
               "type": "integer"
             },
             {
@@ -2118,6 +2183,8 @@
           "description": "When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.",
           "oneOf": [
             {
+              "maximum": 2147483647,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2168,6 +2235,8 @@
           "description": "Indicates the version of the partition key definition",
           "oneOf": [
             {
+              "maximum": 2,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2201,6 +2270,8 @@
           "description": "The maximum amount time that a browser should cache the preflight OPTIONS request.",
           "oneOf": [
             {
+              "maximum": 2147483647,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2921,6 +2992,7 @@
           "description": "The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -3195,6 +3267,7 @@
           "description": "An integer representing the interval in minutes between two backups",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -3206,6 +3279,7 @@
           "description": "An integer representing the time (in hours) that each backup is retained",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -4095,10 +4169,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -4155,10 +4236,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -4331,10 +4419,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -4391,10 +4486,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -4567,10 +4669,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -4627,10 +4736,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -4937,10 +5053,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -5113,10 +5236,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",
@@ -5309,10 +5439,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties to update Azure Cosmos DB resource throughput.",

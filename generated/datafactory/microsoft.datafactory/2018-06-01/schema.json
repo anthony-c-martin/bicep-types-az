@@ -2294,6 +2294,8 @@
           "description": "Interval between each retry attempt (in seconds). The default is 30 sec.",
           "oneOf": [
             {
+              "maximum": 86400,
+              "minimum": 30,
               "type": "integer"
             },
             {
@@ -3122,6 +3124,8 @@
           "description": "",
           "oneOf": [
             {
+              "maximum": 9,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -7164,6 +7168,7 @@
           "description": "DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256.",
           "oneOf": [
             {
+              "minimum": 4,
               "type": "integer"
             },
             {
@@ -7175,6 +7180,7 @@
           "description": "Time to live (in minutes) setting of integration runtime which will execute copy activity.",
           "oneOf": [
             {
+              "minimum": 5,
               "type": "integer"
             },
             {
@@ -17478,6 +17484,7 @@
           "description": "The max concurrent connections to connect data source at the same time.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -19703,6 +19710,7 @@
           "description": "Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).",
           "oneOf": [
             {
+              "maximum": 50,
               "type": "integer"
             },
             {
@@ -22875,6 +22883,7 @@
           "description": "Maximum parallel executions count per node for managed integration runtime.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -22890,6 +22899,7 @@
           "description": "The required number of nodes for managed integration runtime.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -23023,6 +23033,7 @@
           "description": "Time to live (in minutes) setting of the cluster which will execute data flow job.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -28899,6 +28910,7 @@
           "description": "The max number of concurrent runs for the pipeline.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -29017,6 +29029,7 @@
           "description": "Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.",
           "oneOf": [
             {
+              "minimum": 5,
               "type": "integer"
             },
             {
@@ -30115,6 +30128,8 @@
           "description": "The max number of parallel time windows (ready for execution) for which a rerun is triggered.",
           "oneOf": [
             {
+              "maximum": 50,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -30529,6 +30544,8 @@
           "description": "Interval between retries in seconds. Default is 30.",
           "oneOf": [
             {
+              "maximum": 86400,
+              "minimum": 30,
               "type": "integer"
             },
             {
@@ -37098,6 +37115,8 @@
           "description": "The max number of parallel time windows (ready for execution) for which a new run is triggered.",
           "oneOf": [
             {
+              "maximum": 50,
+              "minimum": 1,
               "type": "integer"
             },
             {

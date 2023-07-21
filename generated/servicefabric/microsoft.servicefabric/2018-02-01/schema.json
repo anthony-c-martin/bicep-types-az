@@ -261,6 +261,8 @@
           "description": "The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.\n\nThe percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.\nIf the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.\nThis is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.\nThe computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -272,6 +274,8 @@
           "description": "The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.\n\nThe percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.\nIf the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.\nThe percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.\nThe computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.\n\nIn large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -512,6 +516,8 @@
           "description": "The maximum allowed percentage of applications health degradation allowed during cluster upgrades.\nThe delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.\nThe check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -523,6 +529,8 @@
           "description": "The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.\nThe delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.\nThe check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -534,6 +542,8 @@
           "description": "The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.\nThe delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.\nThe check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -809,6 +819,8 @@
           "description": "The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.",
           "oneOf": [
             {
+              "maximum": 2147483647,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -892,6 +904,8 @@
           "description": "The maximum allowed percentage of services health degradation allowed during cluster upgrades.\nThe delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.\nThe check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -909,6 +923,8 @@
           "description": "The maximum percentage of services allowed to be unhealthy before your application is considered in error.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {

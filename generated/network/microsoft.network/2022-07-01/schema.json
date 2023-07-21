@@ -1537,8 +1537,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Will contain the properties of the resource (the actual signature overrides)",
@@ -5326,10 +5333,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "swap"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "swap"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Swap resource properties",
@@ -5504,6 +5518,7 @@
           "description": "Upper bound on number of Application Gateway capacity.",
           "oneOf": [
             {
+              "minimum": 2,
               "type": "integer"
             },
             {
@@ -5515,6 +5530,7 @@
           "description": "Lower bound on number of Application Gateway capacity.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -5905,6 +5921,8 @@
           "description": "The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.",
           "oneOf": [
             {
+              "maximum": 3600,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -6555,6 +6573,8 @@
           "description": "Weight per server. Range between 1 and 100.",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -6929,6 +6949,8 @@
           "description": "Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -7594,6 +7616,8 @@
           "description": "Priority of the request routing rule.",
           "oneOf": [
             {
+              "maximum": 20000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -7889,6 +7913,8 @@
           "description": "Priority of the routing rule.",
           "oneOf": [
             {
+              "maximum": 20000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -8447,6 +8473,7 @@
           "description": "Maximum file upload size in Mb for WAF.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -8473,6 +8500,8 @@
           "description": "Maximum request body size for WAF.",
           "oneOf": [
             {
+              "maximum": 128,
+              "minimum": 8,
               "type": "integer"
             },
             {
@@ -8484,6 +8513,8 @@
           "description": "Maximum request body size in Kb for WAF.",
           "oneOf": [
             {
+              "maximum": 128,
+              "minimum": 8,
               "type": "integer"
             },
             {
@@ -8716,6 +8747,8 @@
           "description": "Priority of the application rule collection resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -8747,6 +8780,8 @@
           "description": "Port number for the protocol, cannot be greater than 64000. This field is optional.",
           "oneOf": [
             {
+              "maximum": 64000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -8992,6 +9027,8 @@
           "description": "Priority of the NAT rule collection resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -9177,6 +9214,8 @@
           "description": "Priority of the network rule collection resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -9654,6 +9693,8 @@
           "description": "The scale units for the Bastion Host resource.",
           "oneOf": [
             {
+              "maximum": 50,
+              "minimum": 2,
               "type": "integer"
             },
             {
@@ -9682,6 +9723,8 @@
           "description": "Peer ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -9703,6 +9746,8 @@
           "description": "The BGP speaker's ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -9796,6 +9841,8 @@
           "description": "The destination port used by connection monitor.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -10021,6 +10068,8 @@
           "description": "The port to connect to.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -10161,6 +10210,8 @@
           "description": "Monitoring interval in seconds.",
           "oneOf": [
             {
+              "maximum": 1800,
+              "minimum": 30,
               "type": "integer"
             },
             {
@@ -10235,6 +10286,8 @@
           "description": "The source port used by connection monitor.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -10313,6 +10366,8 @@
           "description": "The port to connect to.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -11293,6 +11348,8 @@
           "description": "Port number for explicit proxy http protocol, cannot be greater than 64000.",
           "oneOf": [
             {
+              "maximum": 64000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -11304,6 +11361,8 @@
           "description": "Port number for explicit proxy https protocol, cannot be greater than 64000.",
           "oneOf": [
             {
+              "maximum": 64000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -11319,6 +11378,8 @@
           "description": "Port number for firewall to serve PAC file.",
           "oneOf": [
             {
+              "maximum": 64000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -11590,6 +11651,8 @@
           "description": "The peer ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -12107,6 +12170,8 @@
           "description": "The peer ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -13363,6 +13428,8 @@
           "description": "Port number for the protocol, cannot be greater than 64000.",
           "oneOf": [
             {
+              "maximum": 64000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -13463,6 +13530,8 @@
           "description": "Priority of the Firewall Policy Rule Collection resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -13480,6 +13549,8 @@
           "description": "Priority of the Firewall Policy Rule Collection Group resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -14557,6 +14628,8 @@
           "description": "NVA port ranges to be opened up. One needs to provide specific ports.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -16478,6 +16551,8 @@
           "description": "VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -16977,6 +17052,8 @@
           "description": "Number of bytes captured per packet, the remaining bytes are truncated.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -17043,6 +17120,8 @@
           "description": "Maximum duration of the capture session in seconds.",
           "oneOf": [
             {
+              "maximum": 18000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -17054,6 +17133,8 @@
           "description": "Maximum size of the capture output.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -17159,6 +17240,7 @@
           "description": "If the action type is block, customer can override the response status code.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -17170,6 +17252,7 @@
           "description": "Maximum file upload size in Mb for WAF.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -17181,6 +17264,7 @@
           "description": "Maximum request body size in Kb for WAF.",
           "oneOf": [
             {
+              "minimum": 8,
               "type": "integer"
             },
             {
@@ -20008,6 +20092,8 @@
           "description": "VirtualRouter ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -21529,6 +21615,7 @@
           "description": "The minimum number of scale units for VirtualHub Router.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -21546,6 +21633,8 @@
           "description": "Peer ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -21589,6 +21678,8 @@
           "description": "VirtualRouter ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -23555,10 +23646,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Will contain the properties of the resource (the actual signature overrides)",

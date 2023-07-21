@@ -149,6 +149,8 @@
           "description": "Time window for resetting the rate limit count. Default is 1 minute.",
           "oneOf": [
             {
+              "maximum": 5,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -160,6 +162,7 @@
           "description": "Number of allowed requests per client within the time window.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {

@@ -551,8 +551,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/current$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/current$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Resource properties.",
@@ -1012,8 +1019,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/current$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/current$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Resource properties.",
@@ -1773,8 +1787,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/current$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/current$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Resource properties.",
@@ -7232,10 +7253,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "current"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Resource properties.",

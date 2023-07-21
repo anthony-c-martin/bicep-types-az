@@ -587,6 +587,8 @@
           "description": "Defines in what order this rule be evaluated in the overall list of custom rules",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -658,6 +660,8 @@
           "description": "The value of the HTTP port. Must be between 1 and 65535",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -669,6 +673,8 @@
           "description": "The value of the HTTPS port. Must be between 1 and 65535",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1663,6 +1669,8 @@
           "description": "Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.",
           "oneOf": [
             {
+              "maximum": 20,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -2157,6 +2165,8 @@
           "description": "Defines in what order this rule be evaluated in the overall list of custom rules",
           "oneOf": [
             {
+              "maximum": 1000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -2168,6 +2178,8 @@
           "description": "Defines rate limit duration. Default is 1 minute.",
           "oneOf": [
             {
+              "maximum": 60,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -2179,6 +2191,7 @@
           "description": "Defines rate limit threshold.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {

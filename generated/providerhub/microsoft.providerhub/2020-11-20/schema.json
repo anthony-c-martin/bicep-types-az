@@ -206,8 +206,15 @@
           ]
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -3506,10 +3513,17 @@
           ]
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

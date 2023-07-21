@@ -319,6 +319,8 @@
           "description": "The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.",
           "oneOf": [
             {
+              "maximum": 730,
+              "minimum": 4,
               "type": "integer"
             },
             {
@@ -352,6 +354,8 @@
           "description": "The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.",
           "oneOf": [
             {
+              "maximum": 2555,
+              "minimum": 4,
               "type": "integer"
             },
             {

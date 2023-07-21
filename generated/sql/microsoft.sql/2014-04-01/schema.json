@@ -106,8 +106,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/activeDirectory$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/activeDirectory$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the resource.",
@@ -547,8 +554,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/Default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/Default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the data masking policy.",
@@ -1883,10 +1897,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "activeDirectory"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "activeDirectory"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the resource.",
@@ -2295,10 +2316,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "Default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "Default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the data masking policy.",

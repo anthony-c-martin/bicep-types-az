@@ -235,8 +235,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/item$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/item$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -467,8 +474,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/item$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/item$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -1292,10 +1306,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "item"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "item"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -1526,10 +1547,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "item"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "item"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

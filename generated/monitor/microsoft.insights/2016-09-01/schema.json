@@ -18,10 +18,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "service"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "service"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The service diagnostics settings of the resource.",
@@ -144,6 +151,7 @@
           "description": "the number of days for the retention in days. A value of 0 will retain the events indefinitely.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {

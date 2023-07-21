@@ -228,6 +228,8 @@
           "description": "The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65534,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -239,6 +241,8 @@
           "description": "The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.",
           "oneOf": [
             {
+              "maximum": 65534,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -521,6 +525,8 @@
           "description": "The number of nodes in the node type.",
           "oneOf": [
             {
+              "maximum": 2147483647,
+              "minimum": 1,
               "type": "integer"
             },
             {

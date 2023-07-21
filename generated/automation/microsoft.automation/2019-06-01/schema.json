@@ -718,8 +718,15 @@
           "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
           "properties": {
             "name": {
-              "pattern": "^.*/content$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/content$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             }
           },
           "required": [
@@ -731,8 +738,15 @@
           "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
           "properties": {
             "name": {
-              "pattern": "^.*/testJob$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/testJob$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "parameters": {
               "description": "Gets or sets the parameters of the test job.",
@@ -3392,10 +3406,17 @@
           "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
           "properties": {
             "name": {
-              "enum": [
-                "content"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "content"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             }
           },
           "required": [
@@ -3407,10 +3428,17 @@
           "description": "Microsoft.Automation/automationAccounts/runbooks/draft",
           "properties": {
             "name": {
-              "enum": [
-                "testJob"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "testJob"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "parameters": {
               "description": "Gets or sets the parameters of the test job.",

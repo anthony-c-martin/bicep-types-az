@@ -82,10 +82,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "web"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "web"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "User resource specific properties",

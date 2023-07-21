@@ -253,8 +253,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "NetworkRuleSet properties",
@@ -1583,6 +1590,8 @@
           "description": "This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.",
           "oneOf": [
             {
+              "maximum": 20,
+              "minimum": 20,
               "type": "integer"
             },
             {
@@ -1771,10 +1780,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "NetworkRuleSet properties",

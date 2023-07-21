@@ -217,8 +217,15 @@
           ]
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the alert notification settings.",
@@ -386,8 +393,15 @@
           ]
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of the time settings of a device.",
@@ -559,8 +573,15 @@
           ]
         },
         "name": {
-          "pattern": "^.*/vaultExtendedInfo$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/vaultExtendedInfo$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The extended info properties.",
@@ -1152,6 +1173,8 @@
           "description": "The hour.",
           "oneOf": [
             {
+              "maximum": 23,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1163,6 +1186,8 @@
           "description": "The minute.",
           "oneOf": [
             {
+              "maximum": 59,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1174,6 +1199,8 @@
           "description": "The second.",
           "oneOf": [
             {
+              "maximum": 59,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1583,10 +1610,17 @@
           ]
         },
         "name": {
-          "enum": [
-            "vaultExtendedInfo"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "vaultExtendedInfo"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The extended info properties.",
