@@ -322,10 +322,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
       oneOf.push(childSchema);
     }
 
-    return {
-      ...schema,
-      oneOf,
-    };
+    schema.oneOf = oneOf;
   }
 
   function processResourceBody(fullyQualifiedType: string, definition: ResourceDefinition, isChildDefinition: boolean) {
