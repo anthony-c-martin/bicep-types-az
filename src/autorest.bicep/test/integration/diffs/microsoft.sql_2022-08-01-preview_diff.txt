@@ -159,51 +159,6 @@
          ...
        ]
      }
-     managedInstances_administrators: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/ActiveDirectory$"
-+              enum: [
-+                "ActiveDirectory"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_advancedThreatProtectionSettings: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_azureADOnlyAuthentications: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
      managedInstances_databases: {
        required: [
          ...
@@ -212,66 +167,6 @@
          ...
          ...
        ]
-     }
-     managedInstances_databases_advancedThreatProtectionSettings: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_databases_backupLongTermRetentionPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_databases_backupShortTermRetentionPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_databases_ledgerDigestUploads: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/current$"
-+              enum: [
-+                "current"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
      }
      managedInstances_databases_schemas_tables_columns_sensitivityLabels: {
        properties: {
@@ -289,49 +184,8 @@
          }
        }
      }
-     managedInstances_databases_securityAlertPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_databases_transparentDataEncryption: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/current$"
-+              enum: [
-+                "current"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
      managedInstances_databases_vulnerabilityAssessments: {
        properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
          properties: {
            oneOf: [
              {
@@ -355,60 +209,13 @@
          }
        }
      }
-     managedInstances_dtc: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/current$"
-+              enum: [
-+                "current"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_encryptionProtector: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/current$"
-+              enum: [
-+                "current"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_restorableDroppedDatabases_backupShortTermRetentionPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
      managedInstances_securityAlertPolicies: {
        properties: {
          name: {
            oneOf: [
              {
 -              pattern: "^.*/default$"
-+              enum: [
-+                "Default"
-+              ]
++              pattern: "^.*/Default$"
              }
              ...
            ]
@@ -424,51 +231,6 @@
          }
        }
      }
-     managedInstances_serverConfigurationOptions: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/allowPolybaseExport$"
-+              enum: [
-+                "allowPolybaseExport"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_startStopSchedules: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     managedInstances_vulnerabilityAssessments: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
      servers: {
        required: [
          ...
@@ -477,66 +239,6 @@
          ...
          ...
        ]
-     }
-     servers_administrators: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/ActiveDirectory$"
-+              enum: [
-+                "ActiveDirectory"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_advancedThreatProtectionSettings: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_azureADOnlyAuthentications: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_connectionPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
      }
      servers_databases: {
        properties: {
@@ -572,96 +274,6 @@
          ...
        ]
      }
-     servers_databases_advancedThreatProtectionSettings: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_backupLongTermRetentionPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_backupShortTermRetentionPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_dataMaskingPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_geoBackupPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_ledgerDigestUploads: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/current$"
-+              enum: [
-+                "current"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
      servers_databases_schemas_tables_columns_sensitivityLabels: {
        properties: {
          name: {
@@ -678,81 +290,6 @@
          }
        }
      }
-     servers_databases_securityAlertPolicies: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_sqlVulnerabilityAssessments_baselines: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_transparentDataEncryption: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/current$"
-+              enum: [
-+                "current"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_databases_vulnerabilityAssessments: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_devOpsAuditingSettings: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/Default$"
-+              enum: [
-+                "Default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
      servers_elasticPools: {
        required: [
          ...
@@ -761,21 +298,6 @@
          ...
          ...
        ]
-     }
-     servers_encryptionProtector: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/current$"
-+              enum: [
-+                "current"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
      }
      servers_firewallRules: {
        properties: {
@@ -838,9 +360,7 @@
            oneOf: [
              {
 -              pattern: "^.*/default$"
-+              enum: [
-+                "Default"
-+              ]
++              pattern: "^.*/Default$"
              }
              ...
            ]
@@ -859,32 +379,6 @@
 -            ]
 -          }
 -        }
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
-       }
-     }
-     servers_vulnerabilityAssessments: {
-       properties: {
-         name: {
-           oneOf: [
-             {
--              pattern: "^.*/default$"
-+              enum: [
-+                "default"
-+              ]
-             }
-             ...
-           ]
-         }
        }
      }
    }

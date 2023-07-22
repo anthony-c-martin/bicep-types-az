@@ -316,6 +316,7 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
         type: combinedSchema.type,
         minimum: combinedSchema.minimum,
         maximum: combinedSchema.maximum,
+        multipleOf: combinedSchema.multipleOf,
       }
     }
 

@@ -5,7 +5,7 @@ import { mkdir, writeFile } from 'fs/promises';
 import { extensionDir, isBaselineRecordEnabled } from './utils';
 import { describe, it, expect, jest } from '@jest/globals';
 import { readFile } from 'fs/promises';
-import { diffString } from 'json-diff';
+import { DiffStringOptions, diffString } from 'json-diff';
 import { existsSync } from 'fs';
 
 describe('schema comparisons', () => {
@@ -51,8 +51,8 @@ describe('schema comparisons', () => {
       const generatedSchemaPath = path.join(generatedBasePath, basePath, namespace, apiVersion, 'schema.json');
       const generated = JSON.parse(await readFile(generatedSchemaPath, { encoding: 'utf-8' }));
 
-      const diffOptions = { sort: true, color: false, excludeKeys: 'description' };
-      const diff = diffString(original, generated, diffOptions as any);
+      const diffOptions: DiffStringOptions = { sort: true, color: false, excludeKeys: ['description'] };
+      const diff = diffString(original, generated, diffOptions);
       const diffFile = `${diffDir}/${namespace}_${apiVersion}_diff.txt`;
 
       const savedValue = existsSync(diffFile) ? await readFile(diffFile, { encoding: 'utf-8' }) : null;
