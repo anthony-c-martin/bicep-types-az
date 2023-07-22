@@ -3,7 +3,7 @@
      workspaces: {
        required: [
          ...
-+        "location"
+-        "location"
          ...
          ...
          ...
@@ -11,50 +11,28 @@
      }
    }
    definitions: {
-     TableProperties: {
-       properties: {
-         retentionInDays: {
-           oneOf: [
-             {
-+              minimum: 4
-+              maximum: 730
-             }
-             ...
-           ]
-         }
-         totalRetentionInDays: {
-           oneOf: [
-             {
-+              minimum: 4
-+              maximum: 2555
-             }
-             ...
-           ]
-         }
-       }
-     }
      WorkspaceFeatures: {
--      additionalProperties: {
--      }
++      additionalProperties: {
++      }
        properties: {
-+        additionalProperties: {
-+          oneOf: [
-+            {
-+              type: "object"
-+              additionalProperties: {
-+                type: "object"
-+                properties: {
-+                }
-+              }
-+              properties: {
-+              }
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-+          description: "Unmatched properties from the message are deserialized this collection"
-+        }
+-        additionalProperties: {
+-          oneOf: [
+-            {
+-              type: "object"
+-              additionalProperties: {
+-                type: "object"
+-                properties: {
+-                }
+-              }
+-              properties: {
+-              }
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-          description: "Unmatched properties from the message are deserialized this collection"
+-        }
        }
      }
      WorkspaceSku: {
@@ -62,15 +40,15 @@
          capacityReservationLevel: {
            oneOf: [
              {
--              oneOf: [
--                {
--                  type: "integer"
--                }
--                {
--                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--                }
--              ]
-+              type: "integer"
+-              type: "integer"
++              oneOf: [
++                {
++                  type: "integer"
++                }
++                {
++                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++                }
++              ]
              }
              ...
            ]

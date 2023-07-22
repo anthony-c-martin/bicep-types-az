@@ -3,17 +3,17 @@
      registries: {
        required: [
          ...
-+        "location"
+-        "location"
          ...
          ...
-+        "sku"
+-        "sku"
          ...
        ]
      }
      registries_replications: {
        required: [
          ...
-+        "location"
+-        "location"
          ...
          ...
          ...
@@ -22,7 +22,7 @@
      registries_webhooks: {
        required: [
          ...
-+        "location"
+-        "location"
          ...
          ...
          ...
@@ -30,12 +30,30 @@
      }
    }
    definitions: {
+     registries_replications_childResource: {
+       required: [
+         ...
+-        "location"
+         ...
+         ...
+         ...
+       ]
+     }
+     registries_webhooks_childResource: {
+       required: [
+         ...
+-        "location"
+         ...
+         ...
+         ...
+       ]
+     }
      RegistryProperties: {
        properties: {
          adminUserEnabled: {
            oneOf: [
              {
-+              default: false
+-              default: false
              }
              ...
            ]
@@ -43,7 +61,7 @@
          anonymousPullEnabled: {
            oneOf: [
              {
-+              default: false
+-              default: false
              }
              ...
            ]
@@ -55,7 +73,7 @@
          regionEndpointEnabled: {
            oneOf: [
              {
-+              default: true
+-              default: true
              }
              ...
            ]
@@ -67,7 +85,7 @@
          days: {
            oneOf: [
              {
-+              default: "7"
+-              default: "7"
              }
              ...
            ]
@@ -79,7 +97,7 @@
          retentionDays: {
            oneOf: [
              {
-+              default: "7"
+-              default: "7"
              }
              ...
            ]
@@ -89,30 +107,12 @@
      SyncProperties: {
        properties: {
          messageTtl: {
-+          format: "duration"
+-          format: "duration"
          }
          syncWindow: {
-+          format: "duration"
+-          format: "duration"
          }
        }
-     }
-     registries_replications_childResource: {
-       required: [
-         ...
-+        "location"
-         ...
-         ...
-         ...
-       ]
-     }
-     registries_webhooks_childResource: {
-       required: [
-         ...
-+        "location"
-         ...
-         ...
-         ...
-       ]
      }
    }
  }

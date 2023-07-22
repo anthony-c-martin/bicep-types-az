@@ -1,17 +1,26 @@
  {
    resourceDefinitions: {
      automationAccounts_runbooks_draft: {
-+      type: "object"
+-      type: "object"
+     }
+   }
+   definitions: {
+     automationAccounts_runbooks_draft_childResource: {
+-      type: "object"
        oneOf: [
          {
            properties: {
              name: {
--              pattern: "^.*/content$"
 -              type: "string"
+-              enum: [
+-                "content"
+-              ]
 +              oneOf: [
 +                {
++                  enum: [
++                    "content"
++                  ]
 +                  type: "string"
-+                  pattern: "^.*/content$"
 +                }
 +                {
 +                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -23,12 +32,16 @@
          {
            properties: {
              name: {
--              pattern: "^.*/testJob$"
 -              type: "string"
+-              enum: [
+-                "testJob"
+-              ]
 +              oneOf: [
 +                {
++                  enum: [
++                    "testJob"
++                  ]
 +                  type: "string"
-+                  pattern: "^.*/testJob$"
 +                }
 +                {
 +                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -39,45 +52,40 @@
          }
        ]
      }
-   }
-   definitions: {
      EncryptionPropertiesIdentity: {
        properties: {
          userAssignedIdentity: {
--          oneOf: [
--            {
--              properties: {
--              }
--              type: "object"
--            }
--            {
--              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
--            }
--          ]
-+          type: "object"
-+          properties: {
-+          }
+-          type: "object"
+-          properties: {
+-          }
++          oneOf: [
++            {
++              properties: {
++              }
++              type: "object"
++            }
++            {
++              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            }
++          ]
          }
        }
      }
      ScheduleCreateOrUpdateProperties: {
        properties: {
          interval: {
-+          type: "object"
-+          properties: {
-+          }
+-          type: "object"
+-          properties: {
+-          }
          }
        }
      }
      SourceControlSyncJobCreateProperties: {
        properties: {
          commitId: {
-+          minLength: 0
+-          minLength: 0
          }
        }
-     }
-     automationAccounts_runbooks_draft_childResource: {
-+      type: "object"
      }
    }
  }

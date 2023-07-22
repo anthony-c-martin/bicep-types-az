@@ -1,114 +1,123 @@
  {
-   resourceDefinitions: {
-     namespaces_networkRuleSets: {
-       properties: {
-         name: {
--          pattern: "^.*/default$"
--          type: "string"
-+          oneOf: [
-+            {
-+              type: "string"
-+              pattern: "^.*/default$"
-+            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-+            }
-+          ]
-         }
-       }
-     }
-   }
    definitions: {
-+    ThrottlingPolicy: {
-+      type: "object"
-+      properties: {
-+        metricId: {
-+          oneOf: [
-+            {
-+              type: "string"
-+              enum: [
-+                "IncomingBytes"
-+                "OutgoingBytes"
-+                "IncomingMessages"
-+                "OutgoingMessages"
+-    ThrottlingPolicy: {
+-      type: "object"
+-      properties: {
+-        metricId: {
+-          oneOf: [
+-            {
+-              type: "string"
+-              enum: [
+-                "IncomingBytes"
+-                "OutgoingBytes"
+-                "IncomingMessages"
+-                "OutgoingMessages"
+-              ]
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-          description: "Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal."
+-        }
+-        rateLimitThreshold: {
+-          oneOf: [
+-            {
+-              type: "integer"
+-            }
+-            {
+-              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+-            }
+-          ]
+-          description: "The Threshold limit above which the application group will be throttled.Rate limit is always per second."
+-        }
+-        type: {
+-          type: "string"
+-          enum: [
+-            "ThrottlingPolicy"
+-          ]
+-        }
+-      }
+-      required: [
+-        "metricId"
+-        "rateLimitThreshold"
+-        "type"
+-      ]
+-      description: "Properties of the throttling policy"
+-    }
+     ApplicationGroupPolicy: {
+       oneOf: [
+         {
+-          $ref: "#/definitions/ThrottlingPolicy"
++          properties: {
++            metricId: {
++              description: "Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal"
++              oneOf: [
++                {
++                  enum: [
++                    "IncomingBytes"
++                    "OutgoingBytes"
++                    "IncomingMessages"
++                    "OutgoingMessages"
++                  ]
++                  type: "string"
++                }
++                {
++                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++                }
 +              ]
 +            }
-+            {
-+              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++            rateLimitThreshold: {
++              description: "The Threshold limit above which the application group will be throttled.Rate limit is always per second."
++              oneOf: [
++                {
++                  type: "integer"
++                }
++                {
++                  $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
++                }
++              ]
 +            }
++          }
++          required: [
++            "rateLimitThreshold"
++            "metricId"
 +          ]
-+          description: "Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal."
-+        }
-+        rateLimitThreshold: {
++          type: "object"
+         }
+       ]
+     }
+     namespaces_networkRuleSets_childResource: {
+       properties: {
+         name: {
+-          type: "string"
+-          enum: [
+-            "default"
+-          ]
 +          oneOf: [
 +            {
-+              type: "integer"
++              enum: [
++                "default"
++              ]
++              type: "string"
 +            }
 +            {
 +              $ref: "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
 +            }
 +          ]
-+          description: "The Threshold limit above which the application group will be throttled.Rate limit is always per second."
-+        }
-+        type: {
-+          type: "string"
-+          enum: [
-+            "ThrottlingPolicy"
-+          ]
-+        }
-+      }
-+      required: [
-+        "metricId"
-+        "rateLimitThreshold"
-+        "type"
-+      ]
-+      description: "Properties of the throttling policy"
-+    }
-     ApplicationGroupPolicy: {
-+      oneOf: [
-+        {
-+          $ref: "#/definitions/ThrottlingPolicy"
-+        }
-+      ]
-     }
-     ClusterSku: {
-       properties: {
-         capacity: {
-           oneOf: [
-             {
-+              minimum: 1
-             }
-             ...
-           ]
          }
        }
      }
-     EventhubProperties: {
+     RetentionDescription: {
        properties: {
-         messageRetentionInDays: {
+         cleanupPolicy: {
            oneOf: [
              {
-+              minimum: 1
-             }
-             ...
-           ]
-         }
-         partitionCount: {
-           oneOf: [
-             {
-+              minimum: 1
-             }
-             ...
-           ]
-         }
-       }
-     }
-     Sku: {
-       properties: {
-         capacity: {
-           oneOf: [
-             {
-+              minimum: 0
+               enum: [
+-                "Compaction"
++                "Compact"
+                 ...
+               ]
              }
              ...
            ]
