@@ -541,6 +541,7 @@
           "description": "Number of unused versions per application type to keep.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -747,6 +748,8 @@
           "description": "The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65534,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -758,6 +761,8 @@
           "description": "The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.",
           "oneOf": [
             {
+              "maximum": 65534,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -769,6 +774,8 @@
           "description": "The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.",
           "oneOf": [
             {
+              "maximum": 65534,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1140,6 +1147,8 @@
           "description": "The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.",
           "oneOf": [
             {
+              "maximum": 3000,
+              "minimum": 1000,
               "type": "integer"
             },
             {
@@ -1354,6 +1363,8 @@
           "description": "The number of nodes in the node type.",
           "oneOf": [
             {
+              "maximum": 2147483647,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1933,6 +1944,7 @@
               "description": "The minimum replica set size as a number.",
               "oneOf": [
                 {
+                  "minimum": 1,
                   "type": "integer"
                 },
                 {
@@ -1960,6 +1972,7 @@
               "description": "The target replica set size as a number.",
               "oneOf": [
                 {
+                  "minimum": 1,
                   "type": "integer"
                 },
                 {
@@ -1977,6 +1990,7 @@
               "description": "The instance count.",
               "oneOf": [
                 {
+                  "minimum": -1,
                   "type": "integer"
                 },
                 {
@@ -2135,6 +2149,8 @@
           "description": "The maximum allowed percentage of unhealthy partitions per service.\n\nThe percentage represents the maximum tolerated percentage of partitions that can be unhealthy before the service is considered in error.\nIf the percentage is respected but there is at least one unhealthy partition, the health is evaluated as Warning.\nThe percentage is calculated by dividing the number of unhealthy partitions over the total number of partitions in the service.\nThe computation rounds up to tolerate one failure on small numbers of partitions.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -2146,6 +2162,8 @@
           "description": "The maximum allowed percentage of unhealthy replicas per partition.\n\nThe percentage represents the maximum tolerated percentage of replicas that can be unhealthy before the partition is considered in error.\nIf the percentage is respected but there is at least one unhealthy replica, the health is evaluated as Warning.\nThe percentage is calculated by dividing the number of unhealthy replicas over the total number of replicas in the partition.\nThe computation rounds up to tolerate one failure on small numbers of replicas.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -2157,6 +2175,8 @@
           "description": "The maximum allowed percentage of unhealthy services.\n\nThe percentage represents the maximum tolerated percentage of services that can be unhealthy before the application is considered in error.\nIf the percentage is respected but there is at least one unhealthy service, the health is evaluated as Warning.\nThis is calculated by dividing the number of unhealthy services of the specific service type over the total number of services of the specific service type.\nThe computation rounds up to tolerate one failure on small numbers of services.\n",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "integer"
             },
             {

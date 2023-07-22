@@ -1082,6 +1082,8 @@
           "description": "Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. 0 is disable, Possible values are 1-10, default is 2.",
           "oneOf": [
             {
+              "maximum": 10,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1194,6 +1196,8 @@
           "description": "Peer ASN. Example: 65047.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1315,6 +1319,8 @@
           "description": "MTU to use for option A peering.",
           "oneOf": [
             {
+              "maximum": 9000,
+              "minimum": 1500,
               "type": "integer"
             },
             {
@@ -1326,6 +1332,8 @@
           "description": "Peer ASN number.Example : 28",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1353,6 +1361,8 @@
           "description": "Vlan identifier. Example : 501",
           "oneOf": [
             {
+              "maximum": 4095,
+              "minimum": 501,
               "type": "integer"
             },
             {
@@ -1426,6 +1436,8 @@
           "description": "Maximum transmission unit. Default value is 1500.",
           "oneOf": [
             {
+              "maximum": 9000,
+              "minimum": 1500,
               "type": "integer"
             },
             {
@@ -1448,6 +1460,8 @@
           "description": "Vlan identifier. Example: 1001.",
           "oneOf": [
             {
+              "maximum": 4095,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -1676,6 +1690,8 @@
           "description": "Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1687,6 +1703,8 @@
           "description": "SubnetMaskLength gives the minimum NetworkPrefix length to be matched.Possible values for IPv4 are 1 - 32. Possible values of IPv6 are 1 - 128.",
           "oneOf": [
             {
+              "maximum": 128,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1832,6 +1850,8 @@
           "description": "MTU of the packets between PE & CE.",
           "oneOf": [
             {
+              "maximum": 9000,
+              "minimum": 1500,
               "type": "integer"
             },
             {
@@ -1871,6 +1891,8 @@
           "description": "ASN of PE devices for CE/PE connectivity.Example : 28",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1898,6 +1920,8 @@
           "description": "VLAN for CE/PE Layer 3 connectivity.Example : 501",
           "oneOf": [
             {
+              "maximum": 4095,
+              "minimum": 501,
               "type": "integer"
             },
             {
@@ -2076,6 +2100,8 @@
           "description": "ASN of CE devices for CE/PE connectivity.",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2114,6 +2140,8 @@
           "description": "Number of racks associated to Network Fabric.Possible values are from 2-8.",
           "oneOf": [
             {
+              "maximum": 8,
+              "minimum": 2,
               "type": "integer"
             },
             {
@@ -2125,6 +2153,8 @@
           "description": "Number of servers.Possible values are from 1-16.",
           "oneOf": [
             {
+              "maximum": 16,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2282,6 +2312,8 @@
           "description": "MTU to use for option A peering.",
           "oneOf": [
             {
+              "maximum": 9000,
+              "minimum": 1500,
               "type": "integer"
             },
             {
@@ -2293,6 +2325,8 @@
           "description": "Peer ASN number.Example : 28",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2320,6 +2354,8 @@
           "description": "Vlan identifier. Example : 501",
           "oneOf": [
             {
+              "maximum": 4095,
+              "minimum": 501,
               "type": "integer"
             },
             {
@@ -2462,6 +2498,8 @@
           "description": "Sequence to insert to/delete from existing route.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2521,6 +2559,8 @@
           "description": "localPreference of the route policy.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {

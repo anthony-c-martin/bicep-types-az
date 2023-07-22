@@ -162,8 +162,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a storage account’s Blob service.",
@@ -262,8 +269,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of an ImmutabilityPolicy of a blob container.",
@@ -342,8 +356,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of File services in storage account.",
@@ -650,8 +671,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a storage account’s Queue service.",
@@ -748,8 +776,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a storage account’s Table service.",
@@ -875,6 +910,8 @@
           "description": "The immutability period for the blobs in the container since the policy creation, in days.",
           "oneOf": [
             {
+              "maximum": 146000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1399,6 +1436,8 @@
           "description": "Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.",
           "oneOf": [
             {
+              "maximum": 146000,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1635,6 +1674,7 @@
           "description": "Value indicating the age in days after creation",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -1646,6 +1686,7 @@
           "description": "Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -1666,6 +1707,7 @@
           "description": "Value indicating the age in days after blob creation.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -1677,6 +1719,7 @@
           "description": "Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -1688,6 +1731,7 @@
           "description": "Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -1699,6 +1743,7 @@
           "description": "Value indicating the age in days after last modification",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -1727,6 +1772,8 @@
           "description": "Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.",
           "oneOf": [
             {
+              "maximum": 365,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2110,6 +2157,8 @@
           "description": "The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.",
           "oneOf": [
             {
+              "maximum": 102400,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3149,6 +3198,8 @@
           "description": "how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.",
           "oneOf": [
             {
+              "maximum": 365,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -3794,10 +3845,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a storage account’s Blob service.",
@@ -3876,10 +3934,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of an ImmutabilityPolicy of a blob container.",
@@ -3958,10 +4023,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of File services in storage account.",
@@ -4258,10 +4330,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a storage account’s Queue service.",
@@ -4348,10 +4427,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a storage account’s Table service.",

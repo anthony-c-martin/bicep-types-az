@@ -2948,6 +2948,7 @@
           "description": "Lower bound on number of Application Gateway instances",
           "oneOf": [
             {
+              "minimum": 2,
               "type": "integer"
             },
             {
@@ -3232,6 +3233,8 @@
           "description": "The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.",
           "oneOf": [
             {
+              "maximum": 3600,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -4826,6 +4829,8 @@
           "description": "Maximum file upload size in Mb for WAF.",
           "oneOf": [
             {
+              "maximum": 500,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -4852,6 +4857,8 @@
           "description": "Maximum request body size for WAF.",
           "oneOf": [
             {
+              "maximum": 128,
+              "minimum": 8,
               "type": "integer"
             },
             {
@@ -4863,6 +4870,8 @@
           "description": "Maximum request body size in Kb for WAF.",
           "oneOf": [
             {
+              "maximum": 128,
+              "minimum": 8,
               "type": "integer"
             },
             {
@@ -5084,6 +5093,8 @@
           "description": "Priority of the application rule collection resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -5132,6 +5143,8 @@
           "description": "Port number for the protocol, cannot be greater than 64000. This field is optional.",
           "oneOf": [
             {
+              "maximum": 64000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -5379,6 +5392,8 @@
           "description": "Priority of the NAT rule collection resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -5539,6 +5554,8 @@
           "description": "Priority of the network rule collection resource.",
           "oneOf": [
             {
+              "maximum": 65000,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -6385,6 +6402,8 @@
           "description": "The peer ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -6835,6 +6854,8 @@
           "description": "The peer ASN.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 1,
               "type": "integer"
             },
             {

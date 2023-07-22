@@ -1111,6 +1111,8 @@
           "description": "Default 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1140,6 +1142,8 @@
           "description": "Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.",
           "oneOf": [
             {
+              "maximum": 15,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1191,6 +1195,7 @@
           "description": "The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1518,6 +1523,8 @@
           "description": "Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.",
           "oneOf": [
             {
+              "maximum": 65536,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1568,6 +1575,8 @@
           "description": "Number of bytes captured per packet, the remaining bytes are truncated. The default \"0\" means the entire packet is captured.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1593,6 +1602,8 @@
           "description": "Maximum duration of the capture session in seconds.",
           "oneOf": [
             {
+              "maximum": 18000,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1604,6 +1615,8 @@
           "description": "Maximum size of the capture output.",
           "oneOf": [
             {
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1736,6 +1749,8 @@
           "description": "The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.",
           "oneOf": [
             {
+              "maximum": 1930,
+              "minimum": 1280,
               "type": "integer"
             },
             {
@@ -1797,6 +1812,8 @@
           "description": "A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1859,6 +1876,8 @@
           "description": "5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.",
           "oneOf": [
             {
+              "maximum": 127,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1870,6 +1889,8 @@
           "description": "QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.",
           "oneOf": [
             {
+              "maximum": 15,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1942,6 +1963,7 @@
           "description": "Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 30 seconds.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1953,6 +1975,7 @@
           "description": "Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1964,6 +1987,7 @@
           "description": "Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2083,6 +2107,8 @@
           "description": "The maximum port number",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1024,
               "type": "integer"
             },
             {
@@ -2094,6 +2120,8 @@
           "description": "The minimum port number",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1024,
               "type": "integer"
             },
             {
@@ -2111,6 +2139,7 @@
           "description": "Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2122,6 +2151,7 @@
           "description": "Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Default for UDP is 1 minute.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2139,6 +2169,8 @@
           "description": "5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.",
           "oneOf": [
             {
+              "maximum": 127,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2150,6 +2182,8 @@
           "description": "QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.",
           "oneOf": [
             {
+              "maximum": 15,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2311,6 +2345,8 @@
           "description": "A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -2403,6 +2439,7 @@
           "description": "UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.",
           "oneOf": [
             {
+              "minimum": 30,
               "type": "integer"
             },
             {
@@ -2414,6 +2451,8 @@
           "description": "RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.",
           "oneOf": [
             {
+              "maximum": 256,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2755,6 +2794,8 @@
           "description": "Slice/service type (SST).",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 0,
               "type": "integer"
             },
             {

@@ -22,8 +22,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/backupResourceEncryptionConfig$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/backupResourceEncryptionConfig$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "BackupResourceEncryptionConfigResource properties",
@@ -369,8 +376,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/vaultconfig$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/vaultconfig$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "BackupResourceVaultConfigResource properties",
@@ -431,8 +445,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/vaultstorageconfig$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/vaultstorageconfig$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "BackupResourceConfigResource properties",

@@ -239,6 +239,7 @@
               "description": "Maximum number of updates to apply at a time. Omit or specify 0 to use the default (1000)",
               "oneOf": [
                 {
+                  "minimum": 0,
                   "type": "integer"
                 },
                 {
@@ -520,6 +521,8 @@
           "description": "Maximum duration to wait while building the image template (includes all customizations, validations, and distributions). Omit or specify 0 to use the default (4 hours).",
           "oneOf": [
             {
+              "maximum": 960,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -714,6 +717,7 @@
           "description": "Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {

@@ -163,10 +163,17 @@
           ]
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "recommendationsEnabled": {
           "description": "Flag to indicate whether showing recommendations to reviewers is enabled.",

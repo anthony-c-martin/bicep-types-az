@@ -736,6 +736,8 @@
           "description": "The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.",
           "oneOf": [
             {
+              "maximum": 365,
+              "minimum": 1,
               "type": "integer"
             },
             {

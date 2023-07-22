@@ -155,8 +155,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -549,8 +556,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/ftp$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/ftp$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "CsmPublishingCredentialsPoliciesEntity resource specific properties",
@@ -578,8 +592,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/scm$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/scm$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "CsmPublishingCredentialsPoliciesEntity resource specific properties",
@@ -629,8 +650,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/appsettings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/appsettings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -662,8 +690,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/authsettings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/authsettings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteAuthSettings resource specific properties",
@@ -691,8 +726,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/azurestorageaccounts$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/azurestorageaccounts$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Azure storage accounts.",
@@ -724,8 +766,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/backup$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/backup$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "BackupRequest resource specific properties",
@@ -753,8 +802,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/connectionstrings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/connectionstrings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Connection strings.",
@@ -786,8 +842,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/logs$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/logs$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteLogsConfig resource specific properties",
@@ -815,8 +878,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/metadata$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/metadata$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -848,8 +918,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/pushsettings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/pushsettings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "PushSettings resource specific properties",
@@ -877,8 +954,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/slotConfigNames$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/slotConfigNames$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Core resource properties",
@@ -906,8 +990,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/web$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/web$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Core resource properties",
@@ -1047,8 +1138,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/MSDeploy$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/MSDeploy$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -1303,8 +1401,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/MSDeploy$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/MSDeploy$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -1346,8 +1451,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/virtualNetwork$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/virtualNetwork$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SwiftVirtualNetwork resource specific properties",
@@ -1451,8 +1563,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/virtualNetworks$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/virtualNetworks$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "PrivateAccess resource specific properties",
@@ -1725,8 +1844,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/appsettings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/appsettings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -1758,8 +1884,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/authsettings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/authsettings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteAuthSettings resource specific properties",
@@ -1787,8 +1920,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/azurestorageaccounts$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/azurestorageaccounts$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Azure storage accounts.",
@@ -1820,8 +1960,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/backup$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/backup$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "BackupRequest resource specific properties",
@@ -1849,8 +1996,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/connectionstrings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/connectionstrings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Connection strings.",
@@ -1882,8 +2036,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/logs$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/logs$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteLogsConfig resource specific properties",
@@ -1911,8 +2072,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/metadata$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/metadata$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -1944,8 +2112,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/pushsettings$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/pushsettings$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "PushSettings resource specific properties",
@@ -1973,8 +2148,15 @@
               "type": "string"
             },
             "name": {
-              "pattern": "^.*/web$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/web$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Core resource properties",
@@ -2114,8 +2296,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/MSDeploy$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/MSDeploy$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -2370,8 +2559,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/MSDeploy$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/MSDeploy$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -2413,8 +2609,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/virtualNetwork$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/virtualNetwork$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SwiftVirtualNetwork resource specific properties",
@@ -2518,8 +2721,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/virtualNetworks$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/virtualNetworks$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "PrivateAccess resource specific properties",
@@ -2631,8 +2841,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/web$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/web$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SiteSourceControl resource specific properties",
@@ -2770,8 +2987,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/web$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/web$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SiteSourceControl resource specific properties",
@@ -2995,8 +3219,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/functionappsettings$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/functionappsettings$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Settings.",
@@ -3042,8 +3273,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/functionappsettings$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/functionappsettings$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Settings.",
@@ -3118,10 +3356,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "web"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "web"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "User resource specific properties",
@@ -4443,6 +4688,8 @@
           "description": "Maximum size in megabytes that http log files can use.\nWhen reached old log files will be removed to make space for new ones.\nValue can range between 25 and 100.",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 25,
               "type": "integer"
             },
             {
@@ -5974,6 +6221,8 @@
           "description": "Number of preWarmed instances.\nThis setting only applies to the Consumption and Elastic Plans",
           "oneOf": [
             {
+              "maximum": 10,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -7048,10 +7297,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -7154,10 +7410,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "ftp"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "ftp"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "CsmPublishingCredentialsPoliciesEntity resource specific properties",
@@ -7185,10 +7448,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "scm"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "scm"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "CsmPublishingCredentialsPoliciesEntity resource specific properties",
@@ -7238,10 +7508,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "appsettings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "appsettings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -7273,10 +7550,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "authsettings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "authsettings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteAuthSettings resource specific properties",
@@ -7304,10 +7588,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "azurestorageaccounts"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "azurestorageaccounts"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Azure storage accounts.",
@@ -7339,10 +7630,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "backup"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "backup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "BackupRequest resource specific properties",
@@ -7370,10 +7668,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "connectionstrings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "connectionstrings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Connection strings.",
@@ -7405,10 +7710,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "logs"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "logs"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteLogsConfig resource specific properties",
@@ -7436,10 +7748,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "metadata"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "metadata"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -7471,10 +7790,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "pushsettings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "pushsettings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "PushSettings resource specific properties",
@@ -7502,10 +7828,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "slotConfigNames"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "slotConfigNames"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Core resource properties",
@@ -7533,10 +7866,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "web"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "web"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Core resource properties",
@@ -7676,10 +8016,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "MSDeploy"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "MSDeploy"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -7881,10 +8228,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "virtualNetwork"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "virtualNetwork"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SwiftVirtualNetwork resource specific properties",
@@ -7988,10 +8342,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "virtualNetworks"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "virtualNetworks"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "PrivateAccess resource specific properties",
@@ -8215,10 +8576,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "appsettings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "appsettings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -8250,10 +8618,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "authsettings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "authsettings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteAuthSettings resource specific properties",
@@ -8281,10 +8656,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "azurestorageaccounts"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "azurestorageaccounts"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Azure storage accounts.",
@@ -8316,10 +8698,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "backup"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "backup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "BackupRequest resource specific properties",
@@ -8347,10 +8736,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "connectionstrings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "connectionstrings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Connection strings.",
@@ -8382,10 +8778,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "logs"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "logs"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "SiteLogsConfig resource specific properties",
@@ -8413,10 +8816,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "metadata"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "metadata"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Settings.",
@@ -8448,10 +8858,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "pushsettings"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "pushsettings"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "PushSettings resource specific properties",
@@ -8479,10 +8896,17 @@
               "type": "string"
             },
             "name": {
-              "enum": [
-                "web"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "web"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Core resource properties",
@@ -8622,10 +9046,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "MSDeploy"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "MSDeploy"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Core resource properties",
@@ -8827,10 +9258,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "virtualNetwork"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "virtualNetwork"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SwiftVirtualNetwork resource specific properties",
@@ -8934,10 +9372,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "virtualNetworks"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "virtualNetworks"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "PrivateAccess resource specific properties",
@@ -9049,10 +9494,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "web"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "web"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SiteSourceControl resource specific properties",
@@ -9180,10 +9632,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "web"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "web"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "SiteSourceControl resource specific properties",
@@ -9311,10 +9770,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "functionappsettings"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "functionappsettings"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Settings.",

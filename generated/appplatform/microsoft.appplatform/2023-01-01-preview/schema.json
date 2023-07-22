@@ -824,8 +824,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties of the Config Server resource",
@@ -1043,8 +1050,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties of the Monitoring Setting resource",
@@ -3470,6 +3484,8 @@
           "description": "Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -3554,6 +3570,8 @@
           "description": "Size of the persistent disk in GB",
           "oneOf": [
             {
+              "maximum": 50,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -4459,10 +4477,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties of the Config Server resource",
@@ -4667,10 +4692,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Properties of the Monitoring Setting resource",
@@ -4881,6 +4913,8 @@
           "description": "Size of the temporary disk in GB",
           "oneOf": [
             {
+              "maximum": 5,
+              "minimum": 0,
               "type": "integer"
             },
             {

@@ -408,8 +408,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/default$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "NetworkRuleSet properties",
@@ -649,6 +656,7 @@
           "description": "The quantity of Event Hubs Cluster Capacity Units contained in this cluster.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -929,6 +937,7 @@
           "description": "Number of days to retain the events for this Event Hub, value should be 1 to 7 days",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -940,6 +949,7 @@
           "description": "Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1298,6 +1308,7 @@
           "description": "The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1580,10 +1591,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "default"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "NetworkRuleSet properties",

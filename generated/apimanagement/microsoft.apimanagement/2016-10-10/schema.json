@@ -1312,8 +1312,15 @@
           "type": "string"
         },
         "name": {
-          "pattern": "^.*/policy$",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^.*/policy$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -1436,6 +1443,7 @@
           "description": "The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.",
           "oneOf": [
             {
+              "maximum": 10,
               "type": "integer"
             },
             {
@@ -1861,6 +1869,8 @@
           "description": "Operation response HTTP status code.",
           "oneOf": [
             {
+              "maximum": 599,
+              "minimum": 100,
               "type": "integer"
             },
             {
@@ -3078,10 +3088,17 @@
           "type": "string"
         },
         "name": {
-          "enum": [
-            "policy"
-          ],
-          "type": "string"
+          "oneOf": [
+            {
+              "enum": [
+                "policy"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

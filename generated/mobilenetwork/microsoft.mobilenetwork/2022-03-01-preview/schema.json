@@ -862,6 +862,8 @@
           "description": "Default QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.",
           "oneOf": [
             {
+              "maximum": 127,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -891,6 +893,8 @@
           "description": "Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.",
           "oneOf": [
             {
+              "maximum": 15,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1130,6 +1134,8 @@
           "description": "Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface.",
           "oneOf": [
             {
+              "maximum": 65536,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1275,6 +1281,8 @@
           "description": "A precedence value that is used to decide between PCC Rules when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all PCC Rules configured in the Mobile Network.",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1337,6 +1345,8 @@
           "description": "QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.",
           "oneOf": [
             {
+              "maximum": 127,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1348,6 +1358,8 @@
           "description": "QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.",
           "oneOf": [
             {
+              "maximum": 15,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1420,6 +1432,7 @@
           "description": "Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds per RFC 5508 section 3.2.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1431,6 +1444,7 @@
           "description": "Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes per RFC 5382 section 5.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1442,6 +1456,7 @@
           "description": "Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes per RFC 4787 section 4.3.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1493,6 +1508,8 @@
           "description": "The maximum port number",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1024,
               "type": "integer"
             },
             {
@@ -1504,6 +1521,8 @@
           "description": "The minimum port number",
           "oneOf": [
             {
+              "maximum": 65535,
+              "minimum": 1024,
               "type": "integer"
             },
             {
@@ -1521,6 +1540,7 @@
           "description": "Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1532,6 +1552,7 @@
           "description": "Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Default for UDP is 1 minute.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1549,6 +1570,8 @@
           "description": "QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.",
           "oneOf": [
             {
+              "maximum": 127,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1560,6 +1583,8 @@
           "description": "QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.",
           "oneOf": [
             {
+              "maximum": 15,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -1721,6 +1746,8 @@
           "description": "A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -1785,6 +1812,7 @@
           "description": "Interval for the UE periodic registration update procedure, in seconds.",
           "oneOf": [
             {
+              "minimum": 30,
               "type": "integer"
             },
             {
@@ -1796,6 +1824,8 @@
           "description": "RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.",
           "oneOf": [
             {
+              "maximum": 256,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -2142,6 +2172,8 @@
           "description": "Slice/Service Type (SST).",
           "oneOf": [
             {
+              "maximum": 255,
+              "minimum": 0,
               "type": "integer"
             },
             {

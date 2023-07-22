@@ -81,6 +81,8 @@
           "description": "The number of agent nodes in the Container Service. This can be changed to scale the cluster.",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -219,6 +221,7 @@
           "description": "The maximum number of replicas for each service.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -230,6 +233,7 @@
           "description": "The minimum number of replicas for each service.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {

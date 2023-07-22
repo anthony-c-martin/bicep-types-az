@@ -150,6 +150,7 @@
               "description": "Major version for the generated version number. Determine what is \"latest\" based on versions with this value as the major version. -1 is equivalent to leaving it unset.",
               "oneOf": [
                 {
+                  "minimum": -1,
                   "type": "integer"
                 },
                 {
@@ -325,6 +326,7 @@
               "description": "Maximum number of updates to apply at a time. Omit or specify 0 to use the default (1000)",
               "oneOf": [
                 {
+                  "minimum": 0,
                   "type": "integer"
                 },
                 {
@@ -654,6 +656,8 @@
           "description": "Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).",
           "oneOf": [
             {
+              "maximum": 960,
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -897,6 +901,7 @@
           "description": "Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.",
           "oneOf": [
             {
+              "minimum": 0,
               "type": "integer"
             },
             {
@@ -970,6 +975,7 @@
           "description": "The number of replicas of the Image Version to be created in this region. Omit to use the default (1).",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {

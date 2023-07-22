@@ -1546,8 +1546,15 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "pattern": "^.*/signin$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/signin$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Sign-in settings contract properties.",
@@ -1571,8 +1578,15 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "pattern": "^.*/signup$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/signup$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Sign-up settings contract properties.",
@@ -1596,8 +1610,15 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "pattern": "^.*/delegation$",
-              "type": "string"
+              "oneOf": [
+                {
+                  "pattern": "^.*/delegation$",
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Delegation settings contract properties.",
@@ -3149,6 +3170,7 @@
           "description": "Number of request body bytes to log.",
           "oneOf": [
             {
+              "maximum": 8192,
               "type": "integer"
             },
             {
@@ -4431,6 +4453,8 @@
           "description": "Rate of sampling for fixed-rate sampling.",
           "oneOf": [
             {
+              "maximum": 100,
+              "minimum": 0,
               "type": "number"
             },
             {
@@ -6104,10 +6128,17 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "enum": [
-                "signin"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "signin"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Sign-in settings contract properties.",
@@ -6131,10 +6162,17 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "enum": [
-                "signup"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "signup"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Sign-up settings contract properties.",
@@ -6158,10 +6196,17 @@
           "description": "Microsoft.ApiManagement/service/portalsettings",
           "properties": {
             "name": {
-              "enum": [
-                "delegation"
-              ],
-              "type": "string"
+              "oneOf": [
+                {
+                  "enum": [
+                    "delegation"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
             },
             "properties": {
               "description": "Delegation settings contract properties.",

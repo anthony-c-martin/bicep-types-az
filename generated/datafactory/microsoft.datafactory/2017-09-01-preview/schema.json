@@ -1291,6 +1291,8 @@
           "description": "Interval between each retry attempt (in seconds). The default is 30 sec.",
           "oneOf": [
             {
+              "maximum": 86400,
+              "minimum": 30,
               "type": "integer"
             },
             {
@@ -5261,6 +5263,7 @@
           "description": "Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).",
           "oneOf": [
             {
+              "maximum": 50,
               "type": "integer"
             },
             {
@@ -7661,6 +7664,7 @@
           "description": "Maximum parallel executions count per node for managed integration runtime.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -7676,6 +7680,7 @@
           "description": "The required number of nodes for managed integration runtime.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
@@ -10651,6 +10656,7 @@
           "description": "The max number of concurrent runs for the pipeline.",
           "oneOf": [
             {
+              "minimum": 1,
               "type": "integer"
             },
             {
