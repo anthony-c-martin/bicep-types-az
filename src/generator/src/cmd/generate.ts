@@ -50,6 +50,7 @@ executeSynchronous(async () => {
   // this file is deliberately gitignored as it'll be overwritten when using --single-path
   // it's used to generate the git commit message
   await mkdir(outputBaseDir, { recursive: true });
+  const subdirsCreated = new Set<string>();
   const summaryLogger = await getLogger(`${outputBaseDir}/summary.log`);
 
   // use consistent sorting to make log changes easier to review
@@ -74,9 +75,12 @@ executeSynchronous(async () => {
       await generateAutorestConfig(logger, readmePath, bicepReadmePath, config);
       await generateSchema(logger, readmePath, tmpOutputDir, logLevel, waitForDebugger);
 
-      // remove all previously-generated files and copy over results
-      await rm(outputDir, { recursive: true, force: true, });
-      await mkdir(outputDir, { recursive: true });
+      if (!subdirsCreated.has(outputDir)) {
+        subdirsCreated.add(outputDir);
+        // remove all previously-generated files and copy over results
+        await rm(outputDir, { recursive: true, force: true, });
+        await mkdir(outputDir, { recursive: true });
+      }
       await copyRecursive(tmpOutputDir, outputDir);
     } catch (err) {
       logErr(logger, err);
@@ -117,7 +121,7 @@ async function generateAutorestConfig(logger: ILogger, readmePath: string, bicep
   // We expect a path format convention of <provider>/(any/number/of/intervening/folders)/<yyyy>-<mm>-<dd>(|-preview)/<filename>.json
   // This information is used to generate individual tags in the generated autorest configuration
   // eslint-disable-next-line no-useless-escape
-  const pathRegex = /^(\$\(this-folder\)\/|)([^\/]+)(?:\/[^\/]+)+\/(\d{4}-\d{2}-\d{2}(|-preview))\/.*\.json$/i;
+  const pathRegex = /^(\$\(this-folder\)\/|)([^\/]+)(?:\/[^\/]+)*\/(\d{4}-\d{2}-\d{2}(|-preview))\/.*\.json$/i;
 
   const readmeContents = await readFile(readmePath, { encoding: 'utf8' });
   const readmeMarkdown = markdown.parse(readmeContents);
