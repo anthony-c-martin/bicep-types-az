@@ -43,22 +43,39 @@ export function generateSchema(host: AutorestExtensionHost, definition: Provider
     return (definition.putOperation ?? definition.getOperation)?.request.path;
   }
 
-  function getResourceNameSchema(descriptor: ResourceDescriptor, nameSchema: NameSchema, isChildDefinition: boolean): JSONSchema4 {
+  function tryGetConstantName(nameSchema: NameSchema) {
     if (nameSchema.type === 'constant') {
+      return nameSchema.value;
+    }
+
+    if ((nameSchema.schema instanceof ChoiceSchema ||  nameSchema.schema instanceof SealedChoiceSchema) &&
+      nameSchema.schema.choices.length === 1 &&
+      nameSchema.schema.choices[0].value === 'string')
+    {
+      return nameSchema.schema.choices[0].value;
+    }
+
+    return;
+  }
+
+  function getResourceNameSchema(descriptor: ResourceDescriptor, nameSchema: NameSchema, isChildDefinition: boolean): JSONSchema4 {
+    const constName = tryGetConstantName(nameSchema);
+
+    if (constName) {
       if (descriptor.typeSegments.length < 2 || isChildDefinition) {
         return addExpressionOneOf({
           type: 'string',
-          enum: [nameSchema.value],
+          enum: [constName],
+        });
+      } else {
+        return addExpressionOneOf({
+          type: 'string',
+          pattern: `^.*/${escapeRegExp(constName)}$`,
         });
       }
-
-      return addExpressionOneOf({
-        type: 'string',
-        pattern: `^.*/${escapeRegExp(nameSchema.value)}$`,
-      });
     }
 
-    return parseType(nameSchema.schema, true) ?? { type: 'string' };
+    return (nameSchema.type == 'parameterized' ? parseType(nameSchema.schema, true) : undefined) ?? { type: 'string' };
   }
 
   function createObject(properties: Dictionary<JSONSchema4>, additionalProperties?: JSONSchema4): JSONSchema4 {
