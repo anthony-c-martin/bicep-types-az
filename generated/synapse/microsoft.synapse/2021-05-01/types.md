@@ -268,15 +268,6 @@
 * **properties**: [GeoBackupPolicyProperties](#geobackuppolicyproperties) (Required): The properties of the geo backup policy.
 * **type**: 'Microsoft.Synapse/workspaces/sqlPools/geoBackupPolicies' (ReadOnly, DeployTimeConstant): The resource type
 
-## Resource Microsoft.Synapse/workspaces/sqlPools/metadataSync@2021-05-01
-* **Valid Scope(s)**: ResourceGroup
-### Properties
-* **apiVersion**: '2021-05-01' (ReadOnly, DeployTimeConstant): The resource api version
-* **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: 'config' (Required, DeployTimeConstant): The resource name
-* **properties**: [MetadataSyncConfigProperties](#metadatasyncconfigproperties): Metadata Sync Config properties
-* **type**: 'Microsoft.Synapse/workspaces/sqlPools/metadataSync' (ReadOnly, DeployTimeConstant): The resource type
-
 ## Resource Microsoft.Synapse/workspaces/sqlPools/replicationLinks@2021-05-01 (ReadOnly)
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
@@ -881,11 +872,6 @@ For more information, see [Auditing to storage using Managed Identity authentica
 * **linkedAccessCheckOnTargetResource**: bool: Linked Access Check On Target Resource
 * **preventDataExfiltration**: bool: Prevent Data Exfiltration
 
-## MetadataSyncConfigProperties
-### Properties
-* **enabled**: bool: Indicates whether the metadata sync is enabled or disabled
-* **syncIntervalInMinutes**: int: The Sync Interval in minutes.
-
 ## PrivateEndpoint
 ### Properties
 * **id**: string (ReadOnly): Resource id of the private endpoint.
@@ -1364,7 +1350,7 @@ Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. Source
 ### Properties
 * **accountName**: string: Account name
 * **collaborationBranch**: string: Collaboration branch
-* **hostName**: string: GitHub Enterprise host name. For example: https://github.mydomain.com
+* **hostName**: string: GitHub Enterprise host name. For example: `https://github.mydomain.com`
 * **lastCommitId**: string: The last commit ID
 * **projectName**: string: VSTS project name
 * **repositoryName**: string: Repository name

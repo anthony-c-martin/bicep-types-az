@@ -1212,7 +1212,7 @@
       "description": "Defines the match condition that is supported to filter the traffic.",
       "properties": {
         "dscpMarkings": {
-          "description": "List of DSCP Markings that needs to be matched.",
+          "description": "List of DSCP Markings that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -1227,7 +1227,7 @@
           ]
         },
         "etherTypes": {
-          "description": "List of ether type values that needs to be matched.",
+          "description": "List of ether type values that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -1242,7 +1242,7 @@
           ]
         },
         "fragments": {
-          "description": "List of IP fragment packets that needs to be matched.",
+          "description": "List of IP fragment packets that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -1268,7 +1268,7 @@
           ]
         },
         "ipLengths": {
-          "description": "List of IP Lengths that needs to be matched.",
+          "description": "List of IP Lengths that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -1309,7 +1309,7 @@
           ]
         },
         "ttlValues": {
-          "description": "List of TTL [Time To Live] values that needs to be matched.",
+          "description": "List of TTL [Time To Live] values that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -1408,7 +1408,7 @@
       "description": "Defines the port condition that needs to be matched.",
       "properties": {
         "flags": {
-          "description": "List of protocol flags that needs to be matched.",
+          "description": "List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg",
           "oneOf": [
             {
               "items": {
@@ -1437,7 +1437,7 @@
           ]
         },
         "portGroupNames": {
-          "description": "List of the port Group Names that to be matched.",
+          "description": "List of the port Group Names that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -1505,6 +1505,21 @@
               "enum": [
                 "File",
                 "Inline"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "defaultAction": {
+          "description": "Default action that needs to be applied when no condition is matched. Example: Permit | Deny.",
+          "oneOf": [
+            {
+              "enum": [
+                "Permit",
+                "Deny"
               ],
               "type": "string"
             },
@@ -1716,7 +1731,7 @@
           ]
         },
         "portGroups": {
-          "description": "List of the port group.",
+          "description": "List of the port groups.",
           "oneOf": [
             {
               "items": {
@@ -1866,6 +1881,10 @@
         },
         "importRoutePolicyId": {
           "description": "ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.",
+          "type": "string"
+        },
+        "networkToNetworkInterconnectId": {
+          "description": "ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.",
           "type": "string"
         },
         "optionAProperties": {
@@ -2712,7 +2731,7 @@
           ]
         },
         "ipPrefixValues": {
-          "description": "The list of IP Prefixes.",
+          "description": "The list of IP Prefixes that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -2727,7 +2746,7 @@
           ]
         },
         "prefixType": {
-          "description": "IP Prefix Type.",
+          "description": "IP Prefix Type that needs to be matched.",
           "oneOf": [
             {
               "enum": [
@@ -2742,7 +2761,7 @@
           ]
         },
         "type": {
-          "description": "IP Address type.",
+          "description": "IP Address type that needs to be matched.",
           "oneOf": [
             {
               "enum": [
@@ -3335,6 +3354,11 @@
             }
           ]
         },
+        "fabricVersion": {
+          "description": "The version of Network Fabric.",
+          "minLength": 1,
+          "type": "string"
+        },
         "ipv4Prefix": {
           "description": "IPv4Prefix for Management Network. Example: 10.1.0.0/19.",
           "minLength": 1,
@@ -3621,7 +3645,7 @@
       "description": "Defines the match condition that is supported to filter the traffic.",
       "properties": {
         "encapsulationType": {
-          "description": "Encapsulation Type.",
+          "description": "Encapsulation Type that needs to be matched.",
           "oneOf": [
             {
               "enum": [
@@ -4102,7 +4126,7 @@
           ]
         },
         "portGroupNames": {
-          "description": "List of the port Group Names that to be matched.",
+          "description": "List of the port Group Names that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -4161,7 +4185,7 @@
           "type": "string"
         },
         "ports": {
-          "description": "List of the ports that needs to be matched.",
+          "description": "List of the ports that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -4199,6 +4223,21 @@
         "annotation": {
           "description": "Switch configuration description.",
           "type": "string"
+        },
+        "defaultAction": {
+          "description": "Default action that needs to be applied when no condition is matched. Example: Permit | Deny.",
+          "oneOf": [
+            {
+              "enum": [
+                "Permit",
+                "Deny"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "networkFabricId": {
           "description": "Arm Resource ID of Network Fabric.",
@@ -4587,10 +4626,10 @@
       "type": "object"
     },
     "VlanMatchCondition": {
-      "description": "The vlan match conditions that needs to be matched.",
+      "description": "The vlan match conditions that need to be matched.",
       "properties": {
         "innerVlans": {
-          "description": "List of inner vlans that needs to be matched.",
+          "description": "List of inner vlans that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -4605,7 +4644,7 @@
           ]
         },
         "vlanGroupNames": {
-          "description": "List of vlan group names that to be matched.",
+          "description": "List of vlan group names that need to be matched.",
           "oneOf": [
             {
               "items": {
@@ -4620,7 +4659,7 @@
           ]
         },
         "vlans": {
-          "description": "List of vlans that needs to be matched.",
+          "description": "List of vlans that need to be matched.",
           "oneOf": [
             {
               "items": {

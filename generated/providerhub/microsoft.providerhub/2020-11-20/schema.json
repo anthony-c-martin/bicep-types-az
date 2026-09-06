@@ -1818,9 +1818,7 @@
           "oneOf": [
             {
               "enum": [
-                "NotSpecified",
-                "AcisReadAllowed",
-                "AcisActionAllowed"
+                "NotSpecified"
               ],
               "type": "string"
             },
@@ -1847,20 +1845,6 @@
             {
               "items": {
                 "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "serviceTreeInfos": {
-          "description": "",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/ServiceTreeInfo"
               },
               "type": "array"
             },
@@ -2480,20 +2464,6 @@
             }
           ]
         },
-        "serviceTreeInfos": {
-          "description": "",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/ServiceTreeInfo"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "subscriptionLifecycleNotificationSpecifications": {
           "description": "",
           "oneOf": [
@@ -2772,19 +2742,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        }
-      },
-      "type": "object"
-    },
-    "ServiceTreeInfo": {
-      "properties": {
-        "componentId": {
-          "description": "",
-          "type": "string"
-        },
-        "serviceId": {
-          "description": "",
-          "type": "string"
         }
       },
       "type": "object"

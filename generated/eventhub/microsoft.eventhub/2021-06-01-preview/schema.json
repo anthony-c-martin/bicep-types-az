@@ -101,9 +101,17 @@
         },
         "name": {
           "description": "The Namespace name",
-          "maxLength": 50,
-          "minLength": 6,
-          "type": "string"
+          "oneOf": [
+            {
+              "maxLength": 50,
+              "minLength": 6,
+              "pattern": "^[a-zA-Z][a-zA-Z0-9-]{6,50}[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "Namespace properties supplied for create namespace operation.",

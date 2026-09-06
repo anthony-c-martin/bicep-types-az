@@ -18,7 +18,7 @@
           "type": "string"
         },
         "location": {
-          "description": "Resource location.",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -1117,6 +1117,17 @@
         },
         "targetResource": {
           "description": "A reference to an azure resource from where the dns resource value is taken.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SubResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "trafficManagementProfile": {
+          "description": "A reference to an azure traffic manager profile resource from where the dns resource value is taken.",
           "oneOf": [
             {
               "$ref": "#/definitions/SubResource"
