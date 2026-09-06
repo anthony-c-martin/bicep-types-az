@@ -85,7 +85,7 @@
 * **muteActionsDuration**: string: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
 * **overrideQueryTimeRange**: string: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
 * **publicNetworkAccess**: 'Disabled' | 'Enabled' | 'SecuredByPerimeter' | string: This determines if traffic is allowed over public network. By default it is enabled.
-* **ruleResolveConfiguration**: [RuleResolveConfiguration](#ruleresolveconfiguration): Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+* **resolveConfiguration**: [RuleResolveConfiguration](#ruleresolveconfiguration): Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
 * **scopes**: string[]: The list of resource id's that this scheduled query rule is scoped to.
 * **severity**: int: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
 * **skipQueryValidation**: bool: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.

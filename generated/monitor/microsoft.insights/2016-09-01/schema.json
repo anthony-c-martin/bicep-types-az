@@ -95,7 +95,7 @@
           "description": "the retention policy for this log.",
           "oneOf": [
             {
-              "$ref": "#/definitions/RetentionPolicy"
+              "$ref": "#/definitions/MicrosoftCommonRetentionPolicy"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -126,7 +126,7 @@
           "description": "the retention policy for this timegrain.",
           "oneOf": [
             {
-              "$ref": "#/definitions/RetentionPolicy"
+              "$ref": "#/definitions/MicrosoftCommonRetentionPolicy"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -144,7 +144,7 @@
       ],
       "type": "object"
     },
-    "RetentionPolicy": {
+    "MicrosoftCommonRetentionPolicy": {
       "description": "Specifies the retention policy for the log.",
       "properties": {
         "days": {

@@ -393,15 +393,6 @@
 * **properties**: [GeoBackupPolicyProperties](#geobackuppolicyproperties) (Required): The properties of the geo backup policy.
 * **type**: 'Microsoft.Synapse/workspaces/sqlPools/geoBackupPolicies' (ReadOnly, DeployTimeConstant): The resource type
 
-## Resource Microsoft.Synapse/workspaces/sqlPools/metadataSync@2021-06-01-preview
-* **Valid Scope(s)**: ResourceGroup
-### Properties
-* **apiVersion**: '2021-06-01-preview' (ReadOnly, DeployTimeConstant): The resource api version
-* **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: 'config' (Required, DeployTimeConstant): The resource name
-* **properties**: [MetadataSyncConfigProperties](#metadatasyncconfigproperties): Metadata Sync Config properties
-* **type**: 'Microsoft.Synapse/workspaces/sqlPools/metadataSync' (ReadOnly, DeployTimeConstant): The resource type
-
 ## Resource Microsoft.Synapse/workspaces/sqlPools/operationResults@2021-06-01-preview (ReadOnly)
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
@@ -608,7 +599,7 @@
 ### Properties
 * **autoPause**: [AutoPauseProperties](#autopauseproperties): Auto-pausing properties
 * **autoScale**: [AutoScaleProperties](#autoscaleproperties): Auto-scaling properties
-* **cacheSize**: int (ReadOnly): The cache size
+* **cacheSize**: int: The cache size
 * **creationDate**: string (ReadOnly): The time when the Big Data pool was created.
 * **customLibraries**: [LibraryInfo](#libraryinfo)[]: List of custom libraries/packages associated with the spark pool.
 * **defaultSparkLogFolder**: string: The default folder where Spark logs will be written.
@@ -642,6 +633,11 @@
 * **password**: [SecretBase](#secretbase) (Required): The password of data source access.
 * **targetName**: any (Required): The server name of data source access.
 * **userName**: any (Required): The user name of data source access.
+
+## CopyComputeScaleProperties
+### Properties
+* **dataIntegrationUnit**: int: DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256.
+* **timeToLive**: int: Time to live (in minutes) setting of integration runtime which will execute copy activity.
 
 ## CspWorkspaceAdminProperties
 ### Properties
@@ -990,11 +986,13 @@ For more information, see [Auditing to storage using Managed Identity authentica
 
 ## IntegrationRuntimeComputeProperties
 ### Properties
+* **copyComputeScaleProperties**: [CopyComputeScaleProperties](#copycomputescaleproperties): CopyComputeScale properties for managed integration runtime.
 * **dataFlowProperties**: [IntegrationRuntimeDataFlowProperties](#integrationruntimedataflowproperties): Data flow properties for managed integration runtime.
 * **location**: string: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
 * **maxParallelExecutionsPerNode**: int: Maximum parallel executions count per node for managed integration runtime.
 * **nodeSize**: string: The node size requirement to managed integration runtime.
 * **numberOfNodes**: int: The required number of nodes for managed integration runtime.
+* **pipelineExternalComputeScaleProperties**: [PipelineExternalComputeScaleProperties](#pipelineexternalcomputescaleproperties): PipelineExternalComputeScale properties for managed integration runtime.
 * **vNetProperties**: [IntegrationRuntimeVNetProperties](#integrationruntimevnetproperties): VNet properties for managed integration runtime.
 ### Additional Properties
 * **Additional Properties Type**: any
@@ -1170,17 +1168,18 @@ For more information, see [Auditing to storage using Managed Identity authentica
 * **linkedAccessCheckOnTargetResource**: bool: Linked Access Check On Target Resource
 * **preventDataExfiltration**: bool: Prevent Data Exfiltration
 
-## MetadataSyncConfigProperties
-### Properties
-* **enabled**: bool: Indicates whether the metadata sync is enabled or disabled
-* **syncIntervalInMinutes**: int (ReadOnly): The Sync Interval in minutes.
-
 ## OptimizedAutoscale
 ### Properties
 * **isEnabled**: bool (Required): A boolean value that indicate if the optimized autoscale feature is enabled or not.
 * **maximum**: int (Required): Maximum allowed instances count.
 * **minimum**: int (Required): Minimum allowed instances count.
 * **version**: int (Required): The version of the template defined, for instance 1.
+
+## PipelineExternalComputeScaleProperties
+### Properties
+* **numberOfExternalNodes**: int: Number of the the external nodes, which should be greater than 0 and less than 11.
+* **numberOfPipelineNodes**: int: Number of the pipeline nodes, which should be greater than 0 and less than 11.
+* **timeToLive**: int: Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
 
 ## PrivateEndpoint
 ### Properties
@@ -1311,6 +1310,7 @@ For more information, see [Auditing to storage using Managed Identity authentica
 ## SelfHostedIntegrationRuntimeTypeProperties
 ### Properties
 * **linkedInfo**: [LinkedIntegrationRuntimeType](#linkedintegrationruntimetype): Linked integration runtime type from data factory
+* **selfContainedInteractiveAuthoringEnabled**: bool: An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
 
 ## SensitivityLabelProperties
 ### Properties
@@ -1747,7 +1747,7 @@ Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. Source
 ### Properties
 * **accountName**: string: Account name
 * **collaborationBranch**: string: Collaboration branch
-* **hostName**: string: GitHub Enterprise host name. For example: https://github.mydomain.com
+* **hostName**: string: GitHub Enterprise host name. For example: `https://github.mydomain.com`
 * **lastCommitId**: string: The last commit ID
 * **projectName**: string: VSTS project name
 * **repositoryName**: string: Repository name

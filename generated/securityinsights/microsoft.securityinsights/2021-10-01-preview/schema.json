@@ -548,49 +548,6 @@
       ],
       "type": "object"
     },
-    "sourcecontrols": {
-      "description": "Microsoft.SecurityInsights/sourcecontrols",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-10-01-preview"
-          ],
-          "type": "string"
-        },
-        "etag": {
-          "description": "Etag of the azure resource",
-          "type": "string"
-        },
-        "name": {
-          "description": "Source control Id",
-          "type": "string"
-        },
-        "properties": {
-          "description": "source control properties",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/SourceControlProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "enum": [
-            "Microsoft.SecurityInsights/sourcecontrols"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "properties",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
-    },
     "threatIntelligence_indicators": {
       "description": "Microsoft.SecurityInsights/threatIntelligence/indicators",
       "properties": {
@@ -1253,31 +1210,6 @@
         "displayName",
         "query"
       ],
-      "type": "object"
-    },
-    "ContentPathMap": {
-      "description": "The mapping of content type to a repo path.",
-      "properties": {
-        "contentType": {
-          "description": "Content type.",
-          "oneOf": [
-            {
-              "enum": [
-                "AnalyticRule",
-                "Workbook"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "path": {
-          "description": "The path to the content.",
-          "type": "string"
-        }
-      },
       "type": "object"
     },
     "EntityFieldMapping": {
@@ -1987,42 +1919,6 @@
       ],
       "type": "object"
     },
-    "Repository": {
-      "description": "metadata of a repository.",
-      "properties": {
-        "branch": {
-          "description": "Branch name of repository.",
-          "type": "string"
-        },
-        "deploymentLogsUrl": {
-          "description": "Url to access repository action logs.",
-          "type": "string"
-        },
-        "displayUrl": {
-          "description": "Display url of repository.",
-          "type": "string"
-        },
-        "pathMapping": {
-          "description": "Dictionary of source control content type and path mapping.",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/ContentPathMap"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "url": {
-          "description": "Url of repository.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "SentinelOnboardingStateProperties": {
       "description": "The Sentinel onboarding state properties",
       "properties": {
@@ -2038,74 +1934,6 @@
           ]
         }
       },
-      "type": "object"
-    },
-    "SourceControlProperties": {
-      "description": "Describes source control properties",
-      "properties": {
-        "contentTypes": {
-          "description": "Array of source control content types.",
-          "oneOf": [
-            {
-              "items": {
-                "enum": [
-                  "AnalyticRule",
-                  "Workbook"
-                ],
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "description": {
-          "description": "A description of the source control",
-          "type": "string"
-        },
-        "displayName": {
-          "description": "The display name of the source control",
-          "type": "string"
-        },
-        "id": {
-          "description": "The id (a Guid) of the source control",
-          "type": "string"
-        },
-        "repoType": {
-          "description": "The repository type of the source control",
-          "oneOf": [
-            {
-              "enum": [
-                "Github",
-                "DevOps"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "repository": {
-          "description": "Repository metadata.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Repository"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "displayName",
-        "repoType",
-        "contentTypes",
-        "repository"
-      ],
       "type": "object"
     },
     "TeamInformation": {

@@ -12,7 +12,7 @@
 ## ChangeAttributes
 ### Properties
 * **changedBy**: string (ReadOnly): The entity that made the change(s)
-* **changedByType**: 'Application' | 'ManagedIdentity' | 'User' | string (ReadOnly): The entity type that made the change(s)
+* **changedByType**: 'Application' | 'ManagedIdentity' | 'Unknown' | 'User' | string (ReadOnly): The entity type that made the change(s)
 * **changesCount**: int (ReadOnly): The number of changes this resource captures
 * **clientType**: string (ReadOnly): Client used to make the changes
 * **correlationId**: string (ReadOnly): The ARM correlation ID of the change resource
