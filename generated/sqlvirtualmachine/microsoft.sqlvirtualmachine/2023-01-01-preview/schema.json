@@ -121,7 +121,7 @@
           "type": "string"
         },
         "identity": {
-          "description": "Azure Active Directory identity of the server.",
+          "description": "DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.",
           "oneOf": [
             {
               "$ref": "#/definitions/ResourceIdentity"
@@ -504,6 +504,21 @@
     "AutoPatchingSettings": {
       "description": "Set a patching window during which Windows and SQL patches will be applied.",
       "properties": {
+        "additionalVmPatch": {
+          "description": "Additional Patch to be enable or enabled on the SQL Virtual Machine.",
+          "oneOf": [
+            {
+              "enum": [
+                "NotSet",
+                "MicrosoftUpdate"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "dayOfWeek": {
           "description": "Day of week to apply the patch on.",
           "oneOf": [
