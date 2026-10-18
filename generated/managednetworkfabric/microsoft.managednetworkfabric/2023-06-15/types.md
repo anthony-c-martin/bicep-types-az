@@ -271,14 +271,14 @@
 
 ## AccessControlListMatchCondition
 ### Properties
-* **dscpMarkings**: string[]: List of DSCP Markings that needs to be matched.
-* **etherTypes**: string[]: List of ether type values that needs to be matched.
-* **fragments**: string[]: List of IP fragment packets that needs to be matched.
+* **dscpMarkings**: string[]: List of DSCP Markings that need to be matched.
+* **etherTypes**: string[]: List of ether type values that need to be matched.
+* **fragments**: string[]: List of IP fragment packets that need to be matched.
 * **ipCondition**: [IpMatchCondition](#ipmatchcondition): IP condition that needs to be matched.
-* **ipLengths**: string[]: List of IP Lengths that needs to be matched.
+* **ipLengths**: string[]: List of IP Lengths that need to be matched.
 * **portCondition**: [AccessControlListPortCondition](#accesscontrollistportcondition): Defines the port condition that needs to be matched.
 * **protocolTypes**: string[]: List of the protocols that need to be matched.
-* **ttlValues**: string[]: List of TTL [Time To Live] values that needs to be matched.
+* **ttlValues**: string[]: List of TTL [Time To Live] values that need to be matched.
 * **vlanMatchCondition**: [VlanMatchCondition](#vlanmatchcondition): Vlan match condition that needs to be matched.
 
 ## AccessControlListMatchConfiguration
@@ -291,9 +291,9 @@
 
 ## AccessControlListPortCondition
 ### Properties
-* **flags**: string[]: List of protocol flags that needs to be matched.
+* **flags**: string[]: List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg
 * **layer4Protocol**: 'TCP' | 'UDP' | string (Required): Layer4 protocol type that needs to be matched.
-* **portGroupNames**: string[]: List of the port Group Names that to be matched.
+* **portGroupNames**: string[]: List of the port Group Names that need to be matched.
 * **ports**: string[]: List of the Ports that need to be matched.
 * **portType**: 'DestinationPort' | 'SourcePort' | string: Port type that needs to be matched.
 
@@ -302,8 +302,9 @@
 * **aclsUrl**: string: Access Control List file URL.
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **configurationType**: 'File' | 'Inline' | string: Input method to configure Access Control List.
+* **defaultAction**: 'Deny' | 'Permit' | string: Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
 * **dynamicMatchConfigurations**: [CommonDynamicMatchConfiguration](#commondynamicmatchconfiguration)[]: List of dynamic match configurations.
 * **lastSyncedTime**: string (ReadOnly): The last synced timestamp.
 * **matchConfigurations**: [AccessControlListMatchConfiguration](#accesscontrollistmatchconfiguration)[]: List of match configurations.
@@ -339,7 +340,7 @@
 ## CommonDynamicMatchConfiguration
 ### Properties
 * **ipGroups**: [IpGroupProperties](#ipgroupproperties)[]: List of IP Groups.
-* **portGroups**: [PortGroupProperties](#portgroupproperties)[]: List of the port group.
+* **portGroups**: [PortGroupProperties](#portgroupproperties)[]: List of the port groups.
 * **vlanGroups**: [VlanGroupProperties](#vlangroupproperties)[]: List of vlan groups.
 
 ## ConnectedSubnet
@@ -382,12 +383,12 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **exportRoutePolicy**: [ExportRoutePolicy](#exportroutepolicy): Export Route Policy either IPv4 or IPv6.
 * **exportRoutePolicyId**: string: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
 * **importRoutePolicy**: [ImportRoutePolicy](#importroutepolicy): Import Route Policy either IPv4 or IPv6.
 * **importRoutePolicyId**: string: ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
-* **networkToNetworkInterconnectId**: string (ReadOnly): Gets the networkToNetworkInterconnectId of the resource.
+* **networkToNetworkInterconnectId**: string: ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
 * **optionAProperties**: [ExternalNetworkPropertiesOptionAProperties](#externalnetworkpropertiesoptionaproperties): option A properties object
 * **optionBProperties**: [L3OptionBProperties](#l3optionbproperties): option B properties object
 * **peeringOption**: 'OptionA' | 'OptionB' | string (Required): Peering option list.
@@ -422,7 +423,7 @@
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
 * **bgpConfiguration**: [InternalNetworkPropertiesBgpConfiguration](#internalnetworkpropertiesbgpconfiguration): BGP configuration properties.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **connectedIPv4Subnets**: [ConnectedSubnet](#connectedsubnet)[]: List of Connected IPv4 Subnets.
 * **connectedIPv6Subnets**: [ConnectedSubnet](#connectedsubnet)[]: List of connected IPv6 Subnets.
 * **egressAclId**: string: Egress Acl. ARM resource ID of Access Control Lists.
@@ -484,7 +485,7 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **ipCommunityRules**: [IpCommunityRule](#ipcommunityrule)[]: List of IP Community Rules.
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): Provisioning state of the resource.
 
@@ -503,7 +504,7 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **ipExtendedCommunityRules**: [IpExtendedCommunityRule](#ipextendedcommunityrule)[] (Required): List of IP Extended Community Rules.
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): Provisioning state of the resource.
 
@@ -522,15 +523,15 @@
 ## IpMatchCondition
 ### Properties
 * **ipGroupNames**: string[]: The List of IP Group Names that need to be matched.
-* **ipPrefixValues**: string[]: The list of IP Prefixes.
-* **prefixType**: 'LongestPrefix' | 'Prefix' | string: IP Prefix Type.
-* **type**: 'DestinationIP' | 'SourceIP' | string: IP Address type.
+* **ipPrefixValues**: string[]: The list of IP Prefixes that need to be matched.
+* **prefixType**: 'LongestPrefix' | 'Prefix' | string: IP Prefix Type that needs to be matched.
+* **type**: 'DestinationIP' | 'SourceIP' | string: IP Address type that needs to be matched.
 
 ## IpPrefixProperties
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **ipPrefixRules**: [IpPrefixRule](#ipprefixrule)[]: The list of IP Prefix Rules.
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): Provisioning state of the resource.
 
@@ -551,7 +552,7 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **mtu**: int: Maximum transmission unit. Default value is 1500.
 * **networkFabricId**: string (Required): ARM Resource ID of the Network Fabric.
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): Provisioning state of the resource.
@@ -567,7 +568,7 @@
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **aggregateRouteConfiguration**: [AggregateRouteConfiguration](#aggregaterouteconfiguration): Aggregate route configurations.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **connectedSubnetRoutePolicy**: [ConnectedSubnetRoutePolicy](#connectedsubnetroutepolicy): Connected Subnet RoutePolicy
 * **networkFabricId**: string (Required): ARM Resource ID of the Network Fabric.
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): Provisioning state of the resource.
@@ -598,7 +599,7 @@
 ## NeighborAddress
 ### Properties
 * **address**: string: IP Address.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 
 ## NeighborGroupDestination
 ### Properties
@@ -617,7 +618,7 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **hostName**: string: The host name of the device.
 * **managementIpv4Address**: string (ReadOnly): Management IPv4 Address.
 * **managementIpv6Address**: string (ReadOnly): Management IPv6 Address.
@@ -658,9 +659,9 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **fabricASN**: int (Required): ASN of CE devices for CE/PE connectivity.
-* **fabricVersion**: string (ReadOnly): The version of Network Fabric.
+* **fabricVersion**: string: The version of Network Fabric.
 * **ipv4Prefix**: string (Required): IPv4Prefix for Management Network. Example: 10.1.0.0/19.
 * **ipv6Prefix**: string: IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
 * **l2IsolationDomains**: string[] (ReadOnly): List of L2 Isolation Domain resource IDs under the Network Fabric.
@@ -716,7 +717,7 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource. Example -Enabled/Disabled
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Gets the configurations state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Gets the configurations state of the resource.
 * **destinations**: [NetworkTapPropertiesDestinationsItem](#networktappropertiesdestinationsitem)[] (Required): List of destinations to send the filter traffic.
 * **networkPacketBrokerId**: string (Required): ARM resource ID of the Network Packet Broker.
 * **pollingType**: 'Pull' | 'Push' | string: Polling type.
@@ -741,7 +742,7 @@
 
 ## NetworkTapRuleMatchCondition
 ### Properties
-* **encapsulationType**: 'GTPv1' | 'None' | string: Encapsulation Type.
+* **encapsulationType**: 'GTPv1' | 'None' | string: Encapsulation Type that needs to be matched.
 * **ipCondition**: [IpMatchCondition](#ipmatchcondition): IP condition that needs to be matched.
 * **portCondition**: [PortCondition](#portcondition): Defines the port condition that needs to be matched.
 * **protocolTypes**: string[]: List of the protocols that need to be matched.
@@ -759,7 +760,7 @@
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **configurationType**: 'File' | 'Inline' | string: Input method to configure Network Tap Rule.
 * **dynamicMatchConfigurations**: [CommonDynamicMatchConfiguration](#commondynamicmatchconfiguration)[]: List of dynamic match configurations.
 * **lastSyncedTime**: string (ReadOnly): The last sync timestamp.
@@ -772,7 +773,7 @@
 ## NetworkToNetworkInterconnectProperties
 ### Properties
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
 * **egressAclId**: string: Egress Acl. ARM resource ID of Access Control Lists.
 * **exportRoutePolicy**: [ExportRoutePolicyInformation](#exportroutepolicyinformation): Export Route Policy configuration.
 * **importRoutePolicy**: [ImportRoutePolicyInformation](#importroutepolicyinformation): Import Route Policy configuration.
@@ -810,21 +811,22 @@
 ## PortCondition
 ### Properties
 * **layer4Protocol**: 'TCP' | 'UDP' | string (Required): Layer4 protocol type that needs to be matched.
-* **portGroupNames**: string[]: List of the port Group Names that to be matched.
+* **portGroupNames**: string[]: List of the port Group Names that need to be matched.
 * **ports**: string[]: List of the Ports that need to be matched.
 * **portType**: 'DestinationPort' | 'SourcePort' | string: Port type that needs to be matched.
 
 ## PortGroupProperties
 ### Properties
 * **name**: string: The name of the port group.
-* **ports**: string[]: List of the ports that needs to be matched.
+* **ports**: string[]: List of the ports that need to be matched.
 
 ## RoutePolicyProperties
 ### Properties
 * **addressFamilyType**: 'IPv4' | 'IPv6' | string: AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
 * **administrativeState**: 'Disabled' | 'Enabled' | 'MAT' | 'RMA' | string (ReadOnly): Administrative state of the resource.
 * **annotation**: string: Switch configuration description.
-* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'Provisioned' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **configurationState**: 'Accepted' | 'DeferredControl' | 'Deprovisioned' | 'Deprovisioning' | 'ErrorDeprovisioning' | 'ErrorProvisioning' | 'Failed' | 'PendingCommit' | 'Provisioned' | 'Provisioning' | 'Rejected' | 'Succeeded' | string (ReadOnly): Configuration state of the resource.
+* **defaultAction**: 'Deny' | 'Permit' | string: Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
 * **networkFabricId**: string (Required): Arm Resource ID of Network Fabric.
 * **provisioningState**: 'Accepted' | 'Canceled' | 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): Provisioning state of the resource.
 * **statements**: [RoutePolicyStatementProperties](#routepolicystatementproperties)[]: Route Policy statements.
@@ -991,9 +993,9 @@
 
 ## VlanMatchCondition
 ### Properties
-* **innerVlans**: string[]: List of inner vlans that needs to be matched.
-* **vlanGroupNames**: string[]: List of vlan group names that to be matched.
-* **vlans**: string[]: List of vlans that needs to be matched.
+* **innerVlans**: string[]: List of inner vlans that need to be matched.
+* **vlanGroupNames**: string[]: List of vlan group names that need to be matched.
+* **vlans**: string[]: List of vlans that need to be matched.
 
 ## VpnConfigurationProperties
 ### Properties

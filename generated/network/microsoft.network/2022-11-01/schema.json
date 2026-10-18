@@ -2694,9 +2694,6 @@
               },
               {
                 "$ref": "#/definitions/networkVirtualAppliances_virtualApplianceSites_childResource"
-              },
-              {
-                "$ref": "#/definitions/networkVirtualAppliances_networkVirtualApplianceConnections_childResource"
               }
             ]
           },
@@ -2763,57 +2760,6 @@
         "type": {
           "enum": [
             "Microsoft.Network/networkVirtualAppliances/inboundSecurityRules"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "properties",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
-    },
-    "networkVirtualAppliances_networkVirtualApplianceConnections": {
-      "description": "Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2022-11-01"
-          ],
-          "type": "string"
-        },
-        "id": {
-          "description": "Resource ID.",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the NVA connection.",
-          "oneOf": [
-            {
-              "pattern": "^[A-Za-z0-9_]+",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "Properties of the express route connection.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/NetworkVirtualApplianceConnectionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "enum": [
-            "Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections"
           ],
           "type": "string"
         }
@@ -16642,78 +16588,6 @@
       },
       "type": "object"
     },
-    "NetworkVirtualApplianceConnectionProperties": {
-      "description": "Properties of the NetworkVirtualApplianceConnection subresource.",
-      "properties": {
-        "asn": {
-          "description": "Network Virtual Appliance ASN.",
-          "oneOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "bgpPeerAddress": {
-          "description": "List of bgpPeerAddresses for the NVA instances",
-          "oneOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "enableInternetSecurity": {
-          "description": "Enable internet security.",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "name": {
-          "description": "The name of the resource.",
-          "type": "string"
-        },
-        "routingConfiguration": {
-          "description": "The Routing Configuration indicating the associated and propagated route tables on this connection.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/RoutingConfigurationNfv"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "tunnelIdentifier": {
-          "description": "Unique identifier for the connection.",
-          "oneOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
     "NetworkVirtualAppliancePropertiesFormat": {
       "description": "Network Virtual Appliance definition.",
       "properties": {
@@ -18320,40 +18194,6 @@
       },
       "type": "object"
     },
-    "PropagatedRouteTableNfv": {
-      "description": "Nfv version of the list of RouteTables to advertise the routes to.",
-      "properties": {
-        "ids": {
-          "description": "The list of resource ids of all the RouteTables.",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/RoutingConfigurationNfvSubResource"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "labels": {
-          "description": "The list of labels.",
-          "oneOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
     "PublicIPAddress": {
       "description": "Public IP address resource.",
       "properties": {
@@ -19205,17 +19045,6 @@
           "description": "The destination CIDR to which the route applies.",
           "type": "string"
         },
-        "hasBgpOverride": {
-          "description": "A value indicating whether this route overrides overlapping BGP routes regardless of LPM.",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "nextHopIpAddress": {
           "description": "The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.",
           "type": "string"
@@ -19372,66 +19201,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        }
-      },
-      "type": "object"
-    },
-    "RoutingConfigurationNfv": {
-      "description": "NFV version of Routing Configuration indicating the associated and propagated route tables for this connection.",
-      "properties": {
-        "associatedRouteTable": {
-          "description": "The resource id RouteTable associated with this RoutingConfiguration.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/RoutingConfigurationNfvSubResource"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "inboundRouteMap": {
-          "description": "The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/RoutingConfigurationNfvSubResource"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "outboundRouteMap": {
-          "description": "The resource id of the RouteMap associated with this RoutingConfiguration for outbound advertised routes.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/RoutingConfigurationNfvSubResource"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "propagatedRouteTables": {
-          "description": "The list of RouteTables to advertise the routes to.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/PropagatedRouteTableNfv"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
-    "RoutingConfigurationNfvSubResource": {
-      "description": "Reference to RouteTableV3 associated with the connection.",
-      "properties": {
-        "resourceUri": {
-          "description": "Resource ID.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -24732,57 +24501,6 @@
         "type": {
           "enum": [
             "inboundSecurityRules"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "properties",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
-    },
-    "networkVirtualAppliances_networkVirtualApplianceConnections_childResource": {
-      "description": "Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2022-11-01"
-          ],
-          "type": "string"
-        },
-        "id": {
-          "description": "Resource ID.",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the NVA connection.",
-          "oneOf": [
-            {
-              "pattern": "^[A-Za-z0-9_]+",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "Properties of the express route connection.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/NetworkVirtualApplianceConnectionProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "enum": [
-            "networkVirtualApplianceConnections"
           ],
           "type": "string"
         }

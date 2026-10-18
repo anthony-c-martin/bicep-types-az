@@ -687,15 +687,6 @@
 * **properties**: [InboundSecurityRuleProperties](#inboundsecurityruleproperties): The properties of the Inbound Security Rules.
 * **type**: 'Microsoft.Network/networkVirtualAppliances/inboundSecurityRules' (ReadOnly, DeployTimeConstant): The resource type
 
-## Resource Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections@2022-11-01
-* **Valid Scope(s)**: ResourceGroup
-### Properties
-* **apiVersion**: '2022-11-01' (ReadOnly, DeployTimeConstant): The resource api version
-* **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: string (Required, DeployTimeConstant): The resource name
-* **properties**: [NetworkVirtualApplianceConnectionProperties](#networkvirtualapplianceconnectionproperties): Properties of the express route connection.
-* **type**: 'Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections' (ReadOnly, DeployTimeConstant): The resource type
-
 ## Resource Microsoft.Network/networkVirtualAppliances/virtualApplianceSites@2022-11-01
 * **Valid Scope(s)**: ResourceGroup
 ### Properties
@@ -3541,16 +3532,6 @@
 * **securityRules**: [SecurityRule](#securityrule)[]: A collection of security rules of the network security group.
 * **subnets**: [Subnet](#subnet)[] (ReadOnly): A collection of references to subnets.
 
-## NetworkVirtualApplianceConnectionProperties
-### Properties
-* **asn**: int: Network Virtual Appliance ASN.
-* **bgpPeerAddress**: string[]: List of bgpPeerAddresses for the NVA instances
-* **enableInternetSecurity**: bool: Enable internet security.
-* **name**: string: The name of the resource.
-* **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): The provisioning state of the NetworkVirtualApplianceConnection resource.
-* **routingConfiguration**: [RoutingConfigurationNfv](#routingconfigurationnfv): The Routing Configuration indicating the associated and propagated route tables on this connection.
-* **tunnelIdentifier**: int: Unique identifier for the connection.
-
 ## NetworkVirtualAppliancePropertiesFormat
 ### Properties
 * **additionalNics**: [VirtualApplianceAdditionalNicProperties](#virtualapplianceadditionalnicproperties)[]: Details required for Additional Network Interface.
@@ -3566,7 +3547,6 @@
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): The provisioning state of the resource.
 * **sshPublicKey**: string: Public key for SSH login.
 * **virtualApplianceAsn**: int: VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
-* **virtualApplianceConnections**: [SubResource](#subresource)[] (ReadOnly): List of references to VirtualApplianceConnections.
 * **virtualApplianceNics**: [VirtualApplianceNicProperties](#virtualappliancenicproperties)[] (ReadOnly): List of Virtual Appliance Network Interfaces.
 * **virtualApplianceSites**: [SubResource](#subresource)[] (ReadOnly): List of references to VirtualApplianceSite.
 * **virtualHub**: [SubResource](#subresource): The Virtual Hub where Network Virtual Appliance is being deployed.
@@ -3907,11 +3887,6 @@
 ## PropagatedRouteTable
 ### Properties
 * **ids**: [SubResource](#subresource)[]: The list of resource ids of all the RouteTables.
-* **labels**: string[]: The list of labels.
-
-## PropagatedRouteTableNfv
-### Properties
-* **ids**: [RoutingConfigurationNfvSubResource](#routingconfigurationnfvsubresource)[]: The list of resource ids of all the RouteTables.
 * **labels**: string[]: The list of labels.
 
 ## PublicIPAddress
@@ -4408,7 +4383,7 @@
 ## RoutePropertiesFormat
 ### Properties
 * **addressPrefix**: string: The destination CIDR to which the route applies.
-* **hasBgpOverride**: bool: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+* **hasBgpOverride**: bool (ReadOnly): A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
 * **nextHopIpAddress**: string: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
 * **nextHopType**: 'Internet' | 'None' | 'VirtualAppliance' | 'VirtualNetworkGateway' | 'VnetLocal' | string (Required): The type of Azure hop the packet should be sent to.
 * **provisioningState**: 'Deleting' | 'Failed' | 'Succeeded' | 'Updating' | string (ReadOnly): The provisioning state of the route resource.
@@ -4438,17 +4413,6 @@
 * **outboundRouteMap**: [SubResource](#subresource): The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
 * **propagatedRouteTables**: [PropagatedRouteTable](#propagatedroutetable): The list of RouteTables to advertise the routes to.
 * **vnetRoutes**: [VnetRoute](#vnetroute): List of routes that control routing from VirtualHub into a virtual network connection.
-
-## RoutingConfigurationNfv
-### Properties
-* **associatedRouteTable**: [RoutingConfigurationNfvSubResource](#routingconfigurationnfvsubresource): The resource id RouteTable associated with this RoutingConfiguration.
-* **inboundRouteMap**: [RoutingConfigurationNfvSubResource](#routingconfigurationnfvsubresource): The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-* **outboundRouteMap**: [RoutingConfigurationNfvSubResource](#routingconfigurationnfvsubresource): The resource id of the RouteMap associated with this RoutingConfiguration for outbound advertised routes.
-* **propagatedRouteTables**: [PropagatedRouteTableNfv](#propagatedroutetablenfv): The list of RouteTables to advertise the routes to.
-
-## RoutingConfigurationNfvSubResource
-### Properties
-* **resourceUri**: string: Resource ID.
 
 ## RoutingIntentProperties
 ### Properties

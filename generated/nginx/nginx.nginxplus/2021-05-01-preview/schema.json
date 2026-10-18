@@ -265,6 +265,28 @@
         "keyVirtualPath": {
           "description": "",
           "type": "string"
+        },
+        "provisioningState": {
+          "description": "",
+          "oneOf": [
+            {
+              "enum": [
+                "Accepted",
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Deleted",
+                "NotSpecified"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"
@@ -332,6 +354,28 @@
             }
           ]
         },
+        "provisioningState": {
+          "description": "",
+          "oneOf": [
+            {
+              "enum": [
+                "Accepted",
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Deleted",
+                "NotSpecified"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "rootFile": {
           "description": "",
           "type": "string"
@@ -372,6 +416,28 @@
           "oneOf": [
             {
               "$ref": "#/definitions/NginxNetworkProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningState": {
+          "description": "",
+          "oneOf": [
+            {
+              "enum": [
+                "Accepted",
+                "Creating",
+                "Updating",
+                "Deleting",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Deleted",
+                "NotSpecified"
+              ],
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
