@@ -86,9 +86,7 @@
 ## ManagedClusterUpgradeSpec
 ### Properties
 * **kubernetesVersion**: string: The Kubernetes version to upgrade the member clusters to.
-* **type**: 'Full' | 'NodeImageOnly' | string (Required): The upgrade type.
-Full requires the KubernetesVersion property to be set.
-NodeImageOnly requires the KubernetesVersion property not to be set.
+* **type**: 'Full' | 'NodeImageOnly' | string (Required): ManagedClusterUpgradeType is the type of upgrade to be applied.
 
 ## MemberUpdateStatus
 ### Properties
@@ -113,9 +111,8 @@ NodeImageOnly requires the KubernetesVersion property not to be set.
 
 ## UpdateGroup
 ### Properties
-* **name**: string (Required): The name of the Fleet member group to update. 
-It should match the name of an existing FleetMember group.
-A group can only appear once across all UpdateStages in the UpdateRun.
+* **name**: string (Required): Name of the group.
+It must match a group name of an existing fleet member.
 
 ## UpdateGroupStatus
 ### Properties
@@ -128,7 +125,7 @@ A group can only appear once across all UpdateStages in the UpdateRun.
 * **managedClusterUpdate**: [ManagedClusterUpdate](#managedclusterupdate) (Required): The update to be applied to all clusters in the UpdateRun. The managedClusterUpdate can be modified until the run is started.
 * **provisioningState**: 'Canceled' | 'Failed' | 'Succeeded' | string (ReadOnly): The provisioning state of the UpdateRun resource.
 * **status**: [UpdateRunStatus](#updaterunstatus) (ReadOnly): The status of the UpdateRun.
-* **strategy**: [UpdateRunStrategy](#updaterunstrategy): The strategy defines the order in which the clusters will be updated. 
+* **strategy**: [UpdateRunStrategy](#updaterunstrategy): The strategy defines the order in which the clusters will be updated.
 If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
 The strategy of the UpdateRun can be modified until the run is started.
 
@@ -139,13 +136,12 @@ The strategy of the UpdateRun can be modified until the run is started.
 
 ## UpdateRunStrategy
 ### Properties
-* **stages**: [UpdateStage](#updatestage)[] (Required): The list of stages that compose this update run.
+* **stages**: [UpdateStage](#updatestage)[] (Required): The list of stages that compose this update run. Min size: 1.
 
 ## UpdateStage
 ### Properties
 * **afterStageWaitInSeconds**: int: The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
-* **groups**: [UpdateGroup](#updategroup)[]: A list of group names that compose the stage.
-The groups will be updated in parallel. Each group name can only appear once in the UpdateRun.
+* **groups**: [UpdateGroup](#updategroup)[]: Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.
 * **name**: string (Required): The name of the stage. Must be unique within the UpdateRun.
 
 ## UpdateStageStatus
@@ -160,7 +156,7 @@ The groups will be updated in parallel. Each group name can only appear once in 
 * **completedTime**: string (ReadOnly): The time the operation or group was completed.
 * **error**: [ErrorDetail](#errordetail) (ReadOnly): The error details when a failure is encountered.
 * **startTime**: string (ReadOnly): The time the operation or group was started.
-* **state**: 'Completed' | 'Failed' | 'NotStarted' | 'Running' | 'Stopped' | 'Stopping' | string (ReadOnly): The State of the operation or group.
+* **state**: 'Completed' | 'Failed' | 'NotStarted' | 'Pending' | 'Running' | 'Stopped' | 'Stopping' | string (ReadOnly): The State of the operation or group.
 
 ## WaitStatus
 ### Properties
