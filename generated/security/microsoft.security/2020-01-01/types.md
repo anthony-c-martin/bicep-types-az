@@ -1,14 +1,5 @@
 # Microsoft.Security @ 2020-01-01
 
-## Resource Microsoft.Security/adaptiveNetworkHardenings@2020-01-01 (ReadOnly)
-* **Valid Scope(s)**: Extension
-### Properties
-* **apiVersion**: '2020-01-01' (ReadOnly, DeployTimeConstant): The resource api version
-* **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **name**: string (Required, DeployTimeConstant): The resource name
-* **properties**: [AdaptiveNetworkHardeningProperties](#adaptivenetworkhardeningproperties) (ReadOnly): Properties of the Adaptive Network Hardening resource
-* **type**: 'Microsoft.Security/adaptiveNetworkHardenings' (ReadOnly, DeployTimeConstant): The resource type
-
 ## Resource Microsoft.Security/assessmentMetadata@2020-01-01
 * **Valid Scope(s)**: Tenant (ReadOnly), Subscription
 ### Properties
@@ -44,17 +35,8 @@
 * **location**: string (ReadOnly): Location where the resource is stored
 * **name**: 'External' | 'Internal' | string (Required, DeployTimeConstant): The resource name
 * **properties**: [AllowedConnectionsResourceProperties](#allowedconnectionsresourceproperties) (ReadOnly): Describes the allowed traffic between Azure resources
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/locations/allowedConnections' (ReadOnly, DeployTimeConstant): The resource type
-
-## Resource Microsoft.Security/locations/applicationWhitelistings@2020-01-01
-* **Valid Scope(s)**: Subscription
-### Properties
-* **apiVersion**: '2020-01-01' (ReadOnly, DeployTimeConstant): The resource api version
-* **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **location**: string (ReadOnly): Location where the resource is stored
-* **name**: string (Required, DeployTimeConstant): The resource name
-* **properties**: [AdaptiveApplicationControlGroupData](#adaptiveapplicationcontrolgroupdata) (Required): Represents a machines group and set of rules to be allowed running on a machine
-* **type**: 'Microsoft.Security/locations/applicationWhitelistings' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Security/locations/discoveredSecuritySolutions@2020-01-01 (ReadOnly)
 * **Valid Scope(s)**: ResourceGroup
@@ -64,17 +46,37 @@
 * **location**: string (ReadOnly): Location where the resource is stored
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [DiscoveredSecuritySolutionProperties](#discoveredsecuritysolutionproperties) (ReadOnly)
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/locations/discoveredSecuritySolutions' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Security/locations/ExternalSecuritySolutions@2020-01-01 (ReadOnly)
 * **Valid Scope(s)**: ResourceGroup
-### Properties
+* **Discriminator**: kind
+
+### Base Properties
 * **apiVersion**: '2020-01-01' (ReadOnly, DeployTimeConstant): The resource api version
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
-* **kind**: 'AAD' | 'ATA' | 'CEF' | string (ReadOnly): The kind of the external solution
 * **location**: string (ReadOnly): Location where the resource is stored
 * **name**: string (Required, DeployTimeConstant): The resource name
+* **properties**: any (ReadOnly): The resource-specific properties for this resource.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/locations/ExternalSecuritySolutions' (ReadOnly, DeployTimeConstant): The resource type
+
+### AadExternalSecuritySolution
+#### Properties
+* **kind**: 'AAD' (Required): The kind of the external solution
+* **properties**: [AadSolutionProperties](#aadsolutionproperties) (ReadOnly): The external security solution properties for AAD solutions
+
+### AtaExternalSecuritySolution
+#### Properties
+* **kind**: 'ATA' (Required): The kind of the external solution
+* **properties**: [AtaSolutionProperties](#atasolutionproperties) (ReadOnly): The external security solution properties for ATA solutions
+
+### CefExternalSecuritySolution
+#### Properties
+* **kind**: 'CEF' (Required): The kind of the external solution
+* **properties**: [CefSolutionProperties](#cefsolutionproperties) (ReadOnly): The external security solution properties for CEF solutions
+
 
 ## Resource Microsoft.Security/locations/jitNetworkAccessPolicies@2020-01-01
 * **Valid Scope(s)**: ResourceGroup
@@ -82,9 +84,10 @@
 * **apiVersion**: '2020-01-01' (ReadOnly, DeployTimeConstant): The resource api version
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **kind**: string: Kind of the resource
-* **location**: string (ReadOnly): Location where the resource is stored
+* **location**: string (Required, ReadOnly): Location where the resource is stored
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [JitNetworkAccessPolicyProperties](#jitnetworkaccesspolicyproperties) (Required)
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/locations/jitNetworkAccessPolicies' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Security/locations/securitySolutions@2020-01-01 (ReadOnly)
@@ -95,6 +98,7 @@
 * **location**: string (ReadOnly): Location where the resource is stored
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [SecuritySolutionProperties](#securitysolutionproperties) (ReadOnly)
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/locations/securitySolutions' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Security/locations/topologies@2020-01-01 (ReadOnly)
@@ -105,6 +109,7 @@
 * **location**: string (ReadOnly): Location where the resource is stored
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [TopologyResourceProperties](#topologyresourceproperties) (ReadOnly)
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/locations/topologies' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Security/secureScores@2020-01-01 (ReadOnly)
@@ -114,6 +119,7 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: string (Required, DeployTimeConstant): The resource name
 * **properties**: [SecureScoreItemProperties](#securescoreitemproperties) (ReadOnly): Secure score item
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/secureScores' (ReadOnly, DeployTimeConstant): The resource type
 
 ## Resource Microsoft.Security/serverVulnerabilityAssessments@2020-01-01
@@ -123,29 +129,17 @@
 * **id**: string (ReadOnly, DeployTimeConstant): The resource id
 * **name**: 'default' (Required, DeployTimeConstant): The resource name
 * **properties**: [ServerVulnerabilityAssessmentProperties](#servervulnerabilityassessmentproperties) (ReadOnly): describes ServerVulnerabilityAssessment properties.
+* **systemData**: [SystemData](#systemdata) (ReadOnly): Azure Resource Manager metadata containing createdBy and modifiedBy information.
 * **type**: 'Microsoft.Security/serverVulnerabilityAssessments' (ReadOnly, DeployTimeConstant): The resource type
 
-## AdaptiveApplicationControlGroupData
+## AadSolutionProperties
 ### Properties
-* **configurationStatus**: 'Configured' | 'Failed' | 'InProgress' | 'NoStatus' | 'NotConfigured' | string (ReadOnly): The configuration status of the machines group or machine or rule
-* **enforcementMode**: 'Audit' | 'Enforce' | 'None' | string: The application control policy enforcement/protection mode of the machine group
-* **issues**: [AdaptiveApplicationControlIssueSummary](#adaptiveapplicationcontrolissuesummary)[] (ReadOnly)
-* **pathRecommendations**: [PathRecommendation](#pathrecommendation)[]
-* **protectionMode**: [ProtectionMode](#protectionmode): The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-* **recommendationStatus**: 'NoStatus' | 'NotAvailable' | 'NotRecommended' | 'Recommended' | string (ReadOnly): The initial recommendation status of the machine group or machine
-* **sourceSystem**: 'Azure_AppLocker' | 'Azure_AuditD' | 'NonAzure_AppLocker' | 'NonAzure_AuditD' | 'None' | string (ReadOnly): The source type of the machine group
-* **vmRecommendations**: [VmRecommendation](#vmrecommendation)[]
-
-## AdaptiveApplicationControlIssueSummary
-### Properties
-* **issue**: 'ExecutableViolationsAudited' | 'MsiAndScriptViolationsAudited' | 'MsiAndScriptViolationsBlocked' | 'RulesViolatedManually' | 'ViolationsAudited' | 'ViolationsBlocked' | string: An alert that machines within a group can have
-* **numberOfVms**: int: The number of machines in the group that have this alert
-
-## AdaptiveNetworkHardeningProperties
-### Properties
-* **effectiveNetworkSecurityGroups**: [EffectiveNetworkSecurityGroups](#effectivenetworksecuritygroups)[]: The Network Security Groups effective on the network interfaces of the protected resource
-* **rules**: [Rule](#rule)[]: The security rules which are recommended to be effective on the VM
-* **rulesCalculationTime**: string: The UTC time on which the rules were calculated
+* **connectivityState**: 'Connected' | 'Discovered' | 'NotLicensed' | string: The connectivity state of the external AAD solution
+* **deviceType**: string
+* **deviceVendor**: string
+* **workspace**: [ConnectedWorkspace](#connectedworkspace): Represents an OMS workspace to which the solution is connected
+### Additional Properties
+* **Additional Properties Type**: any
 
 ## AlertEntity
 ### Properties
@@ -204,6 +198,26 @@
 * **code**: 'Healthy' | 'NotApplicable' | 'Unhealthy' | string (Required): Programmatic code for the status of the assessment
 * **description**: string: Human readable description of the assessment status
 
+## AtaSolutionProperties
+### Properties
+* **deviceType**: string
+* **deviceVendor**: string
+* **lastEventReceived**: string
+* **workspace**: [ConnectedWorkspace](#connectedworkspace): Represents an OMS workspace to which the solution is connected
+### Additional Properties
+* **Additional Properties Type**: any
+
+## CefSolutionProperties
+### Properties
+* **agent**: string
+* **deviceType**: string
+* **deviceVendor**: string
+* **hostname**: string
+* **lastEventReceived**: string
+* **workspace**: [ConnectedWorkspace](#connectedworkspace): Represents an OMS workspace to which the solution is connected
+### Additional Properties
+* **Additional Properties Type**: any
+
 ## ConnectableResource
 ### Properties
 * **id**: string (ReadOnly): The Azure resource id
@@ -216,17 +230,16 @@
 * **tcpPorts**: string (ReadOnly): The allowed tcp ports
 * **udpPorts**: string (ReadOnly): The allowed udp ports
 
+## ConnectedWorkspace
+### Properties
+* **id**: string: Azure resource ID of the connected OMS workspace
+
 ## DiscoveredSecuritySolutionProperties
 ### Properties
 * **offer**: string (Required): The security solutions' image offer
 * **publisher**: string (Required): The security solutions' image publisher
 * **securityFamily**: 'Ngfw' | 'SaasWaf' | 'Va' | 'Waf' | string (Required): The security family of the discovered solution
 * **sku**: string (Required): The security solutions' image sku
-
-## EffectiveNetworkSecurityGroups
-### Properties
-* **networkInterface**: string: The Azure resource ID of the network interface
-* **networkSecurityGroups**: string[]: The Network Security Groups effective on the network interface
 
 ## JitNetworkAccessPolicyProperties
 ### Properties
@@ -270,32 +283,6 @@
 * **id**: string (Required): Resource ID of the virtual machine that is linked to this policy
 * **ports**: [JitNetworkAccessRequestPort](#jitnetworkaccessrequestport)[] (Required): The ports that were opened for the virtual machine
 
-## PathRecommendation
-### Properties
-* **action**: 'Add' | 'Recommended' | 'Remove' | string: The recommendation action of the machine or rule
-* **common**: bool: Whether the application is commonly run on the machine
-* **configurationStatus**: 'Configured' | 'Failed' | 'InProgress' | 'NoStatus' | 'NotConfigured' | string: The configuration status of the machines group or machine or rule
-* **fileType**: 'Dll' | 'Exe' | 'Executable' | 'Msi' | 'Script' | 'Unknown' | string: The type of the file (for Linux files - Executable is used)
-* **path**: string: The full path of the file, or an identifier of the application
-* **publisherInfo**: [PublisherInfo](#publisherinfo): Represents the publisher information of a process/rule
-* **type**: 'BinarySignature' | 'File' | 'FileHash' | 'ProductSignature' | 'PublisherSignature' | 'VersionAndAboveSignature' | string: The type of the rule to be allowed
-* **usernames**: [UserRecommendation](#userrecommendation)[]
-* **userSids**: string[]
-
-## ProtectionMode
-### Properties
-* **exe**: 'Audit' | 'Enforce' | 'None' | string: The application control policy enforcement/protection mode of the machine group
-* **executable**: 'Audit' | 'Enforce' | 'None' | string: The application control policy enforcement/protection mode of the machine group
-* **msi**: 'Audit' | 'Enforce' | 'None' | string: The application control policy enforcement/protection mode of the machine group
-* **script**: 'Audit' | 'Enforce' | 'None' | string: The application control policy enforcement/protection mode of the machine group
-
-## PublisherInfo
-### Properties
-* **binaryName**: string: The "OriginalName" field taken from the file's version resource
-* **productName**: string: The product name taken from the file's version resource
-* **publisherName**: string: The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
-* **version**: string: The binary file version taken from the file's version resource
-
 ## ResourceDetails
 * **Discriminator**: source
 
@@ -336,14 +323,6 @@
 * **workspaceSubscriptionId**: string (ReadOnly): The azure subscription id for the LogAnalytics workspace storing this alert.
 
 
-## Rule
-### Properties
-* **destinationPort**: int: The rule's destination port
-* **direction**: 'Inbound' | 'Outbound' | string: The rule's direction
-* **ipAddresses**: string[]: The remote IP addresses that should be able to communicate with the Azure resource on the rule's destination port and protocol
-* **name**: string: The name of the rule
-* **protocols**: 'TCP' | 'UDP' | string[]: The rule's transport protocols
-
 ## ScoreDetails
 ### Properties
 * **current**: int (ReadOnly): Current score
@@ -352,7 +331,7 @@
 
 ## SecureScoreItemProperties
 ### Properties
-* **displayName**: string (ReadOnly): The initiative’s name
+* **displayName**: string (ReadOnly): The initiative's name
 * **score**: [ScoreDetails](#scoredetails) (ReadOnly): score object
 * **weight**: int (ReadOnly): The relative weight for each subscription. Used when calculating an aggregated secure score for multiple subscriptions.
 
@@ -400,13 +379,22 @@
 ## SecuritySolutionProperties
 ### Properties
 * **protectionStatus**: string (Required): The security solutions' status
-* **provisioningState**: 'Failed' | 'Succeeded' | 'Updating' | string (Required): The security family provisioning State
+* **provisioningState**: 'Canceled' | 'Creating' | 'Deleting' | 'Failed' | 'InProgress' | 'Succeeded' | 'Updating' | string (Required): The security family provisioning State
 * **securityFamily**: 'Ngfw' | 'SaasWaf' | 'Va' | 'Waf' | string (Required): The security family of the security solution
 * **template**: string (Required): The security solutions' template
 
 ## ServerVulnerabilityAssessmentProperties
 ### Properties
 * **provisioningState**: 'Canceled' | 'Deprovisioning' | 'Failed' | 'Provisioning' | 'Succeeded' | string (ReadOnly): The provisioningState of the vulnerability assessment capability on the VM
+
+## SystemData
+### Properties
+* **createdAt**: string: The timestamp of resource creation (UTC).
+* **createdBy**: string: The identity that created the resource.
+* **createdByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User' | string: The type of identity that created the resource.
+* **lastModifiedAt**: string: The timestamp of resource last modification (UTC)
+* **lastModifiedBy**: string: The identity that last modified the resource.
+* **lastModifiedByType**: 'Application' | 'Key' | 'ManagedIdentity' | 'User' | string: The type of identity that last modified the resource.
 
 ## TopologyResourceProperties
 ### Properties
@@ -431,16 +419,4 @@
 ## TopologySingleResourceParent
 ### Properties
 * **resourceId**: string (ReadOnly): Azure resource id which serves as parent resource in topology view
-
-## UserRecommendation
-### Properties
-* **recommendationAction**: 'Add' | 'Recommended' | 'Remove' | string: The recommendation action of the machine or rule
-* **username**: string: Represents a user that is recommended to be allowed for a certain rule
-
-## VmRecommendation
-### Properties
-* **configurationStatus**: 'Configured' | 'Failed' | 'InProgress' | 'NoStatus' | 'NotConfigured' | string: The configuration status of the machines group or machine or rule
-* **enforcementSupport**: 'NotSupported' | 'Supported' | 'Unknown' | string: The machine supportability of Enforce feature
-* **recommendationAction**: 'Add' | 'Recommended' | 'Remove' | string: The recommendation action of the machine or rule
-* **resourceId**: string: The full resource id of the machine
 

@@ -1,0 +1,353 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2026-10-01-preview/Microsoft.NetworkSecurity.json#",
+  "title": "Microsoft.NetworkSecurity",
+  "description": "Microsoft NetworkSecurity Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "neuroShields": {
+      "description": "Microsoft.NetworkSecurity/neuroShields",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the NeuroShield resource.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9._-]{0,62}[a-zA-Z0-9])?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the NeuroShield resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NeuroShieldProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/neuroShields_protectedResources_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.NetworkSecurity/neuroShields"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "neuroShields_protectedResources": {
+      "description": "Microsoft.NetworkSecurity/neuroShields/protectedResources",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the protected resource.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9._-]{0,62}[a-zA-Z0-9])?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the protected resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NeuroShieldProtectedResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.NetworkSecurity/neuroShields/protectedResources"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "NeuroShieldProperties": {
+      "description": "Properties of the NeuroShield resource.",
+      "properties": {
+        "description": {
+          "description": "Human-readable description of the NeuroShield resource. Omission in a full\nPUT request resolves to an empty string. Control characters other than tab,\nline feed, and carriage return are not allowed.",
+          "oneOf": [
+            {
+              "maxLength": 512,
+              "pattern": "^(?![\\s\\S]*[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F-\\x9F])[\\s\\S]*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "responseMode": {
+          "description": "Response mode that controls mitigation serving behavior. A full create or\nupdate (PUT) request must specify Auto or Manual; there is no default.\nOmitting responseMode from a PATCH request preserves the existing mode.",
+          "oneOf": [
+            {
+              "enum": [
+                "Auto",
+                "Manual"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "severityThreshold": {
+          "description": "Minimum severity level for mitigation generation. Omission in a full PUT\nrequest resolves to Low; omission in PATCH preserves the value.",
+          "oneOf": [
+            {
+              "enum": [
+                "Critical",
+                "High",
+                "Medium",
+                "Low"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "responseMode"
+      ],
+      "type": "object"
+    },
+    "NeuroShieldProtectedResourceIdentity": {
+      "description": "Caller-supplied identity of the target VM or VMSS, retained on the protected resource.\nThese identifiers are not independently resolved or verified by this API contract.",
+      "properties": {
+        "principalId": {
+          "description": "Microsoft Entra service principal ID of the target's system-assigned identity.\nA nonzero value is required for SystemAssigned; omit for UserAssigned.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tenantId": {
+          "description": "Microsoft Entra tenant ID of the target's system-assigned identity.\nA nonzero value is required for SystemAssigned; omit for UserAssigned.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Type of the target identity. None, SystemAssigned, and UserAssigned are supported.\nThe declared combined system/user-assigned value is rejected by the operation.\nThere is no default when an identity object is supplied.",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "description": "User-assigned identities keyed by Azure Resource Manager resource ID.\nFor UserAssigned, supply exactly one non-null entry with a nonblank key and\nnonzero principalId and clientId. Other identity kinds reject a nonempty map.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/definitions/NeuroShieldProtectedResourceUserAssignedIdentity"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "NeuroShieldProtectedResourceProperties": {
+      "description": "Properties of a protected resource.",
+      "properties": {
+        "targetIdentity": {
+          "description": "The optional customer VM or VMSS identity used by the Neuron agent. Omission\nand explicit None are accepted on create. SystemAssigned requires nonzero\nprincipalId and tenantId; UserAssigned requires exactly one non-null dictionary\nentry with nonzero principalId and clientId and no top-level IDs. The declared\ncombined identity kind is rejected. Caller-supplied identifiers are returned\non read; service-side verification of their association with the target remains\nrequired. Omission on update preserves the stored identity; a supplied identity\nmust be unchanged. Explicit None cannot clear an existing identity. Changing\nidentity requires deleting and recreating the protected resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NeuroShieldProtectedResourceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetResourceId": {
+          "description": "Azure Resource Manager resource ID of the target virtual machine or virtual machine scale set.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetResourceId"
+      ],
+      "type": "object"
+    },
+    "NeuroShieldProtectedResourceUserAssignedIdentity": {
+      "description": "Caller-supplied identifiers of a user-assigned identity associated with the target.",
+      "properties": {
+        "clientId": {
+          "description": "Microsoft Entra client ID of the target's user-assigned identity.\nA non-null, nonzero value is required when using UserAssigned.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "principalId": {
+          "description": "Microsoft Entra service principal ID of the target's user-assigned identity.\nA non-null, nonzero value is required when using UserAssigned.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "neuroShields_protectedResources_childResource": {
+      "description": "Microsoft.NetworkSecurity/neuroShields/protectedResources",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the protected resource.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9._-]{0,62}[a-zA-Z0-9])?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the protected resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NeuroShieldProtectedResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "protectedResources"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

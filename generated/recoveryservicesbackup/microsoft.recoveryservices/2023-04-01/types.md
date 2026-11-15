@@ -542,6 +542,11 @@ Failed | Succeeded
 * **message**: string (ReadOnly): Error Message related to the Code.
 * **recommendations**: string[] (ReadOnly): List of recommendation strings.
 
+## ExtendedLocation
+### Properties
+* **name**: string: Name of the extended location.
+* **type**: string: Type of the extended location. Possible values include: 'EdgeZone'
+
 ## ExtendedProperties
 ### Properties
 * **diskExclusionProperties**: [DiskExclusionProperties](#diskexclusionproperties): Extended Properties for Disk Exclusion.
@@ -792,6 +797,7 @@ InProgress | Failed | Succeeded
 * **resourceGuardOperationRequests**: string[]: ResourceGuardOperationRequests on which LAC check will be performed
 * **softDeleteRetentionPeriodInDays**: int: Soft delete retention period in days
 * **sourceResourceId**: string: ARM ID of the resource to be backed up.
+* **vaultId**: string (ReadOnly): ID of the vault which protects this item
 * **workloadType**: 'AzureFileShare' | 'AzureSqlDb' | 'Client' | 'Exchange' | 'FileFolder' | 'GenericDataSource' | 'Invalid' | 'SAPAseDatabase' | 'SAPHanaDBInstance' | 'SAPHanaDatabase' | 'SQLDB' | 'SQLDataBase' | 'Sharepoint' | 'SystemState' | 'VM' | 'VMwareVM' | string (ReadOnly): Type of workload this item represents.
 
 ### AzureFileshareProtectedItem
@@ -1195,6 +1201,8 @@ Or when ListRecoveryPoints is called for Log RP only with ExtendedInfo query fil
 
 ### IaasVMRecoveryPoint
 #### Properties
+* **extendedLocation**: [ExtendedLocation](#extendedlocation): Extended location of the VM recovery point,
+should be null if VM is in public cloud
 * **isInstantIlrSessionActive**: bool: Is the session to recover items from this backup copy still active.
 * **isManagedVirtualMachine**: bool: Whether VM is with Managed Disks
 * **isPrivateAccessEnabledOnAnyDisk**: bool: This flag denotes if any of the disks in the VM are using Private access network setting

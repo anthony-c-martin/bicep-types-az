@@ -2068,17 +2068,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "userCreatedAcrAccount": {
-          "description": "Details of user created ACR account to be used for the Registry",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/UserCreatedAcrAccount"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "type": "object"
@@ -9840,7 +9829,7 @@
       "description": "Private endpoint connection definition.",
       "properties": {
         "id": {
-          "description": "This is the private endpoint connection name created on SRP\r\nFull resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}",
+          "description": "This is the private endpoint connection name created on SRP\r\nFull resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/privateEndpointConnections/{peConnectionName}",
           "type": "string"
         },
         "location": {
@@ -9889,11 +9878,7 @@
             }
           ]
         },
-        "provisioningState": {
-          "description": "One of null, \"Succeeded\", \"Provisioning\", \"Failed\". While not approved, it's null.",
-          "type": "string"
-        },
-        "registryPrivateLinkServiceConnectionState": {
+        "privateLinkServiceConnectionState": {
           "description": "The connection state.",
           "oneOf": [
             {
@@ -9903,6 +9888,10 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "provisioningState": {
+          "description": "One of null, \"Succeeded\", \"Provisioning\", \"Failed\". While not approved, it's null.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -9964,6 +9953,20 @@
           "description": "MLFlow Registry URI for the Registry",
           "type": "string"
         },
+        "privateEndpointConnections": {
+          "description": "Private endpoint connections info used for pending connections in private link portal",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/RegistryPrivateEndpointConnection"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "publicNetworkAccess": {
           "description": "Is the Registry accessible from the internet?\r\nPossible values: \"Enabled\" or \"Disabled\"",
           "type": "string"
@@ -9974,20 +9977,6 @@
             {
               "items": {
                 "$ref": "#/definitions/RegistryRegionArmDetails"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "registryPrivateEndpointConnections": {
-          "description": "Private endpoint connections info used for pending connections in private link portal",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/RegistryPrivateEndpointConnection"
               },
               "type": "array"
             },
@@ -10851,17 +10840,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "userCreatedStorageAccount": {
-          "description": "Details of user created storage account to be used for the registry",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/UserCreatedStorageAccount"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
         }
       },
       "type": "object"
@@ -11492,38 +11470,6 @@
     "UserAssignedIdentity": {
       "description": "User assigned identity properties",
       "properties": {},
-      "type": "object"
-    },
-    "UserCreatedAcrAccount": {
-      "properties": {
-        "armResourceId": {
-          "description": "ARM ResourceId of a resource",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ArmResourceId"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
-    "UserCreatedStorageAccount": {
-      "properties": {
-        "armResourceId": {
-          "description": "ARM ResourceId of a resource",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ArmResourceId"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
       "type": "object"
     },
     "VirtualMachineImage": {

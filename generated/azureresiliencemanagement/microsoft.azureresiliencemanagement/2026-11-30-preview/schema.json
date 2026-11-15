@@ -1,0 +1,2083 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2026-11-30-preview/Microsoft.AzureResilienceManagement.json#",
+  "title": "Microsoft.AzureResilienceManagement",
+  "description": "Microsoft AzureResilienceManagement Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "usagePlans": {
+      "description": "Microsoft.AzureResilienceManagement/usagePlans",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the usage plan.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9-]{3,24}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UsagePlanProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/usagePlans_enrollments_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AzureResilienceManagement/usagePlans"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "usagePlans_enrollments": {
+      "description": "Microsoft.AzureResilienceManagement/usagePlans/enrollments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the enrollment.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9-]{3,24}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnrollmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AzureResilienceManagement/usagePlans/enrollments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
+    "drills": {
+      "description": "Microsoft.AzureResilienceManagement/drills",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed service identities assigned to this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The name of the Drill",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9-]{3,24}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DrillProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AzureResilienceManagement/drills"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "goalAssignments": {
+      "description": "Microsoft.AzureResilienceManagement/goalAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the goal assignment.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9-]{3,24}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GoalAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AzureResilienceManagement/goalAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "recoveryPlans": {
+      "description": "Microsoft.AzureResilienceManagement/recoveryPlans",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed service identities assigned to this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The name of the recovery orchestration plan.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9-]{5,24}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryPlanProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/recoveryPlans_recoveryConfigProfiles_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AzureResilienceManagement/recoveryPlans"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "recoveryPlans_recoveryConfigProfiles": {
+      "description": "Microsoft.AzureResilienceManagement/recoveryPlans/recoveryConfigProfiles",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the recovery configuration profile.",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9_]([A-Za-z0-9_.-]{0,126}[A-Za-z0-9_])?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryConfigProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.AzureResilienceManagement/recoveryPlans/recoveryConfigProfiles"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "AssetPropertiesOfDrill": {
+      "description": "Drill asset properties.",
+      "properties": {
+        "region": {
+          "description": "Region where Drill's internal resources will be created.",
+          "type": "string"
+        },
+        "resourceGroup": {
+          "description": "Resource group where Drill's internal resources will be created. If not specified, defaults to 'AzureResilienceManagementDrills'. This value is immutable after drill creation.",
+          "oneOf": [
+            {
+              "maxLength": 90,
+              "minLength": 1,
+              "pattern": "^[-\\w\\._\\(\\)]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "subscription": {
+          "description": "Subscription where Drill's internal resources will be created.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subscription",
+        "region"
+      ],
+      "type": "object"
+    },
+    "AssociatedIdentity": {
+      "description": "Definition of associated identity linked with the various resources.",
+      "properties": {
+        "type": {
+          "description": "Identity type linked with the resource",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentity": {
+          "description": "User assigned identity id linked with the resource",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "ChaosResourcePropertiesOfDrill": {
+      "description": "Chaos Resource properties.",
+      "properties": {
+        "chaosResourceIdentityForFaults": {
+          "description": "Identity to be used by the Chaos Resource for invoking faults on resources.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "identity": {
+          "description": "Identity to use for Chaos Resource operations.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "identity",
+        "chaosResourceIdentityForFaults"
+      ],
+      "type": "object"
+    },
+    "DrillProperties": {
+      "description": "Properties of the Resiliency Drill.",
+      "oneOf": [
+        {
+          "description": "Definition of Regional Drill properties.",
+          "properties": {},
+          "type": "object"
+        },
+        {
+          "description": "Definition of Zonal Drill properties.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "chaosResourceProperties": {
+          "description": "Chaos Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ChaosResourcePropertiesOfDrill"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "drillAssetProperties": {
+          "description": "Properties for internal resources that are created for the Drill.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssetPropertiesOfDrill"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "goalAssignmentProperties": {
+          "description": "Goal Assignment properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GoalAssignmentPropertiesOfDrill"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "healthModelMonitoringProperties": {
+          "description": "Azure Health Model monitoring properties of the Drill.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HealthModelMonitoringProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "monitoringProperties": {
+          "description": "Monitoring properties of the Drill.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MonitoringPropertiesOfDrill"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rbacSetupMode": {
+          "description": "RBAC setup mode.",
+          "oneOf": [
+            {
+              "enum": [
+                "AutomatedCustomRole",
+                "AutomatedBuiltinRoles",
+                "Manual"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryPlanProperties": {
+          "description": "ROPlan properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryPlanPropertiesOfDrill"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sliMonitoringProperties": {
+          "description": "SLI monitoring properties of the Drill.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SliMonitoringProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EnrollmentProperties": {
+      "description": "Definition of enrollment properties.",
+      "properties": {
+        "serviceGroupId": {
+          "description": "ARM resource identifier of the service group associated with this usage plan.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "serviceGroupId"
+      ],
+      "type": "object"
+    },
+    "GoalAssignmentProperties": {
+      "description": "Properties of a goal assignment.",
+      "properties": {
+        "regionalObjectives": {
+          "description": "Recovery objectives targeted for regional resiliency.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RegionalObjectives"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "requireRegionalResiliency": {
+          "description": "Whether regional resiliency is required for this goal assignment.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "requireZonalResiliency": {
+          "description": "Whether zonal resiliency is required for this goal assignment.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "serviceLevelResources": {
+          "description": "List of service level resources.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/ServiceLevelResource"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "requireZonalResiliency"
+      ],
+      "type": "object"
+    },
+    "GoalAssignmentPropertiesOfDrill": {
+      "description": "Goal assignment properties.",
+      "properties": {
+        "identity": {
+          "description": "Identity to use for goal assignment operations.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "identity"
+      ],
+      "type": "object"
+    },
+    "HealthModelMonitoringProperties": {
+      "description": "Azure Health Model monitoring properties of a Drill. Exactly one Health Model may be selected per Drill.",
+      "properties": {
+        "healthModelId": {
+          "description": "Full ARM Id of the Azure Health Model selected for Drill monitoring.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "Identity that the Drill uses to read the Azure Health Model. The Drill is granted Reader on the Health Model for this identity.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "identity",
+        "healthModelId"
+      ],
+      "type": "object"
+    },
+    "ManagedServiceIdentity": {
+      "description": "Managed service identity (system assigned and/or user assigned identities)",
+      "properties": {
+        "type": {
+          "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
+          "oneOf": [
+            {
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "MonitoringPropertiesOfDrill": {
+      "description": "Drill monitoring properties.",
+      "properties": {
+        "identity": {
+          "description": "Identity to use for Drill monitoring operations.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecoveryConfigProfileAssociation": {
+      "description": "Associates a workload type with a plan-scoped recovery configuration profile.",
+      "properties": {
+        "recoveryConfigProfileId": {
+          "description": "The Azure resource identifier of the plan-scoped recovery configuration profile.",
+          "type": "string"
+        },
+        "workloadType": {
+          "description": "The workload type configured by the profile.",
+          "oneOf": [
+            {
+              "enum": [
+                "AzureVm",
+                "SqlDatabaseInAzureVm",
+                "SapHanaInAzureVm",
+                "SapAseInAzureVm",
+                "OracleInAzureVm",
+                "AzureFileShare"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "workloadType",
+        "recoveryConfigProfileId"
+      ],
+      "type": "object"
+    },
+    "RecoveryConfigProfileProperties": {
+      "description": "Properties of a plan-scoped recovery configuration profile.",
+      "properties": {
+        "recoveryPointPolicy": {
+          "description": "Default recovery point selection.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryPointPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetScope": {
+          "description": "The subscription and location targeted by this profile.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TargetScope"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "workloadConfig": {
+          "description": "The workload-specific recovery configuration.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WorkloadConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetScope",
+        "workloadConfig"
+      ],
+      "type": "object"
+    },
+    "RecoveryGroup": {
+      "description": "Represents a recovery orchestration group resource in the Azure Resilience Management provider namespace.",
+      "properties": {
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecoveryGroupBaseAction": {
+      "description": "Defines an action for the recovery orchestration group.",
+      "oneOf": [
+        {
+          "description": "Defines a custom runbook action for the recovery orchestration group.",
+          "properties": {
+            "actionResourceId": {
+              "description": "The ARM Resource ID of the resource that includes the actionable script, such as a Runbook in an Automation Account.",
+              "type": "string"
+            },
+            "associatedIdentity": {
+              "description": "The identity associated with actionResourceId for RBAC.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/AssociatedIdentity"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "parameters": {
+              "description": "Key-value parameters for the operation.",
+              "oneOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "properties": {},
+                  "type": "object"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Defines a manual action for the recovery orchestration group.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "description": {
+          "description": "A description of the recovery orchestration group action, containing the instructions to be performed during this action.",
+          "maxLength": 100,
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the recovery orchestration group action.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9-]{3,24}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "timeoutInMinutes": {
+          "description": "The maximum amount of time, in minutes, allowed for the action to complete before it times out.",
+          "oneOf": [
+            {
+              "maximum": 10000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "timeoutInMinutes"
+      ],
+      "type": "object"
+    },
+    "RecoveryGroupProperties": {
+      "description": "Properties of the recovery orchestration group.",
+      "properties": {
+        "description": {
+          "description": "A description of the recovery orchestration group.",
+          "maxLength": 50,
+          "minLength": 5,
+          "type": "string"
+        },
+        "groupUniqueId": {
+          "description": "A unique id for the recovery orchestration group, which is a GUID.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "orderId": {
+          "description": "The order ID of the recovery orchestration group.",
+          "oneOf": [
+            {
+              "maximum": 15,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "postActions": {
+          "description": "Post-actions for the recovery orchestration group.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/RecoveryGroupBaseAction"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "preActions": {
+          "description": "Pre-actions for the recovery orchestration group.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/RecoveryGroupBaseAction"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resiliencyGroupProperties": {
+          "description": "Resiliency-specific properties for the recovery orchestration group.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryGroupResiliencyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "groupUniqueId",
+        "orderId",
+        "description"
+      ],
+      "type": "object"
+    },
+    "RecoveryGroupResiliencyProperties": {
+      "description": "Resiliency-specific properties for a recovery orchestration group.",
+      "oneOf": [
+        {
+          "description": "Cyber resiliency properties for a recovery orchestration group.",
+          "properties": {
+            "recoveryConfigProfileAssociations": {
+              "description": "Recovery configuration profiles associated by workload type.",
+              "oneOf": [
+                {
+                  "items": {
+                    "$ref": "#/definitions/RecoveryConfigProfileAssociation"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "description": "Infrastructure resiliency properties for a recovery orchestration group.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryGroupsSetting": {
+      "description": "Settings for the recovery orchestration groups.",
+      "properties": {
+        "additionalGroups": {
+          "description": "Additional recovery orchestration group settings.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/RecoveryGroup"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "defaultGroup": {
+          "description": "The default recovery orchestration group setting. Every recovery orchestration plan has a default recovery orchestration group.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryGroup"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "defaultGroup"
+      ],
+      "type": "object"
+    },
+    "RecoveryPlanProperties": {
+      "description": "Properties of the recovery orchestration plan.",
+      "properties": {
+        "planDescription": {
+          "description": "A description of the recovery orchestration plan.",
+          "maxLength": 50,
+          "minLength": 5,
+          "type": "string"
+        },
+        "planType": {
+          "description": "The type of the recovery orchestration plan, which can be set during creation but cannot be changed afterward.",
+          "oneOf": [
+            {
+              "enum": [
+                "Regional",
+                "Zonal",
+                "CyberRecovery"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "recoveryGroupsSetting": {
+          "description": "Settings for the recovery orchestration groups associated with the recovery orchestration plan.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryGroupsSetting"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resiliencyPlanProperties": {
+          "description": "Resiliency-specific properties for the recovery plan.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryPlanResiliencyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "planType",
+        "planDescription",
+        "recoveryGroupsSetting"
+      ],
+      "type": "object"
+    },
+    "RecoveryPlanPropertiesOfDrill": {
+      "description": "RecoveryPlan properties.",
+      "properties": {
+        "identity": {
+          "description": "Identity to use for RecoveryPlan operations.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "identity"
+      ],
+      "type": "object"
+    },
+    "RecoveryPlanResiliencyProperties": {
+      "description": "Resiliency-specific properties for a recovery plan.",
+      "oneOf": [
+        {
+          "description": "Cyber resiliency properties for a recovery plan.",
+          "properties": {
+            "targetEnvironment": {
+              "description": "The required subscriptions and locations where recovery is targeted.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetEnvironment"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "targetEnvironment"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Infrastructure resiliency properties for a recovery plan.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "properties": {},
+      "type": "object"
+    },
+    "RecoveryPointPolicy": {
+      "description": "Default recovery point selection for a recovery configuration profile.",
+      "properties": {
+        "backupType": {
+          "description": "The explicit, non-empty list of unique backup mechanisms to consider. Random selection cannot include Log, even when other mechanisms are also selected.",
+          "oneOf": [
+            {
+              "items": {
+                "enum": [
+                  "Streaming",
+                  "Log",
+                  "Snapshot"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "endTime": {
+          "description": "The inclusive upper time bound. Required with startTime for Random selection when lookbackDuration is omitted; optional for Latest selection. Mutually exclusive with lookbackDuration.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "lookbackDuration": {
+          "description": "A positive, fixed ISO 8601 duration for relative Random selection, such as P10D or PT12H. Only days, hours, minutes, and seconds are supported; calendar-dependent months and years are not supported. Mutually exclusive with startTime and endTime. The service resolves the duration to absolute bounds at execution time without modifying the saved profile.",
+          "type": "string"
+        },
+        "recoveryPointHealthStatus": {
+          "description": "The health filter for discrete recovery points. Omission means All. Log and point-in-time recovery candidates are not health-filtered.",
+          "oneOf": [
+            {
+              "enum": [
+                "HealthyOnly",
+                "HealthyAndUnknown",
+                "All"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "startTime": {
+          "description": "The inclusive lower time bound. Required with endTime for Random selection when lookbackDuration is omitted; optional for Latest selection. Mutually exclusive with lookbackDuration.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "description": "The recovery point selection policy type.",
+          "oneOf": [
+            {
+              "enum": [
+                "Latest",
+                "Random"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "backupType"
+      ],
+      "type": "object"
+    },
+    "RegionalObjectives": {
+      "description": "Recovery objectives targeted by a goal assignment for regional resiliency.",
+      "properties": {
+        "targetRecoveryPointObjective": {
+          "description": "Target regional recovery point objective. eg, PT15M for 15 minutes.",
+          "oneOf": [
+            {
+              "enum": [
+                "PT15M",
+                "PT1H",
+                "PT4H",
+                "PT24H"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetRecoveryTimeObjective": {
+          "description": "Target regional recovery time objective. eg, PT1H for 1 hour.",
+          "oneOf": [
+            {
+              "enum": [
+                "PT15M",
+                "PT1H",
+                "PT4H",
+                "PT24H"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetRecoveryPointObjective",
+        "targetRecoveryTimeObjective"
+      ],
+      "type": "object"
+    },
+    "ServiceLevelResource": {
+      "description": "A service-level resource associated with a goal assignment.",
+      "properties": {
+        "serviceLevelIndicatorResourceId": {
+          "description": "The ARM resource ID of the service-level indicator resource.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "serviceLevelIndicatorResourceId"
+      ],
+      "type": "object"
+    },
+    "SliMonitoringProperties": {
+      "description": "SLI monitoring properties of a Drill. At most two SLIs may be selected: at most one Availability and one Latency.",
+      "properties": {
+        "identity": {
+          "description": "Identity that the Drill uses to read evaluated SLI results from each SLI's destination Azure Monitor Workspace. The Drill is granted Monitoring Reader on every destination AMW of every selected SLI for this identity.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "slis": {
+          "description": "The SLIs selected for Drill monitoring. Maximum of two entries: at most one Availability and one Latency. Duplicate types or duplicate SLI Ids are rejected.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/SliSelection"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "identity",
+        "slis"
+      ],
+      "type": "object"
+    },
+    "SliSelection": {
+      "description": "A single SLI selected for Drill monitoring.",
+      "properties": {
+        "sliId": {
+          "description": "Full ARM Id of the SLI.",
+          "type": "string"
+        },
+        "type": {
+          "description": "User-declared category of the SLI. Must be unique across the selected SLIs.",
+          "oneOf": [
+            {
+              "enum": [
+                "Availability",
+                "Latency"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sliId",
+        "type"
+      ],
+      "type": "object"
+    },
+    "TargetEnvironment": {
+      "description": "The target subscriptions and locations for cyber recovery.",
+      "properties": {
+        "targetLocations": {
+          "description": "The Azure locations available as recovery targets.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "targetSubscriptionIds": {
+          "description": "The subscription identifiers available as recovery targets.",
+          "oneOf": [
+            {
+              "items": {
+                "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "targetSubscriptionIds",
+        "targetLocations"
+      ],
+      "type": "object"
+    },
+    "TargetResourceSpec": {
+      "description": "A target resource required by a recovery workload.",
+      "properties": {
+        "armResourceType": {
+          "description": "The full Azure resource type of the target. Supported types include Microsoft.Resources/resourceGroups, Microsoft.Compute/virtualMachines, Microsoft.Network/virtualNetworks, Microsoft.Network/virtualNetworks/subnets, Microsoft.Storage/storageAccounts, Microsoft.Compute/diskEncryptionSets, Microsoft.KeyVault/vaults, and Microsoft.Network/networkSecurityGroups. The service validates supported target resource types.",
+          "type": "string"
+        },
+        "dependsOn": {
+          "description": "The target resources that this target depends on.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "provisioningMode": {
+          "description": "How the target resource is provisioned.",
+          "oneOf": [
+            {
+              "enum": [
+                "Existing"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resourceId": {
+          "description": "The Azure resource identifier of the existing target. Required when provisioningMode is Existing.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "armResourceType"
+      ],
+      "type": "object"
+    },
+    "TargetScope": {
+      "description": "The subscription and location targeted by a recovery configuration profile.",
+      "properties": {
+        "location": {
+          "description": "The target Azure location.",
+          "type": "string"
+        },
+        "subscriptionId": {
+          "description": "The target Azure subscription identifier.",
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "subscriptionId",
+        "location"
+      ],
+      "type": "object"
+    },
+    "UsagePlanProperties": {
+      "description": "Definition of usage plan properties.",
+      "properties": {
+        "planType": {
+          "description": "The type of the usage plan.",
+          "oneOf": [
+            {
+              "enum": [
+                "Standard"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UserAssignedIdentity": {
+      "description": "User assigned identity properties",
+      "properties": {},
+      "type": "object"
+    },
+    "WorkloadConfig": {
+      "description": "Workload-specific recovery configuration.",
+      "oneOf": [
+        {
+          "description": "Recovery configuration for an Azure Files workload.",
+          "properties": {
+            "copyOptions": {
+              "description": "The behavior when a copied file already exists.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "Overwrite",
+                    "Skip"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "identity": {
+              "description": "The system-assigned and/or user-assigned managed identities used for restore.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ManagedServiceIdentity"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "storageAccount": {
+              "description": "The target storage account.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetResourceSpec"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetFolderPath": {
+              "description": "The destination folder path in the target file share.",
+              "type": "string"
+            },
+            "targetNamePrefix": {
+              "description": "The prefix used when naming recovered file shares.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "storageAccount"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Recovery configuration for an Azure virtual machine.",
+          "properties": {
+            "diskEncryptionSet": {
+              "description": "The target disk encryption set.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetResourceSpec"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "identity": {
+              "description": "The system-assigned and/or user-assigned managed identities used for restore.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/ManagedServiceIdentity"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryType": {
+              "description": "The virtual machine recovery behavior. Defaults to creating a new virtual machine.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "CreateNewVM",
+                    "AlternateLocation",
+                    "RestoreAsDisks",
+                    "RestoreAsFiles"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "resourceGroup": {
+              "description": "The target resource group.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetResourceSpec"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "storageAccount": {
+              "description": "The target storage account.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetResourceSpec"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "subnet": {
+              "description": "The target subnet.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetResourceSpec"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetNamePrefix": {
+              "description": "The prefix used when naming recovered virtual machines.",
+              "type": "string"
+            },
+            "virtualNetwork": {
+              "description": "The target virtual network.",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/TargetResourceSpec"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "zones": {
+              "description": "The target availability zones.",
+              "oneOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "resourceGroup",
+            "virtualNetwork",
+            "subnet",
+            "storageAccount"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Recovery configuration for an Oracle workload.",
+          "properties": {
+            "instanceName": {
+              "description": "The target database instance name.",
+              "type": "string"
+            },
+            "overwriteOption": {
+              "description": "The behavior when the restore target already exists.",
+              "oneOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryType": {
+              "description": "The database recovery behavior. Defaults to recovery at an alternate location.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "CreateNewVM",
+                    "AlternateLocation",
+                    "RestoreAsDisks",
+                    "RestoreAsFiles"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetDirectoryForFileRestore": {
+              "description": "The target directory location for restoring a database as files.",
+              "type": "string"
+            },
+            "targetNamePrefix": {
+              "description": "The prefix used when naming recovered databases.",
+              "type": "string"
+            },
+            "targetVaultId": {
+              "description": "The Azure resource identifier of the target vault.",
+              "type": "string"
+            },
+            "targetVirtualMachineId": {
+              "description": "The Azure resource identifier of the target virtual machine.",
+              "type": "string"
+            },
+            "workloadType": {
+              "description": "The workload type represented by this configuration.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "OracleInAzureVm"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workloadType"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Recovery configuration for an SAP ASE workload.",
+          "properties": {
+            "instanceName": {
+              "description": "The target database instance name.",
+              "type": "string"
+            },
+            "overwriteOption": {
+              "description": "The behavior when the restore target already exists.",
+              "oneOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryType": {
+              "description": "The database recovery behavior. Defaults to recovery at an alternate location.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "CreateNewVM",
+                    "AlternateLocation",
+                    "RestoreAsDisks",
+                    "RestoreAsFiles"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetDirectoryForFileRestore": {
+              "description": "The target directory location for restoring a database as files.",
+              "type": "string"
+            },
+            "targetNamePrefix": {
+              "description": "The prefix used when naming recovered databases.",
+              "type": "string"
+            },
+            "targetVaultId": {
+              "description": "The Azure resource identifier of the target vault.",
+              "type": "string"
+            },
+            "targetVirtualMachineId": {
+              "description": "The Azure resource identifier of the target virtual machine.",
+              "type": "string"
+            },
+            "workloadType": {
+              "description": "The workload type represented by this configuration.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SapAseInAzureVm"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workloadType"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Recovery configuration for an SAP HANA workload.",
+          "properties": {
+            "instanceName": {
+              "description": "The target database instance name.",
+              "type": "string"
+            },
+            "overwriteOption": {
+              "description": "The behavior when the restore target already exists.",
+              "oneOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryType": {
+              "description": "The database recovery behavior. Defaults to recovery at an alternate location.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "CreateNewVM",
+                    "AlternateLocation",
+                    "RestoreAsDisks",
+                    "RestoreAsFiles"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetDirectoryForFileRestore": {
+              "description": "The target directory location for restoring a database as files.",
+              "type": "string"
+            },
+            "targetNamePrefix": {
+              "description": "The prefix used when naming recovered databases.",
+              "type": "string"
+            },
+            "targetVaultId": {
+              "description": "The Azure resource identifier of the target vault.",
+              "type": "string"
+            },
+            "targetVirtualMachineId": {
+              "description": "The Azure resource identifier of the target virtual machine.",
+              "type": "string"
+            },
+            "workloadType": {
+              "description": "The workload type represented by this configuration.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SapHanaInAzureVm"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workloadType"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Recovery configuration for a SQL database in an Azure virtual machine.",
+          "properties": {
+            "instanceName": {
+              "description": "The target database instance name.",
+              "type": "string"
+            },
+            "isNonRecoverable": {
+              "description": "Indicates whether the database is left in the NORECOVERY state after restore.",
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "overwriteOption": {
+              "description": "The behavior when the restore target already exists.",
+              "oneOf": [
+                {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                    }
+                  ]
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "recoveryType": {
+              "description": "The database recovery behavior. Defaults to recovery at an alternate location.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "CreateNewVM",
+                    "AlternateLocation",
+                    "RestoreAsDisks",
+                    "RestoreAsFiles"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            },
+            "targetDirectoryForFileRestore": {
+              "description": "The target directory location for restoring a database as files.",
+              "type": "string"
+            },
+            "targetNamePrefix": {
+              "description": "The prefix used when naming recovered databases.",
+              "type": "string"
+            },
+            "targetVaultId": {
+              "description": "The Azure resource identifier of the target vault.",
+              "type": "string"
+            },
+            "targetVirtualMachineId": {
+              "description": "The Azure resource identifier of the target virtual machine.",
+              "type": "string"
+            },
+            "workloadType": {
+              "description": "The workload type represented by this configuration.",
+              "oneOf": [
+                {
+                  "enum": [
+                    "SqlDatabaseInAzureVm"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workloadType"
+          ],
+          "type": "object"
+        }
+      ],
+      "properties": {},
+      "type": "object"
+    },
+    "recoveryPlans_recoveryConfigProfiles_childResource": {
+      "description": "Microsoft.AzureResilienceManagement/recoveryPlans/recoveryConfigProfiles",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the recovery configuration profile.",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9_]([A-Za-z0-9_.-]{0,126}[A-Za-z0-9_])?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RecoveryConfigProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "recoveryConfigProfiles"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "usagePlans_enrollments_childResource": {
+      "description": "Microsoft.AzureResilienceManagement/usagePlans/enrollments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-11-30-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the enrollment.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9-]{3,24}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnrollmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "enrollments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  }
+}

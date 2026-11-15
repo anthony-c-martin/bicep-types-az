@@ -1,0 +1,163 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2020-01-01-preview/Microsoft.Security.json#",
+  "title": "Microsoft.Security",
+  "description": "Microsoft Security Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "subscription_resourceDefinitions": {
+    "securityContacts": {
+      "description": "Microsoft.Security/securityContacts",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the security contact object",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Security contact data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContactProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/securityContacts"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "SecurityContactProperties": {
+      "description": "Describes security contact properties",
+      "properties": {
+        "alertNotifications": {
+          "description": "Defines whether to send email notifications about new security alerts",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContactPropertiesAlertNotifications"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "emails": {
+          "description": "List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.",
+          "type": "string"
+        },
+        "notificationsByRole": {
+          "description": "Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityContactPropertiesNotificationsByRole"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "phone": {
+          "description": "The security contact's phone number",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SecurityContactPropertiesAlertNotifications": {
+      "description": "Defines whether to send email notifications about new security alerts",
+      "properties": {
+        "minimalSeverity": {
+          "description": "Defines the minimal alert severity which will be sent as email notifications",
+          "oneOf": [
+            {
+              "enum": [
+                "High",
+                "Medium",
+                "Low"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "Defines if email notifications will be sent about new security alerts",
+          "oneOf": [
+            {
+              "enum": [
+                "On",
+                "Off"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SecurityContactPropertiesNotificationsByRole": {
+      "description": "Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.",
+      "properties": {
+        "roles": {
+          "description": "Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: ",
+          "oneOf": [
+            {
+              "items": {
+                "enum": [
+                  "AccountAdmin",
+                  "ServiceAdmin",
+                  "Owner",
+                  "Contributor"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "state": {
+          "description": "Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.",
+          "oneOf": [
+            {
+              "enum": [
+                "On",
+                "Off"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

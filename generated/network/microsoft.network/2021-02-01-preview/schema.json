@@ -1085,20 +1085,6 @@
             }
           ]
         },
-        "networkSecurityPerimeters": {
-          "description": "Inbound rule specified by the perimeter id.",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/PerimeterBasedAccessRule"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "phoneNumbers": {
           "description": "Outbound rules phone number format.",
           "oneOf": [
@@ -1218,15 +1204,6 @@
     "NspProfileProperties": {
       "description": "Properties of NSP profile.",
       "properties": {},
-      "type": "object"
-    },
-    "PerimeterBasedAccessRule": {
-      "properties": {
-        "id": {
-          "description": "NSP id in the ARM id format.",
-          "type": "string"
-        }
-      },
       "type": "object"
     },
     "RuleCollectionPropertiesFormat": {

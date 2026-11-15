@@ -14,7 +14,7 @@
           "type": "string"
         },
         "identity": {
-          "description": "The type of identity used for the resource.",
+          "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/ManagedServiceIdentity"
@@ -29,11 +29,11 @@
           "type": "string"
         },
         "name": {
-          "description": "Load Test name.",
+          "description": "Load Test name",
           "type": "string"
         },
         "properties": {
-          "description": "Load Test resource properties",
+          "description": "The resource-specific properties for this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/LoadTestProperties"
@@ -76,7 +76,7 @@
   },
   "definitions": {
     "EncryptionProperties": {
-      "description": "Key and identity details for Customer Managed Key encryption of load test resource",
+      "description": "Key and identity details for Customer Managed Key encryption of load test resource.",
       "properties": {
         "identity": {
           "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.",
@@ -100,11 +100,11 @@
       "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.",
       "properties": {
         "resourceId": {
-          "description": "user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId",
+          "description": "User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/a0a0a0a0-bbbb-cccd-dddd-e1e1e1e1e1e1/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.",
           "type": "string"
         },
         "type": {
-          "description": "Managed identity type to use for accessing encryption key Url",
+          "description": "Managed identity type to use for accessing encryption key Url.",
           "oneOf": [
             {
               "enum": [
