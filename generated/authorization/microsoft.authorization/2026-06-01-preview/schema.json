@@ -1,0 +1,70 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2026-06-01-preview/Microsoft.Authorization.json#",
+  "title": "Microsoft.Authorization",
+  "description": "Microsoft Authorization Resource Types",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "tenant_resourceDefinitions": {
+    "privilegedResourceFavorites": {
+      "description": "Microsoft.Authorization/privilegedResourceFavorites",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2026-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Favorite identifier — `base64url(lowercased Azure resource ID)`. Because\nthe derivation is deterministic, the client may compute it locally\nfrom the resource id.",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9_-]{1,2048}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivilegedResourceFavoriteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/privilegedResourceFavorites"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "definitions": {
+    "PrivilegedResourceFavoriteProperties": {
+      "description": "Properties of a `PrivilegedResourceFavorite`. The favorite's identity\n(`favoriteId` / `name`) is the URL-segment derivation of `resourceId`:\n`favoriteId = base64url(lowercased Azure resource ID)`.\n\nFavorites are created synchronously — a successful PUT or DELETE takes effect\nimmediately, with no long-running operation to poll.",
+      "properties": {
+        "resourceId": {
+          "description": "The favorited Azure resource id. The `favoriteId` URL segment MUST equal\n`base64url(lowercased(resourceId))`; the service rejects mismatches with\n`400 InvalidRequest` on PUT.\n\nEffectively immutable: set on create and never changed afterward — there is\nno PATCH, and PUT validates the `favoriteId`-from-`resourceId` derivation.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceId"
+      ],
+      "type": "object"
+    }
+  }
+}

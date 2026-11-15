@@ -299,7 +299,15 @@
         },
         "vmId": {
           "description": "Specifies the hybrid machine unique ID.",
-          "type": "string"
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "type": "object"

@@ -491,7 +491,6 @@
 ## AcrDetails
 ### Properties
 * **systemCreatedAcrAccount**: [SystemCreatedAcrAccount](#systemcreatedacraccount): Details of system created ACR account to be used for the Registry
-* **userCreatedAcrAccount**: [UserCreatedAcrAccount](#usercreatedacraccount): Details of user created ACR account to be used for the Registry
 
 ## AksNetworkingConfiguration
 ### Properties
@@ -3365,7 +3364,7 @@ TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.c
 ## RegistryPrivateEndpointConnection
 ### Properties
 * **id**: string: This is the private endpoint connection name created on SRP
-Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
+Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/privateEndpointConnections/{peConnectionName}
 * **location**: string: Same as workspace location.
 * **properties**: [RegistryPrivateEndpointConnectionProperties](#registryprivateendpointconnectionproperties): Properties of the Private Endpoint Connection
 
@@ -3373,8 +3372,8 @@ Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Micro
 ### Properties
 * **groupIds**: string[]: The group ids
 * **privateEndpoint**: [PrivateEndpointResource](#privateendpointresource): The PE network resource that is linked to this PE connection.
+* **privateLinkServiceConnectionState**: [RegistryPrivateLinkServiceConnectionState](#registryprivatelinkserviceconnectionstate): The connection state.
 * **provisioningState**: string: One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
-* **registryPrivateLinkServiceConnectionState**: [RegistryPrivateLinkServiceConnectionState](#registryprivatelinkserviceconnectionstate): The connection state.
 
 ## RegistryPrivateLinkServiceConnectionState
 ### Properties
@@ -3388,10 +3387,10 @@ Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Micro
 * **intellectualPropertyPublisher**: string: IntellectualPropertyPublisher for the registry
 * **managedResourceGroup**: [ArmResourceId](#armresourceid): ResourceId of the managed RG if the registry has system created resources
 * **mlFlowRegistryUri**: string: MLFlow Registry URI for the Registry
+* **privateEndpointConnections**: [RegistryPrivateEndpointConnection](#registryprivateendpointconnection)[]: Private endpoint connections info used for pending connections in private link portal
 * **publicNetworkAccess**: string: Is the Registry accessible from the internet?
 Possible values: "Enabled" or "Disabled"
 * **regionDetails**: [RegistryRegionArmDetails](#registryregionarmdetails)[]: Details of each region the registry is in
-* **registryPrivateEndpointConnections**: [RegistryPrivateEndpointConnection](#registryprivateendpointconnection)[]: Private endpoint connections info used for pending connections in private link portal
 
 ## RegistryRegionArmDetails
 ### Properties
@@ -3849,7 +3848,6 @@ Sample Uri : https://myvault.vault.azure.net/secrets/mysecretname/secretversion
 ## StorageAccountDetails
 ### Properties
 * **systemCreatedStorageAccount**: [SystemCreatedStorageAccount](#systemcreatedstorageaccount): Details of system created storage account to be used for the registry
-* **userCreatedStorageAccount**: [UserCreatedStorageAccount](#usercreatedstorageaccount): Details of user created storage account to be used for the registry
 
 ## SweepJobInputs
 ### Properties
@@ -4117,14 +4115,6 @@ The expression should follow NCronTab format.
 ### Properties
 * **clientId**: string (ReadOnly): The client ID of the assigned identity.
 * **principalId**: string (ReadOnly): The principal ID of the assigned identity.
-
-## UserCreatedAcrAccount
-### Properties
-* **armResourceId**: [ArmResourceId](#armresourceid): ARM ResourceId of a resource
-
-## UserCreatedStorageAccount
-### Properties
-* **armResourceId**: [ArmResourceId](#armresourceid): ARM ResourceId of a resource
 
 ## VirtualMachineImage
 ### Properties
